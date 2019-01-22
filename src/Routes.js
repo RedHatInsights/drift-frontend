@@ -21,7 +21,7 @@ import some from 'lodash/some';
 const SamplePage = asyncComponent(() => import(/* webpackChunkName: "SamplePage" */ './SmartComponents/SamplePage/SamplePage'));
 const Rules = asyncComponent(() => import(/* webpackChunkName: "Rules" */ './PresentationalComponents/Rules/ListRules'));
 const paths = {
-    samplepage: '/samplepage',
+    samplepage: '/drift',
     rules: '/rules'
 };
 
