@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import asyncComponent from '../../Utilities/asyncComponent';
 import { get } from 'axios';
 import { DRIFT_API_ROOT } from '../../constants';
 import './sample-page.scss';
 
 import { Section, Main, PageHeader, PageHeaderTitle } from '@red-hat-insights/insights-frontend-components';
+import { Card, CardBody } from '@patternfly/react-core';
 
 import { Button } from '@patternfly/react-core';
-
-const SampleComponent = asyncComponent(() => import('../../PresentationalComponents/SampleComponent/sample-component'));
-// const PageHeader2 = asyncComponent(() => import('../../PresentationalComponents/PageHeader/page-header'));
-// const PageHeaderTitle2 = asyncComponent(() => import('../../PresentationalComponents/PageHeader/page-header-title'));
 
 /**
  * A smart component that handles all the api calls and data needed by the dumb components.
@@ -49,14 +45,17 @@ class SamplePage extends Component {
                     <PageHeaderTitle title='Drift Analysis'/>
                 </PageHeader>
                 <Main>
-                    <h1> Sample Component </h1>
-                    <SampleComponent> Sample Component </SampleComponent>
-                    <Section type='button-group'>
-                        <Button variant='primary' onClick={ this.getDriftResponse }> Export </Button>
-                    </Section>
-                    <div>
-                        <p>{ parsedResponse }</p>
-                    </div>
+                    <Card className='pf-t-light  pf-m-opaque-100'>
+                        <Section type='button-group'>
+                            <Button variant='primary' onClick={ this.getDriftResponse }> Export </Button>
+                        </Section>
+
+                        <CardBody>
+                            <div>
+                                <p>{ parsedResponse }</p>
+                            </div>
+                        </CardBody>
+                    </Card>
                 </Main>
             </React.Fragment>
         );
