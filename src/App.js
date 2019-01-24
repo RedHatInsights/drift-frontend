@@ -9,11 +9,11 @@ class App extends Component {
 
     componentDidMount () {
         insights.chrome.init();
-        insights.chrome.identifyApp('advisor');
-        insights.chrome.navigation(buildNavigation());
+        insights.chrome.identifyApp('inventory');
+        //insights.chrome.navigation(buildNavigation());
 
-        this.appNav = insights.chrome.on('APP_NAVIGATION', event => this.props.history.push(`/${event.navId}`));
-        this.buildNav = this.props.history.listen(() => insights.chrome.navigation(buildNavigation()));
+        //this.appNav = insights.chrome.on('APP_NAVIGATION', event => this.props.history.push(`/${event.navId}`));
+        //this.buildNav = this.props.history.listen(() => insights.chrome.navigation(buildNavigation()));
     }
 
     componentWillUnmount () {
@@ -39,16 +39,13 @@ App.propTypes = {
  */
 export default withRouter (connect()(App));
 
-function buildNavigation () {
-    const currentPath = window.location.pathname.split('/').slice(-1)[0];
-    return [{
-        title: 'Actions',
-        id: 'actions'
-    }, {
-        title: 'Rules',
-        id: 'rules'
-    }].map(item => ({
-        ...item,
-        active: item.id === currentPath
-    }));
-}
+//function buildNavigation () {
+//    const currentPath = window.location.pathname.split('/').slice(-1)[0];
+//    return [{
+//        title: 'Drift',
+//        id: 'drift'
+//    }].map(item => ({
+//        ...item,
+//        active: item.id === currentPath
+//    }));
+//}
