@@ -3,21 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import asyncComponent from './Utilities/asyncComponent';
 
-/**
- * Aysnc imports of components
- *
- * https://webpack.js.org/guides/code-splitting/
- * https://reactjs.org/docs/code-splitting.html
- *
- * pros:
- *      1) code splitting
- *      2) can be used in server-side rendering
- * cons:
- *      1) nameing chunk names adds unnecessary docs to code,
- *         see the difference with DashboardMap and InventoryDeployments.
- *
- */
-const SamplePage = asyncComponent(() => import(/* webpackChunkName: "SamplePage" */ './SmartComponents/SamplePage/SamplePage'));
+const DriftTable = asyncComponent(() => import('./SmartComponents/DriftTable/DriftTable'));
 
 const InsightsRoute = ({ component: Component, rootClass, ...rest }) => {
     const root = document.getElementById('root');
@@ -33,18 +19,10 @@ InsightsRoute.propTypes = {
     rootClass: PropTypes.string
 };
 
-/**
- * the Switch component changes routes depending on the path.
- *
- * Route properties:
- *      exact - path must match exactly,
- *      path - https://prod.foo.redhat.com:1337/insights/advisor/rules
- *      component - component to be rendered when a route has been chosen.
- */
 export const Routes = () => {
     return (
         <Switch>
-            <InsightsRoute path='/' component={ SamplePage } rootClass='drift'/>
+            <InsightsRoute path='/' component={ DriftTable } rootClass='drift'/>
             <Redirect to='/'/>
         </Switch>
     );

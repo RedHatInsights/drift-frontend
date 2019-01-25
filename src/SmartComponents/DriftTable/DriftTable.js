@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { get } from 'axios';
 import { DRIFT_API_ROOT } from '../../constants';
-import './sample-page.scss';
+import './drift-table.scss';
 
 import { Section, Main, PageHeader, PageHeaderTitle } from '@red-hat-insights/insights-frontend-components';
 import { Card, CardBody } from '@patternfly/react-core';
 
 import { Button } from '@patternfly/react-core';
 
-class SamplePage extends Component {
+class DriftTable extends Component {
     constructor(props) {
         super(props);
         this.state = { response: '' };
@@ -94,4 +94,4 @@ class SamplePage extends Component {
     }
 }
 
-export default withRouter(SamplePage);
+export default withRouter(DriftTable);
