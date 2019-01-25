@@ -9,13 +9,6 @@ import { Card, CardBody } from '@patternfly/react-core';
 
 import { Button } from '@patternfly/react-core';
 
-/**
- * A smart component that handles all the api calls and data needed by the dumb components.
- * Smart components are usually classes.
- *
- * https://reactjs.org/docs/components-and-props.html
- * https://medium.com/@thejasonfile/dumb-components-and-smart-components-e7b33a698d43
- */
 class SamplePage extends Component {
     constructor(props) {
         super(props);
@@ -24,17 +17,21 @@ class SamplePage extends Component {
     }
 
     getDriftResponse() {
-        get(DRIFT_API_ROOT.concat('/compare'))
-        /*eslint-disable*/
-        .then(
-          (result) => {
-            this.setState({
-              response: result.data
-            })
-          })
-	.catch(err => console.error(err));
+        return window.insights.chrome.auth.getUser()
+        .then(() => {
+            get(DRIFT_API_ROOT.concat('/compare'))
+            .then(
+                (result) => {
+                    this.setState({
+                        response: result.data
+                    });
+                })
+            /*eslint-disable no-console*/
+            .catch(err => console.error(err));
+            /*eslint-enable no-console*/
+        });
     }
-    /*eslint-enable*/
+
     render() {
         const { response } = this.state;
         const parsedResponse = JSON.stringify(response);
