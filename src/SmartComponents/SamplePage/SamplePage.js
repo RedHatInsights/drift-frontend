@@ -14,6 +14,7 @@ class SamplePage extends Component {
         super(props);
         this.state = { response: '' };
         this.getDriftResponse = this.getDriftResponse.bind(this);
+        this.getDriftResponse();
     }
 
     getDriftResponse() {
@@ -32,9 +33,28 @@ class SamplePage extends Component {
         });
     }
 
+    renderRow(data) {
+        if (data.facts === undefined) {
+            return [];
+        }
+
+        let rows = [];
+
+        for (let i = 0; i < data.facts.length; i++) {
+            rows.push(
+                <tr>
+                    <td>{ data.facts[i].name }</td>
+                    <td>{ data.facts[i].status }</td>
+                </tr>
+            );
+        }
+
+        return rows;
+    }
+
+    /*eslint-enable*/
     render() {
         const { response } = this.state;
-        const parsedResponse = JSON.stringify(response);
 
         return (
             <React.Fragment>
@@ -54,7 +74,17 @@ class SamplePage extends Component {
 
                         <CardBody>
                             <div>
-                                <p>{ parsedResponse }</p>
+                                <table className="pf-c-table ins-c-table pf-m-compact ins-entity-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>State</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        { this.renderRow(response) }
+                                    </tbody>
+                                </table>
                             </div>
                         </CardBody>
                     </Card>
