@@ -47,7 +47,12 @@ class SamplePage extends Component {
                 <Main>
                     <Card className='pf-t-light  pf-m-opaque-100'>
                         <Section type='button-group'>
-                            <Button variant='primary' onClick={ this.getDriftResponse }> Export </Button>
+                            <Button
+                                variant='primary'
+                                onClick={ this.getDriftResponse }
+                                style={ { position: 'absolute', right: 50, top: 220 } }>
+                                Load
+                            </Button>
                         </Section>
 
                         <CardBody>
