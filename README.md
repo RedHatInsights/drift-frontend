@@ -2,3 +2,12 @@
 
 # Drift Frontend
 
+# how to run
+
+* check out repo
+* cd to repo
+* `npm install`
+* `npm run start`
+
+If you see `ℹ ｢wdm｣: Compiled successfully.`, you are in good shape.
+
