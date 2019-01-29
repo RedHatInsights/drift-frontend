@@ -4,22 +4,20 @@
 
 # how to run
 
-* check out repo
-* cd to repo
-* `npm install`
-* `npm run start`
+```
+git clone https://github.com/RedHatInsights/drift-frontend
+cd drift-frontend
+npm install
+npm run start
+```
 
 If you see `ℹ ｢wdm｣: Compiled successfully.`, you are in good shape.
 
 # how to run with local drift-backend
 
-make a js file somewhere that looks like this
+There is already a `local-drift-backend.js` file in the drift-backend git repo.
 
-```
-module.exports.routes = {
-           '/r/insights/platform/drift' : { host: 'http://localhost:8080' },
-}
-```
+Simply run:
 
-then run insights-proxy with `SPANDX_CONFIG=/path/to/file`.
+`SPANDX_CONFIG=drift-backend/local-drift-backend.js bash insights-proxy/scripts/run.sh`
 
