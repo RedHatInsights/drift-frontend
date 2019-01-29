@@ -13,12 +13,6 @@ export function init (...middleware) {
         ...middleware
     ]);
 
-    //If you want to register all of your reducers, this is good place.
-    /*
-     *  registry.register({
-     *    someName: (state, action) => ({...state})
-     *  });
-     */
     return registry;
 }
 

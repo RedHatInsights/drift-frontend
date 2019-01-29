@@ -10,10 +10,6 @@ import logger from 'redux-logger';
 /*global RELEASE:true*/
 /*eslint no-undef: "error"*/
 
-/**
- * Hooks up redux to app.
- *  https://redux.js.org/advanced/usage-with-react-router
- */
 ReactDOM.render(
     <Provider store={ init(logger).getStore() }>
         <Router basename={ `/${RELEASE}/platform/drift` }>
