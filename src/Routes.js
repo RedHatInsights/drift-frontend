@@ -1,6 +1,7 @@
 import { Switch, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import React from 'react';
+
 import asyncComponent from './Utilities/asyncComponent';
 
 const DriftTable = asyncComponent(() => import('./SmartComponents/DriftTable/DriftTable'));
