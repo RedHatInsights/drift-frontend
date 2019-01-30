@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { get } from 'axios';
+import queryString from 'query-string';
+
 import { DRIFT_API_ROOT } from '../../constants';
 import './drift-table.scss';
 import { Section, Main, PageHeader, PageHeaderTitle } from '@red-hat-insights/insights-frontend-components';
@@ -14,9 +17,10 @@ class DriftTable extends Component {
             response: '',
             modalResponse: ''
         };
+        this.hostIds = queryString.parse(this.props.location.search).host_ids;
         this.getDriftResponse = this.getDriftResponse.bind(this);
         this.addSystemModal = this.addSystemModal.bind(this);
-        this.getDriftResponse();
+        this.getDriftResponse(this.hostIds);
     }
 
     addSystemModal() {
@@ -32,10 +36,14 @@ class DriftTable extends Component {
         });
     }
 
-    getDriftResponse() {
+    getDriftResponse(hostIds) {
         return window.insights.chrome.auth.getUser()
         .then(() => {
-            get(DRIFT_API_ROOT.concat('/compare'))
+            get(DRIFT_API_ROOT.concat('/compare'), {
+                /*eslint-disable camelcase*/
+                params: { host_ids: hostIds }
+                /*eslint-enable camelcase*/
+            })
             .then(
                 (result) => {
                     this.setState({
@@ -133,5 +141,9 @@ class DriftTable extends Component {
         );
     }
 }
+
+DriftTable.propTypes = {
+    location: PropTypes.object
+};
 
 export default withRouter(DriftTable);
