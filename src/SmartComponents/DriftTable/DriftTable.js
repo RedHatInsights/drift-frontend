@@ -1,63 +1,28 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
-import { get } from 'axios';
+import { connect } from 'react-redux';
 import queryString from 'query-string';
-
-import { DRIFT_API_ROOT } from '../../constants';
-import './drift-table.scss';
 import { Section, Main, PageHeader, PageHeaderTitle } from '@red-hat-insights/insights-frontend-components';
 import { Button, Card, CardBody } from '@patternfly/react-core';
+
 import { AddSystem } from './AddSystem';
+import './drift-table.scss';
+import { compareActions } from './modules';
 
 class DriftTable extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            response: '',
-            modalResponse: ''
-        };
+    }
+
+    async componentDidMount() {
+        await window.insights.chrome.auth.getUser();
         this.hostIds = queryString.parse(this.props.location.search).host_ids;
-        this.getDriftResponse = this.getDriftResponse.bind(this);
-        this.addSystemModal = this.addSystemModal.bind(this);
-        this.getDriftResponse(this.hostIds);
+        this.props.fetchCompare(this.hostIds);
     }
 
-    addSystemModal() {
-        return window.insights.chrome.auth.getUser()
-        .then(() => {
-            get(DRIFT_API_ROOT.concat('/status'))
-            .then(
-                (result) => {
-                    this.setState({
-                        modalResponse: result.data.status
-                    });
-                });
-        });
-    }
-
-    getDriftResponse(hostIds) {
-        return window.insights.chrome.auth.getUser()
-        .then(() => {
-            get(DRIFT_API_ROOT.concat('/compare'), {
-                /*eslint-disable camelcase*/
-                params: { host_ids: hostIds }
-                /*eslint-enable camelcase*/
-            })
-            .then(
-                (result) => {
-                    this.setState({
-                        response: result.data
-                    });
-                })
-            /*eslint-disable no-console*/
-            .catch(err => console.error(err));
-            /*eslint-enable no-console*/
-        });
-    }
-
-    renderRow(data, addSystemData) {
-        if (data.facts === undefined) {
+    renderRow(data, status) {
+        if (data === undefined || data.facts === undefined) {
             return [];
         }
 
@@ -68,7 +33,7 @@ class DriftTable extends Component {
                 <tr>
                     <td>{ data.facts[i].name }</td>
                     <td>{ data.facts[i].status }</td>
-                    <td>{ addSystemData }</td>
+                    <td>{ status.status }</td>
                 </tr>
             );
         }
@@ -77,9 +42,11 @@ class DriftTable extends Component {
     }
 
     renderHeaderRow(data) {
-        if (data === undefined) {
+        if (data === undefined || data.facts === undefined) {
             return [];
         }
+
+        data = data.facts;
 
         let row = [];
         let hostKeys = data[0].hosts.map(function(host) {
@@ -97,7 +64,7 @@ class DriftTable extends Component {
     }
 
     render() {
-        const { response, modalResponse } = this.state;
+        const { compare, modalResponse } = this.props;
 
         return (
             <React.Fragment>
@@ -109,7 +76,7 @@ class DriftTable extends Component {
                         <Section type='button-group'>
                             <Button
                                 variant='primary'
-                                onClick={ this.getDriftResponse }
+                                onClick={ this.props.fetchCompare }
                                 style={ { position: 'absolute', right: 50, top: 220 } }>
                                 Load
                             </Button>
@@ -122,15 +89,15 @@ class DriftTable extends Component {
                                         <tr>
                                             <th>Name</th>
                                             <th>State</th>
-                                            { this.renderHeaderRow(response.facts) }
+                                            { this.renderHeaderRow(compare) }
                                             <th>
                                                 <AddSystem
-                                                    getAddSystemModal={ this.addSystemModal } />
+                                                    getAddSystemModal={ this.props.fetchStatus } />
                                             </th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        { this.renderRow(response, modalResponse) }
+                                        { this.renderRow(compare, modalResponse) }
                                     </tbody>
                                 </table>
                             </div>
@@ -142,8 +109,26 @@ class DriftTable extends Component {
     }
 }
 
+function mapStateToProps(state) {
+    return {
+        compare: state.compareReducer.compare,
+        modalResponse: state.compareReducer.status
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        fetchCompare: (() => dispatch(compareActions.fetchCompare())),
+        fetchStatus: (() => dispatch(compareActions.fetchStatus()))
+    };
+}
+
 DriftTable.propTypes = {
+    fetchCompare: PropTypes.func,
+    fetchStatus: PropTypes.func,
+    compare: PropTypes.object,
+    modalResponse: PropTypes.object,
     location: PropTypes.object
 };
 
-export default withRouter(DriftTable);
+export default withRouter (connect(mapStateToProps, mapDispatchToProps)(DriftTable));

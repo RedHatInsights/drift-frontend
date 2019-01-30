@@ -19,5 +19,5 @@ export class AddSystem extends Component {
 }
 
 AddSystem.propTypes = {
-    getAddSystemModal: PropTypes.function
+    getAddSystemModal: PropTypes.func
 };

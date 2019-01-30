@@ -1,0 +1,7 @@
+const FETCH_STATUS = 'FETCH_STATUS';
+const FETCH_COMPARE = 'FETCH_COMPARE';
+
+export default {
+    FETCH_STATUS,
+    FETCH_COMPARE
+};

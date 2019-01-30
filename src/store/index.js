@@ -1,6 +1,8 @@
 import ReducerRegistry from '@red-hat-insights/insights-frontend-components/Utilities/ReducerRegistry';
 import promiseMiddleware from 'redux-promise-middleware';
 
+import { compareReducer } from '../SmartComponents/DriftTable/modules';
+
 let registry;
 
 export function init (...middleware) {
@@ -12,6 +14,8 @@ export function init (...middleware) {
         promiseMiddleware(),
         ...middleware
     ]);
+
+    registry.register({ compareReducer });
 
     return registry;
 }
