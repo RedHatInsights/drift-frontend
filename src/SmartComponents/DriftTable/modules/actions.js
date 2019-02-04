@@ -1,17 +1,17 @@
 import types from './types';
-import operations from '../../../api';
+import api from '../../../api';
 
 function fetchStatus() {
     return {
         type: types.FETCH_STATUS,
-        payload: operations.getStatus()
+        payload: api.getStatus()
     };
 }
 
 function fetchCompare(hostIds) {
     return {
         type: types.FETCH_COMPARE,
-        payload: operations.getCompare(hostIds)
+        payload: api.getCompare(hostIds)
     };
 }
 

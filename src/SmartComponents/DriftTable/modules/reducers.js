@@ -12,6 +12,16 @@ function compareReducer(state = initialState, action) {
                 ...state,
                 compare: action.payload
             };
+
+        default:
+            return {
+                ...state
+            };
+    }
+}
+
+function statusReducer(state = initialState, action) {
+    switch (action.type) {
         case `${types.FETCH_STATUS}_FULFILLED`:
             return {
                 ...state,
@@ -25,4 +35,7 @@ function compareReducer(state = initialState, action) {
     }
 }
 
-export default compareReducer;
+export default {
+    compareReducer,
+    statusReducer
+};

@@ -103,7 +103,7 @@ class DriftTable extends Component {
 function mapStateToProps(state) {
     return {
         compare: state.compareReducer.compare,
-        modalResponse: state.compareReducer.status
+        modalResponse: state.statusReducer.status
     };
 }
 
