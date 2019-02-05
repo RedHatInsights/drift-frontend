@@ -8,10 +8,10 @@ function fetchStatus() {
     };
 }
 
-function fetchCompare() {
+function fetchCompare(hostIds) {
     return {
         type: types.FETCH_COMPARE,
-        payload: operations.getCompare()
+        payload: operations.getCompare(hostIds)
     };
 }
 

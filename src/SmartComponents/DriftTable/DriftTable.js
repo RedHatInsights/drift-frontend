@@ -118,7 +118,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        fetchCompare: (() => dispatch(compareActions.fetchCompare())),
+        fetchCompare: ((hostIds) => dispatch(compareActions.fetchCompare(hostIds))),
         fetchStatus: (() => dispatch(compareActions.fetchStatus()))
     };
 }

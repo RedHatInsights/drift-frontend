@@ -6,7 +6,7 @@ async function get(path, params = {}) {
     return request.data;
 }
 
-function getCompare(hostIds) {
+function getCompare(hostIds = []) {
     /*eslint-disable camelcase*/
     return get('/compare', { params: { host_ids: hostIds }});
     /*eslint-enable camelcase*/
