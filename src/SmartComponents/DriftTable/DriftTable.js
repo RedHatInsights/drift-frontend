@@ -69,7 +69,7 @@ class DriftTable extends Component {
         return (
             <React.Fragment>
                 <PageHeader>
-                    <PageHeaderTitle title='Drift Analysis'/>
+                    <PageHeaderTitle title='System Comparison'/>
                 </PageHeader>
                 <Main>
                     <Card className='pf-t-light  pf-m-opaque-100'>
