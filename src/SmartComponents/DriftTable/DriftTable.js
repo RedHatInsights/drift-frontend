@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import queryString from 'query-string';
-import { Section, Main, PageHeader, PageHeaderTitle } from '@red-hat-insights/insights-frontend-components';
-import { Button, Card, CardBody } from '@patternfly/react-core';
+import { Main, PageHeader, PageHeaderTitle } from '@red-hat-insights/insights-frontend-components';
+import { Card, CardBody } from '@patternfly/react-core';
 
 import { AddSystem } from './AddSystem';
 import './drift-table.scss';
@@ -73,15 +73,6 @@ class DriftTable extends Component {
                 </PageHeader>
                 <Main>
                     <Card className='pf-t-light  pf-m-opaque-100'>
-                        <Section type='button-group'>
-                            <Button
-                                variant='primary'
-                                onClick={ this.props.fetchCompare }
-                                style={ { position: 'absolute', right: 50, top: 220 } }>
-                                Load
-                            </Button>
-                        </Section>
-
                         <CardBody>
                             <div>
                                 <table className="pf-c-table ins-c-table pf-m-compact ins-entity-table">
