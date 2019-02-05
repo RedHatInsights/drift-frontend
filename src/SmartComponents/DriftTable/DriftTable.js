@@ -79,7 +79,7 @@ class DriftTable extends Component {
                 <PageHeader>
                     <PageHeaderTitle title='System Comparison'/>
                 </PageHeader>
-                <Main>
+                <Main className="drift">
                     <Card className='pf-t-light  pf-m-opaque-100'>
                         <CardBody>
                             <div>
