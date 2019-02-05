@@ -21,24 +21,36 @@ class DriftTable extends Component {
         this.props.fetchCompare(this.hostIds);
     }
 
-    renderRow(data, status) {
+    renderRow(data) {
         if (data === undefined || data.facts === undefined) {
             return [];
         }
 
         let rows = [];
 
-        for (let i = 0; i < data.facts.length; i++) {
-            rows.push(
-                <tr>
-                    <td>{ data.facts[i].name }</td>
-                    <td>{ data.facts[i].status }</td>
-                    <td>{ status.status }</td>
-                </tr>
-            );
+        for (let i = 0; i < data.facts.length; i += 1) {
+            const rowData = this.renderRowData(data.facts[i], data.metadata);
+            rows.push(<tr>{ rowData }</tr>);
         }
 
         return rows;
+    }
+
+    renderRowData(facts, metadata) {
+        let td = [];
+
+        td.push(<td>{ facts.name }</td>);
+        td.push(<td>{ facts.status }</td>);
+
+        for (let i = 0; i < metadata.length; i += 1) {
+            td.push(
+                <td>{ facts.hosts[metadata[i].id] }</td>
+            );
+        }
+
+        td.push(<td></td>);
+
+        return td;
     }
 
     renderHeaderRow(data) {
@@ -46,17 +58,13 @@ class DriftTable extends Component {
             return [];
         }
 
-        data = data.facts;
+        data = data.metadata;
 
         let row = [];
-        let hostKeys = data[0].hosts.map(function(host) {
-            return Object.keys(host);
-        });
-        let hostnames = hostKeys.flat();
 
-        for (let i = 0; i < hostnames.length; i++) {
+        for (let i = 0; i < data.length; i++) {
             row.push(
-                <th>{ hostnames[i] }</th>
+                <th>{ data[i].fqdn }</th>
             );
         }
 
