@@ -4,13 +4,25 @@
 
 .drift {
 
+  .highlight {
+    background-color: #F1F1F1;
+  }
+
   .pf-c-card__body {
     padding-left: 0;
     padding-right: 0;
   }
 
+  .pf-c-card > :last-child.pf-c-card__body {
+    padding-bottom: 0;
+  }
+
   .pf-c-table.ins-c-table {
     border: none;
+  }
+
+  .fact-state {
+    border-right: 1px solid #CCC;
   }
 
 }
