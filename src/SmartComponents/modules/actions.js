@@ -1,5 +1,5 @@
 import types from './types';
-import api from '../../../api';
+import api from '../../api';
 
 function fetchStatus() {
     return {
@@ -15,7 +15,14 @@ function fetchCompare(systemIds) {
     };
 }
 
+function toggleAddSystemModal() {
+    return {
+        type: types.OPEN_ADD_SYSTEM_MODAL
+    };
+}
+
 export default {
     fetchStatus,
-    fetchCompare
+    fetchCompare,
+    toggleAddSystemModal
 };

@@ -7,9 +7,10 @@ import { Main, PageHeader, PageHeaderTitle } from '@red-hat-insights/insights-fr
 import { Card, CardBody } from '@patternfly/react-core';
 
 import { AddSystem } from './AddSystem';
+import { AddSystemModal } from '../../AddSystemModal/AddSystemModal';
 import './drift-table.scss';
-import { compareActions } from './modules';
-import StateIcon from '../StateIcon/StateIcon';
+import { compareActions } from '../../modules';
+import StateIcon from '../../StateIcon/StateIcon';
 
 class DriftTable extends Component {
     constructor(props) {
@@ -78,6 +79,10 @@ class DriftTable extends Component {
 
         return (
             <React.Fragment>
+                <AddSystemModal
+                    showModal={ this.props.addSystemModalOpened }
+                    getAddSystemModal={ this.props.toggleAddSystemModal }
+                />
                 <PageHeader>
                     <PageHeaderTitle title='System Comparison'/>
                 </PageHeader>
@@ -93,7 +98,7 @@ class DriftTable extends Component {
                                             { this.renderHeaderRow(compare) }
                                             <th>
                                                 <AddSystem
-                                                    getAddSystemModal={ this.props.fetchStatus } />
+                                                    getAddSystemModal={ this.props.toggleAddSystemModal } />
                                             </th>
                                         </tr>
                                     </thead>
@@ -113,14 +118,16 @@ class DriftTable extends Component {
 function mapStateToProps(state) {
     return {
         compare: state.compareReducer.compare,
-        modalResponse: state.statusReducer.status
+        modalResponse: state.statusReducer.status,
+        addSystemModalOpened: state.statusReducer.addSystemModalOpened
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
         fetchCompare: ((systemIds) => dispatch(compareActions.fetchCompare(systemIds))),
-        fetchStatus: (() => dispatch(compareActions.fetchStatus()))
+        fetchStatus: (() => dispatch(compareActions.fetchStatus())),
+        toggleAddSystemModal: (() => dispatch(compareActions.toggleAddSystemModal()))
     };
 }
 
@@ -129,7 +136,9 @@ DriftTable.propTypes = {
     fetchStatus: PropTypes.func,
     compare: PropTypes.object,
     modalResponse: PropTypes.object,
-    location: PropTypes.object
+    location: PropTypes.object,
+    toggleAddSystemModal: PropTypes.func,
+    addSystemModalOpened: PropTypes.bool
 };
 
 export default withRouter (connect(mapStateToProps, mapDispatchToProps)(DriftTable));

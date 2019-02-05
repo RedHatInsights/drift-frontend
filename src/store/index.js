@@ -1,7 +1,7 @@
 import ReducerRegistry from '@red-hat-insights/insights-frontend-components/Utilities/ReducerRegistry';
 import promiseMiddleware from 'redux-promise-middleware';
 
-import { reducers } from '../SmartComponents/DriftTable/modules';
+import { reducers } from '../SmartComponents/modules';
 
 let registry;
 

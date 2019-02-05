@@ -2,7 +2,8 @@ import types from './types';
 
 const initialState = {
     compare: {},
-    status: {}
+    status: {},
+    addSystemModalOpened: false
 };
 
 function compareReducer(state = initialState, action) {
@@ -26,6 +27,11 @@ function statusReducer(state = initialState, action) {
             return {
                 ...state,
                 status: action.payload
+            };
+        case `${types.OPEN_ADD_SYSTEM_MODAL}`:
+            return {
+                ...state,
+                addSystemModalOpened: !state.addSystemModalOpened
             };
 
         default:
