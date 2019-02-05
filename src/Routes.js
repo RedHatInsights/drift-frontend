@@ -4,7 +4,7 @@ import React from 'react';
 
 import asyncComponent from './Utilities/asyncComponent';
 
-const DriftTable = asyncComponent(() => import('./SmartComponents/DriftTable/DriftTable'));
+const DriftTable = asyncComponent(() => import('./SmartComponents/DriftPage/DriftTable/DriftTable'));
 
 const InsightsRoute = ({ component: Component, rootClass, ...rest }) => {
     const root = document.getElementById('root');
