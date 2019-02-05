@@ -41,16 +41,16 @@ class DriftTable extends Component {
         let td = [];
 
         td.push(<td>{ facts.name }</td>);
-        td.push(<td><StateIcon factState={ facts.state }/></td>);
+        td.push(<td className="fact-state"><StateIcon factState={ facts.state }/></td>);
 
         for (let i = 0; i < metadata.length; i += 1) {
             let value = facts.hosts[metadata[i].id];
             td.push(
-                <td>{ value === null ? 'No Data' : value }</td>
+                <td className={ facts.state === 'DIFFERENT' ? 'highlight' : '' }>{ value === null ? 'No Data' : value }</td>
             );
         }
 
-        td.push(<td></td>);
+        td.push(<td className={ facts.state === 'DIFFERENT' ? 'highlight' : '' }></td>);
 
         return td;
     }
