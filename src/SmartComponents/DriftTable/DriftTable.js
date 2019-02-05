@@ -9,6 +9,7 @@ import { Card, CardBody } from '@patternfly/react-core';
 import { AddSystem } from './AddSystem';
 import './drift-table.scss';
 import { compareActions } from './modules';
+import StateIcon from '../StateIcon/StateIcon';
 
 class DriftTable extends Component {
     constructor(props) {
@@ -40,7 +41,7 @@ class DriftTable extends Component {
         let td = [];
 
         td.push(<td>{ facts.name }</td>);
-        td.push(<td>{ facts.status }</td>);
+        td.push(<td><StateIcon factState={ facts.state }/></td>);
 
         for (let i = 0; i < metadata.length; i += 1) {
             let value = facts.hosts[metadata[i].id];
@@ -87,7 +88,7 @@ class DriftTable extends Component {
                                 <table className="pf-c-table ins-c-table pf-m-compact ins-entity-table">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
+                                            <th>Fact</th>
                                             <th>State</th>
                                             { this.renderHeaderRow(compare) }
                                             <th>
