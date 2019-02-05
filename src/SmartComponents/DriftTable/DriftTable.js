@@ -43,8 +43,9 @@ class DriftTable extends Component {
         td.push(<td>{ facts.status }</td>);
 
         for (let i = 0; i < metadata.length; i += 1) {
+            let value = facts.hosts[metadata[i].id];
             td.push(
-                <td>{ facts.hosts[metadata[i].id] }</td>
+                <td>{ value === null ? 'No Data' : value }</td>
             );
         }
 
