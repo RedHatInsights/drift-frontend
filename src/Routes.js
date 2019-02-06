@@ -23,7 +23,7 @@ InsightsRoute.propTypes = {
 export const Routes = () => {
     return (
         <Switch>
-            <InsightsRoute path='/' component={ DriftTable } rootClass='drift'/>
+            <InsightsRoute path='/' component={ DriftTable } />
             <Redirect to='/'/>
         </Switch>
     );
