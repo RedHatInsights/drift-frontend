@@ -18,8 +18,8 @@ class DriftTable extends Component {
 
     async componentDidMount() {
         await window.insights.chrome.auth.getUser();
-        this.hostIds = queryString.parse(this.props.location.search).host_ids;
-        this.props.fetchCompare(this.hostIds);
+        this.systemIds = queryString.parse(this.props.location.search).system_ids;
+        this.props.fetchCompare(this.systemIds);
     }
 
     renderRow(data) {
@@ -44,7 +44,7 @@ class DriftTable extends Component {
         td.push(<td className="fact-state"><StateIcon factState={ facts.state }/></td>);
 
         for (let i = 0; i < metadata.length; i += 1) {
-            let value = facts.hosts[metadata[i].id];
+            let value = facts.systems[metadata[i].id];
             td.push(
                 <td className={ facts.state === 'DIFFERENT' ? 'highlight' : '' }>{ value === null ? 'No Data' : value }</td>
             );
@@ -119,7 +119,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        fetchCompare: ((hostIds) => dispatch(compareActions.fetchCompare(hostIds))),
+        fetchCompare: ((systemIds) => dispatch(compareActions.fetchCompare(systemIds))),
         fetchStatus: (() => dispatch(compareActions.fetchStatus()))
     };
 }

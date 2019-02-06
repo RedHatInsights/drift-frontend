@@ -6,13 +6,13 @@ async function get(path, params = {}) {
     return request.data;
 }
 
-function getCompare(hostIds = []) {
-    if (!Array.isArray(hostIds)) {
-        hostIds = [ hostIds ];
+function getCompare(systemIds = []) {
+    if (!Array.isArray(systemIds)) {
+        systemIds = [ systemIds ];
     }
 
     /*eslint-disable camelcase*/
-    return get('/compare', { params: { host_ids: hostIds }});
+    return get('/compare', { params: { system_ids: systemIds }});
     /*eslint-enable camelcase*/
 }
 
