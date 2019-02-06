@@ -1,10 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Button, Modal } from '@patternfly/react-core';
+import { connect } from 'react-redux';
 
-export class AddSystemModal extends Component {
+import SystemsTable from '../SystemsTable/SystemsTable';
+import { compareActions } from '../modules';
+
+class AddSystemModal extends Component {
     constructor(props) {
         super(props);
+        this.confirmModal = this.confirmModal.bind(this);
+    }
+
+    confirmModal() {
+        this.props.confirmModal(this.props.selectedSystemIds);
+        this.props.toggleModal();
     }
 
     render() {
@@ -16,15 +26,15 @@ export class AddSystemModal extends Component {
                     isOpen={ this.props.showModal }
                     onClose={ this.handleModalToggle }
                     actions={ [
-                        <Button key="cancel" variant="secondary" onClick={ this.props.getAddSystemModal }>
-                            Cancel
-                        </Button>,
-                        <Button key="confirm" variant="primary" onClick={ this.props.getAddSystemModal }>
-                            Confirm
+                        <Button
+                            key="confirm"
+                            variant="primary"
+                            onClick={ this.confirmModal }>
+                            Compare
                         </Button>
                     ] }
                 >
-                    This is a sample modal.
+                    <SystemsTable selectedSystemIds={ this.props.selectedSystemIds }/>
                 </Modal>
             </React.Fragment>
         );
@@ -32,7 +42,22 @@ export class AddSystemModal extends Component {
 }
 
 AddSystemModal.propTypes = {
+    selectedSystemIds: PropTypes.array,
     showModal: PropTypes.bool,
-    getAddSystemModal: PropTypes.func
+    confirmModal: PropTypes.func,
+    toggleModal: PropTypes.func
 };
 
+function mapStateToProps(state) {
+    return {
+        selectedSystemIds: state.compareReducer.selectedSystemIds
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        toggleModal: () => dispatch(compareActions.toggleAddSystemModal())
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddSystemModal);

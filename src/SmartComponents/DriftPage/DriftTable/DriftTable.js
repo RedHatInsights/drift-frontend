@@ -7,7 +7,7 @@ import { Main, PageHeader, PageHeaderTitle } from '@red-hat-insights/insights-fr
 import { Card, CardBody } from '@patternfly/react-core';
 
 import { AddSystem } from './AddSystem';
-import { AddSystemModal } from '../../AddSystemModal/AddSystemModal';
+import AddSystemModal from '../../AddSystemModal/AddSystemModal';
 import './drift-table.scss';
 import { compareActions } from '../../modules';
 import StateIcon from '../../StateIcon/StateIcon';
@@ -15,11 +15,11 @@ import StateIcon from '../../StateIcon/StateIcon';
 class DriftTable extends Component {
     constructor(props) {
         super(props);
+        this.systemIds = queryString.parse(this.props.location.search).system_ids;
     }
 
     async componentDidMount() {
         await window.insights.chrome.auth.getUser();
-        this.systemIds = queryString.parse(this.props.location.search).system_ids;
         this.props.fetchCompare(this.systemIds);
     }
 
@@ -80,8 +80,9 @@ class DriftTable extends Component {
         return (
             <React.Fragment>
                 <AddSystemModal
+                    selectedSystemIds={ this.systemIds }
                     showModal={ this.props.addSystemModalOpened }
-                    getAddSystemModal={ this.props.toggleAddSystemModal }
+                    confirmModal={ this.props.fetchCompare }
                 />
                 <PageHeader>
                     <PageHeaderTitle title='System Comparison'/>
@@ -98,7 +99,7 @@ class DriftTable extends Component {
                                             { this.renderHeaderRow(compare) }
                                             <th>
                                                 <AddSystem
-                                                    getAddSystemModal={ this.props.toggleAddSystemModal } />
+                                                    getAddSystemModal={ this.props.toggleAddSystemModalOpen } />
                                             </th>
                                         </tr>
                                     </thead>
@@ -109,6 +110,7 @@ class DriftTable extends Component {
                             </div>
                         </CardBody>
                     </Card>
+
                 </Main>
             </React.Fragment>
         );
@@ -127,7 +129,7 @@ function mapDispatchToProps(dispatch) {
     return {
         fetchCompare: ((systemIds) => dispatch(compareActions.fetchCompare(systemIds))),
         fetchStatus: (() => dispatch(compareActions.fetchStatus())),
-        toggleAddSystemModal: (() => dispatch(compareActions.toggleAddSystemModal()))
+        toggleAddSystemModalOpen: (() => dispatch(compareActions.toggleAddSystemModal()))
     };
 }
 
@@ -137,7 +139,7 @@ DriftTable.propTypes = {
     compare: PropTypes.object,
     modalResponse: PropTypes.object,
     location: PropTypes.object,
-    toggleAddSystemModal: PropTypes.func,
+    toggleAddSystemModalOpen: PropTypes.func,
     addSystemModalOpened: PropTypes.bool
 };
 
