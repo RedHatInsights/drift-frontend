@@ -16,11 +16,6 @@ function getCompare(systemIds = []) {
     /*eslint-enable camelcase*/
 }
 
-function getStatus() {
-    return get('/status');
-}
-
 export default {
-    getCompare,
-    getStatus
+    getCompare
 };

@@ -17,7 +17,7 @@ export function init (...middleware) {
 
     registry.register({
         compareReducer: reducers.compareReducer,
-        statusReducer: reducers.statusReducer
+        addSystemModalReducer: reducers.addSystemModalReducer
     });
 
     return registry;
