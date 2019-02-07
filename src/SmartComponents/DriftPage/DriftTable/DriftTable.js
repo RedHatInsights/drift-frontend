@@ -87,7 +87,7 @@ class DriftTable extends Component {
     }
 
     render() {
-        const { compare, modalResponse } = this.props;
+        const { compare } = this.props;
 
         return (
             <React.Fragment>
@@ -111,12 +111,12 @@ class DriftTable extends Component {
                                             { this.renderHeaderRow(compare) }
                                             <th>
                                                 <AddSystem
-                                                    getAddSystemModal={ this.props.toggleAddSystemModalOpen } />
+                                                    getAddSystemModal={ this.props.toggleAddSystemModal } />
                                             </th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        { this.renderRow(compare, modalResponse) }
+                                        { this.renderRow(compare) }
                                     </tbody>
                                 </table>
                             </div>
@@ -132,16 +132,14 @@ class DriftTable extends Component {
 function mapStateToProps(state) {
     return {
         compare: state.compareReducer.compare,
-        modalResponse: state.statusReducer.status,
-        addSystemModalOpened: state.statusReducer.addSystemModalOpened
+        addSystemModalOpened: state.addSystemModalReducer.addSystemModalOpened
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
         fetchCompare: ((systemIds) => dispatch(compareActions.fetchCompare(systemIds))),
-        fetchStatus: (() => dispatch(compareActions.fetchStatus())),
-        toggleAddSystemModalOpen: (() => dispatch(compareActions.toggleAddSystemModal()))
+        toggleAddSystemModal: (() => dispatch(compareActions.toggleAddSystemModal()))
     };
 }
 
@@ -149,10 +147,8 @@ DriftTable.propTypes = {
     location: PropTypes.object,
     history: PropTypes.object,
     fetchCompare: PropTypes.func,
-    fetchStatus: PropTypes.func,
     compare: PropTypes.object,
-    modalResponse: PropTypes.object,
-    toggleAddSystemModalOpen: PropTypes.func,
+    toggleAddSystemModal: PropTypes.func,
     addSystemModalOpened: PropTypes.bool
 };
 
