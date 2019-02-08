@@ -16,11 +16,23 @@ class DriftTable extends Component {
     constructor(props) {
         super(props);
         this.systemIds = queryString.parse(this.props.location.search).system_ids;
+        this.fetchCompare = this.fetchCompare.bind(this);
     }
 
     async componentDidMount() {
         await window.insights.chrome.auth.getUser();
-        this.props.fetchCompare(this.systemIds);
+        if (this.systemIds) {
+            this.fetchCompare(this.systemIds);
+        }
+    }
+
+    fetchCompare(systemIds) {
+        /*eslint-disable camelcase*/
+        this.props.history.push({
+            search: '?' + queryString.stringify({ system_ids: systemIds })
+        });
+        /*eslint-enable camelcase*/
+        this.props.fetchCompare(systemIds);
     }
 
     renderRow(data) {
@@ -82,7 +94,7 @@ class DriftTable extends Component {
                 <AddSystemModal
                     selectedSystemIds={ this.systemIds }
                     showModal={ this.props.addSystemModalOpened }
-                    confirmModal={ this.props.fetchCompare }
+                    confirmModal={ this.fetchCompare }
                 />
                 <PageHeader>
                     <PageHeaderTitle title='System Comparison'/>
@@ -134,11 +146,12 @@ function mapDispatchToProps(dispatch) {
 }
 
 DriftTable.propTypes = {
+    location: PropTypes.object,
+    history: PropTypes.object,
     fetchCompare: PropTypes.func,
     fetchStatus: PropTypes.func,
     compare: PropTypes.object,
     modalResponse: PropTypes.object,
-    location: PropTypes.object,
     toggleAddSystemModalOpen: PropTypes.func,
     addSystemModalOpened: PropTypes.bool
 };

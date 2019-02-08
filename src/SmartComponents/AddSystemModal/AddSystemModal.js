@@ -24,7 +24,7 @@ class AddSystemModal extends Component {
                 <Modal
                     title="Add System"
                     isOpen={ this.props.showModal }
-                    onClose={ this.handleModalToggle }
+                    onClose={ this.confirmModal }
                     actions={ [
                         <Button
                             key="confirm"
