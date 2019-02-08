@@ -12,7 +12,7 @@ function getCompare(systemIds = []) {
     }
 
     /*eslint-disable camelcase*/
-    return get('/compare', { params: { system_ids: systemIds }});
+    return get('/comparison_report', { params: { system_ids: systemIds }});
     /*eslint-enable camelcase*/
 }
 
