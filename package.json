@@ -22,6 +22,9 @@
       "src/**/*.{js|jsx}",
       "!src/**/stories/*"
     ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/.+fixtures.+"
+    ],
     "setupFiles": [
       "<rootDir>/config/setupTests.js"
     ],
