@@ -4,7 +4,7 @@ import React from 'react';
 
 import asyncComponent from './Utilities/asyncComponent';
 
-const DriftTable = asyncComponent(() => import('./SmartComponents/DriftPage/DriftTable/DriftTable'));
+const DriftPage = asyncComponent(() => import ('./SmartComponents/DriftPage/DriftPage'));
 
 const InsightsRoute = ({ component: Component, rootClass, ...rest }) => {
     const root = document.getElementById('root');
@@ -23,7 +23,7 @@ InsightsRoute.propTypes = {
 export const Routes = () => {
     return (
         <Switch>
-            <InsightsRoute path='/' component={ DriftTable } />
+            <InsightsRoute path='/' component={ DriftPage } />
             <Redirect to='/'/>
         </Switch>
     );

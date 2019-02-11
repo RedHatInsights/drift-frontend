@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import queryString from 'query-string';
-import { Main, PageHeader, PageHeaderTitle } from '@red-hat-insights/insights-frontend-components';
-import { Card, CardBody } from '@patternfly/react-core';
 
 import { AddSystem } from './AddSystem';
 import AddSystemModal from '../../AddSystemModal/AddSystemModal';
@@ -96,34 +94,22 @@ class DriftTable extends Component {
                     showModal={ this.props.addSystemModalOpened }
                     confirmModal={ this.fetchCompare }
                 />
-                <PageHeader>
-                    <PageHeaderTitle title='System Comparison'/>
-                </PageHeader>
-                <Main className="drift">
-                    <Card className='pf-t-light  pf-m-opaque-100'>
-                        <CardBody>
-                            <div>
-                                <table className="pf-c-table ins-c-table pf-m-compact ins-entity-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Fact</th>
-                                            <th>State</th>
-                                            { this.renderHeaderRow(compare) }
-                                            <th>
-                                                <AddSystem
-                                                    getAddSystemModal={ this.props.toggleAddSystemModal } />
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        { this.renderRow(compare) }
-                                    </tbody>
-                                </table>
-                            </div>
-                        </CardBody>
-                    </Card>
-
-                </Main>
+                <table className="pf-c-table ins-c-table pf-m-compact ins-entity-table">
+                    <thead>
+                        <tr>
+                            <th>Fact</th>
+                            <th>State</th>
+                            { this.renderHeaderRow(compare) }
+                            <th>
+                                <AddSystem
+                                    getAddSystemModal={ this.props.toggleAddSystemModal } />
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        { this.renderRow(compare) }
+                    </tbody>
+                </table>
             </React.Fragment>
         );
     }
