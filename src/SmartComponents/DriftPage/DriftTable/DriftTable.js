@@ -41,27 +41,31 @@ class DriftTable extends Component {
         let rows = [];
 
         for (let i = 0; i < data.facts.length; i += 1) {
-            const rowData = this.renderRowData(data.facts[i], data.metadata);
+            const rowData = this.renderRowData(data.facts[i], data.systems);
             rows.push(<tr>{ rowData }</tr>);
         }
 
         return rows;
     }
 
-    renderRowData(facts, metadata) {
+    renderRowData(fact, systems) {
         let td = [];
 
-        td.push(<td>{ facts.name }</td>);
-        td.push(<td className="fact-state"><StateIcon factState={ facts.state }/></td>);
+        td.push(<td>{ fact.name }</td>);
+        td.push(<td className="fact-state"><StateIcon factState={ fact.state }/></td>);
 
-        for (let i = 0; i < metadata.length; i += 1) {
-            let value = facts.systems[metadata[i].id];
+        for (let i = 0; i < systems.length; i += 1) {
+            let system = fact.systems.find(function(system) {
+                return system.id === systems[i].id;
+            });
             td.push(
-                <td className={ facts.state === 'DIFFERENT' ? 'highlight' : '' }>{ value === null ? 'No Data' : value }</td>
+                <td className={ fact.state === 'DIFFERENT' ? 'highlight' : '' }>
+                    { system.value === null ? 'No Data' : system.value }
+                </td>
             );
         }
 
-        td.push(<td className={ facts.state === 'DIFFERENT' ? 'highlight' : '' }></td>);
+        td.push(<td className={ fact.state === 'DIFFERENT' ? 'highlight' : '' }></td>);
 
         return td;
     }
@@ -71,7 +75,7 @@ class DriftTable extends Component {
             return [];
         }
 
-        data = data.metadata;
+        data = data.systems;
 
         let row = [];
 

@@ -24,7 +24,7 @@ function compareReducer(state = initialState, action) {
             return {
                 ...state,
                 compare: action.payload,
-                selectedSystemIds: action.payload.metadata.map(system => system.id)
+                selectedSystemIds: action.payload.systems.map(system => system.id)
             };
         case 'SELECT_ENTITY':
             return {
