@@ -14,7 +14,22 @@ function toggleAddSystemModal() {
     };
 }
 
+function toggleFilterDropDown() {
+    return {
+        type: types.OPEN_FILTER_DROPDOWN
+    };
+}
+
+function filterByState(filter) {
+    return {
+        type: types.FILTER_BY_STATE,
+        payload: filter
+    };
+}
+
 export default {
     fetchCompare,
-    toggleAddSystemModal
+    toggleAddSystemModal,
+    toggleFilterDropDown,
+    filterByState
 };

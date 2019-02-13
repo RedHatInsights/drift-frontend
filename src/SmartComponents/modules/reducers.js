@@ -3,7 +3,9 @@ import types from './types';
 const initialState = {
     compare: {},
     addSystemModalOpened: false,
-    selectedSystemIds: []
+    selectedSystemIds: [],
+    filterDropdownOpened: false,
+    stateFilter: 'none'
 };
 
 function selectedSystems(selectedIds, selectedSystem) {
@@ -54,7 +56,39 @@ function addSystemModalReducer(state = initialState, action) {
     }
 }
 
+function filterDropdownReducer(state = initialState, action) {
+    switch (action.type) {
+        case `${types.OPEN_FILTER_DROPDOWN}`:
+            return {
+                ...state,
+                filterDropdownOpened: !state.filterDropdownOpened
+            };
+
+        default:
+            return {
+                ...state
+            };
+    }
+}
+
+function filterByStateReducer(state = initialState, action) {
+    switch (action.type) {
+        case `${types.FILTER_BY_STATE}`:
+            return {
+                ...state,
+                stateFilter: action.payload
+            };
+
+        default:
+            return {
+                ...state
+            };
+    }
+}
+
 export default {
     compareReducer,
-    addSystemModalReducer
+    addSystemModalReducer,
+    filterDropdownReducer,
+    filterByStateReducer
 };
