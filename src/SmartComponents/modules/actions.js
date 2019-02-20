@@ -27,9 +27,17 @@ function filterByState(filter) {
     };
 }
 
+function filterByFact(filter) {
+    return {
+        type: types.FILTER_BY_FACT,
+        payload: filter
+    };
+}
+
 export default {
     fetchCompare,
     toggleAddSystemModal,
     toggleFilterDropDown,
-    filterByState
+    filterByState,
+    filterByFact
 };

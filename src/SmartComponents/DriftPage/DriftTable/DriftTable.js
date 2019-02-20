@@ -42,13 +42,15 @@ class DriftTable extends Component {
         let rowData = [];
 
         for (let i = 0; i < data.facts.length; i += 1) {
-            if (this.props.stateFilter === 'all' || this.props.stateFilter === undefined) {
-                rowData = this.renderRowData(data.facts[i], data.systems);
-                rows.push(<tr>{ rowData }</tr>);
-            }
-            else if (this.props.stateFilter === data.facts[i].state) {
-                rowData = this.renderRowData(data.facts[i], data.systems);
-                rows.push(<tr>{ rowData }</tr>);
+            if (data.facts[i].name.includes(this.props.factFilter)) {
+                if (this.props.stateFilter === 'all' || this.props.stateFilter === undefined) {
+                    rowData = this.renderRowData(data.facts[i], data.systems);
+                    rows.push(<tr>{ rowData }</tr>);
+                }
+                else if (this.props.stateFilter === data.facts[i].state) {
+                    rowData = this.renderRowData(data.facts[i], data.systems);
+                    rows.push(<tr>{ rowData }</tr>);
+                }
             }
         }
 
@@ -130,7 +132,8 @@ function mapStateToProps(state) {
     return {
         compare: state.compareReducer.compare,
         addSystemModalOpened: state.addSystemModalReducer.addSystemModalOpened,
-        stateFilter: state.filterByStateReducer.stateFilter
+        stateFilter: state.filterByStateReducer.stateFilter,
+        factFilter: state.filterByFactReducer.factFilter
     };
 }
 
@@ -148,7 +151,8 @@ DriftTable.propTypes = {
     compare: PropTypes.object,
     toggleAddSystemModal: PropTypes.func,
     addSystemModalOpened: PropTypes.bool,
-    stateFilter: PropTypes.string
+    stateFilter: PropTypes.string,
+    factFilter: PropTypes.string
 };
 
 export default withRouter (connect(mapStateToProps, mapDispatchToProps)(DriftTable));

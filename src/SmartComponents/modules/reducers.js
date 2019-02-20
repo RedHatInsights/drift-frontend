@@ -5,7 +5,8 @@ const initialState = {
     addSystemModalOpened: false,
     selectedSystemIds: [],
     filterDropdownOpened: false,
-    stateFilter: 'all'
+    stateFilter: 'all',
+    factFilter: ''
 };
 
 function selectedSystems(selectedIds, selectedSystem) {
@@ -86,9 +87,25 @@ function filterByStateReducer(state = initialState, action) {
     }
 }
 
+function filterByFactReducer(state = initialState, action) {
+    switch (action.type) {
+        case `${types.FILTER_BY_FACT}`:
+            return {
+                ...state,
+                factFilter: action.payload
+            };
+
+        default:
+            return {
+                ...state
+            };
+    }
+}
+
 export default {
     compareReducer,
     addSystemModalReducer,
     filterDropdownReducer,
-    filterByStateReducer
+    filterByStateReducer,
+    filterByFactReducer
 };

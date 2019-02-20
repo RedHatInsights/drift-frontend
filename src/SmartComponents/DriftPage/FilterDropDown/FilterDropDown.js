@@ -36,7 +36,7 @@ class FilterDropDown extends Component {
             this.createDropdownItem('All'),
             this.createDropdownItem('SAME'),
             this.createDropdownItem('DIFFERENT'),
-            this.createDropdownItem('No Data')
+            this.createDropdownItem('INCOMPLETE_DATA')
         ];
 
         return (
