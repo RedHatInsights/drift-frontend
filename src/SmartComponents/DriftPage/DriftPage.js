@@ -19,7 +19,7 @@ class DriftPage extends Component {
                 <Main className="drift">
                     <Card className='pf-t-light  pf-m-opaque-100'>
                         <CardBody>
-                            <div>
+                            <div className="drift-toolbar">
                                 <FilterDropDown />
                             </div>
                             <div>

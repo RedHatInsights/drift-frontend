@@ -42,7 +42,7 @@ class DriftTable extends Component {
         let rowData = [];
 
         for (let i = 0; i < data.facts.length; i += 1) {
-            if (this.props.stateFilter === 'none' || this.props.stateFilter === undefined) {
+            if (this.props.stateFilter === 'all' || this.props.stateFilter === undefined) {
                 rowData = this.renderRowData(data.facts[i], data.systems);
                 rows.push(<tr>{ rowData }</tr>);
             }
@@ -108,7 +108,7 @@ class DriftTable extends Component {
                 <table className="pf-c-table ins-c-table pf-m-compact ins-entity-table">
                     <thead>
                         <tr>
-                            <th>Fact</th>
+                            <th className="fact-header">Fact</th>
                             <th>State</th>
                             { this.renderHeaderRow(compare) }
                             <th>

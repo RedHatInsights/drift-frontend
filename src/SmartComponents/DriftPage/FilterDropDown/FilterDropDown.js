@@ -33,7 +33,7 @@ class FilterDropDown extends Component {
 
     render() {
         const dropdownItems = [
-            this.createDropdownItem('none'),
+            this.createDropdownItem('All'),
             this.createDropdownItem('SAME'),
             this.createDropdownItem('DIFFERENT'),
             this.createDropdownItem('No Data')
@@ -44,7 +44,7 @@ class FilterDropDown extends Component {
                 <Dropdown
                     onSelect={ this.onToggle }
                     toggle={ <DropdownToggle onToggle={ this.onToggle }>
-                        { this.props.stateFilter.charAt(0).toUpperCase() + this.props.stateFilter.slice(1).toLowerCase() }
+                        View: { this.props.stateFilter.charAt(0).toUpperCase() + this.props.stateFilter.slice(1).toLowerCase() }
                     </DropdownToggle> }
                     isOpen={ this.props.filterDropdownOpened }
                     dropdownItems={ dropdownItems }
