@@ -21,11 +21,11 @@ class DriftPage extends Component {
                     <Card className='pf-t-light pf-m-opaque-100'>
                         <CardBody>
                             <Grid className='drift-toolbar'>
-                                <GridItem span={ 3 }>
-                                    <FilterDropDown />
-                                </GridItem>
-                                <GridItem span={ 9 }>
+                                <GridItem span={ 4 }>
                                     <SearchBar />
+                                </GridItem>
+                                <GridItem span={ 2 }>
+                                    <FilterDropDown />
                                 </GridItem>
                             </Grid>
                             <div>
