@@ -5,7 +5,7 @@ const initialState = {
     addSystemModalOpened: false,
     selectedSystemIds: [],
     filterDropdownOpened: false,
-    stateFilter: 'none'
+    stateFilter: 'all'
 };
 
 function selectedSystems(selectedIds, selectedSystem) {
