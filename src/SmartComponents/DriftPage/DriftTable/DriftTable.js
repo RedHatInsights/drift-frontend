@@ -43,7 +43,7 @@ class DriftTable extends Component {
 
         for (let i = 0; i < data.facts.length; i += 1) {
             if (data.facts[i].name.includes(this.props.factFilter)) {
-                if (this.props.stateFilter === 'all' || this.props.stateFilter === undefined) {
+                if (this.props.stateFilter.toLowerCase() === 'all' || this.props.stateFilter === undefined) {
                     rowData = this.renderRowData(data.facts[i], data.systems);
                     rows.push(<tr>{ rowData }</tr>);
                 }
