@@ -32,7 +32,7 @@ describe('compare actions', () => {
             { type: `${types.FETCH_COMPARE}_FULFILLED`, payload: { data: {}}}
         ];
 
-        const store = mockStore({ compare: []});
+        const store = mockStore({ fullCompareData: []});
 
         return store.dispatch(actions.fetchCompare()).then(() => {
             expect(store.getActions()).toEqual(expectedActions);

@@ -64,7 +64,7 @@ FilterDropDown.propTypes = {
 function mapStateToProps(state) {
     return {
         filterDropdownOpened: state.filterDropdownReducer.filterDropdownOpened,
-        stateFilter: state.filterByStateReducer.stateFilter
+        stateFilter: state.compareReducer.stateFilter
     };
 }
 

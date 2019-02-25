@@ -18,9 +18,7 @@ export function init (...middleware) {
     registry.register({
         compareReducer: reducers.compareReducer,
         addSystemModalReducer: reducers.addSystemModalReducer,
-        filterDropdownReducer: reducers.filterDropdownReducer,
-        filterByStateReducer: reducers.filterByStateReducer,
-        filterByFactReducer: reducers.filterByFactReducer
+        filterDropdownReducer: reducers.filterDropdownReducer
     });
 
     return registry;
