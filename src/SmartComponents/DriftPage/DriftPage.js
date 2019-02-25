@@ -5,6 +5,7 @@ import { Card, CardBody, Grid, GridItem } from '@patternfly/react-core';
 import DriftTable from './DriftTable/DriftTable';
 import FilterDropDown from './FilterDropDown/FilterDropDown';
 import SearchBar from './SearchBar/SearchBar';
+import TablePagination from './Pagination/Pagination';
 
 class DriftPage extends Component {
     constructor(props) {
@@ -31,6 +32,7 @@ class DriftPage extends Component {
                             <div>
                                 <DriftTable />
                             </div>
+                            <TablePagination />
                         </CardBody>
                     </Card>
                 </Main>

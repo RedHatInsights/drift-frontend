@@ -34,10 +34,18 @@ function filterByFact(filter) {
     };
 }
 
+function updatePagination(pagination) {
+    return {
+        type: types.UPDATE_PAGINATION,
+        payload: pagination
+    };
+}
+
 export default {
     fetchCompare,
     toggleAddSystemModal,
     toggleFilterDropDown,
     filterByState,
-    filterByFact
+    filterByFact,
+    updatePagination
 };

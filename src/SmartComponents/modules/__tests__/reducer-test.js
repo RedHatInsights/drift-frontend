@@ -7,28 +7,38 @@ describe('compare reducer', () => {
     it('should return initial state', () => {
         expect(reducers.compareReducer(undefined, {})).toEqual(
             {
-                compare: {},
+                fullCompareData: {},
                 addSystemModalOpened: false,
                 factFilter: '',
                 filterDropdownOpened: false,
                 selectedSystemIds: [],
-                stateFilter: 'all'
+                stateFilter: 'all',
+                filteredCompareData: {},
+                page: 1,
+                perPage: 10,
+                totalFacts: 0
             }
         );
     });
 
     it('should handle FETCH_COMPARE_FULFILLED', () => {
         expect(
-            reducers.compareReducer({}, {
+            reducers.compareReducer({ perPage: 10, page: 1, stateFilter: 'all', factFilter: '' }, {
                 payload: compareReducerPayload,
                 type: `${types.FETCH_COMPARE}_FULFILLED`
             })
         ).toEqual({
-            compare: compareReducerState,
+            fullCompareData: compareReducerState,
+            factFilter: '',
+            filteredCompareData: compareReducerState,
+            page: 1,
+            perPage: 10,
             selectedSystemIds: [
                 '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9',
                 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2'
-            ]
+            ],
+            stateFilter: 'all',
+            totalFacts: 2
         });
     });
 
@@ -86,12 +96,16 @@ describe('add system modal reducer', () => {
     it('should return initial state', () => {
         expect(reducers.addSystemModalReducer(undefined, {})).toEqual(
             {
-                compare: {},
+                fullCompareData: {},
                 addSystemModalOpened: false,
                 factFilter: '',
                 filterDropdownOpened: false,
                 selectedSystemIds: [],
-                stateFilter: 'all'
+                stateFilter: 'all',
+                filteredCompareData: {},
+                page: 1,
+                perPage: 10,
+                totalFacts: 0
             }
         );
     });

@@ -49,16 +49,8 @@ class DriftTable extends Component {
         let rowData = [];
 
         for (let i = 0; i < data.facts.length; i += 1) {
-            if (data.facts[i].name.includes(this.props.factFilter)) {
-                if (this.props.stateFilter.toLowerCase() === 'all' || this.props.stateFilter === undefined) {
-                    rowData = this.renderRowData(data.facts[i], data.systems);
-                    rows.push(<tr>{ rowData }</tr>);
-                }
-                else if (this.props.stateFilter === data.facts[i].state) {
-                    rowData = this.renderRowData(data.facts[i], data.systems);
-                    rows.push(<tr>{ rowData }</tr>);
-                }
-            }
+            rowData = this.renderRowData(data.facts[i], data.systems);
+            rows.push(<tr>{ rowData }</tr>);
         }
 
         return rows;
@@ -111,7 +103,7 @@ class DriftTable extends Component {
     }
 
     render() {
-        const { compare } = this.props;
+        const { filteredCompareData } = this.props;
 
         return (
             <React.Fragment>
@@ -129,7 +121,7 @@ class DriftTable extends Component {
                             <th className="state-header">
                                 <div>State</div>
                             </th>
-                            { this.renderHeaderRow(compare) }
+                            { this.renderHeaderRow(filteredCompareData) }
                             <th>
                                 <AddSystem
                                     getAddSystemModal={ this.props.toggleAddSystemModal } />
@@ -137,7 +129,7 @@ class DriftTable extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        { this.renderRow(compare) }
+                        { this.renderRow(filteredCompareData) }
                     </tbody>
                 </table>
             </React.Fragment>
@@ -147,10 +139,11 @@ class DriftTable extends Component {
 
 function mapStateToProps(state) {
     return {
-        compare: state.compareReducer.compare,
+        fullCompareData: state.compareReducer.fullCompareData,
+        filteredCompareData: state.compareReducer.filteredCompareData,
         addSystemModalOpened: state.addSystemModalReducer.addSystemModalOpened,
-        stateFilter: state.filterByStateReducer.stateFilter,
-        factFilter: state.filterByFactReducer.factFilter
+        stateFilter: state.compareReducer.stateFilter,
+        factFilter: state.compareReducer.factFilter
     };
 }
 
@@ -165,7 +158,8 @@ DriftTable.propTypes = {
     location: PropTypes.object,
     history: PropTypes.object,
     fetchCompare: PropTypes.func,
-    compare: PropTypes.object,
+    fullCompareData: PropTypes.object,
+    filteredCompareData: PropTypes.object,
     toggleAddSystemModal: PropTypes.func,
     addSystemModalOpened: PropTypes.bool,
     stateFilter: PropTypes.string,
