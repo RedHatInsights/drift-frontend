@@ -23,14 +23,65 @@
 
   .fact-state {
     border-right: 1px solid #CCC;
+    text-align: center;
   }
 
   .fact-header {
     min-width: 200px;
+    font-weight: bold;
+
+    div {
+      position: absolute;
+      bottom: 10px;
+    }
+  }
+
+  .state-header {
+    min-width: 60px;
+    font-weight: bold;
+
+    div {
+      position: absolute;
+      bottom: 10px;
+    }
   }
 
   .drift-toolbar {
     padding: 20px;
     padding-top: 0px;
+  }
+
+  .system-header {
+    background: rgba(57,165,220, 0.1);
+    padding: 10px;
+    padding-top: 30px;
+    text-align: center;
+  }
+
+  .add-system-header {
+    background-color: #F5F5F5;
+    padding: 20px 20px;
+    text-align: center;
+  }
+
+  .system-name {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .cluster-icon-large {
+    font-size: 2em;
+  }
+
+  .drift-table thead th {
+    position: relative;
+  }
+
+  .add-system-icon {
+    font-size: 3em;
+    color: grey;
+    margin-bottom: 10px;
   }
 }
