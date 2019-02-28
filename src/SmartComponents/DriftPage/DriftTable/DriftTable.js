@@ -9,12 +9,14 @@ import AddSystemModal from '../../AddSystemModal/AddSystemModal';
 import './drift-table.scss';
 import { compareActions } from '../../modules';
 import StateIcon from '../../StateIcon/StateIcon';
+import { ServerIcon } from '@patternfly/react-icons';
 
 class DriftTable extends Component {
     constructor(props) {
         super(props);
         this.systemIds = queryString.parse(this.props.location.search).system_ids;
         this.fetchCompare = this.fetchCompare.bind(this);
+        this.formatDate = this.formatDate.bind(this);
     }
 
     async componentDidMount() {
@@ -22,6 +24,11 @@ class DriftTable extends Component {
         if (this.systemIds) {
             this.fetchCompare(this.systemIds);
         }
+    }
+
+    formatDate(dateString) {
+        let date = new Date(dateString);
+        return date.toLocaleDateString();
     }
 
     fetchCompare(systemIds) {
@@ -90,7 +97,13 @@ class DriftTable extends Component {
 
         for (let i = 0; i < data.length; i++) {
             row.push(
-                <th>{ data[i].fqdn }</th>
+                <th>
+                    <div className="system-header">
+                        <ServerIcon className="cluster-icon-large"/>;
+                        <div className="system-name">{ data[i].fqdn }</div>
+                        <div>Updated { this.formatDate(data[i].last_updated) }</div>
+                    </div>
+                </th>
             );
         }
 
@@ -107,11 +120,15 @@ class DriftTable extends Component {
                     showModal={ this.props.addSystemModalOpened }
                     confirmModal={ this.fetchCompare }
                 />
-                <table className="pf-c-table ins-c-table pf-m-compact ins-entity-table">
+                <table className="pf-c-table ins-c-table pf-m-compact ins-entity-table drift-table">
                     <thead>
                         <tr>
-                            <th className="fact-header">Fact</th>
-                            <th>State</th>
+                            <th className="fact-header">
+                                <div>Fact</div>
+                            </th>
+                            <th className="state-header">
+                                <div>State</div>
+                            </th>
                             { this.renderHeaderRow(compare) }
                             <th>
                                 <AddSystem
