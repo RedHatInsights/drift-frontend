@@ -2,14 +2,75 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { EmptyState, EmptyStateBody, EmptyStateIcon, Title } from '@patternfly/react-core';
 import queryString from 'query-string';
 
 import { AddSystem } from './AddSystem';
 import AddSystemModal from '../../AddSystemModal/AddSystemModal';
+import { TablePagination } from '../Pagination/Pagination';
 import './drift-table.scss';
 import { compareActions } from '../../modules';
 import StateIcon from '../../StateIcon/StateIcon';
-import { ServerIcon } from '@patternfly/react-icons';
+import { CubesIcon, ServerIcon } from '@patternfly/react-icons';
+
+function RenderTable(state) {
+    if (state.props.fullCompareData.facts) {
+        return (
+            <React.Fragment>
+                <AddSystemModal
+                    selectedSystemIds={ state.systemIds }
+                    showModal={ state.props.addSystemModalOpened }
+                    confirmModal={ state.fetchCompare }
+                />
+                <table className="pf-c-table ins-c-table pf-m-compact ins-entity-table drift-table">
+                    <thead>
+                        <tr>
+                            <th className="fact-header">
+                                <div>Fact</div>
+                            </th>
+                            <th className="state-header">
+                                <div>State</div>
+                            </th>
+                            { state.renderHeaderRow(state.props.filteredCompareData) }
+                            <th>
+                                <AddSystem
+                                    getAddSystemModal={ state.props.toggleAddSystemModal } />
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        { state.renderRow(state.props.filteredCompareData) }
+                    </tbody>
+                </table>
+                <TablePagination />
+            </React.Fragment>
+        );
+    }
+    else {
+        return (
+            <center>
+                <React.Fragment>
+                    <AddSystemModal
+                        showModal={ state.props.addSystemModalOpened }
+                        confirmModal={ state.fetchCompare }
+                    />
+                    <EmptyState>
+                        <EmptyStateIcon icon={ CubesIcon } />
+                        <br></br>
+                        <Title size="lg">Add Systems to Compare</Title>
+                        <EmptyStateBody>
+                            You currently have no Hosts displayed.
+                            Please add two or more Hosts to
+                            compare their facts.
+                        </EmptyStateBody>
+                        <AddSystem
+                            getAddSystemModal={ state.props.toggleAddSystemModal } />
+                    </EmptyState>
+                </React.Fragment>
+            </center>
+        );
+    }
+}
 
 class DriftTable extends Component {
     constructor(props) {
@@ -17,6 +78,9 @@ class DriftTable extends Component {
         this.systemIds = queryString.parse(this.props.location.search).system_ids;
         this.fetchCompare = this.fetchCompare.bind(this);
         this.formatDate = this.formatDate.bind(this);
+        this.renderRow = this.renderRow.bind(this);
+        this.renderRowData = this.renderRowData.bind(this);
+        this.renderHeaderRow = this.renderHeaderRow.bind(this);
     }
 
     async componentDidMount() {
@@ -91,7 +155,7 @@ class DriftTable extends Component {
             row.push(
                 <th>
                     <div className="system-header">
-                        <ServerIcon className="cluster-icon-large"/>;
+                        <ServerIcon className="cluster-icon-large"/>
                         <div className="system-name">{ data[i].fqdn }</div>
                         <div>Updated { this.formatDate(data[i].last_updated) }</div>
                     </div>
@@ -103,35 +167,9 @@ class DriftTable extends Component {
     }
 
     render() {
-        const { filteredCompareData } = this.props;
-
         return (
             <React.Fragment>
-                <AddSystemModal
-                    selectedSystemIds={ this.systemIds }
-                    showModal={ this.props.addSystemModalOpened }
-                    confirmModal={ this.fetchCompare }
-                />
-                <table className="pf-c-table ins-c-table pf-m-compact ins-entity-table drift-table">
-                    <thead>
-                        <tr>
-                            <th className="fact-header">
-                                <div>Fact</div>
-                            </th>
-                            <th className="state-header">
-                                <div>State</div>
-                            </th>
-                            { this.renderHeaderRow(filteredCompareData) }
-                            <th>
-                                <AddSystem
-                                    getAddSystemModal={ this.props.toggleAddSystemModal } />
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        { this.renderRow(filteredCompareData) }
-                    </tbody>
-                </table>
+                { <RenderTable { ...this } /> }
             </React.Fragment>
         );
     }
