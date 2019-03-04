@@ -17,7 +17,7 @@ class DriftPage extends Component {
                 <PageHeader>
                     <PageHeaderTitle title='System Comparison'/>
                 </PageHeader>
-                <Main className="drift">
+                <Main>
                     <Card className='pf-t-light pf-m-opaque-100'>
                         <CardBody>
                             <Grid className='drift-toolbar'>
