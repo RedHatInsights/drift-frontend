@@ -10,7 +10,8 @@ const initialState = {
     totalFacts: 0,
     page: 1,
     perPage: 10,
-    filteredCompareData: {}
+    filteredCompareData: {},
+    loading: false
 };
 
 function paginateFilteredData(data, selectedPage, factsPerPage) {
@@ -59,11 +60,18 @@ function compareReducer(state = initialState, action) {
     let paginatedFacts;
 
     switch (action.type) {
+        case `${types.FETCH_COMPARE}_PENDING`:
+            return {
+                ...state,
+                filteredCompareData: {},
+                loading: true
+            };
         case `${types.FETCH_COMPARE}_FULFILLED`:
             filteredFacts = filterCompareData(action.payload.facts, state.stateFilter, state.factFilter);
             paginatedFacts = paginateFilteredData(filteredFacts, 1, state.perPage);
             return {
                 ...state,
+                loading: false,
                 fullCompareData: action.payload,
                 selectedSystemIds: action.payload.systems.map(system => system.id),
                 page: 1,

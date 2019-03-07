@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { EmptyState, EmptyStateBody, EmptyStateIcon, Title } from '@patternfly/react-core';
 import queryString from 'query-string';
 import { CubesIcon, ServerIcon, AddCircleOIcon } from '@patternfly/react-icons';
+import { Skeleton, SkeletonSize } from '@red-hat-insights/insights-frontend-components';
 
 import AddSystemModal from '../../AddSystemModal/AddSystemModal';
 import TablePagination from '../Pagination/Pagination';
@@ -13,77 +14,12 @@ import { compareActions } from '../../modules';
 import StateIcon from '../../StateIcon/StateIcon';
 import AddSystemButton from '../AddSystemButton/AddSystemButton';
 
-function RenderTable(state) {
-    if (state.props.fullCompareData.facts) {
-        return (
-            <React.Fragment>
-                <AddSystemModal
-                    selectedSystemIds={ state.systemIds }
-                    showModal={ state.props.addSystemModalOpened }
-                    confirmModal={ state.fetchCompare }
-                />
-                <table className="pf-c-table ins-c-table pf-m-compact ins-entity-table drift-table">
-                    <thead>
-                        <tr>
-                            <th className="fact-header">
-                                <div>Fact</div>
-                            </th>
-                            <th className="state-header">
-                                <div>State</div>
-                            </th>
-                            { state.renderHeaderRow(state.props.filteredCompareData) }
-                            <th>
-                                <div className="add-system-header">
-                                    <div className="add-system-icon">
-                                        <AddCircleOIcon/>
-                                    </div>
-                                    <AddSystemButton />
-                                </div>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        { state.renderRow(state.props.filteredCompareData) }
-                    </tbody>
-                </table>
-                <TablePagination />
-            </React.Fragment>
-        );
-    }
-    else {
-        return (
-            <center>
-                <React.Fragment>
-                    <AddSystemModal
-                        showModal={ state.props.addSystemModalOpened }
-                        confirmModal={ state.fetchCompare }
-                    />
-                    <EmptyState>
-                        <EmptyStateIcon icon={ CubesIcon } />
-                        <br></br>
-                        <Title size="lg">Add Systems to Compare</Title>
-                        <EmptyStateBody>
-                            You currently have no Hosts displayed.
-                            Please add two or more Hosts to
-                            compare their facts.
-                        </EmptyStateBody>
-                        <AddSystemButton />
-                    </EmptyState>
-                </React.Fragment>
-            </center>
-        );
-    }
-}
-
 class DriftTable extends Component {
     constructor(props) {
         super(props);
         this.systemIds = queryString.parse(this.props.location.search).system_ids;
         this.fetchCompare = this.fetchCompare.bind(this);
         this.formatDate = this.formatDate.bind(this);
-        this.renderRow = this.renderRow.bind(this);
-        this.renderRowData = this.renderRowData.bind(this);
-        this.renderHeaderRow = this.renderHeaderRow.bind(this);
     }
 
     async componentDidMount() {
@@ -107,16 +43,29 @@ class DriftTable extends Component {
         this.props.fetchCompare(systemIds);
     }
 
-    renderRow(data) {
-        if (data === undefined || data.facts === undefined) {
-            return [];
-        }
-
+    renderRows(data) {
         let rows = [];
         let rowData = [];
 
-        for (let i = 0; i < data.facts.length; i += 1) {
-            rowData = this.renderRowData(data.facts[i], data.systems);
+        if (data !== undefined && data.facts !== undefined) {
+            for (let i = 0; i < data.facts.length; i += 1) {
+                rowData = this.renderRowData(data.facts[i], data.systems);
+                rows.push(<tr>{ rowData }</tr>);
+            }
+        }
+
+        return rows;
+    }
+
+    renderLoadingRows() {
+        let rows = [];
+        let rowData = [];
+
+        for (let i = 0; i < 3; i += 1) {
+            rowData.push(<td><Skeleton size={ SkeletonSize.md } /></td>);
+        }
+
+        for (let i = 0; i < 10; i += 1) {
             rows.push(<tr>{ rowData }</tr>);
         }
 
@@ -169,10 +118,75 @@ class DriftTable extends Component {
         return row;
     }
 
-    render() {
+    renderEmptyState() {
+        return (
+            <center>
+                <EmptyState>
+                    <EmptyStateIcon icon={ CubesIcon } />
+                    <br></br>
+                    <Title size="lg">Add Systems to Compare</Title>
+                    <EmptyStateBody>
+                        You currently have no Hosts displayed.
+                        Please add two or more Hosts to
+                        compare their facts.
+                    </EmptyStateBody>
+                    <AddSystemButton />
+                </EmptyState>
+            </center>
+        );
+    }
+
+    renderAddSystem() {
+        return (
+            <div className="add-system-header">
+                <div className="add-system-icon">
+                    <AddCircleOIcon/>
+                </div>
+                <AddSystemButton />
+            </div>
+        );
+    }
+
+    renderTable(compareData, loading) {
         return (
             <React.Fragment>
-                { <RenderTable { ...this } /> }
+                <table className="pf-c-table ins-c-table pf-m-compact ins-entity-table drift-table">
+                    <thead>
+                        <tr>
+                            <th className="fact-header">
+                                <div>Fact</div>
+                            </th>
+                            <th className="state-header">
+                                <div>State</div>
+                            </th>
+                            { this.renderHeaderRow(compareData) }
+                            <th>
+                                { loading ? <Skeleton size={ SkeletonSize.lg } /> : this.renderAddSystem() }
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        { loading ? this.renderLoadingRows() : this.renderRows(compareData) }
+                    </tbody>
+                </table>
+                <TablePagination />
+            </React.Fragment>
+        );
+    }
+
+    render() {
+        const { filteredCompareData, fullCompareData, loading } = this.props;
+
+        return (
+            <React.Fragment>
+                <AddSystemModal
+                    selectedSystemIds={ this.systemIds }
+                    showModal={ this.props.addSystemModalOpened }
+                    confirmModal={ this.fetchCompare }
+                />
+                { fullCompareData.facts || loading ?
+                    this.renderTable(filteredCompareData, loading) : this.renderEmptyState()
+                }
             </React.Fragment>
         );
     }
@@ -184,7 +198,8 @@ function mapStateToProps(state) {
         filteredCompareData: state.compareReducer.filteredCompareData,
         addSystemModalOpened: state.addSystemModalReducer.addSystemModalOpened,
         stateFilter: state.compareReducer.stateFilter,
-        factFilter: state.compareReducer.factFilter
+        factFilter: state.compareReducer.factFilter,
+        loading: state.compareReducer.loading
     };
 }
 
@@ -202,7 +217,8 @@ DriftTable.propTypes = {
     filteredCompareData: PropTypes.object,
     addSystemModalOpened: PropTypes.bool,
     stateFilter: PropTypes.string,
-    factFilter: PropTypes.string
+    factFilter: PropTypes.string,
+    loading: PropTypes.bool
 };
 
 export default withRouter (connect(mapStateToProps, mapDispatchToProps)(DriftTable));

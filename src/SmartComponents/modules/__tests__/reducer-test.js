@@ -16,7 +16,8 @@ describe('compare reducer', () => {
                 filteredCompareData: {},
                 page: 1,
                 perPage: 10,
-                totalFacts: 0
+                totalFacts: 0,
+                loading: false
             }
         );
     });
@@ -29,6 +30,7 @@ describe('compare reducer', () => {
             })
         ).toEqual({
             fullCompareData: compareReducerState,
+            loading: false,
             factFilter: '',
             filteredCompareData: compareReducerState,
             page: 1,
@@ -105,7 +107,8 @@ describe('add system modal reducer', () => {
                 filteredCompareData: {},
                 page: 1,
                 perPage: 10,
-                totalFacts: 0
+                totalFacts: 0,
+                loading: false
             }
         );
     });
