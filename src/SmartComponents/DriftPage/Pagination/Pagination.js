@@ -7,7 +7,7 @@ import { Pagination, dropDirection } from '@red-hat-insights/insights-frontend-c
 
 const perPageOptions = [ 10, 20, 50, 100 ];
 
-export class TablePagination extends Component {
+class TablePagination extends Component {
     constructor(props) {
         super(props);
 
@@ -61,8 +61,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        updatePagination: (pagination) => dispatch(compareActions.updatePagination(pagination))
+        updatePagination: ((pagination) => dispatch(compareActions.updatePagination(pagination)))
     };
 }
 
-export default (connect(mapStateToProps, mapDispatchToProps)(TablePagination));
+export default connect(mapStateToProps, mapDispatchToProps)(TablePagination);

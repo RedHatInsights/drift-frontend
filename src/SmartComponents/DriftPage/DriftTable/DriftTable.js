@@ -7,7 +7,7 @@ import queryString from 'query-string';
 
 import { AddSystem } from './AddSystem';
 import AddSystemModal from '../../AddSystemModal/AddSystemModal';
-import { TablePagination } from '../Pagination/Pagination';
+import TablePagination from '../Pagination/Pagination';
 import './drift-table.scss';
 import { compareActions } from '../../modules';
 import StateIcon from '../../StateIcon/StateIcon';
