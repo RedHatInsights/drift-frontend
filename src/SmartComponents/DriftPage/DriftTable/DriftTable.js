@@ -4,14 +4,14 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { EmptyState, EmptyStateBody, EmptyStateIcon, Title } from '@patternfly/react-core';
 import queryString from 'query-string';
+import { CubesIcon, ServerIcon, AddCircleOIcon } from '@patternfly/react-icons';
 
-import { AddSystem } from './AddSystem';
 import AddSystemModal from '../../AddSystemModal/AddSystemModal';
 import TablePagination from '../Pagination/Pagination';
 import './drift-table.scss';
 import { compareActions } from '../../modules';
 import StateIcon from '../../StateIcon/StateIcon';
-import { CubesIcon, ServerIcon } from '@patternfly/react-icons';
+import AddSystemButton from '../AddSystemButton/AddSystemButton';
 
 function RenderTable(state) {
     if (state.props.fullCompareData.facts) {
@@ -33,8 +33,12 @@ function RenderTable(state) {
                             </th>
                             { state.renderHeaderRow(state.props.filteredCompareData) }
                             <th>
-                                <AddSystem
-                                    getAddSystemModal={ state.props.toggleAddSystemModal } />
+                                <div className="add-system-header">
+                                    <div className="add-system-icon">
+                                        <AddCircleOIcon/>
+                                    </div>
+                                    <AddSystemButton />
+                                </div>
                             </th>
                         </tr>
                     </thead>
@@ -63,8 +67,7 @@ function RenderTable(state) {
                             Please add two or more Hosts to
                             compare their facts.
                         </EmptyStateBody>
-                        <AddSystem
-                            getAddSystemModal={ state.props.toggleAddSystemModal } />
+                        <AddSystemButton />
                     </EmptyState>
                 </React.Fragment>
             </center>
@@ -187,8 +190,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        fetchCompare: ((systemIds) => dispatch(compareActions.fetchCompare(systemIds))),
-        toggleAddSystemModal: (() => dispatch(compareActions.toggleAddSystemModal()))
+        fetchCompare: ((systemIds) => dispatch(compareActions.fetchCompare(systemIds)))
     };
 }
 
@@ -198,7 +200,6 @@ DriftTable.propTypes = {
     fetchCompare: PropTypes.func,
     fullCompareData: PropTypes.object,
     filteredCompareData: PropTypes.object,
-    toggleAddSystemModal: PropTypes.func,
     addSystemModalOpened: PropTypes.bool,
     stateFilter: PropTypes.string,
     factFilter: PropTypes.string
