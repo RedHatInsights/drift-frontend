@@ -31,7 +31,7 @@
     font-weight: bold;
 
     div {
-      position: absolute;
+      //position: absolute;
       bottom: 10px;
     }
   }
@@ -41,7 +41,7 @@
     font-weight: bold;
 
     div {
-      position: absolute;
+      //position: absolute;
       bottom: 10px;
     }
   }
@@ -75,10 +75,29 @@
     font-size: 2em;
   }
 
-  .drift-table thead th {
+  .drift-table {
+    width: 100%;
+  }
+  .fixed-column-1 {
+    position: absolute;
+    left: 0;
+    width: 350px;
+    word-wrap: break-word;
+  }
+  .fixed-column-2 {
+    position: absolute;
+    overflow: hidden;
+    left: 350px;
+    width: 60px;
+  }
+  .drift-table-wrap {
     position: relative;
   }
-
+  .drift-table-scroller {
+    overflow-x: scroll;
+    overflow-y: visible;
+    margin-left: 410px;
+  }
   .add-system-icon {
     font-size: 3em;
     color: grey;
