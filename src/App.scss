@@ -55,6 +55,7 @@
     padding: 10px;
     padding-top: 30px;
     text-align: center;
+    position: relative;
   }
 
   .add-system-header {
@@ -114,5 +115,11 @@
   .pf-c-modal-box__body {
     max-width: 800px;
     max-height: 600px;
+  }
+
+  .remove-system-icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
   }
 }

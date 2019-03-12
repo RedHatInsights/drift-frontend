@@ -8,6 +8,12 @@ function fetchCompare(systemIds) {
     };
 }
 
+function clearState() {
+    return {
+        type: types.CLEAR_STATE
+    };
+}
+
 function toggleAddSystemModal() {
     return {
         type: types.OPEN_ADD_SYSTEM_MODAL
@@ -50,6 +56,7 @@ function updatePagination(pagination) {
 
 export default {
     fetchCompare,
+    clearState,
     toggleAddSystemModal,
     toggleFilterDropDown,
     toggleFactSort,
