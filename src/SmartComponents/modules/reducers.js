@@ -78,6 +78,10 @@ function compareReducer(state = initialState, action) {
     let paginatedFacts;
 
     switch (action.type) {
+        case types.CLEAR_STATE:
+            return {
+                ...initialState
+            };
         case `${types.FETCH_COMPARE}_PENDING`:
             return {
                 ...state,
@@ -99,7 +103,7 @@ function compareReducer(state = initialState, action) {
                 page: 1,
                 totalFacts: filteredFacts.length
             };
-        case 'SELECT_ENTITY':
+        case types.SELECT_ENTITY:
             return {
                 ...state,
                 selectedSystemIds: selectedSystems([ ...state.selectedSystemIds ], action.payload)

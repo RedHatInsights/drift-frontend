@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { EmptyState, EmptyStateBody, EmptyStateIcon, Title } from '@patternfly/react-core';
 import queryString from 'query-string';
-import { AngleDownIcon, AngleUpIcon, CubesIcon, ServerIcon, AddCircleOIcon } from '@patternfly/react-icons';
+import { CloseIcon, AngleDownIcon, AngleUpIcon, CubesIcon, ServerIcon, AddCircleOIcon } from '@patternfly/react-icons';
 import { Skeleton, SkeletonSize } from '@red-hat-insights/insights-frontend-components';
 
 import AddSystemModal from '../../AddSystemModal/AddSystemModal';
@@ -17,16 +17,21 @@ import AddSystemButton from '../AddSystemButton/AddSystemButton';
 class DriftTable extends Component {
     constructor(props) {
         super(props);
-        this.systemIds = queryString.parse(this.props.location.search).system_ids;
+        this.setSystemIds();
         this.fetchCompare = this.fetchCompare.bind(this);
+        this.removeSystem = this.removeSystem.bind(this);
         this.formatDate = this.formatDate.bind(this);
     }
 
     async componentDidMount() {
         await window.insights.chrome.auth.getUser();
-        if (this.systemIds) {
-            this.fetchCompare(this.systemIds);
-        }
+        this.fetchCompare(this.systemIds);
+    }
+
+    setSystemIds() {
+        this.systemIds = queryString.parse(this.props.location.search).system_ids;
+        this.systemIds = Array.isArray(this.systemIds) ? this.systemIds : [ this.systemIds ];
+        this.systemIds = this.systemIds.filter(item => item !== undefined);
     }
 
     formatDate(dateString) {
@@ -34,13 +39,30 @@ class DriftTable extends Component {
         return date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
     }
 
+    removeSystem(systemId) {
+        this.systemIds = this.systemIds.filter(item => item !== systemId);
+        if (this.systemIds.length > 0) {
+            this.fetchCompare(this.systemIds);
+        } else {
+            this.setHistory([]);
+            this.props.clearState();
+        }
+    }
+
     fetchCompare(systemIds) {
+        if (systemIds.length > 0) {
+            this.systemIds = systemIds;
+            this.setHistory(systemIds);
+            this.props.fetchCompare(systemIds);
+        }
+    }
+
+    setHistory(systemIds) {
         /*eslint-disable camelcase*/
         this.props.history.push({
             search: '?' + queryString.stringify({ system_ids: systemIds })
         });
         /*eslint-enable camelcase*/
-        this.props.fetchCompare(systemIds);
     }
 
     renderRows(facts, systems) {
@@ -105,6 +127,9 @@ class DriftTable extends Component {
             row.push(
                 <th>
                     <div className="system-header">
+                        <a onClick={ () => this.removeSystem(systems[i].id) }>
+                            <CloseIcon className="remove-system-icon"/>
+                        </a>
                         <ServerIcon className="cluster-icon-large"/>
                         <div className="system-name">{ systems[i].fqdn }</div>
                         <div>Last Sync { this.formatDate(systems[i].last_updated) }</div>
@@ -190,7 +215,7 @@ class DriftTable extends Component {
     }
 
     render() {
-        const { filteredCompareData, fullCompareData, systems, loading } = this.props;
+        const { filteredCompareData, systems, loading } = this.props;
 
         return (
             <React.Fragment>
@@ -199,7 +224,7 @@ class DriftTable extends Component {
                     showModal={ this.props.addSystemModalOpened }
                     confirmModal={ this.fetchCompare }
                 />
-                { fullCompareData.length > 0 || loading ?
+                { systems.length > 0 || loading ?
                     this.renderTable(filteredCompareData, systems, loading) : this.renderEmptyState()
                 }
             </React.Fragment>
@@ -223,7 +248,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         fetchCompare: ((systemIds) => dispatch(compareActions.fetchCompare(systemIds))),
-        toggleFactSort: ((sortType) => dispatch(compareActions.toggleFactSort(sortType)))
+        toggleFactSort: ((sortType) => dispatch(compareActions.toggleFactSort(sortType))),
+        clearState: (() => dispatch(compareActions.clearState()))
     };
 }
 
@@ -231,6 +257,7 @@ DriftTable.propTypes = {
     location: PropTypes.object,
     history: PropTypes.object,
     fetchCompare: PropTypes.func,
+    clearState: PropTypes.func,
     fullCompareData: PropTypes.array,
     filteredCompareData: PropTypes.array,
     systems: PropTypes.array,
