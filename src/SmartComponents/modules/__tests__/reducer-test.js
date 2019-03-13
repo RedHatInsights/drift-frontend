@@ -7,13 +7,14 @@ describe('compare reducer', () => {
     it('should return initial state', () => {
         expect(reducers.compareReducer(undefined, {})).toEqual(
             {
-                fullCompareData: {},
+                fullCompareData: [],
                 addSystemModalOpened: false,
                 factFilter: '',
                 filterDropdownOpened: false,
                 selectedSystemIds: [],
                 stateFilter: 'all',
-                filteredCompareData: {},
+                filteredCompareData: [],
+                systems: [],
                 page: 1,
                 perPage: 10,
                 totalFacts: 0,
@@ -29,10 +30,11 @@ describe('compare reducer', () => {
                 type: `${types.FETCH_COMPARE}_FULFILLED`
             })
         ).toEqual({
-            fullCompareData: compareReducerState,
+            fullCompareData: compareReducerState.facts,
             loading: false,
             factFilter: '',
-            filteredCompareData: compareReducerState,
+            filteredCompareData: compareReducerState.facts,
+            systems: compareReducerState.systems,
             page: 1,
             perPage: 10,
             selectedSystemIds: [
@@ -98,13 +100,14 @@ describe('add system modal reducer', () => {
     it('should return initial state', () => {
         expect(reducers.addSystemModalReducer(undefined, {})).toEqual(
             {
-                fullCompareData: {},
+                fullCompareData: [],
+                systems: [],
                 addSystemModalOpened: false,
                 factFilter: '',
                 filterDropdownOpened: false,
                 selectedSystemIds: [],
                 stateFilter: 'all',
-                filteredCompareData: {},
+                filteredCompareData: [],
                 page: 1,
                 perPage: 10,
                 totalFacts: 0,
