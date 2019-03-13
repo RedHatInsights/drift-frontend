@@ -1,7 +1,9 @@
 import types from './types';
 
 const initialState = {
-    fullCompareData: {},
+    fullCompareData: [],
+    filteredCompareData: [],
+    systems: [],
     addSystemModalOpened: false,
     selectedSystemIds: [],
     filterDropdownOpened: false,
@@ -10,7 +12,6 @@ const initialState = {
     totalFacts: 0,
     page: 1,
     perPage: 10,
-    filteredCompareData: {},
     loading: false
 };
 
@@ -63,7 +64,8 @@ function compareReducer(state = initialState, action) {
         case `${types.FETCH_COMPARE}_PENDING`:
             return {
                 ...state,
-                filteredCompareData: {},
+                filteredCompareData: [],
+                systems: [],
                 loading: true
             };
         case `${types.FETCH_COMPARE}_FULFILLED`:
@@ -72,10 +74,11 @@ function compareReducer(state = initialState, action) {
             return {
                 ...state,
                 loading: false,
-                fullCompareData: action.payload,
+                fullCompareData: action.payload.facts,
+                filteredCompareData: paginatedFacts,
+                systems: action.payload.systems,
                 selectedSystemIds: action.payload.systems.map(system => system.id),
                 page: 1,
-                filteredCompareData: { facts: paginatedFacts, systems: action.payload.systems },
                 totalFacts: filteredFacts.length
             };
         case 'SELECT_ENTITY':
@@ -84,33 +87,33 @@ function compareReducer(state = initialState, action) {
                 selectedSystemIds: selectedSystems([ ...state.selectedSystemIds ], action.payload)
             };
         case `${types.UPDATE_PAGINATION}`:
-            filteredFacts = filterCompareData(state.fullCompareData.facts, state.stateFilter, state.factFilter);
+            filteredFacts = filterCompareData(state.fullCompareData, state.stateFilter, state.factFilter);
             paginatedFacts = paginateFilteredData(filteredFacts, action.payload.page, action.payload.perPage);
             return {
                 ...state,
                 page: action.payload.page,
                 perPage: action.payload.perPage,
-                filteredCompareData: { facts: paginatedFacts, systems: state.fullCompareData.systems },
+                filteredCompareData: paginatedFacts,
                 totalFacts: filteredFacts.length
             };
         case `${types.FILTER_BY_STATE}`:
-            filteredFacts = filterCompareData(state.fullCompareData.facts, action.payload, state.factFilter);
+            filteredFacts = filterCompareData(state.fullCompareData, action.payload, state.factFilter);
             paginatedFacts = paginateFilteredData(filteredFacts, 1, state.perPage);
             return {
                 ...state,
                 stateFilter: action.payload,
                 page: 1,
-                filteredCompareData: { facts: paginatedFacts, systems: state.fullCompareData.systems },
+                filteredCompareData: paginatedFacts,
                 totalFacts: filteredFacts.length
             };
         case `${types.FILTER_BY_FACT}`:
-            filteredFacts = filterCompareData(state.fullCompareData.facts, state.stateFilter, action.payload);
+            filteredFacts = filterCompareData(state.fullCompareData, state.stateFilter, action.payload);
             paginatedFacts = paginateFilteredData(filteredFacts, 1, state.perPage);
             return {
                 ...state,
                 factFilter: action.payload,
                 page: 1,
-                filteredCompareData: { facts: paginatedFacts, systems: state.fullCompareData.systems },
+                filteredCompareData: paginatedFacts,
                 totalFacts: filteredFacts.length
             };
 

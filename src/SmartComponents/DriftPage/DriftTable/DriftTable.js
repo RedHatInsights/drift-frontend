@@ -43,13 +43,13 @@ class DriftTable extends Component {
         this.props.fetchCompare(systemIds);
     }
 
-    renderRows(data) {
+    renderRows(facts, systems) {
         let rows = [];
         let rowData = [];
 
-        if (data !== undefined && data.facts !== undefined) {
-            for (let i = 0; i < data.facts.length; i += 1) {
-                rowData = this.renderRowData(data.facts[i], data.systems);
+        if (facts !== undefined) {
+            for (let i = 0; i < facts.length; i += 1) {
+                rowData = this.renderRowData(facts[i], systems);
                 rows.push(<tr>{ rowData }</tr>);
             }
         }
@@ -94,22 +94,20 @@ class DriftTable extends Component {
         return td;
     }
 
-    renderHeaderRow(data) {
-        if (data === undefined || data.facts === undefined) {
-            return [];
-        }
-
-        data = data.systems;
-
+    renderHeaderRow(systems) {
         let row = [];
 
-        for (let i = 0; i < data.length; i++) {
+        if (systems === undefined) {
+            return row;
+        }
+
+        for (let i = 0; i < systems.length; i++) {
             row.push(
                 <th>
                     <div className="system-header">
                         <ServerIcon className="cluster-icon-large"/>
-                        <div className="system-name">{ data[i].fqdn }</div>
-                        <div>Last Sync { this.formatDate(data[i].last_updated) }</div>
+                        <div className="system-name">{ systems[i].fqdn }</div>
+                        <div>Last Sync { this.formatDate(systems[i].last_updated) }</div>
                     </div>
                 </th>
             );
@@ -147,7 +145,7 @@ class DriftTable extends Component {
         );
     }
 
-    renderTable(compareData, loading) {
+    renderTable(compareData, systems, loading) {
         return (
             <React.Fragment>
                 <table className="pf-c-table ins-c-table pf-m-compact ins-entity-table drift-table">
@@ -159,14 +157,14 @@ class DriftTable extends Component {
                             <th className="state-header">
                                 <div>State</div>
                             </th>
-                            { this.renderHeaderRow(compareData) }
+                            { this.renderHeaderRow(systems) }
                             <th>
                                 { loading ? <Skeleton size={ SkeletonSize.lg } /> : this.renderAddSystem() }
                             </th>
                         </tr>
                     </thead>
                     <tbody>
-                        { loading ? this.renderLoadingRows() : this.renderRows(compareData) }
+                        { loading ? this.renderLoadingRows() : this.renderRows(compareData, systems) }
                     </tbody>
                 </table>
                 <TablePagination />
@@ -175,17 +173,17 @@ class DriftTable extends Component {
     }
 
     render() {
-        const { filteredCompareData, fullCompareData, loading } = this.props;
+        const { filteredCompareData, fullCompareData, systems, loading } = this.props;
 
         return (
             <React.Fragment>
                 <AddSystemModal
-                    selectedSystemIds={ this.systemIds }
+                    selectedSystemIds={ systems.map(system => system.id) }
                     showModal={ this.props.addSystemModalOpened }
                     confirmModal={ this.fetchCompare }
                 />
-                { fullCompareData.facts || loading ?
-                    this.renderTable(filteredCompareData, loading) : this.renderEmptyState()
+                { fullCompareData.length > 0 || loading ?
+                    this.renderTable(filteredCompareData, systems, loading) : this.renderEmptyState()
                 }
             </React.Fragment>
         );
@@ -199,7 +197,8 @@ function mapStateToProps(state) {
         addSystemModalOpened: state.addSystemModalReducer.addSystemModalOpened,
         stateFilter: state.compareReducer.stateFilter,
         factFilter: state.compareReducer.factFilter,
-        loading: state.compareReducer.loading
+        loading: state.compareReducer.loading,
+        systems: state.compareReducer.systems
     };
 }
 
@@ -213,8 +212,9 @@ DriftTable.propTypes = {
     location: PropTypes.object,
     history: PropTypes.object,
     fetchCompare: PropTypes.func,
-    fullCompareData: PropTypes.object,
-    filteredCompareData: PropTypes.object,
+    fullCompareData: PropTypes.array,
+    filteredCompareData: PropTypes.array,
+    systems: PropTypes.array,
     addSystemModalOpened: PropTypes.bool,
     stateFilter: PropTypes.string,
     factFilter: PropTypes.string,
