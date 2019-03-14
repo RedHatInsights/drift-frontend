@@ -11,11 +11,12 @@ const initialState = {
     factFilter: '',
     totalFacts: 0,
     page: 1,
+    sort: 'asc',
     perPage: 10,
     loading: false
 };
 
-function paginateFilteredData(data, selectedPage, factsPerPage) {
+function paginateData(data, selectedPage, factsPerPage) {
     let paginatedFacts = [];
 
     for (let i = 0; i < data.length; i++) {
@@ -44,6 +45,21 @@ function filterCompareData(data, stateFilter, factFilter) {
     return filteredFacts;
 }
 
+function sortData(filteredFacts, sort) {
+    if (sort === 'asc') {
+        filteredFacts.sort(function(a, b) {
+            return a.name > b.name;
+        });
+    }
+    else if (sort === 'desc') {
+        filteredFacts.sort(function(a, b) {
+            return b.name > a.name;
+        });
+    }
+
+    return filteredFacts;
+}
+
 function selectedSystems(selectedIds, selectedSystem) {
     let id = selectedSystem.id;
 
@@ -58,6 +74,7 @@ function selectedSystems(selectedIds, selectedSystem) {
 
 function compareReducer(state = initialState, action) {
     let filteredFacts;
+    let sortedFacts;
     let paginatedFacts;
 
     switch (action.type) {
@@ -70,7 +87,8 @@ function compareReducer(state = initialState, action) {
             };
         case `${types.FETCH_COMPARE}_FULFILLED`:
             filteredFacts = filterCompareData(action.payload.facts, state.stateFilter, state.factFilter);
-            paginatedFacts = paginateFilteredData(filteredFacts, 1, state.perPage);
+            sortedFacts = sortData(filteredFacts, state.sort);
+            paginatedFacts = paginateData(sortedFacts, 1, state.perPage);
             return {
                 ...state,
                 loading: false,
@@ -88,7 +106,8 @@ function compareReducer(state = initialState, action) {
             };
         case `${types.UPDATE_PAGINATION}`:
             filteredFacts = filterCompareData(state.fullCompareData, state.stateFilter, state.factFilter);
-            paginatedFacts = paginateFilteredData(filteredFacts, action.payload.page, action.payload.perPage);
+            sortedFacts = sortData(filteredFacts, state.sort);
+            paginatedFacts = paginateData(sortedFacts, action.payload.page, action.payload.perPage);
             return {
                 ...state,
                 page: action.payload.page,
@@ -98,7 +117,8 @@ function compareReducer(state = initialState, action) {
             };
         case `${types.FILTER_BY_STATE}`:
             filteredFacts = filterCompareData(state.fullCompareData, action.payload, state.factFilter);
-            paginatedFacts = paginateFilteredData(filteredFacts, 1, state.perPage);
+            sortedFacts = sortData(filteredFacts, state.sort);
+            paginatedFacts = paginateData(sortedFacts, 1, state.perPage);
             return {
                 ...state,
                 stateFilter: action.payload,
@@ -108,11 +128,23 @@ function compareReducer(state = initialState, action) {
             };
         case `${types.FILTER_BY_FACT}`:
             filteredFacts = filterCompareData(state.fullCompareData, state.stateFilter, action.payload);
-            paginatedFacts = paginateFilteredData(filteredFacts, 1, state.perPage);
+            sortedFacts = sortData(filteredFacts, state.sort);
+            paginatedFacts = paginateData(sortedFacts, 1, state.perPage);
             return {
                 ...state,
                 factFilter: action.payload,
                 page: 1,
+                filteredCompareData: paginatedFacts,
+                totalFacts: filteredFacts.length
+            };
+        case `${types.TOGGLE_FACT_SORT}`:
+            filteredFacts = filterCompareData(state.fullCompareData, state.stateFilter, state.factFilter);
+            sortedFacts = sortData(filteredFacts, action.payload);
+            paginatedFacts = paginateData(sortedFacts, 1, state.perPage);
+            return {
+                ...state,
+                page: 1,
+                sort: action.payload,
                 filteredCompareData: paginatedFacts,
                 totalFacts: filteredFacts.length
             };

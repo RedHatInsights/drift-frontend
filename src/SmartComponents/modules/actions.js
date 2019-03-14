@@ -20,6 +20,13 @@ function toggleFilterDropDown() {
     };
 }
 
+function toggleFactSort(sortType) {
+    return {
+        type: types.TOGGLE_FACT_SORT,
+        payload: sortType
+    };
+}
+
 function filterByState(filter) {
     return {
         type: types.FILTER_BY_STATE,
@@ -45,6 +52,7 @@ export default {
     fetchCompare,
     toggleAddSystemModal,
     toggleFilterDropDown,
+    toggleFactSort,
     filterByState,
     filterByFact,
     updatePagination
