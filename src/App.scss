@@ -24,6 +24,7 @@
   .fact-state {
     border-right: 1px solid #CCC;
     text-align: center;
+    padding-right: 2px;
   }
 
   .fact-header {
@@ -31,8 +32,7 @@
     font-weight: bold;
 
     div {
-      //position: absolute;
-      bottom: 10px;
+      margin-top: 125px;
     }
   }
 
@@ -41,8 +41,7 @@
     font-weight: bold;
 
     div {
-      //position: absolute;
-      bottom: 10px;
+      margin-top: 125px;
     }
   }
 
@@ -76,22 +75,30 @@
   }
 
   .drift-table {
+    border-collapse: separate;
+  }
+  .drift-table-wrapper {
+    overflow: auto;
     width: 100%;
+    height: 100%;
+  }
+  .sticky-column {
+    position: sticky;
+    background-color: white;
+    background-clip: padding-box;
   }
   .fixed-column-1 {
-    position: absolute;
     left: 0;
-    width: 350px;
+    width: 250px;
+    min-width: 250px;
+    max-width: 250px;
     word-wrap: break-word;
   }
   .fixed-column-2 {
-    position: absolute;
-    overflow: hidden;
-    left: 350px;
+    left: 250px;
     width: 60px;
-  }
-  .drift-table-wrap {
-    position: relative;
+    min-width: 60px;
+    max-width: 60px;
   }
   .drift-table-scroller {
     overflow-x: scroll;

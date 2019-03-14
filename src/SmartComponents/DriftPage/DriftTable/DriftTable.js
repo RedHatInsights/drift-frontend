@@ -75,8 +75,8 @@ class DriftTable extends Component {
     renderRowData(fact, systems) {
         let tr = [];
 
-        tr.push(<th className="fixed-column-1">{ fact.name }</th>);
-        tr.push(<th className="fact-state fixed-column-2"><StateIcon factState={ fact.state }/></th>);
+        tr.push(<td className="sticky-column fixed-column-1">{ fact.name }</td>);
+        tr.push(<td className="fact-state sticky-column fixed-column-2"><StateIcon factState={ fact.state }/></td>);
 
         for (let i = 0; i < systems.length; i += 1) {
             let system = fact.systems.find(function(system) {
@@ -148,28 +148,26 @@ class DriftTable extends Component {
     renderTable(compareData, systems, loading) {
         return (
             <React.Fragment>
-                <div className="drift-table-wrap">
-                    <div className="drift-table-scroller">
-                        <table className="pf-c-table ins-c-table pf-m-compact ins-entity-table drift-table">
-                            <thead>
-                                <tr>
-                                    <th className="fact-header fixed-column-1">
-                                        <div>Fact</div>
-                                    </th>
-                                    <th className="state-header fixed-column-2">
-                                        <div>State</div>
-                                    </th>
-                                    { this.renderHeaderRow(systems) }
-                                    <th>
-                                        { loading ? <Skeleton size={ SkeletonSize.lg } /> : this.renderAddSystem() }
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                { loading ? this.renderLoadingRows() : this.renderRows(compareData, systems) }
-                            </tbody>
-                        </table>
-                    </div>
+                <div className="drift-table-wrapper">
+                    <table className="pf-c-table ins-c-table pf-m-compact ins-entity-table drift-table">
+                        <thead>
+                            <tr>
+                                <th className="fact-header sticky-column fixed-column-1">
+                                    <div>Fact</div>
+                                </th>
+                                <th className="state-header sticky-column fixed-column-2">
+                                    <div>State</div>
+                                </th>
+                                { this.renderHeaderRow(systems) }
+                                <th>
+                                    { loading ? <Skeleton size={ SkeletonSize.lg } /> : this.renderAddSystem() }
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            { loading ? this.renderLoadingRows() : this.renderRows(compareData, systems) }
+                        </tbody>
+                    </table>
                 </div>
                 <TablePagination />
             </React.Fragment>
