@@ -31,7 +31,7 @@ class DriftTable extends Component {
 
     formatDate(dateString) {
         let date = new Date(dateString);
-        return date.toLocaleDateString();
+        return date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
     }
 
     fetchCompare(systemIds) {
@@ -109,7 +109,7 @@ class DriftTable extends Component {
                     <div className="system-header">
                         <ServerIcon className="cluster-icon-large"/>
                         <div className="system-name">{ data[i].fqdn }</div>
-                        <div>Updated { this.formatDate(data[i].last_updated) }</div>
+                        <div>Last Sync { this.formatDate(data[i].last_updated) }</div>
                     </div>
                 </th>
             );
