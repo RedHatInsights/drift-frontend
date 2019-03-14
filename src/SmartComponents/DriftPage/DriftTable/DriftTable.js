@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { EmptyState, EmptyStateBody, EmptyStateIcon, Title } from '@patternfly/react-core';
 import queryString from 'query-string';
-import { CubesIcon, ServerIcon, AddCircleOIcon } from '@patternfly/react-icons';
+import { AngleDownIcon, AngleUpIcon, CubesIcon, ServerIcon, AddCircleOIcon } from '@patternfly/react-icons';
 import { Skeleton, SkeletonSize } from '@red-hat-insights/insights-frontend-components';
 
 import AddSystemModal from '../../AddSystemModal/AddSystemModal';
@@ -73,25 +73,25 @@ class DriftTable extends Component {
     }
 
     renderRowData(fact, systems) {
-        let tr = [];
+        let row = [];
 
-        tr.push(<td className="sticky-column fixed-column-1">{ fact.name }</td>);
-        tr.push(<td className="fact-state sticky-column fixed-column-2"><StateIcon factState={ fact.state }/></td>);
+        row.push(<td className="sticky-column fixed-column-1">{ fact.name }</td>);
+        row.push(<td className="fact-state sticky-column fixed-column-2"><StateIcon factState={ fact.state }/></td>);
 
         for (let i = 0; i < systems.length; i += 1) {
             let system = fact.systems.find(function(system) {
                 return system.id === systems[i].id;
             });
-            tr.push(
+            row.push(
                 <td className={ fact.state === 'DIFFERENT' ? 'highlight' : '' }>
                     { system.value === null ? 'No Data' : system.value }
                 </td>
             );
         }
 
-        tr.push(<td className={ fact.state === 'DIFFERENT' ? 'highlight' : '' }></td>);
+        row.push(<td className={ fact.state === 'DIFFERENT' ? 'highlight' : '' }></td>);
 
-        return tr;
+        return row;
     }
 
     renderHeaderRow(systems) {
@@ -114,6 +114,19 @@ class DriftTable extends Component {
         }
 
         return row;
+    }
+
+    renderSortButton(sort) {
+        let sortIcon;
+
+        if (sort === 'asc') {
+            sortIcon = <AngleUpIcon onClick={ () => this.props.toggleFactSort('desc') }/>;
+        }
+        else if (sort === 'desc') {
+            sortIcon = <AngleDownIcon onClick={ () => this.props.toggleFactSort('asc') }/>;
+        }
+
+        return sortIcon;
     }
 
     renderEmptyState() {
@@ -155,7 +168,7 @@ class DriftTable extends Component {
                         <thead>
                             <tr>
                                 <th className="fact-header sticky-column fixed-column-1">
-                                    <div>Fact</div>
+                                    <div>Fact { this.renderSortButton(this.props.sort) }</div>
                                 </th>
                                 <th className="state-header sticky-column fixed-column-2">
                                     <div>State</div>
@@ -202,13 +215,15 @@ function mapStateToProps(state) {
         stateFilter: state.compareReducer.stateFilter,
         factFilter: state.compareReducer.factFilter,
         loading: state.compareReducer.loading,
-        systems: state.compareReducer.systems
+        systems: state.compareReducer.systems,
+        sort: state.compareReducer.sort
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        fetchCompare: ((systemIds) => dispatch(compareActions.fetchCompare(systemIds)))
+        fetchCompare: ((systemIds) => dispatch(compareActions.fetchCompare(systemIds))),
+        toggleFactSort: ((sortType) => dispatch(compareActions.toggleFactSort(sortType)))
     };
 }
 
@@ -222,7 +237,9 @@ DriftTable.propTypes = {
     addSystemModalOpened: PropTypes.bool,
     stateFilter: PropTypes.string,
     factFilter: PropTypes.string,
-    loading: PropTypes.bool
+    sort: PropTypes.string,
+    loading: PropTypes.bool,
+    toggleFactSort: PropTypes.func
 };
 
 export default withRouter (connect(mapStateToProps, mapDispatchToProps)(DriftTable));
