@@ -11,6 +11,18 @@ function selectedReducer(INVENTORY_ACTIONS, selectedSystemIds) {
             }
 
             let rows = mergeArraysByKey([ action.payload.results, state.rows ]);
+            rows = rows.sort(function(a, b) {
+                let comparison = 0;
+
+                if (a.selected && !b.selected) {
+                    comparison = -1;
+                } else if (!a.selected && b.selected) {
+                    comparison = 1;
+                }
+
+                return comparison;
+            });
+
             return {
                 ...state,
                 rows
