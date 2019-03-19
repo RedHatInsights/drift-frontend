@@ -6,13 +6,20 @@ import { Provider } from 'react-redux';
 import { init } from './store';
 import App from './App';
 
-// exposes webpack variable RELEASE
-/*global RELEASE:true*/
 /*eslint no-undef: "error"*/
+
+const pathName = window.location.pathname.split('/');
+pathName.shift();
+
+let release = '/';
+
+if (pathName[0] === 'beta') {
+    release = `/beta/${pathName.shift()}`;
+}
 
 ReactDOM.render(
     <Provider store={ init().getStore() }>
-        <Router basename={ `/${RELEASE}/platform/drift` }>
+        <Router basename={ `${release}${pathName[0]}/${pathName[1]}` }>
             <App />
         </Router>
     </Provider>,
