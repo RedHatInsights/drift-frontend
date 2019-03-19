@@ -124,8 +124,10 @@ class DriftTable extends Component {
                     <br></br>
                     <Title size="lg">Add Systems to Compare</Title>
                     <EmptyStateBody>
-                        You currently have no Hosts displayed.
-                        Please add two or more Hosts to
+                        You currently have no systems displayed.
+                        <br></br>
+                        Please add two or more systems to
+                        <br></br>
                         compare their facts.
                     </EmptyStateBody>
                     <AddSystemButton />
