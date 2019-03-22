@@ -3,6 +3,7 @@ import types from './types';
 const initialState = {
     fullCompareData: [],
     filteredCompareData: [],
+    sortedFilteredFacts: [],
     systems: [],
     addSystemModalOpened: false,
     selectedSystemIds: [],
@@ -88,6 +89,70 @@ function selectedSystems(selectedIds, selectedSystem) {
     return selectedIds;
 }
 
+function convertFactsToCSV(data, systems) {
+    if (data === null || !data.length) {
+        return null;
+    }
+
+    let columnDelimiter = data.columnDelimiter || ',';
+    let lineDelimiter = data.lineDelimiter || '\n';
+
+    let systemNames = systems.map(system => system.fqdn);
+
+    let headers = 'Fact,State,';
+    systemNames = systemNames.join(columnDelimiter);
+    let result = headers + systemNames + lineDelimiter;
+
+    let keys = Object.keys(data[0]);
+
+    data.forEach(function(fact) {
+        keys.forEach(function(key, index) {
+            if (index > 0) {
+                result += columnDelimiter;
+            }
+
+            if (key === 'systems') {
+                fact[key].forEach(function(system) {
+                    let value = system.value.replace(/,/g, '');
+                    result += value;
+                    result += columnDelimiter;
+                });
+                result += lineDelimiter;
+            } else {
+                result += fact[key];
+            }
+        });
+    });
+
+    return result;
+}
+
+function downloadCSV(driftData, systems) {
+    let csv = convertFactsToCSV(driftData, systems);
+
+    if (csv === null) {
+        return;
+    }
+
+    let filename = 'system-comparison-export-';
+    let today = new Date();
+    filename += today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    filename += '_';
+    filename += today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
+    filename += '.csv';
+
+    if (!csv.match(/^data:text\/csv/i)) {
+        csv = 'data:text/csv;charset=utf-8,' + csv;
+    }
+
+    let data = encodeURI(csv);
+
+    let link = document.createElement('a');
+    link.setAttribute('href', data);
+    link.setAttribute('download', filename);
+    link.dispatchEvent(new MouseEvent(`click`, { bubbles: true, cancelable: true, view: window }));
+}
+
 function compareReducer(state = initialState, action) {
     let filteredFacts;
     let sortedFacts;
@@ -114,6 +179,7 @@ function compareReducer(state = initialState, action) {
                 loading: false,
                 fullCompareData: action.payload.facts,
                 filteredCompareData: paginatedFacts,
+                sortedFilteredFacts: sortedFacts,
                 systems: action.payload.systems,
                 selectedSystemIds: action.payload.systems.map(system => system.id),
                 page: 1,
@@ -133,6 +199,7 @@ function compareReducer(state = initialState, action) {
                 page: action.payload.page,
                 perPage: action.payload.perPage,
                 filteredCompareData: paginatedFacts,
+                sortedFilteredFacts: sortedFacts,
                 totalFacts: filteredFacts.length
             };
         case `${types.FILTER_BY_STATE}`:
@@ -144,6 +211,7 @@ function compareReducer(state = initialState, action) {
                 stateFilter: action.payload,
                 page: 1,
                 filteredCompareData: paginatedFacts,
+                sortedFilteredFacts: sortedFacts,
                 totalFacts: filteredFacts.length
             };
         case `${types.FILTER_BY_FACT}`:
@@ -155,6 +223,7 @@ function compareReducer(state = initialState, action) {
                 factFilter: action.payload,
                 page: 1,
                 filteredCompareData: paginatedFacts,
+                sortedFilteredFacts: sortedFacts,
                 totalFacts: filteredFacts.length
             };
         case `${types.TOGGLE_FACT_SORT}`:
@@ -166,7 +235,13 @@ function compareReducer(state = initialState, action) {
                 page: 1,
                 sort: action.payload,
                 filteredCompareData: paginatedFacts,
+                sortedFilteredFacts: sortedFacts,
                 totalFacts: filteredFacts.length
+            };
+        case `${types.EXPORT_TO_CSV}`:
+            downloadCSV(state.sortedFilteredFacts, state.systems);
+            return {
+                ...state
             };
 
         default:

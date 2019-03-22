@@ -5,6 +5,7 @@ import { Card, CardBody, Grid, GridItem } from '@patternfly/react-core';
 import DriftTable from './DriftTable/DriftTable';
 import FilterDropDown from './FilterDropDown/FilterDropDown';
 import SearchBar from './SearchBar/SearchBar';
+import ExportButton from './ExportButton/ExportButton';
 
 class DriftPage extends Component {
     constructor(props) {
@@ -26,6 +27,11 @@ class DriftPage extends Component {
                                 </GridItem>
                                 <GridItem span={ 2 }>
                                     <FilterDropDown />
+                                </GridItem>
+                                <GridItem span={ 5 }>
+                                </GridItem>
+                                <GridItem span={ 1 }>
+                                    <ExportButton />
                                 </GridItem>
                             </Grid>
                             <div>
