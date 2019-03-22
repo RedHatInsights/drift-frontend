@@ -54,6 +54,12 @@ function updatePagination(pagination) {
     };
 }
 
+function exportToCSV() {
+    return {
+        type: types.EXPORT_TO_CSV
+    };
+}
+
 export default {
     fetchCompare,
     clearState,
@@ -62,5 +68,6 @@ export default {
     toggleFactSort,
     filterByState,
     filterByFact,
-    updatePagination
+    updatePagination,
+    exportToCSV
 };

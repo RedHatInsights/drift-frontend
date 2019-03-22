@@ -9,6 +9,7 @@ describe('compare reducer', () => {
             {
                 fullCompareData: [],
                 addSystemModalOpened: false,
+                sortedFilteredFacts: [],
                 factFilter: '',
                 filterDropdownOpened: false,
                 selectedSystemIds: [],
@@ -35,6 +36,7 @@ describe('compare reducer', () => {
             loading: false,
             factFilter: '',
             filteredCompareData: compareReducerState.facts,
+            sortedFilteredFacts: compareReducerState.facts,
             systems: compareReducerState.systems,
             page: 1,
             perPage: 10,
@@ -104,6 +106,7 @@ describe('add system modal reducer', () => {
                 fullCompareData: [],
                 systems: [],
                 addSystemModalOpened: false,
+                sortedFilteredFacts: [],
                 factFilter: '',
                 filterDropdownOpened: false,
                 selectedSystemIds: [],
