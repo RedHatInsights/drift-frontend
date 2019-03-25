@@ -48,12 +48,28 @@ function filterCompareData(data, stateFilter, factFilter) {
 function sortData(filteredFacts, sort) {
     if (sort === 'asc') {
         filteredFacts.sort(function(a, b) {
-            return a.name > b.name;
+            if (a.name > b.name) {
+                return 1;
+            }
+            else if (a.name < b.name) {
+                return -1;
+            }
+            else {
+                return 0;
+            }
         });
     }
     else if (sort === 'desc') {
         filteredFacts.sort(function(a, b) {
-            return b.name > a.name;
+            if (b.name > a.name) {
+                return 1;
+            }
+            else if (b.name < a.name) {
+                return -1;
+            }
+            else {
+                return 0;
+            }
         });
     }
 
