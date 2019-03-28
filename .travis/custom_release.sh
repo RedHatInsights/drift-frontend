@@ -6,3 +6,7 @@ if [ "${TRAVIS_BRANCH}" = "master" ]; then
     .travis/release.sh "ci-beta"
     .travis/release.sh "ci-stable"
 fi
+
+if [[ "${TRAVIS_BRANCH}" = "qa-beta" || "${TRAVIS_BRANCH}" = "qa-stable" ]]; then
+    .travis/release.sh "${TRAVIS_BRANCH}"
+fi
