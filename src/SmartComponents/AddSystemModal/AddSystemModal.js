@@ -10,10 +10,16 @@ class AddSystemModal extends Component {
     constructor(props) {
         super(props);
         this.confirmModal = this.confirmModal.bind(this);
+        this.cancelSelection = this.cancelSelection.bind(this);
     }
 
     confirmModal() {
         this.props.confirmModal(this.props.selectedSystemIds);
+        this.props.toggleModal();
+    }
+
+    cancelSelection() {
+        this.props.resetSelectedSystemIds();
         this.props.toggleModal();
     }
 
@@ -24,7 +30,7 @@ class AddSystemModal extends Component {
                 <Modal
                     title="Add System"
                     isOpen={ this.props.showModal }
-                    onClose={ this.confirmModal }
+                    onClose={ this.cancelSelection }
                     actions={ [
                         <Button
                             key="confirm"
@@ -45,6 +51,8 @@ AddSystemModal.propTypes = {
     selectedSystemIds: PropTypes.array,
     showModal: PropTypes.bool,
     confirmModal: PropTypes.func,
+    resetSelectedSystemIds: PropTypes.func,
+    cancelSelection: PropTypes.func,
     toggleModal: PropTypes.func
 };
 
@@ -56,7 +64,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        toggleModal: () => dispatch(compareActions.toggleAddSystemModal())
+        toggleModal: () => dispatch(compareActions.toggleAddSystemModal()),
+        resetSelectedSystemIds: () => dispatch(compareActions.resetSelectedSystemIds())
     };
 }
 

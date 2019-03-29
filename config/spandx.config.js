@@ -9,7 +9,8 @@ module.exports = {
         '/apps/drift': { host: `http://${localhost}:8002` },
         '/beta/drift': { host: `http://${localhost}:8002` },
         '/insights/drift': { host: `http://${localhost}:8002` },
-        '/apps/chrome': { host: 'https://ci.cloud.paas.upshift.redhat.com' }
+        '/apps/chrome': { host: 'https://ci.cloud.paas.upshift.redhat.com' },
+        '/api/drift': { host: 'http://localhost:8080' }
     }
 };
 
