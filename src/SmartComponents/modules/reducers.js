@@ -157,6 +157,7 @@ function compareReducer(state = initialState, action) {
     let filteredFacts;
     let sortedFacts;
     let paginatedFacts;
+    let systemIds;
 
     switch (action.type) {
         case types.CLEAR_STATE:
@@ -242,6 +243,12 @@ function compareReducer(state = initialState, action) {
             downloadCSV(state.sortedFilteredFacts, state.systems);
             return {
                 ...state
+            };
+        case `${types.RESET_SELECTED_SYSTEM_IDS}`:
+            systemIds = state.systems.map(system => system.id);
+            return {
+                ...state,
+                selectedSystemIds: systemIds
             };
 
         default:

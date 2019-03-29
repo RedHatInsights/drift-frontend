@@ -20,6 +20,12 @@ function toggleAddSystemModal() {
     };
 }
 
+function resetSelectedSystemIds() {
+    return {
+        type: types.RESET_SELECTED_SYSTEM_IDS
+    };
+}
+
 function toggleFilterDropDown() {
     return {
         type: types.OPEN_FILTER_DROPDOWN
@@ -64,6 +70,7 @@ export default {
     fetchCompare,
     clearState,
     toggleAddSystemModal,
+    resetSelectedSystemIds,
     toggleFilterDropDown,
     toggleFactSort,
     filterByState,
