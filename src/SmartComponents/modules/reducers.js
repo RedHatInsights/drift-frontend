@@ -80,7 +80,7 @@ function sortData(filteredFacts, sort) {
 function selectedSystems(selectedIds, selectedSystem) {
     let id = selectedSystem.id;
 
-    if (selectedSystem.selected && !selectedIds.includes(id)) {
+    if (selectedSystem.selected && !selectedIds.includes(id) && id !== 0 && id !== null) {
         selectedIds.push(id);
     } else if (!selectedSystem.selected) {
         selectedIds = selectedIds.filter(item => item !== id);
