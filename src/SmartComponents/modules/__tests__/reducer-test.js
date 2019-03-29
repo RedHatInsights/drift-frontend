@@ -97,6 +97,66 @@ describe('compare reducer', () => {
             ]
         });
     });
+
+    it('should handle null SELECT_ENTITY', () => {
+        expect(
+            reducers.compareReducer({ selectedSystemIds: []}, {
+                payload:
+                    {
+                        id: null, selected: true
+                    },
+                type: `${types.SELECT_ENTITY}`
+            })
+        ).toEqual({
+            selectedSystemIds: []
+        });
+    });
+
+    it('should handle null SELECT_ENTITY with selected ids', () => {
+        expect(
+            reducers.compareReducer({ selectedSystemIds: [ '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9' ]}, {
+                payload:
+                    {
+                        id: null, selected: true
+                    },
+                type: `${types.SELECT_ENTITY}`
+            })
+        ).toEqual({
+            selectedSystemIds: [
+                '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9'
+            ]
+        });
+    });
+
+    it('should handle 0 SELECT_ENTITY', () => {
+        expect(
+            reducers.compareReducer({ selectedSystemIds: []}, {
+                payload:
+                    {
+                        id: 0, selected: true
+                    },
+                type: `${types.SELECT_ENTITY}`
+            })
+        ).toEqual({
+            selectedSystemIds: []
+        });
+    });
+
+    it('should handle 0 SELECT_ENTITY with selected ids', () => {
+        expect(
+            reducers.compareReducer({ selectedSystemIds: [ '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9' ]}, {
+                payload:
+                    {
+                        id: 0, selected: true
+                    },
+                type: `${types.SELECT_ENTITY}`
+            })
+        ).toEqual({
+            selectedSystemIds: [
+                '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9'
+            ]
+        });
+    });
 });
 
 describe('add system modal reducer', () => {
