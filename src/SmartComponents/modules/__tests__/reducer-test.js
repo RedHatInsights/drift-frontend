@@ -1,7 +1,7 @@
 import reducers from '../reducers';
 import types from '../types';
 
-import { compareReducerPayload, compareReducerState } from './reducer.fixtures';
+import { compareReducerPayload, compareReducerState, paginatedStatePageOne, paginatedStatePageTwo } from './reducer.fixtures';
 
 describe('compare reducer', () => {
     it('should return initial state', () => {
@@ -45,7 +45,85 @@ describe('compare reducer', () => {
             page: 1,
             perPage: 10,
             stateFilter: 'all',
-            totalFacts: 2
+            totalFacts: 3
+        });
+    });
+
+    it('should handle UPDATE_PAGINATION page one', () => {
+        expect(
+            reducers.compareReducer({
+                perPage: 10,
+                page: 1,
+                fullCompareData: compareReducerPayload.facts,
+                systems: compareReducerPayload.systems,
+                factFilter: '',
+                stateFilter: 'all' },
+            {
+                payload: { perPage: 2, page: 1 },
+                type: `${types.UPDATE_PAGINATION}`
+            })
+        ).toEqual({
+            fullCompareData: compareReducerState.facts,
+            factFilter: '',
+            filteredCompareData: paginatedStatePageOne.facts,
+            sortedFilteredFacts: compareReducerState.facts,
+            systems: paginatedStatePageOne.systems,
+            page: 1,
+            perPage: 2,
+            stateFilter: 'all',
+            totalFacts: 3
+        });
+    });
+
+    it('should handle UPDATE_PAGINATION page two', () => {
+        expect(
+            reducers.compareReducer({
+                perPage: 2,
+                page: 1,
+                fullCompareData: compareReducerPayload.facts,
+                systems: compareReducerPayload.systems,
+                factFilter: '',
+                stateFilter: 'all' },
+            {
+                payload: { perPage: 2, page: 2 },
+                type: `${types.UPDATE_PAGINATION}`
+            })
+        ).toEqual({
+            fullCompareData: compareReducerState.facts,
+            factFilter: '',
+            filteredCompareData: paginatedStatePageTwo.facts,
+            sortedFilteredFacts: compareReducerState.facts,
+            systems: paginatedStatePageTwo.systems,
+            page: 2,
+            perPage: 2,
+            stateFilter: 'all',
+            totalFacts: 3
+        });
+    });
+
+    it('should handle UPDATE_PAGINATION page three is empty', () => {
+        expect(
+            reducers.compareReducer({
+                perPage: 2,
+                page: 2,
+                fullCompareData: compareReducerPayload.facts,
+                systems: compareReducerPayload.systems,
+                factFilter: '',
+                stateFilter: 'all' },
+            {
+                payload: { perPage: 2, page: 3 },
+                type: `${types.UPDATE_PAGINATION}`
+            })
+        ).toEqual({
+            fullCompareData: compareReducerState.facts,
+            factFilter: '',
+            filteredCompareData: [],
+            sortedFilteredFacts: compareReducerState.facts,
+            systems: paginatedStatePageTwo.systems,
+            page: 3,
+            perPage: 2,
+            stateFilter: 'all',
+            totalFacts: 3
         });
     });
 });
