@@ -4,6 +4,7 @@ set -x
 
 if [ "${TRAVIS_BRANCH}" = "master" ]; then
     .travis/release.sh "ci-beta"
+    rm -rf .git
     .travis/release.sh "ci-stable"
 fi
 
