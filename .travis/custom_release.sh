@@ -11,3 +11,7 @@ fi
 if [[ "${TRAVIS_BRANCH}" = "qa-beta" || "${TRAVIS_BRANCH}" = "qa-stable" ]]; then
     .travis/release.sh "${TRAVIS_BRANCH}"
 fi
+
+if [[ "${TRAVIS_BRANCH}" = "prod-beta" || "${TRAVIS_BRANCH}" = "prod-stable" ]]; then
+    .travis/release.sh "${TRAVIS_BRANCH}"
+fi
