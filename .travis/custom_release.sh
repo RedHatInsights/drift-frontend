@@ -4,8 +4,9 @@ set -x
 
 if [ "${TRAVIS_BRANCH}" = "master" ]; then
     .travis/release.sh "ci-beta"
-    rm -rf dist
-    .travis/release.sh "ci-stable"
+    cd dist
+    git fetch origin ci-stable
+    git push origin ci-beta:ci-stable
 fi
 
 if [[ "${TRAVIS_BRANCH}" = "qa-beta" || "${TRAVIS_BRANCH}" = "qa-stable" ]]; then
