@@ -20,7 +20,8 @@ describe('compare reducer', () => {
                 page: 1,
                 perPage: 10,
                 totalFacts: 0,
-                loading: false
+                loading: false,
+                expandedRows: []
             }
         );
     });
@@ -176,7 +177,8 @@ describe('add system modal reducer', () => {
                 page: 1,
                 perPage: 10,
                 totalFacts: 0,
-                loading: false
+                loading: false,
+                expandedRows: []
             }
         );
     });

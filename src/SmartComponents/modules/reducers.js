@@ -14,7 +14,8 @@ const initialState = {
     page: 1,
     sort: 'asc',
     perPage: 10,
-    loading: false
+    loading: false,
+    expandedRows: []
 };
 
 function paginateData(data, selectedPage, factsPerPage) {
@@ -29,21 +30,51 @@ function paginateData(data, selectedPage, factsPerPage) {
     return paginatedFacts;
 }
 
-function filterCompareData(data, stateFilter, factFilter) {
+function filterCompareData(data, stateFilter, factFilter, newExpandedRows) {
     let filteredFacts = [];
+    let filteredComparisons = [];
 
     for (let i = 0; i < data.length; i += 1) {
-        if (data[i].name.includes(factFilter)) {
-            if (stateFilter.toLowerCase() === 'all' || stateFilter === undefined) {
-                filteredFacts.push(data[i]);
+        if (data[i].comparisons) {
+            filteredComparisons = filterComparisons(data[i].comparisons, stateFilter, factFilter);
+
+            if (filteredComparisons.length) {
+                if (newExpandedRows.includes(data[i].name)) {
+                    filteredFacts.push({ name: data[i].name, state: data[i].status, comparisons: filteredComparisons });
+                } else {
+                    filteredFacts.push({ name: data[i].name, state: data[i].status, comparisons: []});
+                }
             }
-            else if (stateFilter === data[i].state) {
-                filteredFacts.push(data[i]);
+        } else {
+            if (data[i].name.includes(factFilter)) {
+                if (stateFilter.toLowerCase() === 'all' || stateFilter === undefined) {
+                    filteredFacts.push(data[i]);
+                }
+                else if (stateFilter === data[i].state) {
+                    filteredComparisons.push(data[i]);
+                }
             }
         }
     }
 
     return filteredFacts;
+}
+
+function filterComparisons(comparisons, stateFilter, factFilter) {
+    let filteredComparisons = [];
+
+    for (let i = 0; i < comparisons.length; i++) {
+        if (comparisons[i].name.includes(factFilter)) {
+            if (stateFilter.toLowerCase() === 'all' || stateFilter === undefined) {
+                filteredComparisons.push(comparisons[i]);
+            }
+            else if (stateFilter === comparisons[i].state) {
+                filteredComparisons.push(comparisons[i]);
+            }
+        }
+    }
+
+    return filteredComparisons;
 }
 
 function sortData(filteredFacts, sort) {
@@ -103,9 +134,10 @@ function convertFactsToCSV(data, systems) {
     systemNames = systemNames.join(columnDelimiter);
     let result = headers + systemNames + lineDelimiter;
 
-    let keys = Object.keys(data[0]);
+    let comparisons;
 
     data.forEach(function(fact) {
+        let keys = Object.keys(fact);
         keys.forEach(function(key, index) {
             if (index > 0) {
                 result += columnDelimiter;
@@ -118,6 +150,36 @@ function convertFactsToCSV(data, systems) {
                     result += columnDelimiter;
                 });
                 result += lineDelimiter;
+            } else if (key === 'comparisons') {
+                if (fact.comparisons.length) {
+                    result += lineDelimiter;
+                    comparisons = fact.comparisons;
+                    comparisons.forEach(function(fact) {
+                        keys = Object.keys(fact);
+                        keys.forEach(function(key, index) {
+                            if (index > 0) {
+                                result += columnDelimiter;
+                            }
+
+                            if (key === 'systems') {
+                                fact[key].forEach(function(system) {
+                                    let value = system.value ? system.value.replace(/,/g, '') : '';
+                                    result += value;
+                                    result += columnDelimiter;
+                                });
+                                result += lineDelimiter;
+                            } else {
+                                if (key === 'name') {
+                                    result += '    ';
+                                }
+
+                                result += fact[key];
+                            }
+                        });
+                    });
+                } else {
+                    result += lineDelimiter;
+                }
             } else {
                 result += fact[key];
             }
@@ -153,11 +215,22 @@ function downloadCSV(driftData, systems) {
     link.dispatchEvent(new MouseEvent(`click`, { bubbles: true, cancelable: true, view: window }));
 }
 
+function toggleExpandedRow(expandedRows, factName) {
+    if (expandedRows.includes(factName)) {
+        expandedRows = expandedRows.filter(fact => fact !== factName);
+    } else {
+        expandedRows.push(factName);
+    }
+
+    return expandedRows;
+}
+
 function compareReducer(state = initialState, action) {
     let filteredFacts;
     let sortedFacts;
     let paginatedFacts;
     let systemIds;
+    let newExpandedRows;
 
     switch (action.type) {
         case types.CLEAR_STATE:
@@ -172,7 +245,7 @@ function compareReducer(state = initialState, action) {
                 loading: true
             };
         case `${types.FETCH_COMPARE}_FULFILLED`:
-            filteredFacts = filterCompareData(action.payload.facts, state.stateFilter, state.factFilter);
+            filteredFacts = filterCompareData(action.payload.facts, state.stateFilter, state.factFilter, state.expandedRows);
             sortedFacts = sortData(filteredFacts, state.sort);
             paginatedFacts = paginateData(sortedFacts, 1, state.perPage);
             return {
@@ -192,7 +265,7 @@ function compareReducer(state = initialState, action) {
                 selectedSystemIds: selectedSystems([ ...state.selectedSystemIds ], action.payload)
             };
         case `${types.UPDATE_PAGINATION}`:
-            filteredFacts = filterCompareData(state.fullCompareData, state.stateFilter, state.factFilter);
+            filteredFacts = filterCompareData(state.fullCompareData, state.stateFilter, state.factFilter, state.expandedRows);
             sortedFacts = sortData(filteredFacts, state.sort);
             paginatedFacts = paginateData(sortedFacts, action.payload.page, action.payload.perPage);
             return {
@@ -204,7 +277,7 @@ function compareReducer(state = initialState, action) {
                 totalFacts: filteredFacts.length
             };
         case `${types.FILTER_BY_STATE}`:
-            filteredFacts = filterCompareData(state.fullCompareData, action.payload, state.factFilter);
+            filteredFacts = filterCompareData(state.fullCompareData, action.payload, state.factFilter, state.expandedRows);
             sortedFacts = sortData(filteredFacts, state.sort);
             paginatedFacts = paginateData(sortedFacts, 1, state.perPage);
             return {
@@ -216,7 +289,7 @@ function compareReducer(state = initialState, action) {
                 totalFacts: filteredFacts.length
             };
         case `${types.FILTER_BY_FACT}`:
-            filteredFacts = filterCompareData(state.fullCompareData, state.stateFilter, action.payload);
+            filteredFacts = filterCompareData(state.fullCompareData, state.stateFilter, action.payload, state.expandedRows);
             sortedFacts = sortData(filteredFacts, state.sort);
             paginatedFacts = paginateData(sortedFacts, 1, state.perPage);
             return {
@@ -228,7 +301,7 @@ function compareReducer(state = initialState, action) {
                 totalFacts: filteredFacts.length
             };
         case `${types.TOGGLE_FACT_SORT}`:
-            filteredFacts = filterCompareData(state.fullCompareData, state.stateFilter, state.factFilter);
+            filteredFacts = filterCompareData(state.fullCompareData, state.stateFilter, state.factFilter, state.expandedRows);
             sortedFacts = sortData(filteredFacts, action.payload);
             paginatedFacts = paginateData(sortedFacts, 1, state.perPage);
             return {
@@ -249,6 +322,18 @@ function compareReducer(state = initialState, action) {
             return {
                 ...state,
                 selectedSystemIds: systemIds
+            };
+        case `${types.EXPAND_ROW}`:
+            newExpandedRows = toggleExpandedRow(state.expandedRows, action.payload);
+            filteredFacts = filterCompareData(state.fullCompareData, state.stateFilter, state.factFilter, newExpandedRows);
+            sortedFacts = sortData(filteredFacts, state.sort);
+            paginatedFacts = paginateData(sortedFacts, 1, state.perPage);
+            return {
+                ...state,
+                expandedRows: newExpandedRows,
+                filteredCompareData: paginatedFacts,
+                sortedFilteredFacts: sortedFacts,
+                totalFacts: filteredFacts.length
             };
 
         default:

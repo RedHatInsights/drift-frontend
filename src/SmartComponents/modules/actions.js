@@ -66,6 +66,13 @@ function exportToCSV() {
     };
 }
 
+function expandRow(factName) {
+    return {
+        type: types.EXPAND_ROW,
+        payload: factName
+    };
+}
+
 export default {
     fetchCompare,
     clearState,
@@ -76,5 +83,6 @@ export default {
     filterByState,
     filterByFact,
     updatePagination,
-    exportToCSV
+    exportToCSV,
+    expandRow
 };

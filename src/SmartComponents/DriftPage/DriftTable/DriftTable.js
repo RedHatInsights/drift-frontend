@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { EmptyState, EmptyStateBody, EmptyStateIcon, Title } from '@patternfly/react-core';
 import queryString from 'query-string';
-import { CloseIcon, AngleDownIcon, AngleUpIcon, CubesIcon, ServerIcon, AddCircleOIcon } from '@patternfly/react-icons';
+import { CloseIcon, AngleDownIcon, AngleRightIcon, AngleUpIcon, CubesIcon, ServerIcon, AddCircleOIcon } from '@patternfly/react-icons';
 import { Skeleton, SkeletonSize } from '@red-hat-insights/insights-frontend-components';
 
 import AddSystemModal from '../../AddSystemModal/AddSystemModal';
@@ -72,7 +72,7 @@ class DriftTable extends Component {
         if (facts !== undefined) {
             for (let i = 0; i < facts.length; i += 1) {
                 rowData = this.renderRowData(facts[i], systems);
-                rows.push(<tr>{ rowData }</tr>);
+                rows.push(rowData);
             }
         }
 
@@ -96,8 +96,54 @@ class DriftTable extends Component {
 
     renderRowData(fact, systems) {
         let row = [];
+        let rows = [];
 
-        row.push(<td className="sticky-column fixed-column-1">{ fact.name }</td>);
+        if (fact.comparisons) {
+            row.push(
+                <td className="sticky-column fixed-column-1">
+                    { this.renderExpandableRowButton(this.props.expandedRows, fact.name) } { fact.name }
+                </td>
+            );
+            row.push(<td className="fact-state sticky-column fixed-column-2"><StateIcon factState={ fact.state }/></td>);
+
+            for (let i = 0; i < systems.length + 1; i += 1) {
+                row.push(<td></td>);
+            }
+
+            rows.push(<tr>{ row }</tr>);
+
+            for (let i = 0; i < fact.comparisons.length; i++) {
+                row = this.renderRowChild(fact.comparisons[i], systems);
+                rows.push(<tr>{ row }</tr>);
+            }
+        } else {
+            row.push(<td className="sticky-column fixed-column-1">{ fact.name }</td>);
+            row.push(<td className="fact-state sticky-column fixed-column-2"><StateIcon factState={ fact.state }/></td>);
+
+            for (let i = 0; i < systems.length; i += 1) {
+                let system = fact.systems.find(function(system) {
+                    return system.id === systems[i].id;
+                });
+                row.push(
+                    <td className={ fact.state === 'DIFFERENT' ? 'highlight' : '' }>
+                        { system.value === null ? 'No Data' : system.value }
+                    </td>
+                );
+            }
+
+            row.push(<td className={ fact.state === 'DIFFERENT' ? 'highlight' : '' }></td>);
+            rows.push(<tr>{ row }</tr>);
+        }
+
+        return rows;
+    }
+
+    renderRowChild(fact, systems) {
+        let row = [];
+
+        row.push(<td className="sticky-column fixed-column-1">
+            <p className="child-row">{ fact.name }</p>
+        </td>);
         row.push(<td className="fact-state sticky-column fixed-column-2"><StateIcon factState={ fact.state }/></td>);
 
         for (let i = 0; i < systems.length; i += 1) {
@@ -145,13 +191,25 @@ class DriftTable extends Component {
         let sortIcon;
 
         if (sort === 'asc') {
-            sortIcon = <AngleUpIcon onClick={ () => this.props.toggleFactSort('desc') }/>;
+            sortIcon = <AngleUpIcon className="pointer" onClick={ () => this.props.toggleFactSort('desc') }/>;
         }
         else if (sort === 'desc') {
-            sortIcon = <AngleDownIcon onClick={ () => this.props.toggleFactSort('asc') }/>;
+            sortIcon = <AngleDownIcon className="pointer" onClick={ () => this.props.toggleFactSort('asc') }/>;
         }
 
         return sortIcon;
+    }
+
+    renderExpandableRowButton(expandedRows, factName) {
+        let expandIcon;
+
+        if (expandedRows.includes(factName)) {
+            expandIcon = <AngleDownIcon className="pointer" onClick={ () => this.props.expandRow(factName) } />;
+        } else {
+            expandIcon = <AngleRightIcon className="pointer" onClick={ () => this.props.expandRow(factName) } />;
+        }
+
+        return expandIcon;
     }
 
     renderEmptyState() {
@@ -241,7 +299,8 @@ function mapStateToProps(state) {
         factFilter: state.compareReducer.factFilter,
         loading: state.compareReducer.loading,
         systems: state.compareReducer.systems,
-        sort: state.compareReducer.sort
+        sort: state.compareReducer.sort,
+        expandedRows: state.compareReducer.expandedRows
     };
 }
 
@@ -249,6 +308,7 @@ function mapDispatchToProps(dispatch) {
     return {
         fetchCompare: ((systemIds) => dispatch(compareActions.fetchCompare(systemIds))),
         toggleFactSort: ((sortType) => dispatch(compareActions.toggleFactSort(sortType))),
+        expandRow: ((factName) => dispatch(compareActions.expandRow(factName))),
         clearState: (() => dispatch(compareActions.clearState()))
     };
 }
@@ -266,7 +326,10 @@ DriftTable.propTypes = {
     factFilter: PropTypes.string,
     sort: PropTypes.string,
     loading: PropTypes.bool,
-    toggleFactSort: PropTypes.func
+    toggleFactSort: PropTypes.func,
+    expandRow: PropTypes.func,
+    expandRows: PropTypes.func,
+    expandedRows: PropTypes.array
 };
 
 export default withRouter (connect(mapStateToProps, mapDispatchToProps)(DriftTable));
