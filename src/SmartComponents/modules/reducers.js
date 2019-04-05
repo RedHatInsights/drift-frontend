@@ -113,7 +113,7 @@ function convertFactsToCSV(data, systems) {
 
             if (key === 'systems') {
                 fact[key].forEach(function(system) {
-                    let value = system.value.replace(/,/g, '');
+                    let value = system.value ? system.value.replace(/,/g, '') : '';
                     result += value;
                     result += columnDelimiter;
                 });
