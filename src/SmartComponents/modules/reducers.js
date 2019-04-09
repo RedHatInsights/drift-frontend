@@ -129,7 +129,7 @@ function convertFactsToCSV(data, systems) {
     let columnDelimiter = data.columnDelimiter || ',';
     let lineDelimiter = data.lineDelimiter || '\n';
 
-    let systemNames = systems.map(system => system.fqdn);
+    let systemNames = systems.map(system => system.display_name);
 
     let headers = 'Fact,State,';
     systemNames = systemNames.join(columnDelimiter);
