@@ -15,7 +15,8 @@ const initialState = {
     sort: 'asc',
     perPage: 10,
     loading: false,
-    expandedRows: []
+    expandedRows: [],
+    kebabOpened: false
 };
 
 function paginateData(data, selectedPage, factsPerPage) {
@@ -373,8 +374,23 @@ function filterDropdownReducer(state = initialState, action) {
     }
 }
 
+function exportReducer(state = initialState, action) {
+    switch (action.type) {
+        case `${types.TOGGLE_KEBAB}`:
+            return {
+                ...state,
+                kebabOpened: !state.kebabOpened
+            };
+        default:
+            return {
+                ...state
+            };
+    }
+}
+
 export default {
     compareReducer,
     addSystemModalReducer,
-    filterDropdownReducer
+    filterDropdownReducer,
+    exportReducer
 };

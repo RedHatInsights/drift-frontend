@@ -21,7 +21,8 @@ describe('compare reducer', () => {
                 perPage: 10,
                 totalFacts: 0,
                 loading: false,
-                expandedRows: []
+                expandedRows: [],
+                kebabOpened: false
             }
         );
     });
@@ -178,7 +179,8 @@ describe('add system modal reducer', () => {
                 perPage: 10,
                 totalFacts: 0,
                 loading: false,
-                expandedRows: []
+                expandedRows: [],
+                kebabOpened: false
             }
         );
     });
@@ -200,6 +202,51 @@ describe('add system modal reducer', () => {
             })
         ).toEqual({
             addSystemModalOpened: false
+        });
+    });
+});
+
+describe('export reducer', () => {
+    it('should return initial state', () => {
+        expect(reducers.exportReducer(undefined, {})).toEqual(
+            {
+                fullCompareData: [],
+                systems: [],
+                addSystemModalOpened: false,
+                sortedFilteredFacts: [],
+                factFilter: '',
+                filterDropdownOpened: false,
+                selectedSystemIds: [],
+                sort: 'asc',
+                stateFilter: 'all',
+                filteredCompareData: [],
+                page: 1,
+                perPage: 10,
+                totalFacts: 0,
+                loading: false,
+                expandedRows: [],
+                kebabOpened: false
+            }
+        );
+    });
+
+    it('should handle TOGGLE_KEBAB true', () => {
+        expect(
+            reducers.exportReducer({ kebabOpened: false }, {
+                type: `${types.TOGGLE_KEBAB}`
+            })
+        ).toEqual({
+            kebabOpened: true
+        });
+    });
+
+    it('should handle TOGGLE_KEBAB false', () => {
+        expect(
+            reducers.exportReducer({ kebabOpened: true }, {
+                type: `${types.TOGGLE_KEBAB}`
+            })
+        ).toEqual({
+            kebabOpened: false
         });
     });
 });

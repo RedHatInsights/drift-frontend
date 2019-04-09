@@ -73,6 +73,12 @@ function expandRow(factName) {
     };
 }
 
+function toggleKebab() {
+    return {
+        type: types.TOGGLE_KEBAB
+    };
+}
+
 export default {
     fetchCompare,
     clearState,
@@ -84,5 +90,6 @@ export default {
     filterByFact,
     updatePagination,
     exportToCSV,
-    expandRow
+    expandRow,
+    toggleKebab
 };

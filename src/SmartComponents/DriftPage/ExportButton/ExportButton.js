@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compareActions } from '../../modules';
-import { DownloadIcon } from '@patternfly/react-icons';
-import { Button } from '@patternfly/react-core';
+import { Dropdown, KebabToggle, DropdownItem } from '@patternfly/react-core';
 
 class ExportButton extends Component {
     constructor(props) {
@@ -11,25 +10,37 @@ class ExportButton extends Component {
     }
 
     render() {
+        const dropdownItems = [
+            <DropdownItem key="export" component="button" onClick={ this.props.exportToCSV }>Export</DropdownItem>
+        ];
         return (
-            <Button
+            <Dropdown
                 style={ { float: 'right' } }
-                variant='link'
-                onClick={ this.props.exportToCSV }>
-                <DownloadIcon />
-            </Button>
+                toggle={ <KebabToggle onToggle={ this.props.toggleKebab } /> }
+                isOpen={ this.props.kebabOpened }
+                dropdownItems={ dropdownItems }
+            />
         );
     }
 }
 
 ExportButton.propTypes = {
-    exportToCSV: PropTypes.func
+    exportToCSV: PropTypes.func,
+    toggleKebab: PropTypes.func,
+    kebabOpened: PropTypes.bool
 };
 
-function mapDispatchToProps(dispatch) {
+function mapStateToProps(state) {
     return {
-        exportToCSV: (() => dispatch(compareActions.exportToCSV()))
+        kebabOpened: state.exportReducer.kebabOpened
     };
 }
 
-export default connect(null, mapDispatchToProps)(ExportButton);
+function mapDispatchToProps(dispatch) {
+    return {
+        exportToCSV: (() => dispatch(compareActions.exportToCSV())),
+        toggleKebab: () => dispatch(compareActions.toggleKebab())
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ExportButton);
