@@ -52,7 +52,7 @@ function filterCompareData(data, stateFilter, factFilter, newExpandedRows) {
                     filteredFacts.push(data[i]);
                 }
                 else if (stateFilter === data[i].state) {
-                    filteredComparisons.push(data[i]);
+                    filteredFacts.push(data[i]);
                 }
             }
         }
