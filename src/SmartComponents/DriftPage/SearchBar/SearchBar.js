@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Form, FormGroup, TextInput } from '@patternfly/react-core';
+import { TextInput } from '@patternfly/react-core';
 import PropTypes from 'prop-types';
 
 import { compareActions } from '../../modules';
@@ -13,18 +13,11 @@ export class SearchBar extends Component {
     render() {
         return (
             <React.Fragment>
-                <Form className="toolbar-pf-actions">
-                    <FormGroup fieldId="searchBar" className="toolbar-pf-filter">
-                        <TextInput
-                            type="search"
-                            id="search-bar-box"
-                            name="search-bar-box"
-                            placeholder="Filter by Fact"
-                            value={ this.props.factFilter }
-                            onChange={ this.props.changeFactFilter }
-                        />
-                    </FormGroup>
-                </Form>
+                <TextInput
+                    placeholder="Filter by Fact"
+                    value={ this.props.factFilter }
+                    onChange={ this.props.changeFactFilter }
+                />
             </React.Fragment>
         );
     }
