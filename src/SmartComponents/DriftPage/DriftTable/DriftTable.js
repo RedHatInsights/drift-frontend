@@ -178,7 +178,7 @@ class DriftTable extends Component {
                         </a>
                         <ServerIcon className="cluster-icon-large"/>
                         <div className="system-name">{ systems[i].display_name }</div>
-                        <div>Last Sync { this.formatDate(systems[i].last_updated) }</div>
+                        <div>{ this.formatDate(systems[i].last_updated) }</div>
                     </div>
                 </th>
             );
