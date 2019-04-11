@@ -21,11 +21,11 @@ class FilterDropDown extends Component {
         this.props.changeFilter(filter);
     }
 
-    createDropdownItem(filter) {
-        let dropdownItem = <DropdownItem key={ filter } component="button" onClick={ event =>
-            this.getFilterByState(event, filter)
+    createDropdownItem(display, value) {
+        let dropdownItem = <DropdownItem key={ value } component="button" onClick={ event =>
+            this.getFilterByState(event, value)
         }>
-            { filter.charAt(0).toUpperCase() + filter.slice(1).toLowerCase() }
+            { display }
         </DropdownItem>;
 
         return dropdownItem;
@@ -33,10 +33,10 @@ class FilterDropDown extends Component {
 
     render() {
         const dropdownItems = [
-            this.createDropdownItem('All'),
-            this.createDropdownItem('SAME'),
-            this.createDropdownItem('DIFFERENT'),
-            this.createDropdownItem('INCOMPLETE_DATA')
+            this.createDropdownItem('All', 'All'),
+            this.createDropdownItem('Same', 'SAME'),
+            this.createDropdownItem('Different', 'DIFFERENT'),
+            this.createDropdownItem('Incomplete Data', 'INCOMPLETE_DATA')
         ];
 
         return (
