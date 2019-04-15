@@ -17,12 +17,15 @@ describe('compare reducer', () => {
                 stateFilter: 'all',
                 filteredCompareData: [],
                 systems: [],
+                previousStateSystems: [],
                 page: 1,
                 perPage: 10,
                 totalFacts: 0,
                 loading: false,
                 expandedRows: [],
-                kebabOpened: false
+                kebabOpened: false,
+                errorAlertOpened: false,
+                error: {}
             }
         );
     });
@@ -167,6 +170,7 @@ describe('add system modal reducer', () => {
             {
                 fullCompareData: [],
                 systems: [],
+                previousStateSystems: [],
                 addSystemModalOpened: false,
                 sortedFilteredFacts: [],
                 factFilter: '',
@@ -180,7 +184,9 @@ describe('add system modal reducer', () => {
                 totalFacts: 0,
                 loading: false,
                 expandedRows: [],
-                kebabOpened: false
+                kebabOpened: false,
+                errorAlertOpened: false,
+                error: {}
             }
         );
     });
@@ -212,6 +218,7 @@ describe('export reducer', () => {
             {
                 fullCompareData: [],
                 systems: [],
+                previousStateSystems: [],
                 addSystemModalOpened: false,
                 sortedFilteredFacts: [],
                 factFilter: '',
@@ -225,7 +232,9 @@ describe('export reducer', () => {
                 totalFacts: 0,
                 loading: false,
                 expandedRows: [],
-                kebabOpened: false
+                kebabOpened: false,
+                errorAlertOpened: false,
+                error: {}
             }
         );
     });
