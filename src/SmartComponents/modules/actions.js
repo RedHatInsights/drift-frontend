@@ -8,6 +8,13 @@ function fetchCompare(systemIds) {
     };
 }
 
+function revertCompareData(fetchCompareData) {
+    return {
+        type: types.REVERT_COMPARE_DATA,
+        payload: fetchCompareData
+    };
+}
+
 function clearState() {
     return {
         type: types.CLEAR_STATE
@@ -17,6 +24,12 @@ function clearState() {
 function toggleAddSystemModal() {
     return {
         type: types.OPEN_ADD_SYSTEM_MODAL
+    };
+}
+
+function toggleErrorAlert() {
+    return {
+        type: types.OPEN_ERROR_MODAL
     };
 }
 
@@ -81,8 +94,10 @@ function toggleKebab() {
 
 export default {
     fetchCompare,
+    revertCompareData,
     clearState,
     toggleAddSystemModal,
+    toggleErrorAlert,
     resetSelectedSystemIds,
     toggleFilterDropDown,
     toggleFactSort,

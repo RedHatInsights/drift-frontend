@@ -5,11 +5,13 @@ import { connect } from 'react-redux';
 
 import { Main, PageHeader, PageHeaderTitle } from '@red-hat-insights/insights-frontend-components';
 import { Card, CardBody, Grid, GridItem } from '@patternfly/react-core';
+import { compareActions } from '../modules';
 
 import DriftTable from './DriftTable/DriftTable';
 import FilterDropDown from './FilterDropDown/FilterDropDown';
 import SearchBar from './SearchBar/SearchBar';
 import ExportButton from './ExportButton/ExportButton';
+import ErrorAlert from '../ErrorAlert/ErrorAlert';
 
 class DriftPage extends Component {
     constructor(props) {
@@ -19,12 +21,17 @@ class DriftPage extends Component {
     render() {
         const { systems, loading } = this.props;
 
+        if (this.props.error.detail) {
+            this.props.toggleErrorAlert();
+        }
+
         return (
             <React.Fragment>
                 <PageHeader>
                     <PageHeaderTitle title='System Comparison'/>
                 </PageHeader>
                 <Main>
+                    <ErrorAlert />
                     <Card className='pf-t-light pf-m-opaque-100'>
                         <CardBody>
                             { systems.length > 0 && !loading ?
@@ -55,15 +62,24 @@ class DriftPage extends Component {
 }
 
 DriftPage.propTypes = {
+    error: PropTypes.object,
     loading: PropTypes.bool,
-    systems: PropTypes.array
+    systems: PropTypes.array,
+    toggleErrorAlert: PropTypes.func
 };
+
+function mapDispatchToProps(dispatch) {
+    return {
+        toggleErrorAlert: () => dispatch(compareActions.toggleErrorAlert())
+    };
+}
 
 function mapStateToProps(state) {
     return {
+        error: state.compareReducer.error,
         loading: state.compareReducer.loading,
         systems: state.compareReducer.systems
     };
 }
 
-export default withRouter(connect(mapStateToProps, null)(DriftPage));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DriftPage));

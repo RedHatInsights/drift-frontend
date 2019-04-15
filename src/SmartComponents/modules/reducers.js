@@ -5,6 +5,7 @@ const initialState = {
     filteredCompareData: [],
     sortedFilteredFacts: [],
     systems: [],
+    previousStateSystems: [],
     addSystemModalOpened: false,
     selectedSystemIds: [],
     filterDropdownOpened: false,
@@ -16,11 +17,17 @@ const initialState = {
     perPage: 10,
     loading: false,
     expandedRows: [],
-    kebabOpened: false
+    kebabOpened: false,
+    error: {},
+    errorAlertOpened: false
 };
 
 function paginateData(data, selectedPage, factsPerPage) {
     let paginatedFacts = [];
+
+    if (data === null || !data.length) {
+        return [];
+    }
 
     for (let i = 0; i < data.length; i++) {
         if (Math.ceil((i + 1) / factsPerPage) === selectedPage) {
@@ -34,6 +41,10 @@ function paginateData(data, selectedPage, factsPerPage) {
 function filterCompareData(data, stateFilter, factFilter, newExpandedRows) {
     let filteredFacts = [];
     let filteredComparisons = [];
+
+    if (data === null || !data.length) {
+        return [];
+    }
 
     for (let i = 0; i < data.length; i += 1) {
         if (data[i].comparisons) {
@@ -232,16 +243,26 @@ function compareReducer(state = initialState, action) {
     let paginatedFacts;
     let systemIds;
     let newExpandedRows;
+    let errorObject = {};
+    let response;
 
     switch (action.type) {
         case types.CLEAR_STATE:
             return {
                 ...initialState
             };
+        case types.REVERT_COMPARE_DATA:
+            return {
+                ...state,
+                loading: false,
+                error: {},
+                systems: state.previousStateSystems,
+                selectedSystemIds: state.systems.map(system => system.id)
+            };
         case `${types.FETCH_COMPARE}_PENDING`:
             return {
                 ...state,
-                filteredCompareData: [],
+                previousStateSystems: state.systems,
                 systems: [],
                 loading: true
             };
@@ -259,6 +280,18 @@ function compareReducer(state = initialState, action) {
                 selectedSystemIds: action.payload.systems.map(system => system.id),
                 page: 1,
                 totalFacts: filteredFacts.length
+            };
+        case `${types.FETCH_COMPARE}_REJECTED`:
+            response = action.payload.response;
+            if (response.data.message) {
+                errorObject = { detail: response.data.message, status: response.status };
+            } else {
+                errorObject = { detail: response.data.detail, status: response.status };
+            }
+
+            return {
+                ...state,
+                error: errorObject
             };
         case types.SELECT_ENTITY:
             return {
@@ -359,6 +392,21 @@ function addSystemModalReducer(state = initialState, action) {
     }
 }
 
+function errorAlertReducer(state = initialState, action) {
+    switch (action.type) {
+        case `${types.OPEN_ERROR_MODAL}`:
+            return {
+                ...state,
+                errorAlertOpened: !state.errorAlertOpened
+            };
+
+        default:
+            return {
+                ...state
+            };
+    }
+}
+
 function filterDropdownReducer(state = initialState, action) {
     switch (action.type) {
         case `${types.OPEN_FILTER_DROPDOWN}`:
@@ -391,6 +439,7 @@ function exportReducer(state = initialState, action) {
 export default {
     compareReducer,
     addSystemModalReducer,
+    errorAlertReducer,
     filterDropdownReducer,
     exportReducer
 };
