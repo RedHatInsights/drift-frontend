@@ -41,9 +41,9 @@ function filterCompareData(data, stateFilter, factFilter, newExpandedRows) {
 
             if (filteredComparisons.length) {
                 if (newExpandedRows.includes(data[i].name)) {
-                    filteredFacts.push({ name: data[i].name, state: data[i].status, comparisons: filteredComparisons });
+                    filteredFacts.push({ name: data[i].name, state: data[i].state, comparisons: filteredComparisons });
                 } else {
-                    filteredFacts.push({ name: data[i].name, state: data[i].status, comparisons: []});
+                    filteredFacts.push({ name: data[i].name, state: data[i].state, comparisons: []});
                 }
             }
         } else {
