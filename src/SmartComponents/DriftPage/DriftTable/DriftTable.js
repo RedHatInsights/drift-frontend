@@ -191,10 +191,10 @@ class DriftTable extends Component {
         let sortIcon;
 
         if (sort === 'asc') {
-            sortIcon = <AngleUpIcon className="pointer" onClick={ () => this.props.toggleFactSort('desc') }/>;
+            sortIcon = <AngleUpIcon className="pointer active-blue" onClick={ () => this.props.toggleFactSort('desc') }/>;
         }
         else if (sort === 'desc') {
-            sortIcon = <AngleDownIcon className="pointer" onClick={ () => this.props.toggleFactSort('asc') }/>;
+            sortIcon = <AngleDownIcon className="pointer active-blue" onClick={ () => this.props.toggleFactSort('asc') }/>;
         }
 
         return sortIcon;
@@ -249,10 +249,10 @@ class DriftTable extends Component {
                 <div className="drift-table-wrapper">
                     <table className="pf-c-table ins-c-table pf-m-compact ins-entity-table drift-table">
                         <thead>
-                            <tr>
-                                <th className="fact-header sticky-column fixed-column-1">
+                            <tr className="fact-header-cell">
+                                <td className="fact-header sticky-column fixed-column-1">
                                     <div>Fact { this.renderSortButton(this.props.sort) }</div>
-                                </th>
+                                </td>
                                 <th className="state-header sticky-column fixed-column-2">
                                     <div>State</div>
                                 </th>

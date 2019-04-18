@@ -10,6 +10,9 @@
   .pointer {
     cursor: pointer;
   }
+  .active-blue {
+    color:#39A5DC;
+  }
 
   .pf-c-card__body {
     padding-left: 0;
@@ -30,9 +33,13 @@
     padding-right: 2px;
   }
 
+  .fact-header-cell {
+    td {
+      border-bottom: 3px solid #39A5DC;
+    }
+  }
   .fact-header {
     min-width: 200px;
-    font-weight: bold;
 
     div {
       margin-top: 125px;
