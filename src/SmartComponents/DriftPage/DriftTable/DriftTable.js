@@ -100,7 +100,10 @@ class DriftTable extends Component {
 
         if (fact.comparisons) {
             row.push(
-                <td className="sticky-column fixed-column-1">
+                <td className={
+                    this.props.expandedRows.includes(fact.name) ?
+                        'nested-fact stick-column fixed-column-1' :
+                        'sticky-column fixed-column-1' }>
                     { this.renderExpandableRowButton(this.props.expandedRows, fact.name) } { fact.name }
                 </td>
             );
@@ -153,7 +156,7 @@ class DriftTable extends Component {
     renderRowChild(fact, systems) {
         let row = [];
 
-        row.push(<td className="sticky-column fixed-column-1">
+        row.push(<td className="nested-fact sticky-column fixed-column-1">
             <p className="child-row">{ fact.name }</p>
         </td>);
         row.push(<td className="fact-state sticky-column fixed-column-2"><StateIcon factState={ fact.state }/></td>);
@@ -216,7 +219,7 @@ class DriftTable extends Component {
         let expandIcon;
 
         if (expandedRows.includes(factName)) {
-            expandIcon = <AngleDownIcon className="pointer" onClick={ () => this.props.expandRow(factName) } />;
+            expandIcon = <AngleDownIcon className="pointer active-blue" onClick={ () => this.props.expandRow(factName) } />;
         } else {
             expandIcon = <AngleRightIcon className="pointer" onClick={ () => this.props.expandRow(factName) } />;
         }
