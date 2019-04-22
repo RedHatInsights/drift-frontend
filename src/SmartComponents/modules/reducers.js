@@ -361,7 +361,7 @@ function compareReducer(state = initialState, action) {
             newExpandedRows = toggleExpandedRow(state.expandedRows, action.payload);
             filteredFacts = filterCompareData(state.fullCompareData, state.stateFilter, state.factFilter, newExpandedRows);
             sortedFacts = sortData(filteredFacts, state.sort);
-            paginatedFacts = paginateData(sortedFacts, 1, state.perPage);
+            paginatedFacts = paginateData(sortedFacts, state.page, state.perPage);
             return {
                 ...state,
                 expandedRows: newExpandedRows,
