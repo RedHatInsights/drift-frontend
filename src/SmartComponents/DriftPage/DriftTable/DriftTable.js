@@ -218,7 +218,7 @@ class DriftTable extends Component {
                 <EmptyState>
                     <EmptyStateIcon icon={ CubesIcon } />
                     <br></br>
-                    <Title size="lg">Add Systems to Compare</Title>
+                    <Title size="lg">Add systems to compare</Title>
                     <EmptyStateBody>
                         You currently have no systems displayed.
                         <br></br>

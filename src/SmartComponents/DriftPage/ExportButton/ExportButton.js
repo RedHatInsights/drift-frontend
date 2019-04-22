@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compareActions } from '../../modules';
-import { Dropdown, KebabToggle, DropdownItem } from '@patternfly/react-core';
+import { Dropdown, KebabToggle, DropdownItem, DropdownPosition } from '@patternfly/react-core';
 
 class ExportButton extends Component {
     constructor(props) {
@@ -11,11 +11,12 @@ class ExportButton extends Component {
 
     render() {
         const dropdownItems = [
-            <DropdownItem key="export" component="button" onClick={ this.props.exportToCSV }>Export</DropdownItem>
+            <DropdownItem key="export" component="button" onClick={ this.props.exportToCSV }>Export as CSV</DropdownItem>
         ];
         return (
             <Dropdown
                 style={ { float: 'right' } }
+                position={ DropdownPosition.right }
                 toggle={ <KebabToggle onToggle={ this.props.toggleKebab } /> }
                 isOpen={ this.props.kebabOpened }
                 dropdownItems={ dropdownItems }
