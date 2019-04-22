@@ -28,7 +28,7 @@ class AddSystemModal extends Component {
         return (
             <React.Fragment>
                 <Modal
-                    title="Add System"
+                    title="Add system"
                     isOpen={ this.props.showModal }
                     onClose={ this.cancelSelection }
                     actions={ [
