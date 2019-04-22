@@ -22,7 +22,7 @@ class TablePagination extends Component {
     }
 
     onPerPageSelect(perPage) {
-        const { page } = this.props;
+        const page = 1;
         const pagination = { page, perPage };
         this.props.updatePagination(pagination);
     }
