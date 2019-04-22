@@ -12,6 +12,7 @@ import FilterDropDown from './FilterDropDown/FilterDropDown';
 import SearchBar from './SearchBar/SearchBar';
 import ExportButton from './ExportButton/ExportButton';
 import ErrorAlert from '../ErrorAlert/ErrorAlert';
+import TablePagination from './Pagination/Pagination';
 
 class DriftPage extends Component {
     constructor(props) {
@@ -39,13 +40,14 @@ class DriftPage extends Component {
                                     <GridItem span={ 4 }>
                                         <SearchBar />
                                     </GridItem>
-                                    <GridItem span={ 2 }>
+                                    <GridItem span={ 1 }>
                                         <FilterDropDown />
-                                    </GridItem>
-                                    <GridItem span={ 5 }>
                                     </GridItem>
                                     <GridItem span={ 1 }>
                                         <ExportButton />
+                                    </GridItem>
+                                    <GridItem span={ 6 }>
+                                        <TablePagination />
                                     </GridItem>
                                 </Grid>
                                 : null

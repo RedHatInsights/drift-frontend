@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compareActions } from '../../modules';
-import { Dropdown, KebabToggle, DropdownItem, DropdownPosition } from '@patternfly/react-core';
+import { Dropdown, KebabToggle, DropdownItem } from '@patternfly/react-core';
 
 class ExportButton extends Component {
     constructor(props) {
@@ -15,8 +15,8 @@ class ExportButton extends Component {
         ];
         return (
             <Dropdown
-                style={ { float: 'right' } }
-                position={ DropdownPosition.right }
+                style={ { float: 'left' } }
+                className={ 'export-kebab' }
                 toggle={ <KebabToggle onToggle={ this.props.toggleKebab } /> }
                 isOpen={ this.props.kebabOpened }
                 dropdownItems={ dropdownItems }
