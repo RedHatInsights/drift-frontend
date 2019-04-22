@@ -8,7 +8,6 @@ import { CloseIcon, AngleDownIcon, AngleRightIcon, AngleUpIcon, CubesIcon, Serve
 import { Skeleton, SkeletonSize } from '@red-hat-insights/insights-frontend-components';
 
 import AddSystemModal from '../../AddSystemModal/AddSystemModal';
-import TablePagination from '../Pagination/Pagination';
 import './drift-table.scss';
 import { compareActions } from '../../modules';
 import StateIcon from '../../StateIcon/StateIcon';
@@ -282,7 +281,6 @@ class DriftTable extends Component {
                         </tbody>
                     </table>
                 </div>
-                <TablePagination />
             </React.Fragment>
         );
     }

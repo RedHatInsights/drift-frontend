@@ -34,7 +34,7 @@ class TablePagination extends Component {
                 perPageOptions={ perPageOptions }
                 page={ this.props.page }
                 itemsPerPage={ this.props.perPage }
-                direction={ dropDirection.up }
+                direction={ dropDirection.down }
                 onSetPage={ this.onSetPage }
                 onPerPageSelect={ this.onPerPageSelect }
             />
