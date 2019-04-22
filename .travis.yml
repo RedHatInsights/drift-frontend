@@ -6,10 +6,12 @@ node_js:
 - '10'
 install:
   - npm ci
+  - npm install -g codecov
 script:
   - npm run travis:verify
 after_success:
-- curl -sSL https://raw.githubusercontent.com/RedHatInsights/insights-frontend-builder-common/master/src/bootstrap.sh | bash -s
+  - codecov
+  - curl -sSL https://raw.githubusercontent.com/RedHatInsights/insights-frontend-builder-common/master/src/bootstrap.sh | bash -s
 env:
     global:
     - REPO="git@github.com:RedHatInsights/drift-frontend-build"
