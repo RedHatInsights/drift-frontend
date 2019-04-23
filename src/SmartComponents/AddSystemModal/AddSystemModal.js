@@ -13,6 +13,10 @@ class AddSystemModal extends Component {
         this.cancelSelection = this.cancelSelection.bind(this);
     }
 
+    async componentDidMount() {
+        await window.insights.chrome.auth.getUser();
+    }
+
     confirmModal() {
         this.props.confirmModal(this.props.selectedSystemIds);
         this.props.toggleModal();
