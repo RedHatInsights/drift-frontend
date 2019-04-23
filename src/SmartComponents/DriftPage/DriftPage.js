@@ -19,6 +19,10 @@ class DriftPage extends Component {
         super(props);
     }
 
+    async componentDidMount() {
+        await window.insights.chrome.auth.getUser();
+    }
+
     render() {
         const { systems, loading } = this.props;
 
