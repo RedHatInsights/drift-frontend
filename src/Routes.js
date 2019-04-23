@@ -1,4 +1,4 @@
-import { Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -12,7 +12,7 @@ const InsightsRoute = ({ component: Component, rootClass, ...rest }) => {
     root.classList.add(`page__${rootClass}`, 'pf-l-page__main', 'pf-c-page__main');
     root.setAttribute('role', 'main');
 
-    return (<Component { ...rest } />);
+    return (<Route { ...rest } component={ Component } />);
 };
 
 InsightsRoute.propTypes = {
