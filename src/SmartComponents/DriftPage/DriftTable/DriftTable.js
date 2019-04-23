@@ -112,6 +112,18 @@ class DriftTable extends Component {
 
             rows.push(<tr>{ row }</tr>);
 
+            fact.comparisons.sort(function(a, b) {
+                if (a.name > b.name) {
+                    return 1;
+                }
+                else if (a.name < b.name) {
+                    return -1;
+                }
+                else {
+                    return 0;
+                }
+            });
+
             for (let i = 0; i < fact.comparisons.length; i++) {
                 row = this.renderRowChild(fact.comparisons[i], systems);
                 rows.push(<tr>{ row }</tr>);
