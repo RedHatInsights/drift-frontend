@@ -1,5 +1,6 @@
 import reducers from '../reducers';
 import types from '../types';
+import { ASC } from '../../../constants';
 
 import { compareReducerPayload, compareReducerState, paginatedStatePageOne, paginatedStatePageTwo } from './reducer.fixtures';
 import { factFilteredStateOne, factFilteredStateTwo } from './reducer.fact-filter-fixtures';
@@ -13,12 +14,14 @@ describe('compare reducer', () => {
                 sortedFilteredFacts: [],
                 factFilter: '',
                 filterDropdownOpened: false,
-                sort: 'asc',
                 stateFilters: [
                     { filter: 'SAME', display: 'Same', selected: true },
                     { filter: 'DIFFERENT', display: 'Different', selected: true },
                     { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
                 ],
+                activeSort: 'fact',
+                factSort: ASC,
+                stateSort: '',
                 filteredCompareData: [],
                 systems: [],
                 previousStateSystems: [],
@@ -401,12 +404,14 @@ describe('add system modal reducer', () => {
                 sortedFilteredFacts: [],
                 factFilter: '',
                 filterDropdownOpened: false,
-                sort: 'asc',
                 stateFilters: [
                     { filter: 'SAME', display: 'Same', selected: true },
                     { filter: 'DIFFERENT', display: 'Different', selected: true },
                     { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
                 ],
+                activeSort: 'fact',
+                factSort: ASC,
+                stateSort: '',
                 filteredCompareData: [],
                 page: 1,
                 perPage: 10,
@@ -452,12 +457,14 @@ describe('filter dropdown reducer', () => {
                 sortedFilteredFacts: [],
                 factFilter: '',
                 filterDropdownOpened: false,
-                sort: 'asc',
                 stateFilters: [
                     { filter: 'SAME', display: 'Same', selected: true },
                     { filter: 'DIFFERENT', display: 'Different', selected: true },
                     { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
                 ],
+                activeSort: 'fact',
+                factSort: ASC,
+                stateSort: '',
                 filteredCompareData: [],
                 page: 1,
                 perPage: 10,
@@ -503,12 +510,14 @@ describe('export reducer', () => {
                 sortedFilteredFacts: [],
                 factFilter: '',
                 filterDropdownOpened: false,
-                sort: 'asc',
                 stateFilters: [
                     { filter: 'SAME', display: 'Same', selected: true },
                     { filter: 'DIFFERENT', display: 'Different', selected: true },
                     { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
                 ],
+                activeSort: 'fact',
+                factSort: ASC,
+                stateSort: '',
                 filteredCompareData: [],
                 page: 1,
                 perPage: 10,

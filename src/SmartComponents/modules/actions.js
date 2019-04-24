@@ -1,5 +1,6 @@
 import types from './types';
 import api from '../../api';
+import { ASC, DESC } from '../../constants';
 
 function fetchCompare(systemIds) {
     return {
@@ -46,10 +47,28 @@ function toggleFilterDropDown() {
     };
 }
 
-function toggleFactSort(sortType) {
+function toggleFactSort(currentSort) {
     return {
         type: types.TOGGLE_FACT_SORT,
-        payload: sortType
+        payload: currentSort === ASC ? DESC : ASC
+    };
+}
+
+function toggleStateSort(currentSort) {
+    let newSort;
+
+    if (currentSort === ASC) {
+        newSort = DESC;
+    }
+    else if (currentSort === DESC) {
+        newSort = '';
+    } else {
+        newSort = ASC;
+    }
+
+    return {
+        type: types.TOGGLE_STATE_SORT,
+        payload: newSort
     };
 }
 
@@ -94,6 +113,13 @@ function toggleKebab() {
     };
 }
 
+function toggleActiveSort(activeSort) {
+    return {
+        type: types.TOGGLE_ACTIVE_SORT,
+        payload: activeSort
+    };
+}
+
 export default {
     fetchCompare,
     revertCompareData,
@@ -104,9 +130,11 @@ export default {
     toggleFilterDropDown,
     toggleFactSort,
     addStateFilter,
+    toggleStateSort,
     filterByFact,
     updatePagination,
     exportToCSV,
     expandRow,
-    toggleKebab
+    toggleKebab,
+    toggleActiveSort
 };

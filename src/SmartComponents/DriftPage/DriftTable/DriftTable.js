@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { EmptyState, EmptyStateBody, EmptyStateIcon, Title, Tooltip } from '@patternfly/react-core';
 import queryString from 'query-string';
-import { AddCircleOIcon, AngleDownIcon, AngleRightIcon, AngleUpIcon,
+import { AddCircleOIcon, AngleDownIcon, AngleRightIcon, ArrowUpIcon, ArrowDownIcon, ArrowsAltVIcon,
     CloseIcon, ServerIcon, WarningTriangleIcon } from '@patternfly/react-icons';
 import { Skeleton, SkeletonSize } from '@red-hat-insights/insights-frontend-components';
 
@@ -13,6 +13,7 @@ import './drift-table.scss';
 import { compareActions } from '../../modules';
 import StateIcon from '../../StateIcon/StateIcon';
 import AddSystemButton from '../AddSystemButton/AddSystemButton';
+import { ASC, DESC } from '../../../constants';
 
 class DriftTable extends Component {
     constructor(props) {
@@ -177,7 +178,7 @@ class DriftTable extends Component {
         return row;
     }
 
-    renderHeaderRow(systems) {
+    renderSystems(systems) {
         let row = [];
 
         if (systems === undefined) {
@@ -215,17 +216,53 @@ class DriftTable extends Component {
         return row;
     }
 
-    renderSortButton(sort) {
+    renderSortButton(sortType, sort) {
         let sortIcon;
 
-        if (sort === 'asc') {
-            sortIcon = <AngleUpIcon className="pointer active-blue" onClick={ () => this.props.toggleFactSort('desc') }/>;
+        if (sort === ASC) {
+            sortIcon = <ArrowUpIcon className="pointer active-blue" onClick={ () => this.toggleSort(sortType, sort) }/>;
         }
-        else if (sort === 'desc') {
-            sortIcon = <AngleDownIcon className="pointer active-blue" onClick={ () => this.props.toggleFactSort('asc') }/>;
+        else if (sort === DESC) {
+            sortIcon = <ArrowDownIcon className="pointer active-blue" onClick={ () => this.toggleSort(sortType, sort) }/>;
+        }
+        else {
+            sortIcon = <ArrowsAltVIcon className="pointer" onClick={ () => this.toggleSort(sortType, sort) }/>;
         }
 
         return sortIcon;
+    }
+
+    toggleSort(sortType, sort) {
+        if (sortType === 'fact') {
+            this.props.toggleFactSort(sort);
+        } else {
+            this.props.toggleStateSort(sort);
+        }
+
+        this.props.toggleActiveSort(sortType);
+    }
+
+    renderHeaderRow(systems, loading) {
+        const { activeSort, stateSort } = this.props;
+
+        return (
+            <tr className="sticky-column-header">
+                <th className={ activeSort === 'fact' || stateSort === '' ?
+                    'active-sort fact-header sticky-column fixed-column-1' :
+                    'fact-header sticky-column fixed-column-1' }>
+                    <div>Fact { this.renderSortButton('fact', this.props.factSort) }</div>
+                </th>
+                <th className={ activeSort === 'state' && stateSort !== '' ?
+                    'active-sort state-header sticky-column fixed-column-2' :
+                    'state-header sticky-column fixed-column-2' }>
+                    <div>State { this.renderSortButton('state', this.props.stateSort) }</div>
+                </th>
+                { this.renderSystems(systems) }
+                <th>
+                    { loading ? <Skeleton size={ SkeletonSize.lg } /> : this.renderAddSystem() }
+                </th>
+            </tr>
+        );
     }
 
     renderExpandableRowButton(expandedRows, factName) {
@@ -277,18 +314,7 @@ class DriftTable extends Component {
                 <div className="drift-table-wrapper">
                     <table className="pf-c-table ins-c-table pf-m-compact ins-entity-table drift-table">
                         <thead>
-                            <tr className="sticky-column-header">
-                                <th className="active-sort fact-header sticky-column fixed-column-1">
-                                    <div>Fact { this.renderSortButton(this.props.sort) }</div>
-                                </th>
-                                <th className="state-header sticky-column fixed-column-2">
-                                    <div>State</div>
-                                </th>
-                                { this.renderHeaderRow(systems) }
-                                <th>
-                                    { loading ? <Skeleton size={ SkeletonSize.lg } /> : this.renderAddSystem() }
-                                </th>
-                            </tr>
+                            { this.renderHeaderRow(systems, loading) }
                         </thead>
                         <tbody>
                             { loading ? this.renderLoadingRows() : this.renderRows(compareData, systems) }
@@ -326,8 +352,10 @@ function mapStateToProps(state) {
         factFilter: state.compareReducer.factFilter,
         loading: state.compareReducer.loading,
         systems: state.compareReducer.systems,
-        sort: state.compareReducer.sort,
-        expandedRows: state.compareReducer.expandedRows
+        factSort: state.compareReducer.factSort,
+        stateSort: state.compareReducer.stateSort,
+        expandedRows: state.compareReducer.expandedRows,
+        activeSort: state.activeSortReducer.activeSort
     };
 }
 
@@ -335,6 +363,8 @@ function mapDispatchToProps(dispatch) {
     return {
         fetchCompare: ((systemIds) => dispatch(compareActions.fetchCompare(systemIds))),
         toggleFactSort: ((sortType) => dispatch(compareActions.toggleFactSort(sortType))),
+        toggleStateSort: ((sortType) => dispatch(compareActions.toggleStateSort(sortType))),
+        toggleActiveSort: ((activeSort) => dispatch(compareActions.toggleActiveSort(activeSort))),
         expandRow: ((factName) => dispatch(compareActions.expandRow(factName))),
         clearState: (() => dispatch(compareActions.clearState()))
     };
@@ -351,12 +381,16 @@ DriftTable.propTypes = {
     addSystemModalOpened: PropTypes.bool,
     stateFilter: PropTypes.string,
     factFilter: PropTypes.string,
-    sort: PropTypes.string,
+    factSort: PropTypes.string,
+    stateSort: PropTypes.string,
     loading: PropTypes.bool,
     toggleFactSort: PropTypes.func,
+    toggleStateSort: PropTypes.func,
+    toggleActiveSort: PropTypes.func,
     expandRow: PropTypes.func,
     expandRows: PropTypes.func,
-    expandedRows: PropTypes.array
+    expandedRows: PropTypes.array,
+    activeSort: PropTypes.string
 };
 
 export default withRouter (connect(mapStateToProps, mapDispatchToProps)(DriftTable));
