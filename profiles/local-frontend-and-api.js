@@ -1,7 +1,7 @@
 /*global module*/
 
 const SECTION = 'insights';
-const APP_ID = require('../package.json').insights.appname;
+const APP_ID = 'drift';
 const FRONTEND_PORT = 8002;
 const API_PORT = 8080;
 const routes = {};
