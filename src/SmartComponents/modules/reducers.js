@@ -1,4 +1,5 @@
 import types from './types';
+import { ASC, DESC } from '../../constants';
 
 const initialState = {
     fullCompareData: [],
@@ -16,13 +17,15 @@ const initialState = {
     factFilter: '',
     totalFacts: 0,
     page: 1,
-    sort: 'asc',
+    factSort: ASC,
+    stateSort: '',
     perPage: 10,
     loading: false,
     expandedRows: [],
     kebabOpened: false,
     error: {},
-    errorAlertOpened: false
+    errorAlertOpened: false,
+    activeSort: 'fact'
 };
 
 function paginateData(data, selectedPage, factsPerPage) {
@@ -114,30 +117,84 @@ function filterComparisons(comparisons, stateFilters, factFilter) {
     return filteredComparisons;
 }
 
-function sortData(filteredFacts, sort) {
-    if (sort === 'asc') {
+function sortData(filteredFacts, factSort, stateSort) {
+    if (stateSort === ASC) {
         filteredFacts.sort(function(a, b) {
-            if (a.name.toLowerCase() > b.name.toLowerCase()) {
-                return 1;
-            }
-            else if (a.name.toLowerCase() < b.name.toLowerCase()) {
+            if (a.state.toLowerCase() > b.state.toLowerCase()) {
                 return -1;
+            }
+            else if (a.state.toLowerCase() < b.state.toLowerCase()) {
+                return 1;
             }
             else {
                 return 0;
             }
         });
     }
-    else if (sort === 'desc') {
+
+    if (stateSort === DESC) {
         filteredFacts.sort(function(a, b) {
-            if (b.name.toLowerCase() > a.name.toLowerCase()) {
-                return 1;
-            }
-            else if (b.name.toLowerCase() < a.name.toLowerCase()) {
+            if (b.state.toLowerCase() > a.state.toLowerCase()) {
                 return -1;
+            }
+            else if (b.state.toLowerCase() < a.state.toLowerCase()) {
+                return 1;
             }
             else {
                 return 0;
+            }
+        });
+    }
+
+    if (factSort === ASC) {
+        filteredFacts.sort(function(a, b) {
+            if (stateSort === '') {
+                if (a.name > b.name) {
+                    return 1;
+                }
+                else if (a.name < b.name) {
+                    return -1;
+                }
+                else {
+                    return 0;
+                }
+            }
+            else {
+                if ((a.name > b.name) && (a.state === b.state)) {
+                    return 1;
+                }
+                else if ((a.name < b.name) && (a.state === b.state)) {
+                    return -1;
+                }
+                else {
+                    return 0;
+                }
+            }
+        });
+    }
+    else if (factSort === DESC) {
+        filteredFacts.sort(function(a, b) {
+            if (stateSort === '') {
+                if (b.name > a.name) {
+                    return 1;
+                }
+                else if (b.name < a.name) {
+                    return -1;
+                }
+                else {
+                    return 0;
+                }
+            }
+            else {
+                if ((b.name > a.name) && (a.state === b.state)) {
+                    return 1;
+                }
+                else if ((b.name < a.name) && (a.state === b.state)) {
+                    return -1;
+                }
+                else {
+                    return 0;
+                }
             }
         });
     }
@@ -294,7 +351,7 @@ function compareReducer(state = initialState, action) {
             };
         case `${types.FETCH_COMPARE}_FULFILLED`:
             filteredFacts = filterCompareData(action.payload.facts, state.stateFilters, state.factFilter, state.expandedRows);
-            sortedFacts = sortData(filteredFacts, state.sort);
+            sortedFacts = sortData(filteredFacts, state.factSort, state.stateSort);
             paginatedFacts = paginateData(sortedFacts, 1, state.perPage);
             return {
                 ...state,
@@ -322,7 +379,7 @@ function compareReducer(state = initialState, action) {
             };
         case `${types.UPDATE_PAGINATION}`:
             filteredFacts = filterCompareData(state.fullCompareData, state.stateFilters, state.factFilter, state.expandedRows);
-            sortedFacts = sortData(filteredFacts, state.sort);
+            sortedFacts = sortData(filteredFacts, state.factSort, state.stateSort);
             paginatedFacts = paginateData(sortedFacts, action.payload.page, action.payload.perPage);
             return {
                 ...state,
@@ -335,7 +392,7 @@ function compareReducer(state = initialState, action) {
         case `${types.ADD_STATE_FILTER}`:
             updatedStateFilters = updateStateFilters(state.stateFilters, action.payload);
             filteredFacts = filterCompareData(state.fullCompareData, updatedStateFilters, state.factFilter, state.expandedRows);
-            sortedFacts = sortData(filteredFacts, state.sort);
+            sortedFacts = sortData(filteredFacts, state.factSort, state.stateSort);
             paginatedFacts = paginateData(sortedFacts, 1, state.perPage);
             return {
                 ...state,
@@ -347,7 +404,7 @@ function compareReducer(state = initialState, action) {
             };
         case `${types.FILTER_BY_FACT}`:
             filteredFacts = filterCompareData(state.fullCompareData, state.stateFilters, action.payload, state.expandedRows);
-            sortedFacts = sortData(filteredFacts, state.sort);
+            sortedFacts = sortData(filteredFacts, state.factSort, state.stateSort);
             paginatedFacts = paginateData(sortedFacts, 1, state.perPage);
             return {
                 ...state,
@@ -359,12 +416,24 @@ function compareReducer(state = initialState, action) {
             };
         case `${types.TOGGLE_FACT_SORT}`:
             filteredFacts = filterCompareData(state.fullCompareData, state.stateFilters, state.factFilter, state.expandedRows);
-            sortedFacts = sortData(filteredFacts, action.payload);
+            sortedFacts = sortData(filteredFacts, action.payload, state.stateSort);
             paginatedFacts = paginateData(sortedFacts, 1, state.perPage);
             return {
                 ...state,
                 page: 1,
-                sort: action.payload,
+                factSort: action.payload,
+                filteredCompareData: paginatedFacts,
+                sortedFilteredFacts: sortedFacts,
+                totalFacts: filteredFacts.length
+            };
+        case `${types.TOGGLE_STATE_SORT}`:
+            filteredFacts = filterCompareData(state.fullCompareData, state.stateFilters, state.factFilter, state.expandedRows);
+            sortedFacts = sortData(filteredFacts, state.factSort, action.payload);
+            paginatedFacts = paginateData(sortedFacts, 1, state.perPage);
+            return {
+                ...state,
+                page: 1,
+                stateSort: action.payload,
                 filteredCompareData: paginatedFacts,
                 sortedFilteredFacts: sortedFacts,
                 totalFacts: filteredFacts.length
@@ -377,7 +446,7 @@ function compareReducer(state = initialState, action) {
         case `${types.EXPAND_ROW}`:
             newExpandedRows = toggleExpandedRow(state.expandedRows, action.payload);
             filteredFacts = filterCompareData(state.fullCompareData, state.stateFilters, state.factFilter, newExpandedRows);
-            sortedFacts = sortData(filteredFacts, state.sort);
+            sortedFacts = sortData(filteredFacts, state.factSort, state.stateSort);
             paginatedFacts = paginateData(sortedFacts, state.page, state.perPage);
             return {
                 ...state,
@@ -453,10 +522,25 @@ function exportReducer(state = initialState, action) {
     }
 }
 
+function activeSortReducer(state = initialState, action) {
+    switch (action.type) {
+        case `${types.TOGGLE_ACTIVE_SORT}`:
+            return {
+                ...state,
+                activeSort: action.payload
+            };
+        default:
+            return {
+                ...state
+            };
+    }
+}
+
 export default {
     compareReducer,
     addSystemModalReducer,
     errorAlertReducer,
     filterDropdownReducer,
-    exportReducer
+    exportReducer,
+    activeSortReducer
 };
