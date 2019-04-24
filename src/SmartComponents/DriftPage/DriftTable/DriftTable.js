@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { EmptyState, EmptyStateBody, EmptyStateIcon, Title } from '@patternfly/react-core';
+import { EmptyState, EmptyStateBody, EmptyStateIcon, Title, Tooltip } from '@patternfly/react-core';
 import queryString from 'query-string';
-import { CloseIcon, AngleDownIcon, AngleRightIcon, AngleUpIcon, CubesIcon, ServerIcon, AddCircleOIcon } from '@patternfly/react-icons';
+import { CloseIcon, AngleDownIcon, AngleRightIcon, AngleUpIcon, CubesIcon,
+    ServerIcon, AddCircleOIcon, WarningTriangleIcon } from '@patternfly/react-icons';
 import { Skeleton, SkeletonSize } from '@red-hat-insights/insights-frontend-components';
 
 import AddSystemModal from '../../AddSystemModal/AddSystemModal';
@@ -192,7 +193,17 @@ class DriftTable extends Component {
                         </a>
                         <ServerIcon className="cluster-icon-large"/>
                         <div className="system-name">{ systems[i].display_name }</div>
-                        <div>{ this.formatDate(systems[i].last_updated) }</div>
+                        { systems[i].system_profile_exists ?
+                            <div>{ this.formatDate(systems[i].last_updated) }</div> :
+                            <Tooltip
+                                position='top'
+                                content={
+                                    <div>System profile does not exist. Please run insights-client on system to upload archive.</div>
+                                }
+                            >
+                                <WarningTriangleIcon /> { this.formatDate(systems[i].last_updated) }
+                            </Tooltip>
+                        }
                     </div>
                 </th>
             );
