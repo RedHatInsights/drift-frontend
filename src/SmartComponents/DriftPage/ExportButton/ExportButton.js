@@ -20,6 +20,7 @@ class ExportButton extends Component {
                 toggle={ <KebabToggle onToggle={ this.props.toggleKebab } /> }
                 isOpen={ this.props.kebabOpened }
                 dropdownItems={ dropdownItems }
+                isPlain
             />
         );
     }
