@@ -32,7 +32,7 @@ class AddSystemModal extends Component {
         return (
             <React.Fragment>
                 <Modal
-                    title="Add system"
+                    title="Choose systems"
                     isOpen={ this.props.showModal }
                     onClose={ this.cancelSelection }
                     actions={ [
@@ -40,7 +40,7 @@ class AddSystemModal extends Component {
                             key="confirm"
                             variant="primary"
                             onClick={ this.confirmModal }>
-                            Compare
+                            Submit
                         </Button>
                     ] }
                 >
