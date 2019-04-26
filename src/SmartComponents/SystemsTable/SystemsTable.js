@@ -17,6 +17,11 @@ class SystemsTable extends Component {
         };
 
         this.fetchInventory();
+        this.selectedSystemIds = this.selectedSystemIds.bind(this);
+    }
+
+    selectedSystemIds() {
+        return this.props.selectedSystemIds;
     }
 
     async fetchInventory() {
@@ -30,7 +35,7 @@ class SystemsTable extends Component {
 
         this.getRegistry().register({
             ...mergeWithEntities(
-                selectedReducer(INVENTORY_ACTION_TYPES, this.props.selectedSystemIds)
+                selectedReducer(INVENTORY_ACTION_TYPES, this.selectedSystemIds)
             )
         });
 
