@@ -33,9 +33,10 @@ function toggleErrorAlert() {
     };
 }
 
-function resetSelectedSystemIds() {
+function setSelectedSystemIds(selectedSystemIds) {
     return {
-        type: types.RESET_SELECTED_SYSTEM_IDS
+        type: types.SET_SELECTED_SYSTEM_IDS,
+        payload: { selectedSystemIds }
     };
 }
 
@@ -98,7 +99,7 @@ export default {
     clearState,
     toggleAddSystemModal,
     toggleErrorAlert,
-    resetSelectedSystemIds,
+    setSelectedSystemIds,
     toggleFilterDropDown,
     toggleFactSort,
     filterByState,
