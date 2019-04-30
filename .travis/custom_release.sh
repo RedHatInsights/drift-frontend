@@ -15,28 +15,6 @@ if [ "${TRAVIS_BRANCH}" = "master" ]; then
     .travis/release.sh "ci-stable"
 fi
 
-if [[ "${TRAVIS_BRANCH}" = "qa" ]]; then
-    echo
-    echo
-    echo "PUSHING qa-beta"
-    .travis/release.sh "qa-beta"
-    rm -rf dist/.git
-
-    echo
-    echo
-    echo "PUSHING qa-stable"
-    .travis/release.sh "qa-stable"
-fi
-
-if [[ "${TRAVIS_BRANCH}" = "prod" ]]; then
-    echo
-    echo
-    echo "PUSHING prod-beta"
-    .travis/release.sh "prod-beta"
-    rm -rf dist/.git
-
-    echo
-    echo
-    echo "PUSHING prod-stable"
-    .travis/release.sh "prod-stable"
+if [[ "${TRAVIS_BRANCH}" = "ci-stable"  || "${TRAVIS_BRANCH}" = "qa-beta" || "${TRAVIS_BRANCH}" = "qa-stable" || "${TRAVIS_BRANCH}" = "prod-beta" || "${TRAVIS_BRANCH}" = "prod-stable" ]]; then
+    .travis/release.sh "${TRAVIS_BRANCH}"
 fi
