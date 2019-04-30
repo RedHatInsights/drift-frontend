@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { DRIFT_API_ROOT } from './constants';
 
-async function get(path, params = {}) {
-    const request = await axios.get(DRIFT_API_ROOT.concat(path), params);
+async function post(path, body = {}) {
+    const request = await axios.post(DRIFT_API_ROOT.concat(path), body);
     return request.data;
 }
 
@@ -12,7 +12,7 @@ function getCompare(systemIds = []) {
     }
 
     /*eslint-disable camelcase*/
-    return get('/comparison_report', { params: { system_ids: systemIds }});
+    return post('/comparison_report', { system_ids: systemIds });
     /*eslint-enable camelcase*/
 }
 
