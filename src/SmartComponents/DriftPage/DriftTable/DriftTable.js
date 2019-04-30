@@ -4,8 +4,8 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { EmptyState, EmptyStateBody, EmptyStateIcon, Title, Tooltip } from '@patternfly/react-core';
 import queryString from 'query-string';
-import { CloseIcon, AngleDownIcon, AngleRightIcon, AngleUpIcon, CubesIcon,
-    ServerIcon, AddCircleOIcon, WarningTriangleIcon } from '@patternfly/react-icons';
+import { AddCircleOIcon, AngleDownIcon, AngleRightIcon, AngleUpIcon,
+    CloseIcon, ServerIcon, WarningTriangleIcon } from '@patternfly/react-icons';
 import { Skeleton, SkeletonSize } from '@red-hat-insights/insights-frontend-components';
 
 import AddSystemModal from '../../AddSystemModal/AddSystemModal';
@@ -241,7 +241,7 @@ class DriftTable extends Component {
         return (
             <center>
                 <EmptyState>
-                    <EmptyStateIcon icon={ CubesIcon } />
+                    <EmptyStateIcon icon={ AddCircleOIcon } />
                     <br></br>
                     <Title size="lg">Add systems to compare</Title>
                     <EmptyStateBody>
