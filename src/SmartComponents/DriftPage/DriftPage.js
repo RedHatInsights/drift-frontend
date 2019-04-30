@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { Main, PageHeader, PageHeaderTitle } from '@red-hat-insights/insights-frontend-components';
-import { Card, CardBody, Grid, GridItem } from '@patternfly/react-core';
+import { Card, CardBody, Toolbar, ToolbarGroup, ToolbarItem } from '@patternfly/react-core';
 import { compareActions } from '../modules';
 
 import DriftTable from './DriftTable/DriftTable';
@@ -40,20 +40,24 @@ class DriftPage extends Component {
                     <Card className='pf-t-light pf-m-opaque-100'>
                         <CardBody>
                             { systems.length > 0 && !loading ?
-                                <Grid className='drift-toolbar'>
-                                    <GridItem span={ 4 }>
-                                        <SearchBar />
-                                    </GridItem>
-                                    <GridItem span={ 1 }>
-                                        <FilterDropDown />
-                                    </GridItem>
-                                    <GridItem span={ 1 }>
-                                        <ExportButton />
-                                    </GridItem>
-                                    <GridItem span={ 6 }>
-                                        <TablePagination />
-                                    </GridItem>
-                                </Grid>
+                                <Toolbar className="drift-toolbar">
+                                    <ToolbarGroup>
+                                        <ToolbarItem>
+                                            <SearchBar />
+                                        </ToolbarItem>
+                                        <ToolbarItem>
+                                            <FilterDropDown />
+                                        </ToolbarItem>
+                                        <ToolbarItem>
+                                            <ExportButton />
+                                        </ToolbarItem>
+                                    </ToolbarGroup>
+                                    <ToolbarGroup className="pf-c-pagination">
+                                        <ToolbarItem>
+                                            <TablePagination />
+                                        </ToolbarItem>
+                                    </ToolbarGroup>
+                                </Toolbar>
                                 : null
                             }
                             <div>
