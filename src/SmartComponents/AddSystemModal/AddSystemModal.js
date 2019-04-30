@@ -18,13 +18,28 @@ class AddSystemModal extends Component {
     }
 
     confirmModal() {
-        this.props.confirmModal(this.props.selectedSystemIds);
+        let selected = this.props.entities.rows.filter(function (item) {
+            return item.selected;
+        });
+
+        selected = selected.map(function (item) {
+            return item.id;
+        });
+
+        this.props.confirmModal(selected);
         this.props.toggleModal();
     }
 
     cancelSelection() {
-        this.props.resetSelectedSystemIds();
         this.props.toggleModal();
+    }
+
+    selectedSystemIds() {
+        let ids = this.props.systems.map(function (system) {
+            return system.id;
+        });
+
+        return ids ? ids : [];
     }
 
     render() {
@@ -44,7 +59,7 @@ class AddSystemModal extends Component {
                         </Button>
                     ] }
                 >
-                    <SystemsTable selectedSystemIds={ this.props.selectedSystemIds }/>
+                    <SystemsTable selectedSystemIds={ this.selectedSystemIds() }/>
                 </Modal>
             </React.Fragment>
         );
@@ -52,24 +67,26 @@ class AddSystemModal extends Component {
 }
 
 AddSystemModal.propTypes = {
-    selectedSystemIds: PropTypes.array,
     showModal: PropTypes.bool,
     confirmModal: PropTypes.func,
-    resetSelectedSystemIds: PropTypes.func,
+    setSelectedSystemIds: PropTypes.func,
     cancelSelection: PropTypes.func,
-    toggleModal: PropTypes.func
+    toggleModal: PropTypes.func,
+    entities: PropTypes.object,
+    systems: PropTypes.array
 };
 
 function mapStateToProps(state) {
     return {
-        selectedSystemIds: state.compareReducer.selectedSystemIds
+        systems: state.compareReducer.systems,
+        entities: state.entities
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
         toggleModal: () => dispatch(compareActions.toggleAddSystemModal()),
-        resetSelectedSystemIds: () => dispatch(compareActions.resetSelectedSystemIds())
+        setSelectedSystemIds: () => dispatch(compareActions.setSelectedSystemIds())
     };
 }
 

@@ -7,7 +7,6 @@ const initialState = {
     systems: [],
     previousStateSystems: [],
     addSystemModalOpened: false,
-    selectedSystemIds: [],
     filterDropdownOpened: false,
     stateFilter: 'all',
     factFilter: '',
@@ -120,18 +119,6 @@ function sortData(filteredFacts, sort) {
     return filteredFacts;
 }
 
-function selectedSystems(selectedIds, selectedSystem) {
-    let id = selectedSystem.id;
-
-    if (selectedSystem.selected && !selectedIds.includes(id) && id !== 0 && id !== null) {
-        selectedIds.push(id);
-    } else if (!selectedSystem.selected) {
-        selectedIds = selectedIds.filter(item => item !== id);
-    }
-
-    return selectedIds;
-}
-
 function convertFactsToCSV(data, systems) {
     if (data === null || !data.length) {
         return null;
@@ -241,7 +228,6 @@ function compareReducer(state = initialState, action) {
     let filteredFacts;
     let sortedFacts;
     let paginatedFacts;
-    let systemIds;
     let newExpandedRows;
     let errorObject = {};
     let response;
@@ -256,8 +242,7 @@ function compareReducer(state = initialState, action) {
                 ...state,
                 loading: false,
                 error: {},
-                systems: state.previousStateSystems,
-                selectedSystemIds: state.systems.map(system => system.id)
+                systems: state.previousStateSystems
             };
         case `${types.FETCH_COMPARE}_PENDING`:
             return {
@@ -277,7 +262,6 @@ function compareReducer(state = initialState, action) {
                 filteredCompareData: paginatedFacts,
                 sortedFilteredFacts: sortedFacts,
                 systems: action.payload.systems,
-                selectedSystemIds: action.payload.systems.map(system => system.id),
                 page: 1,
                 totalFacts: filteredFacts.length
             };
@@ -292,11 +276,6 @@ function compareReducer(state = initialState, action) {
             return {
                 ...state,
                 error: errorObject
-            };
-        case types.SELECT_ENTITY:
-            return {
-                ...state,
-                selectedSystemIds: selectedSystems([ ...state.selectedSystemIds ], action.payload)
             };
         case `${types.UPDATE_PAGINATION}`:
             filteredFacts = filterCompareData(state.fullCompareData, state.stateFilter, state.factFilter, state.expandedRows);
@@ -350,12 +329,6 @@ function compareReducer(state = initialState, action) {
             downloadCSV(state.sortedFilteredFacts, state.systems);
             return {
                 ...state
-            };
-        case `${types.RESET_SELECTED_SYSTEM_IDS}`:
-            systemIds = state.systems.map(system => system.id);
-            return {
-                ...state,
-                selectedSystemIds: systemIds
             };
         case `${types.EXPAND_ROW}`:
             newExpandedRows = toggleExpandedRow(state.expandedRows, action.payload);

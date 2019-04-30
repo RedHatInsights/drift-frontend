@@ -5,8 +5,10 @@ import * as reactCore from '@patternfly/react-core';
 import * as reactIcons from '@patternfly/react-icons';
 import { PaginationRow } from 'patternfly-react';
 import { registry as registryDecorator } from '@red-hat-insights/insights-frontend-components';
+import { connect } from 'react-redux';
 
 import selectedReducer from './reducers';
+import { compareActions } from '../modules';
 
 @registryDecorator()
 class SystemsTable extends Component {
@@ -35,24 +37,33 @@ class SystemsTable extends Component {
 
         this.getRegistry().register({
             ...mergeWithEntities(
-                selectedReducer(INVENTORY_ACTION_TYPES, this.selectedSystemIds)
+                selectedReducer(INVENTORY_ACTION_TYPES)
             )
         });
 
         this.setState({
             InventoryCmp: inventoryConnector().InventoryTable
         });
+
+        this.props.setSelectedSystemIds(this.selectedSystemIds());
     }
 
     render() {
         const { InventoryCmp } = this.state;
         return (
-            <InventoryCmp />
+            <InventoryCmp/>
         );
     }
 }
 
+function mapDispatchToProps(dispatch) {
+    return {
+        setSelectedSystemIds: (systemIds) => dispatch(compareActions.setSelectedSystemIds(systemIds))
+    };
+}
+
 SystemsTable.propTypes = {
+    setSelectedSystemIds: PropTypes.func,
     selectedSystemIds: PropTypes.array
 };
 
@@ -60,4 +71,4 @@ SystemsTable.defaultProps = {
     selectedSystemIds: []
 };
 
-export default SystemsTable;
+export default connect(null, mapDispatchToProps)(SystemsTable);
