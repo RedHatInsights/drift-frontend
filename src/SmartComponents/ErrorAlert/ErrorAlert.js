@@ -16,7 +16,6 @@ class ErrorAlert extends Component {
 
     confirmModal(compareData) {
         this.props.toggleModal();
-        this.props.resetSelectedSystemIds();
         this.props.revertCompareData(compareData);
         this.setHistory();
     }
@@ -57,7 +56,6 @@ class ErrorAlert extends Component {
 
 ErrorAlert.propTypes = {
     confirmModal: PropTypes.func,
-    resetSelectedSystemIds: PropTypes.func,
     errorAlertOpened: PropTypes.bool,
     error: PropTypes.object,
     status: PropTypes.number,
@@ -82,7 +80,6 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         toggleModal: () => dispatch(compareActions.toggleErrorAlert()),
-        resetSelectedSystemIds: () => dispatch(compareActions.resetSelectedSystemIds()),
         revertCompareData: (compareData) => dispatch(compareActions.revertCompareData(compareData))
     };
 }
