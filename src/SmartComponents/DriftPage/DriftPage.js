@@ -64,6 +64,16 @@ class DriftPage extends Component {
                                 <DriftTable />
                             </div>
                         </CardBody>
+                        { systems.length > 0 && !loading ?
+                            <Toolbar className="drift-toolbar">
+                                <ToolbarGroup className="pf-c-pagination">
+                                    <ToolbarItem>
+                                        <TablePagination />
+                                    </ToolbarItem>
+                                </ToolbarGroup>
+                            </Toolbar>
+                            : null
+                        }
                     </Card>
                 </Main>
             </React.Fragment>
