@@ -267,7 +267,9 @@ function compareReducer(state = initialState, action) {
             };
         case `${types.FETCH_COMPARE}_REJECTED`:
             response = action.payload.response;
-            if (response.data.message) {
+            if (response.data === '') {
+                errorObject = { detail: response.statusText, status: response.status };
+            } else if (response.data.message) {
                 errorObject = { detail: response.data.message, status: response.status };
             } else {
                 errorObject = { detail: response.data.detail, status: response.status };
