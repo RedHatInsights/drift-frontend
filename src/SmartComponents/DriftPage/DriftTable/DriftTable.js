@@ -201,7 +201,7 @@ class DriftTable extends Component {
                                     <div>System profile does not exist. Please run insights-client on system to upload archive.</div>
                                 }
                             >
-                                <WarningTriangleIcon /> { this.formatDate(systems[i].last_updated) }
+                                <WarningTriangleIcon color="#f0ab00"/> { this.formatDate(systems[i].last_updated) }
                             </Tooltip>
                         }
                     </div>
