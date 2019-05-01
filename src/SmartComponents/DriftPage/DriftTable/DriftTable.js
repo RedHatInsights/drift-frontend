@@ -193,17 +193,20 @@ class DriftTable extends Component {
                         </a>
                         <ServerIcon className="cluster-icon-large"/>
                         <div className="system-name">{ systems[i].display_name }</div>
-                        { systems[i].system_profile_exists ?
-                            <div>{ this.formatDate(systems[i].last_updated) }</div> :
-                            <Tooltip
-                                position='top'
-                                content={
-                                    <div>System profile does not exist. Please run insights-client on system to upload archive.</div>
-                                }
-                            >
-                                <WarningTriangleIcon color="#f0ab00"/> { this.formatDate(systems[i].last_updated) }
-                            </Tooltip>
-                        }
+                        <div className="system-updated">
+                            { systems[i].system_profile_exists ?
+                                '' :
+                                <Tooltip
+                                    position='top'
+                                    content={
+                                        <div>System profile does not exist. Please run insights-client on system to upload archive.</div>
+                                    }
+                                >
+                                    <WarningTriangleIcon color="#f0ab00"/>
+                                </Tooltip>
+                            }
+                            { this.formatDate(systems[i].last_updated) }
+                        </div>
                     </div>
                 </th>
             );
