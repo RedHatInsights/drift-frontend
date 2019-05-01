@@ -33,6 +33,11 @@
     padding-right: 2px;
   }
 
+  td {
+    word-wrap: break-word;
+    white-space: pre-wrap;
+  }
+
   .fact-header-cell {
     td {
       border-bottom: 3px solid #39A5DC;
@@ -40,6 +45,7 @@
   }
   .fact-header {
     min-width: 200px;
+    width: 100%;
 
     div {
       margin-top: 125px;
@@ -69,19 +75,29 @@
     padding-top: 30px;
     text-align: center;
     position: relative;
+    height: 170px;
   }
 
   .add-system-header {
     background-color: #F5F5F5;
     padding: 20px 20px;
     text-align: center;
+    height: 170px;
   }
 
   .system-name {
     font-weight: bold;
     font-size: 1.1em;
     margin-top: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+  }
+
+  .system-updated {
+    svg {
+      margin-right: 5px;
+    }
   }
 
   .cluster-icon-large {
@@ -129,7 +145,7 @@
   .add-system-icon {
     font-size: 3em;
     color: grey;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
 
   .pf-c-modal-box__body {
