@@ -126,6 +126,30 @@ describe('compare reducer', () => {
             totalFacts: 3
         });
     });
+
+    it('should handle FETCH_COMPARE_PENDING', () => {
+        expect(
+            reducers.compareReducer({ systems: [], loading: false }, {
+                type: `${types.FETCH_COMPARE}_PENDING`
+            })
+        ).toEqual({
+            previousStateSystems: [],
+            systems: [],
+            loading: true
+        });
+    });
+
+    it('should handle FETCH_COMPARE_PENDING with previous systems', () => {
+        expect(
+            reducers.compareReducer({ systems: compareReducerPayload.systems, loading: false }, {
+                type: `${types.FETCH_COMPARE}_PENDING`
+            })
+        ).toEqual({
+            previousStateSystems: compareReducerState.systems,
+            systems: [],
+            loading: true
+        });
+    });
 });
 
 describe('add system modal reducer', () => {
