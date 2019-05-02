@@ -116,10 +116,10 @@ class DriftTable extends Component {
             rows.push(<tr>{ row }</tr>);
 
             fact.comparisons.sort(function(a, b) {
-                if (a.name > b.name) {
+                if (a.name.toLowerCase() > b.name.toLowerCase()) {
                     return 1;
                 }
-                else if (a.name < b.name) {
+                else if (a.name.toLowerCase() < b.name.toLowerCase()) {
                     return -1;
                 }
                 else {

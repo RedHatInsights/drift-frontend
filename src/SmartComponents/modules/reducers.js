@@ -101,10 +101,10 @@ function filterComparisons(comparisons, stateFilter, factFilter) {
 function sortData(filteredFacts, sort) {
     if (sort === 'asc') {
         filteredFacts.sort(function(a, b) {
-            if (a.name > b.name) {
+            if (a.name.toLowerCase() > b.name.toLowerCase()) {
                 return 1;
             }
-            else if (a.name < b.name) {
+            else if (a.name.toLowerCase() < b.name.toLowerCase()) {
                 return -1;
             }
             else {
@@ -114,10 +114,10 @@ function sortData(filteredFacts, sort) {
     }
     else if (sort === 'desc') {
         filteredFacts.sort(function(a, b) {
-            if (b.name > a.name) {
+            if (b.name.toLowerCase() > a.name.toLowerCase()) {
                 return 1;
             }
-            else if (b.name < a.name) {
+            else if (b.name.toLowerCase() < a.name.toLowerCase()) {
                 return -1;
             }
             else {
