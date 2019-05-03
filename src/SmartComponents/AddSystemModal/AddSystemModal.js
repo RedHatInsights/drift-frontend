@@ -18,15 +18,7 @@ class AddSystemModal extends Component {
     }
 
     confirmModal() {
-        let selected = this.props.entities.rows.filter(function (item) {
-            return item.selected;
-        });
-
-        selected = selected.map(function (item) {
-            return item.id;
-        });
-
-        this.props.confirmModal(selected);
+        this.props.confirmModal(this.props.entities.selectedSystemIds);
         this.props.toggleModal();
     }
 
