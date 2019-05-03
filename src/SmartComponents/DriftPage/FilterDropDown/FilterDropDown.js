@@ -44,7 +44,9 @@ class FilterDropDown extends Component {
                 <Dropdown
                     onSelect={ this.onToggle }
                     toggle={ <DropdownToggle onToggle={ this.onToggle }>
-                        View: { this.props.stateFilter.charAt(0).toUpperCase() + this.props.stateFilter.slice(1).toLowerCase() }
+                        View: {
+                            (this.props.stateFilter.charAt(0).toUpperCase() + this.props.stateFilter.slice(1).toLowerCase()).replace(/_/g, ' ')
+                        }
                     </DropdownToggle> }
                     isOpen={ this.props.filterDropdownOpened }
                     dropdownItems={ dropdownItems }
