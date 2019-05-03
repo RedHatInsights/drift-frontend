@@ -277,10 +277,10 @@ class DriftTable extends Component {
                 <div className="drift-table-wrapper">
                     <table className="pf-c-table ins-c-table pf-m-compact ins-entity-table drift-table">
                         <thead>
-                            <tr className="fact-header-cell">
-                                <td className="fact-header sticky-column fixed-column-1">
+                            <tr className="sticky-column-header">
+                                <th className="active-sort fact-header sticky-column fixed-column-1">
                                     <div>Fact { this.renderSortButton(this.props.sort) }</div>
-                                </td>
+                                </th>
                                 <th className="state-header sticky-column fixed-column-2">
                                     <div>State</div>
                                 </th>
