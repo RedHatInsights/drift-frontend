@@ -309,7 +309,7 @@ class DriftTable extends Component {
                     showModal={ this.props.addSystemModalOpened }
                     confirmModal={ this.fetchCompare }
                 />
-                { systems.length > 0 || loading || this.systemIds.length !== 0 ?
+                { systems.length > 0 || loading || this.props.fullCompareData.length !== 0 ?
                     this.renderTable(filteredCompareData, systems, loading) : this.renderEmptyState()
                 }
             </React.Fragment>
