@@ -102,7 +102,7 @@ class DriftTable extends Component {
             row.push(
                 <td className={
                     this.props.expandedRows.includes(fact.name) ?
-                        'nested-fact stick-column fixed-column-1' :
+                        'nested-fact sticky-column fixed-column-1' :
                         'sticky-column fixed-column-1' }>
                     { this.renderExpandableRowButton(this.props.expandedRows, fact.name) } { fact.name }
                 </td>
