@@ -17,6 +17,7 @@ export class SearchBar extends Component {
                     placeholder="Filter by Fact"
                     value={ this.props.factFilter }
                     onChange={ this.props.changeFactFilter }
+                    aria-label="filter by fact"
                 />
             </React.Fragment>
         );

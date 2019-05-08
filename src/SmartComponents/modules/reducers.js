@@ -8,7 +8,11 @@ const initialState = {
     previousStateSystems: [],
     addSystemModalOpened: false,
     filterDropdownOpened: false,
-    stateFilter: 'all',
+    stateFilters: [
+        { filter: 'SAME', display: 'Same', selected: true },
+        { filter: 'DIFFERENT', display: 'Different', selected: true },
+        { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
+    ],
     factFilter: '',
     totalFacts: 0,
     page: 1,
@@ -37,18 +41,33 @@ function paginateData(data, selectedPage, factsPerPage) {
     return paginatedFacts;
 }
 
-function filterCompareData(data, stateFilter, factFilter, newExpandedRows) {
+function getStateSelected(state, stateFilters) {
+    let isStateSelected;
+
+    isStateSelected = stateFilters.find(function(stateFilter) {
+        if (stateFilter.filter === state) {
+            return stateFilter.selected;
+        }
+    });
+
+    return isStateSelected;
+}
+
+function filterCompareData(data, stateFilters, factFilter, newExpandedRows) {
     let filteredFacts = [];
     let filteredComparisons = [];
+    let isStateSelected;
 
     if (data === null || !data.length) {
         return [];
     }
 
     for (let i = 0; i < data.length; i += 1) {
+        isStateSelected = getStateSelected(data[i].state, stateFilters);
+
         if (data[i].comparisons) {
-            if (data[i].name === factFilter && (data[i].state === stateFilter || stateFilter.toLowerCase() === 'all')) {
-                if (newExpandedRows.includes(data[i].name)) {
+            if (data[i].name === factFilter) {
+                if (newExpandedRows.includes(data[i].name) && isStateSelected) {
                     filteredFacts.push({ name: data[i].name, state: data[i].state, comparisons: data[i].comparisons });
                 } else {
                     filteredFacts.push({ name: data[i].name, state: data[i].state, comparisons: []});
@@ -57,7 +76,7 @@ function filterCompareData(data, stateFilter, factFilter, newExpandedRows) {
                 break;
             }
 
-            filteredComparisons = filterComparisons(data[i].comparisons, stateFilter, factFilter);
+            filteredComparisons = filterComparisons(data[i].comparisons, stateFilters, factFilter);
 
             if (filteredComparisons.length) {
                 if (newExpandedRows.includes(data[i].name)) {
@@ -68,10 +87,7 @@ function filterCompareData(data, stateFilter, factFilter, newExpandedRows) {
             }
         } else {
             if (data[i].name.includes(factFilter)) {
-                if (stateFilter.toLowerCase() === 'all' || stateFilter === undefined) {
-                    filteredFacts.push(data[i]);
-                }
-                else if (stateFilter === data[i].state) {
+                if (isStateSelected) {
                     filteredFacts.push(data[i]);
                 }
             }
@@ -81,15 +97,15 @@ function filterCompareData(data, stateFilter, factFilter, newExpandedRows) {
     return filteredFacts;
 }
 
-function filterComparisons(comparisons, stateFilter, factFilter) {
+function filterComparisons(comparisons, stateFilters, factFilter) {
     let filteredComparisons = [];
+    let isStateSelected;
 
     for (let i = 0; i < comparisons.length; i++) {
+        isStateSelected = getStateSelected(comparisons[i].state, stateFilters);
+
         if (comparisons[i].name.includes(factFilter)) {
-            if (stateFilter.toLowerCase() === 'all' || stateFilter === undefined) {
-                filteredComparisons.push(comparisons[i]);
-            }
-            else if (stateFilter === comparisons[i].state) {
+            if (isStateSelected) {
                 filteredComparisons.push(comparisons[i]);
             }
         }
@@ -234,6 +250,20 @@ function toggleExpandedRow(expandedRows, factName) {
     return expandedRows;
 }
 
+function updateStateFilters(stateFilters, updatedStateFilter) {
+    let newStateFilters = [];
+
+    stateFilters.forEach(function (stateFilter) {
+        if (stateFilter.filter === updatedStateFilter.filter) {
+            newStateFilters.push(updatedStateFilter);
+        } else {
+            newStateFilters.push(stateFilter);
+        }
+    });
+
+    return newStateFilters;
+}
+
 function compareReducer(state = initialState, action) {
     let filteredFacts;
     let sortedFacts;
@@ -241,6 +271,7 @@ function compareReducer(state = initialState, action) {
     let newExpandedRows;
     let errorObject = {};
     let response;
+    let updatedStateFilters = [];
 
     switch (action.type) {
         case types.CLEAR_STATE:
@@ -262,7 +293,7 @@ function compareReducer(state = initialState, action) {
                 loading: true
             };
         case `${types.FETCH_COMPARE}_FULFILLED`:
-            filteredFacts = filterCompareData(action.payload.facts, state.stateFilter, state.factFilter, state.expandedRows);
+            filteredFacts = filterCompareData(action.payload.facts, state.stateFilters, state.factFilter, state.expandedRows);
             sortedFacts = sortData(filteredFacts, state.sort);
             paginatedFacts = paginateData(sortedFacts, 1, state.perPage);
             return {
@@ -290,7 +321,7 @@ function compareReducer(state = initialState, action) {
                 error: errorObject
             };
         case `${types.UPDATE_PAGINATION}`:
-            filteredFacts = filterCompareData(state.fullCompareData, state.stateFilter, state.factFilter, state.expandedRows);
+            filteredFacts = filterCompareData(state.fullCompareData, state.stateFilters, state.factFilter, state.expandedRows);
             sortedFacts = sortData(filteredFacts, state.sort);
             paginatedFacts = paginateData(sortedFacts, action.payload.page, action.payload.perPage);
             return {
@@ -301,20 +332,21 @@ function compareReducer(state = initialState, action) {
                 sortedFilteredFacts: sortedFacts,
                 totalFacts: filteredFacts.length
             };
-        case `${types.FILTER_BY_STATE}`:
-            filteredFacts = filterCompareData(state.fullCompareData, action.payload, state.factFilter, state.expandedRows);
+        case `${types.ADD_STATE_FILTER}`:
+            updatedStateFilters = updateStateFilters(state.stateFilters, action.payload);
+            filteredFacts = filterCompareData(state.fullCompareData, updatedStateFilters, state.factFilter, state.expandedRows);
             sortedFacts = sortData(filteredFacts, state.sort);
             paginatedFacts = paginateData(sortedFacts, 1, state.perPage);
             return {
                 ...state,
-                stateFilter: action.payload,
+                stateFilters: updatedStateFilters,
                 page: 1,
                 filteredCompareData: paginatedFacts,
                 sortedFilteredFacts: sortedFacts,
                 totalFacts: filteredFacts.length
             };
         case `${types.FILTER_BY_FACT}`:
-            filteredFacts = filterCompareData(state.fullCompareData, state.stateFilter, action.payload, state.expandedRows);
+            filteredFacts = filterCompareData(state.fullCompareData, state.stateFilters, action.payload, state.expandedRows);
             sortedFacts = sortData(filteredFacts, state.sort);
             paginatedFacts = paginateData(sortedFacts, 1, state.perPage);
             return {
@@ -326,7 +358,7 @@ function compareReducer(state = initialState, action) {
                 totalFacts: filteredFacts.length
             };
         case `${types.TOGGLE_FACT_SORT}`:
-            filteredFacts = filterCompareData(state.fullCompareData, state.stateFilter, state.factFilter, state.expandedRows);
+            filteredFacts = filterCompareData(state.fullCompareData, state.stateFilters, state.factFilter, state.expandedRows);
             sortedFacts = sortData(filteredFacts, action.payload);
             paginatedFacts = paginateData(sortedFacts, 1, state.perPage);
             return {
@@ -344,7 +376,7 @@ function compareReducer(state = initialState, action) {
             };
         case `${types.EXPAND_ROW}`:
             newExpandedRows = toggleExpandedRow(state.expandedRows, action.payload);
-            filteredFacts = filterCompareData(state.fullCompareData, state.stateFilter, state.factFilter, newExpandedRows);
+            filteredFacts = filterCompareData(state.fullCompareData, state.stateFilters, state.factFilter, newExpandedRows);
             sortedFacts = sortData(filteredFacts, state.sort);
             paginatedFacts = paginateData(sortedFacts, state.page, state.perPage);
             return {
