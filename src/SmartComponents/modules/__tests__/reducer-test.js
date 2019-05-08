@@ -2,6 +2,7 @@ import reducers from '../reducers';
 import types from '../types';
 
 import { compareReducerPayload, compareReducerState, paginatedStatePageOne, paginatedStatePageTwo } from './reducer.fixtures';
+import { factFilteredStateOne, factFilteredStateTwo } from './reducer.fact-filter-fixtures';
 
 describe('compare reducer', () => {
     it('should return initial state', () => {
@@ -148,6 +149,136 @@ describe('compare reducer', () => {
             previousStateSystems: compareReducerState.systems,
             systems: [],
             loading: true
+        });
+    });
+
+    it('should handle FILTER_BY_FACT with text: i', () => {
+        expect(
+            reducers.compareReducer({
+                page: 1,
+                perPage: 10,
+                fullCompareData: compareReducerPayload.facts,
+                systems: compareReducerPayload.systems,
+                factFilter: '',
+                stateFilter: 'all' },
+            {
+                payload: 'i',
+                type: `${types.FILTER_BY_FACT}`
+            })
+        ).toEqual({
+            fullCompareData: compareReducerState.facts,
+            factFilter: 'i',
+            filteredCompareData: factFilteredStateOne.facts,
+            sortedFilteredFacts: factFilteredStateOne.facts,
+            systems: factFilteredStateOne.systems,
+            page: 1,
+            perPage: 10,
+            stateFilter: 'all',
+            totalFacts: 2
+        });
+    });
+
+    it('should handle FILTER_BY_FACT with text: io', () => {
+        expect(
+            reducers.compareReducer({
+                page: 1,
+                perPage: 10,
+                fullCompareData: compareReducerPayload.facts,
+                systems: compareReducerPayload.systems,
+                factFilter: 'i',
+                stateFilter: 'all' },
+            {
+                payload: 'io',
+                type: `${types.FILTER_BY_FACT}`
+            })
+        ).toEqual({
+            fullCompareData: compareReducerState.facts,
+            factFilter: 'io',
+            filteredCompareData: factFilteredStateTwo.facts,
+            sortedFilteredFacts: factFilteredStateTwo.facts,
+            systems: factFilteredStateTwo.systems,
+            page: 1,
+            perPage: 10,
+            stateFilter: 'all',
+            totalFacts: 1
+        });
+    });
+
+    it('should handle FILTER_BY_FACT with text: iou', () => {
+        expect(
+            reducers.compareReducer({
+                page: 1,
+                perPage: 10,
+                fullCompareData: compareReducerPayload.facts,
+                systems: compareReducerPayload.systems,
+                factFilter: 'io',
+                stateFilter: 'all' },
+            {
+                payload: 'iou',
+                type: `${types.FILTER_BY_FACT}`
+            })
+        ).toEqual({
+            fullCompareData: compareReducerState.facts,
+            factFilter: 'iou',
+            filteredCompareData: [],
+            sortedFilteredFacts: [],
+            systems: compareReducerState.systems,
+            page: 1,
+            perPage: 10,
+            stateFilter: 'all',
+            totalFacts: 0
+        });
+    });
+
+    it('should handle FILTER_BY_FACT with text: io and state: SAME', () => {
+        expect(
+            reducers.compareReducer({
+                page: 1,
+                perPage: 10,
+                fullCompareData: compareReducerPayload.facts,
+                systems: compareReducerPayload.systems,
+                factFilter: '',
+                stateFilter: 'SAME' },
+            {
+                payload: 'io',
+                type: `${types.FILTER_BY_FACT}`
+            })
+        ).toEqual({
+            fullCompareData: compareReducerState.facts,
+            factFilter: 'io',
+            filteredCompareData: factFilteredStateTwo.facts,
+            sortedFilteredFacts: factFilteredStateTwo.facts,
+            systems: factFilteredStateTwo.systems,
+            page: 1,
+            perPage: 10,
+            stateFilter: 'SAME',
+            totalFacts: 1
+        });
+    });
+
+    it('should handle FILTER_BY_FACT with text: io and state: DIFFERENT', () => {
+        expect(
+            reducers.compareReducer({
+                page: 1,
+                perPage: 10,
+                fullCompareData: compareReducerPayload.facts,
+                systems: compareReducerPayload.systems,
+                factFilter: '',
+                stateFilter: 'DIFFERENT' },
+            {
+                payload: 'io',
+                type: `${types.FILTER_BY_FACT}`
+            })
+        ).toEqual({
+            fullCompareData: compareReducerState.facts,
+            factFilter: 'io',
+            filteredCompareData: [],
+            sortedFilteredFacts: [],
+            systems: compareReducerState.systems,
+            page: 1,
+            perPage: 10,
+            stateFilter: 'DIFFERENT',
+            totalFacts: 0
         });
     });
 });
