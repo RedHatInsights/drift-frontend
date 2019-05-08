@@ -330,6 +330,53 @@ describe('add system modal reducer', () => {
     });
 });
 
+describe('filter dropdown reducer', () => {
+    it('should return initial state', () => {
+        expect(reducers.addSystemModalReducer(undefined, {})).toEqual(
+            {
+                fullCompareData: [],
+                systems: [],
+                previousStateSystems: [],
+                addSystemModalOpened: false,
+                sortedFilteredFacts: [],
+                factFilter: '',
+                filterDropdownOpened: false,
+                sort: 'asc',
+                stateFilter: 'all',
+                filteredCompareData: [],
+                page: 1,
+                perPage: 10,
+                totalFacts: 0,
+                loading: false,
+                expandedRows: [],
+                kebabOpened: false,
+                errorAlertOpened: false,
+                error: {}
+            }
+        );
+    });
+
+    it('should handle OPEN_FILTER_DROPDOWN true', () => {
+        expect(
+            reducers.filterDropdownReducer({ filterDropdownOpened: false }, {
+                type: `${types.OPEN_FILTER_DROPDOWN}`
+            })
+        ).toEqual({
+            filterDropdownOpened: true
+        });
+    });
+
+    it('should handle OPEN_FILTER_DROPDOWN false', () => {
+        expect(
+            reducers.filterDropdownReducer({ filterDropdownOpened: true }, {
+                type: `${types.OPEN_FILTER_DROPDOWN}`
+            })
+        ).toEqual({
+            filterDropdownOpened: false
+        });
+    });
+});
+
 describe('export reducer', () => {
     it('should return initial state', () => {
         expect(reducers.exportReducer(undefined, {})).toEqual(
