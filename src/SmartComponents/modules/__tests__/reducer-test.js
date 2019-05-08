@@ -14,7 +14,11 @@ describe('compare reducer', () => {
                 factFilter: '',
                 filterDropdownOpened: false,
                 sort: 'asc',
-                stateFilter: 'all',
+                stateFilters: [
+                    { filter: 'SAME', display: 'Same', selected: true },
+                    { filter: 'DIFFERENT', display: 'Different', selected: true },
+                    { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
+                ],
                 filteredCompareData: [],
                 systems: [],
                 previousStateSystems: [],
@@ -32,7 +36,16 @@ describe('compare reducer', () => {
 
     it('should handle FETCH_COMPARE_FULFILLED', () => {
         expect(
-            reducers.compareReducer({ perPage: 10, page: 1, stateFilter: 'all', factFilter: '' }, {
+            reducers.compareReducer({
+                perPage: 10,
+                page: 1,
+                stateFilters: [
+                    { filter: 'SAME', display: 'Same', selected: true },
+                    { filter: 'DIFFERENT', display: 'Different', selected: true },
+                    { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
+                ],
+                factFilter: '' },
+            {
                 payload: compareReducerPayload,
                 type: `${types.FETCH_COMPARE}_FULFILLED`
             })
@@ -45,7 +58,11 @@ describe('compare reducer', () => {
             systems: compareReducerState.systems,
             page: 1,
             perPage: 10,
-            stateFilter: 'all',
+            stateFilters: [
+                { filter: 'SAME', display: 'Same', selected: true },
+                { filter: 'DIFFERENT', display: 'Different', selected: true },
+                { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
+            ],
             totalFacts: 3
         });
     });
@@ -58,7 +75,11 @@ describe('compare reducer', () => {
                 fullCompareData: compareReducerPayload.facts,
                 systems: compareReducerPayload.systems,
                 factFilter: '',
-                stateFilter: 'all' },
+                stateFilters: [
+                    { filter: 'SAME', display: 'Same', selected: true },
+                    { filter: 'DIFFERENT', display: 'Different', selected: true },
+                    { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
+                ]},
             {
                 payload: { perPage: 2, page: 1 },
                 type: `${types.UPDATE_PAGINATION}`
@@ -71,7 +92,11 @@ describe('compare reducer', () => {
             systems: paginatedStatePageOne.systems,
             page: 1,
             perPage: 2,
-            stateFilter: 'all',
+            stateFilters: [
+                { filter: 'SAME', display: 'Same', selected: true },
+                { filter: 'DIFFERENT', display: 'Different', selected: true },
+                { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
+            ],
             totalFacts: 3
         });
     });
@@ -84,7 +109,11 @@ describe('compare reducer', () => {
                 fullCompareData: compareReducerPayload.facts,
                 systems: compareReducerPayload.systems,
                 factFilter: '',
-                stateFilter: 'all' },
+                stateFilters: [
+                    { filter: 'SAME', display: 'Same', selected: true },
+                    { filter: 'DIFFERENT', display: 'Different', selected: true },
+                    { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
+                ]},
             {
                 payload: { perPage: 2, page: 2 },
                 type: `${types.UPDATE_PAGINATION}`
@@ -97,7 +126,11 @@ describe('compare reducer', () => {
             systems: paginatedStatePageTwo.systems,
             page: 2,
             perPage: 2,
-            stateFilter: 'all',
+            stateFilters: [
+                { filter: 'SAME', display: 'Same', selected: true },
+                { filter: 'DIFFERENT', display: 'Different', selected: true },
+                { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
+            ],
             totalFacts: 3
         });
     });
@@ -110,7 +143,11 @@ describe('compare reducer', () => {
                 fullCompareData: compareReducerPayload.facts,
                 systems: compareReducerPayload.systems,
                 factFilter: '',
-                stateFilter: 'all' },
+                stateFilters: [
+                    { filter: 'SAME', display: 'Same', selected: true },
+                    { filter: 'DIFFERENT', display: 'Different', selected: true },
+                    { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
+                ]},
             {
                 payload: { perPage: 2, page: 3 },
                 type: `${types.UPDATE_PAGINATION}`
@@ -123,7 +160,11 @@ describe('compare reducer', () => {
             systems: paginatedStatePageTwo.systems,
             page: 3,
             perPage: 2,
-            stateFilter: 'all',
+            stateFilters: [
+                { filter: 'SAME', display: 'Same', selected: true },
+                { filter: 'DIFFERENT', display: 'Different', selected: true },
+                { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
+            ],
             totalFacts: 3
         });
     });
@@ -160,7 +201,11 @@ describe('compare reducer', () => {
                 fullCompareData: compareReducerPayload.facts,
                 systems: compareReducerPayload.systems,
                 factFilter: '',
-                stateFilter: 'all' },
+                stateFilters: [
+                    { filter: 'SAME', display: 'Same', selected: true },
+                    { filter: 'DIFFERENT', display: 'Different', selected: true },
+                    { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
+                ]},
             {
                 payload: 'i',
                 type: `${types.FILTER_BY_FACT}`
@@ -173,7 +218,11 @@ describe('compare reducer', () => {
             systems: factFilteredStateOne.systems,
             page: 1,
             perPage: 10,
-            stateFilter: 'all',
+            stateFilters: [
+                { filter: 'SAME', display: 'Same', selected: true },
+                { filter: 'DIFFERENT', display: 'Different', selected: true },
+                { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
+            ],
             totalFacts: 2
         });
     });
@@ -186,7 +235,11 @@ describe('compare reducer', () => {
                 fullCompareData: compareReducerPayload.facts,
                 systems: compareReducerPayload.systems,
                 factFilter: 'i',
-                stateFilter: 'all' },
+                stateFilters: [
+                    { filter: 'SAME', display: 'Same', selected: true },
+                    { filter: 'DIFFERENT', display: 'Different', selected: true },
+                    { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
+                ]},
             {
                 payload: 'io',
                 type: `${types.FILTER_BY_FACT}`
@@ -199,7 +252,11 @@ describe('compare reducer', () => {
             systems: factFilteredStateTwo.systems,
             page: 1,
             perPage: 10,
-            stateFilter: 'all',
+            stateFilters: [
+                { filter: 'SAME', display: 'Same', selected: true },
+                { filter: 'DIFFERENT', display: 'Different', selected: true },
+                { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
+            ],
             totalFacts: 1
         });
     });
@@ -212,7 +269,11 @@ describe('compare reducer', () => {
                 fullCompareData: compareReducerPayload.facts,
                 systems: compareReducerPayload.systems,
                 factFilter: 'io',
-                stateFilter: 'all' },
+                stateFilters: [
+                    { filter: 'SAME', display: 'Same', selected: true },
+                    { filter: 'DIFFERENT', display: 'Different', selected: true },
+                    { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
+                ]},
             {
                 payload: 'iou',
                 type: `${types.FILTER_BY_FACT}`
@@ -225,7 +286,11 @@ describe('compare reducer', () => {
             systems: compareReducerState.systems,
             page: 1,
             perPage: 10,
-            stateFilter: 'all',
+            stateFilters: [
+                { filter: 'SAME', display: 'Same', selected: true },
+                { filter: 'DIFFERENT', display: 'Different', selected: true },
+                { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
+            ],
             totalFacts: 0
         });
     });
@@ -238,7 +303,11 @@ describe('compare reducer', () => {
                 fullCompareData: compareReducerPayload.facts,
                 systems: compareReducerPayload.systems,
                 factFilter: '',
-                stateFilter: 'SAME' },
+                stateFilters: [
+                    { filter: 'SAME', display: 'Same', selected: true },
+                    { filter: 'DIFFERENT', display: 'Different', selected: false },
+                    { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: false }
+                ]},
             {
                 payload: 'io',
                 type: `${types.FILTER_BY_FACT}`
@@ -251,7 +320,11 @@ describe('compare reducer', () => {
             systems: factFilteredStateTwo.systems,
             page: 1,
             perPage: 10,
-            stateFilter: 'SAME',
+            stateFilters: [
+                { filter: 'SAME', display: 'Same', selected: true },
+                { filter: 'DIFFERENT', display: 'Different', selected: false },
+                { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: false }
+            ],
             totalFacts: 1
         });
     });
@@ -264,7 +337,11 @@ describe('compare reducer', () => {
                 fullCompareData: compareReducerPayload.facts,
                 systems: compareReducerPayload.systems,
                 factFilter: '',
-                stateFilter: 'DIFFERENT' },
+                stateFilters: [
+                    { filter: 'SAME', display: 'Same', selected: false },
+                    { filter: 'DIFFERENT', display: 'Different', selected: true },
+                    { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: false }
+                ]},
             {
                 payload: 'io',
                 type: `${types.FILTER_BY_FACT}`
@@ -277,7 +354,11 @@ describe('compare reducer', () => {
             systems: compareReducerState.systems,
             page: 1,
             perPage: 10,
-            stateFilter: 'DIFFERENT',
+            stateFilters: [
+                { filter: 'SAME', display: 'Same', selected: false },
+                { filter: 'DIFFERENT', display: 'Different', selected: true },
+                { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: false }
+            ],
             totalFacts: 0
         });
     });
@@ -295,7 +376,11 @@ describe('add system modal reducer', () => {
                 factFilter: '',
                 filterDropdownOpened: false,
                 sort: 'asc',
-                stateFilter: 'all',
+                stateFilters: [
+                    { filter: 'SAME', display: 'Same', selected: true },
+                    { filter: 'DIFFERENT', display: 'Different', selected: true },
+                    { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
+                ],
                 filteredCompareData: [],
                 page: 1,
                 perPage: 10,
@@ -342,7 +427,11 @@ describe('filter dropdown reducer', () => {
                 factFilter: '',
                 filterDropdownOpened: false,
                 sort: 'asc',
-                stateFilter: 'all',
+                stateFilters: [
+                    { filter: 'SAME', display: 'Same', selected: true },
+                    { filter: 'DIFFERENT', display: 'Different', selected: true },
+                    { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
+                ],
                 filteredCompareData: [],
                 page: 1,
                 perPage: 10,
@@ -389,7 +478,11 @@ describe('export reducer', () => {
                 factFilter: '',
                 filterDropdownOpened: false,
                 sort: 'asc',
-                stateFilter: 'all',
+                stateFilters: [
+                    { filter: 'SAME', display: 'Same', selected: true },
+                    { filter: 'DIFFERENT', display: 'Different', selected: true },
+                    { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
+                ],
                 filteredCompareData: [],
                 page: 1,
                 perPage: 10,

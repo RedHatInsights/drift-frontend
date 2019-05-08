@@ -53,10 +53,11 @@ function toggleFactSort(sortType) {
     };
 }
 
-function filterByState(filter) {
+function addStateFilter(filterData) {
+    filterData.selected = !filterData.selected;
     return {
-        type: types.FILTER_BY_STATE,
-        payload: filter
+        type: types.ADD_STATE_FILTER,
+        payload: filterData
     };
 }
 
@@ -102,7 +103,7 @@ export default {
     setSelectedSystemIds,
     toggleFilterDropDown,
     toggleFactSort,
-    filterByState,
+    addStateFilter,
     filterByFact,
     updatePagination,
     exportToCSV,

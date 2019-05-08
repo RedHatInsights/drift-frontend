@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Dropdown, DropdownToggle, DropdownItem } from '@patternfly/react-core';
+import { Checkbox, Dropdown, DropdownToggle } from '@patternfly/react-core';
 import PropTypes from 'prop-types';
 
 import { compareActions } from '../../modules';
@@ -9,7 +9,6 @@ class FilterDropDown extends Component {
     constructor(props) {
         super(props);
         this.onToggle = this.onToggle.bind(this);
-        this.getFilterbyState = this.getFilterByState.bind(this);
         this.createDropdownItem = this.createDropdownItem.bind(this);
     }
 
@@ -17,36 +16,65 @@ class FilterDropDown extends Component {
         this.props.toggleDropDown();
     }
 
-    getFilterByState(event, filter) {
-        this.props.changeFilter(filter);
-    }
-
-    createDropdownItem(display, value) {
-        let dropdownItem = <DropdownItem key={ value } component="button" onClick={ event =>
-            this.getFilterByState(event, value)
-        }>
-            { display }
-        </DropdownItem>;
+    createDropdownItem(stateFilter) {
+        let dropdownItem = <Checkbox
+            className="state-filter-checkbox"
+            label={ stateFilter.display }
+            isChecked={ stateFilter.selected }
+            onChange={ () =>
+                this.props.addStateFilter(stateFilter)
+            } />;
 
         return dropdownItem;
     }
 
+    createDropdownArray(stateFilters) {
+        let dropdownItems = [];
+
+        stateFilters.forEach(function(stateFilter) {
+            let dropdownItem = this.createDropdownItem(stateFilter);
+            dropdownItems.push(dropdownItem);
+        }.bind(this));
+
+        return dropdownItems;
+    }
+
+    createSelectedViewsString(stateFilters) {
+        let selectedViewsArray = [];
+        let selectedViews = '';
+
+        for (let i = 0; i < stateFilters.length; i++) {
+            if (stateFilters[i].selected) {
+                selectedViewsArray.push(stateFilters[i].display);
+            }
+        }
+
+        for (let i = 0; i < selectedViewsArray.length; i++) {
+            selectedViews += selectedViewsArray[i];
+
+            if ((i + 1) < selectedViewsArray.length) {
+                selectedViews += ', ';
+            }
+        }
+
+        return selectedViews;
+    }
+
     render() {
-        const dropdownItems = [
-            this.createDropdownItem('All', 'All'),
-            this.createDropdownItem('Same', 'SAME'),
-            this.createDropdownItem('Different', 'DIFFERENT'),
-            this.createDropdownItem('Incomplete Data', 'INCOMPLETE_DATA')
-        ];
+        const { stateFilters } = this.props;
+        let dropdownItems = [];
+        let selectedViews = '';
+
+        dropdownItems = this.createDropdownArray(stateFilters);
+        selectedViews = this.createSelectedViewsString(stateFilters);
 
         return (
             <React.Fragment>
                 <Dropdown
+                    className="state-filter-dropdown"
                     onSelect={ this.onToggle }
                     toggle={ <DropdownToggle onToggle={ this.onToggle }>
-                        View: {
-                            (this.props.stateFilter.charAt(0).toUpperCase() + this.props.stateFilter.slice(1).toLowerCase()).replace(/_/g, ' ')
-                        }
+                        View: { selectedViews }
                     </DropdownToggle> }
                     isOpen={ this.props.filterDropdownOpened }
                     dropdownItems={ dropdownItems }
@@ -59,21 +87,27 @@ class FilterDropDown extends Component {
 FilterDropDown.propTypes = {
     toggleDropDown: PropTypes.func,
     filterDropdownOpened: PropTypes.bool,
-    stateFilter: PropTypes.string,
-    changeFilter: PropTypes.func
+    stateFilters: PropTypes.array,
+    addStateFilter: PropTypes.func,
+    same: PropTypes.bool,
+    different: PropTypes.bool,
+    incomplete: PropTypes.bool
 };
 
 function mapStateToProps(state) {
     return {
         filterDropdownOpened: state.filterDropdownReducer.filterDropdownOpened,
-        stateFilter: state.compareReducer.stateFilter
+        stateFilters: state.compareReducer.stateFilters,
+        same: state.compareReducer.same,
+        different: state.compareReducer.different,
+        incomplete: state.compareReducer.incomplete
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
         toggleDropDown: () => dispatch(compareActions.toggleFilterDropDown()),
-        changeFilter: (filter) => dispatch(compareActions.filterByState(filter))
+        addStateFilter: (filter) => dispatch(compareActions.addStateFilter(filter))
     };
 }
 
