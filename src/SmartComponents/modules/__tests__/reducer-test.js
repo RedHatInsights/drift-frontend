@@ -30,6 +30,30 @@ describe('compare reducer', () => {
         );
     });
 
+    it('should handle FETCH_COMPARE_PENDING', () => {
+        expect(
+            reducers.compareReducer({ systems: [], loading: false }, {
+                type: `${types.FETCH_COMPARE}_PENDING`
+            })
+        ).toEqual({
+            previousStateSystems: [],
+            systems: [],
+            loading: true
+        });
+    });
+
+    it('should handle FETCH_COMPARE_PENDING with previous systems', () => {
+        expect(
+            reducers.compareReducer({ systems: compareReducerPayload.systems, loading: false }, {
+                type: `${types.FETCH_COMPARE}_PENDING`
+            })
+        ).toEqual({
+            previousStateSystems: compareReducerState.systems,
+            systems: [],
+            loading: true
+        });
+    });
+
     it('should handle FETCH_COMPARE_FULFILLED', () => {
         expect(
             reducers.compareReducer({ perPage: 10, page: 1, stateFilter: 'all', factFilter: '' }, {
@@ -47,6 +71,32 @@ describe('compare reducer', () => {
             perPage: 10,
             stateFilter: 'all',
             totalFacts: 3
+        });
+    });
+
+    it('should handle UPDATE_PAGINATION no data', () => {
+        expect(
+            reducers.compareReducer({
+                perPage: 10,
+                page: 1,
+                fullCompareData: [],
+                systems: [],
+                factFilter: '',
+                stateFilter: 'all' },
+            {
+                payload: { perPage: 2, page: 1 },
+                type: `${types.UPDATE_PAGINATION}`
+            })
+        ).toEqual({
+            fullCompareData: [],
+            factFilter: '',
+            filteredCompareData: [],
+            sortedFilteredFacts: [],
+            systems: [],
+            page: 1,
+            perPage: 2,
+            stateFilter: 'all',
+            totalFacts: 0
         });
     });
 
@@ -125,30 +175,6 @@ describe('compare reducer', () => {
             perPage: 2,
             stateFilter: 'all',
             totalFacts: 3
-        });
-    });
-
-    it('should handle FETCH_COMPARE_PENDING', () => {
-        expect(
-            reducers.compareReducer({ systems: [], loading: false }, {
-                type: `${types.FETCH_COMPARE}_PENDING`
-            })
-        ).toEqual({
-            previousStateSystems: [],
-            systems: [],
-            loading: true
-        });
-    });
-
-    it('should handle FETCH_COMPARE_PENDING with previous systems', () => {
-        expect(
-            reducers.compareReducer({ systems: compareReducerPayload.systems, loading: false }, {
-                type: `${types.FETCH_COMPARE}_PENDING`
-            })
-        ).toEqual({
-            previousStateSystems: compareReducerState.systems,
-            systems: [],
-            loading: true
         });
     });
 
