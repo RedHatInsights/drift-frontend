@@ -498,7 +498,7 @@ describe('filter dropdown reducer', () => {
 
 describe('export reducer', () => {
     it('should return initial state', () => {
-        expect(reducers.exportReducer(undefined, {})).toEqual(
+        expect(reducers.actionKebabReducer(undefined, {})).toEqual(
             {
                 fullCompareData: [],
                 systems: [],
@@ -529,7 +529,7 @@ describe('export reducer', () => {
 
     it('should handle TOGGLE_KEBAB true', () => {
         expect(
-            reducers.exportReducer({ kebabOpened: false }, {
+            reducers.actionKebabReducer({ kebabOpened: false }, {
                 type: `${types.TOGGLE_KEBAB}`
             })
         ).toEqual({
@@ -539,7 +539,7 @@ describe('export reducer', () => {
 
     it('should handle TOGGLE_KEBAB false', () => {
         expect(
-            reducers.exportReducer({ kebabOpened: true }, {
+            reducers.actionKebabReducer({ kebabOpened: true }, {
                 type: `${types.TOGGLE_KEBAB}`
             })
         ).toEqual({

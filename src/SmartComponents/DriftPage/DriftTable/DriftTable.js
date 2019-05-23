@@ -14,6 +14,7 @@ import { compareActions } from '../../modules';
 import StateIcon from '../../StateIcon/StateIcon';
 import AddSystemButton from '../AddSystemButton/AddSystemButton';
 import { ASC, DESC } from '../../../constants';
+import { setHistory } from '../../../Utilities/SetHistory';
 
 class DriftTable extends Component {
     constructor(props) {
@@ -41,29 +42,23 @@ class DriftTable extends Component {
     }
 
     removeSystem(systemId) {
+        const { history, clearState } = this.props;
+
         this.systemIds = this.systemIds.filter(item => item !== systemId);
         if (this.systemIds.length > 0) {
             this.fetchCompare(this.systemIds);
         } else {
-            this.setHistory([]);
-            this.props.clearState();
+            setHistory(history, []);
+            clearState();
         }
     }
 
     fetchCompare(systemIds) {
         if (systemIds.length > 0) {
             this.systemIds = systemIds;
-            this.setHistory(systemIds);
+            setHistory(this.props.history, systemIds);
             this.props.fetchCompare(systemIds);
         }
-    }
-
-    setHistory(systemIds) {
-        /*eslint-disable camelcase*/
-        this.props.history.push({
-            search: '?' + queryString.stringify({ system_ids: systemIds })
-        });
-        /*eslint-enable camelcase*/
     }
 
     renderRows(facts, systems) {

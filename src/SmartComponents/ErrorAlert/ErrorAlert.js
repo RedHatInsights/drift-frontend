@@ -3,33 +3,22 @@ import PropTypes from 'prop-types';
 import { Alert, AlertActionCloseButton } from '@patternfly/react-core';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import queryString from 'query-string';
 
 import { compareActions } from '../modules';
+import { setHistory } from '../../Utilities/SetHistory';
 
 class ErrorAlert extends Component {
     constructor(props) {
         super(props);
         this.confirmModal = this.confirmModal.bind(this);
-        this.setHistory = this.setHistory.bind(this);
     }
 
     confirmModal(compareData) {
-        this.props.toggleModal();
-        this.props.revertCompareData(compareData);
-        this.setHistory();
-    }
+        const { toggleModal, revertCompareData, history, previousStateSystems } = this.props;
 
-    setHistory() {
-        this.props.history.push({
-            search: ''
-        });
-
-        /*eslint-disable camelcase*/
-        this.props.history.push({
-            search: '?' + queryString.stringify({ system_ids: this.props.previousStateSystems.map(system => system.id) })
-        });
-        /*eslint-enable camelcase*/
+        toggleModal();
+        revertCompareData(compareData);
+        setHistory(history, previousStateSystems.map(system => system.id));
     }
 
     render() {

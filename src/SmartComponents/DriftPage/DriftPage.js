@@ -10,7 +10,7 @@ import { compareActions } from '../modules';
 import DriftTable from './DriftTable/DriftTable';
 import FilterDropDown from './FilterDropDown/FilterDropDown';
 import SearchBar from './SearchBar/SearchBar';
-import ExportButton from './ExportButton/ExportButton';
+import ActionKebab from './ActionKebab/ActionKebab';
 import ErrorAlert from '../ErrorAlert/ErrorAlert';
 import TablePagination from './Pagination/Pagination';
 
@@ -49,7 +49,7 @@ class DriftPage extends Component {
                                             <FilterDropDown />
                                         </ToolbarItem>
                                         <ToolbarItem>
-                                            <ExportButton />
+                                            <ActionKebab />
                                         </ToolbarItem>
                                     </ToolbarGroup>
                                     <ToolbarGroup className="pf-c-pagination">
