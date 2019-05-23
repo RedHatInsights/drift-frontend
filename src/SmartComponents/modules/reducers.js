@@ -507,7 +507,7 @@ function filterDropdownReducer(state = initialState, action) {
     }
 }
 
-function exportReducer(state = initialState, action) {
+function actionKebabReducer(state = initialState, action) {
     switch (action.type) {
         case `${types.TOGGLE_KEBAB}`:
             return {
@@ -526,5 +526,5 @@ export default {
     addSystemModalReducer,
     errorAlertReducer,
     filterDropdownReducer,
-    exportReducer
+    actionKebabReducer
 };
