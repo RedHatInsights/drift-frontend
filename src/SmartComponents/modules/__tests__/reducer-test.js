@@ -19,7 +19,6 @@ describe('compare reducer', () => {
                     { filter: 'DIFFERENT', display: 'Different', selected: true },
                     { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
                 ],
-                activeSort: 'fact',
                 factSort: ASC,
                 stateSort: '',
                 filteredCompareData: [],
@@ -409,7 +408,6 @@ describe('add system modal reducer', () => {
                     { filter: 'DIFFERENT', display: 'Different', selected: true },
                     { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
                 ],
-                activeSort: 'fact',
                 factSort: ASC,
                 stateSort: '',
                 filteredCompareData: [],
@@ -462,7 +460,6 @@ describe('filter dropdown reducer', () => {
                     { filter: 'DIFFERENT', display: 'Different', selected: true },
                     { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
                 ],
-                activeSort: 'fact',
                 factSort: ASC,
                 stateSort: '',
                 filteredCompareData: [],
@@ -515,7 +512,6 @@ describe('export reducer', () => {
                     { filter: 'DIFFERENT', display: 'Different', selected: true },
                     { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
                 ],
-                activeSort: 'fact',
                 factSort: ASC,
                 stateSort: '',
                 filteredCompareData: [],

@@ -20,8 +20,7 @@ export function init (...middleware) {
         addSystemModalReducer: reducers.addSystemModalReducer,
         errorAlertReducer: reducers.errorAlertReducer,
         filterDropdownReducer: reducers.filterDropdownReducer,
-        exportReducer: reducers.exportReducer,
-        activeSortReducer: reducers.activeSortReducer
+        exportReducer: reducers.exportReducer
     });
 
     return registry;
