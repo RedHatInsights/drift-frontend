@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { EmptyState, EmptyStateBody, EmptyStateIcon, Title, Tooltip } from '@patternfly/react-core';
 import queryString from 'query-string';
-import { AddCircleOIcon, AngleDownIcon, AngleRightIcon, ArrowUpIcon, ArrowDownIcon, ArrowsAltVIcon,
+import { AddCircleOIcon, AngleDownIcon, AngleRightIcon, LongArrowAltUpIcon, LongArrowAltDownIcon, ArrowsAltVIcon,
     CloseIcon, ServerIcon, WarningTriangleIcon } from '@patternfly/react-icons';
 import { Skeleton, SkeletonSize } from '@red-hat-insights/insights-frontend-components';
 
@@ -220,13 +220,13 @@ class DriftTable extends Component {
         let sortIcon;
 
         if (sort === ASC) {
-            sortIcon = <ArrowUpIcon className="pointer active-blue" onClick={ () => this.toggleSort(sortType, sort) }/>;
+            sortIcon = <LongArrowAltUpIcon className="pointer active-blue" onClick={ () => this.toggleSort(sortType, sort) }/>;
         }
         else if (sort === DESC) {
-            sortIcon = <ArrowDownIcon className="pointer active-blue" onClick={ () => this.toggleSort(sortType, sort) }/>;
+            sortIcon = <LongArrowAltDownIcon className="pointer active-blue" onClick={ () => this.toggleSort(sortType, sort) }/>;
         }
         else {
-            sortIcon = <ArrowsAltVIcon className="pointer" onClick={ () => this.toggleSort(sortType, sort) }/>;
+            sortIcon = <ArrowsAltVIcon className="pointer not-active" onClick={ () => this.toggleSort(sortType, sort) }/>;
         }
 
         return sortIcon;
@@ -243,19 +243,18 @@ class DriftTable extends Component {
     }
 
     renderHeaderRow(systems, loading) {
-        const { activeSort, stateSort } = this.props;
+        const { stateSort } = this.props;
 
         return (
             <tr className="sticky-column-header">
-                <th className={ activeSort === 'fact' || stateSort === '' ?
-                    'active-sort fact-header sticky-column fixed-column-1' :
-                    'fact-header sticky-column fixed-column-1' }>
-                    <div>Fact { this.renderSortButton('fact', this.props.factSort) }</div>
+                <th className="fact-header sticky-column fixed-column-1">
+                    <div className="active-blue">Fact { this.renderSortButton('fact', this.props.factSort) }</div>
                 </th>
-                <th className={ activeSort === 'state' && stateSort !== '' ?
-                    'active-sort state-header sticky-column fixed-column-2' :
-                    'state-header sticky-column fixed-column-2' }>
-                    <div>State { this.renderSortButton('state', this.props.stateSort) }</div>
+                <th className="state-header sticky-column fixed-column-2">
+                    { stateSort !== '' ?
+                        <div className="active-blue">State { this.renderSortButton('state', this.props.stateSort) }</div> :
+                        <div>State { this.renderSortButton('state', this.props.stateSort) }</div>
+                    }
                 </th>
                 { this.renderSystems(systems) }
                 <th>
@@ -354,8 +353,7 @@ function mapStateToProps(state) {
         systems: state.compareReducer.systems,
         factSort: state.compareReducer.factSort,
         stateSort: state.compareReducer.stateSort,
-        expandedRows: state.compareReducer.expandedRows,
-        activeSort: state.activeSortReducer.activeSort
+        expandedRows: state.compareReducer.expandedRows
     };
 }
 
@@ -364,7 +362,6 @@ function mapDispatchToProps(dispatch) {
         fetchCompare: ((systemIds) => dispatch(compareActions.fetchCompare(systemIds))),
         toggleFactSort: ((sortType) => dispatch(compareActions.toggleFactSort(sortType))),
         toggleStateSort: ((sortType) => dispatch(compareActions.toggleStateSort(sortType))),
-        toggleActiveSort: ((activeSort) => dispatch(compareActions.toggleActiveSort(activeSort))),
         expandRow: ((factName) => dispatch(compareActions.expandRow(factName))),
         clearState: (() => dispatch(compareActions.clearState()))
     };
@@ -389,8 +386,7 @@ DriftTable.propTypes = {
     toggleActiveSort: PropTypes.func,
     expandRow: PropTypes.func,
     expandRows: PropTypes.func,
-    expandedRows: PropTypes.array,
-    activeSort: PropTypes.string
+    expandedRows: PropTypes.array
 };
 
 export default withRouter (connect(mapStateToProps, mapDispatchToProps)(DriftTable));

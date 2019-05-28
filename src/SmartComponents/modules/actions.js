@@ -113,13 +113,6 @@ function toggleKebab() {
     };
 }
 
-function toggleActiveSort(activeSort) {
-    return {
-        type: types.TOGGLE_ACTIVE_SORT,
-        payload: activeSort
-    };
-}
-
 export default {
     fetchCompare,
     revertCompareData,
@@ -135,6 +128,5 @@ export default {
     updatePagination,
     exportToCSV,
     expandRow,
-    toggleKebab,
-    toggleActiveSort
+    toggleKebab
 };

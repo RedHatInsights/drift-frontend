@@ -24,8 +24,7 @@ const initialState = {
     expandedRows: [],
     kebabOpened: false,
     error: {},
-    errorAlertOpened: false,
-    activeSort: 'fact'
+    errorAlertOpened: false
 };
 
 function paginateData(data, selectedPage, factsPerPage) {
@@ -522,25 +521,10 @@ function exportReducer(state = initialState, action) {
     }
 }
 
-function activeSortReducer(state = initialState, action) {
-    switch (action.type) {
-        case `${types.TOGGLE_ACTIVE_SORT}`:
-            return {
-                ...state,
-                activeSort: action.payload
-            };
-        default:
-            return {
-                ...state
-            };
-    }
-}
-
 export default {
     compareReducer,
     addSystemModalReducer,
     errorAlertReducer,
     filterDropdownReducer,
-    exportReducer,
-    activeSortReducer
+    exportReducer
 };
