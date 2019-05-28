@@ -7,7 +7,6 @@ const initialState = {
     sortedFilteredFacts: [],
     systems: [],
     previousStateSystems: [],
-    addSystemModalOpened: false,
     filterDropdownOpened: false,
     stateFilters: [
         { filter: 'SAME', display: 'Same', selected: true },
@@ -462,21 +461,6 @@ function compareReducer(state = initialState, action) {
     }
 }
 
-function addSystemModalReducer(state = initialState, action) {
-    switch (action.type) {
-        case `${types.OPEN_ADD_SYSTEM_MODAL}`:
-            return {
-                ...state,
-                addSystemModalOpened: !state.addSystemModalOpened
-            };
-
-        default:
-            return {
-                ...state
-            };
-    }
-}
-
 function errorAlertReducer(state = initialState, action) {
     switch (action.type) {
         case `${types.OPEN_ERROR_MODAL}`:
@@ -523,7 +507,6 @@ function exportReducer(state = initialState, action) {
 
 export default {
     compareReducer,
-    addSystemModalReducer,
     errorAlertReducer,
     filterDropdownReducer,
     exportReducer

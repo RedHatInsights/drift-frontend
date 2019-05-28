@@ -2,6 +2,7 @@ import promiseMiddleware from 'redux-promise-middleware';
 import { getRegistry } from '@red-hat-insights/insights-frontend-components';
 
 import { reducers } from '../SmartComponents/modules';
+import { addSystemModalReducer } from '../SmartComponents/modules';
 
 let registry;
 
@@ -17,7 +18,7 @@ export function init (...middleware) {
 
     registry.register({
         compareReducer: reducers.compareReducer,
-        addSystemModalReducer: reducers.addSystemModalReducer,
+        addSystemModalReducer: addSystemModalReducer.addSystemModalReducer,
         errorAlertReducer: reducers.errorAlertReducer,
         filterDropdownReducer: reducers.filterDropdownReducer,
         exportReducer: reducers.exportReducer

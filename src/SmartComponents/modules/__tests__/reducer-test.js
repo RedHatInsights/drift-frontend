@@ -10,7 +10,6 @@ describe('compare reducer', () => {
         expect(reducers.compareReducer(undefined, {})).toEqual(
             {
                 fullCompareData: [],
-                addSystemModalOpened: false,
                 sortedFilteredFacts: [],
                 factFilter: '',
                 filterDropdownOpened: false,
@@ -392,66 +391,13 @@ describe('compare reducer', () => {
     });
 });
 
-describe('add system modal reducer', () => {
-    it('should return initial state', () => {
-        expect(reducers.addSystemModalReducer(undefined, {})).toEqual(
-            {
-                fullCompareData: [],
-                systems: [],
-                previousStateSystems: [],
-                addSystemModalOpened: false,
-                sortedFilteredFacts: [],
-                factFilter: '',
-                filterDropdownOpened: false,
-                stateFilters: [
-                    { filter: 'SAME', display: 'Same', selected: true },
-                    { filter: 'DIFFERENT', display: 'Different', selected: true },
-                    { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
-                ],
-                factSort: ASC,
-                stateSort: '',
-                filteredCompareData: [],
-                page: 1,
-                perPage: 10,
-                totalFacts: 0,
-                loading: false,
-                expandedRows: [],
-                kebabOpened: false,
-                errorAlertOpened: false,
-                error: {}
-            }
-        );
-    });
-
-    it('should handle OPEN_ADD_SYSTEM_MODAL true', () => {
-        expect(
-            reducers.addSystemModalReducer({ addSystemModalOpened: false }, {
-                type: `${types.OPEN_ADD_SYSTEM_MODAL}`
-            })
-        ).toEqual({
-            addSystemModalOpened: true
-        });
-    });
-
-    it('should handle OPEN_ADD_SYSTEM_MODAL false', () => {
-        expect(
-            reducers.addSystemModalReducer({ addSystemModalOpened: true }, {
-                type: `${types.OPEN_ADD_SYSTEM_MODAL}`
-            })
-        ).toEqual({
-            addSystemModalOpened: false
-        });
-    });
-});
-
 describe('filter dropdown reducer', () => {
     it('should return initial state', () => {
-        expect(reducers.addSystemModalReducer(undefined, {})).toEqual(
+        expect(reducers.filterDropdownReducer(undefined, {})).toEqual(
             {
                 fullCompareData: [],
                 systems: [],
                 previousStateSystems: [],
-                addSystemModalOpened: false,
                 sortedFilteredFacts: [],
                 factFilter: '',
                 filterDropdownOpened: false,
@@ -503,7 +449,6 @@ describe('export reducer', () => {
                 fullCompareData: [],
                 systems: [],
                 previousStateSystems: [],
-                addSystemModalOpened: false,
                 sortedFilteredFacts: [],
                 factFilter: '',
                 filterDropdownOpened: false,
