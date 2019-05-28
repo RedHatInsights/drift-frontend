@@ -6,7 +6,7 @@ import { EmptyState, EmptyStateBody, EmptyStateIcon, Title, Tooltip } from '@pat
 import queryString from 'query-string';
 import { AddCircleOIcon, AngleDownIcon, AngleRightIcon, LongArrowAltUpIcon, LongArrowAltDownIcon, ArrowsAltVIcon,
     CloseIcon, ServerIcon, WarningTriangleIcon } from '@patternfly/react-icons';
-import { Skeleton, SkeletonSize } from '@red-hat-insights/insights-frontend-components';
+import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
 
 import AddSystemModal from '../../AddSystemModal/AddSystemModal';
 import './drift-table.scss';

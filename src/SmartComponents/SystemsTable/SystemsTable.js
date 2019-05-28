@@ -3,9 +3,9 @@ import * as reactRouterDom from 'react-router-dom';
 import PropTypes from 'prop-types';
 import * as reactCore from '@patternfly/react-core';
 import * as reactIcons from '@patternfly/react-icons';
-import { PaginationRow } from 'patternfly-react';
-import { registry as registryDecorator } from '@red-hat-insights/insights-frontend-components';
+import registryDecorator from '@redhat-cloud-services/frontend-components-utilities/files/Registry';
 import { connect } from 'react-redux';
+import * as pfReactTable from '@patternfly/react-table';
 
 import selectedReducer from './reducers';
 import { compareActions } from '../modules';
@@ -32,7 +32,7 @@ class SystemsTable extends Component {
             reactRouterDom,
             reactCore,
             reactIcons,
-            pfReact: { PaginationRow }
+            pfReactTable
         });
 
         this.getRegistry().register({

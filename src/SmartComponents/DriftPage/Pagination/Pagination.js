@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { compareActions } from '../../modules';
-import { Pagination, dropDirection } from '@red-hat-insights/insights-frontend-components';
+import { Pagination, dropDirection } from '@patternfly/react-core';
 
 const perPageOptions = [ 10, 20, 50, 100 ];
 

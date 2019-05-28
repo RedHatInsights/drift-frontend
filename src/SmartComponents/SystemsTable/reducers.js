@@ -1,5 +1,5 @@
-import { applyReducerHash } from '@red-hat-insights/insights-frontend-components/Utilities/ReducerRegistry';
-import { mergeArraysByKey } from '@red-hat-insights/insights-frontend-components/Utilities/helpers';
+import { mergeArraysByKey } from '@redhat-cloud-services/frontend-components-utilities/files/helpers';
+import { applyReducerHash } from '@redhat-cloud-services/frontend-components-utilities/files/ReducerRegistry';
 
 import types from '../modules/types';
 

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { Main, PageHeader, PageHeaderTitle } from '@red-hat-insights/insights-frontend-components';
+import { Main, PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components';
 import { Card, CardBody, Toolbar, ToolbarGroup, ToolbarItem } from '@patternfly/react-core';
 import { compareActions } from '../modules';
 

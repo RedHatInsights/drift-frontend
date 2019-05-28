@@ -1,5 +1,5 @@
 import promiseMiddleware from 'redux-promise-middleware';
-import { getRegistry } from '@red-hat-insights/insights-frontend-components';
+import { getRegistry } from '@redhat-cloud-services/frontend-components-utilities/files/Registry';
 
 import { reducers } from '../SmartComponents/modules';
 
