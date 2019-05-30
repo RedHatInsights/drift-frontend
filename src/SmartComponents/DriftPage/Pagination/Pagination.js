@@ -3,9 +3,14 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { compareActions } from '../../modules';
-import { Pagination, dropDirection } from '@patternfly/react-core';
+import { Pagination, DropdownDirection } from '@patternfly/react-core';
 
-const perPageOptions = [ 10, 20, 50, 100 ];
+const perPageOptions = [
+    { title: '10', value: 10 },
+    { title: '20', value: 20 },
+    { title: '50', value: 50 },
+    { title: '100', value: 100 }
+];
 
 class TablePagination extends Component {
     constructor(props) {
@@ -15,13 +20,13 @@ class TablePagination extends Component {
         this.onPerPageSelect = this.onPerPageSelect.bind(this);
     }
 
-    onSetPage(page) {
+    onSetPage(event, page) {
         const { perPage } = this.props;
         const pagination = { page, perPage };
         this.props.updatePagination(pagination);
     }
 
-    onPerPageSelect(perPage) {
+    onPerPageSelect(event, perPage) {
         const page = 1;
         const pagination = { page, perPage };
         this.props.updatePagination(pagination);
@@ -30,11 +35,11 @@ class TablePagination extends Component {
     render() {
         return (
             <Pagination
-                numberOfItems={ this.props.totalFacts }
+                itemCount={ this.props.totalFacts }
                 perPageOptions={ perPageOptions }
                 page={ this.props.page }
-                itemsPerPage={ this.props.perPage }
-                direction={ dropDirection.down }
+                perPage={ this.props.perPage }
+                dropDirection={ DropdownDirection.down }
                 onSetPage={ this.onSetPage }
                 onPerPageSelect={ this.onPerPageSelect }
             />
