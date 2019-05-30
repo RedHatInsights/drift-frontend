@@ -325,16 +325,16 @@ class DriftTable extends Component {
 
 function mapStateToProps(state) {
     return {
-        fullCompareData: state.compareReducer.fullCompareData,
-        filteredCompareData: state.compareReducer.filteredCompareData,
-        addSystemModalOpened: state.addSystemModalReducer.addSystemModalOpened,
-        stateFilter: state.compareReducer.stateFilter,
-        factFilter: state.compareReducer.factFilter,
-        loading: state.compareReducer.loading,
-        systems: state.compareReducer.systems,
-        factSort: state.compareReducer.factSort,
-        stateSort: state.compareReducer.stateSort,
-        expandedRows: state.compareReducer.expandedRows
+        fullCompareData: state.compareState.fullCompareData,
+        filteredCompareData: state.compareState.filteredCompareData,
+        addSystemModalOpened: state.addSystemModalOpened,
+        stateFilter: state.compareState.stateFilter,
+        factFilter: state.compareState.factFilter,
+        loading: state.compareState.loading,
+        systems: state.compareState.systems,
+        factSort: state.compareState.factSort,
+        stateSort: state.compareState.stateSort,
+        expandedRows: state.compareState.expandedRows
     };
 }
 

@@ -58,9 +58,9 @@ TablePagination.propTypes = {
 
 function mapStateToProps(state) {
     return {
-        page: state.compareReducer.page,
-        perPage: state.compareReducer.perPage,
-        totalFacts: state.compareReducer.totalFacts
+        page: state.compareState.page,
+        perPage: state.compareState.perPage,
+        totalFacts: state.compareState.totalFacts
     };
 }
 

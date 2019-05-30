@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 import SystemsTable from '../SystemsTable/SystemsTable';
 import { compareActions } from '../modules';
+import { addSystemModalActions } from './redux';
 
 class AddSystemModal extends Component {
     constructor(props) {
@@ -71,14 +72,14 @@ AddSystemModal.propTypes = {
 
 function mapStateToProps(state) {
     return {
-        systems: state.compareReducer.systems,
+        systems: state.compareState.systems,
         entities: state.entities
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        toggleModal: () => dispatch(compareActions.toggleAddSystemModal()),
+        toggleModal: () => dispatch(addSystemModalActions.toggleAddSystemModal()),
         setSelectedSystemIds: () => dispatch(compareActions.setSelectedSystemIds())
     };
 }

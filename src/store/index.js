@@ -1,7 +1,11 @@
 import promiseMiddleware from 'redux-promise-middleware';
 import { getRegistry } from '@redhat-cloud-services/frontend-components-utilities/files/Registry';
 
-import { reducers } from '../SmartComponents/modules';
+import { compareReducer } from '../SmartComponents/modules/reducers';
+import { addSystemModalReducer } from '../SmartComponents/AddSystemModal/redux/addSystemModalReducer';
+import { errorAlertReducer } from '../SmartComponents/ErrorAlert/redux/errorAlertReducer';
+import { filterDropdownReducer } from '../SmartComponents/DriftPage/FilterDropDown/redux/filterDropdownReducer';
+import { actionKebabReducer } from '../SmartComponents/DriftPage/ActionKebab/redux/actionKebabReducer';
 
 let registry;
 
@@ -16,11 +20,11 @@ export function init (...middleware) {
     ]);
 
     registry.register({
-        compareReducer: reducers.compareReducer,
-        addSystemModalReducer: reducers.addSystemModalReducer,
-        errorAlertReducer: reducers.errorAlertReducer,
-        filterDropdownReducer: reducers.filterDropdownReducer,
-        actionKebabReducer: reducers.actionKebabReducer
+        compareState: compareReducer,
+        addSystemModalOpened: addSystemModalReducer,
+        errorAlertOpened: errorAlertReducer,
+        filterDropdownOpened: filterDropdownReducer,
+        kebabOpened: actionKebabReducer
     });
 
     return registry;

@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 import { Main, PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components';
 import { Card, CardBody, Toolbar, ToolbarGroup, ToolbarItem } from '@patternfly/react-core';
-import { compareActions } from '../modules';
+import { errorAlertActions } from '../ErrorAlert/redux';
 
 import DriftTable from './DriftTable/DriftTable';
 import FilterDropDown from './FilterDropDown/FilterDropDown';
@@ -90,15 +90,15 @@ DriftPage.propTypes = {
 
 function mapDispatchToProps(dispatch) {
     return {
-        toggleErrorAlert: () => dispatch(compareActions.toggleErrorAlert())
+        toggleErrorAlert: () => dispatch(errorAlertActions.toggleErrorAlert())
     };
 }
 
 function mapStateToProps(state) {
     return {
-        error: state.compareReducer.error,
-        loading: state.compareReducer.loading,
-        systems: state.compareReducer.systems
+        error: state.compareState.error,
+        loading: state.compareState.loading,
+        systems: state.compareState.systems
     };
 }
 

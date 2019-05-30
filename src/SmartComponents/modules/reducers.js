@@ -7,8 +7,6 @@ const initialState = {
     sortedFilteredFacts: [],
     systems: [],
     previousStateSystems: [],
-    addSystemModalOpened: false,
-    filterDropdownOpened: false,
     stateFilters: [
         { filter: 'SAME', display: 'Same', selected: true },
         { filter: 'DIFFERENT', display: 'Different', selected: true },
@@ -22,9 +20,7 @@ const initialState = {
     perPage: 50,
     loading: false,
     expandedRows: [],
-    kebabOpened: false,
-    error: {},
-    errorAlertOpened: false
+    error: {}
 };
 
 function paginateData(data, selectedPage, factsPerPage) {
@@ -336,7 +332,7 @@ function updateStateFilters(stateFilters, updatedStateFilter) {
     return newStateFilters;
 }
 
-function compareReducer(state = initialState, action) {
+export function compareReducer(state = initialState, action) {
     let filteredFacts;
     let sortedFacts;
     let paginatedFacts;
@@ -477,70 +473,3 @@ function compareReducer(state = initialState, action) {
             };
     }
 }
-
-function addSystemModalReducer(state = initialState, action) {
-    switch (action.type) {
-        case `${types.OPEN_ADD_SYSTEM_MODAL}`:
-            return {
-                ...state,
-                addSystemModalOpened: !state.addSystemModalOpened
-            };
-
-        default:
-            return {
-                ...state
-            };
-    }
-}
-
-function errorAlertReducer(state = initialState, action) {
-    switch (action.type) {
-        case `${types.OPEN_ERROR_MODAL}`:
-            return {
-                ...state,
-                errorAlertOpened: !state.errorAlertOpened
-            };
-
-        default:
-            return {
-                ...state
-            };
-    }
-}
-
-function filterDropdownReducer(state = initialState, action) {
-    switch (action.type) {
-        case `${types.OPEN_FILTER_DROPDOWN}`:
-            return {
-                ...state,
-                filterDropdownOpened: !state.filterDropdownOpened
-            };
-
-        default:
-            return {
-                ...state
-            };
-    }
-}
-
-function actionKebabReducer(state = initialState, action) {
-    switch (action.type) {
-        case `${types.TOGGLE_KEBAB}`:
-            return {
-                ...state,
-                kebabOpened: !state.kebabOpened
-            };
-        default:
-            return {
-                ...state
-            };
-    }
-}
-
-export default {
-    compareReducer,
-    addSystemModalReducer,
-    errorAlertReducer,
-    filterDropdownReducer,
-    actionKebabReducer
-};
