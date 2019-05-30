@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+
 import { compareActions } from '../../modules';
+import { actionKebabActions } from './redux';
 import { Dropdown, KebabToggle, DropdownItem } from '@patternfly/react-core';
 import { setHistory } from '../../../Utilities/SetHistory';
 
@@ -55,7 +57,7 @@ ActionKebab.propTypes = {
 
 function mapStateToProps(state) {
     return {
-        kebabOpened: state.actionKebabReducer.kebabOpened
+        kebabOpened: state.kebabOpened
     };
 }
 
@@ -63,7 +65,7 @@ function mapDispatchToProps(dispatch) {
     return {
         exportToCSV: () => dispatch(compareActions.exportToCSV()),
         removeSystems: () => dispatch(compareActions.clearState()),
-        toggleKebab: () => dispatch(compareActions.toggleKebab())
+        toggleKebab: () => dispatch(actionKebabActions.toggleKebab())
     };
 }
 

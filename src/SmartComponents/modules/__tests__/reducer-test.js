@@ -1,4 +1,4 @@
-import reducers from '../reducers';
+import { compareReducer } from '../reducers';
 import types from '../types';
 import { ASC, DESC } from '../../../constants';
 
@@ -7,13 +7,11 @@ import { factFilteredStateOne, factFilteredStateTwo } from './reducer.fact-filte
 
 describe('compare reducer', () => {
     it('should return initial state', () => {
-        expect(reducers.compareReducer(undefined, {})).toEqual(
+        expect(compareReducer(undefined, {})).toEqual(
             {
                 fullCompareData: [],
-                addSystemModalOpened: false,
                 sortedFilteredFacts: [],
                 factFilter: '',
-                filterDropdownOpened: false,
                 stateFilters: [
                     { filter: 'SAME', display: 'Same', selected: true },
                     { filter: 'DIFFERENT', display: 'Different', selected: true },
@@ -29,8 +27,6 @@ describe('compare reducer', () => {
                 totalFacts: 0,
                 loading: false,
                 expandedRows: [],
-                kebabOpened: false,
-                errorAlertOpened: false,
                 error: {}
             }
         );
@@ -38,7 +34,7 @@ describe('compare reducer', () => {
 
     it('should handle FETCH_COMPARE_PENDING', () => {
         expect(
-            reducers.compareReducer({ systems: [], loading: false }, {
+            compareReducer({ systems: [], loading: false }, {
                 type: `${types.FETCH_COMPARE}_PENDING`
             })
         ).toEqual({
@@ -50,7 +46,7 @@ describe('compare reducer', () => {
 
     it('should handle FETCH_COMPARE_PENDING with previous systems', () => {
         expect(
-            reducers.compareReducer({ systems: compareReducerPayload.systems, loading: false }, {
+            compareReducer({ systems: compareReducerPayload.systems, loading: false }, {
                 type: `${types.FETCH_COMPARE}_PENDING`
             })
         ).toEqual({
@@ -62,7 +58,7 @@ describe('compare reducer', () => {
 
     it('should handle FETCH_COMPARE_FULFILLED', () => {
         expect(
-            reducers.compareReducer({
+            compareReducer({
                 perPage: 50,
                 page: 1,
                 stateFilters: [
@@ -95,7 +91,7 @@ describe('compare reducer', () => {
 
     it('should handle UPDATE_PAGINATION no data', () => {
         expect(
-            reducers.compareReducer({
+            compareReducer({
                 perPage: 50,
                 page: 1,
                 fullCompareData: [],
@@ -121,7 +117,7 @@ describe('compare reducer', () => {
 
     it('should handle UPDATE_PAGINATION page one', () => {
         expect(
-            reducers.compareReducer({
+            compareReducer({
                 perPage: 50,
                 page: 1,
                 fullCompareData: compareReducerPayload.facts,
@@ -155,7 +151,7 @@ describe('compare reducer', () => {
 
     it('should handle UPDATE_PAGINATION page two', () => {
         expect(
-            reducers.compareReducer({
+            compareReducer({
                 perPage: 2,
                 page: 1,
                 fullCompareData: compareReducerPayload.facts,
@@ -189,7 +185,7 @@ describe('compare reducer', () => {
 
     it('should handle UPDATE_PAGINATION page three is empty', () => {
         expect(
-            reducers.compareReducer({
+            compareReducer({
                 perPage: 2,
                 page: 2,
                 fullCompareData: compareReducerPayload.facts,
@@ -223,7 +219,7 @@ describe('compare reducer', () => {
 
     it('should handle FILTER_BY_FACT with text: i', () => {
         expect(
-            reducers.compareReducer({
+            compareReducer({
                 page: 1,
                 perPage: 50,
                 fullCompareData: compareReducerPayload.facts,
@@ -257,7 +253,7 @@ describe('compare reducer', () => {
 
     it('should handle FILTER_BY_FACT with text: io', () => {
         expect(
-            reducers.compareReducer({
+            compareReducer({
                 page: 1,
                 perPage: 50,
                 fullCompareData: compareReducerPayload.facts,
@@ -291,7 +287,7 @@ describe('compare reducer', () => {
 
     it('should handle FILTER_BY_FACT with text: iou', () => {
         expect(
-            reducers.compareReducer({
+            compareReducer({
                 page: 1,
                 perPage: 50,
                 fullCompareData: compareReducerPayload.facts,
@@ -325,7 +321,7 @@ describe('compare reducer', () => {
 
     it('should handle FILTER_BY_FACT with text: io and state: SAME', () => {
         expect(
-            reducers.compareReducer({
+            compareReducer({
                 page: 1,
                 perPage: 50,
                 fullCompareData: compareReducerPayload.facts,
@@ -359,7 +355,7 @@ describe('compare reducer', () => {
 
     it('should handle FILTER_BY_FACT with text: io and state: DIFFERENT', () => {
         expect(
-            reducers.compareReducer({
+            compareReducer({
                 page: 1,
                 perPage: 50,
                 fullCompareData: compareReducerPayload.facts,
@@ -388,162 +384,6 @@ describe('compare reducer', () => {
                 { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: false }
             ],
             totalFacts: 0
-        });
-    });
-});
-
-describe('add system modal reducer', () => {
-    it('should return initial state', () => {
-        expect(reducers.addSystemModalReducer(undefined, {})).toEqual(
-            {
-                fullCompareData: [],
-                systems: [],
-                previousStateSystems: [],
-                addSystemModalOpened: false,
-                sortedFilteredFacts: [],
-                factFilter: '',
-                filterDropdownOpened: false,
-                stateFilters: [
-                    { filter: 'SAME', display: 'Same', selected: true },
-                    { filter: 'DIFFERENT', display: 'Different', selected: true },
-                    { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
-                ],
-                factSort: ASC,
-                stateSort: DESC,
-                filteredCompareData: [],
-                page: 1,
-                perPage: 50,
-                totalFacts: 0,
-                loading: false,
-                expandedRows: [],
-                kebabOpened: false,
-                errorAlertOpened: false,
-                error: {}
-            }
-        );
-    });
-
-    it('should handle OPEN_ADD_SYSTEM_MODAL true', () => {
-        expect(
-            reducers.addSystemModalReducer({ addSystemModalOpened: false }, {
-                type: `${types.OPEN_ADD_SYSTEM_MODAL}`
-            })
-        ).toEqual({
-            addSystemModalOpened: true
-        });
-    });
-
-    it('should handle OPEN_ADD_SYSTEM_MODAL false', () => {
-        expect(
-            reducers.addSystemModalReducer({ addSystemModalOpened: true }, {
-                type: `${types.OPEN_ADD_SYSTEM_MODAL}`
-            })
-        ).toEqual({
-            addSystemModalOpened: false
-        });
-    });
-});
-
-describe('filter dropdown reducer', () => {
-    it('should return initial state', () => {
-        expect(reducers.addSystemModalReducer(undefined, {})).toEqual(
-            {
-                fullCompareData: [],
-                systems: [],
-                previousStateSystems: [],
-                addSystemModalOpened: false,
-                sortedFilteredFacts: [],
-                factFilter: '',
-                filterDropdownOpened: false,
-                stateFilters: [
-                    { filter: 'SAME', display: 'Same', selected: true },
-                    { filter: 'DIFFERENT', display: 'Different', selected: true },
-                    { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
-                ],
-                factSort: ASC,
-                stateSort: DESC,
-                filteredCompareData: [],
-                page: 1,
-                perPage: 50,
-                totalFacts: 0,
-                loading: false,
-                expandedRows: [],
-                kebabOpened: false,
-                errorAlertOpened: false,
-                error: {}
-            }
-        );
-    });
-
-    it('should handle OPEN_FILTER_DROPDOWN true', () => {
-        expect(
-            reducers.filterDropdownReducer({ filterDropdownOpened: false }, {
-                type: `${types.OPEN_FILTER_DROPDOWN}`
-            })
-        ).toEqual({
-            filterDropdownOpened: true
-        });
-    });
-
-    it('should handle OPEN_FILTER_DROPDOWN false', () => {
-        expect(
-            reducers.filterDropdownReducer({ filterDropdownOpened: true }, {
-                type: `${types.OPEN_FILTER_DROPDOWN}`
-            })
-        ).toEqual({
-            filterDropdownOpened: false
-        });
-    });
-});
-
-describe('export reducer', () => {
-    it('should return initial state', () => {
-        expect(reducers.actionKebabReducer(undefined, {})).toEqual(
-            {
-                fullCompareData: [],
-                systems: [],
-                previousStateSystems: [],
-                addSystemModalOpened: false,
-                sortedFilteredFacts: [],
-                factFilter: '',
-                filterDropdownOpened: false,
-                stateFilters: [
-                    { filter: 'SAME', display: 'Same', selected: true },
-                    { filter: 'DIFFERENT', display: 'Different', selected: true },
-                    { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
-                ],
-                factSort: ASC,
-                stateSort: DESC,
-                filteredCompareData: [],
-                page: 1,
-                perPage: 50,
-                totalFacts: 0,
-                loading: false,
-                expandedRows: [],
-                kebabOpened: false,
-                errorAlertOpened: false,
-                error: {}
-            }
-        );
-    });
-
-    it('should handle TOGGLE_KEBAB true', () => {
-        expect(
-            reducers.actionKebabReducer({ kebabOpened: false }, {
-                type: `${types.TOGGLE_KEBAB}`
-            })
-        ).toEqual({
-            kebabOpened: true
-        });
-    });
-
-    it('should handle TOGGLE_KEBAB false', () => {
-        expect(
-            reducers.actionKebabReducer({ kebabOpened: true }, {
-                type: `${types.TOGGLE_KEBAB}`
-            })
-        ).toEqual({
-            kebabOpened: false
         });
     });
 });

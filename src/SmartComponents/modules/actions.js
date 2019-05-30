@@ -22,28 +22,10 @@ function clearState() {
     };
 }
 
-function toggleAddSystemModal() {
-    return {
-        type: types.OPEN_ADD_SYSTEM_MODAL
-    };
-}
-
-function toggleErrorAlert() {
-    return {
-        type: types.OPEN_ERROR_MODAL
-    };
-}
-
 function setSelectedSystemIds(selectedSystemIds) {
     return {
         type: types.SET_SELECTED_SYSTEM_IDS,
         payload: { selectedSystemIds }
-    };
-}
-
-function toggleFilterDropDown() {
-    return {
-        type: types.OPEN_FILTER_DROPDOWN
     };
 }
 
@@ -107,26 +89,16 @@ function expandRow(factName) {
     };
 }
 
-function toggleKebab() {
-    return {
-        type: types.TOGGLE_KEBAB
-    };
-}
-
 export default {
     fetchCompare,
     revertCompareData,
     clearState,
-    toggleAddSystemModal,
-    toggleErrorAlert,
     setSelectedSystemIds,
-    toggleFilterDropDown,
     toggleFactSort,
     addStateFilter,
     toggleStateSort,
     filterByFact,
     updatePagination,
     exportToCSV,
-    expandRow,
-    toggleKebab
+    expandRow
 };

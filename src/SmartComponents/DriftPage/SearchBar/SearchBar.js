@@ -31,7 +31,7 @@ SearchBar.propTypes = {
 
 function mapStateToProps(state) {
     return {
-        factFilter: state.compareReducer.factFilter
+        factFilter: state.compareState.factFilter
     };
 }
 

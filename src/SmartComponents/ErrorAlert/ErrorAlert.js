@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import { compareActions } from '../modules';
+import { errorAlertActions } from './redux';
 import { setHistory } from '../../Utilities/SetHistory';
 
 class ErrorAlert extends Component {
@@ -59,16 +60,16 @@ ErrorAlert.propTypes = {
 
 function mapStateToProps(state) {
     return {
-        fullCompareData: state.compareReducer.fullCompareData,
-        previousStateSystems: state.compareReducer.previousStateSystems,
-        errorAlertOpened: state.errorAlertReducer.errorAlertOpened,
-        error: state.compareReducer.error
+        fullCompareData: state.compareState.fullCompareData,
+        previousStateSystems: state.compareState.previousStateSystems,
+        errorAlertOpened: state.errorAlertOpened,
+        error: state.compareState.error
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        toggleModal: () => dispatch(compareActions.toggleErrorAlert()),
+        toggleModal: () => dispatch(errorAlertActions.toggleErrorAlert()),
         revertCompareData: (compareData) => dispatch(compareActions.revertCompareData(compareData))
     };
 }

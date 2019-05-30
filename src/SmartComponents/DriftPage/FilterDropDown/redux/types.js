@@ -1,0 +1,5 @@
+const OPEN_FILTER_DROPDOWN = 'OPEN_FILTER_DROPDOWN';
+
+export default {
+    OPEN_FILTER_DROPDOWN
+};

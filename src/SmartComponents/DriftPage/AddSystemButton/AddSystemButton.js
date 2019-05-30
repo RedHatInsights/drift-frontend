@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Button } from '@patternfly/react-core';
 
-import { compareActions } from '../../modules';
+import { addSystemModalActions } from '../../AddSystemModal/redux';
 
 class AddSystemButton extends Component {
     constructor(props) {
@@ -27,7 +27,7 @@ AddSystemButton.propTypes = {
 
 function mapDispatchToProps(dispatch) {
     return {
-        toggleAddSystemModal: (() => dispatch(compareActions.toggleAddSystemModal()))
+        toggleAddSystemModal: (() => dispatch(addSystemModalActions.toggleAddSystemModal()))
     };
 }
 

@@ -1,0 +1,5 @@
+const OPEN_ADD_SYSTEM_MODAL = 'OPEN_ADD_SYSTEM_MODAL';
+
+export default {
+    OPEN_ADD_SYSTEM_MODAL
+};
