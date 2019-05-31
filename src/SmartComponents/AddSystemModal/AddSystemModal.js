@@ -42,6 +42,7 @@ class AddSystemModal extends Component {
                     title="Choose systems"
                     isOpen={ this.props.showModal }
                     onClose={ this.cancelSelection }
+                    width="auto"
                     actions={ [
                         <Button
                             key="confirm"
