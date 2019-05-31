@@ -20,7 +20,6 @@ export function init (...middleware) {
         addSystemModalReducer: reducers.addSystemModalReducer,
         errorAlertReducer: reducers.errorAlertReducer,
         filterDropdownReducer: reducers.filterDropdownReducer,
-        activeSortReducer: reducers.activeSortReducer,
         actionKebabReducer: reducers.actionKebabReducer
     });
 
