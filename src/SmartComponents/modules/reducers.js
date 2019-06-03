@@ -117,6 +117,22 @@ function filterComparisons(comparisons, stateFilters, factFilter) {
 }
 
 function sortData(filteredFacts, factSort, stateSort) {
+    let filteredSubfacts;
+    let newFilteredFacts;
+
+    newFilteredFacts = sortFacts(filteredFacts, factSort, stateSort);
+
+    newFilteredFacts.forEach(function(fact) {
+        if (fact.comparisons !== undefined && fact.comparisons.length > 0) {
+            filteredSubfacts = sortFacts(fact.comparisons, factSort, stateSort);
+            fact.comparisons = filteredSubfacts;
+        }
+    });
+
+    return newFilteredFacts;
+}
+
+function sortFacts(filteredFacts, factSort, stateSort) {
     if (stateSort === ASC) {
         filteredFacts.sort(function(a, b) {
             if (a.state.toLowerCase() > b.state.toLowerCase()) {
