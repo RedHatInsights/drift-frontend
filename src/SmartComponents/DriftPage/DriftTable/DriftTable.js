@@ -111,18 +111,6 @@ class DriftTable extends Component {
 
             rows.push(<tr>{ row }</tr>);
 
-            fact.comparisons.sort(function(a, b) {
-                if (a.name.toLowerCase() > b.name.toLowerCase()) {
-                    return 1;
-                }
-                else if (a.name.toLowerCase() < b.name.toLowerCase()) {
-                    return -1;
-                }
-                else {
-                    return 0;
-                }
-            });
-
             for (let i = 0; i < fact.comparisons.length; i++) {
                 row = this.renderRowChild(fact.comparisons[i], systems);
                 rows.push(<tr>{ row }</tr>);
@@ -233,8 +221,6 @@ class DriftTable extends Component {
         } else {
             this.props.toggleStateSort(sort);
         }
-
-        this.props.toggleActiveSort(sortType);
     }
 
     renderHeaderRow(systems, loading) {
@@ -378,7 +364,6 @@ DriftTable.propTypes = {
     loading: PropTypes.bool,
     toggleFactSort: PropTypes.func,
     toggleStateSort: PropTypes.func,
-    toggleActiveSort: PropTypes.func,
     expandRow: PropTypes.func,
     expandRows: PropTypes.func,
     expandedRows: PropTypes.array
