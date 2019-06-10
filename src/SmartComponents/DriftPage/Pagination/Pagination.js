@@ -33,12 +33,14 @@ class TablePagination extends Component {
     }
 
     render() {
+        const { totalFacts, page, perPage } = this.props;
+
         return (
             <Pagination
-                itemCount={ this.props.totalFacts }
+                itemCount={ totalFacts }
                 perPageOptions={ perPageOptions }
-                page={ this.props.page }
-                perPage={ this.props.perPage }
+                page={ totalFacts === 0 ? 0 : page }
+                perPage={ perPage }
                 dropDirection={ DropdownDirection.down }
                 onSetPage={ this.onSetPage }
                 onPerPageSelect={ this.onPerPageSelect }
