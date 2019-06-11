@@ -18,7 +18,7 @@ const initialState = {
     totalFacts: 0,
     page: 1,
     factSort: ASC,
-    stateSort: '',
+    stateSort: DESC,
     perPage: 10,
     loading: false,
     expandedRows: [],

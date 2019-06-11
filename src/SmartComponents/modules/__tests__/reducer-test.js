@@ -1,6 +1,6 @@
 import reducers from '../reducers';
 import types from '../types';
-import { ASC } from '../../../constants';
+import { ASC, DESC } from '../../../constants';
 
 import { compareReducerPayload, compareReducerState, paginatedStatePageOne, paginatedStatePageTwo } from './reducer.fixtures';
 import { factFilteredStateOne, factFilteredStateTwo } from './reducer.fact-filter-fixtures';
@@ -20,7 +20,7 @@ describe('compare reducer', () => {
                     { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
                 ],
                 factSort: ASC,
-                stateSort: '',
+                stateSort: DESC,
                 filteredCompareData: [],
                 systems: [],
                 previousStateSystems: [],
@@ -409,7 +409,7 @@ describe('add system modal reducer', () => {
                     { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
                 ],
                 factSort: ASC,
-                stateSort: '',
+                stateSort: DESC,
                 filteredCompareData: [],
                 page: 1,
                 perPage: 10,
@@ -461,7 +461,7 @@ describe('filter dropdown reducer', () => {
                     { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
                 ],
                 factSort: ASC,
-                stateSort: '',
+                stateSort: DESC,
                 filteredCompareData: [],
                 page: 1,
                 perPage: 10,
@@ -513,7 +513,7 @@ describe('export reducer', () => {
                     { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
                 ],
                 factSort: ASC,
-                stateSort: '',
+                stateSort: DESC,
                 filteredCompareData: [],
                 page: 1,
                 perPage: 10,
