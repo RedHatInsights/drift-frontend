@@ -19,7 +19,7 @@ const initialState = {
     page: 1,
     factSort: ASC,
     stateSort: DESC,
-    perPage: 10,
+    perPage: 50,
     loading: false,
     expandedRows: [],
     kebabOpened: false,

@@ -25,7 +25,7 @@ describe('compare reducer', () => {
                 systems: [],
                 previousStateSystems: [],
                 page: 1,
-                perPage: 10,
+                perPage: 50,
                 totalFacts: 0,
                 loading: false,
                 expandedRows: [],
@@ -63,7 +63,7 @@ describe('compare reducer', () => {
     it('should handle FETCH_COMPARE_FULFILLED', () => {
         expect(
             reducers.compareReducer({
-                perPage: 10,
+                perPage: 50,
                 page: 1,
                 stateFilters: [
                     { filter: 'SAME', display: 'Same', selected: true },
@@ -83,7 +83,7 @@ describe('compare reducer', () => {
             sortedFilteredFacts: compareReducerState.facts,
             systems: compareReducerState.systems,
             page: 1,
-            perPage: 10,
+            perPage: 50,
             stateFilters: [
                 { filter: 'SAME', display: 'Same', selected: true },
                 { filter: 'DIFFERENT', display: 'Different', selected: true },
@@ -96,7 +96,7 @@ describe('compare reducer', () => {
     it('should handle UPDATE_PAGINATION no data', () => {
         expect(
             reducers.compareReducer({
-                perPage: 10,
+                perPage: 50,
                 page: 1,
                 fullCompareData: [],
                 systems: [],
@@ -122,7 +122,7 @@ describe('compare reducer', () => {
     it('should handle UPDATE_PAGINATION page one', () => {
         expect(
             reducers.compareReducer({
-                perPage: 10,
+                perPage: 50,
                 page: 1,
                 fullCompareData: compareReducerPayload.facts,
                 systems: compareReducerPayload.systems,
@@ -225,7 +225,7 @@ describe('compare reducer', () => {
         expect(
             reducers.compareReducer({
                 page: 1,
-                perPage: 10,
+                perPage: 50,
                 fullCompareData: compareReducerPayload.facts,
                 systems: compareReducerPayload.systems,
                 factFilter: '',
@@ -245,7 +245,7 @@ describe('compare reducer', () => {
             sortedFilteredFacts: factFilteredStateOne.facts,
             systems: factFilteredStateOne.systems,
             page: 1,
-            perPage: 10,
+            perPage: 50,
             stateFilters: [
                 { filter: 'SAME', display: 'Same', selected: true },
                 { filter: 'DIFFERENT', display: 'Different', selected: true },
@@ -259,7 +259,7 @@ describe('compare reducer', () => {
         expect(
             reducers.compareReducer({
                 page: 1,
-                perPage: 10,
+                perPage: 50,
                 fullCompareData: compareReducerPayload.facts,
                 systems: compareReducerPayload.systems,
                 factFilter: 'i',
@@ -279,7 +279,7 @@ describe('compare reducer', () => {
             sortedFilteredFacts: factFilteredStateTwo.facts,
             systems: factFilteredStateTwo.systems,
             page: 1,
-            perPage: 10,
+            perPage: 50,
             stateFilters: [
                 { filter: 'SAME', display: 'Same', selected: true },
                 { filter: 'DIFFERENT', display: 'Different', selected: true },
@@ -293,7 +293,7 @@ describe('compare reducer', () => {
         expect(
             reducers.compareReducer({
                 page: 1,
-                perPage: 10,
+                perPage: 50,
                 fullCompareData: compareReducerPayload.facts,
                 systems: compareReducerPayload.systems,
                 factFilter: 'io',
@@ -313,7 +313,7 @@ describe('compare reducer', () => {
             sortedFilteredFacts: [],
             systems: compareReducerState.systems,
             page: 1,
-            perPage: 10,
+            perPage: 50,
             stateFilters: [
                 { filter: 'SAME', display: 'Same', selected: true },
                 { filter: 'DIFFERENT', display: 'Different', selected: true },
@@ -327,7 +327,7 @@ describe('compare reducer', () => {
         expect(
             reducers.compareReducer({
                 page: 1,
-                perPage: 10,
+                perPage: 50,
                 fullCompareData: compareReducerPayload.facts,
                 systems: compareReducerPayload.systems,
                 factFilter: '',
@@ -347,7 +347,7 @@ describe('compare reducer', () => {
             sortedFilteredFacts: factFilteredStateTwo.facts,
             systems: factFilteredStateTwo.systems,
             page: 1,
-            perPage: 10,
+            perPage: 50,
             stateFilters: [
                 { filter: 'SAME', display: 'Same', selected: true },
                 { filter: 'DIFFERENT', display: 'Different', selected: false },
@@ -361,7 +361,7 @@ describe('compare reducer', () => {
         expect(
             reducers.compareReducer({
                 page: 1,
-                perPage: 10,
+                perPage: 50,
                 fullCompareData: compareReducerPayload.facts,
                 systems: compareReducerPayload.systems,
                 factFilter: '',
@@ -381,7 +381,7 @@ describe('compare reducer', () => {
             sortedFilteredFacts: [],
             systems: compareReducerState.systems,
             page: 1,
-            perPage: 10,
+            perPage: 50,
             stateFilters: [
                 { filter: 'SAME', display: 'Same', selected: false },
                 { filter: 'DIFFERENT', display: 'Different', selected: true },
@@ -412,7 +412,7 @@ describe('add system modal reducer', () => {
                 stateSort: DESC,
                 filteredCompareData: [],
                 page: 1,
-                perPage: 10,
+                perPage: 50,
                 totalFacts: 0,
                 loading: false,
                 expandedRows: [],
@@ -464,7 +464,7 @@ describe('filter dropdown reducer', () => {
                 stateSort: DESC,
                 filteredCompareData: [],
                 page: 1,
-                perPage: 10,
+                perPage: 50,
                 totalFacts: 0,
                 loading: false,
                 expandedRows: [],
@@ -516,7 +516,7 @@ describe('export reducer', () => {
                 stateSort: DESC,
                 filteredCompareData: [],
                 page: 1,
-                perPage: 10,
+                perPage: 50,
                 totalFacts: 0,
                 loading: false,
                 expandedRows: [],
