@@ -160,10 +160,10 @@ function sortFacts(filteredFacts, factSort, stateSort) {
     if (factSort === ASC) {
         filteredFacts.sort(function(a, b) {
             if (stateSort === '') {
-                if (a.name > b.name) {
+                if (a.name.toLowerCase() > b.name.toLowerCase()) {
                     return 1;
                 }
-                else if (a.name < b.name) {
+                else if (a.name.toLowerCase() < b.name.toLowerCase()) {
                     return -1;
                 }
                 else {
@@ -171,10 +171,10 @@ function sortFacts(filteredFacts, factSort, stateSort) {
                 }
             }
             else {
-                if ((a.name > b.name) && (a.state === b.state)) {
+                if ((a.name.toLowerCase() > b.name.toLowerCase()) && (a.state === b.state)) {
                     return 1;
                 }
-                else if ((a.name < b.name) && (a.state === b.state)) {
+                else if ((a.name.toLowerCase() < b.name.toLowerCase()) && (a.state === b.state)) {
                     return -1;
                 }
                 else {
@@ -186,10 +186,10 @@ function sortFacts(filteredFacts, factSort, stateSort) {
     else if (factSort === DESC) {
         filteredFacts.sort(function(a, b) {
             if (stateSort === '') {
-                if (b.name > a.name) {
+                if (b.name.toLowerCase() > a.name.toLowerCase()) {
                     return 1;
                 }
-                else if (b.name < a.name) {
+                else if (b.name.toLowerCase() < a.name.toLowerCase()) {
                     return -1;
                 }
                 else {
@@ -197,10 +197,10 @@ function sortFacts(filteredFacts, factSort, stateSort) {
                 }
             }
             else {
-                if ((b.name > a.name) && (a.state === b.state)) {
+                if ((b.name.toLowerCase() > a.name.toLowerCase()) && (a.state === b.state)) {
                     return 1;
                 }
-                else if ((b.name < a.name) && (a.state === b.state)) {
+                else if ((b.name.toLowerCase() < a.name.toLowerCase()) && (a.state === b.state)) {
                     return -1;
                 }
                 else {
