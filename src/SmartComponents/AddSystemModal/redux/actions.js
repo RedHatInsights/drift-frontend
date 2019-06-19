@@ -6,6 +6,14 @@ function toggleAddSystemModal() {
     };
 }
 
+function selectActiveTab(newActiveTab) {
+    return {
+        type: types.SELECT_ACTIVE_TAB,
+        payload: newActiveTab
+    };
+}
+
 export default {
-    toggleAddSystemModal
+    toggleAddSystemModal,
+    selectActiveTab
 };

@@ -1,16 +1,19 @@
 /*global module*/
 
 const SECTION = 'insights';
-const APP_ID = 'drift';
+const DRIFT_APP_ID = 'drift';
+const BASELINE_APP_ID = 'system_baseline';
 const FRONTEND_PORT = 8002;
-const API_PORT = 8080;
+const DRIFT_PORT = 8080;
+const BASELINE_PORT = 8085;
 const routes = {};
 
-routes[`/beta/${SECTION}/${APP_ID}`] = { host: `http://localhost:${FRONTEND_PORT}` };
-routes[`/${SECTION}/${APP_ID}`]      = { host: `http://localhost:${FRONTEND_PORT}` };
-routes[`/beta/apps/${APP_ID}`]       = { host: `http://localhost:${FRONTEND_PORT}` };
-routes[`/apps/${APP_ID}`]            = { host: `http://localhost:${FRONTEND_PORT}` };
+routes[`/beta/${SECTION}/${DRIFT_APP_ID}`] = { host: `http://localhost:${FRONTEND_PORT}` };
+routes[`/${SECTION}/${DRIFT_APP_ID}`]      = { host: `http://localhost:${FRONTEND_PORT}` };
+routes[`/beta/apps/${DRIFT_APP_ID}`]       = { host: `http://localhost:${FRONTEND_PORT}` };
+routes[`/apps/${DRIFT_APP_ID}`]            = { host: `http://localhost:${FRONTEND_PORT}` };
+routes[`/api/${BASELINE_APP_ID}`]       = { host: `http://localhost:${BASELINE_PORT}` };
 
-routes[`/api/${APP_ID}`] = { host: `http://localhost:${API_PORT}` };
+routes[`/api/${DRIFT_APP_ID}`] = { host: `http://localhost:${DRIFT_PORT}` };
 
 module.exports = { routes };

@@ -1,15 +1,24 @@
 import types from './types';
 
 const initialState = {
-    addSystemModalOpened: false
+    addSystemModalOpened: false,
+    activeTab: 0
 };
 
-export function addSystemModalReducer(addSystemModalOpened = initialState.addSystemModalOpened, action) {
+export function addSystemModalReducer(state = initialState, action) {
     switch (action.type) {
         case `${types.OPEN_ADD_SYSTEM_MODAL}`:
-            return !addSystemModalOpened;
+            return {
+                ...state,
+                addSystemModalOpened: !state.addSystemModalOpened
+            };
+        case `${types.SELECT_ACTIVE_TAB}`:
+            return {
+                ...state,
+                activeTab: action.payload
+            };
 
         default:
-            return addSystemModalOpened;
+            return state;
     }
 }
