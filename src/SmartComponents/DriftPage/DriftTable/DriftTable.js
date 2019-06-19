@@ -312,7 +312,6 @@ class DriftTable extends Component {
             <React.Fragment>
                 <AddSystemModal
                     selectedSystemIds={ systems.map(system => system.id) }
-                    showModal={ this.props.addSystemModalOpened }
                     confirmModal={ this.fetchCompare }
                 />
                 { systems.length > 0 || loading || (fullCompareData.length !== 0 && this.systemIds.length !== 0) ?

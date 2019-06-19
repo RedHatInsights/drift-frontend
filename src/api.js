@@ -1,8 +1,13 @@
 import axios from 'axios';
-import { DRIFT_API_ROOT } from './constants';
+import { DRIFT_API_ROOT, BASELINE_API_ROOT } from './constants';
 
 async function post(path, body = {}) {
     const request = await axios.post(DRIFT_API_ROOT.concat(path), body);
+    return request.data;
+}
+
+async function getBaselines(path, body = {}) {
+    const request = await axios.get(BASELINE_API_ROOT.concat(path), body);
     return request.data;
 }
 
@@ -16,6 +21,13 @@ function getCompare(systemIds = []) {
     /*eslint-enable camelcase*/
 }
 
+function getBaselineList() {
+    /*eslint-disable camelcase*/
+    return getBaselines('/baselines', {});
+    /*eslint-enable camelcase*/
+}
+
 export default {
-    getCompare
+    getCompare,
+    getBaselineList
 };
