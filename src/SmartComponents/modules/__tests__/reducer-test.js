@@ -4,6 +4,7 @@ import { ASC, DESC } from '../../../constants';
 
 import { compareReducerPayload, compareReducerState, paginatedStatePageOne, paginatedStatePageTwo } from './reducer.fixtures';
 import { factFilteredStateOne, factFilteredStateTwo } from './reducer.fact-filter-fixtures';
+import stateFilteredFixtures from './reducer.state-filter-fixtures';
 
 describe('compare reducer', () => {
     it('should return initial state', () => {
@@ -86,6 +87,39 @@ describe('compare reducer', () => {
                 { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
             ],
             totalFacts: 3
+        });
+    });
+
+    it('should handle fullCompareData undefined', () => {
+        expect(
+            compareReducer({
+                perPage: 50,
+                page: 1,
+                stateFilters: [
+                    { filter: 'SAME', display: 'Same', selected: true },
+                    { filter: 'DIFFERENT', display: 'Different', selected: true },
+                    { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
+                ],
+                factFilter: '' },
+            {
+                payload: { facts: [], systems: []},
+                type: `${types.FETCH_COMPARE}_FULFILLED`
+            })
+        ).toEqual({
+            fullCompareData: [],
+            loading: false,
+            factFilter: '',
+            filteredCompareData: [],
+            sortedFilteredFacts: [],
+            systems: [],
+            page: 1,
+            perPage: 50,
+            stateFilters: [
+                { filter: 'SAME', display: 'Same', selected: true },
+                { filter: 'DIFFERENT', display: 'Different', selected: true },
+                { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
+            ],
+            totalFacts: 0
         });
     });
 
@@ -381,6 +415,244 @@ describe('compare reducer', () => {
             stateFilters: [
                 { filter: 'SAME', display: 'Same', selected: false },
                 { filter: 'DIFFERENT', display: 'Different', selected: true },
+                { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: false }
+            ],
+            totalFacts: 0
+        });
+    });
+
+    it('should handle ADD_STATE_FILTER: SAME', () => {
+        expect(
+            compareReducer({
+                page: 1,
+                perPage: 50,
+                fullCompareData: stateFilteredFixtures.stateFilteredStateAll.facts,
+                systems: stateFilteredFixtures.stateFilteredStateAll.systems,
+                factFilter: '',
+                stateFilters: [
+                    { filter: 'SAME', display: 'Same', selected: false },
+                    { filter: 'DIFFERENT', display: 'Different', selected: false },
+                    { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: false }
+                ]},
+            {
+                payload: { filter: 'SAME', display: 'Same', selected: true },
+                type: `${types.ADD_STATE_FILTER}`
+            })
+        ).toEqual({
+            fullCompareData: stateFilteredFixtures.stateFilteredStateAll.facts,
+            factFilter: '',
+            filteredCompareData: stateFilteredFixtures.stateFilteredStateSame,
+            sortedFilteredFacts: stateFilteredFixtures.stateFilteredStateSame,
+            systems: stateFilteredFixtures.stateFilteredStateAll.systems,
+            page: 1,
+            perPage: 50,
+            stateFilters: [
+                { filter: 'SAME', display: 'Same', selected: true },
+                { filter: 'DIFFERENT', display: 'Different', selected: false },
+                { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: false }
+            ],
+            totalFacts: 1
+        });
+    });
+
+    it('should handle ADD_STATE_FILTER: DIFFERENT', () => {
+        expect(
+            compareReducer({
+                page: 1,
+                perPage: 50,
+                fullCompareData: stateFilteredFixtures.stateFilteredStateAll.facts,
+                systems: stateFilteredFixtures.stateFilteredStateAll.systems,
+                factFilter: '',
+                stateFilters: [
+                    { filter: 'SAME', display: 'Same', selected: false },
+                    { filter: 'DIFFERENT', display: 'Different', selected: false },
+                    { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: false }
+                ]},
+            {
+                payload: { filter: 'DIFFERENT', display: 'Different', selected: true },
+                type: `${types.ADD_STATE_FILTER}`
+            })
+        ).toEqual({
+            fullCompareData: stateFilteredFixtures.stateFilteredStateAll.facts,
+            factFilter: '',
+            filteredCompareData: stateFilteredFixtures.stateFilteredStateDifferent,
+            sortedFilteredFacts: stateFilteredFixtures.stateFilteredStateDifferent,
+            systems: stateFilteredFixtures.stateFilteredStateAll.systems,
+            page: 1,
+            perPage: 50,
+            stateFilters: [
+                { filter: 'SAME', display: 'Same', selected: false },
+                { filter: 'DIFFERENT', display: 'Different', selected: true },
+                { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: false }
+            ],
+            totalFacts: 1
+        });
+    });
+
+    it('should handle ADD_STATE_FILTER: INCOMPLETE_DATA', () => {
+        expect(
+            compareReducer({
+                page: 1,
+                perPage: 50,
+                fullCompareData: stateFilteredFixtures.stateFilteredStateAll.facts,
+                systems: stateFilteredFixtures.stateFilteredStateAll.systems,
+                factFilter: '',
+                stateFilters: [
+                    { filter: 'SAME', display: 'Same', selected: false },
+                    { filter: 'DIFFERENT', display: 'Different', selected: false },
+                    { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: false }
+                ]},
+            {
+                payload: { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true },
+                type: `${types.ADD_STATE_FILTER}`
+            })
+        ).toEqual({
+            fullCompareData: stateFilteredFixtures.stateFilteredStateAll.facts,
+            factFilter: '',
+            filteredCompareData: stateFilteredFixtures.stateFilteredStateIncomplete,
+            sortedFilteredFacts: stateFilteredFixtures.stateFilteredStateIncomplete,
+            systems: stateFilteredFixtures.stateFilteredStateAll.systems,
+            page: 1,
+            perPage: 50,
+            stateFilters: [
+                { filter: 'SAME', display: 'Same', selected: false },
+                { filter: 'DIFFERENT', display: 'Different', selected: false },
+                { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
+            ],
+            totalFacts: 1
+        });
+    });
+
+    it('should handle ADD_STATE_FILTER: SAME and INCOMPLETE_DATA', () => {
+        expect(
+            compareReducer({
+                page: 1,
+                perPage: 50,
+                fullCompareData: stateFilteredFixtures.stateFilteredStateAll.facts,
+                systems: stateFilteredFixtures.stateFilteredStateAll.systems,
+                factFilter: '',
+                stateFilters: [
+                    { filter: 'SAME', display: 'Same', selected: true },
+                    { filter: 'DIFFERENT', display: 'Different', selected: false },
+                    { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: false }
+                ]},
+            {
+                payload: { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true },
+                type: `${types.ADD_STATE_FILTER}`
+            })
+        ).toEqual({
+            fullCompareData: stateFilteredFixtures.stateFilteredStateAll.facts,
+            factFilter: '',
+            filteredCompareData: stateFilteredFixtures.stateFilteredStateSameIncomplete,
+            sortedFilteredFacts: stateFilteredFixtures.stateFilteredStateSameIncomplete,
+            systems: stateFilteredFixtures.stateFilteredStateAll.systems,
+            page: 1,
+            perPage: 50,
+            stateFilters: [
+                { filter: 'SAME', display: 'Same', selected: true },
+                { filter: 'DIFFERENT', display: 'Different', selected: false },
+                { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
+            ],
+            totalFacts: 2
+        });
+    });
+
+    it('should handle ADD_STATE_FILTER: SAME and DIFFERENT', () => {
+        expect(
+            compareReducer({
+                page: 1,
+                perPage: 50,
+                fullCompareData: stateFilteredFixtures.stateFilteredStateAll.facts,
+                systems: stateFilteredFixtures.stateFilteredStateAll.systems,
+                factFilter: '',
+                stateFilters: [
+                    { filter: 'SAME', display: 'Same', selected: true },
+                    { filter: 'DIFFERENT', display: 'Different', selected: false },
+                    { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: false }
+                ]},
+            {
+                payload: { filter: 'DIFFERENT', display: 'Different', selected: true },
+                type: `${types.ADD_STATE_FILTER}`
+            })
+        ).toEqual({
+            fullCompareData: stateFilteredFixtures.stateFilteredStateAll.facts,
+            factFilter: '',
+            filteredCompareData: stateFilteredFixtures.stateFilteredStateSameDiff,
+            sortedFilteredFacts: stateFilteredFixtures.stateFilteredStateSameDiff,
+            systems: stateFilteredFixtures.stateFilteredStateAll.systems,
+            page: 1,
+            perPage: 50,
+            stateFilters: [
+                { filter: 'SAME', display: 'Same', selected: true },
+                { filter: 'DIFFERENT', display: 'Different', selected: true },
+                { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: false }
+            ],
+            totalFacts: 2
+        });
+    });
+
+    it('should handle ADD_STATE_FILTER: DIFFERENT and INCOMPLETE_DATA', () => {
+        expect(
+            compareReducer({
+                page: 1,
+                perPage: 50,
+                fullCompareData: stateFilteredFixtures.stateFilteredStateAll.facts,
+                systems: stateFilteredFixtures.stateFilteredStateAll.systems,
+                factFilter: '',
+                stateFilters: [
+                    { filter: 'SAME', display: 'Same', selected: false },
+                    { filter: 'DIFFERENT', display: 'Different', selected: false },
+                    { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
+                ]},
+            {
+                payload: { filter: 'DIFFERENT', display: 'Different', selected: true },
+                type: `${types.ADD_STATE_FILTER}`
+            })
+        ).toEqual({
+            fullCompareData: stateFilteredFixtures.stateFilteredStateAll.facts,
+            factFilter: '',
+            filteredCompareData: stateFilteredFixtures.stateFilteredStateDiffIncomplete,
+            sortedFilteredFacts: stateFilteredFixtures.stateFilteredStateDiffIncomplete,
+            systems: stateFilteredFixtures.stateFilteredStateAll.systems,
+            page: 1,
+            perPage: 50,
+            stateFilters: [
+                { filter: 'SAME', display: 'Same', selected: false },
+                { filter: 'DIFFERENT', display: 'Different', selected: true },
+                { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
+            ],
+            totalFacts: 2
+        });
+    });
+
+    it('should handle no state filters', () => {
+        expect(
+            compareReducer({
+                page: 1,
+                perPage: 50,
+                fullCompareData: stateFilteredFixtures.stateFilteredStateAll.facts,
+                systems: stateFilteredFixtures.stateFilteredStateAll.systems,
+                factFilter: '',
+                stateFilters: [
+                    { filter: 'SAME', display: 'Same', selected: false },
+                    { filter: 'DIFFERENT', display: 'Different', selected: true },
+                    { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: false }
+                ]},
+            {
+                payload: { filter: 'DIFFERENT', display: 'Different', selected: false },
+                type: `${types.ADD_STATE_FILTER}`
+            })
+        ).toEqual({
+            fullCompareData: stateFilteredFixtures.stateFilteredStateAll.facts,
+            factFilter: '',
+            filteredCompareData: [],
+            sortedFilteredFacts: [],
+            systems: stateFilteredFixtures.stateFilteredStateAll.systems,
+            page: 1,
+            perPage: 50,
+            stateFilters: [
+                { filter: 'SAME', display: 'Same', selected: false },
+                { filter: 'DIFFERENT', display: 'Different', selected: false },
                 { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: false }
             ],
             totalFacts: 0
