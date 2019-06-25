@@ -15,7 +15,15 @@ function selectBaseline(rows) {
     };
 }
 
+function setSelectedBaselineIds(baselineIds) {
+    return {
+        type: types.SET_SELECTED_BASELINE_IDS,
+        payload: baselineIds
+    };
+}
+
 export default {
     fetchBaselines,
-    selectBaseline
+    selectBaseline,
+    setSelectedBaselineIds
 };

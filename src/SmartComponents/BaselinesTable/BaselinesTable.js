@@ -10,6 +10,12 @@ class BaselinesTable extends Component {
     constructor(props) {
         super(props);
         this.onSelect = this.onSelect.bind(this);
+
+        this.selectedBaselineIds = this.selectedBaselineIds.bind(this);
+    }
+
+    selectedBaselineIds() {
+        return this.props.selectedBaselineIds;
     }
 
     onSelect(event, isSelected, rowId) {
@@ -85,7 +91,8 @@ function mapStateToProps(state) {
     return {
         loading: state.baselinesTableState.loading,
         fullBaselineListData: state.baselinesTableState.fullBaselineListData,
-        baselineTableData: state.baselinesTableState.baselineTableData
+        baselineTableData: state.baselinesTableState.baselineTableData,
+        selectedBaselineIds: state.baselinesTableState.selectedBaselineIds
     };
 }
 
@@ -100,7 +107,8 @@ BaselinesTable.propTypes = {
     fullBaselineListData: PropTypes.array,
     baselineTableData: PropTypes.array,
     createBaselinesTable: PropTypes.func,
-    selectBaseline: PropTypes.func
+    selectBaseline: PropTypes.func,
+    selectedBaselineIds: PropTypes.array
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(BaselinesTable);

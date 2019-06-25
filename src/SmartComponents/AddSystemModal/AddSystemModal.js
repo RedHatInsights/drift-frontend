@@ -7,7 +7,7 @@ import { withCookies, Cookies } from 'react-cookie';
 
 import SystemsTable from '../SystemsTable/SystemsTable';
 import BaselinesTable from '../BaselinesTable/BaselinesTable';
-import { compareActions } from '../modules';
+//import { compareActions } from '../modules';
 import { addSystemModalActions } from './redux';
 import { baselinesTableActions } from '../BaselinesTable/redux';
 import { EXPERIMENTAL_COOKIE_NAME } from '../../constants';
@@ -29,8 +29,10 @@ class AddSystemModal extends Component {
     }
 
     confirmModal() {
-        this.props.confirmModal(this.props.entities.selectedSystemIds);
-        this.props.toggleModal();
+        const { confirmModal, entities, selectedBaselineIds, toggleModal } = this.props;
+
+        confirmModal(entities.selectedSystemIds, selectedBaselineIds);
+        toggleModal();
     }
 
     cancelSelection() {
@@ -40,6 +42,14 @@ class AddSystemModal extends Component {
     selectedSystemIds() {
         let ids = this.props.systems.map(function (system) {
             return system.id;
+        });
+
+        return ids ? ids : [];
+    }
+
+    selectedBaselineIds() {
+        let ids = this.props.selectedBaselineIds.map(function (baseline) {
+            return baseline.id;
         });
 
         return ids ? ids : [];
@@ -104,13 +114,14 @@ AddSystemModal.propTypes = {
     addSystemModalOpened: PropTypes.bool,
     activeTab: PropTypes.number,
     confirmModal: PropTypes.func,
-    setSelectedSystemIds: PropTypes.func,
+    //setSelectedSystemIds: PropTypes.func,
     cancelSelection: PropTypes.func,
     toggleModal: PropTypes.func,
     selectActiveTab: PropTypes.func,
     entities: PropTypes.object,
     systems: PropTypes.array,
-    fetchBaselines: PropTypes.func
+    fetchBaselines: PropTypes.func,
+    selectedBaselineIds: PropTypes.array
 };
 
 function mapStateToProps(state) {
@@ -118,7 +129,8 @@ function mapStateToProps(state) {
         addSystemModalOpened: state.addSystemModalState.addSystemModalOpened,
         systems: state.compareState.systems,
         activeTab: state.addSystemModalState.activeTab,
-        entities: state.entities
+        entities: state.entities,
+        selectedBaselineIds: state.baselinesTableState.selectedBaselineIds
     };
 }
 
@@ -126,7 +138,7 @@ function mapDispatchToProps(dispatch) {
     return {
         toggleModal: () => dispatch(addSystemModalActions.toggleAddSystemModal()),
         selectActiveTab: (newActiveTab) => dispatch(addSystemModalActions.selectActiveTab(newActiveTab)),
-        setSelectedSystemIds: () => dispatch(compareActions.setSelectedSystemIds()),
+        //setSelectedSystemIds: () => dispatch(compareActions.setSelectedSystemIds()),
         fetchBaselines: () => dispatch(baselinesTableActions.fetchBaselines())
     };
 }
