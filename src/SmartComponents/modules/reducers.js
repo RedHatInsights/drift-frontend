@@ -6,6 +6,7 @@ const initialState = {
     filteredCompareData: [],
     sortedFilteredFacts: [],
     systems: [],
+    baselines: [],
     previousStateSystems: [],
     stateFilters: [
         { filter: 'SAME', display: 'Same', selected: true },
@@ -358,6 +359,7 @@ export function compareReducer(state = initialState, action) {
                 ...state,
                 previousStateSystems: state.systems,
                 systems: [],
+                baselines: [],
                 loading: true
             };
         case `${types.FETCH_COMPARE}_FULFILLED`:
@@ -371,6 +373,7 @@ export function compareReducer(state = initialState, action) {
                 filteredCompareData: paginatedFacts,
                 sortedFilteredFacts: sortedFacts,
                 systems: action.payload.systems,
+                baselines: action.payload.baselines,
                 page: 1,
                 totalFacts: filteredFacts.length
             };

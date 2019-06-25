@@ -11,13 +11,17 @@ async function getBaselines(path, body = {}) {
     return request.data;
 }
 
-function getCompare(systemIds = []) {
+function getCompare(systemIds = [], baselineIds = []) {
     if (!Array.isArray(systemIds)) {
         systemIds = [ systemIds ];
     }
 
+    if (!Array.isArray(baselineIds)) {
+        baselineIds = [ baselineIds ];
+    }
+
     /*eslint-disable camelcase*/
-    return post('/comparison_report', { system_ids: systemIds });
+    return post('/comparison_report', { system_ids: systemIds, baseline_ids: baselineIds });
     /*eslint-enable camelcase*/
 }
 

@@ -26,6 +26,7 @@ describe('compare reducer', () => {
                 page: 1,
                 perPage: 50,
                 totalFacts: 0,
+                baselines: [],
                 loading: false,
                 expandedRows: [],
                 error: {}
@@ -39,6 +40,7 @@ describe('compare reducer', () => {
                 type: `${types.FETCH_COMPARE}_PENDING`
             })
         ).toEqual({
+            baselines: [],
             previousStateSystems: [],
             systems: [],
             loading: true
@@ -51,6 +53,7 @@ describe('compare reducer', () => {
                 type: `${types.FETCH_COMPARE}_PENDING`
             })
         ).toEqual({
+            baselines: [],
             previousStateSystems: compareReducerState.systems,
             systems: [],
             loading: true

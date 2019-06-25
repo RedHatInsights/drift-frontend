@@ -7,7 +7,8 @@ describe('baselines table reducer', () => {
         expect(baselinesTableReducer(undefined, {})).toEqual({
             loading: false,
             fullBaselineListData: [],
-            baselineTableData: []
+            baselineTableData: [],
+            selectedBaselineIds: []
         });
     });
 
