@@ -838,4 +838,76 @@ describe('compare reducer', () => {
             stateSort: ASC
         });
     });
+
+    it('should handle EXPAND_ROW with new fact', () => {
+        expect(
+            compareReducer({
+                page: 1,
+                perPage: 50,
+                fullCompareData: compareReducerPayload.facts,
+                systems: compareReducerPayload.systems,
+                factFilter: '',
+                expandedRows: [],
+                stateFilters: [
+                    { filter: 'SAME', display: 'Same', selected: false },
+                    { filter: 'DIFFERENT', display: 'Different', selected: false },
+                    { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: false }
+                ]},
+            {
+                payload: 'bios_uuid',
+                type: `${types.EXPAND_ROW}`
+            })
+        ).toEqual({
+            fullCompareData: compareReducerState.facts,
+            filteredCompareData: [],
+            sortedFilteredFacts: [],
+            systems: compareReducerState.systems,
+            factFilter: '',
+            page: 1,
+            perPage: 50,
+            stateFilters: [
+                { filter: 'SAME', display: 'Same', selected: false },
+                { filter: 'DIFFERENT', display: 'Different', selected: false },
+                { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: false }
+            ],
+            expandedRows: [ 'bios_uuid' ],
+            totalFacts: 0
+        });
+    });
+
+    it('should handle EXPAND_ROW to remove fact', () => {
+        expect(
+            compareReducer({
+                page: 1,
+                perPage: 50,
+                fullCompareData: compareReducerPayload.facts,
+                systems: compareReducerPayload.systems,
+                factFilter: '',
+                expandedRows: [ 'bios_uuid', 'display_name' ],
+                stateFilters: [
+                    { filter: 'SAME', display: 'Same', selected: false },
+                    { filter: 'DIFFERENT', display: 'Different', selected: false },
+                    { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: false }
+                ]},
+            {
+                payload: 'bios_uuid',
+                type: `${types.EXPAND_ROW}`
+            })
+        ).toEqual({
+            fullCompareData: compareReducerState.facts,
+            filteredCompareData: [],
+            sortedFilteredFacts: [],
+            systems: compareReducerState.systems,
+            factFilter: '',
+            page: 1,
+            perPage: 50,
+            stateFilters: [
+                { filter: 'SAME', display: 'Same', selected: false },
+                { filter: 'DIFFERENT', display: 'Different', selected: false },
+                { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: false }
+            ],
+            expandedRows: [ 'display_name' ],
+            totalFacts: 0
+        });
+    });
 });
