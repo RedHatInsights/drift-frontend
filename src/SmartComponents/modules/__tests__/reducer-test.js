@@ -34,6 +34,56 @@ describe('compare reducer', () => {
         );
     });
 
+    it('it should handle CLEAR_STATE', () => {
+        expect(
+            compareReducer({
+                perPage: 10,
+                page: 2,
+                stateFilters: [
+                    { filter: 'SAME', display: 'Same', selected: false },
+                    { filter: 'DIFFERENT', display: 'Different', selected: true },
+                    { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: false }
+                ],
+                factFilter: 'dog' }, {
+                type: `${types.CLEAR_STATE}` })
+        ).toEqual({
+            baselines: [],
+            fullCompareData: [],
+            sortedFilteredFacts: [],
+            factFilter: '',
+            stateFilters: [
+                { filter: 'SAME', display: 'Same', selected: true },
+                { filter: 'DIFFERENT', display: 'Different', selected: true },
+                { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
+            ],
+            factSort: ASC,
+            stateSort: DESC,
+            filteredCompareData: [],
+            systems: [],
+            previousStateSystems: [],
+            page: 1,
+            perPage: 50,
+            totalFacts: 0,
+            loading: false,
+            expandedRows: [],
+            error: {}
+        });
+    });
+
+    it('it should handle REVERT_COMPARE_DATA', () => {
+        expect(
+            compareReducer({
+                systems: [ 'abc123', 'def456' ],
+                previousStateSystems: [ 'abc123' ]}, {
+                type: `${types.REVERT_COMPARE_DATA}` })
+        ).toEqual({
+            loading: false,
+            error: {},
+            previousStateSystems: [ 'abc123' ],
+            systems: [ 'abc123' ]
+        });
+    });
+
     it('should handle FETCH_COMPARE_PENDING', () => {
         expect(
             compareReducer({ systems: [], loading: false }, {
@@ -57,6 +107,58 @@ describe('compare reducer', () => {
             previousStateSystems: compareReducerState.systems,
             systems: [],
             loading: true
+        });
+    });
+
+    it('should handle FETCH_COMPARE_REJECTED with invalid UUID', () => {
+        expect(
+            compareReducer({ }, {
+                type: `${types.FETCH_COMPARE}_REJECTED`,
+                payload: { response: {
+                    data: { message: 'system_id 7 is not a UUID' },
+                    status: 400
+                }}
+            })
+        ).toEqual({
+            error: {
+                detail: 'system_id 7 is not a UUID',
+                status: 400
+            }
+        });
+    });
+
+    it('should handle FETCH_COMPARE_REJECTED with 500', () => {
+        expect(
+            compareReducer({ }, {
+                type: `${types.FETCH_COMPARE}_REJECTED`,
+                payload: { response: {
+                    data: '',
+                    statusText: 'Service is unreachable',
+                    status: 500
+                }}
+            })
+        ).toEqual({
+            error: {
+                detail: 'Service is unreachable',
+                status: 500
+            }
+        });
+    });
+
+    it('should handle FETCH_COMPARE_REJECTED with 400', () => {
+        expect(
+            compareReducer({ }, {
+                type: `${types.FETCH_COMPARE}_REJECTED`,
+                payload: { response: {
+                    data: { detail: 'This is a 400 error' },
+                    status: 400
+                }}
+            })
+        ).toEqual({
+            error: {
+                detail: 'This is a 400 error',
+                status: 400
+            }
         });
     });
 
@@ -912,5 +1014,34 @@ describe('compare reducer', () => {
             expandedRows: [ 'display_name' ],
             totalFacts: 0
         });
+    });
+
+    it('should handle EXPORT_TO_CSV', () => {
+        expect(compareReducer(undefined,
+            { type: `${types.EXPORT_TO_CSV}` })
+        ).toEqual(
+            {
+                baselines: [],
+                fullCompareData: [],
+                sortedFilteredFacts: [],
+                factFilter: '',
+                stateFilters: [
+                    { filter: 'SAME', display: 'Same', selected: true },
+                    { filter: 'DIFFERENT', display: 'Different', selected: true },
+                    { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
+                ],
+                factSort: ASC,
+                stateSort: DESC,
+                filteredCompareData: [],
+                systems: [],
+                previousStateSystems: [],
+                page: 1,
+                perPage: 50,
+                totalFacts: 0,
+                loading: false,
+                expandedRows: [],
+                error: {}
+            }
+        );
     });
 });
