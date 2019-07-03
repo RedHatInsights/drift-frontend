@@ -2,7 +2,7 @@
 
 const SECTION = 'insights';
 const DRIFT_APP_ID = 'drift';
-const BASELINE_APP_ID = 'system_baseline';
+const BASELINE_APP_ID = 'system-baseline';
 const FRONTEND_PORT = 8002;
 const DRIFT_PORT = 8080;
 const BASELINE_PORT = 8085;

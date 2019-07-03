@@ -98,7 +98,7 @@ function mapDispatchToProps(dispatch) {
 BaselinesTable.propTypes = {
     loading: PropTypes.bool,
     fullBaselineListData: PropTypes.array,
-    baselineTableData: PropTypes.object,
+    baselineTableData: PropTypes.array,
     createBaselinesTable: PropTypes.func,
     selectBaseline: PropTypes.func
 };

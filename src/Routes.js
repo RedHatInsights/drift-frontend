@@ -5,6 +5,7 @@ import React from 'react';
 import asyncComponent from './Utilities/asyncComponent';
 
 const DriftPage = asyncComponent(() => import ('./SmartComponents/DriftPage/DriftPage'));
+const ExperimentalCookie = asyncComponent(() => import ('./SmartComponents/ExperimentalCookie/ExperimentalCookie'));
 
 const InsightsRoute = ({ component: Component, rootClass, ...rest }) => {
     const root = document.getElementById('root');
@@ -23,6 +24,7 @@ InsightsRoute.propTypes = {
 export const Routes = () => {
     return (
         <Switch>
+            <InsightsRoute path='/experimental-cookie' component={ ExperimentalCookie } />
             <InsightsRoute path='/' component={ DriftPage } />
             <Redirect to='/'/>
         </Switch>
