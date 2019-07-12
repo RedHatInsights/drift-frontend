@@ -7,10 +7,8 @@ import { withCookies, Cookies } from 'react-cookie';
 
 import SystemsTable from '../SystemsTable/SystemsTable';
 import BaselinesTable from '../BaselinesTable/BaselinesTable';
-//import { compareActions } from '../modules';
 import { addSystemModalActions } from './redux';
 import { baselinesTableActions } from '../BaselinesTable/redux';
-import { EXPERIMENTAL_COOKIE_NAME } from '../../constants';
 
 class AddSystemModal extends Component {
     static propTypes = {
@@ -65,7 +63,7 @@ class AddSystemModal extends Component {
     }
 
     render() {
-        const { activeTab, addSystemModalOpened, cookies } = this.props;
+        const { activeTab, addSystemModalOpened } = this.props;
 
         return (
             <React.Fragment>
@@ -83,7 +81,7 @@ class AddSystemModal extends Component {
                         </Button>
                     ] }
                 >
-                    { cookies.get(EXPERIMENTAL_COOKIE_NAME) === 'enabled' ?
+                    { window.insights.chrome.isBeta() ?
                         <Tabs
                             activeKey={ activeTab }
                             onSelect={ this.changeActiveTab }
@@ -114,7 +112,6 @@ AddSystemModal.propTypes = {
     addSystemModalOpened: PropTypes.bool,
     activeTab: PropTypes.number,
     confirmModal: PropTypes.func,
-    //setSelectedSystemIds: PropTypes.func,
     cancelSelection: PropTypes.func,
     toggleModal: PropTypes.func,
     selectActiveTab: PropTypes.func,
@@ -138,7 +135,6 @@ function mapDispatchToProps(dispatch) {
     return {
         toggleModal: () => dispatch(addSystemModalActions.toggleAddSystemModal()),
         selectActiveTab: (newActiveTab) => dispatch(addSystemModalActions.selectActiveTab(newActiveTab)),
-        //setSelectedSystemIds: () => dispatch(compareActions.setSelectedSystemIds()),
         fetchBaselines: () => dispatch(baselinesTableActions.fetchBaselines())
     };
 }
