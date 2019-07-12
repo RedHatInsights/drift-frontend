@@ -9,10 +9,9 @@ function fetchCompare(systemIds, baselineIds) {
     };
 }
 
-function revertCompareData(fetchCompareData) {
+function revertCompareData() {
     return {
-        type: types.REVERT_COMPARE_DATA,
-        payload: fetchCompareData
+        type: types.REVERT_COMPARE_DATA
     };
 }
 

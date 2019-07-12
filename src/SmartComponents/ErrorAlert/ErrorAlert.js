@@ -14,11 +14,11 @@ class ErrorAlert extends Component {
         this.confirmModal = this.confirmModal.bind(this);
     }
 
-    confirmModal(compareData) {
+    confirmModal() {
         const { toggleModal, revertCompareData, history, previousStateSystems } = this.props;
 
         toggleModal();
-        revertCompareData(compareData);
+        revertCompareData();
         setHistory(history, previousStateSystems.map(system => system.id));
     }
 
@@ -32,7 +32,7 @@ class ErrorAlert extends Component {
                         title="Error"
                         action={
                             <AlertActionCloseButton
-                                onClose={ () => this.confirmModal(this.props.fullCompareData) }
+                                onClose={ () => this.confirmModal() }
                             /> }
                     >
                         Status Code: { this.props.error.status }<br></br>
@@ -70,7 +70,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         toggleModal: () => dispatch(errorAlertActions.toggleErrorAlert()),
-        revertCompareData: (compareData) => dispatch(compareActions.revertCompareData(compareData))
+        revertCompareData: () => dispatch(compareActions.revertCompareData())
     };
 }
 
