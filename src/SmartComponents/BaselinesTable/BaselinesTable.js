@@ -51,20 +51,30 @@ class BaselinesTable extends Component {
     }
 
     renderTable() {
-        const { fullBaselineListData, baselineTableData, loading } = this.props;
+        const { fullBaselineListData, baselineTableData, loading, addSystemModalOpened } = this.props;
         let columns = [ 'Name', 'Last Sync' ];
         let loadingRows = [];
         let table;
 
         if (fullBaselineListData.length !== 0 && !loading) {
-            table = <Table
-                onSelect={ this.onSelect }
-                cells={ columns }
-                rows={ baselineTableData }
-            >
-                <TableHeader />
-                <TableBody />
-            </Table>;
+            if (addSystemModalOpened) {
+                table = <Table
+                    onSelect={ this.onSelect }
+                    cells={ columns }
+                    rows={ baselineTableData }
+                >
+                    <TableHeader />
+                    <TableBody />
+                </Table>;
+            } else {
+                table = <Table
+                    cells={ columns }
+                    rows={ baselineTableData }
+                >
+                    <TableHeader />
+                    <TableBody />
+                </Table>;
+            }
         } else {
             loadingRows = this.renderLoadingRows();
 
@@ -92,7 +102,8 @@ function mapStateToProps(state) {
         loading: state.baselinesTableState.loading,
         fullBaselineListData: state.baselinesTableState.fullBaselineListData,
         baselineTableData: state.baselinesTableState.baselineTableData,
-        selectedBaselineIds: state.baselinesTableState.selectedBaselineIds
+        selectedBaselineIds: state.baselinesTableState.selectedBaselineIds,
+        addSystemModalOpened: state.addSystemModalState.addSystemModalOpened
     };
 }
 
@@ -108,7 +119,8 @@ BaselinesTable.propTypes = {
     baselineTableData: PropTypes.array,
     createBaselinesTable: PropTypes.func,
     selectBaseline: PropTypes.func,
-    selectedBaselineIds: PropTypes.array
+    selectedBaselineIds: PropTypes.array,
+    addSystemModalOpened: PropTypes.bool
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(BaselinesTable);
