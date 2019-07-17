@@ -5,7 +5,7 @@ import React from 'react';
 import asyncComponent from './Utilities/asyncComponent';
 
 const DriftPage = asyncComponent(() => import ('./SmartComponents/DriftPage/DriftPage'));
-const ExperimentalCookie = asyncComponent(() => import ('./SmartComponents/ExperimentalCookie/ExperimentalCookie'));
+const BaselinesPage = asyncComponent(() => import ('./SmartComponents/BaselinesPage/BaselinesPage'));
 
 const InsightsRoute = ({ component: Component, rootClass, ...rest }) => {
     const root = document.getElementById('root');
@@ -24,8 +24,10 @@ InsightsRoute.propTypes = {
 export const Routes = () => {
     return (
         <Switch>
-            <InsightsRoute path='/experimental-cookie' component={ ExperimentalCookie } />
-            <InsightsRoute path='/' component={ DriftPage } />
+            { window.insights.chrome.isBeta() ?
+                <InsightsRoute exact path='/baselines' component={ BaselinesPage } /> : null
+            }
+            <InsightsRoute exact path='/' component={ DriftPage } />
             <Redirect to='/'/>
         </Switch>
     );
