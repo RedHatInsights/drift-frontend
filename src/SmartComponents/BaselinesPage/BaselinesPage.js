@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { Main, PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components';
-import { Card, CardBody } from '@patternfly/react-core';
+import { Card, CardBody, Toolbar, ToolbarGroup, ToolbarItem } from '@patternfly/react-core';
 
 import BaselinesTable from '../BaselinesTable/BaselinesTable';
+import CreateBaseline from './CreateBaseline/CreateBaseline';
 import { baselinesTableActions } from '../BaselinesTable/redux';
 
 class BaselinesPage extends Component {
@@ -30,6 +31,13 @@ class BaselinesPage extends Component {
                 <Main>
                     <Card className='pf-t-light pf-m-opaque-100'>
                         <CardBody>
+                            <Toolbar className="drift-toolbar">
+                                <ToolbarGroup>
+                                    <ToolbarItem>
+                                        <CreateBaseline />
+                                    </ToolbarItem>
+                                </ToolbarGroup>
+                            </Toolbar>
                             <div>
                                 <BaselinesTable />
                             </div>

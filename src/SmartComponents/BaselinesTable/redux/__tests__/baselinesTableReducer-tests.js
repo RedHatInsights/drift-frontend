@@ -35,6 +35,23 @@ describe('baselines table reducer', () => {
         });
     });
 
+    it('should handle FETCH_BASELINE_LIST_FULFILLED with selected baselines', () => {
+        let newRowsWithOneSelected = baselinesFixtures.baselineTableDataRows;
+        newRowsWithOneSelected[0].selected = true;
+
+        expect(
+            baselinesTableReducer({ loading: true, selectedBaselineIds: [ '1234' ]}, {
+                type: `${types.FETCH_BASELINE_LIST}_FULFILLED`,
+                payload: baselinesFixtures.baselinesListPayload
+            })
+        ).toEqual({
+            loading: false,
+            fullBaselineListData: baselinesFixtures.baselinesListPayloadResults,
+            baselineTableData: newRowsWithOneSelected,
+            selectedBaselineIds: [ '1234' ]
+        });
+    });
+
     it('should handle SELECT_BASELINE one selected: true', () => {
         let newRowsWithOneSelected = baselinesFixtures.baselineTableDataRows;
         newRowsWithOneSelected[0].selected = true;
@@ -114,10 +131,10 @@ describe('baselines table reducer', () => {
         });
     });
 
-    it('should handle SET_SELECTED_BASELINE_IDS', () => {
+    it('should handle SET_SELECTED_BASELINES', () => {
         expect(
             baselinesTableReducer({ selectedBaselineIds: []}, {
-                type: `${types.SET_SELECTED_BASELINE_IDS}`,
+                type: `${types.SET_SELECTED_BASELINES}`,
                 payload: [ '1234', 'abcd' ]
             })
         ).toEqual({
@@ -125,10 +142,10 @@ describe('baselines table reducer', () => {
         });
     });
 
-    it('should handle SET_SELECTED_BASELINE_IDS remove', () => {
+    it('should handle SET_SELECTED_BASELINES remove', () => {
         expect(
             baselinesTableReducer({ selectedBaselineIds: [ '1234', 'abcd' ]}, {
-                type: `${types.SET_SELECTED_BASELINE_IDS}`,
+                type: `${types.SET_SELECTED_BASELINES}`,
                 payload: [ '1234' ]
             })
         ).toEqual({
