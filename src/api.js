@@ -11,6 +11,11 @@ async function getBaselines(path, body = {}) {
     return request.data.data;
 }
 
+async function getBaseline(path, body = {}) {
+    const request = await axios.get(BASELINE_API_ROOT.concat(path), body);
+    return request.data.data[0];
+}
+
 function getCompare(systemIds = [], baselineIds = []) {
     if (!Array.isArray(systemIds)) {
         systemIds = [ systemIds ];
@@ -31,7 +36,14 @@ function getBaselineList() {
     /*eslint-enable camelcase*/
 }
 
+function getBaselineData(baselineId = []) {
+    let path = '/baselines/';
+
+    return getBaseline(path.concat(baselineId), {});
+}
+
 export default {
     getCompare,
-    getBaselineList
+    getBaselineList,
+    getBaselineData
 };

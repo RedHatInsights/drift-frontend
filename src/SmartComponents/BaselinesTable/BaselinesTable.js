@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Table, TableBody, TableHeader } from '@patternfly/react-table';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
 
+import BaselineTableKebab from './BaselineTableKebab/BaselineTableKebab';
 import { baselinesTableActions } from './redux';
 
 class BaselinesTable extends Component {
@@ -44,6 +45,23 @@ class BaselinesTable extends Component {
         return rows;
     }
 
+    renderKebab() {
+        const { baselineTableData } = this.props;
+        let tableWithKebab = [];
+
+        baselineTableData.forEach(function(baseline) {
+            let row = [];
+            baseline.forEach(function(data) {
+                row.push(data);
+            });
+            let kebab = <BaselineTableKebab baselineData={ baseline } />;
+            row.push(<div>{ kebab }</div>);
+            tableWithKebab.push(row);
+        });
+
+        return tableWithKebab;
+    }
+
     renderTable() {
         const { fullBaselineListData, baselineTableData, loading, addSystemModalOpened } = this.props;
         let columns = [ 'Name', 'Last Sync' ];
@@ -61,9 +79,13 @@ class BaselinesTable extends Component {
                     <TableBody />
                 </Table>;
             } else {
+                let newTableData;
+                newTableData = this.renderKebab();
+                let newColumns = [ 'Name', 'Last Sync', '' ];
+
                 table = <Table
-                    cells={ columns }
-                    rows={ baselineTableData }
+                    cells={ newColumns }
+                    rows={ newTableData }
                 >
                     <TableHeader />
                     <TableBody />
