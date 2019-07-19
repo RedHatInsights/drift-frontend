@@ -5,7 +5,8 @@ const initialState = {
     loading: false,
     fullBaselineListData: [],
     baselineTableData: [],
-    selectedBaselineIds: []
+    selectedBaselineIds: [],
+    baselineData: undefined
 };
 
 export function baselinesTableReducer(state = initialState, action) {
@@ -37,6 +38,22 @@ export function baselinesTableReducer(state = initialState, action) {
             return {
                 ...state,
                 selectedBaselineIds: action.payload
+            };
+        case `${types.FETCH_BASELINE_DATA}_PENDING`:
+            return {
+                ...state,
+                loading: true
+            };
+        case `${types.FETCH_BASELINE_DATA}_FULFILLED`:
+            return {
+                ...state,
+                loading: false,
+                baselineData: action.payload
+            };
+        case `${types.CLEAR_BASELINE_DATA}`:
+            return {
+                ...state,
+                baselineData: undefined
             };
 
         default:

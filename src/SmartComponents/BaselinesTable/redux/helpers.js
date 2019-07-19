@@ -49,5 +49,6 @@ function findBaselineId(baseline, fullBaselineData) {
 
 export default {
     buildBaselinesTable,
-    setBaselineArray
+    setBaselineArray,
+    findBaselineId
 };

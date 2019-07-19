@@ -7,6 +7,7 @@ import { Card, CardBody, Toolbar, ToolbarGroup, ToolbarItem } from '@patternfly/
 
 import BaselinesTable from '../BaselinesTable/BaselinesTable';
 import CreateBaseline from './CreateBaseline/CreateBaseline';
+import EditBaseline from './EditBaseline/EditBaseline';
 import { baselinesTableActions } from '../BaselinesTable/redux';
 
 class BaselinesPage extends Component {
@@ -19,7 +20,7 @@ class BaselinesPage extends Component {
     }
 
     render() {
-        const { fetchBaselines } = this.props;
+        const { fetchBaselines, creatingNewBaseline, baselineData } = this.props;
 
         fetchBaselines();
 
@@ -30,18 +31,25 @@ class BaselinesPage extends Component {
                 </PageHeader>
                 <Main>
                     <Card className='pf-t-light pf-m-opaque-100'>
-                        <CardBody>
-                            <Toolbar className="drift-toolbar">
-                                <ToolbarGroup>
-                                    <ToolbarItem>
-                                        <CreateBaseline />
-                                    </ToolbarItem>
-                                </ToolbarGroup>
-                            </Toolbar>
-                            <div>
-                                <BaselinesTable />
-                            </div>
-                        </CardBody>
+                        { creatingNewBaseline || baselineData ?
+                            <CardBody>
+                                <div>
+                                    <EditBaseline />
+                                </div>
+                            </CardBody> :
+                            <CardBody>
+                                <Toolbar className="drift-toolbar">
+                                    <ToolbarGroup>
+                                        <ToolbarItem>
+                                            <CreateBaseline />
+                                        </ToolbarItem>
+                                    </ToolbarGroup>
+                                </Toolbar>
+                                <div>
+                                    <BaselinesTable />
+                                </div>
+                            </CardBody>
+                        }
                     </Card>
                 </Main>
             </React.Fragment>
@@ -50,8 +58,17 @@ class BaselinesPage extends Component {
 }
 
 BaselinesPage.propTypes = {
-    fetchBaselines: PropTypes.func
+    fetchBaselines: PropTypes.func,
+    creatingNewBaseline: PropTypes.bool,
+    baselineData: PropTypes.obj
 };
+
+function mapStateToProps(state) {
+    return {
+        creatingNewBaseline: state.baselinesPageState.creatingNewBaseline,
+        baselineData: state.baselinesTableState.baselineData
+    };
+}
 
 function mapDispatchToProps(dispatch) {
     return {
@@ -59,4 +76,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(null, mapDispatchToProps)(BaselinesPage);
+export default connect(mapStateToProps, mapDispatchToProps)(BaselinesPage);
