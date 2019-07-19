@@ -63,12 +63,12 @@ class BaselinesTable extends Component {
     }
 
     renderTable() {
-        const { fullBaselineListData, baselineTableData, loading, addSystemModalOpened } = this.props;
+        const { fullBaselineListData, baselineTableData, baselineListLoading, addSystemModalOpened } = this.props;
         let columns = [ 'Name', 'Last Sync' ];
         let loadingRows = [];
         let table;
 
-        if (fullBaselineListData.length !== 0 && !loading) {
+        if (fullBaselineListData.length !== 0 && !baselineListLoading) {
             if (addSystemModalOpened) {
                 table = <Table
                     onSelect={ this.onSelect }
@@ -129,7 +129,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 BaselinesTable.propTypes = {
-    loading: PropTypes.bool,
+    baselineListLoading: PropTypes.bool,
     fullBaselineListData: PropTypes.array,
     baselineTableData: PropTypes.array,
     createBaselinesTable: PropTypes.func,

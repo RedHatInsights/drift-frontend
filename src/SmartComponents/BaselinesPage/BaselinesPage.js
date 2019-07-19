@@ -6,6 +6,7 @@ import { Main, PageHeader, PageHeaderTitle } from '@redhat-cloud-services/fronte
 import { Card, CardBody, Toolbar, ToolbarGroup, ToolbarItem } from '@patternfly/react-core';
 
 import BaselinesTable from '../BaselinesTable/BaselinesTable';
+import CreateBaselineButton from './CreateBaselineButton/CreateBaselineButton';
 import CreateBaseline from './CreateBaseline/CreateBaseline';
 import EditBaseline from './EditBaseline/EditBaseline';
 import { baselinesTableActions } from '../BaselinesTable/redux';
@@ -31,17 +32,28 @@ class BaselinesPage extends Component {
                 </PageHeader>
                 <Main>
                     <Card className='pf-t-light pf-m-opaque-100'>
-                        { creatingNewBaseline || baselineData ?
+                        { creatingNewBaseline
+                            ? <CardBody>
+                                <div>
+                                    <CreateBaseline />
+                                </div>
+                            </CardBody>
+                            : null
+                        }
+                        { baselineData ?
                             <CardBody>
                                 <div>
                                     <EditBaseline />
                                 </div>
-                            </CardBody> :
-                            <CardBody>
+                            </CardBody>
+                            : null
+                        }
+                        { !creatingNewBaseline && !baselineData
+                            ? <CardBody>
                                 <Toolbar className="drift-toolbar">
                                     <ToolbarGroup>
                                         <ToolbarItem>
-                                            <CreateBaseline />
+                                            <CreateBaselineButton />
                                         </ToolbarItem>
                                     </ToolbarGroup>
                                 </Toolbar>
@@ -49,6 +61,7 @@ class BaselinesPage extends Component {
                                     <BaselinesTable />
                                 </div>
                             </CardBody>
+                            : null
                         }
                     </Card>
                 </Main>

@@ -8,6 +8,7 @@ import { errorAlertReducer } from '../SmartComponents/ErrorAlert/redux/errorAler
 import { filterDropdownReducer } from '../SmartComponents/DriftPage/FilterDropDown/redux/filterDropdownReducer';
 import { actionKebabReducer } from '../SmartComponents/DriftPage/ActionKebab/redux/actionKebabReducer';
 import { baselinesPageReducer } from '../SmartComponents/BaselinesPage/redux/baselinesPageReducer';
+import { editBaselineReducer } from '../SmartComponents/BaselinesPage/EditBaseline/redux/editBaselineReducer';
 
 let registry;
 
@@ -28,7 +29,8 @@ export function init (...middleware) {
         errorAlertOpened: errorAlertReducer,
         filterDropdownOpened: filterDropdownReducer,
         kebabOpened: actionKebabReducer,
-        baselinesPageState: baselinesPageReducer
+        baselinesPageState: baselinesPageReducer,
+        editBaselineState: editBaselineReducer
     });
 
     return registry;

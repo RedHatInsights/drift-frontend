@@ -1,24 +1,48 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Button } from '@patternfly/react-core';
+import { Button,
+    EmptyState,
+    EmptyStateVariant,
+    EmptyStateIcon,
+    EmptyStateBody,
+    TextInput,
+    Title } from '@patternfly/react-core';
+import { CubesIcon } from '@patternfly/react-icons';
 
 import { baselinesPageActions } from '../redux';
 
 class CreateBaseline extends Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            baselineName: ''
+        };
+
+        this.changeBaselineName = value => {
+            this.setState({ value });
+        };
+    }
+
+    submitBaselineName() {
     }
 
     render() {
-        const { toggleCreateBaseline } = this.props;
+        const { baselineName } = this.state;
 
         return (
-            <Button
-                variant='primary'
-                onClick={ toggleCreateBaseline }>
-                Create Baseline
-            </Button>
+            <EmptyState variant={ EmptyStateVariant.full }>
+                <EmptyStateIcon icon={ CubesIcon } />
+                <Title headingLevel="h5" size="lg">
+                    Create Baseline
+                </Title>
+                <EmptyStateBody>
+                    Create a baseline name
+                    <TextInput value={ baselineName } type="text" onChange={ this.changeBaselineName } aria-label="baseline name" />
+                    <Button onClick={ this.submitBaselineName }>Submit</Button>
+                </EmptyStateBody>
+            </EmptyState>
         );
     }
 }
