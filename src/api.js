@@ -16,6 +16,10 @@ async function getBaseline(path, body = {}) {
     return request.data.data[0];
 }
 
+async function patchBaseline(path, body = {}) {
+    await axios.patch(BASELINE_API_ROOT.concat(path), body);
+}
+
 function getCompare(systemIds = [], baselineIds = []) {
     if (!Array.isArray(systemIds)) {
         systemIds = [ systemIds ];
@@ -42,8 +46,15 @@ function getBaselineData(baselineId = []) {
     return getBaseline(path.concat(baselineId), {});
 }
 
+function patchBaselineData(baselineId = [], apiBody) {
+    let path = '/baselines/';
+
+    patchBaseline(path.concat(baselineId), apiBody);
+}
+
 export default {
     getCompare,
     getBaselineList,
-    getBaselineData
+    getBaselineData,
+    patchBaselineData
 };

@@ -2,7 +2,8 @@ import types from './types';
 import baselinesReducerHelpers from './helpers';
 
 const initialState = {
-    loading: false,
+    baselineListLoading: false,
+    baselineDataLoading: false,
     fullBaselineListData: [],
     baselineTableData: [],
     selectedBaselineIds: [],
@@ -17,13 +18,13 @@ export function baselinesTableReducer(state = initialState, action) {
         case `${types.FETCH_BASELINE_LIST}_PENDING`:
             return {
                 ...state,
-                loading: true
+                baselineListLoading: true
             };
         case `${types.FETCH_BASELINE_LIST}_FULFILLED`:
             rows = baselinesReducerHelpers.buildBaselinesTable(action.payload, state.selectedBaselineIds);
             return {
                 ...state,
-                loading: false,
+                baselineListLoading: false,
                 fullBaselineListData: action.payload,
                 baselineTableData: rows
             };
@@ -42,12 +43,12 @@ export function baselinesTableReducer(state = initialState, action) {
         case `${types.FETCH_BASELINE_DATA}_PENDING`:
             return {
                 ...state,
-                loading: true
+                baselineDataLoading: true
             };
         case `${types.FETCH_BASELINE_DATA}_FULFILLED`:
             return {
                 ...state,
-                loading: false,
+                baselineDataLoading: false,
                 baselineData: action.payload
             };
         case `${types.CLEAR_BASELINE_DATA}`:

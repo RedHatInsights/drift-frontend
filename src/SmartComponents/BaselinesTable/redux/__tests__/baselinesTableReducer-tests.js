@@ -5,7 +5,8 @@ import types from '../types';
 describe('baselines table reducer', () => {
     it('should return initial state', () => {
         expect(baselinesTableReducer(undefined, {})).toEqual({
-            loading: false,
+            baselineListLoading: false,
+            baselineDataLoading: false,
             fullBaselineListData: [],
             baselineTableData: [],
             selectedBaselineIds: []
@@ -14,22 +15,22 @@ describe('baselines table reducer', () => {
 
     it('should handle FETCH_BASELINE_LIST_PENDING', () => {
         expect(
-            baselinesTableReducer({ loading: false }, {
+            baselinesTableReducer({ baselineListLoading: false }, {
                 type: `${types.FETCH_BASELINE_LIST}_PENDING`
             })
         ).toEqual({
-            loading: true }
+            baselineListLoading: true }
         );
     });
 
     it('should handle FETCH_BASELINE_LIST_FULFILLED', () => {
         expect(
-            baselinesTableReducer({ loading: true }, {
+            baselinesTableReducer({ baselineListLoading: true }, {
                 type: `${types.FETCH_BASELINE_LIST}_FULFILLED`,
                 payload: baselinesFixtures.baselinesListPayload
             })
         ).toEqual({
-            loading: false,
+            baselineListLoading: false,
             fullBaselineListData: baselinesFixtures.baselinesListPayloadResults,
             baselineTableData: baselinesFixtures.baselineTableDataRows
         });
@@ -40,12 +41,12 @@ describe('baselines table reducer', () => {
         newRowsWithOneSelected[0].selected = true;
 
         expect(
-            baselinesTableReducer({ loading: true, selectedBaselineIds: [ '1234' ]}, {
+            baselinesTableReducer({ baselineListLoading: true, selectedBaselineIds: [ '1234' ]}, {
                 type: `${types.FETCH_BASELINE_LIST}_FULFILLED`,
                 payload: baselinesFixtures.baselinesListPayload
             })
         ).toEqual({
-            loading: false,
+            baselineListLoading: false,
             fullBaselineListData: baselinesFixtures.baselinesListPayloadResults,
             baselineTableData: newRowsWithOneSelected,
             selectedBaselineIds: [ '1234' ]
