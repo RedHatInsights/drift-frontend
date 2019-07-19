@@ -10,12 +10,6 @@ class BaselinesTable extends Component {
     constructor(props) {
         super(props);
         this.onSelect = this.onSelect.bind(this);
-
-        this.selectedBaselineIds = this.selectedBaselineIds.bind(this);
-    }
-
-    selectedBaselineIds() {
-        return this.props.selectedBaselineIds;
     }
 
     onSelect(event, isSelected, rowId) {
@@ -102,7 +96,6 @@ function mapStateToProps(state) {
         loading: state.baselinesTableState.loading,
         fullBaselineListData: state.baselinesTableState.fullBaselineListData,
         baselineTableData: state.baselinesTableState.baselineTableData,
-        selectedBaselineIds: state.baselinesTableState.selectedBaselineIds,
         addSystemModalOpened: state.addSystemModalState.addSystemModalOpened
     };
 }
@@ -119,7 +112,6 @@ BaselinesTable.propTypes = {
     baselineTableData: PropTypes.array,
     createBaselinesTable: PropTypes.func,
     selectBaseline: PropTypes.func,
-    selectedBaselineIds: PropTypes.array,
     addSystemModalOpened: PropTypes.bool
 };
 

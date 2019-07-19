@@ -46,7 +46,7 @@ class AddSystemModal extends Component {
     }
 
     selectedBaselineIds() {
-        let ids = this.props.selectedBaselineIds.map(function (baseline) {
+        let ids = this.props.baselines.map(function (baseline) {
             return baseline.id;
         });
 
@@ -54,10 +54,11 @@ class AddSystemModal extends Component {
     }
 
     changeActiveTab(event, tabIndex) {
-        const { selectActiveTab, fetchBaselines } = this.props;
+        const { selectActiveTab, setSelectedBaselines, fetchBaselines } = this.props;
 
         selectActiveTab(tabIndex);
         if (tabIndex === 1) {
+            setSelectedBaselines(this.selectedBaselineIds());
             fetchBaselines();
         }
     }
@@ -118,7 +119,9 @@ AddSystemModal.propTypes = {
     entities: PropTypes.object,
     systems: PropTypes.array,
     fetchBaselines: PropTypes.func,
-    selectedBaselineIds: PropTypes.array
+    selectedBaselineIds: PropTypes.array,
+    setSelectedBaselines: PropTypes.func,
+    baselines: PropTypes.array
 };
 
 function mapStateToProps(state) {
@@ -127,7 +130,8 @@ function mapStateToProps(state) {
         systems: state.compareState.systems,
         activeTab: state.addSystemModalState.activeTab,
         entities: state.entities,
-        selectedBaselineIds: state.baselinesTableState.selectedBaselineIds
+        selectedBaselineIds: state.baselinesTableState.selectedBaselineIds,
+        baselines: state.compareState.baselines
     };
 }
 
@@ -135,7 +139,8 @@ function mapDispatchToProps(dispatch) {
     return {
         toggleModal: () => dispatch(addSystemModalActions.toggleAddSystemModal()),
         selectActiveTab: (newActiveTab) => dispatch(addSystemModalActions.selectActiveTab(newActiveTab)),
-        fetchBaselines: () => dispatch(baselinesTableActions.fetchBaselines())
+        fetchBaselines: () => dispatch(baselinesTableActions.fetchBaselines()),
+        setSelectedBaselines: (selectedBaselineIds) => dispatch(baselinesTableActions.setSelectedBaselines(selectedBaselineIds))
     };
 }
 

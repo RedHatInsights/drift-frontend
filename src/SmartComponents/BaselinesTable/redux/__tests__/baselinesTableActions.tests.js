@@ -40,4 +40,18 @@ describe('baselines table actions', () => {
             payload: rows
         });
     });
+
+    it('setSelectedBaselines without ids', () => {
+        expect(baselinesTableActions.setSelectedBaselines([])).toEqual({
+            type: types.SET_SELECTED_BASELINES,
+            payload: []
+        });
+    });
+
+    it('setSelectedBaselines with ids', () => {
+        expect(baselinesTableActions.setSelectedBaselines([ 'abc', '123' ])).toEqual({
+            type: types.SET_SELECTED_BASELINES,
+            payload: [ 'abc', '123' ]
+        });
+    });
 });

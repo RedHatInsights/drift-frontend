@@ -33,7 +33,7 @@ export function baselinesTableReducer(state = initialState, action) {
                 baselineTableData: action.payload,
                 selectedBaselineIds: selectedBaselines
             };
-        case `${types.SET_SELECTED_BASELINE_IDS}`:
+        case `${types.SET_SELECTED_BASELINES}`:
             return {
                 ...state,
                 selectedBaselineIds: action.payload

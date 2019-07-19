@@ -7,6 +7,7 @@ import { baselinesTableReducer } from '../SmartComponents/BaselinesTable/redux/b
 import { errorAlertReducer } from '../SmartComponents/ErrorAlert/redux/errorAlertReducer';
 import { filterDropdownReducer } from '../SmartComponents/DriftPage/FilterDropDown/redux/filterDropdownReducer';
 import { actionKebabReducer } from '../SmartComponents/DriftPage/ActionKebab/redux/actionKebabReducer';
+import { baselinesPageReducer } from '../SmartComponents/BaselinesPage/redux/baselinesPageReducer';
 
 let registry;
 
@@ -26,7 +27,8 @@ export function init (...middleware) {
         baselinesTableState: baselinesTableReducer,
         errorAlertOpened: errorAlertReducer,
         filterDropdownOpened: filterDropdownReducer,
-        kebabOpened: actionKebabReducer
+        kebabOpened: actionKebabReducer,
+        baselinesPageState: baselinesPageReducer
     });
 
     return registry;
