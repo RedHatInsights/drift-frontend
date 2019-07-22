@@ -8,7 +8,7 @@ async function post(path, body = {}) {
 
 async function getBaselines(path, body = {}) {
     const request = await axios.get(BASELINE_API_ROOT.concat(path), body);
-    return request.data;
+    return request.data.data;
 }
 
 function getCompare(systemIds = [], baselineIds = []) {

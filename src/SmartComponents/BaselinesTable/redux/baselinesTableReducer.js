@@ -19,11 +19,11 @@ export function baselinesTableReducer(state = initialState, action) {
                 loading: true
             };
         case `${types.FETCH_BASELINE_LIST}_FULFILLED`:
-            rows = baselinesReducerHelpers.buildBaselinesTable(action.payload.results, state.selectedBaselineIds);
+            rows = baselinesReducerHelpers.buildBaselinesTable(action.payload, state.selectedBaselineIds);
             return {
                 ...state,
                 loading: false,
-                fullBaselineListData: action.payload.results,
+                fullBaselineListData: action.payload,
                 baselineTableData: rows
             };
         case `${types.SELECT_BASELINE}`:
