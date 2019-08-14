@@ -20,6 +20,11 @@ async function patchBaseline(path, body = {}) {
     await axios.patch(BASELINE_API_ROOT.concat(path), body);
 }
 
+async function postBaseline(path, body = {}) {
+    const request = await axios.post(BASELINE_API_ROOT.concat(path), body);
+    return request.data;
+}
+
 function getCompare(systemIds = [], baselineIds = []) {
     if (!Array.isArray(systemIds)) {
         systemIds = [ systemIds ];
@@ -52,9 +57,16 @@ function patchBaselineData(baselineId = [], apiBody) {
     patchBaseline(path.concat(baselineId), apiBody);
 }
 
+function postNewBaseline(apiBody) {
+    let path = '/baselines';
+
+    return postBaseline(path, apiBody);
+}
+
 export default {
     getCompare,
     getBaselineList,
     getBaselineData,
-    patchBaselineData
+    patchBaselineData,
+    postNewBaseline
 };

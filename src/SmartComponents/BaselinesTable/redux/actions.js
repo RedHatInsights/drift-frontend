@@ -35,10 +35,18 @@ function clearBaselineData() {
     };
 }
 
+function createBaseline(newBaseline) {
+    return {
+        type: types.CREATE_BASELINE,
+        payload: api.postNewBaseline(newBaseline)
+    };
+}
+
 export default {
     fetchBaselines,
     selectBaseline,
     setSelectedBaselines,
     fetchBaselineData,
-    clearBaselineData
+    clearBaselineData,
+    createBaseline
 };
