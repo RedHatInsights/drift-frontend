@@ -19,8 +19,8 @@ class BaselineTableKebab extends Component {
     }
 
     fetchBaseline() {
-        const { fullBaselineListData, fetchBaselineData, baselineData } = this.props;
-        let baselineId = baselinesTableHelpers.findBaselineId(baselineData, fullBaselineListData);
+        const { fullBaselineListData, fetchBaselineData, baselineRowData } = this.props;
+        let baselineId = baselinesTableHelpers.findBaselineId(baselineRowData, fullBaselineListData);
 
         fetchBaselineData(baselineId);
     }
@@ -58,7 +58,7 @@ class BaselineTableKebab extends Component {
 BaselineTableKebab.propTypes = {
     fetchBaselineData: PropTypes.func,
     fullBaselineListData: PropTypes.array,
-    baselineData: PropTypes.array
+    baselineRowData: PropTypes.array
 };
 
 function mapStateToProps(state) {

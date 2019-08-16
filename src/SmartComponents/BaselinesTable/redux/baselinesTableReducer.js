@@ -69,6 +69,17 @@ export function baselinesTableReducer(state = initialState, action) {
                 baselineDataLoading: false,
                 baselineData: action.payload
             };
+        case `${types.PATCH_BASELINE}_PENDING`:
+            return {
+                ...state,
+                baselineDataLoading: true
+            };
+        case `${types.PATCH_BASELINE}_FULFILLED`:
+            return {
+                ...state,
+                baselineDataLoading: false,
+                baselineData: action.payload
+            };
 
         default:
             return state;
