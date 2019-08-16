@@ -54,12 +54,11 @@ class AddSystemModal extends Component {
     }
 
     changeActiveTab(event, tabIndex) {
-        const { selectActiveTab, setSelectedBaselines, fetchBaselines } = this.props;
+        const { selectActiveTab, setSelectedBaselines } = this.props;
 
         selectActiveTab(tabIndex);
         if (tabIndex === 1) {
             setSelectedBaselines(this.selectedBaselineIds());
-            fetchBaselines();
         }
     }
 
@@ -118,7 +117,6 @@ AddSystemModal.propTypes = {
     selectActiveTab: PropTypes.func,
     entities: PropTypes.object,
     systems: PropTypes.array,
-    fetchBaselines: PropTypes.func,
     selectedBaselineIds: PropTypes.array,
     setSelectedBaselines: PropTypes.func,
     baselines: PropTypes.array
@@ -139,7 +137,6 @@ function mapDispatchToProps(dispatch) {
     return {
         toggleModal: () => dispatch(addSystemModalActions.toggleAddSystemModal()),
         selectActiveTab: (newActiveTab) => dispatch(addSystemModalActions.selectActiveTab(newActiveTab)),
-        fetchBaselines: () => dispatch(baselinesTableActions.fetchBaselines()),
         setSelectedBaselines: (selectedBaselineIds) => dispatch(baselinesTableActions.setSelectedBaselines(selectedBaselineIds))
     };
 }

@@ -17,7 +17,8 @@ async function getBaseline(path, body = {}) {
 }
 
 async function patchBaseline(path, body = {}) {
-    await axios.patch(BASELINE_API_ROOT.concat(path), body);
+    const request = await axios.patch(BASELINE_API_ROOT.concat(path), body);
+    return request.data[0];
 }
 
 async function postBaseline(path, body = {}) {
@@ -54,7 +55,7 @@ function getBaselineData(baselineId = []) {
 function patchBaselineData(baselineId = [], apiBody) {
     let path = '/baselines/';
 
-    patchBaseline(path.concat(baselineId), apiBody);
+    return patchBaseline(path.concat(baselineId), apiBody);
 }
 
 function postNewBaseline(apiBody) {

@@ -9,7 +9,6 @@ import BaselinesTable from '../BaselinesTable/BaselinesTable';
 import CreateBaselineButton from './CreateBaselineButton/CreateBaselineButton';
 import CreateBaseline from './CreateBaseline/CreateBaseline';
 import EditBaseline from './EditBaseline/EditBaseline';
-import { baselinesTableActions } from '../BaselinesTable/redux';
 
 class BaselinesPage extends Component {
     constructor(props) {
@@ -21,9 +20,7 @@ class BaselinesPage extends Component {
     }
 
     render() {
-        const { fetchBaselines, creatingNewBaseline, baselineData } = this.props;
-
-        fetchBaselines();
+        const { creatingNewBaseline, baselineData } = this.props;
 
         return (
             <React.Fragment>
@@ -71,7 +68,6 @@ class BaselinesPage extends Component {
 }
 
 BaselinesPage.propTypes = {
-    fetchBaselines: PropTypes.func,
     creatingNewBaseline: PropTypes.bool,
     baselineData: PropTypes.obj
 };
@@ -83,10 +79,4 @@ function mapStateToProps(state) {
     };
 }
 
-function mapDispatchToProps(dispatch) {
-    return {
-        fetchBaselines: () => dispatch(baselinesTableActions.fetchBaselines())
-    };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(BaselinesPage);
+export default connect(mapStateToProps, null)(BaselinesPage);

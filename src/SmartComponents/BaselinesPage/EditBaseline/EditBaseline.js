@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Button, InputGroup, TextInput } from '@patternfly/react-core';
+import { Button, InputGroup, TextInput, Toolbar, ToolbarGroup, ToolbarItem } from '@patternfly/react-core';
 import { Table, TableBody, TableHeader, RowWrapper, ExpandableRowContent } from '@patternfly/react-table';
 import {
     editableTableBody,
@@ -11,15 +11,17 @@ import {
     TableTextInput
 } from '@patternfly/react-inline-edit-extension';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
+import { AddCircleOIcon } from '@patternfly/react-icons';
 
 import { baselinesPageActions } from '../redux';
 import { baselinesTableActions } from '../../BaselinesTable/redux';
-import api from '../../../api.js';
 
 class EditBaseline extends Component {
     constructor(props) {
         super(props);
         this.finishBaselineEdit = this.finishBaselineEdit.bind(this);
+        this.addFact = this.addFact.bind(this);
+        this.renderAddNewFact = this.renderAddNewFact.bind(this);
 
         this.makeId = ({ column, rowIndex, columnIndex, name }) =>
             `${column.property}-${rowIndex}-${columnIndex}${name ? `-${name}` : ''}`;
@@ -104,19 +106,31 @@ class EditBaseline extends Component {
             rows,
             editedRowsBackup: null,
             activeEditId: null,
-            baselineName: displayName
+            baselineName: displayName,
+            factName: '',
+            valueName: '',
+            showAddNewFact: false,
+            showAddNewParentFact: false
         };
 
         this.changeBaselineName = value => {
-            this.setState({ value });
+            this.setState({ baselineName: value });
         };
 
-        this.submitBaselineName = (/*baselineName*/) => {
+        this.changeFactName = value => {
+            this.setState({ factName: value });
+        };
+
+        this.changeValueName = value => {
+            this.setState({ valueName: value });
+        };
+
+        this.submitBaselineName = () => {
         };
 
         this.onChange = (value, { rowIndex, columnIndex, moduleIndex }) => {
             this.setState(({ rows }) => {
-                const { baselineData } = this.props;
+                const { baselineData, patchBaseline } = this.props;
                 rows = [ ...rows ];
                 const row = rows[rowIndex];
                 if (moduleIndex !== null && moduleIndex !== undefined) {
@@ -127,7 +141,7 @@ class EditBaseline extends Component {
                 }
 
                 let apiBody = this.buildApiBody(rows, rowIndex);
-                api.patchBaselineData(baselineData.id, apiBody);
+                patchBaseline(baselineData.id, apiBody);
 
                 return { rows, activeEditId: null };
             });
@@ -341,12 +355,38 @@ class EditBaseline extends Component {
                 rows: newRows
             });
         };
+
+        this.toggleNewFact = () => {
+            const { showAddNewFact } = this.state;
+            this.setState({
+                showAddNewFact: !showAddNewFact,
+                factName: '',
+                valueName: ''
+            });
+        };
+
+        this.toggleNewParentFact = () => {
+            const { showAddNewParentFact } = this.state;
+            this.setState({
+                showAddNewParentFact: !showAddNewParentFact,
+                factName: ''
+            });
+        };
+
+        this.clearFactAndValueData = () => {
+            this.setState({
+                factName: '',
+                valueName: '',
+                showAddNewFact: false,
+                showAddNewParentFact: false
+            });
+        };
     }
 
-    async componentWillMount() {
-        const { baselineData, baselineDataLoading } = this.props;
+    componentWillMount() {
+        const { baselineData } = this.props;
 
-        if (baselineData && !baselineDataLoading) {
+        if (baselineData) {
             this.renderRows();
             this.renderColumns();
         }
@@ -358,9 +398,107 @@ class EditBaseline extends Component {
         clearBaselineData();
     }
 
+    renderAddNewFact() {
+        const { showAddNewFact, showAddNewParentFact, factName, valueName } = this.state;
+        let newFactToolbar;
+
+        if (!showAddNewFact && !showAddNewParentFact) {
+            newFactToolbar = <Toolbar>
+                <ToolbarGroup>
+                    <ToolbarItem>
+                        <Button
+                            variant='primary'
+                            onClick={ this.toggleNewParentFact }>
+                            <AddCircleOIcon />
+                            Add Parent Fact
+                        </Button>
+                    </ToolbarItem>
+                </ToolbarGroup>
+                <ToolbarGroup>
+                    <ToolbarItem>
+                        <Button
+                            variant='primary'
+                            onClick={ this.toggleNewFact }>
+                            <AddCircleOIcon />
+                            Add Fact
+                        </Button>
+                    </ToolbarItem>
+                </ToolbarGroup>
+            </Toolbar>;
+        } else {
+            newFactToolbar = <React.Fragment>
+                <Toolbar>
+                    <ToolbarGroup>
+                        <ToolbarItem>
+                            Fact:
+                            <TextInput value={ factName } type="text" onChange={ this.changeFactName } aria-label="fact name"/>
+                        </ToolbarItem>
+                        { showAddNewFact
+                            ? <ToolbarItem>
+                                Value:
+                                <TextInput value={ valueName } type="text" onChange={ this.changeValueName } aria-label="value name"/>
+                            </ToolbarItem>
+                            : null
+                        }
+                    </ToolbarGroup>
+                </Toolbar>
+                <Button
+                    variant='primary'
+                    onClick={ this.addFact }>
+                    Submit
+                </Button>
+                { showAddNewFact
+                    ? <Button
+                        variant='danger'
+                        onClick={ this.toggleNewFact }>
+                        Cancel
+                    </Button>
+                    : <Button
+                        variant='danger'
+                        onClick={ this.toggleNewParentFact }>
+                        Cancel
+                    </Button>
+                }
+            </React.Fragment>;
+        }
+
+        return newFactToolbar;
+    }
+
+    addFact() {
+        const { factName, valueName } = this.state;
+        const { baselineData, patchBaseline } = this.props;
+        let newBaselineBody;
+
+        /*eslint-disable camelcase*/
+        if (valueName) {
+            newBaselineBody = {
+                baseline_facts: [
+                    {
+                        name: factName,
+                        value: valueName
+                    }
+                ]
+            };
+        } else {
+            newBaselineBody = {
+                baseline_facts: [
+                    {
+                        name: factName,
+                        values: []
+                    }
+                ]
+            };
+        }
+        /*eslint-enable camelcase*/
+
+        patchBaseline(baselineData.id, newBaselineBody);
+        this.clearFactAndValueData();
+    }
+
     render() {
         const { activeEditId, columns, rows, baselineName } = this.state;
-        const { baselineDataLoading } = this.props;
+        const { baselineData } = this.props;
         const editConfig = {
             activeEditId,
             onEditCellClicked: this.onEditCellClicked,
@@ -377,7 +515,7 @@ class EditBaseline extends Component {
                     <TextInput value={ baselineName } type="text" onChange={ this.changeBaselineName } aria-label="baseline name"/>
                     <Button onClick={ this.submitBaselineName }>Submit</Button>
                 </InputGroup>
-                { baselineDataLoading === false
+                { baselineData
                     ? <Table
                         cells={ columns }
                         rows={ rows }
@@ -396,6 +534,8 @@ class EditBaseline extends Component {
                         <TableBody />
                     </Table>
                 }
+                <br></br>
+                { this.renderAddNewFact() }
                 <Button
                     className="button-margin"
                     style={ { float: 'right' } }
@@ -412,7 +552,8 @@ EditBaseline.propTypes = {
     toggleCreateBaseline: PropTypes.func,
     clearBaselineData: PropTypes.func,
     baselineData: PropTypes.object,
-    baselineDataLoading: PropTypes.bool
+    baselineDataLoading: PropTypes.bool,
+    patchBaseline: PropTypes.func
 };
 
 function mapStateToProps(state) {
@@ -425,7 +566,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         toggleCreateBaseline: () => dispatch(baselinesPageActions.toggleCreateBaseline()),
-        clearBaselineData: () => dispatch(baselinesTableActions.clearBaselineData())
+        clearBaselineData: () => dispatch(baselinesTableActions.clearBaselineData()),
+        patchBaseline: (baselineId, newBaselineBody) => dispatch(baselinesTableActions.patchBaseline(baselineId, newBaselineBody))
     };
 }
 

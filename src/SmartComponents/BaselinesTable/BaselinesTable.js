@@ -13,6 +13,12 @@ class BaselinesTable extends Component {
         this.onSelect = this.onSelect.bind(this);
     }
 
+    async componentDidMount() {
+        const { fetchBaselines } = this.props;
+
+        fetchBaselines();
+    }
+
     onSelect(event, isSelected, rowId) {
         const { baselineTableData, selectBaseline } = this.props;
         let rows;
@@ -54,7 +60,7 @@ class BaselinesTable extends Component {
             baseline.forEach(function(data) {
                 row.push(data);
             });
-            let kebab = <BaselineTableKebab baselineData={ baseline } />;
+            let kebab = <BaselineTableKebab baselineRowData={ baseline } />;
             row.push(<div>{ kebab }</div>);
             tableWithKebab.push(row);
         });
@@ -124,7 +130,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        selectBaseline: (rows) => dispatch(baselinesTableActions.selectBaseline(rows))
+        selectBaseline: (rows) => dispatch(baselinesTableActions.selectBaseline(rows)),
+        fetchBaselines: () => dispatch(baselinesTableActions.fetchBaselines())
     };
 }
 
@@ -134,7 +141,8 @@ BaselinesTable.propTypes = {
     baselineTableData: PropTypes.array,
     createBaselinesTable: PropTypes.func,
     selectBaseline: PropTypes.func,
-    addSystemModalOpened: PropTypes.bool
+    addSystemModalOpened: PropTypes.bool,
+    fetchBaselines: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(BaselinesTable);
