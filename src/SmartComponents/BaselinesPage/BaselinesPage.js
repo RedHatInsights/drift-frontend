@@ -21,7 +21,7 @@ class BaselinesPage extends Component {
     }
 
     render() {
-        const { creatingNewBaseline, baselineUUID } = this.props;
+        const { creatingNewBaseline, baselineUUID, fullBaselineListData } = this.props;
 
         return (
             <React.Fragment>
@@ -48,16 +48,19 @@ class BaselinesPage extends Component {
                         }
                         { !creatingNewBaseline && baselineUUID === ''
                             ? <CardBody>
-                                <Toolbar className="drift-toolbar">
-                                    <ToolbarGroup>
-                                        <ToolbarItem>
-                                            <CreateBaselineButton />
-                                        </ToolbarItem>
-                                        <ToolbarItem>
-                                            <BaselinesKebab exportType='baseline list'/>
-                                        </ToolbarItem>
-                                    </ToolbarGroup>
-                                </Toolbar>
+                                { fullBaselineListData.length !== 0
+                                    ? <Toolbar className="drift-toolbar">
+                                        <ToolbarGroup>
+                                            <ToolbarItem>
+                                                <CreateBaselineButton />
+                                            </ToolbarItem>
+                                            <ToolbarItem>
+                                                <BaselinesKebab exportType='baseline list'/>
+                                            </ToolbarItem>
+                                        </ToolbarGroup>
+                                    </Toolbar>
+                                    : null
+                                }
                                 <div>
                                     <BaselinesTable />
                                 </div>
@@ -73,13 +76,15 @@ class BaselinesPage extends Component {
 
 BaselinesPage.propTypes = {
     creatingNewBaseline: PropTypes.bool,
-    baselineUUID: PropTypes.string
+    baselineUUID: PropTypes.string,
+    fullBaselineListData: PropTypes.array
 };
 
 function mapStateToProps(state) {
     return {
         creatingNewBaseline: state.baselinesPageState.creatingNewBaseline,
-        baselineUUID: state.baselinesTableState.baselineUUID
+        baselineUUID: state.baselinesTableState.baselineUUID,
+        fullBaselineListData: state.baselinesTableState.fullBaselineListData
     };
 }
 
