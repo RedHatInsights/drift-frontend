@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { EmptyState, EmptyStateBody, EmptyStateIcon, Title } from '@patternfly/react-core';
 import { Table, TableBody, TableHeader } from '@patternfly/react-table';
+import { AddCircleOIcon } from '@patternfly/react-icons';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
 
 import BaselineTableKebab from './BaselineTableKebab/BaselineTableKebab';
+import CreateBaselineButton from '../BaselinesPage/CreateBaselineButton/CreateBaselineButton';
 import { baselinesTableActions } from './redux';
 
 class BaselinesTable extends Component {
@@ -112,9 +115,34 @@ class BaselinesTable extends Component {
         return table;
     }
 
-    render() {
+    renderEmptyState() {
         return (
-            this.renderTable()
+            <center>
+                <EmptyState>
+                    <EmptyStateIcon icon={ AddCircleOIcon } />
+                    <br></br>
+                    <Title size="lg">Add baselines</Title>
+                    <EmptyStateBody>
+                        You currently have no baselines saved.
+                        <br></br>
+                        Please add at least one baseline.
+                    </EmptyStateBody>
+                    <CreateBaselineButton />
+                </EmptyState>
+            </center>
+        );
+    }
+
+    render() {
+        const { fullBaselineListData, baselineListLoading } = this.props;
+
+        return (
+            <React.Fragment>
+                { fullBaselineListData.length === 0 && baselineListLoading === false
+                    ? this.renderEmptyState()
+                    : this.renderTable()
+                }
+            </React.Fragment>
         );
     }
 }
