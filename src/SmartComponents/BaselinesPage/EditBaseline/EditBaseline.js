@@ -110,7 +110,8 @@ class EditBaseline extends Component {
             factName: '',
             valueName: '',
             showAddNewFact: false,
-            showAddNewParentFact: false
+            showAddNewParentFact: false,
+            parentRowId: undefined
         };
 
         this.changeBaselineName = value => {
@@ -207,20 +208,9 @@ class EditBaseline extends Component {
         this.onEditActionClick = (event, rowId) => {
             this.setState(({ rows, editedRowBackup }) => {
                 if (!editedRowBackup) {
-                    let backup;
-                    if (!rows[rowId].parent) {
-                        backup = {
-                            [rowId]: rows[rowId]
-                        };
-                    } else {
-                        const childId = this.getChildId(rowId, rows);
-                        const parentId = this.getParentId(rowId, rows);
-
-                        backup = {
-                            [parentId]: rows[parentId],
-                            [childId]: rows[childId]
-                        };
-                    }
+                    let backup = {
+                        [rowId]: rows[rowId]
+                    };
 
                     return {
                         editedRowsBackup: JSON.parse(JSON.stringify(backup)),
@@ -273,6 +263,13 @@ class EditBaseline extends Component {
             });
         };
 
+        this.onNewFactActionClick = (event, rowId) => {
+            this.setState({
+                parentRowId: rowId,
+                showAddNewFact: true
+            });
+        };
+
         this.actionResolver = rowData =>
             rowData.isTableEditing
                 ? null
@@ -283,7 +280,8 @@ class EditBaseline extends Component {
                             onClick: this.onEditActionClick
                         },
                         {
-                            title: 'Add fact'
+                            title: 'Add fact',
+                            onClick: this.onNewFactActionClick
                         }
                     ]
                     : [
@@ -378,7 +376,8 @@ class EditBaseline extends Component {
                 factName: '',
                 valueName: '',
                 showAddNewFact: false,
-                showAddNewParentFact: false
+                showAddNewParentFact: false,
+                parentRowId: undefined
             });
         };
     }
@@ -466,20 +465,45 @@ class EditBaseline extends Component {
     }
 
     addFact() {
-        const { factName, valueName } = this.state;
+        const { factName, valueName, parentRowId, rows } = this.state;
         const { baselineData, patchBaseline } = this.props;
         let newBaselineBody;
 
         /*eslint-disable camelcase*/
         if (valueName) {
-            newBaselineBody = {
-                baseline_facts: [
-                    {
-                        name: factName,
-                        value: valueName
-                    }
-                ]
-            };
+            if (parentRowId || parentRowId === 0) {
+                let parentRow = rows[parentRowId];
+                let baselineFactsArray = [];
+
+                /*eslint-disable camelcase*/
+                let childRows = rows.filter(function(row) {
+                    return row.parent === parentRowId;
+                })
+                .map(function(row) {
+                    return { name: row.data.modules[0], value: row.data.modules[1] };
+                });
+
+                childRows.push({
+                    name: factName,
+                    value: valueName
+                });
+
+                baselineFactsArray.push({
+                    name: parentRow.cells[0],
+                    values: childRows
+                });
+
+                newBaselineBody = { baseline_facts: baselineFactsArray };
+            } else {
+                newBaselineBody = {
+                    baseline_facts: [
+                        {
+                            name: factName,
+                            value: valueName
+                        }
+                    ]
+                };
+            }
         } else {
             newBaselineBody = {
                 baseline_facts: [
