@@ -268,9 +268,7 @@ function downloadCSV(driftData, systems) {
 
     let filename = 'system-comparison-export-';
     let today = new Date();
-    filename += today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-    filename += '_';
-    filename += today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
+    filename += today.toISOString();
     filename += '.csv';
 
     if (!csv.match(/^data:text\/csv/i)) {
