@@ -8,6 +8,7 @@ import { Card, CardBody, Toolbar, ToolbarGroup, ToolbarItem } from '@patternfly/
 import BaselinesTable from '../BaselinesTable/BaselinesTable';
 import CreateBaselineButton from './CreateBaselineButton/CreateBaselineButton';
 import CreateBaseline from './CreateBaseline/CreateBaseline';
+import BaselinesKebab from './BaselinesKebab/BaselinesKebab';
 import EditBaseline from './EditBaseline/EditBaseline';
 
 class BaselinesPage extends Component {
@@ -51,6 +52,9 @@ class BaselinesPage extends Component {
                                     <ToolbarGroup>
                                         <ToolbarItem>
                                             <CreateBaselineButton />
+                                        </ToolbarItem>
+                                        <ToolbarItem>
+                                            <BaselinesKebab />
                                         </ToolbarItem>
                                     </ToolbarGroup>
                                 </Toolbar>
