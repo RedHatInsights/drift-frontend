@@ -13,51 +13,9 @@ import {
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
 import { AddCircleOIcon } from '@patternfly/react-icons';
 
+import BaselinesKebab from '../BaselinesKebab/BaselinesKebab';
 import { baselinesPageActions } from '../redux';
 import { baselinesTableActions } from '../../BaselinesTable/redux';
-
-function renderRows(baselineData) {
-    let newRows = [];
-    let counter = 0;
-
-    if (!baselineData) {
-        newRows = [];
-    } else {
-        baselineData.baseline_facts.forEach(function(fact) {
-            let row = [];
-            let parentCounter = counter;
-            row.push(fact.name);
-            if (fact.values) {
-                row.push('');
-                newRows.push({
-                    cells: row, isOpen: false
-                });
-
-                fact.values.forEach(function(fact) {
-                    let subFacts = [];
-                    counter++;
-                    subFacts.push(fact.name);
-                    subFacts.push(fact.value);
-
-                    newRows.push({
-                        cells: [ null ], data: { modules: subFacts }, parent: parentCounter
-                    });
-                });
-
-                counter++;
-            } else {
-                row.push(fact.value);
-
-                newRows.push({
-                    cells: row, isOpen: false
-                });
-                counter++;
-            }
-        });
-    }
-
-    return newRows;
-}
 
 class EditBaseline extends Component {
     constructor(props) {
@@ -65,8 +23,6 @@ class EditBaseline extends Component {
         this.finishBaselineEdit = this.finishBaselineEdit.bind(this);
         this.addFact = this.addFact.bind(this);
         this.renderAddNewFact = this.renderAddNewFact.bind(this);
-
-        this.props.fetchBaselineData(this.props.baselineUUID);
 
         this.makeId = ({ column, rowIndex, columnIndex, name }) =>
             `${column.property}-${rowIndex}-${columnIndex}${name ? `-${name}` : ''}`;
@@ -147,17 +103,7 @@ class EditBaseline extends Component {
         }
 
         this.state = {
-            loadingColumns: [ 'Fact', 'Value' ],
-            columns: [
-                {
-                    title: 'Fact',
-                    cellFormatters: [ textInputFormatter ]
-                },
-                {
-                    title: 'Value',
-                    cellFormatters: [ textInputFormatter ]
-                }
-            ],
+            columns: [ 'Fact', 'Value' ],
             rows,
             editedRowsBackup: null,
             activeEditId: null,
@@ -331,6 +277,10 @@ class EditBaseline extends Component {
                 : rowData.cells[1] === ''
                     ? [
                         {
+                            title: 'Edit',
+                            onClick: this.onEditActionClick
+                        },
+                        {
                             title: 'Add fact',
                             onClick: this.onNewFactActionClick
                         }
@@ -341,6 +291,69 @@ class EditBaseline extends Component {
                             onClick: this.onEditActionClick
                         }
                     ];
+
+        this.renderColumns = () => {
+            let newColumns = [
+                {
+                    title: 'Fact',
+                    cellFormatters: [ textInputFormatter ]
+                },
+                {
+                    title: 'Value',
+                    cellFormatters: [ textInputFormatter ]
+                }
+            ];
+
+            this.setState({
+                columns: newColumns
+            });
+        };
+
+        this.renderRows = () => {
+            const { baselineData } = this.props;
+            let newRows = [];
+            let counter = 0;
+
+            if (!baselineData) {
+                newRows = [];
+            } else {
+                baselineData.baseline_facts.forEach(function(fact) {
+                    let row = [];
+                    let parentCounter = counter;
+                    row.push(fact.name);
+                    if (fact.values) {
+                        row.push('');
+                        newRows.push({
+                            cells: row, isOpen: false
+                        });
+
+                        fact.values.forEach(function(fact) {
+                            let subFacts = [];
+                            counter++;
+                            subFacts.push(fact.name);
+                            subFacts.push(fact.value);
+
+                            newRows.push({
+                                cells: [ null ], data: { modules: subFacts }, parent: parentCounter
+                            });
+                        });
+
+                        counter++;
+                    } else {
+                        row.push(fact.value);
+
+                        newRows.push({
+                            cells: row, isOpen: false
+                        });
+                        counter++;
+                    }
+                });
+            }
+
+            this.setState({
+                rows: newRows
+            });
+        };
 
         this.toggleNewFact = () => {
             const { showAddNewFact } = this.state;
@@ -370,13 +383,12 @@ class EditBaseline extends Component {
         };
     }
 
-    static getDerivedStateFromProps(props, state) {
-        if (props.baselineData && (props.baselineDataLoading !== state.baselineDataLoading)) {
-            return {
-                rows: renderRows(props.baselineData),
-                baselineName: props.baselineData.display_name,
-                baselineDataLoading: props.baselineDataLoading
-            };
+    componentWillMount() {
+        const { baselineData } = this.props;
+
+        if (baselineData) {
+            this.renderRows();
+            this.renderColumns();
         }
     }
 
@@ -435,6 +447,18 @@ class EditBaseline extends Component {
                     onClick={ this.addFact }>
                     Submit
                 </Button>
+                { showAddNewFact
+                    ? <Button
+                        variant='danger'
+                        onClick={ this.toggleNewFact }>
+                        Cancel
+                    </Button>
+                    : <Button
+                        variant='danger'
+                        onClick={ this.toggleNewParentFact }>
+                        Cancel
+                    </Button>
+                }
             </React.Fragment>;
         }
 
@@ -498,7 +522,7 @@ class EditBaseline extends Component {
     }
 
     render() {
-        const { activeEditId, loadingColumns, columns, rows, baselineName } = this.state;
+        const { activeEditId, columns, rows, baselineName } = this.state;
         const { baselineData } = this.props;
         const editConfig = {
             activeEditId,
@@ -512,6 +536,13 @@ class EditBaseline extends Component {
 
         return (
             <React.Fragment>
+                <Toolbar>
+                    <ToolbarGroup>
+                        <ToolbarItem>
+                            <BaselinesKebab exportType='baselines data' baselineRowData={ rows } />
+                        </ToolbarItem>
+                    </ToolbarGroup>
+                </Toolbar>
                 <InputGroup>
                     <TextInput value={ baselineName } type="text" onChange={ this.changeBaselineName } aria-label="baseline name"/>
                     <Button onClick={ this.submitBaselineName }>Submit</Button>
@@ -528,7 +559,7 @@ class EditBaseline extends Component {
                         <ComposedBody editConfig={ editConfig } />
                     </Table>
                     : <Table
-                        cells={ loadingColumns }
+                        cells={ columns }
                         rows={ rows }
                     >
                         <TableHeader />
@@ -552,16 +583,13 @@ class EditBaseline extends Component {
 EditBaseline.propTypes = {
     toggleCreateBaseline: PropTypes.func,
     clearBaselineData: PropTypes.func,
-    baselineUUID: PropTypes.string,
     baselineData: PropTypes.object,
     baselineDataLoading: PropTypes.bool,
-    patchBaseline: PropTypes.func,
-    fetchBaselineData: PropTypes.func
+    patchBaseline: PropTypes.func
 };
 
 function mapStateToProps(state) {
     return {
-        baselineUUID: state.baselinesTableState.baselineUUID,
         baselineData: state.baselinesTableState.baselineData,
         baselineDataLoading: state.baselinesTableState.baselineDataLoading
     };
@@ -569,7 +597,6 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        fetchBaselineData: (baselineUUID) => dispatch(baselinesTableActions.fetchBaselineData(baselineUUID)),
         toggleCreateBaseline: () => dispatch(baselinesPageActions.toggleCreateBaseline()),
         clearBaselineData: () => dispatch(baselinesTableActions.clearBaselineData()),
         patchBaseline: (baselineId, newBaselineBody) => dispatch(baselinesTableActions.patchBaseline(baselineId, newBaselineBody))

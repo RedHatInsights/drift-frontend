@@ -5,10 +5,12 @@ import types from '../types';
 describe('baselines table reducer', () => {
     it('should return initial state', () => {
         expect(baselinesTableReducer(undefined, {})).toEqual({
+            baselineData: undefined,
             baselineListLoading: false,
             baselineDataLoading: false,
             fullBaselineListData: [],
             baselineTableData: [],
+            baselineUUID: '',
             selectedBaselineIds: []
         });
     });

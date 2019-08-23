@@ -29,6 +29,13 @@ function fetchBaselineData(baselineUUID) {
     };
 }
 
+function addBaselineUUID(baselineUUID) {
+    return {
+        type: types.ADD_BASELINE_UUID,
+        payload: baselineUUID
+    };
+}
+
 function clearBaselineData() {
     return {
         type: types.CLEAR_BASELINE_DATA
@@ -54,6 +61,7 @@ export default {
     selectBaseline,
     setSelectedBaselines,
     fetchBaselineData,
+    addBaselineUUID,
     clearBaselineData,
     createBaseline,
     patchBaseline
