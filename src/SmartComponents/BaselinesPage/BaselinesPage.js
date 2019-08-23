@@ -21,7 +21,7 @@ class BaselinesPage extends Component {
     }
 
     render() {
-        const { creatingNewBaseline, baselineData } = this.props;
+        const { creatingNewBaseline, baselineUUID } = this.props;
 
         return (
             <React.Fragment>
@@ -38,7 +38,7 @@ class BaselinesPage extends Component {
                             </CardBody>
                             : null
                         }
-                        { baselineData ?
+                        { baselineUUID !== '' ?
                             <CardBody>
                                 <div>
                                     <EditBaseline />
@@ -46,7 +46,7 @@ class BaselinesPage extends Component {
                             </CardBody>
                             : null
                         }
-                        { !creatingNewBaseline && !baselineData
+                        { !creatingNewBaseline && baselineUUID === ''
                             ? <CardBody>
                                 <Toolbar className="drift-toolbar">
                                     <ToolbarGroup>
@@ -73,13 +73,13 @@ class BaselinesPage extends Component {
 
 BaselinesPage.propTypes = {
     creatingNewBaseline: PropTypes.bool,
-    baselineData: PropTypes.obj
+    baselineUUID: PropTypes.string
 };
 
 function mapStateToProps(state) {
     return {
         creatingNewBaseline: state.baselinesPageState.creatingNewBaseline,
-        baselineData: state.baselinesTableState.baselineData
+        baselineUUID: state.baselinesTableState.baselineUUID
     };
 }
 

@@ -14,15 +14,15 @@ class BaselineTableKebab extends Component {
             isOpen: false
         };
 
-        this.fetchBaseline = this.fetchBaseline.bind(this);
+        this.findBaselineUUID = this.findBaselineUUID.bind(this);
         this.onKebabToggle = this.onKebabToggle.bind(this);
     }
 
-    fetchBaseline() {
-        const { fullBaselineListData, fetchBaselineData, baselineRowData } = this.props;
+    findBaselineUUID() {
+        const { fullBaselineListData, addBaselineUUID, baselineRowData } = this.props;
         let baselineId = baselinesTableHelpers.findBaselineId(baselineRowData, fullBaselineListData);
 
-        fetchBaselineData(baselineId);
+        addBaselineUUID(baselineId);
     }
 
     onKebabToggle(isOpen) {
@@ -37,7 +37,7 @@ class BaselineTableKebab extends Component {
             <DropdownItem
                 key="edit"
                 component="button"
-                onClick={ this.fetchBaseline }>
+                onClick={ this.findBaselineUUID }>
                 Edit
             </DropdownItem>
         ];
@@ -56,7 +56,7 @@ class BaselineTableKebab extends Component {
 }
 
 BaselineTableKebab.propTypes = {
-    fetchBaselineData: PropTypes.func,
+    addBaselineUUID: PropTypes.func,
     fullBaselineListData: PropTypes.array,
     baselineRowData: PropTypes.array
 };
@@ -69,7 +69,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        fetchBaselineData: (baselineUUID) => dispatch(baselinesTableActions.fetchBaselineData(baselineUUID))
+        addBaselineUUID: (baselineUUID) => dispatch(baselinesTableActions.addBaselineUUID(baselineUUID))
     };
 }
 

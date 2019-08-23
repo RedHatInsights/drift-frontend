@@ -7,6 +7,7 @@ const initialState = {
     fullBaselineListData: [],
     baselineTableData: [],
     selectedBaselineIds: [],
+    baselineUUID: '',
     baselineData: undefined
 };
 
@@ -51,16 +52,24 @@ export function baselinesTableReducer(state = initialState, action) {
                 baselineDataLoading: false,
                 baselineData: action.payload
             };
+        case `${types.ADD_BASELINE_UUID}`:
+            return {
+                ...state,
+                baselineUUID: action.payload
+            };
         case `${types.CLEAR_BASELINE_DATA}`:
             return {
                 ...state,
+                baselineUUID: '',
                 baselineData: undefined
             };
         case `${types.CREATE_BASELINE}_PENDING`:
             return {
                 ...state,
                 baselineListLoading: true,
-                baselineDataLoading: true
+                baselineDataLoading: true,
+                baselineUUID: action.payload.id,
+                baselineData: action.payload
             };
         case `${types.CREATE_BASELINE}_FULFILLED`:
             return {
