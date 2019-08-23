@@ -54,7 +54,7 @@ class BaselinesPage extends Component {
                                             <CreateBaselineButton />
                                         </ToolbarItem>
                                         <ToolbarItem>
-                                            <BaselinesKebab />
+                                            <BaselinesKebab exportType='baseline list'/>
                                         </ToolbarItem>
                                     </ToolbarGroup>
                                 </Toolbar>

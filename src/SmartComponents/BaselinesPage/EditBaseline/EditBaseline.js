@@ -13,6 +13,7 @@ import {
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
 import { AddCircleOIcon } from '@patternfly/react-icons';
 
+import BaselinesKebab from '../BaselinesKebab/BaselinesKebab';
 import { baselinesPageActions } from '../redux';
 import { baselinesTableActions } from '../../BaselinesTable/redux';
 
@@ -535,6 +536,13 @@ class EditBaseline extends Component {
 
         return (
             <React.Fragment>
+                <Toolbar>
+                    <ToolbarGroup>
+                        <ToolbarItem>
+                            <BaselinesKebab exportType='baselines data' baselineRowData={ rows } />
+                        </ToolbarItem>
+                    </ToolbarGroup>
+                </Toolbar>
                 <InputGroup>
                     <TextInput value={ baselineName } type="text" onChange={ this.changeBaselineName } aria-label="baseline name"/>
                     <Button onClick={ this.submitBaselineName }>Submit</Button>

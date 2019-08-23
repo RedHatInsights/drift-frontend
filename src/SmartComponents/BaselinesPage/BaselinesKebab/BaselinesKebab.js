@@ -25,9 +25,13 @@ class BaselinesKebab extends Component {
     }
 
     exportSelect() {
-        const { baselineTableData } = this.props;
+        const { exportType, baselineTableData, baselineData, baselineRowData } = this.props;
         this.toggleKebab();
-        this.props.exportToCSV(baselineTableData);
+        if (exportType === 'baseline list') {
+            this.props.exportToCSV(exportType, baselineTableData);
+        } else if (exportType === 'baselines data') {
+            this.props.exportToCSV(exportType, baselineData, baselineRowData);
+        }
     }
 
     render() {
@@ -50,18 +54,24 @@ class BaselinesKebab extends Component {
 
 BaselinesKebab.propTypes = {
     exportToCSV: PropTypes.func,
-    baselineTableData: PropTypes.array
+    baselineTableData: PropTypes.array,
+    exportType: PropTypes.string,
+    baselineData: PropTypes.array,
+    baselineRowData: PropTypes.array
 };
 
 function mapStateToProps(state) {
     return {
-        baselineTableData: state.baselinesTableState.baselineTableData
+        baselineTableData: state.baselinesTableState.baselineTableData,
+        baselineData: state.baselinesTableState.baselineData
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        exportToCSV: (baselineTableData) => dispatch(baselinesKebabActions.exportToCSV(baselineTableData))
+        exportToCSV: (exportType, exportData, baselineRowData) => {
+            dispatch(baselinesKebabActions.exportToCSV(exportType, exportData, baselineRowData));
+        }
     };
 }
 
