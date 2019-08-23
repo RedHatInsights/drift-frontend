@@ -11,6 +11,9 @@ class App extends Component {
     componentDidMount () {
         insights.chrome.init();
         insights.chrome.identifyApp('drift');
+        insights.chrome.on('APP_NAVIGATION', event => {
+            this.props.history.push(`/${event.navId}`);
+        });
     }
 
     componentWillUnmount () {
