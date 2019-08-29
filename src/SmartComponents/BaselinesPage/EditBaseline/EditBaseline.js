@@ -11,7 +11,7 @@ import {
     TableTextInput
 } from '@patternfly/react-inline-edit-extension';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
-import { AddCircleOIcon } from '@patternfly/react-icons';
+import { AddCircleOIcon, EditIcon } from '@patternfly/react-icons';
 
 import { baselinesPageActions } from '../redux';
 import { baselinesTableActions } from '../../BaselinesTable/redux';
@@ -65,6 +65,7 @@ class EditBaseline extends Component {
         this.finishBaselineEdit = this.finishBaselineEdit.bind(this);
         this.addFact = this.addFact.bind(this);
         this.renderAddNewFact = this.renderAddNewFact.bind(this);
+        this.renderEditBaselineName = this.renderEditBaselineName.bind(this);
 
         this.props.fetchBaselineData(this.props.baselineUUID);
 
@@ -166,7 +167,8 @@ class EditBaseline extends Component {
             valueName: '',
             showAddNewFact: false,
             showAddNewParentFact: false,
-            parentRowId: undefined
+            parentRowId: undefined,
+            isEditingBaselineName: false
         };
 
         this.changeBaselineName = value => {
@@ -182,6 +184,15 @@ class EditBaseline extends Component {
         };
 
         this.submitBaselineName = () => {
+            const { baselineName } = this.state;
+            const { patchBaseline, baselineData } = this.props;
+            /*eslint-disable camelcase*/
+            let apiBody = { display_name: baselineName };
+            /*eslint-enable camelcase*/
+
+            patchBaseline(baselineData.id, apiBody);
+            this.clearFactAndValueData();
+            this.toggleIsEditingBaselineName();
         };
 
         this.onChange = (value, { rowIndex, columnIndex, moduleIndex }) => {
@@ -368,6 +379,14 @@ class EditBaseline extends Component {
                 parentRowId: undefined
             });
         };
+
+        this.toggleIsEditingBaselineName = () => {
+            const { isEditingBaselineName } = this.state;
+
+            this.setState({
+                isEditingBaselineName: !isEditingBaselineName
+            });
+        };
     }
 
     static getDerivedStateFromProps(props, state) {
@@ -391,7 +410,7 @@ class EditBaseline extends Component {
         let newFactToolbar;
 
         if (!showAddNewFact && !showAddNewParentFact) {
-            newFactToolbar = <Toolbar>
+            newFactToolbar = <Toolbar className='display-margin'>
                 <ToolbarGroup>
                     <ToolbarItem>
                         <Button
@@ -415,7 +434,7 @@ class EditBaseline extends Component {
             </Toolbar>;
         } else {
             newFactToolbar = <React.Fragment>
-                <Toolbar>
+                <Toolbar className='display-margin'>
                     <ToolbarGroup>
                         <ToolbarItem>
                             Fact:
@@ -430,11 +449,31 @@ class EditBaseline extends Component {
                         }
                     </ToolbarGroup>
                 </Toolbar>
-                <Button
-                    variant='primary'
-                    onClick={ this.addFact }>
-                    Submit
-                </Button>
+                <Toolbar className='display-margin'>
+                    <ToolbarGroup>
+                        <ToolbarItem>
+                            <Button
+                                variant='primary'
+                                onClick={ this.addFact }>
+                                Submit
+                            </Button>
+                        </ToolbarItem>
+                        <ToolbarItem>
+                            { showAddNewFact
+                                ? <Button
+                                    variant='danger'
+                                    onClick={ this.toggleNewFact }>
+                                    Cancel
+                                </Button>
+                                : <Button
+                                    variant='danger'
+                                    onClick={ this.toggleNewParentFact }>
+                                    Cancel
+                                </Button>
+                            }
+                        </ToolbarItem>
+                    </ToolbarGroup>
+                </Toolbar>
             </React.Fragment>;
         }
 
@@ -497,8 +536,34 @@ class EditBaseline extends Component {
         this.clearFactAndValueData();
     }
 
+    renderEditBaselineName() {
+        const { isEditingBaselineName, baselineName } = this.state;
+        let baselineNameEdit;
+
+        if (isEditingBaselineName) {
+            baselineNameEdit = <Toolbar className='display-margin'>
+                <InputGroup>
+                    <TextInput
+                        value={ baselineName }
+                        type="text"
+                        onChange={ this.changeBaselineName }
+                        aria-label="baseline name"
+                    />
+                    <Button onClick={ this.submitBaselineName }>Submit</Button>
+                    <Button variant='danger' onClick={ this.toggleIsEditingBaselineName }>Cancel</Button>
+                </InputGroup>
+            </Toolbar>;
+        } else {
+            baselineNameEdit = <div className='display-margin'>
+                { baselineName } <EditIcon className='not-active' onClick={ this.toggleIsEditingBaselineName } />
+            </div>;
+        }
+
+        return baselineNameEdit;
+    }
+
     render() {
-        const { activeEditId, loadingColumns, columns, rows, baselineName } = this.state;
+        const { activeEditId, loadingColumns, columns, rows } = this.state;
         const { baselineData } = this.props;
         const editConfig = {
             activeEditId,
@@ -512,10 +577,7 @@ class EditBaseline extends Component {
 
         return (
             <React.Fragment>
-                <InputGroup>
-                    <TextInput value={ baselineName } type="text" onChange={ this.changeBaselineName } aria-label="baseline name"/>
-                    <Button onClick={ this.submitBaselineName }>Submit</Button>
-                </InputGroup>
+                { this.renderEditBaselineName() }
                 { baselineData
                     ? <Table
                         cells={ columns }
@@ -538,7 +600,7 @@ class EditBaseline extends Component {
                 <br></br>
                 { this.renderAddNewFact() }
                 <Button
-                    className="button-margin"
+                    className="button-margin margin-right"
                     style={ { float: 'right' } }
                     variant='primary'
                     onClick={ this.finishBaselineEdit }>
