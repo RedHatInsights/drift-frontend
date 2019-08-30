@@ -4,16 +4,19 @@ import baselinesReducerHelpers from './helpers';
 const initialState = {
     baselineListLoading: false,
     baselineDataLoading: false,
+    baselineDeleteLoading: false,
     fullBaselineListData: [],
     baselineTableData: [],
     selectedBaselineIds: [],
     baselineUUID: '',
-    baselineData: undefined
+    baselineData: undefined,
+    IdToDelete: ''
 };
 
 export function baselinesTableReducer(state = initialState, action) {
     let rows = [];
     let selectedBaselines = [];
+    let newBaselineTableData;
 
     switch (action.type) {
         case `${types.FETCH_BASELINE_LIST}_PENDING`:
@@ -88,6 +91,30 @@ export function baselinesTableReducer(state = initialState, action) {
                 ...state,
                 baselineDataLoading: false,
                 baselineData: action.payload
+            };
+        case `${types.SET_ID_DELETE}`:
+            return {
+                ...state,
+                IdToDelete: action.payload
+            };
+        case `${types.DELETE_BASELINE}_PENDING`:
+            return {
+                ...state,
+                baselineDeleteLoading: true
+            };
+        case `${types.DELETE_BASELINE}_FULFILLED`:
+            newBaselineTableData = baselinesReducerHelpers.removeDeletedRow(state.fullBaselineListData, state.IdToDelete);
+            return {
+                ...state,
+                baselineDeleteLoading: false,
+                baselineTableData: newBaselineTableData,
+                IdToDelete: ''
+            };
+        case `${types.DELETE_BASELINE}_REJECTED`:
+            return {
+                ...state,
+                baselineDeleteLoading: false,
+                IdToDelete: ''
             };
 
         default:

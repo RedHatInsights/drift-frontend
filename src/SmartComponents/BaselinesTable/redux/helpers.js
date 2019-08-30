@@ -47,8 +47,21 @@ function findBaselineId(baseline, fullBaselineData) {
     return baselineId;
 }
 
+function removeDeletedRow(fullBaselineListData, IdToDelete) {
+    let newBaselineTableData = [];
+
+    fullBaselineListData.forEach(function(baseline) {
+        if (baseline.id !== IdToDelete) {
+            newBaselineTableData.push([ baseline.display_name, baseline.updated ]);
+        }
+    });
+
+    return newBaselineTableData;
+}
+
 export default {
     buildBaselinesTable,
     setBaselineArray,
-    findBaselineId
+    findBaselineId,
+    removeDeletedRow
 };

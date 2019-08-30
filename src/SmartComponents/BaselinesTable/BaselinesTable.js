@@ -13,7 +13,7 @@ class BaselinesTable extends Component {
         this.onSelect = this.onSelect.bind(this);
     }
 
-    async componentDidMount() {
+    componentDidMount() {
         const { fetchBaselines } = this.props;
 
         fetchBaselines();
@@ -69,12 +69,12 @@ class BaselinesTable extends Component {
     }
 
     renderTable() {
-        const { fullBaselineListData, baselineTableData, baselineListLoading, addSystemModalOpened } = this.props;
+        const { fullBaselineListData, baselineTableData, baselineListLoading, baselineDeleteLoading, addSystemModalOpened } = this.props;
         let columns = [ 'Name', 'Last Sync' ];
         let loadingRows = [];
         let table;
 
-        if (fullBaselineListData.length !== 0 && !baselineListLoading) {
+        if (fullBaselineListData.length !== 0 && !baselineListLoading && !baselineDeleteLoading) {
             if (addSystemModalOpened) {
                 table = <Table
                     onSelect={ this.onSelect }
@@ -119,9 +119,21 @@ class BaselinesTable extends Component {
     }
 }
 
+BaselinesTable.propTypes = {
+    baselineListLoading: PropTypes.bool,
+    baselineDeleteLoading: PropTypes.bool,
+    fullBaselineListData: PropTypes.array,
+    baselineTableData: PropTypes.array,
+    createBaselinesTable: PropTypes.func,
+    selectBaseline: PropTypes.func,
+    addSystemModalOpened: PropTypes.bool,
+    fetchBaselines: PropTypes.func
+};
+
 function mapStateToProps(state) {
     return {
-        loading: state.baselinesTableState.loading,
+        baselineListLoading: state.baselinesTableState.baselineListLoading,
+        baselineDeleteLoading: state.baselinesTableState.baselineDeleteLoading,
         fullBaselineListData: state.baselinesTableState.fullBaselineListData,
         baselineTableData: state.baselinesTableState.baselineTableData,
         addSystemModalOpened: state.addSystemModalState.addSystemModalOpened
@@ -134,15 +146,5 @@ function mapDispatchToProps(dispatch) {
         fetchBaselines: () => dispatch(baselinesTableActions.fetchBaselines())
     };
 }
-
-BaselinesTable.propTypes = {
-    baselineListLoading: PropTypes.bool,
-    fullBaselineListData: PropTypes.array,
-    baselineTableData: PropTypes.array,
-    createBaselinesTable: PropTypes.func,
-    selectBaseline: PropTypes.func,
-    addSystemModalOpened: PropTypes.bool,
-    fetchBaselines: PropTypes.func
-};
 
 export default connect(mapStateToProps, mapDispatchToProps)(BaselinesTable);
