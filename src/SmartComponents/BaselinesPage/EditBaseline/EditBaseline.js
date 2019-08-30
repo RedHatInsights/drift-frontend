@@ -171,10 +171,6 @@ class EditBaseline extends Component {
             isEditingBaselineName: false
         };
 
-        this.changeBaselineName = value => {
-            this.setState({ baselineName: value });
-        };
-
         this.changeFactName = value => {
             this.setState({ factName: value });
         };
@@ -184,10 +180,9 @@ class EditBaseline extends Component {
         };
 
         this.submitBaselineName = () => {
-            const { baselineName } = this.state;
             const { patchBaseline, baselineData } = this.props;
             /*eslint-disable camelcase*/
-            let apiBody = { display_name: baselineName };
+            let apiBody = { display_name: document.getElementById('newBaselineName').value };
             /*eslint-enable camelcase*/
 
             patchBaseline(baselineData.id, apiBody);
@@ -406,7 +401,7 @@ class EditBaseline extends Component {
     }
 
     renderAddNewFact() {
-        const { showAddNewFact, showAddNewParentFact, factName, valueName } = this.state;
+        const { showAddNewFact, showAddNewParentFact } = this.state;
         let newFactToolbar;
 
         if (!showAddNewFact && !showAddNewParentFact) {
@@ -435,44 +430,38 @@ class EditBaseline extends Component {
         } else {
             newFactToolbar = <React.Fragment>
                 <Toolbar className='display-margin'>
-                    <ToolbarGroup>
-                        <ToolbarItem>
-                            Fact:
-                            <TextInput value={ factName } type="text" onChange={ this.changeFactName } aria-label="fact name"/>
-                        </ToolbarItem>
+                    <InputGroup>
+                        <TextInput
+                            id="newFactName"
+                            type="text"
+                            placeholder="Fact"
+                            aria-label="fact name"/>
                         { showAddNewFact
-                            ? <ToolbarItem>
-                                Value:
-                                <TextInput value={ valueName } type="text" onChange={ this.changeValueName } aria-label="value name"/>
-                            </ToolbarItem>
+                            ? <TextInput
+                                id="newFactValue"
+                                type="text"
+                                placeholder="Value"
+                                aria-label="value name"/>
                             : null
                         }
-                    </ToolbarGroup>
-                </Toolbar>
-                <Toolbar className='display-margin'>
-                    <ToolbarGroup>
-                        <ToolbarItem>
-                            <Button
-                                variant='primary'
-                                onClick={ this.addFact }>
-                                Submit
+                        <Button
+                            variant='primary'
+                            onClick={ this.addFact }>
+                            Submit
+                        </Button>
+                        { showAddNewFact
+                            ? <Button
+                                variant='danger'
+                                onClick={ this.toggleNewFact }>
+                                Cancel
                             </Button>
-                        </ToolbarItem>
-                        <ToolbarItem>
-                            { showAddNewFact
-                                ? <Button
-                                    variant='danger'
-                                    onClick={ this.toggleNewFact }>
-                                    Cancel
-                                </Button>
-                                : <Button
-                                    variant='danger'
-                                    onClick={ this.toggleNewParentFact }>
-                                    Cancel
-                                </Button>
-                            }
-                        </ToolbarItem>
-                    </ToolbarGroup>
+                            : <Button
+                                variant='danger'
+                                onClick={ this.toggleNewParentFact }>
+                                Cancel
+                            </Button>
+                        }
+                    </InputGroup>
                 </Toolbar>
             </React.Fragment>;
         }
@@ -481,17 +470,19 @@ class EditBaseline extends Component {
     }
 
     addFact() {
-        const { factName, valueName, parentRowId, rows } = this.state;
+        const { parentRowId, rows } = this.state;
         const { baselineData, patchBaseline } = this.props;
         let newBaselineBody;
+        let name = document.getElementById('newFactName').value;
+        let newFactValue = document.getElementById('newFactValue');
 
         /*eslint-disable camelcase*/
-        if (valueName) {
+        if (newFactValue !== null) {
+            let value = newFactValue.value;
             if (parentRowId || parentRowId === 0) {
                 let parentRow = rows[parentRowId];
                 let baselineFactsArray = [];
 
-                /*eslint-disable camelcase*/
                 let childRows = rows.filter(function(row) {
                     return row.parent === parentRowId;
                 })
@@ -500,8 +491,8 @@ class EditBaseline extends Component {
                 });
 
                 childRows.push({
-                    name: factName,
-                    value: valueName
+                    name,
+                    value
                 });
 
                 baselineFactsArray.push({
@@ -514,8 +505,8 @@ class EditBaseline extends Component {
                 newBaselineBody = {
                     baseline_facts: [
                         {
-                            name: factName,
-                            value: valueName
+                            name,
+                            value
                         }
                     ]
                 };
@@ -524,7 +515,7 @@ class EditBaseline extends Component {
             newBaselineBody = {
                 baseline_facts: [
                     {
-                        name: factName,
+                        name,
                         values: []
                     }
                 ]
@@ -544,9 +535,8 @@ class EditBaseline extends Component {
             baselineNameEdit = <Toolbar className='display-margin'>
                 <InputGroup>
                     <TextInput
-                        value={ baselineName }
+                        id="newBaselineName"
                         type="text"
-                        onChange={ this.changeBaselineName }
                         aria-label="baseline name"
                     />
                     <Button onClick={ this.submitBaselineName }>Submit</Button>
