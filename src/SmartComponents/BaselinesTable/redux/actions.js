@@ -56,6 +56,20 @@ function patchBaseline(baselineId, apiBody) {
     };
 }
 
+function setIdDelete(baselineUUID) {
+    return {
+        type: types.SET_ID_DELETE,
+        payload: baselineUUID
+    };
+}
+
+function deleteBaseline(baselineUUID) {
+    return {
+        type: types.DELETE_BASELINE,
+        payload: api.deleteBaselineData(baselineUUID)
+    };
+}
+
 export default {
     fetchBaselines,
     selectBaseline,
@@ -64,5 +78,7 @@ export default {
     addBaselineUUID,
     clearBaselineData,
     createBaseline,
-    patchBaseline
+    patchBaseline,
+    setIdDelete,
+    deleteBaseline
 };

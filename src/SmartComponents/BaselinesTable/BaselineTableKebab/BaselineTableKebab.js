@@ -14,11 +14,20 @@ class BaselineTableKebab extends Component {
             isOpen: false
         };
 
-        this.findBaselineUUID = this.findBaselineUUID.bind(this);
+        this.getBaselineData = this.getBaselineData.bind(this);
+        this.deleteBaselineData = this.deleteBaselineData.bind(this);
         this.onKebabToggle = this.onKebabToggle.bind(this);
     }
 
-    findBaselineUUID() {
+    deleteBaselineData() {
+        const { fullBaselineListData, setIdDelete, deleteBaseline, baselineRowData } = this.props;
+        let baselineId = baselinesTableHelpers.findBaselineId(baselineRowData, fullBaselineListData);
+
+        setIdDelete(baselineId);
+        deleteBaseline(baselineId);
+    }
+
+    getBaselineData() {
         const { fullBaselineListData, addBaselineUUID, baselineRowData } = this.props;
         let baselineId = baselinesTableHelpers.findBaselineId(baselineRowData, fullBaselineListData);
 
@@ -37,8 +46,14 @@ class BaselineTableKebab extends Component {
             <DropdownItem
                 key="edit"
                 component="button"
-                onClick={ this.findBaselineUUID }>
+                onClick={ this.getBaselineData }>
                 Edit
+            </DropdownItem>,
+            <DropdownItem
+                key="delete"
+                component="button"
+                onClick={ this.deleteBaselineData }>
+                Delete
             </DropdownItem>
         ];
 
@@ -57,6 +72,8 @@ class BaselineTableKebab extends Component {
 
 BaselineTableKebab.propTypes = {
     addBaselineUUID: PropTypes.func,
+    setIdDelete: PropTypes.func,
+    deleteBaseline: PropTypes.func,
     fullBaselineListData: PropTypes.array,
     baselineRowData: PropTypes.array
 };
@@ -69,7 +86,9 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        addBaselineUUID: (baselineUUID) => dispatch(baselinesTableActions.addBaselineUUID(baselineUUID))
+        addBaselineUUID: (baselineUUID) => dispatch(baselinesTableActions.addBaselineUUID(baselineUUID)),
+        setIdDelete: (baselineUUID) => dispatch(baselinesTableActions.setIdDelete(baselineUUID)),
+        deleteBaseline: (baselineUUID) => dispatch(baselinesTableActions.deleteBaseline(baselineUUID))
     };
 }
 

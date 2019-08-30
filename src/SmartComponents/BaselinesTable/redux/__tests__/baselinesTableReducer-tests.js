@@ -7,11 +7,13 @@ describe('baselines table reducer', () => {
         expect(baselinesTableReducer(undefined, {})).toEqual({
             baselineData: undefined,
             baselineListLoading: false,
+            baselineDeleteLoading: false,
             baselineDataLoading: false,
             fullBaselineListData: [],
             baselineTableData: [],
             baselineUUID: '',
-            selectedBaselineIds: []
+            selectedBaselineIds: [],
+            IdToDelete: ''
         });
     });
 
