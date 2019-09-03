@@ -67,15 +67,14 @@ export function baselinesTableReducer(state = initialState, action) {
             return {
                 ...state,
                 baselineListLoading: true,
-                baselineDataLoading: true,
-                baselineUUID: action.payload.id,
-                baselineData: action.payload
+                baselineDataLoading: true
             };
         case `${types.CREATE_BASELINE}_FULFILLED`:
             return {
                 ...state,
                 baselineListLoading: false,
                 baselineDataLoading: false,
+                baselineUUID: action.payload.id,
                 baselineData: action.payload
             };
         case `${types.PATCH_BASELINE}_PENDING`:
