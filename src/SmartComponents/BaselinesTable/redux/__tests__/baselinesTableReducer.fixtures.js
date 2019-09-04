@@ -35,8 +35,8 @@ const baselinesListPayloadResults = ([
 /*eslint-enable camelcase*/
 
 const baselineTableDataRows = ([
-    [ 'beavs baseline', '2019-05-18T15:00:00.000000Z' ],
-    [ 'micjohns baseline', '2019-05-19T15:00:00.000000Z' ]
+    [ 'beavs baseline', '18 May 2019, 15:00 UTC' ],
+    [ 'micjohns baseline', '19 May 2019, 15:00 UTC' ]
 ]);
 
 export default {

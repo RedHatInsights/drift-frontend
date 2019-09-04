@@ -7,6 +7,7 @@ import queryString from 'query-string';
 import { AddCircleOIcon, AngleDownIcon, AngleRightIcon, LongArrowAltUpIcon, LongArrowAltDownIcon, ArrowsAltVIcon,
     CloseIcon, ServerIcon, WarningTriangleIcon } from '@patternfly/react-icons';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
+import moment from 'moment';
 
 import AddSystemModal from '../../AddSystemModal/AddSystemModal';
 import './drift-table.scss';
@@ -44,8 +45,7 @@ class DriftTable extends Component {
     }
 
     formatDate(dateString) {
-        let date = new Date(dateString);
-        return date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
+        return moment.utc(dateString).format('MM/DD/YYYY H:mm:ss UTC');
     }
 
     removeSystem(systemBaselineId) {
@@ -208,7 +208,10 @@ class DriftTable extends Component {
                                     <WarningTriangleIcon color="#f0ab00"/>
                                 </Tooltip>
                             }
-                            { this.formatDate(data[i].last_updated) }
+                            { data[i].last_updated
+                                ? this.formatDate(data[i].last_updated)
+                                : this.formatDate(data[i].updated)
+                            }
                         </div>
                     </div>
                 </th>
