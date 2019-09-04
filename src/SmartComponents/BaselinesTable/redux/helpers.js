@@ -1,11 +1,15 @@
+import moment from 'moment';
+
 function buildBaselinesTable(data, selectedBaselineIds) {
     let rows = [];
 
     data.forEach(function(baseline) {
         let row = [];
 
+        let dateTimeStamp = moment.utc(baseline.updated).format('DD MMM YYYY, HH:mm UTC');
+
         row.push(baseline.display_name);
-        row.push(baseline.updated);
+        row.push(dateTimeStamp);
 
         if (selectedBaselineIds) {
             if (selectedBaselineIds.find(function(id) {
