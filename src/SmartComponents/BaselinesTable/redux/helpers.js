@@ -6,7 +6,7 @@ function buildBaselinesTable(data, selectedBaselineIds) {
     data.forEach(function(baseline) {
         let row = [];
 
-        let dateTimeStamp = moment.utc(baseline.updated).format('DD MMM YYYY, HH:mm UTC');
+        let dateTimeStamp = getDateTimeStamp(baseline.updated);
 
         row.push(baseline.display_name);
         row.push(dateTimeStamp);
@@ -51,12 +51,17 @@ function findBaselineId(baseline, fullBaselineData) {
     return baselineId;
 }
 
+function getDateTimeStamp(dateTime) {
+    return moment.utc(dateTime).format('DD MMM YYYY, HH:mm UTC');
+}
+
 function removeDeletedRow(fullBaselineListData, IdToDelete) {
     let newBaselineTableData = [];
 
     fullBaselineListData.forEach(function(baseline) {
         if (baseline.id !== IdToDelete) {
-            newBaselineTableData.push([ baseline.display_name, baseline.updated ]);
+            let dateTimeStamp = getDateTimeStamp(baseline.updated);
+            newBaselineTableData.push([ baseline.display_name, dateTimeStamp ]);
         }
     });
 
