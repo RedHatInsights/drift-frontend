@@ -63,10 +63,10 @@ function setIdDelete(baselineUUID) {
     };
 }
 
-function deleteBaseline(baselineUUID) {
+function deleteBaseline(baselineId) {
     return {
         type: types.DELETE_BASELINE,
-        payload: api.deleteBaselineData(baselineUUID)
+        payload: api.deleteBaselineData(baselineId)
     };
 }
 

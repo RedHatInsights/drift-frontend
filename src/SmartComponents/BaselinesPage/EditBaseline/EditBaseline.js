@@ -15,6 +15,7 @@ import { AddCircleOIcon, EditIcon } from '@patternfly/react-icons';
 
 import { baselinesPageActions } from '../redux';
 import { baselinesTableActions } from '../../BaselinesTable/redux';
+import editBaselineHelpers from './helpers';
 
 function renderRows(baselineData) {
     let newRows = [];
@@ -182,7 +183,7 @@ class EditBaseline extends Component {
         this.submitBaselineName = () => {
             const { patchBaseline, baselineData } = this.props;
             /*eslint-disable camelcase*/
-            let apiBody = { display_name: document.getElementById('newBaselineName').value };
+            let apiBody = { display_name: document.getElementById('newBaselineName').value, facts_patch: []};
             /*eslint-enable camelcase*/
 
             patchBaseline(baselineData.id, apiBody);
@@ -202,42 +203,27 @@ class EditBaseline extends Component {
                     row.cells[shiftedColumnIndex] = value;
                 }
 
-                let apiBody = this.buildApiBody(rows, rowIndex);
-                patchBaseline(baselineData.id, apiBody);
+                let apiBody = this.buildEditFactBody(rows, rowIndex);
+                let patch = editBaselineHelpers.makeAPIPatch(apiBody, baselineData);
+                patchBaseline(baselineData.id, patch);
 
                 return { rows, activeEditId: null };
             });
         };
 
-        this.buildApiBody = (rows, rowIndex) => {
+        this.buildEditFactBody = (rows, rowIndex) => {
             let row = rows[rowIndex];
             let apiBody = {};
-            let baselineFactsArray = [];
 
-            /*eslint-disable camelcase*/
             if (row.parent || row.parent === 0) {
-                let parentRow = rows[row.parent];
-                let childRows = rows.filter(function(row) {
-                    return row.parent === rows[rowIndex].parent;
-                })
-                .map(function(row) {
-                    return { name: row.data.modules[0], value: row.data.modules[1] };
-                });
+                let childRows = editBaselineHelpers.buildParentFact(rows, row.parent);
 
-                baselineFactsArray.push({
-                    name: parentRow.cells[0],
-                    values: childRows
-                });
-
-                apiBody.baseline_facts = baselineFactsArray;
+                apiBody.name = rows[row.parent].cells[0];
+                apiBody.values = childRows;
             } else {
-                baselineFactsArray.push({
-                    name: row.cells[0], value: row.cells[1]
-                });
-
-                apiBody.baseline_facts = baselineFactsArray;
+                apiBody.name = row.cells[0];
+                apiBody.value = row.cells[1];
             }
-            /*eslint-enable camelcase*/
 
             return apiBody;
         };
@@ -472,58 +458,30 @@ class EditBaseline extends Component {
     addFact() {
         const { parentRowId, rows } = this.state;
         const { baselineData, patchBaseline } = this.props;
-        let newBaselineBody;
         let name = document.getElementById('newFactName').value;
         let newFactValue = document.getElementById('newFactValue');
+        let newFact = {};
 
         /*eslint-disable camelcase*/
         if (newFactValue !== null) {
-            let value = newFactValue.value;
+            newFact.name = name;
+            newFact.value = newFactValue.value;
             if (parentRowId || parentRowId === 0) {
-                let parentRow = rows[parentRowId];
-                let baselineFactsArray = [];
-
-                let childRows = rows.filter(function(row) {
-                    return row.parent === parentRowId;
-                })
-                .map(function(row) {
-                    return { name: row.data.modules[0], value: row.data.modules[1] };
-                });
-
-                childRows.push({
-                    name,
-                    value
-                });
-
-                baselineFactsArray.push({
-                    name: parentRow.cells[0],
-                    values: childRows
-                });
-
-                newBaselineBody = { baseline_facts: baselineFactsArray };
-            } else {
-                newBaselineBody = {
-                    baseline_facts: [
-                        {
-                            name,
-                            value
-                        }
-                    ]
-                };
+                let childRows = editBaselineHelpers.buildParentFact(rows, parentRowId);
+                childRows.push(newFact);
+                newFact = {};
+                newFact.name = rows[parentRowId].cells[0];
+                newFact.values = childRows;
             }
         } else {
-            newBaselineBody = {
-                baseline_facts: [
-                    {
-                        name,
-                        values: []
-                    }
-                ]
-            };
+            newFact.name = name;
+            newFact.values = [];
         }
+
+        let patch = editBaselineHelpers.makeAPIPatch(newFact, baselineData);
         /*eslint-enable camelcase*/
 
-        patchBaseline(baselineData.id, newBaselineBody);
+        patchBaseline(baselineData.id, patch);
         this.clearFactAndValueData();
     }
 
