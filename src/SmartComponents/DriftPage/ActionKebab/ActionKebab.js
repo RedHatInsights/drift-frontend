@@ -8,6 +8,8 @@ import { actionKebabActions } from './redux';
 import { Dropdown, KebabToggle, DropdownItem } from '@patternfly/react-core';
 import { setHistory } from '../../../Utilities/SetHistory';
 
+import { baselinesTableActions } from '../../BaselinesTable/redux';
+
 class ActionKebab extends Component {
     constructor(props) {
         super(props);
@@ -22,10 +24,11 @@ class ActionKebab extends Component {
     }
 
     removeSystemsSelect() {
-        const { history } = this.props;
+        const { history, toggleKebab, removeSystems, clearSelectedBaselines } = this.props;
 
-        this.props.toggleKebab();
-        this.props.removeSystems();
+        toggleKebab();
+        removeSystems();
+        clearSelectedBaselines();
         setHistory(history, []);
     }
 
@@ -50,6 +53,7 @@ class ActionKebab extends Component {
 ActionKebab.propTypes = {
     exportToCSV: PropTypes.func,
     removeSystems: PropTypes.func,
+    clearSelectedBaselines: PropTypes.func,
     toggleKebab: PropTypes.func,
     kebabOpened: PropTypes.bool,
     history: PropTypes.object
@@ -65,6 +69,7 @@ function mapDispatchToProps(dispatch) {
     return {
         exportToCSV: () => dispatch(compareActions.exportToCSV()),
         removeSystems: () => dispatch(compareActions.clearState()),
+        clearSelectedBaselines: () => dispatch(baselinesTableActions.clearSelectedBaselines()),
         toggleKebab: () => dispatch(actionKebabActions.toggleKebab())
     };
 }
