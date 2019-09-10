@@ -22,6 +22,12 @@ function setSelectedBaselines(selectedBaselineIds) {
     };
 }
 
+function clearSelectedBaselines() {
+    return {
+        type: types.CLEAR_SELECTED_BASELINES
+    };
+}
+
 function fetchBaselineData(baselineUUID) {
     return {
         type: types.FETCH_BASELINE_DATA,
@@ -74,6 +80,7 @@ export default {
     fetchBaselines,
     selectBaseline,
     setSelectedBaselines,
+    clearSelectedBaselines,
     fetchBaselineData,
     addBaselineUUID,
     clearBaselineData,

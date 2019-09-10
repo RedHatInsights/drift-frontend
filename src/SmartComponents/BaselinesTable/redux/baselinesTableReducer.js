@@ -44,6 +44,11 @@ export function baselinesTableReducer(state = initialState, action) {
                 ...state,
                 selectedBaselineIds: action.payload
             };
+        case `${types.CLEAR_SELECTED_BASELINES}`:
+            return {
+                ...state,
+                selectedBaselineIds: []
+            };
         case `${types.FETCH_BASELINE_DATA}_PENDING`:
             return {
                 ...state,
