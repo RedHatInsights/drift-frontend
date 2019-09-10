@@ -17,6 +17,7 @@ export function baselinesTableReducer(state = initialState, action) {
     let rows = [];
     let selectedBaselines = [];
     let newBaselineTableData;
+    let newFullBaselineList;
 
     switch (action.type) {
         case `${types.FETCH_BASELINE_LIST}_PENDING`:
@@ -102,11 +103,13 @@ export function baselinesTableReducer(state = initialState, action) {
                 baselineDeleteLoading: true
             };
         case `${types.DELETE_BASELINE}_FULFILLED`:
-            newBaselineTableData = baselinesReducerHelpers.removeDeletedRow(state.fullBaselineListData, state.IdToDelete);
+            newBaselineTableData = baselinesReducerHelpers.buildNewTableData(state.fullBaselineListData, state.IdToDelete);
+            newFullBaselineList = baselinesReducerHelpers.buildNewBaselineList(state.fullBaselineListData, state.IdToDelete);
             return {
                 ...state,
                 baselineDeleteLoading: false,
                 baselineTableData: newBaselineTableData,
+                fullBaselineListData: newFullBaselineList,
                 IdToDelete: ''
             };
         case `${types.DELETE_BASELINE}_REJECTED`:

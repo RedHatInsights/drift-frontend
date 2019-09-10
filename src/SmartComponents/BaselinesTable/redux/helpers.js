@@ -55,7 +55,7 @@ function getDateTimeStamp(dateTime) {
     return moment.utc(dateTime).format('DD MMM YYYY, HH:mm UTC');
 }
 
-function removeDeletedRow(fullBaselineListData, IdToDelete) {
+function buildNewTableData(fullBaselineListData, IdToDelete) {
     let newBaselineTableData = [];
 
     fullBaselineListData.forEach(function(baseline) {
@@ -68,9 +68,22 @@ function removeDeletedRow(fullBaselineListData, IdToDelete) {
     return newBaselineTableData;
 }
 
+function buildNewBaselineList(fullBaselineListData, IdToDelete) {
+    let newBaselineList = [];
+
+    fullBaselineListData.forEach(function(baseline) {
+        if (baseline.id !== IdToDelete) {
+            newBaselineList.push(baseline);
+        }
+    });
+
+    return newBaselineList;
+}
+
 export default {
     buildBaselinesTable,
     setBaselineArray,
     findBaselineId,
-    removeDeletedRow
+    buildNewTableData,
+    buildNewBaselineList
 };
