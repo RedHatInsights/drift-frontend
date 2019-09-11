@@ -10,12 +10,14 @@ import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-componen
 import moment from 'moment';
 
 import AddSystemModal from '../../AddSystemModal/AddSystemModal';
-import './drift-table.scss';
-import { compareActions } from '../../modules';
-import StateIcon from '../../StateIcon/StateIcon';
 import AddSystemButton from '../AddSystemButton/AddSystemButton';
+import StateIcon from '../../StateIcon/StateIcon';
+import './drift-table.scss';
 import { ASC, DESC } from '../../../constants';
 import { setHistory } from '../../../Utilities/SetHistory';
+
+import { compareActions } from '../../modules';
+import { baselinesTableActions } from '../../BaselinesTable/redux';
 
 class DriftTable extends Component {
     constructor(props) {
@@ -49,12 +51,13 @@ class DriftTable extends Component {
     }
 
     removeSystem(systemBaselineId) {
-        const { history, clearState } = this.props;
+        const { history, clearState, setSelectedBaselines } = this.props;
 
         this.systemIds = this.systemIds.filter(item => item !== systemBaselineId);
         this.baselineIds = this.baselineIds.filter(item => item !== systemBaselineId);
 
         if (this.systemIds.length > 0 || this.baselineIds.length > 0) {
+            setSelectedBaselines(this.baselineIds);
             this.fetchCompare(this.systemIds, this.baselineIds);
         } else {
             setHistory(history, []);
@@ -379,11 +382,12 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        fetchCompare: ((systemIds, baselineIds) => dispatch(compareActions.fetchCompare(systemIds, baselineIds))),
-        toggleFactSort: ((sortType) => dispatch(compareActions.toggleFactSort(sortType))),
-        toggleStateSort: ((sortType) => dispatch(compareActions.toggleStateSort(sortType))),
-        expandRow: ((factName) => dispatch(compareActions.expandRow(factName))),
-        clearState: (() => dispatch(compareActions.clearState()))
+        fetchCompare: (systemIds, baselineIds) => dispatch(compareActions.fetchCompare(systemIds, baselineIds)),
+        toggleFactSort: (sortType) => dispatch(compareActions.toggleFactSort(sortType)),
+        toggleStateSort: (sortType) => dispatch(compareActions.toggleStateSort(sortType)),
+        expandRow: (factName) => dispatch(compareActions.expandRow(factName)),
+        clearState: () => dispatch(compareActions.clearState()),
+        setSelectedBaselines: (selectedBaselineIds) => dispatch(baselinesTableActions.setSelectedBaselines(selectedBaselineIds))
     };
 }
 
@@ -406,7 +410,8 @@ DriftTable.propTypes = {
     toggleStateSort: PropTypes.func,
     expandRow: PropTypes.func,
     expandRows: PropTypes.func,
-    expandedRows: PropTypes.array
+    expandedRows: PropTypes.array,
+    setSelectedBaselines: PropTypes.func
 };
 
 export default withRouter (connect(mapStateToProps, mapDispatchToProps)(DriftTable));
