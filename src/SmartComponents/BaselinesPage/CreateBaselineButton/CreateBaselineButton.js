@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom';
 import { Button } from '@patternfly/react-core';
 
 import { baselinesPageActions } from '../redux';
+import { addSystemModalActions } from '../../AddSystemModal/redux';
 
 class CreateBaselineButton extends Component {
     constructor(props) {
@@ -13,9 +14,13 @@ class CreateBaselineButton extends Component {
     }
 
     createBaseline() {
-        const { history, toggleCreateBaseline } = this.props;
+        const { history, toggleCreateBaseline, addSystemModalOpened, toggleAddSystemModal } = this.props;
 
         if (history.location.pathname === '/') {
+            if (addSystemModalOpened === true) {
+                toggleAddSystemModal();
+            }
+
             history.push({ pathname: 'baselines' });
         }
 
@@ -35,13 +40,22 @@ class CreateBaselineButton extends Component {
 
 CreateBaselineButton.propTypes = {
     toggleCreateBaseline: PropTypes.func,
-    history: PropTypes.object
+    toggleAddSystemModal: PropTypes.func,
+    history: PropTypes.object,
+    addSystemModalOpened: PropTypes.bool
 };
 
-function mapDispatchToProps(dispatch) {
+function mapStateToProps(state) {
     return {
-        toggleCreateBaseline: (() => dispatch(baselinesPageActions.toggleCreateBaseline()))
+        addSystemModalOpened: state.addSystemModalState.addSystemModalOpened
     };
 }
 
-export default withRouter(connect(null, mapDispatchToProps)(CreateBaselineButton));
+function mapDispatchToProps(dispatch) {
+    return {
+        toggleCreateBaseline: () => dispatch(baselinesPageActions.toggleCreateBaseline()),
+        toggleAddSystemModal: () => dispatch(addSystemModalActions.toggleAddSystemModal())
+    };
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CreateBaselineButton));
