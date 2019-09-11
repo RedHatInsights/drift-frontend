@@ -24,7 +24,7 @@ class DriftPage extends Component {
     }
 
     render() {
-        const { systems, loading } = this.props;
+        const { systems, baselines, loading } = this.props;
 
         if (this.props.error.detail) {
             this.props.toggleErrorAlert();
@@ -39,7 +39,7 @@ class DriftPage extends Component {
                     <ErrorAlert />
                     <Card className='pf-t-light pf-m-opaque-100'>
                         <CardBody>
-                            { systems.length > 0 && !loading ?
+                            { (systems.length > 0 || baselines.length > 0) && !loading ?
                                 <Toolbar className="drift-toolbar">
                                     <ToolbarGroup>
                                         <ToolbarItem>
@@ -85,6 +85,7 @@ DriftPage.propTypes = {
     error: PropTypes.object,
     loading: PropTypes.bool,
     systems: PropTypes.array,
+    baselines: PropTypes.array,
     toggleErrorAlert: PropTypes.func
 };
 
@@ -98,7 +99,8 @@ function mapStateToProps(state) {
     return {
         error: state.compareState.error,
         loading: state.compareState.loading,
-        systems: state.compareState.systems
+        systems: state.compareState.systems,
+        baselines: state.compareState.baselines
     };
 }
 
