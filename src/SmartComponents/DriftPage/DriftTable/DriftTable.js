@@ -47,7 +47,7 @@ class DriftTable extends Component {
     }
 
     formatDate(dateString) {
-        return moment.utc(dateString).format('MM/DD/YYYY H:mm:ss UTC');
+        return moment.utc(dateString).format('DD MMM YYYY, HH:mm UTC');
     }
 
     removeSystem(systemBaselineId) {

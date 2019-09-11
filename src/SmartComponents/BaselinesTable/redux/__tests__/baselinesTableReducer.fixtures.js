@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 /*eslint-disable camelcase*/
 const baselinesListPayload = ([
     {
@@ -35,8 +37,8 @@ const baselinesListPayloadResults = ([
 /*eslint-enable camelcase*/
 
 const baselineTableDataRows = ([
-    [ 'beavs baseline', '18 May 2019, 15:00 UTC' ],
-    [ 'micjohns baseline', '19 May 2019, 15:00 UTC' ]
+    [ 'beavs baseline', moment('18 May 2019, 15:00 UTC').fromNow() ],
+    [ 'micjohns baseline', moment('19 May 2019, 15:00 UTC').fromNow() ]
 ]);
 
 export default {

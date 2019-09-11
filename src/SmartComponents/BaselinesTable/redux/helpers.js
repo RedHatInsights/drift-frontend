@@ -52,7 +52,7 @@ function findBaselineId(baseline, fullBaselineData) {
 }
 
 function getDateTimeStamp(dateTime) {
-    return moment.utc(dateTime).format('DD MMM YYYY, HH:mm UTC');
+    return moment(dateTime).fromNow();
 }
 
 function buildNewTableData(fullBaselineListData, IdToDelete) {
