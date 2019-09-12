@@ -57,12 +57,13 @@ class DriftTable extends Component {
         this.baselineIds = this.baselineIds.filter(item => item !== systemBaselineId);
 
         if (this.systemIds.length > 0 || this.baselineIds.length > 0) {
-            setSelectedBaselines(this.baselineIds);
             this.fetchCompare(this.systemIds, this.baselineIds);
         } else {
             setHistory(history, []);
             clearState();
         }
+
+        setSelectedBaselines(this.baselineIds);
     }
 
     fetchCompare(systemIds, baselineIds) {
