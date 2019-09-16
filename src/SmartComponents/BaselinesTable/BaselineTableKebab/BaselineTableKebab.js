@@ -28,10 +28,11 @@ class BaselineTableKebab extends Component {
     }
 
     getBaselineData() {
-        const { fullBaselineListData, addBaselineUUID, baselineRowData } = this.props;
+        const { fullBaselineListData, addBaselineUUID, baselineRowData, fetchBaselineData } = this.props;
         let baselineId = baselinesTableHelpers.findBaselineId(baselineRowData, fullBaselineListData);
 
         addBaselineUUID(baselineId);
+        fetchBaselineData(baselineId);
     }
 
     onKebabToggle(isOpen) {
@@ -75,7 +76,8 @@ BaselineTableKebab.propTypes = {
     setIdDelete: PropTypes.func,
     deleteBaseline: PropTypes.func,
     fullBaselineListData: PropTypes.array,
-    baselineRowData: PropTypes.array
+    baselineRowData: PropTypes.array,
+    fetchBaselineData: PropTypes.func
 };
 
 function mapStateToProps(state) {
@@ -87,6 +89,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         addBaselineUUID: (baselineUUID) => dispatch(baselinesTableActions.addBaselineUUID(baselineUUID)),
+        fetchBaselineData: (baselineUUID) => dispatch(baselinesTableActions.fetchBaselineData(baselineUUID)),
         setIdDelete: (baselineUUID) => dispatch(baselinesTableActions.setIdDelete(baselineUUID)),
         deleteBaseline: (baselineUUID) => dispatch(baselinesTableActions.deleteBaseline(baselineUUID))
     };

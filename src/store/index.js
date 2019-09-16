@@ -8,6 +8,7 @@ import { errorAlertReducer } from '../SmartComponents/ErrorAlert/redux/errorAler
 import { filterDropdownReducer } from '../SmartComponents/DriftPage/FilterDropDown/redux/filterDropdownReducer';
 import { actionKebabReducer } from '../SmartComponents/DriftPage/ActionKebab/redux/actionKebabReducer';
 import { baselinesPageReducer } from '../SmartComponents/BaselinesPage/redux/baselinesPageReducer';
+import { factModalReducer } from '../SmartComponents/BaselinesPage/EditBaseline/FactModal/redux/reducers';
 import { baselinesKebabReducer } from '../SmartComponents/BaselinesPage/BaselinesKebab/redux/baselinesKebabReducer';
 
 let registry;
@@ -30,6 +31,7 @@ export function init (...middleware) {
         filterDropdownOpened: filterDropdownReducer,
         kebabOpened: actionKebabReducer,
         baselinesPageState: baselinesPageReducer,
+        factModalState: factModalReducer,
         baselinesKebabState: baselinesKebabReducer
     });
 

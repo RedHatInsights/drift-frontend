@@ -10,7 +10,9 @@ const initialState = {
     selectedBaselineIds: [],
     baselineUUID: '',
     baselineData: undefined,
-    IdToDelete: ''
+    editBaselineTableData: [],
+    IdToDelete: '',
+    expandedRows: []
 };
 
 export function baselinesTableReducer(state = initialState, action) {
@@ -18,6 +20,9 @@ export function baselinesTableReducer(state = initialState, action) {
     let selectedBaselines = [];
     let newBaselineTableData;
     let newFullBaselineList;
+    let filteredBaselineData = [];
+    let newExpandedRows = [];
+    let newEditBaselineTableData = [];
 
     switch (action.type) {
         case `${types.FETCH_BASELINE_LIST}_PENDING`:
@@ -56,10 +61,12 @@ export function baselinesTableReducer(state = initialState, action) {
                 baselineDataLoading: true
             };
         case `${types.FETCH_BASELINE_DATA}_FULFILLED`:
+            filteredBaselineData = baselinesReducerHelpers.filterBaselineData(action.payload.baseline_facts, []);
             return {
                 ...state,
                 baselineDataLoading: false,
-                baselineData: action.payload
+                baselineData: action.payload,
+                editBaselineTableData: filteredBaselineData
             };
         case `${types.ADD_BASELINE_UUID}`:
             return {
@@ -122,6 +129,14 @@ export function baselinesTableReducer(state = initialState, action) {
                 ...state,
                 baselineDeleteLoading: false,
                 IdToDelete: ''
+            };
+        case `${types.EXPAND_ROW}`:
+            newExpandedRows = baselinesReducerHelpers.toggleExpandedRow(state.expandedRows, action.payload);
+            newEditBaselineTableData = baselinesReducerHelpers.filterBaselineData(state.baselineData.baseline_facts, newExpandedRows);
+            return {
+                ...state,
+                expandedRows: newExpandedRows,
+                editBaselineTableData: newEditBaselineTableData
             };
 
         default:
