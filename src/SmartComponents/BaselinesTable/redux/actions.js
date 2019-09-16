@@ -76,6 +76,13 @@ function deleteBaseline(baselineId) {
     };
 }
 
+function expandRow(factName) {
+    return {
+        type: types.EXPAND_ROW,
+        payload: factName
+    };
+}
+
 export default {
     fetchBaselines,
     selectBaseline,
@@ -87,5 +94,6 @@ export default {
     createBaseline,
     patchBaseline,
     setIdDelete,
-    deleteBaseline
+    deleteBaseline,
+    expandRow
 };

@@ -80,10 +80,70 @@ function buildNewBaselineList(fullBaselineListData, IdToDelete) {
     return newBaselineList;
 }
 
+function findExpandedRow(fact, expandedRows) {
+    let subfacts = [];
+
+    expandedRows.forEach(function(row) {
+        if (row === fact.name) {
+            fact.values.forEach(function(subfact) {
+                let row = [];
+                row.push(subfact.name);
+                row.push(subfact.value);
+                subfacts.push(row);
+            });
+        }
+    });
+
+    return subfacts;
+}
+
+function filterBaselineData(baselineData, expandedRows) {
+    let rows = [];
+    let row;
+    let subfacts = [];
+
+    baselineData.forEach(function(fact) {
+        row = [];
+
+        if (fact.values) {
+            if (expandedRows.length > 0) {
+                subfacts = findExpandedRow(fact, expandedRows);
+            }
+
+            if (subfacts.length > 0) {
+                row.push(fact.name);
+                row.push(subfacts);
+            } else {
+                row.push(fact.name);
+                row.push('');
+            }
+        } else {
+            row.push(fact.name);
+            row.push(fact.value);
+        }
+
+        rows.push(row);
+    });
+
+    return rows;
+}
+
+function toggleExpandedRow(expandedRows, factName) {
+    if (expandedRows.includes(factName)) {
+        expandedRows = expandedRows.filter(fact => fact !== factName);
+    } else {
+        expandedRows.push(factName);
+    }
+
+    return expandedRows;
+}
+
 export default {
     buildBaselinesTable,
     setBaselineArray,
     findBaselineId,
     buildNewTableData,
-    buildNewBaselineList
+    buildNewBaselineList,
+    filterBaselineData,
+    toggleExpandedRow
 };
