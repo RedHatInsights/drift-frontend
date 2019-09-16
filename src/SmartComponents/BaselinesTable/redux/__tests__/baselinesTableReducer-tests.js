@@ -13,7 +13,9 @@ describe('baselines table reducer', () => {
             baselineTableData: [],
             baselineUUID: '',
             selectedBaselineIds: [],
-            IdToDelete: ''
+            IdToDelete: '',
+            expandedRows: [],
+            editBaselineTableData: []
         });
     });
 
