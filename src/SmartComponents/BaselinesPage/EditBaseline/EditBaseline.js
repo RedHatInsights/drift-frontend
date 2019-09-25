@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Button } from '@patternfly/react-core';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
 import { AngleDownIcon, AngleRightIcon } from '@patternfly/react-icons';
 
@@ -134,13 +133,6 @@ class EditBaseline extends Component {
                 }
                 <EditBaselineToolbar />
                 { this.renderTable() }
-                <Button
-                    className="button-margin margin-right"
-                    style={ { float: 'right' } }
-                    variant='primary'
-                    onClick={ this.finishBaselineEdit }>
-                    Finish
-                </Button>
             </React.Fragment>
         );
     }
@@ -149,7 +141,6 @@ class EditBaseline extends Component {
 EditBaseline.propTypes = {
     toggleCreateBaseline: PropTypes.func,
     clearBaselineData: PropTypes.func,
-    baselineUUID: PropTypes.string,
     baselineData: PropTypes.object,
     baselineDataLoading: PropTypes.bool,
     patchBaseline: PropTypes.func,
@@ -162,7 +153,6 @@ EditBaseline.propTypes = {
 
 function mapStateToProps(state) {
     return {
-        baselineUUID: state.baselinesTableState.baselineUUID,
         baselineData: state.baselinesTableState.baselineData,
         baselineDataLoading: state.baselinesTableState.baselineDataLoading,
         factModalOpened: state.factModalState.factModalOpened,

@@ -8,6 +8,7 @@ function buildBaselinesTable(data, selectedBaselineIds) {
 
         let dateTimeStamp = getDateTimeStamp(baseline.updated);
 
+        row.push(baseline.id);
         row.push(baseline.display_name);
         row.push(dateTimeStamp);
 
@@ -25,30 +26,16 @@ function buildBaselinesTable(data, selectedBaselineIds) {
     return rows;
 }
 
-function setBaselineArray(baselines, fullBaselineData) {
+function setBaselineArray(baselines) {
     let baselineArray = [];
-    let baselineId = '';
 
     baselines.forEach(function(baseline) {
         if (baseline.selected) {
-            baselineId = findBaselineId(baseline, fullBaselineData);
-            baselineArray.push(baselineId);
+            baselineArray.push(baseline[0]);
         }
     });
 
     return baselineArray;
-}
-
-function findBaselineId(baseline, fullBaselineData) {
-    let baselineId = '';
-
-    fullBaselineData.forEach(function(baselineData) {
-        if (baselineData.display_name === baseline[0]) {
-            baselineId = baselineData.id;
-        }
-    });
-
-    return baselineId;
 }
 
 function getDateTimeStamp(dateTime) {
@@ -61,7 +48,7 @@ function buildNewTableData(fullBaselineListData, IdToDelete) {
     fullBaselineListData.forEach(function(baseline) {
         if (baseline.id !== IdToDelete) {
             let dateTimeStamp = getDateTimeStamp(baseline.updated);
-            newBaselineTableData.push([ baseline.display_name, dateTimeStamp ]);
+            newBaselineTableData.push([ baseline.id, baseline.display_name, dateTimeStamp ]);
         }
     });
 
@@ -141,7 +128,6 @@ function toggleExpandedRow(expandedRows, factName) {
 export default {
     buildBaselinesTable,
     setBaselineArray,
-    findBaselineId,
     buildNewTableData,
     buildNewBaselineList,
     filterBaselineData,

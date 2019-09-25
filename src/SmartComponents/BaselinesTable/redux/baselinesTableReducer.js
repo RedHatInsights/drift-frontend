@@ -8,7 +8,6 @@ const initialState = {
     fullBaselineListData: [],
     baselineTableData: [],
     selectedBaselineIds: [],
-    baselineUUID: '',
     baselineData: undefined,
     editBaselineTableData: [],
     IdToDelete: '',
@@ -39,15 +38,17 @@ export function baselinesTableReducer(state = initialState, action) {
                 baselineTableData: rows
             };
         case `${types.SELECT_BASELINE}`:
-            selectedBaselines = baselinesReducerHelpers.setBaselineArray(action.payload, state.fullBaselineListData);
+            selectedBaselines = baselinesReducerHelpers.setBaselineArray(action.payload);
             return {
                 ...state,
                 baselineTableData: action.payload,
                 selectedBaselineIds: selectedBaselines
             };
         case `${types.SET_SELECTED_BASELINES}`:
+            rows = baselinesReducerHelpers.buildBaselinesTable(state.fullBaselineListData, action.payload);
             return {
                 ...state,
+                baselineTableData: rows,
                 selectedBaselineIds: action.payload
             };
         case `${types.CLEAR_SELECTED_BASELINES}`:
@@ -68,15 +69,9 @@ export function baselinesTableReducer(state = initialState, action) {
                 baselineData: action.payload,
                 editBaselineTableData: filteredBaselineData
             };
-        case `${types.ADD_BASELINE_UUID}`:
-            return {
-                ...state,
-                baselineUUID: action.payload
-            };
         case `${types.CLEAR_BASELINE_DATA}`:
             return {
                 ...state,
-                baselineUUID: '',
                 baselineData: undefined
             };
         case `${types.CREATE_BASELINE}_PENDING`:
@@ -90,7 +85,6 @@ export function baselinesTableReducer(state = initialState, action) {
                 ...state,
                 baselineListLoading: false,
                 baselineDataLoading: false,
-                baselineUUID: action.payload.id,
                 baselineData: action.payload
             };
         case `${types.PATCH_BASELINE}_PENDING`:

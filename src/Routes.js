@@ -27,6 +27,9 @@ export const Routes = () => {
             { window.insights.chrome.isBeta() ?
                 <InsightsRoute exact path='/baselines' component={ BaselinesPage } /> : null
             }
+            { window.insights.chrome.isBeta() ?
+                <InsightsRoute path='/baselines/:id' component={ BaselinesPage } /> : null
+            }
             <InsightsRoute exact path='/' component={ DriftPage } />
             <Redirect to='/'/>
         </Switch>

@@ -5,7 +5,6 @@ import { withRouter } from 'react-router-dom';
 import { Dropdown, KebabToggle, DropdownItem } from '@patternfly/react-core';
 
 import { baselinesTableActions } from '../redux';
-import baselinesTableHelpers from '../redux/helpers';
 
 class BaselineTableKebab extends Component {
     constructor(props) {
@@ -14,25 +13,15 @@ class BaselineTableKebab extends Component {
             isOpen: false
         };
 
-        this.getBaselineData = this.getBaselineData.bind(this);
         this.deleteBaselineData = this.deleteBaselineData.bind(this);
         this.onKebabToggle = this.onKebabToggle.bind(this);
     }
 
     deleteBaselineData() {
-        const { fullBaselineListData, setIdDelete, deleteBaseline, baselineRowData } = this.props;
-        let baselineId = baselinesTableHelpers.findBaselineId(baselineRowData, fullBaselineListData);
+        const { setIdDelete, deleteBaseline, baselineRowData } = this.props;
 
-        setIdDelete(baselineId);
-        deleteBaseline(baselineId);
-    }
-
-    getBaselineData() {
-        const { fullBaselineListData, addBaselineUUID, baselineRowData, fetchBaselineData } = this.props;
-        let baselineId = baselinesTableHelpers.findBaselineId(baselineRowData, fullBaselineListData);
-
-        addBaselineUUID(baselineId);
-        fetchBaselineData(baselineId);
+        setIdDelete(baselineRowData[0]);
+        deleteBaseline(baselineRowData[0]);
     }
 
     onKebabToggle(isOpen) {
@@ -44,12 +33,6 @@ class BaselineTableKebab extends Component {
     render() {
         const { isOpen } = this.state;
         const dropdownItems = [
-            <DropdownItem
-                key="edit"
-                component="button"
-                onClick={ this.getBaselineData }>
-                Edit
-            </DropdownItem>,
             <DropdownItem
                 key="delete"
                 component="button"
@@ -72,12 +55,11 @@ class BaselineTableKebab extends Component {
 }
 
 BaselineTableKebab.propTypes = {
-    addBaselineUUID: PropTypes.func,
     setIdDelete: PropTypes.func,
     deleteBaseline: PropTypes.func,
     fullBaselineListData: PropTypes.array,
     baselineRowData: PropTypes.array,
-    fetchBaselineData: PropTypes.func
+    history: PropTypes.obj
 };
 
 function mapStateToProps(state) {
@@ -88,8 +70,6 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        addBaselineUUID: (baselineUUID) => dispatch(baselinesTableActions.addBaselineUUID(baselineUUID)),
-        fetchBaselineData: (baselineUUID) => dispatch(baselinesTableActions.fetchBaselineData(baselineUUID)),
         setIdDelete: (baselineUUID) => dispatch(baselinesTableActions.setIdDelete(baselineUUID)),
         deleteBaseline: (baselineUUID) => dispatch(baselinesTableActions.deleteBaseline(baselineUUID))
     };

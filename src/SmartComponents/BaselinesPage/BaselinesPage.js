@@ -1,33 +1,83 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { Main, PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components';
-import { Card, CardBody, Toolbar, ToolbarGroup, ToolbarItem } from '@patternfly/react-core';
+import { Breadcrumb, BreadcrumbItem, Card, CardBody, Toolbar, ToolbarGroup, ToolbarItem } from '@patternfly/react-core';
 
 import BaselinesTable from '../BaselinesTable/BaselinesTable';
 import CreateBaselineButton from './CreateBaselineButton/CreateBaselineButton';
 import CreateBaseline from './CreateBaseline/CreateBaseline';
 import BaselinesKebab from './BaselinesKebab/BaselinesKebab';
 import EditBaseline from './EditBaseline/EditBaseline';
+import { baselinesTableActions } from '../BaselinesTable/redux';
 
 class BaselinesPage extends Component {
     constructor(props) {
         super(props);
+
+        this.setBaselineId();
+        this.renderBreadcrumb = this.renderBreadcrumb.bind(this);
+        this.goToBaselinesList = this.goToBaselinesList.bind(this);
+    }
+
+    setBaselineId() {
+        const { match: { params }} = this.props;
+
+        this.baselineId = params.id;
+    }
+
+    goToBaselinesList() {
+        const { history, clearBaselineData } = this.props;
+
+        clearBaselineData();
+        history.goBack();
+    }
+
+    renderBreadcrumb() {
+        const { baselineData } = this.props;
+        let breadcrumb;
+
+        /*eslint-disable camelcase*/
+        breadcrumb = <Breadcrumb>
+            <BreadcrumbItem>
+                <a onClick={ () => this.goToBaselinesList() }>
+                    Baselines
+                </a>
+            </BreadcrumbItem>
+            <BreadcrumbItem isActive>{ baselineData.display_name }</BreadcrumbItem>
+        </Breadcrumb>;
+        /*eslint-enable camelcase*/
+
+        return breadcrumb;
     }
 
     async componentDidMount() {
         await window.insights.chrome.auth.getUser();
+        const { fetchBaselineData } = this.props;
+
+        if (this.baselineId) {
+            fetchBaselineData(this.baselineId);
+        }
     }
 
     render() {
-        const { creatingNewBaseline, baselineUUID, fullBaselineListData } = this.props;
+        const { creatingNewBaseline, baselineData, fullBaselineListData } = this.props;
 
+        /*eslint-disable camelcase*/
         return (
             <React.Fragment>
-                <PageHeader>
-                    <PageHeaderTitle title='Baselines'/>
-                </PageHeader>
+                { baselineData !== undefined
+                    ? <PageHeader>
+                        { this.renderBreadcrumb() }
+                        <br></br>
+                        <PageHeaderTitle title={ baselineData.display_name }/>
+                    </PageHeader>
+                    : <PageHeader>
+                        <PageHeaderTitle title='Baselines'/>
+                    </PageHeader>
+                }
                 <Main>
                     <Card className='pf-t-light pf-m-opaque-100'>
                         { creatingNewBaseline
@@ -38,7 +88,7 @@ class BaselinesPage extends Component {
                             </CardBody>
                             : null
                         }
-                        { baselineUUID !== '' ?
+                        { baselineData !== undefined ?
                             <CardBody>
                                 <div>
                                     <EditBaseline />
@@ -46,7 +96,7 @@ class BaselinesPage extends Component {
                             </CardBody>
                             : null
                         }
-                        { !creatingNewBaseline && baselineUUID === ''
+                        { !creatingNewBaseline && baselineData === undefined
                             ? <CardBody>
                                 { fullBaselineListData.length !== 0
                                     ? <Toolbar className="drift-toolbar">
@@ -71,21 +121,34 @@ class BaselinesPage extends Component {
                 </Main>
             </React.Fragment>
         );
+        /*eslint-enable camelcase*/
     }
 }
 
 BaselinesPage.propTypes = {
+    history: PropTypes.obj,
+    baselineDataLoading: PropTypes.bool,
     creatingNewBaseline: PropTypes.bool,
-    baselineUUID: PropTypes.string,
-    fullBaselineListData: PropTypes.array
+    baselineData: PropTypes.obj,
+    fullBaselineListData: PropTypes.array,
+    clearBaselineData: PropTypes.func,
+    match: PropTypes.any,
+    fetchBaselineData: PropTypes.func
 };
 
 function mapStateToProps(state) {
     return {
         creatingNewBaseline: state.baselinesPageState.creatingNewBaseline,
-        baselineUUID: state.baselinesTableState.baselineUUID,
+        baselineData: state.baselinesTableState.baselineData,
         fullBaselineListData: state.baselinesTableState.fullBaselineListData
     };
 }
 
-export default connect(mapStateToProps, null)(BaselinesPage);
+function mapDispatchToProps(dispatch) {
+    return {
+        clearBaselineData: () => dispatch(baselinesTableActions.clearBaselineData()),
+        fetchBaselineData: (baselineUUID) => dispatch(baselinesTableActions.fetchBaselineData(baselineUUID))
+    };
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BaselinesPage));
