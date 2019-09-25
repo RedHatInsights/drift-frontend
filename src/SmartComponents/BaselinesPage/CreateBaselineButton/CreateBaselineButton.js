@@ -32,7 +32,7 @@ class CreateBaselineButton extends Component {
             <Button
                 variant='primary'
                 onClick={ this.createBaseline }>
-                Create Baseline
+                Create baseline
             </Button>
         );
     }

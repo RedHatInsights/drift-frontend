@@ -59,7 +59,7 @@ class BaselineTableKebab extends Component {
 
         return (
             <Dropdown
-                style={ { float: 'left' } }
+                style={ { float: 'right' } }
                 className={ 'baseline-table-kebab' }
                 toggle={ <KebabToggle onToggle={ (isOpen) => this.onKebabToggle(isOpen) } /> }
                 isOpen={ isOpen }
