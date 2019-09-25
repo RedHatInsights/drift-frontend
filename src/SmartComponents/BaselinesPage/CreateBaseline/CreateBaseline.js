@@ -47,7 +47,7 @@ class CreateBaseline extends Component {
                 <EmptyState variant={ EmptyStateVariant.full }>
                     <EmptyStateIcon icon={ CubesIcon } />
                     <Title headingLevel="h5" size="lg">
-                        Create Baseline
+                        Create baseline
                     </Title>
                     <EmptyStateBody>
                         Create a baseline name

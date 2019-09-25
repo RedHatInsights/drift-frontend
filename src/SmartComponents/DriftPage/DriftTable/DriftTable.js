@@ -110,20 +110,15 @@ class DriftTable extends Component {
         return rows;
     }
 
-    findSystem(fact, systemsBaselinesList, type) {
+    findSystem(fact, systemsBaselinesList) {
         let row = [];
-        let cellColor = '';
-
-        if (type === 'baselines') {
-            cellColor = 'baseline-cell';
-        }
 
         for (let i = 0; i < systemsBaselinesList.length; i += 1) {
             let system = fact.systems.find(function(system) {
                 return system.id === systemsBaselinesList[i].id;
             });
             row.push(
-                <td className={ fact.state === 'DIFFERENT' ? 'highlight' : cellColor }>
+                <td className={ fact.state === 'DIFFERENT' ? 'highlight' : '' }>
                     { system.value === null ? 'No Data' : system.value }
                 </td>
             );

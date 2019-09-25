@@ -6,7 +6,7 @@ function convertListToCSV(data) {
     let columnDelimiter = data.columnDelimiter || ',';
     let lineDelimiter = data.lineDelimiter || '\n';
 
-    let headers = 'Name,Last Sync,';
+    let headers = 'Name,Last updated,';
     let result = headers + lineDelimiter;
 
     data.forEach(function(baseline) {

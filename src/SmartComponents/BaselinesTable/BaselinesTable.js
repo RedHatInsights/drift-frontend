@@ -73,7 +73,7 @@ class BaselinesTable extends Component {
 
     renderTable() {
         const { fullBaselineListData, baselineTableData, baselineListLoading, baselineDeleteLoading, addSystemModalOpened } = this.props;
-        let columns = [ 'Name', 'Last Sync' ];
+        let columns = [ 'Name', 'Last updated' ];
         let loadingRows = [];
         let table;
 
@@ -90,7 +90,7 @@ class BaselinesTable extends Component {
             } else {
                 let newTableData;
                 newTableData = this.renderKebab();
-                let newColumns = [ 'Name', 'Last Sync', '' ];
+                let newColumns = [ 'Name', 'Last updated', '' ];
 
                 table = <Table
                     cells={ newColumns }
@@ -121,11 +121,11 @@ class BaselinesTable extends Component {
                 <EmptyState>
                     <EmptyStateIcon icon={ AddCircleOIcon } />
                     <br></br>
-                    <Title size="lg">Add baselines</Title>
+                    <Title size="lg">No baselines</Title>
                     <EmptyStateBody>
-                        You currently have no baselines saved.
-                        <br></br>
-                        Please add at least one baseline.
+                        You currently have no baselines displayed.
+                        <br/>
+                        Please create a baseline to use in your System Comparison analysis.
                     </EmptyStateBody>
                     <CreateBaselineButton />
                 </EmptyState>
