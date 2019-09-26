@@ -41,11 +41,6 @@
     padding-right: 2px;
   }
 
-  td {
-    word-wrap: break-word;
-    white-space: pre-wrap;
-  }
-
   .sticky-column-header .active-sort {
     border-bottom: 3px solid #39A5DC;
   }
@@ -130,6 +125,11 @@
 
   .drift-table {
     border-collapse: separate;
+
+    td {
+      word-wrap: break-word;
+      white-space: pre-wrap;
+    }
   }
   .drift-table-wrapper {
     overflow: auto;
