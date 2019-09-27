@@ -7,8 +7,6 @@ async function post(path, body = {}) {
 }
 
 async function getBaselines(path, getParams = {}) {
-    /*eslint-disable no-console*/
-    /*eslint-enable no-console*/
     const request = await axios.get(BASELINE_API_ROOT.concat(path), { params: getParams });
     return request.data.data;
 }

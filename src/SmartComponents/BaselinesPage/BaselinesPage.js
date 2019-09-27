@@ -13,7 +13,6 @@ import BaselinesTable from '../BaselinesTable/BaselinesTable';
 import CreateBaselineButton from './CreateBaselineButton/CreateBaselineButton';
 import CreateBaseline from './CreateBaseline/CreateBaseline';
 import BaselinesKebab from './BaselinesKebab/BaselinesKebab';
-import EditBaseline from './EditBaseline/EditBaseline';
 import { baselinesTableActions } from '../BaselinesTable/redux';
 
 class BaselinesPage extends Component {
@@ -90,8 +89,9 @@ class BaselinesPage extends Component {
     }
 
     render() {
-        const { creatingNewBaseline, baselineUUID, fullBaselineListData, baselineListLoading } = this.props;
+        const { creatingNewBaseline, fullBaselineListData, baselineListLoading } = this.props;
 
+        /*eslint-disable camelcase*/
         return (
             <React.Fragment>
                 <PageHeader>
@@ -105,32 +105,20 @@ class BaselinesPage extends Component {
                                     <CreateBaseline />
                                 </div>
                             </CardBody>
-                            : null
-                        }
-                        { baselineUUID !== '' ?
-                            <CardBody>
-                                <div>
-                                    <EditBaseline />
-                                </div>
-                            </CardBody>
-                            : null
-                        }
-                        { (!creatingNewBaseline && baselineUUID === '')
-                            ? (fullBaselineListData.length === 0 && baselineListLoading === false)
+                            : (fullBaselineListData.length === 0 && baselineListLoading === false)
                                 ? this.renderEmptyState() : this.renderTable()
-                            : null
                         }
                     </Card>
                 </Main>
             </React.Fragment>
         );
+        /*eslint-enable camelcase*/
     }
 }
 
 BaselinesPage.propTypes = {
     baselineListLoading: PropTypes.bool,
     creatingNewBaseline: PropTypes.bool,
-    baselineUUID: PropTypes.string,
     fullBaselineListData: PropTypes.array,
     fetchBaselines: PropTypes.func
 };
@@ -139,7 +127,6 @@ function mapStateToProps(state) {
     return {
         baselineListLoading: state.baselinesTableState.baselineListLoading,
         creatingNewBaseline: state.baselinesPageState.creatingNewBaseline,
-        baselineUUID: state.baselinesTableState.baselineUUID,
         fullBaselineListData: state.baselinesTableState.fullBaselineListData
     };
 }
