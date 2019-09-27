@@ -6,12 +6,11 @@ describe('baselines table reducer', () => {
     it('should return initial state', () => {
         expect(baselinesTableReducer(undefined, {})).toEqual({
             baselineData: undefined,
-            baselineListLoading: false,
+            baselineListLoading: true,
             baselineDeleteLoading: false,
             baselineDataLoading: false,
             fullBaselineListData: [],
             baselineTableData: [],
-            baselineUUID: '',
             selectedBaselineIds: [],
             IdToDelete: '',
             expandedRows: [],
@@ -140,23 +139,17 @@ describe('baselines table reducer', () => {
 
     it('should handle SET_SELECTED_BASELINES', () => {
         expect(
-            baselinesTableReducer({ selectedBaselineIds: []}, {
+            baselinesTableReducer({
+                fullBaselineListData: baselinesFixtures.baselinesListPayloadResults,
+                selectedBaselineIds: []
+            }, {
                 type: `${types.SET_SELECTED_BASELINES}`,
                 payload: [ '1234', 'abcd' ]
             })
         ).toEqual({
+            fullBaselineListData: baselinesFixtures.baselinesListPayloadResults,
+            baselineTableData: baselinesFixtures.baselineTableDataTwoSelected(),
             selectedBaselineIds: [ '1234', 'abcd' ]
-        });
-    });
-
-    it('should handle SET_SELECTED_BASELINES remove', () => {
-        expect(
-            baselinesTableReducer({ selectedBaselineIds: [ '1234', 'abcd' ]}, {
-                type: `${types.SET_SELECTED_BASELINES}`,
-                payload: [ '1234' ]
-            })
-        ).toEqual({
-            selectedBaselineIds: [ '1234' ]
         });
     });
 });

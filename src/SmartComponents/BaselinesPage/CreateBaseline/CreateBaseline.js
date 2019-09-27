@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { Button,
     EmptyState,
     EmptyStateVariant,
@@ -28,14 +29,15 @@ class CreateBaseline extends Component {
         };
     }
 
-    submitBaselineName() {
+    async submitBaselineName() {
         const { baselineName } = this.state;
         const { createBaseline, toggleCreateBaseline } = this.props;
         /*eslint-disable camelcase*/
         let newBaselineObject = { display_name: baselineName, baseline_facts: []};
         /*eslint-enable camelcase*/
 
-        createBaseline(newBaselineObject);
+        await createBaseline(newBaselineObject);
+        this.props.history.push('baselines/' + this.props.baselineData.id);
         toggleCreateBaseline();
     }
 
@@ -64,8 +66,16 @@ class CreateBaseline extends Component {
 
 CreateBaseline.propTypes = {
     toggleCreateBaseline: PropTypes.func,
-    createBaseline: PropTypes.func
+    createBaseline: PropTypes.func,
+    baselineData: PropTypes.obj,
+    history: PropTypes.obj
 };
+
+function mapStateToProps(state) {
+    return {
+        baselineData: state.baselinesTableState.baselineData
+    };
+}
 
 function mapDispatchToProps(dispatch) {
     return {
@@ -74,4 +84,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(null, mapDispatchToProps)(CreateBaseline);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CreateBaseline));

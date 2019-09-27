@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Button } from '@patternfly/react-core';
+
+import { Main, PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components';
+import { Breadcrumb, BreadcrumbItem, Card, CardBody } from '@patternfly/react-core';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
 import { AngleDownIcon, AngleRightIcon } from '@patternfly/react-icons';
 
@@ -14,6 +17,45 @@ import editBaselineHelpers from './helpers';
 class EditBaseline extends Component {
     constructor(props) {
         super(props);
+
+        this.fetchBaselineId();
+        this.renderBreadcrumb = this.renderBreadcrumb.bind(this);
+        this.goToBaselinesList = this.goToBaselinesList.bind(this);
+    }
+
+    async componentDidMount() {
+        await window.insights.chrome.auth.getUser();
+    }
+
+    fetchBaselineId() {
+        const { match: { params }, fetchBaselineData } = this.props;
+
+        fetchBaselineData(params.id);
+    }
+
+    goToBaselinesList() {
+        const { history, clearBaselineData } = this.props;
+
+        clearBaselineData();
+        history.push('/baselines');
+    }
+
+    renderBreadcrumb() {
+        const { baselineData } = this.props;
+        let breadcrumb;
+
+        /*eslint-disable camelcase*/
+        breadcrumb = <Breadcrumb>
+            <BreadcrumbItem>
+                <a onClick={ () => this.goToBaselinesList() }>
+                    Baselines
+                </a>
+            </BreadcrumbItem>
+            <BreadcrumbItem isActive>{ baselineData.display_name }</BreadcrumbItem>
+        </Breadcrumb>;
+        /*eslint-enable camelcase*/
+
+        return breadcrumb;
     }
 
     renderHeaderRow() {
@@ -106,7 +148,7 @@ class EditBaseline extends Component {
     }
 
     renderTable() {
-        const { baselineDataLoading } = this.props;
+        const { baselineData } = this.props;
 
         return (
             <table className="pf-c-table ins-c-table pf-m-compact ins-entity-table drift-table">
@@ -114,9 +156,9 @@ class EditBaseline extends Component {
                     { this.renderHeaderRow() }
                 </thead>
                 <tbody>
-                    { baselineDataLoading
-                        ? this.renderLoadingRows()
-                        : this.renderRows()
+                    { baselineData !== undefined
+                        ? this.renderRows()
+                        : this.renderLoadingRows()
                     }
                 </tbody>
             </table>
@@ -124,32 +166,42 @@ class EditBaseline extends Component {
     }
 
     render() {
-        const { factModalOpened } = this.props;
+        const { baselineData, factModalOpened } = this.props;
 
         return (
             <React.Fragment>
-                { factModalOpened
-                    ? <FactModal />
-                    : null
+                { baselineData !== undefined
+                    ? <PageHeader>
+                        { this.renderBreadcrumb() }
+                        <br></br>
+                        <PageHeaderTitle title={ baselineData.display_name }/>
+                    </PageHeader>
+                    : <PageHeader>
+                        <div><Skeleton size={ SkeletonSize.lg } /></div>
+                    </PageHeader>
                 }
-                <EditBaselineToolbar />
-                { this.renderTable() }
-                <Button
-                    className="button-margin margin-right"
-                    style={ { float: 'right' } }
-                    variant='primary'
-                    onClick={ this.finishBaselineEdit }>
-                    Finish
-                </Button>
+                <Main>
+                    <Card className='pf-t-light pf-m-opaque-100'>
+                        <CardBody>
+                            { factModalOpened
+                                ? <FactModal />
+                                : null
+                            }
+                            <EditBaselineToolbar />
+                            { this.renderTable() }
+                        </CardBody>
+                    </Card>
+                </Main>
             </React.Fragment>
         );
     }
 }
 
 EditBaseline.propTypes = {
+    history: PropTypes.obj,
+    match: PropTypes.any,
     toggleCreateBaseline: PropTypes.func,
     clearBaselineData: PropTypes.func,
-    baselineUUID: PropTypes.string,
     baselineData: PropTypes.object,
     baselineDataLoading: PropTypes.bool,
     patchBaseline: PropTypes.func,
@@ -162,7 +214,6 @@ EditBaseline.propTypes = {
 
 function mapStateToProps(state) {
     return {
-        baselineUUID: state.baselinesTableState.baselineUUID,
         baselineData: state.baselinesTableState.baselineData,
         baselineDataLoading: state.baselinesTableState.baselineDataLoading,
         factModalOpened: state.factModalState.factModalOpened,
@@ -176,8 +227,9 @@ function mapDispatchToProps(dispatch) {
         toggleCreateBaseline: () => dispatch(baselinesPageActions.toggleCreateBaseline()),
         clearBaselineData: () => dispatch(baselinesTableActions.clearBaselineData()),
         patchBaseline: (baselineId, newBaselineBody) => dispatch(baselinesTableActions.patchBaseline(baselineId, newBaselineBody)),
-        expandRow: (factName) => dispatch(baselinesTableActions.expandRow(factName))
+        expandRow: (factName) => dispatch(baselinesTableActions.expandRow(factName)),
+        fetchBaselineData: (baselineUUID) => dispatch(baselinesTableActions.fetchBaselineData(baselineUUID))
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditBaseline);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(EditBaseline));

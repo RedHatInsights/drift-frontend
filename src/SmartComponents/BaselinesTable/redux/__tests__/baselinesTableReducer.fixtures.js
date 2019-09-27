@@ -37,12 +37,39 @@ const baselinesListPayloadResults = ([
 /*eslint-enable camelcase*/
 
 const baselineTableDataRows = ([
-    [ 'beavs baseline', moment('18 May 2019, 15:00 UTC').fromNow() ],
-    [ 'micjohns baseline', moment('19 May 2019, 15:00 UTC').fromNow() ]
+    [ '1234', 'beavs baseline', moment('18 May 2019, 15:00 UTC').fromNow() ],
+    [ 'abcd', 'micjohns baseline', moment('19 May 2019, 15:00 UTC').fromNow() ]
 ]);
+
+function baselineTableDataTwoSelected() {
+    let baselineTableDataTwoSelected = [];
+
+    baselineTableDataRows.forEach(function(row) {
+        row.selected = true;
+        baselineTableDataTwoSelected.push(row);
+    });
+
+    return baselineTableDataTwoSelected;
+}
+
+function baselineTableDataOneSelected() {
+    let baselineTableDataOneSelected = [];
+
+    baselineTableDataRows.forEach(function(row) {
+        if (row[0] === '1234') {
+            row.selected = true;
+        }
+
+        baselineTableDataOneSelected.push(row);
+    });
+
+    return baselineTableDataOneSelected;
+}
 
 export default {
     baselinesListPayload,
     baselinesListPayloadResults,
-    baselineTableDataRows
+    baselineTableDataRows,
+    baselineTableDataTwoSelected,
+    baselineTableDataOneSelected
 };

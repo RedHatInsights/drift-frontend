@@ -35,13 +35,6 @@ function fetchBaselineData(baselineUUID) {
     };
 }
 
-function addBaselineUUID(baselineUUID) {
-    return {
-        type: types.ADD_BASELINE_UUID,
-        payload: baselineUUID
-    };
-}
-
 function clearBaselineData() {
     return {
         type: types.CLEAR_BASELINE_DATA
@@ -78,7 +71,7 @@ function deleteBaseline(baselineId) {
 
 function expandRow(factName) {
     return {
-        type: types.EXPAND_ROW,
+        type: types.EXPAND_PARENT_FACT,
         payload: factName
     };
 }
@@ -89,7 +82,6 @@ export default {
     setSelectedBaselines,
     clearSelectedBaselines,
     fetchBaselineData,
-    addBaselineUUID,
     clearBaselineData,
     createBaseline,
     patchBaseline,

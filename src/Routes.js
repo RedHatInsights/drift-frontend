@@ -6,6 +6,7 @@ import asyncComponent from './Utilities/asyncComponent';
 
 const DriftPage = asyncComponent(() => import ('./SmartComponents/DriftPage/DriftPage'));
 const BaselinesPage = asyncComponent(() => import ('./SmartComponents/BaselinesPage/BaselinesPage'));
+const EditBaseline = asyncComponent(() => import ('./SmartComponents/BaselinesPage/EditBaseline/EditBaseline'));
 
 const InsightsRoute = ({ component: Component, rootClass, ...rest }) => {
     const root = document.getElementById('root');
@@ -26,6 +27,9 @@ export const Routes = () => {
         <Switch>
             { window.insights.chrome.isBeta() ?
                 <InsightsRoute exact path='/baselines' component={ BaselinesPage } /> : null
+            }
+            { window.insights.chrome.isBeta() ?
+                <InsightsRoute path='/baselines/:id' component={ EditBaseline } /> : null
             }
             <InsightsRoute exact path='/' component={ DriftPage } />
             <Redirect to='/'/>
