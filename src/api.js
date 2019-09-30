@@ -6,13 +6,15 @@ async function post(path, body = {}) {
     return request.data;
 }
 
-async function getBaselines(path, body = {}) {
-    const request = await axios.get(BASELINE_API_ROOT.concat(path), body);
+async function getBaselines(path, getParams = {}) {
+    /*eslint-disable no-console*/
+    /*eslint-enable no-console*/
+    const request = await axios.get(BASELINE_API_ROOT.concat(path), { params: getParams });
     return request.data.data;
 }
 
-async function getBaseline(path, body = {}) {
-    const request = await axios.get(BASELINE_API_ROOT.concat(path), body);
+async function getBaseline(path) {
+    const request = await axios.get(BASELINE_API_ROOT.concat(path));
     return request.data.data[0];
 }
 
@@ -44,9 +46,15 @@ function getCompare(systemIds = [], baselineIds = []) {
     /*eslint-enable camelcase*/
 }
 
-function getBaselineList() {
+function getBaselineList(search = undefined) {
     /*eslint-disable camelcase*/
-    return getBaselines('/baselines', {});
+    let params = {};
+
+    if (search !== undefined) {
+        params = { display_name: search };
+    }
+
+    return getBaselines('/baselines', params);
     /*eslint-enable camelcase*/
 }
 

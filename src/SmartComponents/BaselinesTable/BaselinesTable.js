@@ -1,25 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { EmptyState, EmptyStateBody, EmptyStateIcon, Title } from '@patternfly/react-core';
 import { Table, TableBody, TableHeader } from '@patternfly/react-table';
-import { AddCircleOIcon } from '@patternfly/react-icons';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
 
 import BaselineTableKebab from './BaselineTableKebab/BaselineTableKebab';
-import CreateBaselineButton from '../BaselinesPage/CreateBaselineButton/CreateBaselineButton';
 import { baselinesTableActions } from './redux';
 
 class BaselinesTable extends Component {
     constructor(props) {
         super(props);
         this.onSelect = this.onSelect.bind(this);
-    }
-
-    componentDidMount() {
-        const { fetchBaselines } = this.props;
-
-        fetchBaselines();
     }
 
     onSelect(event, isSelected, rowId) {
@@ -115,33 +106,10 @@ class BaselinesTable extends Component {
         return table;
     }
 
-    renderEmptyState() {
-        return (
-            <center>
-                <EmptyState>
-                    <EmptyStateIcon icon={ AddCircleOIcon } />
-                    <br></br>
-                    <Title size="lg">No baselines</Title>
-                    <EmptyStateBody>
-                        You currently have no baselines displayed.
-                        <br/>
-                        Please create a baseline to use in your System Comparison analysis.
-                    </EmptyStateBody>
-                    <CreateBaselineButton />
-                </EmptyState>
-            </center>
-        );
-    }
-
     render() {
-        const { fullBaselineListData, baselineListLoading } = this.props;
-
         return (
             <React.Fragment>
-                { fullBaselineListData.length === 0 && baselineListLoading === false
-                    ? this.renderEmptyState()
-                    : this.renderTable()
-                }
+                { this.renderTable() }
             </React.Fragment>
         );
     }
@@ -154,13 +122,11 @@ BaselinesTable.propTypes = {
     baselineTableData: PropTypes.array,
     createBaselinesTable: PropTypes.func,
     selectBaseline: PropTypes.func,
-    addSystemModalOpened: PropTypes.bool,
-    fetchBaselines: PropTypes.func
+    addSystemModalOpened: PropTypes.bool
 };
 
 function mapStateToProps(state) {
     return {
-        baselineListLoading: state.baselinesTableState.baselineListLoading,
         baselineDeleteLoading: state.baselinesTableState.baselineDeleteLoading,
         fullBaselineListData: state.baselinesTableState.fullBaselineListData,
         baselineTableData: state.baselinesTableState.baselineTableData,
@@ -170,8 +136,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        selectBaseline: (rows) => dispatch(baselinesTableActions.selectBaseline(rows)),
-        fetchBaselines: () => dispatch(baselinesTableActions.fetchBaselines())
+        selectBaseline: (rows) => dispatch(baselinesTableActions.selectBaseline(rows))
     };
 }
 
