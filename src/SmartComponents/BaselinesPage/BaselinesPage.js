@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import debounce from 'lodash/debounce';
 
 import { Main, PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components';
 import { Card, CardBody, Toolbar, ToolbarGroup, ToolbarItem } from '@patternfly/react-core';
-import { SimpleTableFilter } from '@redhat-cloud-services/frontend-components';
 import { AddCircleOIcon } from '@patternfly/react-icons';
 import { EmptyState, EmptyStateBody, EmptyStateIcon, Title } from '@patternfly/react-core';
 
@@ -13,36 +11,23 @@ import BaselinesTable from '../BaselinesTable/BaselinesTable';
 import CreateBaselineButton from './CreateBaselineButton/CreateBaselineButton';
 import CreateBaseline from './CreateBaseline/CreateBaseline';
 import BaselinesKebab from './BaselinesKebab/BaselinesKebab';
-import { baselinesTableActions } from '../BaselinesTable/redux';
+import BaselinesSearchBar from '../BaselinesSearchBar/BaselinesSearchBar';
 
 class BaselinesPage extends Component {
     constructor(props) {
         super(props);
-        this.state = { search: false };
-        this.handleSearch = this.handleSearch.bind(this);
     }
 
     async componentDidMount() {
         await window.insights.chrome.auth.getUser();
-        const { fetchBaselines } = this.props;
-
-        fetchBaselines();
     }
-
-    handleSearch = debounce(function(search) {
-        this.setState({ search: true });
-        this.props.fetchBaselines(search);
-    }, 250)
 
     renderToolbar() {
         return (
             <Toolbar className="drift-toolbar">
                 <ToolbarGroup>
                     <ToolbarItem>
-                        <SimpleTableFilter buttonTitle={ null }
-                            onFilterChange={ this.handleSearch }
-                            placeholder="Search by name"
-                        />
+                        <BaselinesSearchBar />
                     </ToolbarItem>
                 </ToolbarGroup>
                 <ToolbarGroup>
@@ -76,13 +61,11 @@ class BaselinesPage extends Component {
     }
 
     renderTable() {
-        const { baselineListLoading } = this.props;
-
         return (
             <CardBody>
                 { this.renderToolbar() }
                 <div>
-                    <BaselinesTable baselineListLoading={ baselineListLoading }/>
+                    <BaselinesTable kebab='true'/>
                 </div>
             </CardBody>
         );
@@ -119,8 +102,7 @@ class BaselinesPage extends Component {
 BaselinesPage.propTypes = {
     baselineListLoading: PropTypes.bool,
     creatingNewBaseline: PropTypes.bool,
-    fullBaselineListData: PropTypes.array,
-    fetchBaselines: PropTypes.func
+    fullBaselineListData: PropTypes.array
 };
 
 function mapStateToProps(state) {
@@ -131,10 +113,4 @@ function mapStateToProps(state) {
     };
 }
 
-function mapDispatchToProps(dispatch) {
-    return {
-        fetchBaselines: ((search) => dispatch(baselinesTableActions.fetchBaselines(search)))
-    };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(BaselinesPage);
+export default connect(mapStateToProps, null)(BaselinesPage);
