@@ -42,8 +42,9 @@ function filterCompareData(data, stateFilters, factFilter, newExpandedRows) {
 
         if (data[i].comparisons) {
             if (data[i].name === factFilter) {
-                if (newExpandedRows.includes(data[i].name) && isStateSelected) {
-                    filteredFacts.push({ name: data[i].name, state: data[i].state, comparisons: data[i].comparisons });
+                if (newExpandedRows.includes(data[i].name)) {
+                    filteredComparisons = filterComparisons(data[i].comparisons, stateFilters, '');
+                    filteredFacts.push({ name: data[i].name, state: data[i].state, comparisons: filteredComparisons });
                 } else {
                     filteredFacts.push({ name: data[i].name, state: data[i].state, comparisons: []});
                 }
