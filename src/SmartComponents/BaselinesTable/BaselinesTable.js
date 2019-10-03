@@ -14,6 +14,13 @@ class BaselinesTable extends Component {
         this.onSelect = this.onSelect.bind(this);
     }
 
+    async componentDidMount() {
+        await window.insights.chrome.auth.getUser();
+        const { fetchBaselines } = this.props;
+
+        fetchBaselines();
+    }
+
     onSelect(event, isSelected, rowId) {
         const { baselineTableData, selectBaseline } = this.props;
         let rows;
@@ -53,8 +60,8 @@ class BaselinesTable extends Component {
     }
 
     renderRows() {
-        const { baselineTableData } = this.props;
-        let tableWithKebab = [];
+        const { baselineTableData, kebab } = this.props;
+        let table = [];
 
         baselineTableData.forEach((baseline) => {
             let row = [];
@@ -68,12 +75,15 @@ class BaselinesTable extends Component {
             row.push(link);
             row.push(baseline[2]);
 
-            let kebab = <BaselineTableKebab baselineRowData={ baseline } />;
-            row.push(<div>{ kebab }</div>);
-            tableWithKebab.push(row);
+            if (kebab) {
+                let kebab = <BaselineTableKebab baselineRowData={ baseline } />;
+                row.push(<div>{ kebab }</div>);
+            }
+
+            table.push(row);
         });
 
-        return tableWithKebab;
+        return table;
     }
 
     renderTable() {
@@ -147,7 +157,8 @@ BaselinesTable.propTypes = {
     selectBaseline: PropTypes.func,
     addSystemModalOpened: PropTypes.bool,
     fetchBaselines: PropTypes.func,
-    history: PropTypes.obj
+    history: PropTypes.obj,
+    kebab: PropTypes.bool
 };
 
 function mapStateToProps(state) {
