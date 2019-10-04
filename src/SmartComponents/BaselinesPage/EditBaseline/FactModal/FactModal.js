@@ -193,6 +193,7 @@ class FactModal extends Component {
 
         return (
             <Modal
+                className="small-modal-body"
                 title="Fact add/edit"
                 isOpen={ factModalOpened }
                 onClose={ this.cancelFact }
