@@ -79,7 +79,7 @@ class CreateBaselineModal extends Component {
                     </Button>,
                     <Button
                         key="cancel"
-                        variant="primary"
+                        variant="secondary"
                         onClick={ this.cancelModal }>
                         Cancel
                     </Button>

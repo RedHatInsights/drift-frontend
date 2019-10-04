@@ -6,11 +6,13 @@ import { connect } from 'react-redux';
 import { Main, PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody } from '@patternfly/react-core';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
-import { AngleDownIcon, AngleRightIcon } from '@patternfly/react-icons';
+import { AngleDownIcon, AngleRightIcon, EditAltIcon } from '@patternfly/react-icons';
 
 import EditBaselineToolbar from './EditBaselineToolbar/EditBaselineToolbar';
 import FactModal from './FactModal/FactModal';
+import EditBaselineNameModal from './EditBaselineNameModal/EditBaselineNameModal';
 import { baselinesTableActions } from '../../BaselinesTable/redux';
+import { editNameModalActions } from './EditBaselineNameModal/redux';
 import editBaselineHelpers from './helpers';
 
 class EditBaseline extends Component {
@@ -165,16 +167,20 @@ class EditBaseline extends Component {
     }
 
     render() {
-        const { baselineData, factModalOpened } = this.props;
+        const { baselineData, factModalOpened, toggleEditNameModal } = this.props;
 
         return (
             <React.Fragment>
                 { baselineData !== undefined
-                    ? <PageHeader>
-                        { this.renderBreadcrumb() }
-                        <br></br>
-                        <PageHeaderTitle title={ baselineData.display_name }/>
-                    </PageHeader>
+                    ? <React.Fragment>
+                        <EditBaselineNameModal />
+                        <PageHeader>
+                            { this.renderBreadcrumb() }
+                            <br></br>
+                            <PageHeaderTitle title={ baselineData.display_name }/>
+                            <EditAltIcon className='pointer not-active edit-icon-margin' onClick={ () => toggleEditNameModal() } />
+                        </PageHeader>
+                    </React.Fragment>
                     : <PageHeader>
                         <div><Skeleton size={ SkeletonSize.lg } /></div>
                     </PageHeader>
@@ -207,7 +213,8 @@ EditBaseline.propTypes = {
     factModalOpened: PropTypes.bool,
     editBaselineTableData: PropTypes.array,
     expandRow: PropTypes.func,
-    expandedRows: PropTypes.array
+    expandedRows: PropTypes.array,
+    toggleEditNameModal: PropTypes.func
 };
 
 function mapStateToProps(state) {
@@ -225,7 +232,8 @@ function mapDispatchToProps(dispatch) {
         clearBaselineData: () => dispatch(baselinesTableActions.clearBaselineData()),
         patchBaseline: (baselineId, newBaselineBody) => dispatch(baselinesTableActions.patchBaseline(baselineId, newBaselineBody)),
         expandRow: (factName) => dispatch(baselinesTableActions.expandRow(factName)),
-        fetchBaselineData: (baselineUUID) => dispatch(baselinesTableActions.fetchBaselineData(baselineUUID))
+        fetchBaselineData: (baselineUUID) => dispatch(baselinesTableActions.fetchBaselineData(baselineUUID)),
+        toggleEditNameModal: () => dispatch(editNameModalActions.toggleEditNameModal())
     };
 }
 
