@@ -57,15 +57,8 @@ class BaselineTableKebab extends Component {
 BaselineTableKebab.propTypes = {
     setIdDelete: PropTypes.func,
     deleteBaseline: PropTypes.func,
-    fullBaselineListData: PropTypes.array,
     baselineRowData: PropTypes.array
 };
-
-function mapStateToProps(state) {
-    return {
-        fullBaselineListData: state.baselinesTableState.fullBaselineListData
-    };
-}
 
 function mapDispatchToProps(dispatch) {
     return {
@@ -74,4 +67,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BaselineTableKebab));
+export default withRouter(connect(null, mapDispatchToProps)(BaselineTableKebab));
