@@ -1,5 +1,0 @@
-const CREATE_NEW_BASELINE = 'CREATE_NEW_BASELINE';
-
-export default {
-    CREATE_NEW_BASELINE
-};

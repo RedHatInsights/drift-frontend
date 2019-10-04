@@ -10,7 +10,6 @@ import { AngleDownIcon, AngleRightIcon } from '@patternfly/react-icons';
 
 import EditBaselineToolbar from './EditBaselineToolbar/EditBaselineToolbar';
 import FactModal from './FactModal/FactModal';
-import { baselinesPageActions } from '../redux';
 import { baselinesTableActions } from '../../BaselinesTable/redux';
 import editBaselineHelpers from './helpers';
 
@@ -200,7 +199,6 @@ class EditBaseline extends Component {
 EditBaseline.propTypes = {
     history: PropTypes.obj,
     match: PropTypes.any,
-    toggleCreateBaseline: PropTypes.func,
     clearBaselineData: PropTypes.func,
     baselineData: PropTypes.object,
     baselineDataLoading: PropTypes.bool,
@@ -224,7 +222,6 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        toggleCreateBaseline: () => dispatch(baselinesPageActions.toggleCreateBaseline()),
         clearBaselineData: () => dispatch(baselinesTableActions.clearBaselineData()),
         patchBaseline: (baselineId, newBaselineBody) => dispatch(baselinesTableActions.patchBaseline(baselineId, newBaselineBody)),
         expandRow: (factName) => dispatch(baselinesTableActions.expandRow(factName)),

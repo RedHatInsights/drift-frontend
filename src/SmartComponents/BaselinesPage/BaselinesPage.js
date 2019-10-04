@@ -9,7 +9,7 @@ import { EmptyState, EmptyStateBody, EmptyStateIcon, Title } from '@patternfly/r
 
 import BaselinesTable from '../BaselinesTable/BaselinesTable';
 import CreateBaselineButton from './CreateBaselineButton/CreateBaselineButton';
-import CreateBaseline from './CreateBaseline/CreateBaseline';
+import CreateBaselineModal from './CreateBaselineModal/CreateBaselineModal';
 import BaselinesKebab from './BaselinesKebab/BaselinesKebab';
 import BaselinesSearchBar from '../BaselinesSearchBar/BaselinesSearchBar';
 
@@ -72,24 +72,19 @@ class BaselinesPage extends Component {
     }
 
     render() {
-        const { creatingNewBaseline, fullBaselineListData, baselineListLoading } = this.props;
+        const { fullBaselineListData, baselineListLoading } = this.props;
 
         /*eslint-disable camelcase*/
         return (
             <React.Fragment>
+                <CreateBaselineModal />
                 <PageHeader>
                     <PageHeaderTitle title='Baselines'/>
                 </PageHeader>
                 <Main>
                     <Card className='pf-t-light pf-m-opaque-100'>
-                        { creatingNewBaseline
-                            ? <CardBody>
-                                <div>
-                                    <CreateBaseline />
-                                </div>
-                            </CardBody>
-                            : (fullBaselineListData.length === 0 && baselineListLoading === false)
-                                ? this.renderEmptyState() : this.renderTable()
+                        { (fullBaselineListData.length === 0 && baselineListLoading === false)
+                            ? this.renderEmptyState() : this.renderTable()
                         }
                     </Card>
                 </Main>
@@ -101,14 +96,12 @@ class BaselinesPage extends Component {
 
 BaselinesPage.propTypes = {
     baselineListLoading: PropTypes.bool,
-    creatingNewBaseline: PropTypes.bool,
     fullBaselineListData: PropTypes.array
 };
 
 function mapStateToProps(state) {
     return {
         baselineListLoading: state.baselinesTableState.baselineListLoading,
-        creatingNewBaseline: state.baselinesPageState.creatingNewBaseline,
         fullBaselineListData: state.baselinesTableState.fullBaselineListData
     };
 }
