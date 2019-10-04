@@ -198,6 +198,7 @@ BaselinesTable.propTypes = {
 function mapStateToProps(state) {
     return {
         baselineDeleteLoading: state.baselinesTableState.baselineDeleteLoading,
+        baselineListLoading: state.baselinesTableState.baselineListLoading,
         baselineTableData: state.baselinesTableState.baselineTableData,
         addSystemModalOpened: state.addSystemModalState.addSystemModalOpened
     };
