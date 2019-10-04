@@ -17,8 +17,11 @@ const betaBranch =
     gitBranch === 'master' ||
     gitBranch === 'qa-beta' ||
     gitBranch === 'prod-beta';
+const buildStable = process.env.BUILD_STABLE === 'true';
 
-if ((process.env.NODE_ENV === 'production' && betaBranch) || process.env.BUILD_BETA === 'true') {
+const buildBeta = (betaBranch || process.env.BUILD_BETA === 'true') && !buildStable;
+
+if (process.env.NODE_ENV === 'production' && buildBeta) {
     deploymentEnv = '/beta/apps';
 }
 
