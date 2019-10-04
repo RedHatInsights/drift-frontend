@@ -14,7 +14,8 @@ describe('baselines table reducer', () => {
             selectedBaselineIds: [],
             IdToDelete: '',
             expandedRows: [],
-            editBaselineTableData: []
+            editBaselineTableData: [],
+            emptyState: false
         });
     });
 
@@ -37,7 +38,8 @@ describe('baselines table reducer', () => {
         ).toEqual({
             baselineListLoading: false,
             fullBaselineListData: baselinesFixtures.baselinesListPayloadResults,
-            baselineTableData: baselinesFixtures.baselineTableDataRows
+            baselineTableData: baselinesFixtures.baselineTableDataRows,
+            emptyState: false
         });
     });
 
@@ -54,7 +56,8 @@ describe('baselines table reducer', () => {
             baselineListLoading: false,
             fullBaselineListData: baselinesFixtures.baselinesListPayloadResults,
             baselineTableData: newRowsWithOneSelected,
-            selectedBaselineIds: [ '1234' ]
+            selectedBaselineIds: [ '1234' ],
+            emptyState: false
         });
     });
 

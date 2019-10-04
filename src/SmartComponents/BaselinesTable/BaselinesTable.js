@@ -3,7 +3,14 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Table, TableBody, TableHeader } from '@patternfly/react-table';
-import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
+import { Skeleton, SkeletonSize, EmptyTable } from '@redhat-cloud-services/frontend-components';
+import {
+    Title,
+    EmptyStateBody,
+    Bullseye,
+    EmptyState,
+    EmptyStateVariant
+} from '@patternfly/react-core';
 
 import BaselineTableKebab from './BaselineTableKebab/BaselineTableKebab';
 import { baselinesTableActions } from './redux';
@@ -87,13 +94,13 @@ class BaselinesTable extends Component {
     }
 
     renderTable() {
-        const { fullBaselineListData, baselineTableData, baselineListLoading, baselineDeleteLoading, addSystemModalOpened } = this.props;
+        const { baselineTableData, baselineListLoading, baselineDeleteLoading, addSystemModalOpened } = this.props;
         let columns = [ 'Name', 'Last updated' ];
         let loadingRows = [];
         let modalRows = [];
         let table;
 
-        if (fullBaselineListData.length !== 0 && !baselineListLoading && !baselineDeleteLoading) {
+        if (!baselineListLoading && !baselineDeleteLoading) {
             if (addSystemModalOpened) {
                 for (let i = 0; i < baselineTableData.length; i++) {
                     modalRows.push([ baselineTableData[i][1], baselineTableData[i][2] ]);
@@ -105,6 +112,34 @@ class BaselinesTable extends Component {
 
                 table = <Table
                     onSelect={ this.onSelect }
+                    cells={ columns }
+                    rows={ modalRows }
+                >
+                    <TableHeader />
+                    <TableBody />
+                </Table>;
+            } else if (baselineTableData.length === 0) {
+                let emptyRow = <EmptyTable>
+                    <Bullseye>
+                        <EmptyState variant={ EmptyStateVariant.full }>
+                            <Title headingLevel="h5" size="lg">
+                                No matching baselines found
+                            </Title>
+                            <EmptyStateBody>
+                                This filter criteria matches no baselines. <br /> Try changing your filter settings.
+                            </EmptyStateBody>
+                        </EmptyState>
+                    </Bullseye>
+                </EmptyTable>;
+
+                modalRows.push({
+                    cells: [{
+                        title: emptyRow,
+                        props: { colSpan: columns.length }
+                    }]
+                });
+
+                table = <Table
                     cells={ columns }
                     rows={ modalRows }
                 >
@@ -151,7 +186,6 @@ class BaselinesTable extends Component {
 BaselinesTable.propTypes = {
     baselineListLoading: PropTypes.bool,
     baselineDeleteLoading: PropTypes.bool,
-    fullBaselineListData: PropTypes.array,
     baselineTableData: PropTypes.array,
     createBaselinesTable: PropTypes.func,
     selectBaseline: PropTypes.func,
@@ -164,7 +198,6 @@ BaselinesTable.propTypes = {
 function mapStateToProps(state) {
     return {
         baselineDeleteLoading: state.baselinesTableState.baselineDeleteLoading,
-        fullBaselineListData: state.baselinesTableState.fullBaselineListData,
         baselineTableData: state.baselinesTableState.baselineTableData,
         addSystemModalOpened: state.addSystemModalState.addSystemModalOpened
     };

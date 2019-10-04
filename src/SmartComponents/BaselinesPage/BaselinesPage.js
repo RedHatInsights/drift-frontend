@@ -72,7 +72,7 @@ class BaselinesPage extends Component {
     }
 
     render() {
-        const { fullBaselineListData, baselineListLoading } = this.props;
+        const { emptyState, baselineListLoading } = this.props;
 
         /*eslint-disable camelcase*/
         return (
@@ -83,7 +83,7 @@ class BaselinesPage extends Component {
                 </PageHeader>
                 <Main>
                     <Card className='pf-t-light pf-m-opaque-100'>
-                        { (fullBaselineListData.length === 0 && baselineListLoading === false)
+                        { (emptyState && baselineListLoading === false)
                             ? this.renderEmptyState() : this.renderTable()
                         }
                     </Card>
@@ -96,13 +96,15 @@ class BaselinesPage extends Component {
 
 BaselinesPage.propTypes = {
     baselineListLoading: PropTypes.bool,
-    fullBaselineListData: PropTypes.array
+    fullBaselineListData: PropTypes.array,
+    emptyState: PropTypes.array
 };
 
 function mapStateToProps(state) {
     return {
         baselineListLoading: state.baselinesTableState.baselineListLoading,
-        fullBaselineListData: state.baselinesTableState.fullBaselineListData
+        fullBaselineListData: state.baselinesTableState.fullBaselineListData,
+        emptyState: state.baselinesTableState.emptyState
     };
 }
 

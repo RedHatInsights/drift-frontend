@@ -11,7 +11,8 @@ const initialState = {
     baselineData: undefined,
     editBaselineTableData: [],
     IdToDelete: '',
-    expandedRows: []
+    expandedRows: [],
+    emptyState: false
 };
 
 export function baselinesTableReducer(state = initialState, action) {
@@ -30,11 +31,12 @@ export function baselinesTableReducer(state = initialState, action) {
                 baselineListLoading: true
             };
         case `${types.FETCH_BASELINE_LIST}_FULFILLED`:
-            rows = baselinesReducerHelpers.buildBaselinesTable(action.payload, state.selectedBaselineIds);
+            rows = baselinesReducerHelpers.buildBaselinesTable(action.payload.data, state.selectedBaselineIds);
             return {
                 ...state,
                 baselineListLoading: false,
-                fullBaselineListData: action.payload,
+                fullBaselineListData: action.payload.data,
+                emptyState: action.payload.total_available === 0,
                 baselineTableData: rows
             };
         case `${types.SELECT_BASELINE}`:

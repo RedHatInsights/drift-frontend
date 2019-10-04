@@ -8,7 +8,7 @@ async function post(path, body = {}) {
 
 async function getBaselines(path, getParams = {}) {
     const request = await axios.get(BASELINE_API_ROOT.concat(path), { params: getParams });
-    return request.data.data;
+    return request.data;
 }
 
 async function getBaseline(path) {
