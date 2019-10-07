@@ -196,8 +196,7 @@ class DriftTable extends Component {
                         <ServerIcon className="cluster-icon-large"/>
                         <div className="system-name">{ data[i].display_name }</div>
                         <div className="system-updated">
-                            { data[i].system_profile_exists ?
-                                '' :
+                            { data[i].system_profile_exists === false ?
                                 <Tooltip
                                     position='top'
                                     content={
@@ -205,7 +204,7 @@ class DriftTable extends Component {
                                     }
                                 >
                                     <WarningTriangleIcon color="#f0ab00"/>
-                                </Tooltip>
+                                </Tooltip> : ''
                             }
                             { data[i].last_updated
                                 ? this.formatDate(data[i].last_updated)
