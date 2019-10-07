@@ -36,7 +36,7 @@ export function baselinesTableReducer(state = initialState, action) {
                 ...state,
                 baselineListLoading: false,
                 fullBaselineListData: action.payload.data,
-                emptyState: action.payload.total_available === 0,
+                emptyState: action.payload.meta.total_available === 0,
                 baselineTableData: rows
             };
         case `${types.SELECT_BASELINE}`:
