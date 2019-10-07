@@ -43,6 +43,20 @@ describe('baselines table reducer', () => {
         });
     });
 
+    it('should handle FETCH_BASELINE_LIST_FULFILLED empty', () => {
+        expect(
+            baselinesTableReducer({ baselineListLoading: true }, {
+                type: `${types.FETCH_BASELINE_LIST}_FULFILLED`,
+                payload: baselinesFixtures.baselinesListEmptyPayload
+            })
+        ).toEqual({
+            baselineListLoading: false,
+            fullBaselineListData: [],
+            baselineTableData: [],
+            emptyState: true
+        });
+    });
+
     it('should handle FETCH_BASELINE_LIST_FULFILLED with selected baselines', () => {
         let newRowsWithOneSelected = baselinesFixtures.baselineTableDataRows;
         newRowsWithOneSelected[0].selected = true;

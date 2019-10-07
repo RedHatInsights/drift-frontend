@@ -24,6 +24,14 @@ const baselinesListPayload = ({
     }
 });
 
+const baselinesListEmptyPayload = ({
+    data: [],
+    meta: {
+        total_available: 0,
+        count: 0
+    }
+});
+
 const baselinesListPayloadResults = ([
     {
         created: '2019-01-18T13:30:00.000000Z',
@@ -77,5 +85,6 @@ export default {
     baselinesListPayloadResults,
     baselineTableDataRows,
     baselineTableDataTwoSelected,
-    baselineTableDataOneSelected
+    baselineTableDataOneSelected,
+    baselinesListEmptyPayload
 };
