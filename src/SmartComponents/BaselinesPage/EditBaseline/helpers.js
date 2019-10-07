@@ -55,9 +55,11 @@ function buildEditedFactData(isParent, originalFactName, factName, originalValue
             let newSubFact = { name: factName, value: factValue };
 
             factData.values.forEach(function(subFact) {
-                if (subFact.name !== originalSubFact.name && subFact.value !== originalSubFact.value) {
-                    subFacts.push(subFact);
+                if (subFact.name === originalSubFact.name && subFact.value === originalSubFact.value) {
+                    return;
                 }
+
+                subFacts.push(subFact);
             });
             subFacts.push(newSubFact);
             newAPIBody.values = subFacts;
@@ -74,9 +76,11 @@ function buildDeletedSubFact(factToDelete, fact) {
     let newSubFacts = [];
 
     fact.values.forEach(function(subFact) {
-        if (subFact.name !== factToDelete.name && subFact.value !== factToDelete.value) {
-            newSubFacts.push(subFact);
+        if (subFact.name === factToDelete.name && subFact.value === factToDelete.value) {
+            return;
         }
+
+        newSubFacts.push(subFact);
     });
 
     newParentFact = { name: fact.name, values: newSubFacts };

@@ -55,6 +55,18 @@ function buildNewTableData(fullBaselineListData, IdToDelete) {
     return newBaselineTableData;
 }
 
+function buildNewBaselineList(fullBaselineListData, IdToDelete) {
+    let newBaselineList = [];
+
+    fullBaselineListData.forEach(function(baseline) {
+        if (baseline.id !== IdToDelete) {
+            newBaselineList.push(baseline);
+        }
+    });
+
+    return newBaselineList;
+}
+
 function findExpandedRow(fact, expandedRows) {
     let subfacts = [];
 
@@ -112,6 +124,7 @@ export default {
     buildBaselinesTable,
     setBaselineArray,
     buildNewTableData,
+    buildNewBaselineList,
     filterBaselineData,
     toggleExpandedRow
 };
