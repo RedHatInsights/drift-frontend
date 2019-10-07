@@ -16,10 +16,7 @@ class FactKebab extends Component {
         this.addFact = this.addFact.bind(this);
 
         this.state = {
-            isOpen: false,
-            factName: this.props.factName,
-            factValue: this.props.factValue,
-            fact: this.props.fact
+            isOpen: false
         };
     }
 
@@ -30,8 +27,7 @@ class FactKebab extends Component {
     }
 
     editFact() {
-        const { factName, factValue, fact } = this.state;
-        const { toggleFactModal, setFactData } = this.props;
+        const { toggleFactModal, setFactData, factName, factValue, fact } = this.props;
 
         toggleFactModal();
         setFactData({
@@ -42,8 +38,7 @@ class FactKebab extends Component {
     }
 
     deleteFact() {
-        const { factName, factValue, fact } = this.state;
-        const { baselineData, patchBaseline } = this.props;
+        const { baselineData, patchBaseline, factName, factValue, fact } = this.props;
         let factToDelete = { name: factName, value: factValue };
         let newAPIBody;
 
@@ -58,15 +53,19 @@ class FactKebab extends Component {
     }
 
     addFact() {
-        const { fact } = this.state;
-        const { toggleFactModal, setFactData } = this.props;
+        const { toggleFactModal, setFactData, fact } = this.props;
 
         toggleFactModal();
-        setFactData({ fact });
+        setFactData({
+            factName: '',
+            factValue: '',
+            fact
+        });
     }
 
     render() {
-        const { isOpen, factValue, fact } = this.state;
+        const { isOpen } = this.state;
+        const { factValue, fact } = this.props;
         const dropdownItems = [
             <DropdownItem
                 key="edit"

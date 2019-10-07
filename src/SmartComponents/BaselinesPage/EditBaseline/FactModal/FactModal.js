@@ -89,7 +89,7 @@ class FactModal extends Component {
 
     renderCategoryCheckbox() {
         const { categoryCheck } = this.state;
-        const { factName, factValue } = this.props;
+        const { factName, factValue, factData } = this.props;
         let categoryCheckBody;
 
         if (factName !== '' && factValue === '') {
@@ -101,7 +101,8 @@ class FactModal extends Component {
                 defaultChecked
                 isDisabled
             />;
-        } else if (factName !== '' && factValue !== '') {
+        } else if ((factName !== '' && factValue !== '')
+            || (factName === '' && factValue === '' && !Array.isArray(factData))) {
             categoryCheckBody = <Checkbox
                 label="This is a category"
                 aria-label="controlled checkbox example"
