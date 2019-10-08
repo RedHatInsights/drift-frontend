@@ -37,7 +37,7 @@ class SystemsTable extends Component {
 
         this.getRegistry().register({
             ...mergeWithEntities(
-                selectedReducer(INVENTORY_ACTION_TYPES)
+                selectedReducer(INVENTORY_ACTION_TYPES, this.props.createBaselineModal)
             )
         });
 
@@ -64,7 +64,8 @@ function mapDispatchToProps(dispatch) {
 
 SystemsTable.propTypes = {
     setSelectedSystemIds: PropTypes.func,
-    selectedSystemIds: PropTypes.array
+    selectedSystemIds: PropTypes.array,
+    createBaselineModal: PropTypes.bool
 };
 
 SystemsTable.defaultProps = {
