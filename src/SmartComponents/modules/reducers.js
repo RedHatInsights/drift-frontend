@@ -36,6 +36,7 @@ export function compareReducer(state = initialState, action) {
 
     switch (action.type) {
         case types.CLEAR_STATE:
+            state.stateFilters.forEach(function(stateFilter) { stateFilter.selected = true; });
             return {
                 ...initialState
             };
