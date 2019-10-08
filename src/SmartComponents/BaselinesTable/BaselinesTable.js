@@ -18,7 +18,6 @@ import { baselinesTableActions } from './redux';
 class BaselinesTable extends Component {
     constructor(props) {
         super(props);
-        this.onSelect = this.onSelect.bind(this);
     }
 
     async componentDidMount() {
@@ -28,7 +27,7 @@ class BaselinesTable extends Component {
         fetchBaselines();
     }
 
-    onSelect(event, isSelected, rowId) {
+    onSelect = (event, isSelected, rowId) => {
         const { baselineTableData, selectBaseline } = this.props;
         let ids;
 
@@ -41,6 +40,19 @@ class BaselinesTable extends Component {
         }
 
         selectBaseline(ids, isSelected);
+    }
+
+    onSingleSelect = (event, isSelected, rowId) => {
+        const { baselineTableData, selectOneBaseline } = this.props;
+        let id;
+
+        if (rowId === -1) {
+            id = '';
+        } else {
+            id = baselineTableData[rowId][0];
+        }
+
+        selectOneBaseline(id, isSelected);
     }
 
     renderLoadingRows() {
@@ -91,8 +103,23 @@ class BaselinesTable extends Component {
         return table;
     }
 
+    createModalRows() {
+        const { baselineTableData } = this.props;
+        let modalRows = [];
+
+        for (let i = 0; i < baselineTableData.length; i++) {
+            modalRows.push([ baselineTableData[i][1], baselineTableData[i][2] ]);
+
+            if (baselineTableData[i].selected) {
+                modalRows[i].selected = true;
+            }
+        }
+
+        return modalRows;
+    }
+
     renderTable() {
-        const { baselineTableData, baselineListLoading, baselineDeleteLoading, addSystemModalOpened } = this.props;
+        const { baselineTableData, baselineListLoading, baselineDeleteLoading, addSystemModalOpened, createBaselineModal } = this.props;
         let columns = [ 'Name', 'Last updated' ];
         let loadingRows = [];
         let modalRows = [];
@@ -100,16 +127,21 @@ class BaselinesTable extends Component {
 
         if (!baselineListLoading && !baselineDeleteLoading) {
             if (addSystemModalOpened) {
-                for (let i = 0; i < baselineTableData.length; i++) {
-                    modalRows.push([ baselineTableData[i][1], baselineTableData[i][2] ]);
-
-                    if (baselineTableData[i].selected) {
-                        modalRows[i].selected = true;
-                    }
-                }
+                modalRows = this.createModalRows();
 
                 table = <Table
                     onSelect={ this.onSelect }
+                    cells={ columns }
+                    rows={ modalRows }
+                >
+                    <TableHeader />
+                    <TableBody />
+                </Table>;
+            } else if (createBaselineModal) {
+                modalRows = this.createModalRows();
+
+                table = <Table
+                    onSelect={ this.onSingleSelect }
                     cells={ columns }
                     rows={ modalRows }
                 >
@@ -187,10 +219,12 @@ BaselinesTable.propTypes = {
     baselineTableData: PropTypes.array,
     createBaselinesTable: PropTypes.func,
     selectBaseline: PropTypes.func,
+    selectOneBaseline: PropTypes.func,
     addSystemModalOpened: PropTypes.bool,
     fetchBaselines: PropTypes.func,
     history: PropTypes.obj,
-    kebab: PropTypes.bool
+    kebab: PropTypes.bool,
+    createBaselineModal: PropTypes.bool
 };
 
 function mapStateToProps(state) {
@@ -205,6 +239,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         selectBaseline: (id, isSelected) => dispatch(baselinesTableActions.selectBaseline(id, isSelected)),
+        selectOneBaseline: (id, isSelected) => dispatch(baselinesTableActions.selectOneBaseline(id, isSelected)),
         fetchBaselines: () => dispatch(baselinesTableActions.fetchBaselines())
     };
 }

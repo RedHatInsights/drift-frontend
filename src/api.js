@@ -74,8 +74,12 @@ function deleteBaselineData(baselineId = []) {
     return deleteBaseline(path.concat(baselineId));
 }
 
-function postNewBaseline(apiBody) {
+function postNewBaseline(apiBody, uuid) {
     let path = '/baselines';
+    if (uuid !== undefined) {
+        let newPath = path.concat('/', uuid, '?', 'display_name=', apiBody.display_name);
+        return postBaseline(newPath, {});
+    }
 
     return postBaseline(path, apiBody);
 }

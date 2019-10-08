@@ -15,6 +15,13 @@ function selectBaseline(ids, isSelected) {
     };
 }
 
+function selectOneBaseline(id, isSelected) {
+    return {
+        type: types.SELECT_ONE_BASELINE,
+        payload: { id, isSelected }
+    };
+}
+
 function setSelectedBaselines(selectedBaselineIds) {
     return {
         type: types.SET_SELECTED_BASELINES,
@@ -41,10 +48,10 @@ function clearBaselineData() {
     };
 }
 
-function createBaseline(newBaseline) {
+function createBaseline(newBaseline, uuid = undefined) {
     return {
         type: types.CREATE_BASELINE,
-        payload: api.postNewBaseline(newBaseline)
+        payload: api.postNewBaseline(newBaseline, uuid)
     };
 }
 
@@ -79,6 +86,7 @@ function expandRow(factName) {
 export default {
     fetchBaselines,
     selectBaseline,
+    selectOneBaseline,
     setSelectedBaselines,
     clearSelectedBaselines,
     fetchBaselineData,

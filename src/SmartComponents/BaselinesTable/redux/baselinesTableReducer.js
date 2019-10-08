@@ -19,7 +19,7 @@ const initialState = {
 export function baselinesTableReducer(state = initialState, action) {
     let rows = [];
     let selectedBaselines = [];
-    let newBaselineTableData;
+    let newBaselineTableData = [];
     let newFullBaselineList;
     let filteredBaselineData = [];
     let newExpandedRows = [];
@@ -59,6 +59,33 @@ export function baselinesTableReducer(state = initialState, action) {
                 if (action.payload.ids.includes(row[0])) {
                     row.selected = action.payload.isSelected;
                 }
+            });
+
+            return {
+                ...state,
+                baselineTableData: newBaselineTableData,
+                selectedBaselineIds: selectedBaselines
+            };
+        case `${types.SELECT_ONE_BASELINE}`:
+            selectedBaselines = [ ...state.selectedBaselineIds ];
+
+            if (action.payload.id === '') {
+                selectedBaselines = [];
+            } else if (action.payload.isSelected) {
+                selectedBaselines.pop();
+                selectedBaselines.push(action.payload.id);
+            } else if (!action.payload.isSelected) {
+                selectedBaselines.pop();
+            }
+
+            state.baselineTableData.map(row => {
+                if (action.payload.id.includes(row[0])) {
+                    row.selected = action.payload.isSelected;
+                } else {
+                    row.selected = false;
+                }
+
+                newBaselineTableData.push(row);
             });
 
             return {
