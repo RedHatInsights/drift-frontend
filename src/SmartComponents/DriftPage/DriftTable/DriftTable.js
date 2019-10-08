@@ -51,10 +51,18 @@ class DriftTable extends Component {
     }
 
     removeSystem(systemBaselineId) {
-        const { history, clearState, setSelectedBaselines } = this.props;
+        const { history, clearState, setSelectedBaselines, stateFilters, addStateFilter } = this.props;
 
         this.systemIds = this.systemIds.filter(item => item !== systemBaselineId);
         this.baselineIds = this.baselineIds.filter(item => item !== systemBaselineId);
+
+        if (this.systemIds.length + this.baselineIds.length === 1) {
+            stateFilters.forEach(function(stateFilter) {
+                if (stateFilter.selected === false) {
+                    addStateFilter(stateFilter);
+                }
+            });
+        }
 
         if (this.systemIds.length > 0 || this.baselineIds.length > 0) {
             this.fetchCompare(this.systemIds, this.baselineIds);
@@ -364,7 +372,7 @@ function mapStateToProps(state) {
         fullCompareData: state.compareState.fullCompareData,
         filteredCompareData: state.compareState.filteredCompareData,
         addSystemModalOpened: state.addSystemModalOpened,
-        stateFilter: state.compareState.stateFilter,
+        stateFilters: state.compareState.stateFilters,
         factFilter: state.compareState.factFilter,
         loading: state.compareState.loading,
         systems: state.compareState.systems,
@@ -382,7 +390,8 @@ function mapDispatchToProps(dispatch) {
         toggleStateSort: (sortType) => dispatch(compareActions.toggleStateSort(sortType)),
         expandRow: (factName) => dispatch(compareActions.expandRow(factName)),
         clearState: () => dispatch(compareActions.clearState()),
-        setSelectedBaselines: (selectedBaselineIds) => dispatch(baselinesTableActions.setSelectedBaselines(selectedBaselineIds))
+        setSelectedBaselines: (selectedBaselineIds) => dispatch(baselinesTableActions.setSelectedBaselines(selectedBaselineIds)),
+        addStateFilter: (filter) => dispatch(compareActions.addStateFilter(filter))
     };
 }
 
@@ -396,7 +405,7 @@ DriftTable.propTypes = {
     systems: PropTypes.array,
     baselines: PropTypes.array,
     addSystemModalOpened: PropTypes.bool,
-    stateFilter: PropTypes.string,
+    stateFilters: PropTypes.string,
     factFilter: PropTypes.string,
     factSort: PropTypes.string,
     stateSort: PropTypes.string,
@@ -406,7 +415,8 @@ DriftTable.propTypes = {
     expandRow: PropTypes.func,
     expandRows: PropTypes.func,
     expandedRows: PropTypes.array,
-    setSelectedBaselines: PropTypes.func
+    setSelectedBaselines: PropTypes.func,
+    addStateFilter: PropTypes.func
 };
 
 export default withRouter (connect(mapStateToProps, mapDispatchToProps)(DriftTable));
