@@ -143,6 +143,7 @@ export function baselinesTableReducer(state = initialState, action) {
                 baselineDeleteLoading: false,
                 baselineTableData: newBaselineTableData,
                 fullBaselineListData: newFullBaselineList,
+                emptyState: newBaselineTableData.length === 0,
                 IdToDelete: ''
             };
         case `${types.DELETE_BASELINE}_REJECTED`:
