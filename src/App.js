@@ -12,7 +12,9 @@ class App extends Component {
         insights.chrome.init();
         insights.chrome.identifyApp('drift');
         insights.chrome.on('APP_NAVIGATION', event => {
-            this.props.history.push(`/${event.navId}`);
+            if (event.domEvent !== undefined && event.domEvent.type === 'click') {
+                this.props.history.push(`/${event.navId}`);
+            }
         });
     }
 

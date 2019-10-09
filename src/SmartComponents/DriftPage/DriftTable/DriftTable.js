@@ -31,7 +31,9 @@ class DriftTable extends Component {
 
     async componentDidMount() {
         await window.insights.chrome.auth.getUser();
-        this.fetchCompare(this.systemIds, this.baselineIds);
+        const { fetchCompare } = this.props;
+
+        fetchCompare(this.systemIds, this.baselineIds);
     }
 
     setSystemIds() {
