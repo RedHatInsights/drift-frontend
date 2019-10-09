@@ -8,10 +8,10 @@ function fetchBaselines(search) {
     };
 }
 
-function selectBaseline(rows) {
+function selectBaseline(ids, isSelected) {
     return {
         type: types.SELECT_BASELINE,
-        payload: rows
+        payload: { ids, isSelected }
     };
 }
 

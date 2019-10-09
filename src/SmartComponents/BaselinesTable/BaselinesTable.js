@@ -30,19 +30,17 @@ class BaselinesTable extends Component {
 
     onSelect(event, isSelected, rowId) {
         const { baselineTableData, selectBaseline } = this.props;
-        let rows;
+        let ids;
 
         if (rowId === -1) {
-            rows = baselineTableData.map(oneRow => {
-                oneRow.selected = isSelected;
-                return oneRow;
+            ids = baselineTableData.map(function(item) {
+                return item[0];
             });
         } else {
-            rows = [ ...baselineTableData ];
-            rows[rowId].selected = isSelected;
+            ids = [ baselineTableData[rowId][0] ];
         }
 
-        selectBaseline(rows);
+        selectBaseline(ids, isSelected);
     }
 
     renderLoadingRows() {
@@ -206,7 +204,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        selectBaseline: (rows) => dispatch(baselinesTableActions.selectBaseline(rows)),
+        selectBaseline: (id, isSelected) => dispatch(baselinesTableActions.selectBaseline(id, isSelected)),
         fetchBaselines: () => dispatch(baselinesTableActions.fetchBaselines())
     };
 }

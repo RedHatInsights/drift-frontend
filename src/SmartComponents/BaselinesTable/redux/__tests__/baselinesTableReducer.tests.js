@@ -85,10 +85,14 @@ describe('baselines table reducer', () => {
         expect(
             baselinesTableReducer({
                 baselineTableData: baselinesFixtures.baselineTableDataRows,
-                fullBaselineListData: baselinesFixtures.baselinesListPayloadResults
+                fullBaselineListData: baselinesFixtures.baselinesListPayloadResults,
+                selectedBaselineIds: []
             }, {
                 type: `${types.SELECT_BASELINE}`,
-                payload: newRowsWithOneSelected
+                payload: {
+                    ids: [ oneSelectedBaseline[0] ],
+                    isSelected: true
+                }
             })
         ).toEqual({
             fullBaselineListData: baselinesFixtures.baselinesListPayloadResults,
@@ -115,7 +119,10 @@ describe('baselines table reducer', () => {
                 selectedBaselineIds: oneSelectedBaseline
             }, {
                 type: `${types.SELECT_BASELINE}`,
-                payload: newRowsWithTwoSelected
+                payload: {
+                    ids: [ twoSelectedBaselines[1] ],
+                    isSelected: true
+                }
             })
         ).toEqual({
             fullBaselineListData: baselinesFixtures.baselinesListPayloadResults,
@@ -145,7 +152,10 @@ describe('baselines table reducer', () => {
                 selectedBaselineIds: twoSelectedBaselines
             }, {
                 type: `${types.SELECT_BASELINE}`,
-                payload: newRowsWithOneDeselected
+                payload: {
+                    ids: [ twoSelectedBaselines[1] ],
+                    isSelected: false
+                }
             })
         ).toEqual({
             fullBaselineListData: baselinesFixtures.baselinesListPayloadResults,
