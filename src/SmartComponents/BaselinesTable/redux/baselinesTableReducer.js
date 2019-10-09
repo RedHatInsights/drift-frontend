@@ -1,5 +1,6 @@
 import types from './types';
 import baselinesReducerHelpers from './helpers';
+import union from 'lodash/union';
 
 const initialState = {
     baselineListLoading: true,
@@ -40,10 +41,29 @@ export function baselinesTableReducer(state = initialState, action) {
                 baselineTableData: rows
             };
         case `${types.SELECT_BASELINE}`:
-            selectedBaselines = baselinesReducerHelpers.setBaselineArray(action.payload);
+            selectedBaselines = [ ...state.selectedBaselineIds ];
+
+            if (action.payload.ids.length === 0) {
+                selectedBaselines = [];
+            } else if (action.payload.isSelected) {
+                selectedBaselines = union(selectedBaselines.concat(action.payload.ids));
+            } else if (!action.payload.isSelected) {
+                selectedBaselines = selectedBaselines.filter(function(item) {
+                    return !action.payload.ids.includes(item);
+                });
+            }
+
+            newBaselineTableData = [ ...state.baselineTableData ];
+
+            newBaselineTableData.map(row => {
+                if (action.payload.ids.includes(row[0])) {
+                    row.selected = action.payload.isSelected;
+                }
+            });
+
             return {
                 ...state,
-                baselineTableData: action.payload,
+                baselineTableData: newBaselineTableData,
                 selectedBaselineIds: selectedBaselines
             };
         case `${types.SET_SELECTED_BASELINES}`:

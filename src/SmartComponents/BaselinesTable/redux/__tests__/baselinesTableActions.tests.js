@@ -12,16 +12,12 @@ describe('baselines table actions', () => {
     });
 
     it('selectBaseline equals', () => {
-        let rows = [
-            [ 'arch baseline', '2019-07-10T19:48:29.125065Z' ],
-            [ 'cpu + mem baseline', '2019-07-10T19:48:29.130082Z' ]
-        ];
-
-        rows[0].selected = true;
-
-        expect(baselinesTableActions.selectBaseline(rows)).toEqual({
+        expect(baselinesTableActions.selectBaseline([ '1', '2' ], true)).toEqual({
             type: types.SELECT_BASELINE,
-            payload: rows
+            payload: {
+                ids: [ '1', '2' ],
+                isSelected: true
+            }
         });
     });
 

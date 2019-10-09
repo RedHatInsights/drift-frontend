@@ -56,12 +56,9 @@ class AddSystemModal extends Component {
     }
 
     changeActiveTab(event, tabIndex) {
-        const { selectActiveTab, setSelectedBaselines } = this.props;
+        const { selectActiveTab } = this.props;
 
         selectActiveTab(tabIndex);
-        if (tabIndex === 1) {
-            setSelectedBaselines(this.selectedBaselineIds());
-        }
     }
 
     render() {
