@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Table, TableBody, TableHeader } from '@patternfly/react-table';
+import { Table, TableBody, TableHeader, sortable } from '@patternfly/react-table';
 import { Skeleton, SkeletonSize, EmptyTable } from '@redhat-cloud-services/frontend-components';
 import {
     Title,
@@ -19,6 +19,18 @@ import BaselinesToolbar from './BaselinesToolbar/BaselinesToolbar';
 class BaselinesTable extends Component {
     constructor(props) {
         super(props);
+        this.onSelect = this.onSelect.bind(this);
+        this.hasSelect = this.props.selectBaseline === true || this.props.selectOneBaseline === true;
+
+        this.state = {
+            sortBy: {
+                index: this.hasSelect ? 1 : 0,
+                direction: 'asc'
+            },
+            search: undefined,
+            orderBy: 'display_name',
+            orderHow: 'ASC'
+        };
     }
 
     async componentDidMount() {
@@ -27,8 +39,28 @@ class BaselinesTable extends Component {
         this.fetchBaselines();
     }
 
-    fetchBaselines = (search) => {
-        this.props.fetchBaselines(search);
+    fetchBaselines = ({
+        search = this.state.search,
+        orderBy = this.state.orderBy,
+        orderHow = this.state.orderHow
+    } = {}) => {
+        /*eslint-disable camelcase*/
+        let params = {
+            order_by: orderBy,
+            order_how: orderHow
+        };
+
+        if (search) {
+            params.display_name = search;
+        }
+        /*eslint-enable camelcase*/
+
+        this.props.fetchBaselines(params);
+    }
+
+    onSearch = (search) => {
+        this.setState({ search });
+        this.fetchBaselines();
     }
 
     onSelect = (event, isSelected, rowId) => {
@@ -57,6 +89,28 @@ class BaselinesTable extends Component {
         }
 
         selectOneBaseline(id, isSelected);
+    }
+
+    onSort = (_event, index, direction) => {
+        let orderBy = '';
+        let startIndex = this.hasSelect ? 1 : 0;
+
+        if (index === startIndex) {
+            orderBy = 'display_name';
+        } else if (index === startIndex + 1) {
+            orderBy = 'updated';
+        }
+
+        this.setState({
+            sortBy: {
+                index,
+                direction
+            },
+            orderHow: direction.toUpperCase(),
+            orderBy
+        });
+
+        this.fetchBaselines({ orderBy, orderHow: direction.toUpperCase() });
     }
 
     renderLoadingRows() {
@@ -123,8 +177,11 @@ class BaselinesTable extends Component {
     }
 
     renderTable() {
-        const { baselineTableData, baselineListLoading, baselineDeleteLoading, addSystemModalOpened, createBaselineModal } = this.props;
-        let columns = [ 'Name', 'Last updated' ];
+        const { baselineTableData, baselineListLoading, baselineDeleteLoading, addSystemModalOpened, createBaselineModal, hasSelect } = this.props;
+        let columns = [
+            { title: 'Name', transforms: [ sortable ]},
+            { title: 'Last updated', transforms: [ sortable ]}
+        ];
         let loadingRows = [];
         let modalRows = [];
         let table;
@@ -134,7 +191,10 @@ class BaselinesTable extends Component {
                 modalRows = this.createModalRows();
 
                 table = <Table
-                    onSelect={ this.onSelect }
+                    aria-label="Baselines Table"
+                    onSort={ this.onSort }
+                    sortBy={ this.state.sortBy }
+                    onSelect={ hasSelect ? this.onSelect : false }
                     cells={ columns }
                     rows={ modalRows }
                 >
@@ -145,7 +205,7 @@ class BaselinesTable extends Component {
                 modalRows = this.createModalRows();
 
                 table = <Table
-                    onSelect={ this.onSingleSelect }
+                    onSelect={ hasSelect ? this.onSingleSelect : false }
                     cells={ columns }
                     rows={ modalRows }
                 >
@@ -174,6 +234,7 @@ class BaselinesTable extends Component {
                 });
 
                 table = <Table
+                    aria-label="Baselines Table"
                     cells={ columns }
                     rows={ modalRows }
                 >
@@ -183,10 +244,14 @@ class BaselinesTable extends Component {
             } else {
                 let newTableData;
                 newTableData = this.renderRows();
-                let newColumns = [ 'Name', 'Last updated', '' ];
+                columns.push('');
 
                 table = <Table
-                    cells={ newColumns }
+                    aria-label="Baselines Table"
+                    onSort={ this.onSort }
+                    onSelect={ hasSelect ? this.onSelect : false }
+                    sortBy={ this.state.sortBy }
+                    cells={ columns }
                     rows={ newTableData }
                 >
                     <TableHeader />
@@ -197,6 +262,7 @@ class BaselinesTable extends Component {
             loadingRows = this.renderLoadingRows();
 
             table = <Table
+                aria-label="Baselines Table"
                 cells={ columns }
                 rows={ loadingRows }
             >
@@ -216,7 +282,7 @@ class BaselinesTable extends Component {
                 <BaselinesToolbar
                     createButton={ createButton }
                     kebab={ kebab }
-                    onSearch={ this.fetchBaselines }
+                    onSearch={ this.onSearch }
                 />
                 { this.renderTable() }
             </React.Fragment>
@@ -236,7 +302,9 @@ BaselinesTable.propTypes = {
     history: PropTypes.obj,
     kebab: PropTypes.bool,
     createButton: PropTypes.bool,
-    createBaselineModal: PropTypes.bool
+    createBaselineModal: PropTypes.bool,
+    hasSelect: PropTypes.bool,
+    hasSingleSelect: PropTypes.bool
 };
 
 function mapStateToProps(state) {
@@ -252,7 +320,7 @@ function mapDispatchToProps(dispatch) {
     return {
         selectBaseline: (id, isSelected) => dispatch(baselinesTableActions.selectBaseline(id, isSelected)),
         selectOneBaseline: (id, isSelected) => dispatch(baselinesTableActions.selectOneBaseline(id, isSelected)),
-        fetchBaselines: (search) => dispatch(baselinesTableActions.fetchBaselines(search))
+        fetchBaselines: (params) => dispatch(baselinesTableActions.fetchBaselines(params))
     };
 }
 

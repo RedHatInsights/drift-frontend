@@ -1,10 +1,10 @@
 import types from './types';
 import api from '../../../api';
 
-function fetchBaselines(search) {
+function fetchBaselines(params = {}) {
     return {
         type: types.FETCH_BASELINE_LIST,
-        payload: api.getBaselineList(search)
+        payload: api.getBaselineList(params)
     };
 }
 
