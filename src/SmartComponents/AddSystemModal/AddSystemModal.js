@@ -93,7 +93,7 @@ class AddSystemModal extends Component {
                             eventKey={ 1 }
                             title="Baselines"
                         >
-                            <BaselinesTable />
+                            <BaselinesTable hasSelect={ true }/>
                         </Tab>
                     </Tabs>
                 </Modal>

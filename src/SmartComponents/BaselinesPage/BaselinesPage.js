@@ -74,7 +74,7 @@ class BaselinesPage extends Component {
 BaselinesPage.propTypes = {
     baselineListLoading: PropTypes.bool,
     fullBaselineListData: PropTypes.array,
-    emptyState: PropTypes.array
+    emptyState: PropTypes.bool
 };
 
 function mapStateToProps(state) {

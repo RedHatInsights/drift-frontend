@@ -44,16 +44,8 @@ function getCompare(systemIds = [], baselineIds = []) {
     /*eslint-enable camelcase*/
 }
 
-function getBaselineList(search = undefined) {
-    /*eslint-disable camelcase*/
-    let params = {};
-
-    if (search !== undefined) {
-        params = { display_name: search };
-    }
-
+function getBaselineList(params = {}) {
     return getBaselines('/baselines', params);
-    /*eslint-enable camelcase*/
 }
 
 function getBaselineData(baselineId = []) {
