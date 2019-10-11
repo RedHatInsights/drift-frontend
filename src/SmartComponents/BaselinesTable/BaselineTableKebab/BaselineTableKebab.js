@@ -30,9 +30,21 @@ class BaselineTableKebab extends Component {
         });
     }
 
+    fetchBaseline = () => {
+        const { baselineRowData, history } = this.props;
+
+        history.push('baselines/' + baselineRowData[0]);
+    }
+
     render() {
         const { isOpen } = this.state;
         const dropdownItems = [
+            <DropdownItem
+                key="edit"
+                component="button"
+                onClick={ this.fetchBaseline }>
+                Edit
+            </DropdownItem>,
             <DropdownItem
                 key="delete"
                 component="button"
@@ -57,7 +69,8 @@ class BaselineTableKebab extends Component {
 BaselineTableKebab.propTypes = {
     setIdDelete: PropTypes.func,
     deleteBaseline: PropTypes.func,
-    baselineRowData: PropTypes.array
+    baselineRowData: PropTypes.array,
+    history: PropTypes.obj
 };
 
 function mapDispatchToProps(dispatch) {
