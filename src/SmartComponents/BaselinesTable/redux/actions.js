@@ -48,13 +48,6 @@ function clearBaselineData() {
     };
 }
 
-function createBaseline(newBaseline, uuid = undefined) {
-    return {
-        type: types.CREATE_BASELINE,
-        payload: api.postNewBaseline(newBaseline, uuid)
-    };
-}
-
 function patchBaseline(baselineId, apiBody) {
     return {
         type: types.PATCH_BASELINE,
@@ -91,7 +84,6 @@ export default {
     clearSelectedBaselines,
     fetchBaselineData,
     clearBaselineData,
-    createBaseline,
     patchBaseline,
     setIdDelete,
     deleteBaseline,
