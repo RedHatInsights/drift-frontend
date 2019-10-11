@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Button, Modal, Radio, TextInput } from '@patternfly/react-core';
+import { Button, Modal, Radio, TextInput, Form, FormGroup } from '@patternfly/react-core';
 
 import SystemsTable from '../../SystemsTable/SystemsTable';
 import BaselinesTable from '../../BaselinesTable/BaselinesTable';
@@ -46,20 +46,24 @@ class CreateBaselineModal extends Component {
         /*eslint-disable camelcase*/
         let newBaselineObject = { display_name: baselineName };
 
-        if (fromScratchChecked) {
-            newBaselineObject.baseline_facts = [];
-            await createBaseline(newBaselineObject);
-        } else if (selectedBaselineIds.length === 1 && copyBaselineChecked) {
-            newBaselineObject = { display_name: baselineName };
-            await createBaseline(newBaselineObject, selectedBaselineIds[0]);
-        } else if (entities.selectedSystemIds.length === 1 && copySystemChecked) {
-            newBaselineObject.inventory_uuid = entities.selectedSystemIds[0];
-            await createBaseline(newBaselineObject);
+        try {
+            if (fromScratchChecked) {
+                newBaselineObject.baseline_facts = [];
+                await createBaseline(newBaselineObject);
+            } else if (selectedBaselineIds.length === 1 && copyBaselineChecked) {
+                newBaselineObject = { display_name: baselineName };
+                await createBaseline(newBaselineObject, selectedBaselineIds[0]);
+            } else if (entities.selectedSystemIds.length === 1 && copySystemChecked) {
+                newBaselineObject.inventory_uuid = entities.selectedSystemIds[0];
+                await createBaseline(newBaselineObject);
+            }
+
+            history.push('baselines/' + this.props.baselineData.id);
+            toggleCreateBaselineModal();
+        } catch (e) {
+            // do nothing and let redux handle
         }
         /*eslint-enable camelcase*/
-
-        history.push('baselines/' + this.props.baselineData.id);
-        toggleCreateBaselineModal();
     }
 
     cancelModal = () => {
@@ -119,6 +123,7 @@ class CreateBaselineModal extends Component {
 
     renderModalBody = () => {
         const { baselineName, copyBaselineChecked, copySystemChecked } = this.state;
+        const { error } = this.props;
         let modalBody;
 
         if (copyBaselineChecked) {
@@ -132,15 +137,24 @@ class CreateBaselineModal extends Component {
             <br></br>
             <b>Baseline name</b>
             <br></br>
-            <TextInput
-                className="fact-value"
-                value={ baselineName }
-                type="text"
-                placeholder="Baseline name"
-                onChange={ this.updateBaselineName }
-                isValid={ baselineName !== '' ? true : false }
-                aria-label="baseline name"
-            />
+            <Form>
+                <FormGroup
+                    type="text"
+                    helperTextInvalid={ error.hasOwnProperty('detail') ? error.detail : null }
+                    fieldId="name"
+                    isValid={ !error.hasOwnProperty('status') }
+                >
+                    <TextInput
+                        className="fact-value"
+                        placeHolder="Baseline name"
+                        value={ baselineName }
+                        type="text"
+                        onChange={ this.updateBaselineName }
+                        isValid={ !error.hasOwnProperty('status') }
+                        aria-label="baseline name"
+                    />
+                </FormGroup>
+            </Form>
             <br></br>
             <br></br>
             { modalBody }
@@ -155,7 +169,7 @@ class CreateBaselineModal extends Component {
 
         if (baselineName === ''
             || (copyBaselineChecked && selectedBaselineIds.length === 0)
-            || (copySystemChecked && entities && entities.selectedSystemIds.length === 0)
+            || (copySystemChecked && entities && entities.selectedSystemIds !== undefined && entities.selectedSystemIds.length === 0)
         ) {
             actions = [
                 <Button
@@ -218,22 +232,24 @@ CreateBaselineModal.propTypes = {
     toggleCreateBaselineModal: PropTypes.func,
     clearSelectedBaselines: PropTypes.func,
     entities: PropTypes.object,
-    selectedBaselineIds: PropTypes.array
+    selectedBaselineIds: PropTypes.array,
+    error: PropTypes.obj
 };
 
 function mapStateToProps(state) {
     return {
         createBaselineModalOpened: state.createBaselineModalState.createBaselineModalOpened,
-        baselineData: state.baselinesTableState.baselineData,
+        baselineData: state.createBaselineModalState.baselineData,
         entities: state.entities,
-        selectedBaselineIds: state.baselinesTableState.selectedBaselineIds
+        selectedBaselineIds: state.baselinesTableState.selectedBaselineIds,
+        error: state.createBaselineModalState.error
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
         toggleCreateBaselineModal: () => dispatch(createBaselineModalActions.toggleCreateBaselineModal()),
-        createBaseline: (newBaselineObject, uuid) => dispatch(baselinesTableActions.createBaseline(newBaselineObject, uuid)),
+        createBaseline: (newBaselineObject, uuid) => dispatch(createBaselineModalActions.createBaseline(newBaselineObject, uuid)),
         clearSelectedBaselines: () => dispatch(baselinesTableActions.clearSelectedBaselines())
     };
 }

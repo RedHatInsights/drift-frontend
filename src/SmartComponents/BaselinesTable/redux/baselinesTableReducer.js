@@ -128,19 +128,6 @@ export function baselinesTableReducer(state = initialState, action) {
                 ...state,
                 baselineData: undefined
             };
-        case `${types.CREATE_BASELINE}_PENDING`:
-            return {
-                ...state,
-                baselineListLoading: true,
-                baselineDataLoading: true
-            };
-        case `${types.CREATE_BASELINE}_FULFILLED`:
-            return {
-                ...state,
-                baselineListLoading: false,
-                baselineDataLoading: false,
-                baselineData: action.payload
-            };
         case `${types.PATCH_BASELINE}_PENDING`:
             return {
                 ...state,
