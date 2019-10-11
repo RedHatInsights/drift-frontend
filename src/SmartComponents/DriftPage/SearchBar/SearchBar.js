@@ -9,21 +9,31 @@ import { compareActions } from '../../modules';
 export class SearchBar extends Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            filter: this.props.factFilter
+        };
+
+        this.setFactFilter = this.setFactFilter.bind(this);
     }
 
-    updateFactFilter() {
-        const { changeFactFilter } = this.props;
-        let factFilter = document.getElementById('filterByFact').value;
-        changeFactFilter(factFilter);
+    updateFactFilter = (filter) => {
+        this.setState({ filter });
+        this.setFactFilter(filter);
     }
+
+    setFactFilter = _.debounce(function(filter) {
+        this.props.changeFactFilter(filter);
+    }, 250);
 
     render() {
         return (
             <React.Fragment>
                 <TextInput
+                    value={ this.state.filter }
                     id="filterByFact"
-                    placeholder="Filter by Fact"
-                    onChange={ _.debounce(this.props.changeFactFilter, 250) }
+                    placeholder="Filter by fact"
+                    onChange={ this.updateFactFilter }
                     aria-label="filter by fact"
                 />
             </React.Fragment>
@@ -32,8 +42,15 @@ export class SearchBar extends Component {
 }
 
 SearchBar.propTypes = {
-    changeFactFilter: PropTypes.func
+    changeFactFilter: PropTypes.func,
+    factFilter: PropTypes.string
 };
+
+function mapStateToProps(state) {
+    return {
+        factFilter: state.compareState.factFilter
+    };
+}
 
 function mapDispatchToProps(dispatch) {
     return {
@@ -41,4 +58,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default (connect(null, mapDispatchToProps)(SearchBar));
+export default (connect(mapStateToProps, mapDispatchToProps)(SearchBar));
