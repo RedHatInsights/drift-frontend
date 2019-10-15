@@ -77,6 +77,7 @@ class CreateBaselineModal extends Component {
             <Radio
                 isChecked={ fromScratchChecked }
                 id='create baseline'
+                name='baseline-create-options'
                 label='Create baseline from scratch'
                 value='fromScratchChecked'
                 onChange={ this.handleChecked }
@@ -84,6 +85,7 @@ class CreateBaselineModal extends Component {
             <Radio
                 isChecked={ copyBaselineChecked }
                 id='copy baseline'
+                name='baseline-create-options'
                 label='Copy an existing baseline'
                 value='copyBaselineChecked'
                 onChange={ this.handleChecked }
@@ -91,6 +93,7 @@ class CreateBaselineModal extends Component {
             <Radio
                 isChecked={ copySystemChecked }
                 id='copy system'
+                name='baseline-create-options'
                 label='Copy an existing system'
                 value='copySystemChecked'
                 onChange={ this.handleChecked }
