@@ -28,21 +28,20 @@ class CreateBaselineModal extends Component {
 
         this.handleChecked = (_, event) => {
             const { value } = event.currentTarget;
+            this.props.clearSelectedBaselines();
 
             if (value === 'fromScratchChecked') {
-                this.props.clearSelectedBaselines();
                 this.setState({ fromScratchChecked: true, copyBaselineChecked: false, copySystemChecked: false });
             } else if (value === 'copyBaselineChecked') {
                 this.setState({ fromScratchChecked: false, copyBaselineChecked: true, copySystemChecked: false });
             } else {
-                this.props.clearSelectedBaselines();
                 this.setState({ fromScratchChecked: false, copyBaselineChecked: false, copySystemChecked: true });
             }
         };
     }
 
     async submitBaselineName() {
-        const { baselineName, fromScratchChecked } = this.state;
+        const { baselineName, fromScratchChecked, copyBaselineChecked, copySystemChecked } = this.state;
         const { createBaseline, toggleCreateBaselineModal, selectedBaselineIds, history, entities } = this.props;
         /*eslint-disable camelcase*/
         let newBaselineObject = { display_name: baselineName };
@@ -50,10 +49,10 @@ class CreateBaselineModal extends Component {
         if (fromScratchChecked) {
             newBaselineObject.baseline_facts = [];
             await createBaseline(newBaselineObject);
-        } else if (selectedBaselineIds.length === 1) {
+        } else if (selectedBaselineIds.length === 1 && copyBaselineChecked) {
             newBaselineObject = { display_name: baselineName };
             await createBaseline(newBaselineObject, selectedBaselineIds[0]);
-        } else if (entities.selectedSystemIds.length === 1) {
+        } else if (entities.selectedSystemIds.length === 1 && copySystemChecked) {
             newBaselineObject.inventory_uuid = entities.selectedSystemIds[0];
             await createBaseline(newBaselineObject);
         }
