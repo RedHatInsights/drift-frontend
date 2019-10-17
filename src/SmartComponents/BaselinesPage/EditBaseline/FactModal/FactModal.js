@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Button, Checkbox, Modal, TextInput } from '@patternfly/react-core';
+import { Button, Checkbox, Form, FormGroup, Modal, TextInput } from '@patternfly/react-core';
 
 import { factModalActions } from '../FactModal/redux';
 import { baselinesTableActions } from '../../../BaselinesTable/redux';
@@ -125,20 +125,25 @@ class FactModal extends Component {
     }
 
     renderFactInput() {
-        const { factName } = this.state;
+        const { categoryCheck, factName } = this.state;
         let factInputBody;
 
         factInputBody = <div className="fact-value">
-            Fact name:
-            <br></br>
-            <TextInput
-                value={ factName }
-                type="text"
-                placeholder="Name"
-                onChange={ this.handleNewName }
-                isValid={ factName !== '' && factName !== undefined ? true : false }
-                aria-label="fact name"
-            />
+            <Form>
+                <FormGroup
+                    label={ categoryCheck ? 'Category name' : 'Fact name' }
+                    isRequired
+                    fieldId='fact name'>
+                    <TextInput
+                        value={ factName }
+                        type="text"
+                        placeholder="Name"
+                        onChange={ this.handleNewName }
+                        isValid={ factName !== '' && factName !== undefined ? true : false }
+                        aria-label="fact name"
+                    />
+                </FormGroup>
+            </Form>
         </div>;
 
         return factInputBody;
@@ -167,9 +172,21 @@ class FactModal extends Component {
         }
 
         valueInputBody = <div className="fact-value">
-            Value:
-            <br></br>
-            { valueInput }
+            <Form>
+                { categoryCheck
+                    ? <FormGroup
+                        label='Value'
+                        fieldId='fact value'>
+                        { valueInput }
+                    </FormGroup>
+                    : <FormGroup
+                        label='Value'
+                        isRequired
+                        fieldId='fact value'>
+                        { valueInput }
+                    </FormGroup>
+                }
+            </Form>
         </div>;
 
         return valueInputBody;
@@ -195,7 +212,7 @@ class FactModal extends Component {
         return (
             <Modal
                 className="small-modal-body"
-                title="Fact add/edit"
+                title="Add/edit fact"
                 isOpen={ factModalOpened }
                 onClose={ this.cancelFact }
                 width="auto"
@@ -208,7 +225,7 @@ class FactModal extends Component {
                     </Button>,
                     <Button
                         key="cancel"
-                        variant="primary"
+                        variant="secondary"
                         onClick={ this.cancelFact }>
                         Cancel
                     </Button>

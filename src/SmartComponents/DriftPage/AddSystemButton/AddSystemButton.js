@@ -15,14 +15,15 @@ class AddSystemButton extends Component {
             <Button
                 variant='primary'
                 onClick={ this.props.toggleAddSystemModal }>
-                Add System
+                { this.props.isTable ? 'Add' : 'Add systems or baselines' }
             </Button>
         );
     }
 }
 
 AddSystemButton.propTypes = {
-    toggleAddSystemModal: PropTypes.func
+    toggleAddSystemModal: PropTypes.func,
+    isTable: PropTypes.bool
 };
 
 function mapDispatchToProps(dispatch) {

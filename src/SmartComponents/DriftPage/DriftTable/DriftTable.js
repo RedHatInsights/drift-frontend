@@ -4,8 +4,8 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { EmptyState, EmptyStateBody, EmptyStateIcon, Title, Tooltip } from '@patternfly/react-core';
 import queryString from 'query-string';
-import { AddCircleOIcon, AngleDownIcon, AngleRightIcon, LongArrowAltUpIcon, LongArrowAltDownIcon, ArrowsAltVIcon,
-    CloseIcon, ServerIcon, WarningTriangleIcon } from '@patternfly/react-icons';
+import { AngleDownIcon, AngleRightIcon, LongArrowAltUpIcon, LongArrowAltDownIcon, ArrowsAltVIcon,
+    CloseIcon, ExclamationTriangleIcon, PlusCircleIcon, ServerIcon } from '@patternfly/react-icons';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
 import moment from 'moment';
 
@@ -213,7 +213,7 @@ class DriftTable extends Component {
                                         <div>System profile does not exist. Please run insights-client on system to upload archive.</div>
                                     }
                                 >
-                                    <WarningTriangleIcon color="#f0ab00"/>
+                                    <ExclamationTriangleIcon color="#f0ab00"/>
                                 </Tooltip> : ''
                             }
                             { data[i].last_updated
@@ -308,17 +308,15 @@ class DriftTable extends Component {
         return (
             <center>
                 <EmptyState>
-                    <EmptyStateIcon icon={ AddCircleOIcon } />
+                    <EmptyStateIcon icon={ PlusCircleIcon } />
                     <br></br>
-                    <Title size="lg">Add systems to compare</Title>
+                    <Title size="lg">Add systems or baselines to compare</Title>
                     <EmptyStateBody>
-                        You currently have no systems displayed.
+                        You currently have no systems or baselines displayed. Add at least two
                         <br></br>
-                        Please add two or more systems to
-                        <br></br>
-                        compare their facts.
+                        systems or baselines to compare their facts.
                     </EmptyStateBody>
-                    <AddSystemButton />
+                    <AddSystemButton isTable={ false }/>
                 </EmptyState>
             </center>
         );
@@ -328,9 +326,9 @@ class DriftTable extends Component {
         return (
             <div className="add-system-header">
                 <div className="add-system-icon">
-                    <AddCircleOIcon/>
+                    <PlusCircleIcon/>
                 </div>
-                <AddSystemButton />
+                <AddSystemButton isTable={ true }/>
             </div>
         );
     }
