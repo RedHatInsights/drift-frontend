@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { CheckCircleIcon, ErrorCircleOIcon, HelpIcon } from '@patternfly/react-icons';
+import { CheckCircleIcon, QuestionCircleIcon, TimesCircleIcon } from '@patternfly/react-icons';
 
 class StateIcon extends Component {
     constructor(props) {
@@ -13,9 +13,9 @@ class StateIcon extends Component {
         if (this.props.factState === 'SAME') {
             iconClass = <CheckCircleIcon color='green'/>;
         } else if (this.props.factState === 'DIFFERENT') {
-            iconClass = <ErrorCircleOIcon color='red'/>;
+            iconClass = <TimesCircleIcon color='red'/>;
         } else {
-            iconClass = <HelpIcon />;
+            iconClass = <QuestionCircleIcon />;
         }
 
         return iconClass;

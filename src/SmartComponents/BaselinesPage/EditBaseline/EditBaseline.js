@@ -176,7 +176,6 @@ class EditBaseline extends Component {
                         <EditBaselineNameModal />
                         <PageHeader>
                             { this.renderBreadcrumb() }
-                            <br></br>
                             <PageHeaderTitle title={ baselineData.display_name }/>
                             <EditAltIcon className='pointer not-active edit-icon-margin' onClick={ () => toggleEditNameModal() } />
                         </PageHeader>

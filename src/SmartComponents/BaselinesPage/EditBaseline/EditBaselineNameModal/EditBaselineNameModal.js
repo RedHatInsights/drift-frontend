@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Button, Modal, TextInput } from '@patternfly/react-core';
+import { Button, Form, FormGroup, Modal, TextInput } from '@patternfly/react-core';
 
 import { editNameModalActions } from './redux';
 import { baselinesTableActions } from '../../../BaselinesTable/redux';
@@ -45,15 +45,20 @@ class EditBaselineNameModal extends Component {
         const { baselineName } = this.state;
 
         return (<div className='fact-value'>
-            <b>Baseline title</b>
-            <br></br>
-            <TextInput
-                value={ baselineName }
-                type="text"
-                onChange={ this.updateBaselineName }
-                isValid={ baselineName !== '' ? true : false }
-                aria-label="baseline name"
-            />
+            <Form>
+                <FormGroup
+                    label='Baseline title'
+                    isRequired
+                    fieldId='baseline name'>
+                    <TextInput
+                        value={ baselineName }
+                        type="text"
+                        onChange={ this.updateBaselineName }
+                        isValid={ baselineName !== '' ? true : false }
+                        aria-label="baseline name"
+                    />
+                </FormGroup>
+            </Form>
         </div>);
     }
 
@@ -62,11 +67,12 @@ class EditBaselineNameModal extends Component {
 
         return (
             <Modal
-                className='small-modal-body'
+                className='pf-c-modal-box'
                 title="Edit title"
                 isOpen={ editNameModalOpened }
                 onClose={ this.cancelModal }
                 width="auto"
+                isFooterLeftAligned
                 actions={ [
                     <Button
                         key="confirm"

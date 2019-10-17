@@ -20,7 +20,7 @@ export class BaselinesSearchBar extends Component {
             <React.Fragment>
                 <SimpleTableFilter buttonTitle={ null }
                     onFilterChange={ this.handleSearch }
-                    placeholder="Search by name"
+                    placeholder="Filter by name"
                 />
             </React.Fragment>
         );
