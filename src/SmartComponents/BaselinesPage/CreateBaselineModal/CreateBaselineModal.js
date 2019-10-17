@@ -148,6 +148,49 @@ class CreateBaselineModal extends Component {
         );
     }
 
+    renderActions() {
+        const { selectedBaselineIds, entities } = this.props;
+        const { baselineName, copyBaselineChecked, copySystemChecked } = this.state;
+        let actions;
+
+        if (baselineName === ''
+            || (copyBaselineChecked && selectedBaselineIds.length === 0)
+            || (copySystemChecked && entities && entities.selectedSystemIds.length === 0)
+        ) {
+            actions = [
+                <Button
+                    key="confirm"
+                    variant="primary"
+                    isDisabled>
+                    Create baseline
+                </Button>,
+                <Button
+                    key="cancel"
+                    variant="secondary"
+                    onClick={ this.cancelModal }>
+                    Cancel
+                </Button>
+            ];
+        } else {
+            actions = [
+                <Button
+                    key="confirm"
+                    variant="primary"
+                    onClick={ this.submitBaselineName }>
+                    Create baseline
+                </Button>,
+                <Button
+                    key="cancel"
+                    variant="secondary"
+                    onClick={ this.cancelModal }>
+                    Cancel
+                </Button>
+            ];
+        }
+
+        return actions;
+    }
+
     render() {
         const { createBaselineModalOpened } = this.props;
 
@@ -158,20 +201,8 @@ class CreateBaselineModal extends Component {
                 isOpen={ createBaselineModalOpened }
                 onClose={ this.cancelModal }
                 width="auto"
-                actions={ [
-                    <Button
-                        key="confirm"
-                        variant="primary"
-                        onClick={ this.submitBaselineName }>
-                        Create baseline
-                    </Button>,
-                    <Button
-                        key="cancel"
-                        variant="secondary"
-                        onClick={ this.cancelModal }>
-                        Cancel
-                    </Button>
-                ] }
+                isFooterLeftAligned
+                actions={ this.renderActions() }
             >
                 { this.renderModalBody() }
             </Modal>
