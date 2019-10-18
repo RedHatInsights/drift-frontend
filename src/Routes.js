@@ -25,12 +25,8 @@ InsightsRoute.propTypes = {
 export const Routes = () => {
     return (
         <Switch>
-            { window.insights.chrome.isBeta() ?
-                <InsightsRoute exact path='/baselines' component={ BaselinesPage } /> : null
-            }
-            { window.insights.chrome.isBeta() ?
-                <InsightsRoute path='/baselines/:id' component={ EditBaseline } /> : null
-            }
+            <InsightsRoute exact path='/baselines' component={ BaselinesPage } />
+            <InsightsRoute path='/baselines/:id' component={ EditBaseline } />
             <InsightsRoute exact path='/' component={ DriftPage } />
             <Redirect to='/'/>
         </Switch>
