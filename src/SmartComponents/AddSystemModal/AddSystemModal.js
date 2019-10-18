@@ -80,33 +80,30 @@ class AddSystemModal extends Component {
                         </Button>
                     ] }
                 >
-                    { window.insights.chrome.isBeta() ?
-                        <Tabs
-                            activeKey={ activeTab }
-                            onSelect={ this.changeActiveTab }
+                    <Tabs
+                        activeKey={ activeTab }
+                        onSelect={ this.changeActiveTab }
+                    >
+                        <Tab
+                            eventKey={ 0 }
+                            title="Systems"
                         >
-                            <Tab
-                                eventKey={ 0 }
-                                title="Systems"
-                            >
-                                <SystemsTable selectedSystemIds={ this.selectedSystemIds() }/>
-                            </Tab>
-                            <Tab
-                                eventKey={ 1 }
-                                title="Baselines"
-                            >
-                                <Toolbar className="drift-modal-toolbar">
-                                    <ToolbarGroup>
-                                        <ToolbarItem>
-                                            <BaselinesSearchBar />
-                                        </ToolbarItem>
-                                    </ToolbarGroup>
-                                </Toolbar>
-                                <BaselinesTable />
-                            </Tab>
-                        </Tabs> :
-                        <SystemsTable selectedSystemIds={ this.selectedSystemIds() }/>
-                    }
+                            <SystemsTable selectedSystemIds={ this.selectedSystemIds() }/>
+                        </Tab>
+                        <Tab
+                            eventKey={ 1 }
+                            title="Baselines"
+                        >
+                            <Toolbar className="drift-modal-toolbar">
+                                <ToolbarGroup>
+                                    <ToolbarItem>
+                                        <BaselinesSearchBar />
+                                    </ToolbarItem>
+                                </ToolbarGroup>
+                            </Toolbar>
+                            <BaselinesTable />
+                        </Tab>
+                    </Tabs>
                 </Modal>
             </React.Fragment>
         );
