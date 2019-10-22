@@ -71,6 +71,7 @@ class AddSystemModal extends Component {
                     isOpen={ addSystemModalOpened }
                     onClose={ this.cancelSelection }
                     width="auto"
+                    isFooterLeftAligned
                     actions={ [
                         <Button
                             key="confirm"

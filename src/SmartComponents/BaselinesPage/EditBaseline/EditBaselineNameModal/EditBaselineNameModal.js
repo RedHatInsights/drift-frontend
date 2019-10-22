@@ -67,6 +67,7 @@ class EditBaselineNameModal extends Component {
                 isOpen={ editNameModalOpened }
                 onClose={ this.cancelModal }
                 width="auto"
+                isFooterLeftAligned
                 actions={ [
                     <Button
                         key="confirm"
