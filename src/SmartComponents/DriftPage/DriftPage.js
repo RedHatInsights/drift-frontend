@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { Main, PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components';
 import { Card, CardBody, Toolbar, ToolbarGroup, ToolbarItem } from '@patternfly/react-core';
 import { errorAlertActions } from '../ErrorAlert/redux';
+import { baselinesTableActions } from '../BaselinesTable/redux';
 
 import DriftTable from './DriftTable/DriftTable';
 import FilterDropDown from './FilterDropDown/FilterDropDown';
@@ -17,6 +18,8 @@ import TablePagination from './Pagination/Pagination';
 class DriftPage extends Component {
     constructor(props) {
         super(props);
+
+        this.props.clearSelectedBaselines();
     }
 
     async componentDidMount() {
@@ -86,12 +89,14 @@ DriftPage.propTypes = {
     loading: PropTypes.bool,
     systems: PropTypes.array,
     baselines: PropTypes.array,
-    toggleErrorAlert: PropTypes.func
+    toggleErrorAlert: PropTypes.func,
+    clearSelectedBaselines: PropTypes.func
 };
 
 function mapDispatchToProps(dispatch) {
     return {
-        toggleErrorAlert: () => dispatch(errorAlertActions.toggleErrorAlert())
+        toggleErrorAlert: () => dispatch(errorAlertActions.toggleErrorAlert()),
+        clearSelectedBaselines: () => dispatch(baselinesTableActions.clearSelectedBaselines())
     };
 }
 
