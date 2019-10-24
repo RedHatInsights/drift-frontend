@@ -52,7 +52,7 @@ class BaselinesPage extends Component {
                     <EmptyStateBody>
                         You currently have no baselines displayed.
                         <br/>
-                        Please create a baseline to use in your System Comparison analysis.
+                        Create a baseline to use in your System Comparison analysis.
                     </EmptyStateBody>
                     <CreateBaselineButton />
                 </EmptyState>
