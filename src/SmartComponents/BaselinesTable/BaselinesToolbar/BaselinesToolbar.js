@@ -6,6 +6,7 @@ import { Toolbar, ToolbarGroup, ToolbarItem } from '@patternfly/react-core';
 import { SimpleTableFilter } from '@redhat-cloud-services/frontend-components';
 
 import CreateBaselineButton from '../../BaselinesPage/CreateBaselineButton/CreateBaselineButton';
+import ExportCSVButton from '../../BaselinesPage/ExportCSVButton/ExportCSVButton';
 import BaselinesKebab from '../../BaselinesPage/BaselinesKebab/BaselinesKebab';
 
 class BaselinesToolbar extends Component {
@@ -19,7 +20,7 @@ class BaselinesToolbar extends Component {
     }, 250)
 
     render() {
-        const { createButton, kebab } = this.props;
+        const { createButton, exportButton, kebab } = this.props;
 
         return (
             <Toolbar className="drift-toolbar">
@@ -38,6 +39,12 @@ class BaselinesToolbar extends Component {
                         </ToolbarItem>
                         : null
                     }
+                    { exportButton ?
+                        <ToolbarItem>
+                            <ExportCSVButton exportType='baseline list'/>
+                        </ToolbarItem>
+                        : null
+                    }
                     { kebab ?
                         <ToolbarItem>
                             <BaselinesKebab exportType='baseline list'/>
@@ -52,6 +59,7 @@ class BaselinesToolbar extends Component {
 
 BaselinesToolbar.propTypes = {
     createButton: PropTypes.bool,
+    exportButton: PropTypes.bool,
     kebab: PropTypes.bool,
     fetchBaselines: PropTypes.func,
     onSearch: PropTypes.func

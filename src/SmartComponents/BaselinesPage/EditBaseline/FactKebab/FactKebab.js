@@ -119,7 +119,7 @@ FactKebab.propTypes = {
     isSubFact: PropTypes.bool,
     toggleFactModal: PropTypes.func,
     setFactData: PropTypes.func,
-    baselineData: PropTypes.obj,
+    baselineData: PropTypes.object,
     patchBaseline: PropTypes.func
 };
 

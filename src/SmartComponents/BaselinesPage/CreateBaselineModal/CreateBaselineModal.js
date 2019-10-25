@@ -67,9 +67,10 @@ class CreateBaselineModal extends Component {
     }
 
     cancelModal = () => {
-        const { toggleCreateBaselineModal } = this.props;
+        const { toggleCreateBaselineModal/*, clearSelectedBaselines*/ } = this.props;
 
         this.updateBaselineName('');
+        //clearSelectedBaselines();
         toggleCreateBaselineModal();
     }
 
@@ -108,7 +109,7 @@ class CreateBaselineModal extends Component {
     renderCopyBaseline() {
         return (<React.Fragment>
             <b>Select baseline to copy from</b>
-            <BaselinesTable createBaselineModal='true' />
+            <BaselinesTable hasSelect={ true } />
         </React.Fragment>
         );
     }
@@ -227,13 +228,13 @@ class CreateBaselineModal extends Component {
 CreateBaselineModal.propTypes = {
     createBaselineModalOpened: PropTypes.bool,
     createBaseline: PropTypes.func,
-    history: PropTypes.obj,
-    baselineData: PropTypes.obj,
+    history: PropTypes.object,
+    baselineData: PropTypes.object,
     toggleCreateBaselineModal: PropTypes.func,
     clearSelectedBaselines: PropTypes.func,
     entities: PropTypes.object,
     selectedBaselineIds: PropTypes.array,
-    error: PropTypes.obj
+    error: PropTypes.object
 };
 
 function mapStateToProps(state) {

@@ -62,10 +62,10 @@ function setIdDelete(baselineUUID) {
     };
 }
 
-function deleteBaseline(baselineId) {
+function deleteSelectedBaselines(deleteBaselinesAPIBody) {
     return {
-        type: types.DELETE_BASELINE,
-        payload: api.deleteBaselineData(baselineId)
+        type: types.DELETE_SELECTED_BASELINES,
+        payload: api.deleteBaselinesData(deleteBaselinesAPIBody)
     };
 }
 
@@ -86,6 +86,6 @@ export default {
     clearBaselineData,
     patchBaseline,
     setIdDelete,
-    deleteBaseline,
+    deleteSelectedBaselines,
     expandRow
 };

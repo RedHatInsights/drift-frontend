@@ -8,7 +8,7 @@ import { errorAlertReducer } from '../SmartComponents/ErrorAlert/redux/errorAler
 import { filterDropdownReducer } from '../SmartComponents/DriftPage/FilterDropDown/redux/filterDropdownReducer';
 import { actionKebabReducer } from '../SmartComponents/DriftPage/ActionKebab/redux/actionKebabReducer';
 import { factModalReducer } from '../SmartComponents/BaselinesPage/EditBaseline/FactModal/redux/reducers';
-import { baselinesKebabReducer } from '../SmartComponents/BaselinesPage/BaselinesKebab/redux/baselinesKebabReducer';
+import { exportCSVButtonReducer } from '../SmartComponents/BaselinesPage/ExportCSVButton/redux/exportCSVButtonReducer';
 import { createBaselineModalReducer } from '../SmartComponents/BaselinesPage/CreateBaselineModal/redux/reducers';
 import { editNameModalReducer } from '../SmartComponents/BaselinesPage/EditBaseline/EditBaselineNameModal/redux/reducers';
 
@@ -32,7 +32,7 @@ export function init (...middleware) {
         filterDropdownOpened: filterDropdownReducer,
         kebabOpened: actionKebabReducer,
         factModalState: factModalReducer,
-        baselinesKebabState: baselinesKebabReducer,
+        exportCSVButtonState: exportCSVButtonReducer,
         createBaselineModalState: createBaselineModalReducer,
         editNameModalState: editNameModalReducer
     });
