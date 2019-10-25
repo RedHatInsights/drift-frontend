@@ -67,7 +67,7 @@ class CreateBaseline extends Component {
 CreateBaseline.propTypes = {
     toggleCreateBaseline: PropTypes.func,
     createBaseline: PropTypes.func,
-    baselineData: PropTypes.obj,
+    baselineData: PropTypes.object,
     history: PropTypes.obj
 };
 

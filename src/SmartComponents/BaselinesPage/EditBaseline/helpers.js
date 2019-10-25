@@ -2,6 +2,7 @@ import React from 'react';
 import jiff from 'jiff';
 import FactKebab from './FactKebab/FactKebab';
 
+/*eslint-disable react/prop-types*/
 function renderKebab({ factName, factValue, fact, isCategory, isSubFact } = {}) {
     return <td>
         <FactKebab
@@ -13,6 +14,7 @@ function renderKebab({ factName, factValue, fact, isCategory, isSubFact } = {}) 
         />
     </td>;
 }
+/*eslint-enable react/prop-types*/
 
 function buildNewFactData(isParent, factName, factValue, factData) {
     let newFactData = {};

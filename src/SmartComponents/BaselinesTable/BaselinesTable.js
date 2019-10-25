@@ -20,11 +20,10 @@ class BaselinesTable extends Component {
     constructor(props) {
         super(props);
         this.onSelect = this.onSelect.bind(this);
-        this.hasSelect = this.props.selectBaseline === true || this.props.selectOneBaseline === true;
 
         this.state = {
             sortBy: {
-                index: this.hasSelect ? 1 : 0,
+                index: this.props.hasSelect ? 1 : 0,
                 direction: 'asc'
             },
             search: undefined,
@@ -37,6 +36,14 @@ class BaselinesTable extends Component {
         await window.insights.chrome.auth.getUser();
 
         this.fetchBaselines();
+    }
+
+    componentDidUpdate(prevProps) {
+        const { fetchBaselines } = this.props;
+
+        if (this.props.createBaselineModalOpened === false && prevProps.createBaselineModalOpened === true) {
+            fetchBaselines();
+        }
     }
 
     fetchBaselines = ({
@@ -93,7 +100,7 @@ class BaselinesTable extends Component {
 
     onSort = (_event, index, direction) => {
         let orderBy = '';
-        let startIndex = this.hasSelect ? 1 : 0;
+        let startIndex = this.props.hasSelect ? 1 : 0;
 
         if (index === startIndex) {
             orderBy = 'display_name';
@@ -155,6 +162,10 @@ class BaselinesTable extends Component {
                 row.push(<div>{ kebab }</div>);
             }
 
+            if (baseline.selected) {
+                row.selected = true;
+            }
+
             table.push(row);
         });
 
@@ -177,7 +188,8 @@ class BaselinesTable extends Component {
     }
 
     renderTable() {
-        const { baselineTableData, baselineListLoading, baselineDeleteLoading, addSystemModalOpened, createBaselineModal, hasSelect } = this.props;
+        const { baselineTableData, baselineListLoading, baselineDeleteLoading,
+            createBaselineModalOpened, addSystemModalOpened, hasSelect } = this.props;
         let columns = [
             { title: 'Name', transforms: [ sortable ]},
             { title: 'Last updated', transforms: [ sortable ]}
@@ -195,16 +207,18 @@ class BaselinesTable extends Component {
                     onSort={ this.onSort }
                     sortBy={ this.state.sortBy }
                     onSelect={ hasSelect ? this.onSelect : false }
+
                     cells={ columns }
                     rows={ modalRows }
                 >
                     <TableHeader />
                     <TableBody />
                 </Table>;
-            } else if (createBaselineModal) {
+            } else if (createBaselineModalOpened) {
                 modalRows = this.createModalRows();
 
                 table = <Table
+                    aria-label="Baselines Table"
                     onSelect={ hasSelect ? this.onSingleSelect : false }
                     cells={ columns }
                     rows={ modalRows }
@@ -275,12 +289,13 @@ class BaselinesTable extends Component {
     }
 
     render() {
-        const { kebab, createButton } = this.props;
+        const { kebab, createButton, exportButton } = this.props;
 
         return (
             <React.Fragment>
                 <BaselinesToolbar
                     createButton={ createButton }
+                    exportButton={ exportButton }
                     kebab={ kebab }
                     onSearch={ this.onSearch }
                 />
@@ -299,12 +314,14 @@ BaselinesTable.propTypes = {
     selectOneBaseline: PropTypes.func,
     addSystemModalOpened: PropTypes.bool,
     fetchBaselines: PropTypes.func,
-    history: PropTypes.obj,
+    history: PropTypes.object,
     kebab: PropTypes.bool,
     createButton: PropTypes.bool,
-    createBaselineModal: PropTypes.bool,
+    exportButton: PropTypes.bool,
+    createBaselineModalOpened: PropTypes.bool,
     hasSelect: PropTypes.bool,
-    hasSingleSelect: PropTypes.bool
+    hasSingleSelect: PropTypes.bool,
+    clearSelectedBaselines: PropTypes.func
 };
 
 function mapStateToProps(state) {
@@ -312,7 +329,8 @@ function mapStateToProps(state) {
         baselineDeleteLoading: state.baselinesTableState.baselineDeleteLoading,
         baselineListLoading: state.baselinesTableState.baselineListLoading,
         baselineTableData: state.baselinesTableState.baselineTableData,
-        addSystemModalOpened: state.addSystemModalState.addSystemModalOpened
+        addSystemModalOpened: state.addSystemModalState.addSystemModalOpened,
+        createBaselineModalOpened: state.createBaselineModalState.createBaselineModalOpened
     };
 }
 
@@ -320,7 +338,8 @@ function mapDispatchToProps(dispatch) {
     return {
         selectBaseline: (id, isSelected) => dispatch(baselinesTableActions.selectBaseline(id, isSelected)),
         selectOneBaseline: (id, isSelected) => dispatch(baselinesTableActions.selectOneBaseline(id, isSelected)),
-        fetchBaselines: (params) => dispatch(baselinesTableActions.fetchBaselines(params))
+        fetchBaselines: (params) => dispatch(baselinesTableActions.fetchBaselines(params)),
+        clearSelectedBaselines: () => dispatch(baselinesTableActions.clearSelectedBaselines())
     };
 }
 

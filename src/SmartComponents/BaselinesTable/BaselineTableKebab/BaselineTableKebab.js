@@ -1,27 +1,26 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Dropdown, KebabToggle, DropdownItem } from '@patternfly/react-core';
 
-import { baselinesTableActions } from '../redux';
+import DeleteBaselinesModal from '../../BaselinesPage/DeleteBaselinesModal/DeleteBaselinesModal';
 
 class BaselineTableKebab extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isOpen: false
+            isOpen: false,
+            modalOpened: false
         };
 
-        this.deleteBaselineData = this.deleteBaselineData.bind(this);
         this.onKebabToggle = this.onKebabToggle.bind(this);
-    }
 
-    deleteBaselineData() {
-        const { setIdDelete, deleteBaseline, baselineRowData } = this.props;
-
-        setIdDelete(baselineRowData[0]);
-        deleteBaseline(baselineRowData[0]);
+        this.toggleModalOpened = () => {
+            const { modalOpened } = this.state;
+            this.setState({
+                modalOpened: !modalOpened
+            });
+        };
     }
 
     onKebabToggle(isOpen) {
@@ -37,7 +36,8 @@ class BaselineTableKebab extends Component {
     }
 
     render() {
-        const { isOpen } = this.state;
+        const { isOpen, modalOpened } = this.state;
+        const { baselineRowData } = this.props;
         const dropdownItems = [
             <DropdownItem
                 key="edit"
@@ -48,36 +48,30 @@ class BaselineTableKebab extends Component {
             <DropdownItem
                 key="delete"
                 component="button"
-                onClick={ this.deleteBaselineData }>
+                onClick={ this.toggleModalOpened }>
                 Delete
             </DropdownItem>
         ];
 
         return (
-            <Dropdown
-                style={ { float: 'right' } }
-                className={ 'baseline-table-kebab' }
-                toggle={ <KebabToggle onToggle={ (isOpen) => this.onKebabToggle(isOpen) } /> }
-                isOpen={ isOpen }
-                dropdownItems={ dropdownItems }
-                isPlain
-            />
+            <React.Fragment>
+                { modalOpened ? <DeleteBaselinesModal modalOpened={ true } baselineId={ baselineRowData[0] } /> : null }
+                <Dropdown
+                    style={ { float: 'right' } }
+                    className={ 'baseline-table-kebab' }
+                    toggle={ <KebabToggle onToggle={ (isOpen) => this.onKebabToggle(isOpen) } /> }
+                    isOpen={ isOpen }
+                    dropdownItems={ dropdownItems }
+                    isPlain
+                />
+            </React.Fragment>
         );
     }
 }
 
 BaselineTableKebab.propTypes = {
-    setIdDelete: PropTypes.func,
-    deleteBaseline: PropTypes.func,
     baselineRowData: PropTypes.array,
-    history: PropTypes.obj
+    history: PropTypes.object
 };
 
-function mapDispatchToProps(dispatch) {
-    return {
-        setIdDelete: (baselineUUID) => dispatch(baselinesTableActions.setIdDelete(baselineUUID)),
-        deleteBaseline: (baselineUUID) => dispatch(baselinesTableActions.deleteBaseline(baselineUUID))
-    };
-}
-
-export default withRouter(connect(null, mapDispatchToProps)(BaselineTableKebab));
+export default withRouter(BaselineTableKebab);

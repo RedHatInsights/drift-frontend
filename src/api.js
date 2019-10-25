@@ -26,8 +26,8 @@ async function postBaseline(path, body = {}) {
     return request.data;
 }
 
-async function deleteBaseline(path) {
-    return await axios.delete(BASELINE_API_ROOT.concat(path));
+async function deleteBaselines(path, body = {}) {
+    return await axios.delete(BASELINE_API_ROOT.concat(path), body);
 }
 
 function getCompare(systemIds = [], baselineIds = []) {
@@ -60,10 +60,10 @@ function patchBaselineData(baselineId = [], apiBody) {
     return patchBaseline(path.concat(baselineId), apiBody);
 }
 
-function deleteBaselineData(baselineId = []) {
-    let path = '/baselines/';
+function deleteBaselinesData(deleteBaselinesAPIBody = []) {
+    let path = '/baselines';
 
-    return deleteBaseline(path.concat(baselineId));
+    return deleteBaselines(path, deleteBaselinesAPIBody);
 }
 
 function postNewBaseline(apiBody, uuid) {
@@ -81,6 +81,6 @@ export default {
     getBaselineList,
     getBaselineData,
     patchBaselineData,
-    deleteBaselineData,
+    deleteBaselinesData,
     postNewBaseline
 };

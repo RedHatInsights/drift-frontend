@@ -42,7 +42,7 @@ class BaselinesPage extends Component {
         return (
             <CardBody>
                 <div>
-                    <BaselinesTable kebab={ true } createButton={ true }/>
+                    <BaselinesTable kebab={ true } createButton={ true } exportButton={ true } hasSelect={ true }/>
                 </div>
             </CardBody>
         );

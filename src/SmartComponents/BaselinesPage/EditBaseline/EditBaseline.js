@@ -202,7 +202,7 @@ class EditBaseline extends Component {
 }
 
 EditBaseline.propTypes = {
-    history: PropTypes.obj,
+    history: PropTypes.object,
     match: PropTypes.any,
     clearBaselineData: PropTypes.func,
     baselineData: PropTypes.object,
