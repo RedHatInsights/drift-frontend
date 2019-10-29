@@ -14,6 +14,7 @@ import {
 
 import BaselineTableKebab from './BaselineTableKebab/BaselineTableKebab';
 import { baselinesTableActions } from './redux';
+import BaselinesToolbar from './BaselinesToolbar/BaselinesToolbar';
 
 class BaselinesTable extends Component {
     constructor(props) {
@@ -22,9 +23,12 @@ class BaselinesTable extends Component {
 
     async componentDidMount() {
         await window.insights.chrome.auth.getUser();
-        const { fetchBaselines } = this.props;
 
-        fetchBaselines();
+        this.fetchBaselines();
+    }
+
+    fetchBaselines = (search) => {
+        this.props.fetchBaselines(search);
     }
 
     onSelect = (event, isSelected, rowId) => {
@@ -205,8 +209,15 @@ class BaselinesTable extends Component {
     }
 
     render() {
+        const { kebab, createButton } = this.props;
+
         return (
             <React.Fragment>
+                <BaselinesToolbar
+                    createButton={ createButton }
+                    kebab={ kebab }
+                    onSearch={ this.fetchBaselines }
+                />
                 { this.renderTable() }
             </React.Fragment>
         );
@@ -224,6 +235,7 @@ BaselinesTable.propTypes = {
     fetchBaselines: PropTypes.func,
     history: PropTypes.obj,
     kebab: PropTypes.bool,
+    createButton: PropTypes.bool,
     createBaselineModal: PropTypes.bool
 };
 
@@ -240,7 +252,7 @@ function mapDispatchToProps(dispatch) {
     return {
         selectBaseline: (id, isSelected) => dispatch(baselinesTableActions.selectBaseline(id, isSelected)),
         selectOneBaseline: (id, isSelected) => dispatch(baselinesTableActions.selectOneBaseline(id, isSelected)),
-        fetchBaselines: () => dispatch(baselinesTableActions.fetchBaselines())
+        fetchBaselines: (search) => dispatch(baselinesTableActions.fetchBaselines(search))
     };
 }
 
