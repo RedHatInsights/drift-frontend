@@ -4,13 +4,11 @@ import PropTypes from 'prop-types';
 import { Button, Modal, Tab, Tabs } from '@patternfly/react-core';
 import { connect } from 'react-redux';
 import { withCookies, Cookies } from 'react-cookie';
-import { Toolbar, ToolbarGroup, ToolbarItem } from '@patternfly/react-core';
 
 import SystemsTable from '../SystemsTable/SystemsTable';
 import BaselinesTable from '../BaselinesTable/BaselinesTable';
 import { addSystemModalActions } from './redux';
 import { baselinesTableActions } from '../BaselinesTable/redux';
-import BaselinesSearchBar from '../BaselinesSearchBar/BaselinesSearchBar';
 
 class AddSystemModal extends Component {
     static propTypes = {
@@ -95,13 +93,6 @@ class AddSystemModal extends Component {
                             eventKey={ 1 }
                             title="Baselines"
                         >
-                            <Toolbar className="drift-modal-toolbar">
-                                <ToolbarGroup>
-                                    <ToolbarItem>
-                                        <BaselinesSearchBar />
-                                    </ToolbarItem>
-                                </ToolbarGroup>
-                            </Toolbar>
                             <BaselinesTable />
                         </Tab>
                     </Tabs>

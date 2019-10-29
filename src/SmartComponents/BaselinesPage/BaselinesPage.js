@@ -3,15 +3,13 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { Main, PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components';
-import { Card, CardBody, Toolbar, ToolbarGroup, ToolbarItem } from '@patternfly/react-core';
+import { Card, CardBody } from '@patternfly/react-core';
 import { AddCircleOIcon } from '@patternfly/react-icons';
 import { EmptyState, EmptyStateBody, EmptyStateIcon, Title } from '@patternfly/react-core';
 
 import BaselinesTable from '../BaselinesTable/BaselinesTable';
 import CreateBaselineButton from './CreateBaselineButton/CreateBaselineButton';
 import CreateBaselineModal from './CreateBaselineModal/CreateBaselineModal';
-import BaselinesKebab from './BaselinesKebab/BaselinesKebab';
-import BaselinesSearchBar from '../BaselinesSearchBar/BaselinesSearchBar';
 
 class BaselinesPage extends Component {
     constructor(props) {
@@ -20,26 +18,6 @@ class BaselinesPage extends Component {
 
     async componentDidMount() {
         await window.insights.chrome.auth.getUser();
-    }
-
-    renderToolbar() {
-        return (
-            <Toolbar className="drift-toolbar">
-                <ToolbarGroup>
-                    <ToolbarItem>
-                        <BaselinesSearchBar />
-                    </ToolbarItem>
-                </ToolbarGroup>
-                <ToolbarGroup>
-                    <ToolbarItem>
-                        <CreateBaselineButton />
-                    </ToolbarItem>
-                    <ToolbarItem>
-                        <BaselinesKebab exportType='baseline list'/>
-                    </ToolbarItem>
-                </ToolbarGroup>
-            </Toolbar>
-        );
     }
 
     renderEmptyState() {
@@ -63,9 +41,8 @@ class BaselinesPage extends Component {
     renderTable() {
         return (
             <CardBody>
-                { this.renderToolbar() }
                 <div>
-                    <BaselinesTable kebab='true'/>
+                    <BaselinesTable kebab={ true } createButton={ true }/>
                 </div>
             </CardBody>
         );
