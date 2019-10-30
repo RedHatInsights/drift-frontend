@@ -4,15 +4,11 @@ import union from 'lodash/union';
 
 const initialState = {
     baselineListLoading: true,
-    baselineDataLoading: false,
     baselineDeleteLoading: false,
     fullBaselineListData: [],
     baselineTableData: [],
     selectedBaselineIds: [],
-    baselineData: undefined,
-    editBaselineTableData: [],
     IdToDelete: '',
-    expandedRows: [],
     emptyState: false
 };
 
@@ -21,9 +17,6 @@ export function baselinesTableReducer(state = initialState, action) {
     let selectedBaselines = [];
     let newBaselineTableData = [];
     let newFullBaselineList;
-    let filteredBaselineData = [];
-    let newExpandedRows = [];
-    let newEditBaselineTableData = [];
 
     switch (action.type) {
         case `${types.FETCH_BASELINE_LIST}_PENDING`:
@@ -105,19 +98,6 @@ export function baselinesTableReducer(state = initialState, action) {
                 ...state,
                 selectedBaselineIds: []
             };
-        case `${types.FETCH_BASELINE_DATA}_PENDING`:
-            return {
-                ...state,
-                baselineDataLoading: true
-            };
-        case `${types.FETCH_BASELINE_DATA}_FULFILLED`:
-            filteredBaselineData = baselinesReducerHelpers.filterBaselineData(action.payload.baseline_facts, []);
-            return {
-                ...state,
-                baselineDataLoading: false,
-                baselineData: action.payload,
-                editBaselineTableData: filteredBaselineData
-            };
         case `${types.ADD_BASELINE_UUID}`:
             return {
                 ...state,
@@ -127,17 +107,6 @@ export function baselinesTableReducer(state = initialState, action) {
             return {
                 ...state,
                 baselineData: undefined
-            };
-        case `${types.PATCH_BASELINE}_PENDING`:
-            return {
-                ...state,
-                baselineDataLoading: true
-            };
-        case `${types.PATCH_BASELINE}_FULFILLED`:
-            return {
-                ...state,
-                baselineDataLoading: false,
-                baselineData: action.payload
             };
         case `${types.SET_ID_DELETE}`:
             return {
@@ -165,14 +134,6 @@ export function baselinesTableReducer(state = initialState, action) {
                 ...state,
                 baselineDeleteLoading: false,
                 IdToDelete: ''
-            };
-        case `${types.EXPAND_PARENT_FACT}`:
-            newExpandedRows = baselinesReducerHelpers.toggleExpandedRow(state.expandedRows, action.payload);
-            newEditBaselineTableData = baselinesReducerHelpers.filterBaselineData(state.baselineData.baseline_facts, newExpandedRows);
-            return {
-                ...state,
-                expandedRows: newExpandedRows,
-                editBaselineTableData: newEditBaselineTableData
             };
 
         default:

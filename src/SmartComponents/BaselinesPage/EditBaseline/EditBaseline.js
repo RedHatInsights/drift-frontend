@@ -12,7 +12,7 @@ import EditBaselineToolbar from './EditBaselineToolbar/EditBaselineToolbar';
 import FactModal from './FactModal/FactModal';
 import EditBaselineNameModal from './EditBaselineNameModal/EditBaselineNameModal';
 import { baselinesTableActions } from '../../BaselinesTable/redux';
-import { editNameModalActions } from './EditBaselineNameModal/redux';
+import { editBaselineActions } from './redux';
 import editBaselineHelpers from './helpers';
 
 class EditBaseline extends Component {
@@ -218,21 +218,21 @@ EditBaseline.propTypes = {
 
 function mapStateToProps(state) {
     return {
-        baselineData: state.baselinesTableState.baselineData,
-        baselineDataLoading: state.baselinesTableState.baselineDataLoading,
-        factModalOpened: state.factModalState.factModalOpened,
-        editBaselineTableData: state.baselinesTableState.editBaselineTableData,
-        expandedRows: state.baselinesTableState.expandedRows
+        baselineData: state.editBaselineState.baselineData,
+        baselineDataLoading: state.editBaselineState.baselineDataLoading,
+        factModalOpened: state.editBaselineState.factModalOpened,
+        editBaselineTableData: state.editBaselineState.editBaselineTableData,
+        expandedRows: state.editBaselineState.expandedRows
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
         clearBaselineData: () => dispatch(baselinesTableActions.clearBaselineData()),
-        patchBaseline: (baselineId, newBaselineBody) => dispatch(baselinesTableActions.patchBaseline(baselineId, newBaselineBody)),
-        expandRow: (factName) => dispatch(baselinesTableActions.expandRow(factName)),
-        fetchBaselineData: (baselineUUID) => dispatch(baselinesTableActions.fetchBaselineData(baselineUUID)),
-        toggleEditNameModal: () => dispatch(editNameModalActions.toggleEditNameModal())
+        patchBaseline: (baselineId, newBaselineBody) => dispatch(editBaselineActions.patchBaseline(baselineId, newBaselineBody)),
+        expandRow: (factName) => dispatch(editBaselineActions.expandRow(factName)),
+        fetchBaselineData: (baselineUUID) => dispatch(editBaselineActions.fetchBaselineData(baselineUUID)),
+        toggleEditNameModal: () => dispatch(editBaselineActions.toggleEditNameModal())
     };
 }
 

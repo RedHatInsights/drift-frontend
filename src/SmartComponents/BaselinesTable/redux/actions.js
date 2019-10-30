@@ -35,23 +35,9 @@ function clearSelectedBaselines() {
     };
 }
 
-function fetchBaselineData(baselineUUID) {
-    return {
-        type: types.FETCH_BASELINE_DATA,
-        payload: api.getBaselineData(baselineUUID)
-    };
-}
-
 function clearBaselineData() {
     return {
         type: types.CLEAR_BASELINE_DATA
-    };
-}
-
-function patchBaseline(baselineId, apiBody) {
-    return {
-        type: types.PATCH_BASELINE,
-        payload: api.patchBaselineData(baselineId, apiBody)
     };
 }
 
@@ -69,23 +55,13 @@ function deleteSelectedBaselines(deleteBaselinesAPIBody) {
     };
 }
 
-function expandRow(factName) {
-    return {
-        type: types.EXPAND_PARENT_FACT,
-        payload: factName
-    };
-}
-
 export default {
     fetchBaselines,
     selectBaseline,
     selectOneBaseline,
     setSelectedBaselines,
     clearSelectedBaselines,
-    fetchBaselineData,
     clearBaselineData,
-    patchBaseline,
     setIdDelete,
-    deleteSelectedBaselines,
-    expandRow
+    deleteSelectedBaselines
 };

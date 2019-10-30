@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Button, Checkbox, Form, FormGroup, Modal, TextInput } from '@patternfly/react-core';
 
-import { factModalActions } from '../FactModal/redux';
-import { baselinesTableActions } from '../../../BaselinesTable/redux';
+import { editBaselineActions } from '../redux';
 import editBaselineHelpers from '../helpers';
 
 class FactModal extends Component {
@@ -17,7 +16,6 @@ class FactModal extends Component {
         this.renderFactInput = this.renderFactInput.bind(this);
         this.renderValueInput = this.renderValueInput.bind(this);
         this.renderModalBody = this.renderModalBody.bind(this);
-        this.patchFact = this.patchFact.bind(this);
 
         this.state = {
             factName: this.props.factName,
@@ -48,41 +46,41 @@ class FactModal extends Component {
         toggleFactModal();
     }
 
-    confirmModal() {
-        const { toggleFactModal } = this.props;
+    async confirmModal() {
+        const { toggleFactModal, baselineData, patchBaseline } = this.props;
         const { isAddFact } = this.state;
+        let newAPIBody = '';
 
-        if (isAddFact) {
-            this.addFact();
-        } else {
-            this.editFact();
+        try {
+            if (isAddFact) {
+                newAPIBody = this.addFact(baselineData);
+            } else {
+                newAPIBody = this.editFact(baselineData);
+            }
+
+            await patchBaseline(baselineData.id, newAPIBody);
+
+            toggleFactModal();
+        } catch (e) {
+            // do nothing and let redux handle
         }
-
-        toggleFactModal();
     }
 
-    addFact() {
+    addFact(baselineData) {
         const { isCategory, factName, factValue, factData } = this.state;
 
         let newFactData = editBaselineHelpers.buildNewFactData(isCategory, factName, factValue, factData);
-        this.patchFact(newFactData, factData);
+
+        return editBaselineHelpers.makeAddFactPatch(newFactData, baselineData);
     }
 
-    editFact() {
+    editFact(baselineData) {
         const { isCategory, factName, factValue, factData } = this.state;
 
         let editedFactData = editBaselineHelpers.buildEditedFactData(
             isCategory, this.props.factName, factName, this.props.factValue, factValue, factData
         );
-
-        this.patchFact(editedFactData, factData);
-    }
-
-    patchFact(patchData, factData) {
-        const { baselineData, patchBaseline } = this.props;
-
-        let newAPIBody = editBaselineHelpers.makeAddFactPatch(patchData, baselineData, factData);
-        patchBaseline(baselineData.id, newAPIBody);
+        return editBaselineHelpers.makeEditFactPatch(editedFactData, baselineData, factData);
     }
 
     renderCategoryCheckbox() {
@@ -100,6 +98,7 @@ class FactModal extends Component {
     }
 
     renderFactInput() {
+        const { error } = this.props;
         const { factName, isCategory } = this.state;
 
         return (
@@ -108,13 +107,15 @@ class FactModal extends Component {
                     <FormGroup
                         label={ isCategory ? 'Category name' : 'Fact name' }
                         isRequired
+                        helperTextInvalid={ error.hasOwnProperty('detail') ? error.detail : null }
+                        isValid={ !error.hasOwnProperty('status') }
                         fieldId='fact name'>
                         <TextInput
                             value={ factName }
                             type="text"
                             placeholder="Name"
                             onChange={ this.handleNewName }
-                            isValid={ factName !== '' && factName !== undefined ? true : false }
+                            isValid={ !error.hasOwnProperty('status') }
                             aria-label="fact name"
                         />
                     </FormGroup>
@@ -124,6 +125,7 @@ class FactModal extends Component {
     }
 
     renderValueInput() {
+        const { error } = this.props;
         const { factValue } = this.state;
 
         return (
@@ -132,13 +134,15 @@ class FactModal extends Component {
                     <FormGroup
                         label='Value'
                         isRequired
+                        helperTextInvalid={ error.hasOwnProperty('detail') ? error.detail : null }
+                        isValid={ !error.hasOwnProperty('status') }
                         fieldId='fact value'>
                         <TextInput
                             value={ factValue }
                             type="text"
                             placeholder="Value"
                             onChange={ this.handleNewValue }
-                            isValid={ factValue !== '' && factValue !== undefined ? true : false }
+                            isValid={ !error.hasOwnProperty('status') }
                             aria-label="value"
                         />
                     </FormGroup>
@@ -223,25 +227,27 @@ FactModal.propTypes = {
     isCategory: PropTypes.bool,
     isSubFact: PropTypes.bool,
     baselineData: PropTypes.obj,
-    patchBaseline: PropTypes.func
+    patchBaseline: PropTypes.func,
+    error: PropTypes.obj
 };
 
 function mapStateToProps(state) {
     return {
-        factModalOpened: state.factModalState.factModalOpened,
-        factName: state.factModalState.factName,
-        factValue: state.factModalState.factValue,
-        factData: state.factModalState.factData,
-        isCategory: state.factModalState.isCategory,
-        isSubFact: state.factModalState.isSubFact,
-        baselineData: state.baselinesTableState.baselineData
+        factModalOpened: state.editBaselineState.factModalOpened,
+        factName: state.editBaselineState.factName,
+        factValue: state.editBaselineState.factValue,
+        factData: state.editBaselineState.factData,
+        isCategory: state.editBaselineState.isCategory,
+        isSubFact: state.editBaselineState.isSubFact,
+        baselineData: state.editBaselineState.baselineData,
+        error: state.editBaselineState.error
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        toggleFactModal: () => dispatch(factModalActions.toggleFactModal()),
-        patchBaseline: (baselineId, newBaselineBody) => dispatch(baselinesTableActions.patchBaseline(baselineId, newBaselineBody))
+        toggleFactModal: () => dispatch(editBaselineActions.toggleFactModal()),
+        patchBaseline: (baselineId, newBaselineBody) => dispatch(editBaselineActions.patchBaseline(baselineId, newBaselineBody))
     };
 }
 

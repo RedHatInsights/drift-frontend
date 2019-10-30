@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Dropdown, DropdownItem, DropdownPosition, KebabToggle } from '@patternfly/react-core';
 
-import { factModalActions } from '../FactModal/redux';
-import { baselinesTableActions } from '../../../BaselinesTable/redux';
+import { editBaselineActions } from '../redux';
 import editBaselineHelpers from '../helpers';
 
 class FactKebab extends Component {
@@ -40,18 +39,18 @@ class FactKebab extends Component {
     }
 
     deleteFact() {
-        const { baselineData, patchBaseline, factName, factValue, fact } = this.props;
+        const { baselineData, patchBaseline, factName, factValue, fact, isSubFact } = this.props;
         let factToDelete = { name: factName, value: factValue };
         let newAPIBody;
 
-        if (fact.values && factValue !== '') {
-            let deletedSubFact = editBaselineHelpers.buildDeletedSubFact(factToDelete, fact);
-            newAPIBody = editBaselineHelpers.makeDeleteFactPatch(deletedSubFact, baselineData, fact);
+        if (isSubFact === true) {
+            newAPIBody = editBaselineHelpers.makeDeleteSubFactPatch(factToDelete, fact, baselineData);
         } else {
             newAPIBody = editBaselineHelpers.makeDeleteFactPatch(factToDelete, baselineData, []);
         }
 
         patchBaseline(baselineData.id, newAPIBody);
+        this.onKebabToggle(false);
     }
 
     addFact() {
@@ -125,15 +124,15 @@ FactKebab.propTypes = {
 
 function mapStateToProps(state) {
     return {
-        baselineData: state.baselinesTableState.baselineData
+        baselineData: state.editBaselineState.baselineData
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        toggleFactModal: () => dispatch(factModalActions.toggleFactModal()),
-        setFactData: (factData) => dispatch(factModalActions.setFactData(factData)),
-        patchBaseline: (baselineId, newAPIBody) => dispatch(baselinesTableActions.patchBaseline(baselineId, newAPIBody))
+        toggleFactModal: () => dispatch(editBaselineActions.toggleFactModal()),
+        setFactData: (factData) => dispatch(editBaselineActions.setFactData(factData)),
+        patchBaseline: (baselineId, newAPIBody) => dispatch(editBaselineActions.patchBaseline(baselineId, newAPIBody))
     };
 }
 

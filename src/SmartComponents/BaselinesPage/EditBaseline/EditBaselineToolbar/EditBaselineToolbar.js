@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Button, Toolbar, ToolbarGroup, ToolbarItem } from '@patternfly/react-core';
 
-import { factModalActions } from '../FactModal/redux';
+import { editBaselineActions } from '../redux';
 
 class EditBaselineToolbar extends Component {
     constructor(props) {
@@ -43,8 +43,8 @@ EditBaselineToolbar.propTypes = {
 
 function mapDispatchToProps(dispatch) {
     return {
-        toggleFactModal: () => dispatch(factModalActions.toggleFactModal()),
-        setFactData: (factData) => dispatch(factModalActions.setFactData(factData))
+        toggleFactModal: () => dispatch(editBaselineActions.toggleFactModal()),
+        setFactData: (factData) => dispatch(editBaselineActions.setFactData(factData))
     };
 }
 

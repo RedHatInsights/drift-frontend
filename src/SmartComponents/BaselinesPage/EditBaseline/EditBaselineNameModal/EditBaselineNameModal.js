@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Button, Form, FormGroup, Modal, TextInput } from '@patternfly/react-core';
 
-import { editNameModalActions } from './redux';
-import { baselinesTableActions } from '../../../BaselinesTable/redux';
+import { editBaselineActions } from '../redux';
 
 class EditBaselineNameModal extends Component {
     constructor(props) {
@@ -19,17 +18,23 @@ class EditBaselineNameModal extends Component {
         this.updateBaselineName = (value) => {
             this.setState({ baselineName: value });
         };
+
+        this.confirmModal = this.confirmModal.bind(this);
     }
 
-    confirmModal = () => {
+    async confirmModal() {
         const { baselineName } = this.state;
         const { baselineData, patchBaseline, toggleEditNameModal } = this.props;
 
-        /*eslint-disable camelcase*/
-        patchBaseline(baselineData.id, { display_name: baselineName, facts_patch: []});
-        /*eslint-enable camelcase*/
+        try {
+            /*eslint-disable camelcase*/
+            await patchBaseline(baselineData.id, { display_name: baselineName, facts_patch: []});
+            /*eslint-enable camelcase*/
 
-        toggleEditNameModal();
+            toggleEditNameModal();
+        } catch (e) {
+            // do nothing and let redux handle
+        }
     }
 
     cancelModal = () => {
@@ -43,18 +48,22 @@ class EditBaselineNameModal extends Component {
 
     renderModalBody() {
         const { baselineName } = this.state;
+        const { error } = this.props;
 
         return (<div className='fact-value'>
             <Form>
                 <FormGroup
                     label='Baseline title'
                     isRequired
-                    fieldId='baseline name'>
+                    fieldId='baseline name'
+                    helperTextInvalid={ error.hasOwnProperty('detail') ? error.detail : null }
+                    isValid={ !error.hasOwnProperty('status') }
+                >
                     <TextInput
                         value={ baselineName }
                         type="text"
                         onChange={ this.updateBaselineName }
-                        isValid={ baselineName !== '' ? true : false }
+                        isValid={ !error.hasOwnProperty('status') }
                         aria-label="baseline name"
                     />
                 </FormGroup>
@@ -100,20 +109,22 @@ EditBaselineNameModal.propTypes = {
     baselineData: PropTypes.object,
     editNameModalOpened: PropTypes.bool,
     toggleEditNameModal: PropTypes.func,
-    patchBaseline: PropTypes.func
+    patchBaseline: PropTypes.func,
+    error: PropTypes.obj
 };
 
 function mapStateToProps(state) {
     return {
-        baselineData: state.baselinesTableState.baselineData,
-        editNameModalOpened: state.editNameModalState.editNameModalOpened
+        baselineData: state.editBaselineState.baselineData,
+        editNameModalOpened: state.editBaselineState.editNameModalOpened,
+        error: state.editBaselineState.error
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        toggleEditNameModal: () => dispatch(editNameModalActions.toggleEditNameModal()),
-        patchBaseline: (baselineId, newBaselineBody) => dispatch(baselinesTableActions.patchBaseline(baselineId, newBaselineBody))
+        toggleEditNameModal: () => dispatch(editBaselineActions.toggleEditNameModal()),
+        patchBaseline: (baselineId, newBaselineBody) => dispatch(editBaselineActions.patchBaseline(baselineId, newBaselineBody))
     };
 }
 
