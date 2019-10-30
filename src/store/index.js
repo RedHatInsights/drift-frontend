@@ -7,10 +7,9 @@ import { baselinesTableReducer } from '../SmartComponents/BaselinesTable/redux/b
 import { errorAlertReducer } from '../SmartComponents/ErrorAlert/redux/errorAlertReducer';
 import { filterDropdownReducer } from '../SmartComponents/DriftPage/FilterDropDown/redux/filterDropdownReducer';
 import { actionKebabReducer } from '../SmartComponents/DriftPage/ActionKebab/redux/actionKebabReducer';
-import { factModalReducer } from '../SmartComponents/BaselinesPage/EditBaseline/FactModal/redux/reducers';
 import { exportCSVButtonReducer } from '../SmartComponents/BaselinesPage/ExportCSVButton/redux/exportCSVButtonReducer';
 import { createBaselineModalReducer } from '../SmartComponents/BaselinesPage/CreateBaselineModal/redux/reducers';
-import { editNameModalReducer } from '../SmartComponents/BaselinesPage/EditBaseline/EditBaselineNameModal/redux/reducers';
+import { editBaselineReducer } from '../SmartComponents/BaselinesPage/EditBaseline/redux/reducers';
 
 let registry;
 
@@ -31,10 +30,9 @@ export function init (...middleware) {
         errorAlertOpened: errorAlertReducer,
         filterDropdownOpened: filterDropdownReducer,
         kebabOpened: actionKebabReducer,
-        factModalState: factModalReducer,
         exportCSVButtonState: exportCSVButtonReducer,
         createBaselineModalState: createBaselineModalReducer,
-        editNameModalState: editNameModalReducer
+        editBaselineState: editBaselineReducer
     });
 
     return registry;
