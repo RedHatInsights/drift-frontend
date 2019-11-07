@@ -106,7 +106,7 @@ class EditBaseline extends Component {
             row.push(<td className={ expandedRows.includes(fact.name) ? 'nested-fact' : '' }>
                 { this.renderExpandableRowButton(fact.name) } { fact.name }</td>);
             row.push(<td></td>);
-            row.push(editBaselineHelpers.renderKebab(fact.name, '', fact));
+            row.push(editBaselineHelpers.renderKebab({ factName: fact.name, fact, isCategory: true }));
             rows.push(<tr>{ row }</tr>);
 
             if (expandedRows.includes(fact.name)) {
@@ -116,14 +116,14 @@ class EditBaseline extends Component {
                         <p className="child-row">{ subFact.name }</p>
                     </td>);
                     row.push(<td>{ subFact.value }</td>);
-                    row.push(editBaselineHelpers.renderKebab(subFact.name, subFact.value, fact));
+                    row.push(editBaselineHelpers.renderKebab({ factName: subFact.name, factValue: subFact.value, fact, isSubFact: true }));
                     rows.push(<tr>{ row }</tr>);
                 });
             }
         } else {
             row.push(<td>{ fact.name }</td>);
             row.push(<td>{ fact.value }</td>);
-            row.push(editBaselineHelpers.renderKebab(fact.name, fact.value, fact));
+            row.push(editBaselineHelpers.renderKebab({ factName: fact.name, factValue: fact.value, fact }));
             rows.push(<tr>{ row }</tr>);
         }
 

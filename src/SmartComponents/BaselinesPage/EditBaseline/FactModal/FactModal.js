@@ -22,17 +22,15 @@ class FactModal extends Component {
         this.state = {
             factName: this.props.factName,
             factValue: this.props.factValue,
-            factData: this.props.factData
+            factData: this.props.factData,
+            isCategory: this.props.isCategory
         };
 
-        if (this.props.factName !== '' && this.props.factValue === '') {
-            this.state.categoryCheck = true;
-        } else {
-            this.state.categoryCheck = false;
-        }
+        this.state.isAddFact = this.props.factName === '' && this.props.factValue === '';
+        this.state.isEditFact = this.props.factName !== '' && this.props.factValue !== '';
 
-        this.handleChange = (checked) => {
-            this.setState({ categoryCheck: checked });
+        this.handleChange = checked => {
+            this.setState({ isCategory: checked });
         };
 
         this.handleNewName = value => {
@@ -51,10 +49,10 @@ class FactModal extends Component {
     }
 
     confirmModal() {
-        const { toggleFactModal, factName, factValue } = this.props;
+        const { toggleFactModal } = this.props;
+        const { isAddFact } = this.state;
 
-        if ((factName === '' && factValue === '')
-        || (factName === undefined && factValue === undefined)) {
+        if (isAddFact) {
             this.addFact();
         } else {
             this.editFact();
@@ -64,17 +62,17 @@ class FactModal extends Component {
     }
 
     addFact() {
-        const { categoryCheck, factName, factValue, factData } = this.state;
+        const { isCategory, factName, factValue, factData } = this.state;
 
-        let newFactData = editBaselineHelpers.buildNewFactData(categoryCheck, factName, factValue, factData);
+        let newFactData = editBaselineHelpers.buildNewFactData(isCategory, factName, factValue, factData);
         this.patchFact(newFactData, factData);
     }
 
     editFact() {
-        const { categoryCheck, factName, factValue, factData } = this.state;
+        const { isCategory, factName, factValue, factData } = this.state;
 
         let editedFactData = editBaselineHelpers.buildEditedFactData(
-            categoryCheck, this.props.factName, factName, this.props.factValue, factValue, factData
+            isCategory, this.props.factName, factName, this.props.factValue, factValue, factData
         );
 
         this.patchFact(editedFactData, factData);
@@ -88,122 +86,100 @@ class FactModal extends Component {
     }
 
     renderCategoryCheckbox() {
-        const { categoryCheck } = this.state;
-        const { factName, factValue, factData } = this.props;
-        let categoryCheckBody;
+        const { isCategory, isEditFact } = this.state;
 
-        if (factName !== '' && factValue === '') {
-            categoryCheckBody = <Checkbox
-                label="This is a category"
-                aria-label="controlled checkbox example"
-                id="categoryCheck"
-                name="isCategory"
-                defaultChecked
-                isDisabled
-            />;
-        } else if ((factName !== '' && factValue !== '')
-            || (factName === '' && factValue === '' && !Array.isArray(factData))) {
-            categoryCheckBody = <Checkbox
-                label="This is a category"
-                aria-label="controlled checkbox example"
-                id="categoryCheck"
-                name="isCategory"
-                isDisabled
-            />;
-        } else {
-            categoryCheckBody = <Checkbox
-                label="This is a category"
-                isChecked={ categoryCheck }
-                onChange={ this.handleChange }
-                aria-label="controlled checkbox example"
-                id="categoryCheck"
-                name="isCategory"
-            />;
-        }
-
-        return categoryCheckBody;
+        return <Checkbox
+            aria-label="controlled checkbox example"
+            label="This is a category"
+            id="isCategory"
+            name="isCategory"
+            onChange={ this.handleChange }
+            isChecked={ isCategory }
+            isDisabled={ isCategory && isEditFact }
+        />;
     }
 
     renderFactInput() {
-        const { categoryCheck, factName } = this.state;
-        let factInputBody;
+        const { factName, isCategory } = this.state;
 
-        factInputBody = <div className="fact-value">
-            <Form>
-                <FormGroup
-                    label={ categoryCheck ? 'Category name' : 'Fact name' }
-                    isRequired
-                    fieldId='fact name'>
-                    <TextInput
-                        value={ factName }
-                        type="text"
-                        placeholder="Name"
-                        onChange={ this.handleNewName }
-                        isValid={ factName !== '' && factName !== undefined ? true : false }
-                        aria-label="fact name"
-                    />
-                </FormGroup>
-            </Form>
-        </div>;
-
-        return factInputBody;
+        return (
+            <div className="fact-value">
+                <Form>
+                    <FormGroup
+                        label={ isCategory ? 'Category name' : 'Fact name' }
+                        isRequired
+                        fieldId='fact name'>
+                        <TextInput
+                            value={ factName }
+                            type="text"
+                            placeholder="Name"
+                            onChange={ this.handleNewName }
+                            isValid={ factName !== '' && factName !== undefined ? true : false }
+                            aria-label="fact name"
+                        />
+                    </FormGroup>
+                </Form>
+            </div>
+        );
     }
 
     renderValueInput() {
-        const { categoryCheck, factValue } = this.state;
-        let valueInput;
-        let valueInputBody;
+        const { factValue } = this.state;
 
-        if (categoryCheck) {
-            valueInput = <TextInput
-                type="text"
-                aria-label="value"
-                isDisabled
-            />;
-        } else {
-            valueInput = <TextInput
-                value={ factValue }
-                type="text"
-                placeholder="Value"
-                onChange={ this.handleNewValue }
-                isValid={ factValue !== '' && factValue !== undefined ? true : false }
-                aria-label="value"
-            />;
-        }
-
-        valueInputBody = <div className="fact-value">
-            <Form>
-                { categoryCheck
-                    ? <FormGroup
-                        label='Value'
-                        fieldId='fact value'>
-                        { valueInput }
-                    </FormGroup>
-                    : <FormGroup
+        return (
+            <div className="fact-value">
+                <Form>
+                    <FormGroup
                         label='Value'
                         isRequired
                         fieldId='fact value'>
-                        { valueInput }
+                        <TextInput
+                            value={ factValue }
+                            type="text"
+                            placeholder="Value"
+                            onChange={ this.handleNewValue }
+                            isValid={ factValue !== '' && factValue !== undefined ? true : false }
+                            aria-label="value"
+                        />
                     </FormGroup>
-                }
-            </Form>
-        </div>;
-
-        return valueInputBody;
-
+                </Form>
+            </div>
+        );
     }
 
     renderModalBody() {
+        const { isSubFact } = this.props;
+        const { isAddFact, isCategory } = this.state;
         let modalBody;
 
         modalBody = <React.Fragment>
-            { this.renderCategoryCheckbox() }
+            { (isAddFact && !isSubFact) || isCategory ? this.renderCategoryCheckbox() : null }
             { this.renderFactInput() }
             <br></br>
-            { this.renderValueInput() }
+            { isCategory ? null : this.renderValueInput() }
         </React.Fragment>;
 
         return modalBody;
+    }
+
+    title() {
+        const { isSubFact } = this.props;
+        const { isAddFact, isEditFact, isCategory } = this.state;
+        let title = 'Add fact';
+
+        if (isEditFact === true && !isCategory && !isSubFact) {
+            title = 'Edit fact';
+        } else if (isAddFact === true && isCategory === true) {
+            title = 'Add category';
+        } else if (isAddFact === true && isSubFact === true) {
+            title = 'Add sub fact';
+        } else if (isEditFact === true && isSubFact === true) {
+            title = 'Edit sub fact';
+        } else if (isCategory === true) {
+            title = 'Edit category';
+        }
+
+        return title;
     }
 
     render() {
@@ -212,7 +188,7 @@ class FactModal extends Component {
         return (
             <Modal
                 className="small-modal-body"
-                title="Add/edit fact"
+                title={ this.title() }
                 isOpen={ factModalOpened }
                 onClose={ this.cancelFact }
                 width="auto"
@@ -244,6 +220,8 @@ FactModal.propTypes = {
     factName: PropTypes.string,
     factValue: PropTypes.string,
     factData: PropTypes.obj,
+    isCategory: PropTypes.bool,
+    isSubFact: PropTypes.bool,
     baselineData: PropTypes.obj,
     patchBaseline: PropTypes.func
 };
@@ -254,6 +232,8 @@ function mapStateToProps(state) {
         factName: state.factModalState.factName,
         factValue: state.factModalState.factValue,
         factData: state.factModalState.factData,
+        isCategory: state.factModalState.isCategory,
+        isSubFact: state.factModalState.isSubFact,
         baselineData: state.baselinesTableState.baselineData
     };
 }
