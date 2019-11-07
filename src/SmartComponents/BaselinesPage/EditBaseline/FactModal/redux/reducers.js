@@ -4,7 +4,9 @@ const initialState = {
     factModalOpened: false,
     factName: '',
     factValue: '',
-    factData: []
+    factData: [],
+    isCategory: false,
+    isSubFact: false
 };
 
 export function factModalReducer(state = initialState, action) {
@@ -19,7 +21,9 @@ export function factModalReducer(state = initialState, action) {
                 ...state,
                 factName: action.payload.factName,
                 factValue: action.payload.factValue,
-                factData: action.payload.fact
+                factData: action.payload.fact,
+                isCategory: action.payload.isCategory,
+                isSubFact: action.payload.isSubFact
             };
 
         default:

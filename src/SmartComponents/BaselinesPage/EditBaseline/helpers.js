@@ -2,13 +2,15 @@ import React from 'react';
 import jiff from 'jiff';
 import FactKebab from './FactKebab/FactKebab';
 
-function renderKebab(factName, factValue, fact) {
+function renderKebab({ factName, factValue, fact, isCategory, isSubFact } = {}) {
     return <td>
-        { <FactKebab
+        <FactKebab
             factName={ factName }
             factValue={ factValue }
-            fact={ fact } />
-        }
+            fact={ fact }
+            isCategory={ isCategory }
+            isSubFact={ isSubFact }
+        />
     </td>;
 }
 

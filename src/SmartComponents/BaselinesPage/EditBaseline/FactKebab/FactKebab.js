@@ -27,13 +27,15 @@ class FactKebab extends Component {
     }
 
     editFact() {
-        const { toggleFactModal, setFactData, factName, factValue, fact } = this.props;
+        const { toggleFactModal, setFactData, factName, factValue, fact, isCategory, isSubFact } = this.props;
 
         toggleFactModal();
         setFactData({
             factName,
             factValue,
-            fact
+            fact,
+            isCategory,
+            isSubFact
         });
     }
 
@@ -53,35 +55,23 @@ class FactKebab extends Component {
     }
 
     addFact() {
-        const { toggleFactModal, setFactData, fact } = this.props;
+        const { toggleFactModal, setFactData, fact, isCategory } = this.props;
 
         toggleFactModal();
         setFactData({
             factName: '',
             factValue: '',
-            fact
+            fact,
+            isSubFact: isCategory
         });
     }
 
     render() {
         const { isOpen } = this.state;
-        const { factValue, fact } = this.props;
-        const dropdownItems = [
-            <DropdownItem
-                key="edit"
-                component="button"
-                onClick={ this.editFact }>
-                { fact.values && factValue === '' ? 'Edit category' : 'Edit fact' }
-            </DropdownItem>,
-            <DropdownItem
-                key="delete"
-                component="button"
-                onClick={ this.deleteFact }>
-                { fact.values && factValue === '' ? 'Delete category' : 'Delete fact' }
-            </DropdownItem>
-        ];
+        const { isCategory } = this.props;
+        const dropdownItems = [];
 
-        if (fact.values && factValue === '') {
+        if (isCategory === true) {
             dropdownItems.push(
                 <DropdownItem
                     key="add fact"
@@ -91,6 +81,21 @@ class FactKebab extends Component {
                 </DropdownItem>
             );
         }
+
+        dropdownItems.push(
+            <DropdownItem
+                key="edit"
+                component="button"
+                onClick={ this.editFact }>
+                { isCategory ? 'Edit category' : 'Edit fact' }
+            </DropdownItem>,
+            <DropdownItem
+                key="delete"
+                component="button"
+                onClick={ this.deleteFact }>
+                { isCategory ? 'Delete category' : 'Delete fact' }
+            </DropdownItem>
+        );
 
         return (
             <Dropdown
@@ -110,6 +115,8 @@ FactKebab.propTypes = {
     factName: PropTypes.string,
     factValue: PropTypes.string,
     fact: PropTypes.object,
+    isCategory: PropTypes.bool,
+    isSubFact: PropTypes.bool,
     toggleFactModal: PropTypes.func,
     setFactData: PropTypes.func,
     baselineData: PropTypes.obj,
