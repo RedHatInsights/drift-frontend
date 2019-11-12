@@ -5,6 +5,7 @@ import { Dropdown, DropdownItem, DropdownPosition, KebabToggle } from '@patternf
 
 import { editBaselineActions } from '../redux';
 import editBaselineHelpers from '../helpers';
+import DeleteFactModal from '../DeleteFactModal/DeleteFactModal';
 
 class FactKebab extends Component {
     constructor(props) {
@@ -15,7 +16,17 @@ class FactKebab extends Component {
         this.addFact = this.addFact.bind(this);
 
         this.state = {
-            isOpen: false
+            isOpen: false,
+            modalOpened: false
+        };
+
+        this.toggleModalOpened = () => {
+            const { modalOpened } = this.state;
+
+            this.setState({
+                modalOpened: !modalOpened,
+                isOpen: false
+            });
         };
     }
 
@@ -38,8 +49,8 @@ class FactKebab extends Component {
         });
     }
 
-    deleteFact() {
-        const { baselineData, patchBaseline, factName, factValue, fact, isSubFact } = this.props;
+    async deleteFact() {
+        const { baselineData, patchBaseline, factName, factValue, fact, isSubFact, fetchBaselineData } = this.props;
         let factToDelete = { name: factName, value: factValue };
         let newAPIBody;
 
@@ -49,7 +60,12 @@ class FactKebab extends Component {
             newAPIBody = editBaselineHelpers.makeDeleteFactPatch(factToDelete, baselineData, []);
         }
 
-        patchBaseline(baselineData.id, newAPIBody);
+        this.toggleModalOpened();
+        let results = await patchBaseline(baselineData.id, newAPIBody);
+        if (results) {
+            fetchBaselineData(baselineData.id);
+        }
+
         this.onKebabToggle(false);
     }
 
@@ -66,7 +82,7 @@ class FactKebab extends Component {
     }
 
     render() {
-        const { isOpen } = this.state;
+        const { isOpen, modalOpened } = this.state;
         const { isCategory } = this.props;
         const dropdownItems = [];
 
@@ -91,21 +107,29 @@ class FactKebab extends Component {
             <DropdownItem
                 key="delete"
                 component="button"
-                onClick={ this.deleteFact }>
+                onClick={ this.toggleModalOpened }>
                 { isCategory ? 'Delete category' : 'Delete fact' }
             </DropdownItem>
         );
 
         return (
-            <Dropdown
-                position={ DropdownPosition.right }
-                style={ { float: 'right' } }
-                className={ 'baseline-fact-kebab' }
-                toggle={ <KebabToggle onToggle={ (isOpen) => this.onKebabToggle(isOpen) } /> }
-                isOpen={ isOpen }
-                dropdownItems={ dropdownItems }
-                isPlain
-            />
+            <React.Fragment>
+                { modalOpened ? <DeleteFactModal
+                    toggleModal={ this.toggleModalOpened.bind(this) }
+                    deleteFact={ this.deleteFact.bind(this) }
+                    isCategory={ isCategory }
+                    modalOpened={ modalOpened }
+                /> : null }
+                <Dropdown
+                    position={ DropdownPosition.right }
+                    style={ { float: 'right' } }
+                    className={ 'baseline-fact-kebab' }
+                    toggle={ <KebabToggle onToggle={ (isOpen) => this.onKebabToggle(isOpen) } /> }
+                    isOpen={ isOpen }
+                    dropdownItems={ dropdownItems }
+                    isPlain
+                />
+            </React.Fragment>
         );
     }
 }
@@ -119,7 +143,8 @@ FactKebab.propTypes = {
     toggleFactModal: PropTypes.func,
     setFactData: PropTypes.func,
     baselineData: PropTypes.object,
-    patchBaseline: PropTypes.func
+    patchBaseline: PropTypes.func,
+    fetchBaselineData: PropTypes.func
 };
 
 function mapStateToProps(state) {
@@ -132,7 +157,8 @@ function mapDispatchToProps(dispatch) {
     return {
         toggleFactModal: () => dispatch(editBaselineActions.toggleFactModal()),
         setFactData: (factData) => dispatch(editBaselineActions.setFactData(factData)),
-        patchBaseline: (baselineId, newAPIBody) => dispatch(editBaselineActions.patchBaseline(baselineId, newAPIBody))
+        patchBaseline: (baselineId, newAPIBody) => dispatch(editBaselineActions.patchBaseline(baselineId, newAPIBody)),
+        fetchBaselineData: (baselineUUID) => dispatch(editBaselineActions.fetchBaselineData(baselineUUID))
     };
 }
 

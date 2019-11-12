@@ -47,7 +47,7 @@ class FactModal extends Component {
     }
 
     async confirmModal() {
-        const { toggleFactModal, baselineData, patchBaseline } = this.props;
+        const { toggleFactModal, baselineData, patchBaseline, fetchBaselineData } = this.props;
         const { isAddFact } = this.state;
         let newAPIBody = '';
 
@@ -58,7 +58,10 @@ class FactModal extends Component {
                 newAPIBody = this.editFact(baselineData);
             }
 
-            await patchBaseline(baselineData.id, newAPIBody);
+            let results = await patchBaseline(baselineData.id, newAPIBody);
+            if (results) {
+                fetchBaselineData(baselineData.id);
+            }
 
             toggleFactModal();
         } catch (e) {
@@ -223,12 +226,13 @@ FactModal.propTypes = {
     factModalOpened: PropTypes.bool,
     factName: PropTypes.string,
     factValue: PropTypes.string,
-    factData: PropTypes.obj,
+    factData: PropTypes.object,
     isCategory: PropTypes.bool,
     isSubFact: PropTypes.bool,
-    baselineData: PropTypes.obj,
+    baselineData: PropTypes.object,
     patchBaseline: PropTypes.func,
-    error: PropTypes.obj
+    error: PropTypes.object,
+    fetchBaselineData: PropTypes.func
 };
 
 function mapStateToProps(state) {
@@ -247,7 +251,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         toggleFactModal: () => dispatch(editBaselineActions.toggleFactModal()),
-        patchBaseline: (baselineId, newBaselineBody) => dispatch(editBaselineActions.patchBaseline(baselineId, newBaselineBody))
+        patchBaseline: (baselineId, newBaselineBody) => dispatch(editBaselineActions.patchBaseline(baselineId, newBaselineBody)),
+        fetchBaselineData: (baselineUUID) => dispatch(editBaselineActions.fetchBaselineData(baselineUUID))
     };
 }
 

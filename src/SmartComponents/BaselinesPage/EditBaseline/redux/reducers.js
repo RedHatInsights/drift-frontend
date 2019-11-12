@@ -1,5 +1,6 @@
 import types from './types';
 import editBaselineHelpers from '../helpers';
+import { FACT_VALUE } from '../../../../constants';
 
 const initialState = {
     baselineData: undefined,
@@ -13,12 +14,12 @@ const initialState = {
     factValue: '',
     factData: [],
     isCategory: false,
-    isSubFact: false
+    isSubFact: false,
+    selectAll: false
 };
 
 export function editBaselineReducer(state = initialState, action) {
     let errorObject = {};
-    let filteredBaselineData = [];
     let newEditBaselineTableData = [];
     let newExpandedRows = [];
     let response;
@@ -36,12 +37,13 @@ export function editBaselineReducer(state = initialState, action) {
                 baselineDataLoading: true
             };
         case `${types.FETCH_BASELINE_DATA}_FULFILLED`:
-            filteredBaselineData = editBaselineHelpers.filterBaselineData(action.payload.baseline_facts, []);
+            newEditBaselineTableData = editBaselineHelpers.buildBaselineTableData(action.payload.baseline_facts);
             return {
                 ...state,
                 baselineDataLoading: false,
                 baselineData: action.payload,
-                editBaselineTableData: filteredBaselineData
+                editBaselineTableData: newEditBaselineTableData,
+                selectAll: false
             };
         case `${types.PATCH_BASELINE}_PENDING`:
             return {
@@ -72,11 +74,9 @@ export function editBaselineReducer(state = initialState, action) {
             };
         case `${types.EXPAND_PARENT_FACT}`:
             newExpandedRows = editBaselineHelpers.toggleExpandedRow(state.expandedRows, action.payload);
-            newEditBaselineTableData = editBaselineHelpers.filterBaselineData(state.baselineData.baseline_facts, newExpandedRows);
             return {
                 ...state,
-                expandedRows: newExpandedRows,
-                editBaselineTableData: newEditBaselineTableData
+                expandedRows: newExpandedRows
             };
         case `${types.TOGGLE_FACT_MODAL}`:
             return {
@@ -93,6 +93,35 @@ export function editBaselineReducer(state = initialState, action) {
                 isCategory: action.payload.isCategory,
                 isSubFact: action.payload.isSubFact
             };
+        case `${types.SELECT_FACT}`: {
+            newEditBaselineTableData = [ ...state.editBaselineTableData ];
+
+            newEditBaselineTableData.map(row => {
+                let factId = row[0];
+                if (action.payload.ids.includes(factId)) {
+                    row.selected = action.payload.isSelected;
+                }
+
+                if (editBaselineHelpers.isCategory(row) && row[FACT_VALUE].length > 0) {
+                    editBaselineHelpers.baselineSubFacts(row).map(subFact => {
+                        let subFactId = subFact[0];
+                        if (action.payload.ids.includes(subFactId)) {
+                            subFact.selected = action.payload.isSelected;
+                        }
+                    });
+
+                    row.selected = editBaselineHelpers.isAllSelected(editBaselineHelpers.baselineSubFacts(row));
+                }
+            });
+
+            let isAllSelected = editBaselineHelpers.isAllSelected(newEditBaselineTableData);
+
+            return {
+                ...state,
+                editBaselineTableData: newEditBaselineTableData.slice(),
+                selectAll: isAllSelected
+            };
+        }
 
         default:
             return state;

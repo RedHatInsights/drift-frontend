@@ -4,7 +4,9 @@ export const BASELINE_API_ROOT = '/api/system-baseline/v1';
 export const HISTORICAL_PROFILES_API_ROOT = '/api/historical-system-profiles/v0';
 export const ASC = 'asc';
 export const DESC = 'desc';
-export const EXPERIMENTAL_COOKIE_NAME = 'drift-experimental-features';
+export const FACT_ID = 0;
+export const FACT_NAME = 1;
+export const FACT_VALUE = 2;
 
 export const API_HEADERS = {
     'X-Insights-Drift': version,

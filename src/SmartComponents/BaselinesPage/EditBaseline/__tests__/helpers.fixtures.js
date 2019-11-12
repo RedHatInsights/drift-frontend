@@ -1,4 +1,22 @@
+const mockBaselineTableData1 = [
+    [ 0, 'Sauron', 'the Dark Lord' ],
+    [ 1, 'Galadriel', 'the Elven Queen' ],
+    [ 2, 'The Fellowship of the Ring',
+        [
+            [ 3, 'Frodo', 'Baggins' ],
+            [ 4, 'Samwise', 'Gamgee' ],
+            [ 5, 'Gandalf', 'the Grey' ],
+            [ 6, 'Meriadoc', 'Brandybuck' ],
+            [ 7, 'Peregrin', 'Took' ],
+            [ 8, 'Gimli', 'son of Gloin' ],
+            [ 9, 'Legolas', 'Greenleaf' ],
+            [ 10, 'Boromir', 'son of Denethor' ],
+            [ 11, 'Aragorn', 'son of Arathorn' ]
+        ]
+    ]
+];
 /*eslint-disable camelcase*/
+
 const originalAPIBody = {
     id: '4634f207-eb91-4689-9843-81c72285840a',
     display_name: 'testing_baseline',
@@ -180,6 +198,7 @@ const editParentFactAPIBody = {
 /*eslint-enable camelcase*/
 
 export default {
+    mockBaselineTableData1,
     originalAPIBody,
     rows,
     childFactsOne,
