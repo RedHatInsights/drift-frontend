@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Button, Toolbar, ToolbarGroup, ToolbarItem } from '@patternfly/react-core';
 
+import EditBaselineKebab from '../EditBaselineKebab/EditBaselineKebab';
 import { editBaselineActions } from '../redux';
 
 class EditBaselineToolbar extends Component {
@@ -29,6 +30,9 @@ class EditBaselineToolbar extends Component {
                             onClick={ this.handleAddFact }>
                             Add fact
                         </Button>
+                    </ToolbarItem>
+                    <ToolbarItem>
+                        <EditBaselineKebab />
                     </ToolbarItem>
                 </ToolbarGroup>
             </Toolbar>

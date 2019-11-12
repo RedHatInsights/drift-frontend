@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
 import { Dropdown, KebabToggle, DropdownItem } from '@patternfly/react-core';
-import DeleteBaselinesModal from '../DeleteBaselinesModal/DeleteBaselinesModal';
 
-class BaselinesKebab extends Component {
+import DeleteFactModal from '../DeleteFactModal/DeleteFactModal';
+import editBaselineHelpers from '../helpers';
+
+class EditBaselineKebab extends Component {
     constructor(props) {
         super(props);
 
@@ -30,9 +31,30 @@ class BaselinesKebab extends Component {
         };
     }
 
+    isDisabled = () => {
+        const { editBaselineTableData } = this.props;
+        let isDisabled = true;
+
+        editBaselineTableData.forEach((fact) => {
+            if (fact.selected) {
+                isDisabled = false;
+            }
+
+            if (editBaselineHelpers.isCategory(fact)) {
+                editBaselineHelpers.baselineSubFacts(fact).forEach((subFact) => {
+                    if (subFact.selected) {
+                        isDisabled = false;
+                    }
+                });
+            }
+        });
+
+        return isDisabled;
+    }
+
     render() {
         const { kebabOpened, modalOpened } = this.state;
-        const { selectedBaselineIds } = this.props;
+        const { editBaselineTableData } = this.props;
         let dropdownItems;
 
         dropdownItems = [
@@ -40,15 +62,18 @@ class BaselinesKebab extends Component {
                 key="multi-delete"
                 component="button"
                 onClick={ this.toggleModalOpened }
-                isDisabled={ selectedBaselineIds.length < 1 }
+                isDisabled={ editBaselineTableData.length > 0 ? this.isDisabled() : true }
             >
-                Delete baselines
+                Delete facts
             </DropdownItem>
         ];
 
         return (
             <React.Fragment>
-                { modalOpened ? <DeleteBaselinesModal modalOpened={ true } /> : null }
+                { modalOpened ? <DeleteFactModal
+                    toggleModal={ this.toggleModalOpened.bind(this) }
+                    modalOpened={ modalOpened }
+                /> : null }
                 <Dropdown
                     style={ { float: 'left' } }
                     className={ 'action-kebab' }
@@ -62,14 +87,14 @@ class BaselinesKebab extends Component {
     }
 }
 
-BaselinesKebab.propTypes = {
-    selectedBaselineIds: PropTypes.array
+EditBaselineKebab.propTypes = {
+    editBaselineTableData: PropTypes.array
 };
 
 function mapStateToProps(state) {
     return {
-        selectedBaselineIds: state.baselinesTableState.selectedBaselineIds
+        editBaselineTableData: state.editBaselineState.editBaselineTableData
     };
 }
 
-export default connect(mapStateToProps, null)(BaselinesKebab);
+export default connect(mapStateToProps, null)(EditBaselineKebab);

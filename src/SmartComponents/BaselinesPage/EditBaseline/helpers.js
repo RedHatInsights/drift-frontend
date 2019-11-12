@@ -3,13 +3,13 @@ import jiff from 'jiff';
 import FactKebab from './FactKebab/FactKebab';
 
 /*eslint-disable react/prop-types*/
-function renderKebab({ factName, factValue, fact, isCategory, isSubFact } = {}) {
+function renderKebab({ factName, factValue, factData, isCategory, isSubFact } = {}) {
     return (
         <td>
             <FactKebab
                 factName={ factName }
                 factValue={ factValue }
-                fact={ fact }
+                fact={ factData }
                 isCategory={ isCategory }
                 isSubFact={ isSubFact }
             />
@@ -140,6 +140,42 @@ function makeDeleteSubFactPatch(factToDelete, parentFact, originalAPIBody) {
     return newAPIBody;
 }
 
+function makeDeleteFactsPatch(factsToDelete, originalAPIBody) {
+    let unselectedFacts = [];
+
+    factsToDelete.forEach(function(fact, index) {
+        if (!fact.selected) {
+            if (isCategory(fact)) {
+                let newAPIBody;
+                let unselectedSubFacts = [];
+
+                baselineSubFacts(fact).forEach(function(subFact, idx) {
+                    if (!subFact.selected) {
+                        unselectedSubFacts.push(originalAPIBody.baseline_facts[index].values[idx]);
+                    }
+                });
+
+                newAPIBody = {
+                    name: originalAPIBody.baseline_facts[index].name,
+                    values: unselectedSubFacts
+                };
+
+                unselectedFacts.push(newAPIBody);
+            } else {
+                unselectedFacts.push(originalAPIBody.baseline_facts[index]);
+            }
+        }
+    });
+
+    let patch = makePatchBody(unselectedFacts, originalAPIBody.baseline_facts);
+
+    /*eslint-disable camelcase*/
+    let newAPIBody = { display_name: originalAPIBody.display_name, facts_patch: patch };
+    /*eslint-enable camelcase*/
+
+    return newAPIBody;
+}
+
 /*eslint-disable camelcase*/
 function makeAddFactPatch(newFactData, originalAPIBody) {
     let op = 'add';
@@ -173,11 +209,11 @@ function makeAddFactToCategoryPatch(newFactData, originalAPIBody, oldFactData) {
         return {};
     }
 
-    let patchBody = makeAPIPatch(newFactData, originalAPIBody, oldFactData);
+    let newFactBody = makeAPIPatch(newFactData, originalAPIBody, oldFactData);
 
-    patchBody.push(newFactData);
+    newFactBody.push(newFactData);
 
-    let patch = makePatchBody(patchBody, originalAPIBody.baseline_facts);
+    let patch = makePatchBody(newFactBody, originalAPIBody.baseline_facts);
 
     /*eslint-disable camelcase*/
     let newAPIBody = { display_name: originalAPIBody.display_name, facts_patch: patch };
@@ -191,11 +227,11 @@ function makeEditFactPatch(newFactData, originalAPIBody, oldFactData) {
         return {};
     }
 
-    let patchBody = makeAPIPatch(newFactData, originalAPIBody, oldFactData);
+    let editedFactBody = makeAPIPatch(newFactData, originalAPIBody, oldFactData);
 
-    patchBody.push(newFactData);
+    editedFactBody.push(newFactData);
 
-    let patch = makePatchBody(patchBody, originalAPIBody.baseline_facts);
+    let patch = makePatchBody(editedFactBody, originalAPIBody.baseline_facts);
 
     /*eslint-disable camelcase*/
     let newAPIBody = { display_name: originalAPIBody.display_name, facts_patch: patch };
@@ -228,38 +264,32 @@ function makePatchBody(newAPIBody, originalAPIBody) {
     return jiff.diff(originalAPIBody, newAPIBody);
 }
 
-function findExpandedRow(fact, expandedRows) {
-    let subfacts = [];
-
-    expandedRows.forEach(function(row) {
-        if (row === fact.name) {
-            fact.values.forEach(function(subfact) {
-                subfacts.push([ subfact.name, subfact.value ]);
-            });
-        }
-    });
-
-    return subfacts;
-}
-
-function filterBaselineData(baselineData, expandedRows) {
+function buildBaselineTableData(baselineData) {
     let rows = [];
     let row;
-    let subfacts = [];
+    let id = 0;
 
     baselineData.forEach(function(fact) {
         row = [];
+        row.push(id);
         row.push(fact.name);
+        id += 1;
 
         if (fact.values) {
-            if (expandedRows.length > 0) {
-                subfacts = findExpandedRow(fact, expandedRows);
-            }
+            let subfacts = [];
+            if (fact.values.length > 0) {
+                fact.values.forEach(function(subFact) {
+                    let subfact = [];
+                    subfact.push(id);
+                    subfact.push(subFact.name);
+                    subfact.push(subFact.value);
+                    id += 1;
+                    subfacts.push(subfact);
+                });
 
-            if (subfacts.length > 0) {
                 row.push(subfacts);
             } else {
-                row.push('');
+                row.push([]);
             }
         } else {
             row.push(fact.value);
@@ -272,13 +302,41 @@ function filterBaselineData(baselineData, expandedRows) {
 }
 
 function toggleExpandedRow(expandedRows, factName) {
+    let newExpandedRows;
+
     if (expandedRows.includes(factName)) {
-        expandedRows = expandedRows.filter(fact => fact !== factName);
+        newExpandedRows = expandedRows.filter(fact => fact !== factName);
     } else {
-        expandedRows.push(factName);
+        newExpandedRows = expandedRows.slice();
+        newExpandedRows.splice(0, 0, factName);
     }
 
-    return expandedRows;
+    return newExpandedRows;
+}
+
+function isAllSelected(data) {
+    let allSelected = true;
+
+    data.forEach(function(fact) {
+        if (!fact.selected) {
+            allSelected = false;
+        }
+    });
+
+    return allSelected;
+}
+
+function isCategory(fact) {
+    let subfacts = fact[2];
+    if (Array.isArray(subfacts)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function baselineSubFacts(fact) {
+    return fact[2];
 }
 
 export default {
@@ -286,11 +344,15 @@ export default {
     buildNewFactData,
     buildEditedFactData,
     buildDeletedSubFact,
-    filterBaselineData,
+    buildBaselineTableData,
+    makeDeleteFactsPatch,
     makeAddFactPatch,
     makeAddFactToCategoryPatch,
     makeEditFactPatch,
     makeDeleteFactPatch,
     makeDeleteSubFactPatch,
-    toggleExpandedRow
+    toggleExpandedRow,
+    isAllSelected,
+    isCategory,
+    baselineSubFacts
 };

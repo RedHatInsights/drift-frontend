@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { Main, PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components';
-import { Breadcrumb, BreadcrumbItem, Card, CardBody } from '@patternfly/react-core';
+import { Breadcrumb, BreadcrumbItem, Card, CardBody, Checkbox } from '@patternfly/react-core';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
 import { AngleDownIcon, AngleRightIcon, EditAltIcon } from '@patternfly/react-icons';
 
@@ -14,6 +14,7 @@ import EditBaselineNameModal from './EditBaselineNameModal/EditBaselineNameModal
 import { baselinesTableActions } from '../../BaselinesTable/redux';
 import { editBaselineActions } from './redux';
 import editBaselineHelpers from './helpers';
+import { FACT_ID, FACT_NAME, FACT_VALUE } from '../../../constants';
 
 class EditBaseline extends Component {
     constructor(props) {
@@ -26,6 +27,12 @@ class EditBaseline extends Component {
 
     async componentDidMount() {
         await window.insights.chrome.auth.getUser();
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.expandedRows.length < this.props.expandedRows.length) {
+            this.setState({ expandedRows: this.props.expandedRows });
+        }
     }
 
     fetchBaselineId() {
@@ -61,7 +68,8 @@ class EditBaseline extends Component {
 
     renderHeaderRow() {
         return (
-            <tr>
+            <tr key='edit-baseline-table-header'>
+                <td className='pf-c-table__check'>{ this.renderCheckbox([]) }</td>
                 <th className="edit-baseline-header"><div>Fact</div></th>
                 <th className="edit-baseline-header"><div>Value</div></th>
                 <th></th>
@@ -97,44 +105,128 @@ class EditBaseline extends Component {
         return expandIcon;
     }
 
+    onSelect = (isSelected, event) => {
+        const { editBaselineTableData, selectFact } = this.props;
+        let facts = [];
+
+        if (event.target.name === 'select-all') {
+            this.setState({ selectAll: isSelected });
+            editBaselineTableData.forEach(function(fact) {
+                facts.push(fact[FACT_ID]);
+                if (editBaselineHelpers.isCategory(fact)) {
+                    editBaselineHelpers.baselineSubFacts(fact).forEach(function(subFact) {
+                        facts.push(subFact[FACT_ID]);
+                    });
+                }
+            });
+        } else {
+            let factData;
+            let id = Number(event.target.name);
+
+            editBaselineTableData.forEach(function(fact) {
+                if (fact[FACT_ID] === id) {
+                    factData = fact;
+                } else if (editBaselineHelpers.isCategory(fact)) {
+                    editBaselineHelpers.baselineSubFacts(fact).forEach(function(subFact) {
+                        if (subFact[FACT_ID] === id) {
+                            factData = subFact;
+                        }
+                    });
+                }
+            });
+
+            facts = [ factData[0] ];
+
+            if (editBaselineHelpers.isCategory(factData)) {
+                editBaselineHelpers.baselineSubFacts(factData).forEach(function(subFact) {
+                    facts.push(subFact[FACT_ID]);
+                });
+            }
+        }
+
+        selectFact(facts, isSelected);
+    }
+
+    renderCheckbox = (fact) => {
+        const { selectAll } = this.props;
+        let id;
+
+        if (editBaselineHelpers.isCategory(fact)) {
+            id = 'category-' + fact[FACT_ID];
+        } else if (typeof(fact[FACT_VALUE]) === 'string') {
+            id = 'fact-' + fact[FACT_ID];
+        } else {
+            return (
+                <Checkbox
+                    isChecked={ selectAll }
+                    onChange={ this.onSelect }
+                    id='select-all'
+                    name='select-all'
+                />
+            );
+        }
+
+        return (
+            <Checkbox
+                isChecked={ fact.selected }
+                onChange={ this.onSelect }
+                id={ id }
+                name={ fact[FACT_ID] }
+            />
+        );
+    }
+
     renderRowData(fact) {
-        const { expandedRows } = this.props;
+        const { expandedRows, baselineData } = this.props;
         let row = [];
         let rows = [];
 
-        if (fact.values) {
-            row.push(<td className={ expandedRows.includes(fact.name) ? 'nested-fact' : '' }>
-                { this.renderExpandableRowButton(fact.name) } { fact.name }</td>);
-            row.push(<td></td>);
-            row.push(editBaselineHelpers.renderKebab({ factName: fact.name, fact, isCategory: true }));
-            rows.push(<tr>{ row }</tr>);
+        let factData = baselineData.baseline_facts.find((baselineFact) => {
+            return baselineFact.name === fact[FACT_NAME];
+        });
 
-            if (expandedRows.includes(fact.name)) {
-                fact.values.forEach(function(subFact) {
+        row.push(<td
+            className={ expandedRows.includes(fact[FACT_NAME]) ? 'pf-c-table__check nested-fact' : 'pf-c-table__check' }>
+            { this.renderCheckbox(fact) }
+        </td>);
+
+        if (editBaselineHelpers.isCategory(fact)) {
+            row.push(<td>
+                { this.renderExpandableRowButton(fact[FACT_NAME]) } { fact[FACT_NAME] }</td>);
+            row.push(<td></td>);
+            row.push(editBaselineHelpers.renderKebab({ factName: fact[FACT_NAME], factData, isCategory: true }));
+            rows.push(<tr key={ fact[FACT_NAME] }>{ row }</tr>);
+
+            if (expandedRows.includes(fact[FACT_NAME])) {
+                editBaselineHelpers.baselineSubFacts(fact).forEach((subFact) => {
                     row = [];
-                    row.push(<td className="nested-fact">
-                        <p className="child-row">{ subFact.name }</p>
+                    row.push(<td className='pf-c-table__check nested-fact'>{ this.renderCheckbox(subFact) }</td>);
+                    row.push(<td>
+                        <p className="child-row">{ subFact[FACT_NAME] }</p>
                     </td>);
-                    row.push(<td>{ subFact.value }</td>);
-                    row.push(editBaselineHelpers.renderKebab({ factName: subFact.name, factValue: subFact.value, fact, isSubFact: true }));
-                    rows.push(<tr>{ row }</tr>);
+                    row.push(<td>{ subFact[FACT_VALUE] }</td>);
+                    row.push(editBaselineHelpers.renderKebab({
+                        factName: subFact[FACT_NAME],
+                        factValue: subFact[FACT_VALUE],
+                        factData,
+                        isSubFact: true
+                    }));
+                    rows.push(<tr key={ subFact[FACT_NAME] }>{ row }</tr>);
                 });
             }
         } else {
-            row.push(<td>{ fact.name }</td>);
-            row.push(<td>{ fact.value }</td>);
-            row.push(editBaselineHelpers.renderKebab({ factName: fact.name, factValue: fact.value, fact }));
-            rows.push(<tr>{ row }</tr>);
+            row.push(<td>{ fact[FACT_NAME] }</td>);
+            row.push(<td>{ fact[FACT_VALUE] }</td>);
+            row.push(editBaselineHelpers.renderKebab({ factName: fact[FACT_NAME], factValue: fact[FACT_VALUE], factData }));
+            rows.push(<tr key={ fact[FACT_NAME] }>{ row }</tr>);
         }
 
         return rows;
     }
 
     renderRows() {
-        const { baselineData } = this.props;
-        /*eslint-disable camelcase*/
-        let facts = baselineData.baseline_facts;
-        /*eslint-enable camelcase*/
+        const { editBaselineTableData } = this.props;
+        let facts = editBaselineTableData;
         let rows = [];
         let rowData = [];
 
@@ -156,7 +248,7 @@ class EditBaseline extends Component {
                 <thead>
                     { this.renderHeaderRow() }
                 </thead>
-                <tbody>
+                <tbody key='edit-baseline-table'>
                     { baselineData !== undefined
                         ? this.renderRows()
                         : this.renderLoadingRows()
@@ -213,7 +305,9 @@ EditBaseline.propTypes = {
     editBaselineTableData: PropTypes.array,
     expandRow: PropTypes.func,
     expandedRows: PropTypes.array,
-    toggleEditNameModal: PropTypes.func
+    toggleEditNameModal: PropTypes.func,
+    selectFact: PropTypes.func,
+    selectAll: PropTypes.bool
 };
 
 function mapStateToProps(state) {
@@ -222,7 +316,8 @@ function mapStateToProps(state) {
         baselineDataLoading: state.editBaselineState.baselineDataLoading,
         factModalOpened: state.editBaselineState.factModalOpened,
         editBaselineTableData: state.editBaselineState.editBaselineTableData,
-        expandedRows: state.editBaselineState.expandedRows
+        expandedRows: state.editBaselineState.expandedRows,
+        selectAll: state.editBaselineState.selectAll
     };
 }
 
@@ -232,7 +327,8 @@ function mapDispatchToProps(dispatch) {
         patchBaseline: (baselineId, newBaselineBody) => dispatch(editBaselineActions.patchBaseline(baselineId, newBaselineBody)),
         expandRow: (factName) => dispatch(editBaselineActions.expandRow(factName)),
         fetchBaselineData: (baselineUUID) => dispatch(editBaselineActions.fetchBaselineData(baselineUUID)),
-        toggleEditNameModal: () => dispatch(editBaselineActions.toggleEditNameModal())
+        toggleEditNameModal: () => dispatch(editBaselineActions.toggleEditNameModal()),
+        selectFact: (facts, isSelected) => dispatch(editBaselineActions.selectFact(facts, isSelected))
     };
 }
 

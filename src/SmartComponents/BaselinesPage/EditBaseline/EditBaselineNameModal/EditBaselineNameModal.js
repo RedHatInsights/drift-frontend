@@ -110,7 +110,7 @@ EditBaselineNameModal.propTypes = {
     editNameModalOpened: PropTypes.bool,
     toggleEditNameModal: PropTypes.func,
     patchBaseline: PropTypes.func,
-    error: PropTypes.obj
+    error: PropTypes.object
 };
 
 function mapStateToProps(state) {
