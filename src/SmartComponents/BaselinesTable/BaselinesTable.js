@@ -125,7 +125,7 @@ class BaselinesTable extends Component {
         let rowData = [];
 
         for (let i = 0; i < 2; i += 1) {
-            rowData.push(<Skeleton size={ SkeletonSize.md } />);
+            rowData.push(<div><Skeleton size={ SkeletonSize.md } /></div>);
         }
 
         for (let i = 0; i < 5; i += 1) {
@@ -277,6 +277,7 @@ class BaselinesTable extends Component {
 
             table = <Table
                 aria-label="Baselines Table"
+                onSelect={ hasSelect ? true : false }
                 cells={ columns }
                 rows={ loadingRows }
             >
