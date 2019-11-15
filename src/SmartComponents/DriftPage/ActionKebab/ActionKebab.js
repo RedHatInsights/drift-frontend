@@ -14,13 +14,7 @@ class ActionKebab extends Component {
     constructor(props) {
         super(props);
 
-        this.exportSelect = this.exportSelect.bind(this);
         this.removeSystemsSelect = this.removeSystemsSelect.bind(this);
-    }
-
-    exportSelect() {
-        this.props.toggleKebab();
-        this.props.exportToCSV();
     }
 
     removeSystemsSelect() {
@@ -34,7 +28,6 @@ class ActionKebab extends Component {
 
     render() {
         const dropdownItems = [
-            <DropdownItem key="export" component="button" onClick={ this.exportSelect }>Export as CSV</DropdownItem>,
             <DropdownItem key="remove-systems" component="button" onClick={ this.removeSystemsSelect }>Clear all comparisons</DropdownItem>
         ];
         return (
@@ -51,7 +44,6 @@ class ActionKebab extends Component {
 }
 
 ActionKebab.propTypes = {
-    exportToCSV: PropTypes.func,
     removeSystems: PropTypes.func,
     clearSelectedBaselines: PropTypes.func,
     toggleKebab: PropTypes.func,
@@ -67,7 +59,6 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        exportToCSV: () => dispatch(compareActions.exportToCSV()),
         removeSystems: () => dispatch(compareActions.clearState()),
         clearSelectedBaselines: () => dispatch(baselinesTableActions.clearSelectedBaselines()),
         toggleKebab: () => dispatch(actionKebabActions.toggleKebab())
