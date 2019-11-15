@@ -14,6 +14,7 @@ import SearchBar from './SearchBar/SearchBar';
 import ActionKebab from './ActionKebab/ActionKebab';
 import ErrorAlert from '../ErrorAlert/ErrorAlert';
 import TablePagination from './Pagination/Pagination';
+import ExportCSVButton from './ExportCSVButton/ExportCSVButton';
 
 class DriftPage extends Component {
     constructor(props) {
@@ -50,6 +51,9 @@ class DriftPage extends Component {
                                         </ToolbarItem>
                                         <ToolbarItem>
                                             <FilterDropDown />
+                                        </ToolbarItem>
+                                        <ToolbarItem>
+                                            <ExportCSVButton />
                                         </ToolbarItem>
                                         <ToolbarItem>
                                             <ActionKebab />
