@@ -77,13 +77,8 @@ class DriftTable extends Component {
     }
 
     fetchCompare(systemIds, baselineIds) {
-        if (systemIds.length > 0) {
-            this.systemIds = systemIds;
-        }
-
-        if (baselineIds.length > 0) {
-            this.baselineIds = baselineIds;
-        }
+        this.systemIds = systemIds;
+        this.baselineIds = baselineIds;
 
         if (systemIds.length > 0 || baselineIds.length > 0) {
             setHistory(this.props.history, systemIds, baselineIds);
