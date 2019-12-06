@@ -35,7 +35,7 @@ class BaselinesToolbar extends Component {
     }, 250)
 
     render() {
-        const { createButton, exportButton, kebab } = this.props;
+        const { createButton, exportButton, kebab, toggleModal } = this.props;
         const { nameSearch } = this.state;
 
         return (
@@ -53,7 +53,7 @@ class BaselinesToolbar extends Component {
                     <ToolbarGroup>
                         { createButton ?
                             <ToolbarItem>
-                                <CreateBaselineButton />
+                                <CreateBaselineButton toggleModal={ toggleModal }/>
                             </ToolbarItem>
                             : null
                         }
@@ -94,7 +94,8 @@ BaselinesToolbar.propTypes = {
     exportButton: PropTypes.bool,
     kebab: PropTypes.bool,
     fetchBaselines: PropTypes.func,
-    onSearch: PropTypes.func
+    onSearch: PropTypes.func,
+    toggleModal: PropTypes.func
 };
 
 export default BaselinesToolbar;

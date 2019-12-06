@@ -123,6 +123,12 @@ export function editBaselineReducer(state = initialState, action) {
             };
         }
 
+        case `${types.CLEAR_BASELINE_DATA}`:
+            return {
+                ...state,
+                baselineData: undefined
+            };
+
         default:
             return state;
     }

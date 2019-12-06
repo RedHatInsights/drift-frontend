@@ -6,9 +6,9 @@ async function post(path, body = {}) {
     return request.data;
 }
 
-async function getBaselines(path, getParams = {}) {
+async function getBaselines(path, getParams = {}, isModal) {
     const request = await axios.get(BASELINE_API_ROOT.concat(path), { params: getParams });
-    return request.data;
+    return { data: request.data, isModal };
 }
 
 async function getBaseline(path) {
@@ -57,8 +57,8 @@ function getCompare(systemIds = [], baselineIds = [], historicalSystemProfileIds
     /*eslint-enable camelcase*/
 }
 
-function getBaselineList(params = {}) {
-    return getBaselines('/baselines', params);
+function getBaselineList(params = {}, isModal) {
+    return getBaselines('/baselines', params, isModal);
 }
 
 function getBaselineData(baselineId = []) {

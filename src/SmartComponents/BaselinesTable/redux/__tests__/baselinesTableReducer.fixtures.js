@@ -1,7 +1,7 @@
 import moment from 'moment';
 
 /*eslint-disable camelcase*/
-const baselinesListPayload = ({
+const baselinesListPayload = ({ data: {
     data: [
         {
             created: '2019-01-18T13:30:00.000000Z',
@@ -22,10 +22,10 @@ const baselinesListPayload = ({
         total_available: 2,
         count: 2
     }
-});
+}});
 
 const baselinesListEmptyPayload = ({
-    data: [],
+    data: { data: [], meta: { total_available: 0 }},
     meta: {
         total_available: 0,
         count: 0

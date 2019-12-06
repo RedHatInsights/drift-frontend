@@ -2,7 +2,10 @@
 
 exports[`BaselinesPage should render correctly 1`] = `
 <Fragment>
-  <withRouter(Connect(CreateBaselineModal)) />
+  <withRouter(Connect(CreateBaselineModal))
+    modalOpened={false}
+    toggleModal={[Function]}
+  />
   <PageHeader>
     <PageHeaderTitle
       title="Baselines"
@@ -19,6 +22,7 @@ exports[`BaselinesPage should render correctly 1`] = `
             exportButton={true}
             hasSelect={true}
             kebab={true}
+            toggleModal={[Function]}
           />
         </div>
       </CardBody>
@@ -78,11 +82,14 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
       <Connect(BaselinesPage)>
         <BaselinesPage
           baselineListLoading={false}
-          dispatch={[Function]}
           emptyState={false}
+          fetchBaselines={[Function]}
           fullBaselineListData={Array []}
         >
-          <withRouter(Connect(CreateBaselineModal))>
+          <withRouter(Connect(CreateBaselineModal))
+            modalOpened={false}
+            toggleModal={[Function]}
+          >
             <Connect(CreateBaselineModal)
               history={
                 Object {
@@ -130,11 +137,11 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                   "url": "/",
                 }
               }
+              modalOpened={false}
+              toggleModal={[Function]}
             >
               <CreateBaselineModal
-                clearSelectedBaselines={[Function]}
                 createBaseline={[Function]}
-                createBaselineModalOpened={false}
                 error={Object {}}
                 history={
                   Object {
@@ -182,8 +189,8 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                     "url": "/",
                   }
                 }
-                selectedBaselineIds={Array []}
-                toggleCreateBaselineModal={[Function]}
+                modalOpened={false}
+                toggleModal={[Function]}
               >
                 <Modal
                   actions={
@@ -304,6 +311,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                             exportButton={true}
                             hasSelect={true}
                             kebab={true}
+                            toggleModal={[Function]}
                           >
                             <Connect(BaselinesTable)
                               createButton={true}
@@ -356,12 +364,12 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                   "url": "/",
                                 }
                               }
+                              toggleModal={[Function]}
                             >
                               <BaselinesTable
                                 addSystemModalOpened={false}
                                 baselineListLoading={false}
                                 baselineTableData={Array []}
-                                clearSelectedBaselines={[Function]}
                                 createBaselineModalOpened={false}
                                 createButton={true}
                                 exportButton={true}
@@ -416,12 +424,14 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                 }
                                 selectBaseline={[Function]}
                                 selectOneBaseline={[Function]}
+                                toggleModal={[Function]}
                               >
                                 <BaselinesToolbar
                                   createButton={true}
                                   exportButton={true}
                                   kebab={true}
                                   onSearch={[Function]}
+                                  toggleModal={[Function]}
                                 >
                                   <Toolbar
                                     className="drift-toolbar"
@@ -540,7 +550,9 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                             <div
                                               className="pf-l-toolbar__item"
                                             >
-                                              <withRouter(Connect(CreateBaselineButton))>
+                                              <withRouter(Connect(CreateBaselineButton))
+                                                toggleModal={[Function]}
+                                              >
                                                 <Connect(CreateBaselineButton)
                                                   history={
                                                     Object {
@@ -588,6 +600,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                       "url": "/",
                                                     }
                                                   }
+                                                  toggleModal={[Function]}
                                                 >
                                                   <CreateBaselineButton
                                                     addSystemModalOpened={false}
@@ -638,7 +651,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                       }
                                                     }
                                                     toggleAddSystemModal={[Function]}
-                                                    toggleCreateBaselineModal={[Function]}
+                                                    toggleModal={[Function]}
                                                   >
                                                     <Component
                                                       onClick={[Function]}
@@ -2789,11 +2802,14 @@ exports[`ConnectedBaselinesPage should render empty state 1`] = `
       <Connect(BaselinesPage)>
         <BaselinesPage
           baselineListLoading={false}
-          dispatch={[Function]}
           emptyState={true}
+          fetchBaselines={[Function]}
           fullBaselineListData={Array []}
         >
-          <withRouter(Connect(CreateBaselineModal))>
+          <withRouter(Connect(CreateBaselineModal))
+            modalOpened={false}
+            toggleModal={[Function]}
+          >
             <Connect(CreateBaselineModal)
               history={
                 Object {
@@ -2841,11 +2857,11 @@ exports[`ConnectedBaselinesPage should render empty state 1`] = `
                   "url": "/",
                 }
               }
+              modalOpened={false}
+              toggleModal={[Function]}
             >
               <CreateBaselineModal
-                clearSelectedBaselines={[Function]}
                 createBaseline={[Function]}
-                createBaselineModalOpened={false}
                 error={Object {}}
                 history={
                   Object {
@@ -2893,8 +2909,8 @@ exports[`ConnectedBaselinesPage should render empty state 1`] = `
                     "url": "/",
                   }
                 }
-                selectedBaselineIds={Array []}
-                toggleCreateBaselineModal={[Function]}
+                modalOpened={false}
+                toggleModal={[Function]}
               >
                 <Modal
                   actions={
@@ -3161,7 +3177,6 @@ exports[`ConnectedBaselinesPage should render empty state 1`] = `
                                   }
                                 }
                                 toggleAddSystemModal={[Function]}
-                                toggleCreateBaselineModal={[Function]}
                               >
                                 <Component
                                   onClick={[Function]}

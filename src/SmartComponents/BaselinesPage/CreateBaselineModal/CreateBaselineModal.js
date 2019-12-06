@@ -7,19 +7,20 @@ import { Button, Modal, Radio, TextInput, Form, FormGroup } from '@patternfly/re
 import SystemsTable from '../../SystemsTable/SystemsTable';
 import BaselinesTable from '../../BaselinesTable/BaselinesTable';
 import { createBaselineModalActions } from './redux';
-import { baselinesTableActions } from '../../BaselinesTable/redux';
 
 class CreateBaselineModal extends Component {
     constructor(props) {
         super(props);
 
         this.submitBaselineName = this.submitBaselineName.bind(this);
+        this.isBaselineSelected = this.isBaselineSelected.bind(this);
 
         this.state = {
             baselineName: '',
             fromScratchChecked: true,
             copyBaselineChecked: false,
-            copySystemChecked: false
+            copySystemChecked: false,
+            selectedBaseline: ''
         };
 
         this.updateBaselineName = value => {
@@ -28,21 +29,34 @@ class CreateBaselineModal extends Component {
 
         this.handleChecked = (_, event) => {
             const { value } = event.currentTarget;
-            this.props.clearSelectedBaselines();
+            let fromScratchChecked = false;
+            let copyBaselineChecked = false;
+            let copySystemChecked = false;
 
             if (value === 'fromScratchChecked') {
-                this.setState({ fromScratchChecked: true, copyBaselineChecked: false, copySystemChecked: false });
+                fromScratchChecked = true;
             } else if (value === 'copyBaselineChecked') {
-                this.setState({ fromScratchChecked: false, copyBaselineChecked: true, copySystemChecked: false });
+                copyBaselineChecked = true;
             } else {
-                this.setState({ fromScratchChecked: false, copyBaselineChecked: false, copySystemChecked: true });
+                copySystemChecked = true;
             }
+
+            this.setState({
+                fromScratchChecked,
+                copyBaselineChecked,
+                copySystemChecked,
+                selectedBaseline: ''
+            });
         };
     }
 
+    isBaselineSelected(baselineId) {
+        this.setState({ selectedBaseline: baselineId });
+    }
+
     async submitBaselineName() {
-        const { baselineName, fromScratchChecked, copyBaselineChecked, copySystemChecked } = this.state;
-        const { createBaseline, toggleCreateBaselineModal, selectedBaselineIds, history, entities, clearSelectedBaselines } = this.props;
+        const { baselineName, fromScratchChecked, copyBaselineChecked, copySystemChecked, selectedBaseline } = this.state;
+        const { createBaseline, toggleModal, history, entities } = this.props;
         /*eslint-disable camelcase*/
         let newBaselineObject = { display_name: baselineName };
 
@@ -51,17 +65,16 @@ class CreateBaselineModal extends Component {
                 if (fromScratchChecked) {
                     newBaselineObject.baseline_facts = [];
                     await createBaseline(newBaselineObject);
-                } else if (selectedBaselineIds.length === 1 && copyBaselineChecked) {
+                } else if (selectedBaseline.length !== '' && copyBaselineChecked) {
                     newBaselineObject = { display_name: baselineName };
-                    await createBaseline(newBaselineObject, selectedBaselineIds[0]);
+                    await createBaseline(newBaselineObject, selectedBaseline);
                 } else if (entities.selectedSystemIds.length === 1 && copySystemChecked) {
                     newBaselineObject.inventory_uuid = entities.selectedSystemIds[0];
                     await createBaseline(newBaselineObject);
                 }
 
                 history.push('baselines/' + this.props.baselineData.id);
-                toggleCreateBaselineModal();
-                clearSelectedBaselines();
+                toggleModal();
             }
         } catch (e) {
             // do nothing and let redux handle
@@ -70,11 +83,10 @@ class CreateBaselineModal extends Component {
     }
 
     cancelModal = () => {
-        const { toggleCreateBaselineModal, clearSelectedBaselines } = this.props;
+        const { toggleModal } = this.props;
 
         this.updateBaselineName('');
-        clearSelectedBaselines();
-        toggleCreateBaselineModal();
+        toggleModal();
     }
 
     renderRadioButtons() {
@@ -112,7 +124,7 @@ class CreateBaselineModal extends Component {
     renderCopyBaseline() {
         return (<React.Fragment>
             <b>Select baseline to copy from</b>
-            <BaselinesTable hasSelect={ true } />
+            <BaselinesTable hasSelect={ true } isModal={ true } isBaselineSelected={ this.isBaselineSelected }/>
         </React.Fragment>
         );
     }
@@ -158,7 +170,7 @@ class CreateBaselineModal extends Component {
                 >
                     <TextInput
                         className="fact-value"
-                        placeHolder="Baseline name"
+                        placeholder="Baseline name"
                         value={ baselineName }
                         type="text"
                         onChange={ this.updateBaselineName }
@@ -175,12 +187,12 @@ class CreateBaselineModal extends Component {
     }
 
     renderActions() {
-        const { selectedBaselineIds, entities } = this.props;
-        const { baselineName, copyBaselineChecked, copySystemChecked } = this.state;
+        const { entities } = this.props;
+        const { baselineName, copyBaselineChecked, copySystemChecked, selectedBaseline } = this.state;
         let actions;
 
         if (baselineName === ''
-            || (copyBaselineChecked && selectedBaselineIds.length === 0)
+            || (copyBaselineChecked && selectedBaseline.length === 0)
             || (copySystemChecked && entities && entities.selectedSystemIds !== undefined && entities.selectedSystemIds.length === 0)
         ) {
             actions = [
@@ -218,13 +230,13 @@ class CreateBaselineModal extends Component {
     }
 
     render() {
-        const { createBaselineModalOpened } = this.props;
+        const { modalOpened } = this.props;
 
         return (
             <Modal
                 className="create-baseline-modal"
                 title="Create baseline"
-                isOpen={ createBaselineModalOpened }
+                isOpen={ modalOpened }
                 onClose={ this.cancelModal }
                 width="auto"
                 isFooterLeftAligned
@@ -237,32 +249,26 @@ class CreateBaselineModal extends Component {
 }
 
 CreateBaselineModal.propTypes = {
-    createBaselineModalOpened: PropTypes.bool,
+    toggleModal: PropTypes.func,
+    modalOpened: PropTypes.bool,
     createBaseline: PropTypes.func,
     history: PropTypes.object,
     baselineData: PropTypes.object,
-    toggleCreateBaselineModal: PropTypes.func,
-    clearSelectedBaselines: PropTypes.func,
     entities: PropTypes.object,
-    selectedBaselineIds: PropTypes.array,
     error: PropTypes.object
 };
 
 function mapStateToProps(state) {
     return {
-        createBaselineModalOpened: state.createBaselineModalState.createBaselineModalOpened,
         baselineData: state.createBaselineModalState.baselineData,
         entities: state.entities,
-        selectedBaselineIds: state.baselinesTableState.selectedBaselineIds,
         error: state.createBaselineModalState.error
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        toggleCreateBaselineModal: () => dispatch(createBaselineModalActions.toggleCreateBaselineModal()),
-        createBaseline: (newBaselineObject, uuid) => dispatch(createBaselineModalActions.createBaseline(newBaselineObject, uuid)),
-        clearSelectedBaselines: () => dispatch(baselinesTableActions.clearSelectedBaselines())
+        createBaseline: (newBaselineObject, uuid) => dispatch(createBaselineModalActions.createBaseline(newBaselineObject, uuid))
     };
 }
 

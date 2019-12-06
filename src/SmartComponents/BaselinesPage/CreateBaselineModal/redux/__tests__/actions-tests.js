@@ -5,8 +5,6 @@ import moxios from 'moxios';
 import actions from '../actions';
 import types from '../types';
 
-import { createBaselineModalActions } from '../index';
-
 describe('create baseline modal actions', () => {
     const middlewares = [ promiseMiddleware() ];
     const mockStore = configureMockStore(middlewares);
@@ -42,7 +40,7 @@ describe('create baseline modal actions', () => {
     });
 
     it('handles toggleCreateBaselineModal', () => {
-        expect(createBaselineModalActions.toggleCreateBaselineModal()).toEqual({
+        expect(actions.toggleCreateBaselineModal()).toEqual({
             type: types.TOGGLE_CREATE_BASELINE_MODAL
         });
     });

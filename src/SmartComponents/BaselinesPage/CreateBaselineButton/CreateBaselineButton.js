@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Button } from '@patternfly/react-core';
 
-import { createBaselineModalActions } from '../CreateBaselineModal/redux';
 import { addSystemModalActions } from '../../AddSystemModal/redux';
 
 class CreateBaselineButton extends Component {
@@ -13,7 +12,7 @@ class CreateBaselineButton extends Component {
     }
 
     createBaseline = () => {
-        const { history, toggleCreateBaselineModal, addSystemModalOpened, toggleAddSystemModal } = this.props;
+        const { history, toggleModal, addSystemModalOpened, toggleAddSystemModal } = this.props;
 
         if (history.location.pathname === '/') {
             if (addSystemModalOpened === true) {
@@ -23,7 +22,7 @@ class CreateBaselineButton extends Component {
             history.push({ pathname: 'baselines' });
         }
 
-        toggleCreateBaselineModal();
+        toggleModal();
     }
 
     render() {
@@ -38,7 +37,7 @@ class CreateBaselineButton extends Component {
 }
 
 CreateBaselineButton.propTypes = {
-    toggleCreateBaselineModal: PropTypes.func,
+    toggleModal: PropTypes.func,
     toggleAddSystemModal: PropTypes.func,
     history: PropTypes.object,
     addSystemModalOpened: PropTypes.bool
@@ -52,7 +51,6 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        toggleCreateBaselineModal: () => dispatch(createBaselineModalActions.toggleCreateBaselineModal()),
         toggleAddSystemModal: () => dispatch(addSystemModalActions.toggleAddSystemModal())
     };
 }

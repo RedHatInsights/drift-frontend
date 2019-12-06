@@ -11,7 +11,6 @@ import { AngleDownIcon, AngleRightIcon, EditAltIcon } from '@patternfly/react-ic
 import EditBaselineToolbar from './EditBaselineToolbar/EditBaselineToolbar';
 import FactModal from './FactModal/FactModal';
 import EditBaselineNameModal from './EditBaselineNameModal/EditBaselineNameModal';
-import { baselinesTableActions } from '../../BaselinesTable/redux';
 import { editBaselineActions } from './redux';
 import editBaselineHelpers from './helpers';
 import { FACT_ID, FACT_NAME, FACT_VALUE } from '../../../constants';
@@ -323,7 +322,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        clearBaselineData: () => dispatch(baselinesTableActions.clearBaselineData()),
+        clearBaselineData: () => dispatch(editBaselineActions.clearBaselineData()),
         patchBaseline: (baselineId, newBaselineBody) => dispatch(editBaselineActions.patchBaseline(baselineId, newBaselineBody)),
         expandRow: (factName) => dispatch(editBaselineActions.expandRow(factName)),
         fetchBaselineData: (baselineUUID) => dispatch(editBaselineActions.fetchBaselineData(baselineUUID)),

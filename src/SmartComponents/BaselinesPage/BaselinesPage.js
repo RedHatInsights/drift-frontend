@@ -10,10 +10,15 @@ import { EmptyState, EmptyStateBody, EmptyStateIcon, Title } from '@patternfly/r
 import BaselinesTable from '../BaselinesTable/BaselinesTable';
 import CreateBaselineButton from './CreateBaselineButton/CreateBaselineButton';
 import CreateBaselineModal from './CreateBaselineModal/CreateBaselineModal';
+import { baselinesTableActions } from '../BaselinesTable/redux';
 
 export class BaselinesPage extends Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            modalOpened: false
+        };
     }
 
     async componentDidMount() {
@@ -38,11 +43,21 @@ export class BaselinesPage extends Component {
         );
     }
 
+    toggleModal = () => {
+        const { modalOpened } = this.state;
+        //const { fetchBaselines } = this.props;
+
+        this.setState({ modalOpened: !modalOpened });
+        if (modalOpened) {
+            //fetchBaselines();
+        }
+    }
+
     renderTable() {
         return (
             <CardBody>
                 <div>
-                    <BaselinesTable kebab={ true } createButton={ true } exportButton={ true } hasSelect={ true }/>
+                    <BaselinesTable kebab={ true } createButton={ true } exportButton={ true } hasSelect={ true } toggleModal={ this.toggleModal }/>
                 </div>
             </CardBody>
         );
@@ -50,11 +65,12 @@ export class BaselinesPage extends Component {
 
     render() {
         const { emptyState, baselineListLoading } = this.props;
+        const { modalOpened } = this.state;
 
         /*eslint-disable camelcase*/
         return (
             <React.Fragment>
-                <CreateBaselineModal />
+                <CreateBaselineModal modalOpened={ modalOpened } toggleModal={ this.toggleModal }/>
                 <PageHeader>
                     <PageHeaderTitle title='Baselines'/>
                 </PageHeader>
@@ -74,7 +90,8 @@ export class BaselinesPage extends Component {
 BaselinesPage.propTypes = {
     baselineListLoading: PropTypes.bool,
     fullBaselineListData: PropTypes.array,
-    emptyState: PropTypes.bool
+    emptyState: PropTypes.bool,
+    fetchBaselines: PropTypes.func
 };
 
 function mapStateToProps(state) {
@@ -85,4 +102,10 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps, null)(BaselinesPage);
+function mapDispatchToProps(dispatch) {
+    return {
+        fetchBaselines: (params) => dispatch(baselinesTableActions.fetchBaselines(params))
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(BaselinesPage);

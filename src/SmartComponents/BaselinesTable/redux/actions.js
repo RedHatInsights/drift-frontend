@@ -1,10 +1,10 @@
 import types from './types';
 import api from '../../../api';
 
-function fetchBaselines(params = {}) {
+function fetchBaselines(params = {}, isModal) {
     return {
         type: types.FETCH_BASELINE_LIST,
-        payload: api.getBaselineList(params)
+        payload: api.getBaselineList(params, isModal)
     };
 }
 
@@ -15,10 +15,10 @@ function selectBaseline(ids, isSelected) {
     };
 }
 
-function selectOneBaseline(id, isSelected) {
+function selectOneBaseline(id) {
     return {
         type: types.SELECT_ONE_BASELINE,
-        payload: { id, isSelected }
+        payload: id
     };
 }
 
@@ -35,19 +35,6 @@ function clearSelectedBaselines() {
     };
 }
 
-function clearBaselineData() {
-    return {
-        type: types.CLEAR_BASELINE_DATA
-    };
-}
-
-function setIdDelete(baselineUUID) {
-    return {
-        type: types.SET_ID_DELETE,
-        payload: baselineUUID
-    };
-}
-
 function deleteSelectedBaselines(deleteBaselinesAPIBody) {
     return {
         type: types.DELETE_SELECTED_BASELINES,
@@ -61,7 +48,5 @@ export default {
     selectOneBaseline,
     setSelectedBaselines,
     clearSelectedBaselines,
-    clearBaselineData,
-    setIdDelete,
     deleteSelectedBaselines
 };

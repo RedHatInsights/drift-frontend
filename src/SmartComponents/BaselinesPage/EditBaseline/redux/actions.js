@@ -48,6 +48,12 @@ function selectFact(ids, isSelected) {
     };
 }
 
+function clearBaselineData() {
+    return {
+        type: types.CLEAR_BASELINE_DATA
+    };
+}
+
 export default {
     expandRow,
     fetchBaselineData,
@@ -55,5 +61,6 @@ export default {
     setFactData,
     toggleEditNameModal,
     toggleFactModal,
-    selectFact
+    selectFact,
+    clearBaselineData
 };

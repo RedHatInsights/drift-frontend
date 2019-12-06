@@ -36,6 +36,7 @@ class DriftTable extends Component {
         const { fetchCompare } = this.props;
 
         fetchCompare(this.systemIds, this.baselineIds, this.HSPIds);
+        this.props.setSelectedBaselines(this.baselineIds);
     }
 
     setSystemIds() {
