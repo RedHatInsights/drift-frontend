@@ -8,7 +8,6 @@ import { withCookies, Cookies } from 'react-cookie';
 import SystemsTable from '../SystemsTable/SystemsTable';
 import BaselinesTable from '../BaselinesTable/BaselinesTable';
 import { addSystemModalActions } from './redux';
-import { baselinesTableActions } from '../BaselinesTable/redux';
 
 class AddSystemModal extends Component {
     static propTypes = {
@@ -113,7 +112,6 @@ AddSystemModal.propTypes = {
     entities: PropTypes.object,
     systems: PropTypes.array,
     selectedBaselineIds: PropTypes.array,
-    setSelectedBaselines: PropTypes.func,
     baselines: PropTypes.array
 };
 
@@ -131,8 +129,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         toggleModal: () => dispatch(addSystemModalActions.toggleAddSystemModal()),
-        selectActiveTab: (newActiveTab) => dispatch(addSystemModalActions.selectActiveTab(newActiveTab)),
-        setSelectedBaselines: (selectedBaselineIds) => dispatch(baselinesTableActions.setSelectedBaselines(selectedBaselineIds))
+        selectActiveTab: (newActiveTab) => dispatch(addSystemModalActions.selectActiveTab(newActiveTab))
     };
 }
 

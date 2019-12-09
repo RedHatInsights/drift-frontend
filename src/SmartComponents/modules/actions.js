@@ -2,10 +2,10 @@ import types from './types';
 import api from '../../api';
 import { ASC, DESC } from '../../constants';
 
-function fetchCompare(systemIds, baselineIds) {
+function fetchCompare(systemIds, baselineIds, systemPITIds) {
     return {
         type: types.FETCH_COMPARE,
-        payload: api.getCompare(systemIds, baselineIds)
+        payload: api.getCompare(systemIds, baselineIds, systemPITIds)
     };
 }
 

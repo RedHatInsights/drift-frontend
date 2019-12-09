@@ -16,6 +16,7 @@ import './drift-table.scss';
 import { ASC, DESC } from '../../../constants';
 import { setHistory } from '../../../Utilities/SetHistory';
 
+import HistoricalProfilesDropdown from '../../HistoricalProfilesDropdown/HistoricalProfilesDropdown';
 import { compareActions } from '../../modules';
 import { baselinesTableActions } from '../../BaselinesTable/redux';
 
@@ -24,6 +25,7 @@ class DriftTable extends Component {
         super(props);
         this.setSystemIds();
         this.setBaselineIds();
+        this.setPITIds();
         this.fetchCompare = this.fetchCompare.bind(this);
         this.removeSystem = this.removeSystem.bind(this);
         this.formatDate = this.formatDate.bind(this);
@@ -33,7 +35,7 @@ class DriftTable extends Component {
         await window.insights.chrome.auth.getUser();
         const { fetchCompare } = this.props;
 
-        fetchCompare(this.systemIds, this.baselineIds);
+        fetchCompare(this.systemIds, this.baselineIds, this.PITIds);
     }
 
     setSystemIds() {
@@ -46,6 +48,12 @@ class DriftTable extends Component {
         this.baselineIds = queryString.parse(this.props.location.search).baseline_ids;
         this.baselineIds = Array.isArray(this.baselineIds) ? this.baselineIds : [ this.baselineIds ];
         this.baselineIds = this.baselineIds.filter(item => item !== undefined);
+    }
+
+    setPITIds() {
+        this.PITIds = queryString.parse(this.props.location.search).pit_ids;
+        this.PITIds = Array.isArray(this.PITIds) ? this.PITIds : [ this.PITIds ];
+        this.PITIds = this.PITIds.filter(item => item !== undefined);
     }
 
     formatDate(dateString) {
@@ -215,6 +223,10 @@ class DriftTable extends Component {
                                 ? this.formatDate(data[i].last_updated)
                                 : this.formatDate(data[i].updated)
                             }
+                            { insights.chrome.isBeta()
+                                ? type === 'systems' ? <HistoricalProfilesDropdown systemId={ data[i].id }/> : null
+                                : null
+                            }
                         </div>
                     </div>
                 </th>
@@ -380,7 +392,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        fetchCompare: (systemIds, baselineIds) => dispatch(compareActions.fetchCompare(systemIds, baselineIds)),
+        fetchCompare: (systemIds, baselineIds, PITIds) => dispatch(compareActions.fetchCompare(systemIds, baselineIds, PITIds)),
         toggleFactSort: (sortType) => dispatch(compareActions.toggleFactSort(sortType)),
         toggleStateSort: (sortType) => dispatch(compareActions.toggleStateSort(sortType)),
         expandRow: (factName) => dispatch(compareActions.expandRow(factName)),
