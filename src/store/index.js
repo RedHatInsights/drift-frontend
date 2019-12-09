@@ -10,6 +10,7 @@ import { actionKebabReducer } from '../SmartComponents/DriftPage/ActionKebab/red
 import { exportCSVButtonReducer } from '../SmartComponents/BaselinesPage/ExportCSVButton/redux/exportCSVButtonReducer';
 import { createBaselineModalReducer } from '../SmartComponents/BaselinesPage/CreateBaselineModal/redux/reducers';
 import { editBaselineReducer } from '../SmartComponents/BaselinesPage/EditBaseline/redux/reducers';
+import { historicProfilesReducer } from '../SmartComponents/HistoricalProfilesDropdown/redux/reducers';
 
 let registry;
 
@@ -32,7 +33,8 @@ export function init (...middleware) {
         kebabOpened: actionKebabReducer,
         exportCSVButtonState: exportCSVButtonReducer,
         createBaselineModalState: createBaselineModalReducer,
-        editBaselineState: editBaselineReducer
+        editBaselineState: editBaselineReducer,
+        historicProfilesState: historicProfilesReducer
     });
 
     return registry;

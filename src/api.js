@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { DRIFT_API_ROOT, BASELINE_API_ROOT } from './constants';
+import { DRIFT_API_ROOT, BASELINE_API_ROOT, HISTORICAL_PROFILES_API_ROOT } from './constants';
 
 async function post(path, body = {}) {
     const request = await axios.post(DRIFT_API_ROOT.concat(path), body);
@@ -30,7 +30,12 @@ async function deleteBaselines(path, body = {}) {
     return await axios.delete(BASELINE_API_ROOT.concat(path), body);
 }
 
-function getCompare(systemIds = [], baselineIds = []) {
+async function getHistoricalData(path) {
+    const request = await axios.get(HISTORICAL_PROFILES_API_ROOT.concat(path));
+    return request.data.data[0];
+}
+
+function getCompare(systemIds = [], baselineIds = [], pits = []) {
     if (!Array.isArray(systemIds)) {
         systemIds = [ systemIds ];
     }
@@ -39,8 +44,12 @@ function getCompare(systemIds = [], baselineIds = []) {
         baselineIds = [ baselineIds ];
     }
 
+    if (!Array.isArray(pits)) {
+        pits = [ pits ];
+    }
+
     /*eslint-disable camelcase*/
-    return post('/comparison_report', { system_ids: systemIds, baseline_ids: baselineIds });
+    return post('/comparison_report', { system_ids: systemIds, baseline_ids: baselineIds, pit_ids: pits });
     /*eslint-enable camelcase*/
 }
 
@@ -76,11 +85,17 @@ function postNewBaseline(apiBody, uuid) {
     return postBaseline(path, apiBody);
 }
 
+function fetchHistoricalData(systemId) {
+    let path = '/systems/';
+    return getHistoricalData(path.concat(systemId));
+}
+
 export default {
     getCompare,
     getBaselineList,
     getBaselineData,
     patchBaselineData,
     deleteBaselinesData,
-    postNewBaseline
+    postNewBaseline,
+    fetchHistoricalData
 };
