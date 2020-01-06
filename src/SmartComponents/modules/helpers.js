@@ -28,7 +28,7 @@ function getStateSelected(state, stateFilters) {
     return isStateSelected;
 }
 
-function filterCompareData(data, stateFilters, factFilter, newExpandedRows) {
+function filterCompareData(data, stateFilters, factFilter) {
     let filteredFacts = [];
     let filteredComparisons = [];
     let isStateSelected;
@@ -42,12 +42,8 @@ function filterCompareData(data, stateFilters, factFilter, newExpandedRows) {
 
         if (data[i].comparisons) {
             if (data[i].name === factFilter) {
-                if (newExpandedRows.includes(data[i].name)) {
-                    filteredComparisons = filterComparisons(data[i].comparisons, stateFilters, '');
-                    filteredFacts.push({ name: data[i].name, state: data[i].state, comparisons: filteredComparisons });
-                } else {
-                    filteredFacts.push({ name: data[i].name, state: data[i].state, comparisons: []});
-                }
+                filteredComparisons = filterComparisons(data[i].comparisons, stateFilters, '');
+                filteredFacts.push({ name: data[i].name, state: data[i].state, comparisons: filteredComparisons });
 
                 break;
             }
@@ -55,11 +51,7 @@ function filterCompareData(data, stateFilters, factFilter, newExpandedRows) {
             filteredComparisons = filterComparisons(data[i].comparisons, stateFilters, factFilter);
 
             if (filteredComparisons.length) {
-                if (newExpandedRows.includes(data[i].name)) {
-                    filteredFacts.push({ name: data[i].name, state: data[i].state, comparisons: filteredComparisons });
-                } else {
-                    filteredFacts.push({ name: data[i].name, state: data[i].state, comparisons: []});
-                }
+                filteredFacts.push({ name: data[i].name, state: data[i].state, comparisons: filteredComparisons });
             }
         } else {
             if (data[i].name.includes(factFilter)) {

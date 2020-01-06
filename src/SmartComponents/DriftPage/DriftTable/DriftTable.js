@@ -162,9 +162,11 @@ class DriftTable extends Component {
 
             rows.push(<tr>{ row }</tr>);
 
-            for (let i = 0; i < fact.comparisons.length; i++) {
-                row = this.renderRowChild(fact.comparisons[i], systems, baselines);
-                rows.push(<tr>{ row }</tr>);
+            if (this.props.expandedRows.includes(fact.name)) {
+                for (let i = 0; i < fact.comparisons.length; i++) {
+                    row = this.renderRowChild(fact.comparisons[i], systems, baselines);
+                    rows.push(<tr>{ row }</tr>);
+                }
             }
         } else {
             row.push(<td className="sticky-column fixed-column-1">{ fact.name }</td>);
