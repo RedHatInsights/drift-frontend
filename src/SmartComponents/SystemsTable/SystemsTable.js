@@ -35,6 +35,8 @@ class SystemsTable extends Component {
             pfReactTable
         });
 
+        this.props.driftClearFilters();
+
         this.getRegistry().register({
             ...mergeWithEntities(
                 selectedReducer(INVENTORY_ACTION_TYPES, this.props.createBaselineModal)
@@ -58,14 +60,16 @@ class SystemsTable extends Component {
 
 function mapDispatchToProps(dispatch) {
     return {
-        setSelectedSystemIds: (systemIds) => dispatch(compareActions.setSelectedSystemIds(systemIds))
+        setSelectedSystemIds: (systemIds) => dispatch(compareActions.setSelectedSystemIds(systemIds)),
+        driftClearFilters: () => dispatch({ type: 'CLEAR_FILTERS' })
     };
 }
 
 SystemsTable.propTypes = {
     setSelectedSystemIds: PropTypes.func,
     selectedSystemIds: PropTypes.array,
-    createBaselineModal: PropTypes.bool
+    createBaselineModal: PropTypes.bool,
+    driftClearFilters: PropTypes.func
 };
 
 SystemsTable.defaultProps = {
