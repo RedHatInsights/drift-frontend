@@ -33,7 +33,6 @@ class ActionKebab extends Component {
         return (
             <Dropdown
                 style={ { float: 'left' } }
-                className={ 'action-kebab' }
                 toggle={ <KebabToggle onToggle={ this.props.toggleKebab } /> }
                 isOpen={ this.props.kebabOpened }
                 dropdownItems={ dropdownItems }

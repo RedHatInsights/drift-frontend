@@ -51,7 +51,6 @@ class BaselinesKebab extends Component {
                 { modalOpened ? <DeleteBaselinesModal modalOpened={ true } /> : null }
                 <Dropdown
                     style={ { float: 'left' } }
-                    className={ 'action-kebab' }
                     toggle={ <KebabToggle onToggle={ this.toggleKebab } /> }
                     isOpen={ kebabOpened }
                     dropdownItems={ dropdownItems }
