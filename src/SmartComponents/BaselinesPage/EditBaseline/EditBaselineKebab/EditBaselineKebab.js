@@ -76,7 +76,6 @@ class EditBaselineKebab extends Component {
                 /> : null }
                 <Dropdown
                     style={ { float: 'left' } }
-                    className={ 'action-kebab' }
                     toggle={ <KebabToggle onToggle={ this.toggleKebab } /> }
                     isOpen={ kebabOpened }
                     dropdownItems={ dropdownItems }

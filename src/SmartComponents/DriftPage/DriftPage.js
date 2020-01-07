@@ -43,44 +43,44 @@ class DriftPage extends Component {
                     <ErrorAlert />
                     <Card className='pf-t-light pf-m-opaque-100'>
                         <CardBody>
-                            { (systems.length > 0 || baselines.length > 0) && !loading ?
-                                <Toolbar className="drift-toolbar">
-                                    <ToolbarGroup>
-                                        <ToolbarItem>
-                                            <SearchBar />
-                                        </ToolbarItem>
-                                        <ToolbarItem>
-                                            <FilterDropDown />
-                                        </ToolbarItem>
-                                        <ToolbarItem>
-                                            <ExportCSVButton />
-                                        </ToolbarItem>
-                                        <ToolbarItem>
-                                            <ActionKebab />
-                                        </ToolbarItem>
-                                    </ToolbarGroup>
-                                    <ToolbarGroup className="pf-c-pagination">
-                                        <ToolbarItem>
-                                            <TablePagination />
-                                        </ToolbarItem>
-                                    </ToolbarGroup>
-                                </Toolbar>
-                                : null
-                            }
                             <div>
+                                { (systems.length > 0 || baselines.length > 0) && !loading ?
+                                    <Toolbar className="drift-toolbar">
+                                        <ToolbarGroup>
+                                            <ToolbarItem>
+                                                <SearchBar />
+                                            </ToolbarItem>
+                                            <ToolbarItem>
+                                                <FilterDropDown />
+                                            </ToolbarItem>
+                                            <ToolbarItem>
+                                                <ExportCSVButton />
+                                            </ToolbarItem>
+                                            <ToolbarItem>
+                                                <ActionKebab />
+                                            </ToolbarItem>
+                                        </ToolbarGroup>
+                                        <ToolbarGroup className="pf-c-pagination">
+                                            <ToolbarItem>
+                                                <TablePagination />
+                                            </ToolbarItem>
+                                        </ToolbarGroup>
+                                    </Toolbar>
+                                    : null
+                                }
                                 <DriftTable />
+                                { systems.length > 0 && !loading ?
+                                    <Toolbar className="drift-toolbar">
+                                        <ToolbarGroup className="pf-c-pagination">
+                                            <ToolbarItem>
+                                                <TablePagination />
+                                            </ToolbarItem>
+                                        </ToolbarGroup>
+                                    </Toolbar>
+                                    : null
+                                }
                             </div>
                         </CardBody>
-                        { systems.length > 0 && !loading ?
-                            <Toolbar className="drift-toolbar">
-                                <ToolbarGroup className="pf-c-pagination">
-                                    <ToolbarItem>
-                                        <TablePagination />
-                                    </ToolbarItem>
-                                </ToolbarGroup>
-                            </Toolbar>
-                            : null
-                        }
                     </Card>
                 </Main>
             </React.Fragment>
