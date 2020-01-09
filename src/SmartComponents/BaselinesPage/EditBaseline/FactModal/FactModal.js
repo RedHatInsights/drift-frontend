@@ -100,6 +100,13 @@ class FactModal extends Component {
         />;
     }
 
+    checkKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            this.confirmModal();
+        }
+    }
+
     renderFactInput() {
         const { error } = this.props;
         const { factName, isCategory } = this.state;
@@ -112,7 +119,9 @@ class FactModal extends Component {
                         isRequired
                         helperTextInvalid={ error.hasOwnProperty('detail') ? error.detail : null }
                         isValid={ !error.hasOwnProperty('status') }
-                        fieldId='fact name'>
+                        fieldId='fact name'
+                        onKeyPress={ this.checkKeyPress }
+                    >
                         <TextInput
                             value={ factName }
                             type="text"
@@ -139,7 +148,9 @@ class FactModal extends Component {
                         isRequired
                         helperTextInvalid={ error.hasOwnProperty('detail') ? error.detail : null }
                         isValid={ !error.hasOwnProperty('status') }
-                        fieldId='fact value'>
+                        fieldId='fact value'
+                        onKeyPress={ this.checkKeyPress }
+                    >
                         <TextInput
                             value={ factValue }
                             type="text"

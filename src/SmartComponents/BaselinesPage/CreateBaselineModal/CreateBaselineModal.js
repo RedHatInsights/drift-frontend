@@ -42,24 +42,27 @@ class CreateBaselineModal extends Component {
 
     async submitBaselineName() {
         const { baselineName, fromScratchChecked, copyBaselineChecked, copySystemChecked } = this.state;
-        const { createBaseline, toggleCreateBaselineModal, selectedBaselineIds, history, entities } = this.props;
+        const { createBaseline, toggleCreateBaselineModal, selectedBaselineIds, history, entities, clearSelectedBaselines } = this.props;
         /*eslint-disable camelcase*/
         let newBaselineObject = { display_name: baselineName };
 
         try {
-            if (fromScratchChecked) {
-                newBaselineObject.baseline_facts = [];
-                await createBaseline(newBaselineObject);
-            } else if (selectedBaselineIds.length === 1 && copyBaselineChecked) {
-                newBaselineObject = { display_name: baselineName };
-                await createBaseline(newBaselineObject, selectedBaselineIds[0]);
-            } else if (entities.selectedSystemIds.length === 1 && copySystemChecked) {
-                newBaselineObject.inventory_uuid = entities.selectedSystemIds[0];
-                await createBaseline(newBaselineObject);
-            }
+            if (baselineName !== '') {
+                if (fromScratchChecked) {
+                    newBaselineObject.baseline_facts = [];
+                    await createBaseline(newBaselineObject);
+                } else if (selectedBaselineIds.length === 1 && copyBaselineChecked) {
+                    newBaselineObject = { display_name: baselineName };
+                    await createBaseline(newBaselineObject, selectedBaselineIds[0]);
+                } else if (entities.selectedSystemIds.length === 1 && copySystemChecked) {
+                    newBaselineObject.inventory_uuid = entities.selectedSystemIds[0];
+                    await createBaseline(newBaselineObject);
+                }
 
-            history.push('baselines/' + this.props.baselineData.id);
-            toggleCreateBaselineModal();
+                history.push('baselines/' + this.props.baselineData.id);
+                toggleCreateBaselineModal();
+                clearSelectedBaselines();
+            }
         } catch (e) {
             // do nothing and let redux handle
         }
@@ -67,10 +70,10 @@ class CreateBaselineModal extends Component {
     }
 
     cancelModal = () => {
-        const { toggleCreateBaselineModal/*, clearSelectedBaselines*/ } = this.props;
+        const { toggleCreateBaselineModal, clearSelectedBaselines } = this.props;
 
         this.updateBaselineName('');
-        //clearSelectedBaselines();
+        clearSelectedBaselines();
         toggleCreateBaselineModal();
     }
 
@@ -122,6 +125,13 @@ class CreateBaselineModal extends Component {
         );
     }
 
+    checkKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            this.state.baselineName ? this.submitBaselineName() : null;
+        }
+    }
+
     renderModalBody = () => {
         const { baselineName, copyBaselineChecked, copySystemChecked } = this.state;
         const { error } = this.props;
@@ -144,6 +154,7 @@ class CreateBaselineModal extends Component {
                     helperTextInvalid={ error.hasOwnProperty('detail') ? error.detail : null }
                     fieldId="name"
                     isValid={ !error.hasOwnProperty('status') }
+                    onKeyPress={ this.checkKeyPress }
                 >
                     <TextInput
                         className="fact-value"

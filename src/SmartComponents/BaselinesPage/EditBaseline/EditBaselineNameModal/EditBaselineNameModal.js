@@ -46,6 +46,13 @@ class EditBaselineNameModal extends Component {
         toggleEditNameModal();
     }
 
+    checkKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            this.confirmModal();
+        }
+    }
+
     renderModalBody() {
         const { baselineName } = this.state;
         const { error } = this.props;
@@ -58,6 +65,7 @@ class EditBaselineNameModal extends Component {
                     fieldId='baseline name'
                     helperTextInvalid={ error.hasOwnProperty('detail') ? error.detail : null }
                     isValid={ !error.hasOwnProperty('status') }
+                    onKeyPress={ this.checkKeyPress }
                 >
                     <TextInput
                         value={ baselineName }
