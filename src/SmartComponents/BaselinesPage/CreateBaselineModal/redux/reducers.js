@@ -2,6 +2,7 @@ import types from './types';
 
 const initialState = {
     createBaselineModalOpened: false,
+    baselineDataLoading: false,
     baselineData: undefined,
     error: {}
 };
