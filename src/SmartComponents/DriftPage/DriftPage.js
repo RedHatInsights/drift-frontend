@@ -15,6 +15,7 @@ import ActionKebab from './ActionKebab/ActionKebab';
 import ErrorAlert from '../ErrorAlert/ErrorAlert';
 import TablePagination from './Pagination/Pagination';
 import ExportCSVButton from './ExportCSVButton/ExportCSVButton';
+import DriftFilterChips from './DriftFilterChips/DriftFilterChips';
 
 class DriftPage extends Component {
     constructor(props) {
@@ -45,27 +46,36 @@ class DriftPage extends Component {
                         <CardBody>
                             <div>
                                 { (systems.length > 0 || baselines.length > 0) && !loading ?
-                                    <Toolbar className="drift-toolbar">
-                                        <ToolbarGroup>
-                                            <ToolbarItem>
-                                                <SearchBar />
-                                            </ToolbarItem>
-                                            <ToolbarItem>
-                                                <FilterDropDown />
-                                            </ToolbarItem>
-                                            <ToolbarItem>
-                                                <ExportCSVButton />
-                                            </ToolbarItem>
-                                            <ToolbarItem>
-                                                <ActionKebab />
-                                            </ToolbarItem>
-                                        </ToolbarGroup>
-                                        <ToolbarGroup className="pf-c-pagination">
-                                            <ToolbarItem>
-                                                <TablePagination />
-                                            </ToolbarItem>
-                                        </ToolbarGroup>
-                                    </Toolbar>
+                                    <React.Fragment>
+                                        <Toolbar className="drift-toolbar">
+                                            <ToolbarGroup>
+                                                <ToolbarItem>
+                                                    <SearchBar />
+                                                </ToolbarItem>
+                                                <ToolbarItem>
+                                                    <FilterDropDown />
+                                                </ToolbarItem>
+                                                <ToolbarItem>
+                                                    <ExportCSVButton />
+                                                </ToolbarItem>
+                                                <ToolbarItem>
+                                                    <ActionKebab />
+                                                </ToolbarItem>
+                                            </ToolbarGroup>
+                                            <ToolbarGroup className="pf-c-pagination">
+                                                <ToolbarItem>
+                                                    <TablePagination />
+                                                </ToolbarItem>
+                                            </ToolbarGroup>
+                                        </Toolbar>
+                                        <Toolbar className="drift-toolbar">
+                                            <ToolbarGroup>
+                                                <ToolbarItem>
+                                                    <DriftFilterChips />
+                                                </ToolbarItem>
+                                            </ToolbarGroup>
+                                        </Toolbar>
+                                    </React.Fragment>
                                     : null
                                 }
                                 <DriftTable />
