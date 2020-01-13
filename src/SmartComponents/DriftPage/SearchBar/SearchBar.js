@@ -17,6 +17,12 @@ export class SearchBar extends Component {
         this.setFactFilter = this.setFactFilter.bind(this);
     }
 
+    componentDidUpdate(prevProps) {
+        if (prevProps.factFilter !== '' && this.props.factFilter === '') {
+            this.setState({ filter: this.props.factFilter });
+        }
+    }
+
     updateFactFilter = (filter) => {
         this.setState({ filter });
         this.setFactFilter(filter);
