@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { EmptyState, EmptyStateBody, EmptyStateIcon, Title, Tooltip } from '@patternfly/react-core';
 import queryString from 'query-string';
 import { AngleDownIcon, AngleRightIcon, LongArrowAltUpIcon, LongArrowAltDownIcon, ArrowsAltVIcon,
-    CloseIcon, ExclamationTriangleIcon, PlusCircleIcon, ServerIcon } from '@patternfly/react-icons';
+    TimesIcon, ExclamationTriangleIcon, PlusCircleIcon, ServerIcon, BlueprintIcon } from '@patternfly/react-icons';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
 import moment from 'moment';
 
@@ -144,7 +144,7 @@ class DriftTable extends Component {
                 return system.id === systemsBaselinesList[i].id;
             });
             row.push(
-                <td className={ fact.state === 'DIFFERENT' ? 'highlight' : '' }>
+                <td className={ fact.state === 'DIFFERENT' ? 'highlight comparison-cell' : 'comparison-cell' }>
                     { system.value === null ? 'No Data' : system.value }
                 </td>
             );
@@ -169,8 +169,8 @@ class DriftTable extends Component {
             );
             row.push(<td className="fact-state sticky-column fixed-column-2"><StateIcon factState={ fact.state }/></td>);
 
-            for (let i = 0; i < baselineSystemCount + 1; i += 1) {
-                row.push(<td></td>);
+            for (let i = 0; i < baselineSystemCount; i += 1) {
+                row.push(<td className="comparison-cell"></td>);
             }
 
             rows.push(<tr>{ row }</tr>);
@@ -189,7 +189,6 @@ class DriftTable extends Component {
             row = row.concat(this.findSystem(fact, systems, 'systems'));
             row = row.concat(this.findSystem(fact, hspIds, 'system profiles'));
 
-            row.push(<td className={ fact.state === 'DIFFERENT' ? 'highlight' : '' }></td>);
             rows.push(<tr>{ row }</tr>);
         }
 
@@ -208,23 +207,28 @@ class DriftTable extends Component {
         row = row.concat(this.findSystem(fact, systems, 'systems'));
         row = row.concat(this.findSystem(fact, hspIds, 'system profiles'));
 
-        row.push(<td className={ fact.state === 'DIFFERENT' ? 'highlight' : '' }></td>);
-
         return row;
     }
 
     addSystems(data) {
         let row = [];
+        let type = '';
 
         for (let i = 0; i < data.length; i++) {
+            type = data[i].type;
+
             row.push(
-                <th key={ data[i].id }>
-                    <div className={ data[i].type + '-header' }>
-                        <a onClick={ () => this.removeSystem(data[i]) }>
-                            <CloseIcon className="remove-system-icon"/>
+                <th key={ data[i].id } className={ type === 'baseline' ? 'drift-header baseline-header' : 'drift-header system-header' }>
+                    <div>
+                        <a onClick={ () => this.removeSystem(data[i].id) } className="remove-system-icon">
+                            <TimesIcon/>
                         </a>
-                        <ServerIcon className="cluster-icon-large"/>
-                        <div className="system-name">{ data[i].display_name }</div>
+                    </div>
+                    <div className={ type === 'baselines' ? 'comparison-header' : 'comparison-header' }>
+                        <div>
+                            { type === 'baseline' ? <BlueprintIcon/> : <ServerIcon/> }
+                            <span className="system-name">{ data[i].display_name }</span>
+                        </div>
                         <div className="system-updated">
                             { data[i].system_profile_exists === false ?
                                 <Tooltip
@@ -317,7 +321,7 @@ class DriftTable extends Component {
         }
     }
 
-    renderHeaderRow(systems, baselines, hspIds, loading) {
+    renderHeaderRow(systems, baselines, hspIds) {
         const { stateSort } = this.props;
 
         return (
@@ -332,9 +336,6 @@ class DriftTable extends Component {
                     }
                 </th>
                 { this.renderSystems(systems, baselines, hspIds) }
-                <th key='loading-header'>
-                    { loading ? <Skeleton size={ SkeletonSize.lg } /> : this.renderAddSystem() }
-                </th>
             </tr>
         );
     }
@@ -369,22 +370,11 @@ class DriftTable extends Component {
         );
     }
 
-    renderAddSystem() {
-        return (
-            <div className="add-system-header">
-                <div className="add-system-icon">
-                    <PlusCircleIcon/>
-                </div>
-                <AddSystemButton isTable={ true }/>
-            </div>
-        );
-    }
-
     renderTable(compareData, systems, baselines, hspIds, loading) {
         return (
             <React.Fragment>
                 <div className="drift-table-wrapper">
-                    <table className="pf-c-table ins-c-table pf-m-compact ins-entity-table drift-table">
+                    <table className="pf-c-table pf-m-compact drift-table">
                         <thead>
                             { this.renderHeaderRow(systems, baselines, hspIds, loading) }
                         </thead>
