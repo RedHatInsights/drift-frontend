@@ -18,31 +18,33 @@ if [ "${TRAVIS_BRANCH}" = "master" ]; then
 fi
 
 if [ "${TRAVIS_BRANCH}" = "qa" ]; then
-    echo
-    echo
-    echo "PUSHING qa-beta"
-    .travis/release.sh "qa-beta"
-
-    echo "Rebuilding for stable branches"
-    rm -rf dist/
-    BUILD_STABLE=true npm run travis:build
+    echo "Building for qa-stable"
     echo
     echo
     echo "PUSHING qa-stable"
     .travis/release.sh "qa-stable"
+
+    echo "Rebuilding for qa-beta"
+    rm -rf dist/
+    BUILD_BETA=true npm run travis:build
+    echo
+    echo
+    echo "PUSHING qa-beta"
+    .travis/release.sh "qa-beta"
 fi
 
 if [ "${TRAVIS_BRANCH}" = "prod" ]; then
-    echo
-    echo
-    echo "PUSHING prod-beta"
-    .travis/release.sh "prod-beta"
-
-    echo "Rebuilding for stable branches"
-    rm -rf dist/
-    BUILD_STABLE=true npm run travis:build
+    echo "Building for prod-stable"
     echo
     echo
     echo "PUSHING prod-stable"
     .travis/release.sh "prod-stable"
+
+    echo "Rebuilding for prod-beta"
+    rm -rf dist/
+    BUILD_BETA=true npm run travis:build
+    echo
+    echo
+    echo "PUSHING prod-beta"
+    .travis/release.sh "prod-beta"
 fi
