@@ -13,6 +13,7 @@ class AddSystemButton extends Component {
     render() {
         return (
             <Button
+                className="add-system-button"
                 variant='primary'
                 onClick={ this.props.toggleAddSystemModal }>
                 { this.props.isTable ? 'Add' : 'Add systems or baselines' }

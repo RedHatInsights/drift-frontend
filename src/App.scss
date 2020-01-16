@@ -1,6 +1,8 @@
 // Importing Global Variables
 @import '~@redhat-cloud-services/frontend-components-utilities/files/Utilities/_all';
 @import '~@redhat-cloud-services/frontend-components/index.css';
+@import '~@patternfly/patternfly/sass-utilities/colors';
+@import '~@patternfly/patternfly/sass-utilities/scss-variables';
 
 .drift {
 
@@ -32,13 +34,8 @@
     padding-bottom: 0;
   }
 
-  .pf-c-table.ins-c-table {
-    border: none;
-  }
-
   .fact-state {
     border-right: 1px solid #CCC;
-    text-align: center;
     padding-right: 2px;
   }
 
@@ -49,23 +46,10 @@
   .fact-header {
     min-width: 200px;
     width: 100%;
-
-    div {
-      margin-top: 125px;
-    }
   }
 
   .state-header {
-    min-width: 60px;
     font-weight: bold;
-
-    div {
-      margin-top: 125px;
-    }
-  }
-
-  .drift-toolbar {
-    padding: 16px 32px;
   }
 
   .state-filter-dropdown {
@@ -76,50 +60,46 @@
     padding-left: 10px;
   }
 
+  .comparison-header {
+    svg {
+      margin-right: 8px;
+      font-size: 1.25em;
+    }
+  }
+
   .baseline-header {
     background: #F9E0A2;
-    padding: 10px;
-    padding-top: 30px;
-    text-align: center;
-    position: relative;
-    height: 170px;
   }
 
   .system-header {
     background-color: rgb(237, 237, 237);
-    padding: 10px;
-    padding-top: 30px;
-    text-align: center;
-    position: relative;
-    height: 170px;
-  }
-
-  .system-profile-header {
-    background-color: rgb(121, 198, 228);
-    padding: 10px;
-    padding-top: 30px;
-    text-align: center;
-    position: relative;
-    height: 170px;
+    padding: 16px;
   }
 
   .add-system-header {
     background-color: #F5F5F5;
     padding: 20px 20px;
     text-align: center;
-    height: 170px;
   }
 
   .system-name {
     font-weight: bold;
-    font-size: 1.1em;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    font-size: 16px;
+    //margin-top: 10px;
+    //margin-bottom: 10px;
     word-wrap: break-word;
     white-space: pre-wrap;
   }
 
   .system-updated {
+    padding-left: 29px;
+    font-size: 14px;
+    font-weight: normal;
+
+    &.stale-system {
+      color: #f0ab00;
+    }
+
     svg {
       margin-right: 5px;
     }
@@ -130,7 +110,36 @@
   }
 
   .drift-table {
-    border-collapse: separate;
+    border-top: 0;
+    border-left: 0;
+    margin-top: 10px;
+
+    td, th {
+      background-clip: padding-box;
+    }
+
+    .sticky-column-header .drift-header {
+      padding: 16px;
+      margin: 0;
+      border-top: 0;
+      border-right: 1px solid #CCC;
+      min-width: 250px;
+
+      &.remove-system-icon {
+        position: relative;
+      }
+
+      .remove-system-icon {
+        position: absolute;
+        right: 8px;
+        top: 6px;
+        color: black;
+
+        &:link, &:visited {
+          text-decoration: none;
+        }
+      }
+    }
 
     td {
       word-wrap: break-word;
@@ -147,6 +156,8 @@
     background-color: white;
     background-clip: padding-box;
     z-index: 1;
+    border-right: 0;
+    vertical-align: bottom;
   }
   .fixed-column-1 {
     left: 0;
@@ -154,12 +165,17 @@
     min-width: 250px;
     max-width: 250px;
     word-wrap: break-word;
+    border-right: none;
   }
   .fixed-column-2 {
     left: 250px;
     width: 60px;
-    min-width: 60px;
-    max-width: 60px;
+    min-width: 100px;
+    max-width: 100px;
+    border-right: 1px solid #CCC;
+  }
+  .comparison-cell {
+    border-right: 1px solid #CCC;
   }
   .nested-fact {
     border-left: 3px solid #0066CC;
@@ -178,11 +194,6 @@
     margin-bottom: 20px;
   }
 
-  .pf-c-modal-box__body {
-    min-width: 900px;
-    max-width: 1200px;
-    max-height: 600px;
-  }
   .small-modal-body {
     max-width: 500px;
     max-height: 600px;
@@ -191,12 +202,6 @@
     width: initial;
     max-width: 1200px;
     max-height: 700px;
-  }
-
-  .remove-system-icon {
-    position: absolute;
-    top: 5px;
-    right: 5px;
   }
 
   .pf-c-alert {
@@ -257,4 +262,18 @@
   .display-block {
     display: block;
   }
+
+  .add-system-button {
+    margin-left: 10px;
+  }
+}
+
+.pf-c-modal-box__body {
+  min-width: 900px;
+  max-width: 1200px;
+  max-height: 600px;
+}
+
+.drift-toolbar {
+  padding: 16px 32px;
 }

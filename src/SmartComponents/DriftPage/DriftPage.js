@@ -16,6 +16,7 @@ import ErrorAlert from '../ErrorAlert/ErrorAlert';
 import TablePagination from './Pagination/Pagination';
 import ExportCSVButton from './ExportCSVButton/ExportCSVButton';
 import DriftFilterChips from './DriftFilterChips/DriftFilterChips';
+import AddSystemButton from './AddSystemButton/AddSystemButton';
 
 export class DriftPage extends Component {
     constructor(props) {
@@ -54,6 +55,9 @@ export class DriftPage extends Component {
                                                 </ToolbarItem>
                                                 <ToolbarItem>
                                                     <FilterDropDown />
+                                                </ToolbarItem>
+                                                <ToolbarItem>
+                                                    <AddSystemButton/>
                                                 </ToolbarItem>
                                                 <ToolbarItem>
                                                     <ExportCSVButton />
