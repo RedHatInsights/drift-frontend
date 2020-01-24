@@ -1,0 +1,113 @@
+import React from 'react';
+import { shallow, mount } from 'enzyme';
+import { MemoryRouter } from 'react-router-dom';
+import configureStore from 'redux-mock-store';
+import { Provider } from 'react-redux';
+import toJson from 'enzyme-to-json';
+
+import ConnectedDriftPage, { DriftPage } from '../DriftPage';
+
+global.insights = {
+    chrome: {
+        auth: {
+            getUser: () => new Promise((resolve) => {
+                setTimeout(resolve, 1);
+            }),
+            logout: jest.fn()
+        },
+        isBeta: jest.fn()
+    }
+};
+
+describe('DriftPage', () => {
+    it('should render correctly', () =>{
+        const props = {
+            error: {},
+            loading: false,
+            systems: [],
+            baselines: [],
+            clearSelectedBaselines: jest.fn(),
+            toggleErrorAlert: jest.fn()
+        };
+
+        const wrapper = shallow(
+            <DriftPage { ...props }/>
+        );
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
+});
+
+describe('ConnectedDriftPage', () => {
+    let initialState;
+    let mockStore;
+
+    beforeEach(() => {
+        mockStore = configureStore();
+        initialState = {
+            compareState: {
+                error: {},
+                loading: false,
+                systems: [],
+                baselines: [],
+                fullCompareData: [],
+                stateFilters: [
+                    { filter: 'SAME', display: 'Same', selected: true },
+                    { filter: 'DIFFERENT', display: 'Different', selected: true },
+                    { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
+                ]
+            },
+            addSystemModalState: {
+                addSystemModalOpened: false
+            },
+            baselinesTableState: {
+                selectedBaselineIds: []
+            },
+            baselinesTableActions: {
+                toggleErrorAlert: jest.fn()
+            }
+        };
+    });
+
+    it('should render correctly', () => {
+        const store = mockStore(initialState);
+        const wrapper = mount(
+            <MemoryRouter keyLength={ 0 }>
+                <Provider store={ store }>
+                    <ConnectedDriftPage />
+                </Provider>
+            </MemoryRouter>
+        );
+
+        expect(wrapper.find('.drift-toolbar')).toHaveLength(0);
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('should render with error alert', () => {
+        initialState.compareState.error.detail = 'something';
+        const store = mockStore(initialState);
+        const wrapper = mount(
+            <MemoryRouter keyLength={ 0 }>
+                <Provider store={ store }>
+                    <ConnectedDriftPage />
+                </Provider>
+            </MemoryRouter>
+        );
+
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('should render systems and baselines', () => {
+        initialState.compareState.systems = [ 'systemA' ];
+        initialState.compareState.baselines = [ 'baselineA' ];
+        const store = mockStore(initialState);
+        const wrapper = mount(
+            <MemoryRouter keyLength={ 0 }>
+                <Provider store={ store }>
+                    <ConnectedDriftPage />
+                </Provider>
+            </MemoryRouter>
+        );
+
+        expect(wrapper.find('.drift-toolbar')).toHaveLength(6);
+    });
+});

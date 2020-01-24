@@ -20,6 +20,7 @@ class FilterDropDown extends Component {
     createDropdownItem(stateFilter) {
         let dropdownItem = <Checkbox
             className="state-filter-checkbox"
+            id={ stateFilter.display }
             label={ stateFilter.display }
             isChecked={ stateFilter.selected }
             onChange={ () =>

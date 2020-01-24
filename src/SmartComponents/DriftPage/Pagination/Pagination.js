@@ -37,7 +37,7 @@ class TablePagination extends Component {
 
         return (
             <Pagination
-                itemCount={ totalFacts }
+                itemCount={ totalFacts ? totalFacts : 0 }
                 perPageOptions={ perPageOptions }
                 page={ totalFacts === 0 ? 0 : page }
                 perPage={ perPage }

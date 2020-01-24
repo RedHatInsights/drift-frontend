@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { Dropdown, KebabToggle, DropdownItem } from '@patternfly/react-core';
 import DeleteBaselinesModal from '../DeleteBaselinesModal/DeleteBaselinesModal';
 
-class BaselinesKebab extends Component {
+export class BaselinesKebab extends Component {
     constructor(props) {
         super(props);
 

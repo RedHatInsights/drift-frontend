@@ -11,7 +11,7 @@ import BaselinesTable from '../BaselinesTable/BaselinesTable';
 import CreateBaselineButton from './CreateBaselineButton/CreateBaselineButton';
 import CreateBaselineModal from './CreateBaselineModal/CreateBaselineModal';
 
-class BaselinesPage extends Component {
+export class BaselinesPage extends Component {
     constructor(props) {
         super(props);
     }
