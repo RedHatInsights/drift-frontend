@@ -8,13 +8,10 @@ import { compareActions } from '../../modules';
 export class DriftFilterChips extends Component {
     constructor(props) {
         super(props);
+
         this.state = {
             chipGroup: [
-                { category: 'State', chips: this.props.stateFilters.map(function(filter) {
-                    if (filter.selected) {
-                        return filter.display;
-                    }
-                }) },
+                { category: 'State', chips: this.setStateChips(this.props.stateFilters) },
                 { category: 'Name', chips:
                     this.props.factFilter !== ''
                         ? [ this.props.factFilter ]
@@ -55,6 +52,18 @@ export class DriftFilterChips extends Component {
             newChipGroup = [ this.state.chipGroup[0], newFactFilter ];
             this.setState({ chipGroup: newChipGroup });
         }
+    }
+
+    setStateChips = (stateFilters) => {
+        let stateChips = [];
+
+        stateFilters.forEach(function(filter) {
+            if (filter.selected) {
+                stateChips.push(filter.display);
+            }
+        });
+
+        return stateChips;
     }
 
     removeChip = (chip) => {
