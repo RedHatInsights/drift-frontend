@@ -203,7 +203,7 @@ class DriftTable extends Component {
 
         for (let i = 0; i < data.length; i++) {
             row.push(
-                <th>
+                <th key={ data[i].id }>
                     <div className={ type === 'baselines' ? 'baseline-header' : 'system-header' }>
                         <a onClick={ () => this.removeSystem(data[i].id) }>
                             <CloseIcon className="remove-system-icon"/>
@@ -284,17 +284,17 @@ class DriftTable extends Component {
 
         return (
             <tr className="sticky-column-header">
-                <th className="fact-header sticky-column fixed-column-1">
+                <th className="fact-header sticky-column fixed-column-1" key='fact-header'>
                     <div className="active-blue">Fact { this.renderSortButton('fact', this.props.factSort) }</div>
                 </th>
-                <th className="state-header sticky-column fixed-column-2">
+                <th className="state-header sticky-column fixed-column-2" key='state-header'>
                     { stateSort !== '' ?
                         <div className="active-blue">State { this.renderSortButton('state', this.props.stateSort) }</div> :
                         <div>State { this.renderSortButton('state', this.props.stateSort) }</div>
                     }
                 </th>
                 { this.renderSystems(systems, baselines) }
-                <th>
+                <th key='loading-header'>
                     { loading ? <Skeleton size={ SkeletonSize.lg } /> : this.renderAddSystem() }
                 </th>
             </tr>
@@ -414,7 +414,7 @@ DriftTable.propTypes = {
     systems: PropTypes.array,
     baselines: PropTypes.array,
     addSystemModalOpened: PropTypes.bool,
-    stateFilters: PropTypes.string,
+    stateFilters: PropTypes.array,
     factFilter: PropTypes.string,
     factSort: PropTypes.string,
     stateSort: PropTypes.string,

@@ -17,7 +17,7 @@ import TablePagination from './Pagination/Pagination';
 import ExportCSVButton from './ExportCSVButton/ExportCSVButton';
 import DriftFilterChips from './DriftFilterChips/DriftFilterChips';
 
-class DriftPage extends Component {
+export class DriftPage extends Component {
     constructor(props) {
         super(props);
 

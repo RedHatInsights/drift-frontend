@@ -73,14 +73,14 @@ export class DriftFilterChips extends Component {
 
     render() {
         const { chipGroup } = this.state;
-        let idCount = 0;
+        let chipKeyCount = 0;
 
         return (
             <ChipGroup withToolbar>
                 { chipGroup.map(currentGroup => (
                     <ChipGroupToolbarItem key={ currentGroup.category } categoryName={ currentGroup.category }>
                         { currentGroup.chips.map(chip => (
-                            <Chip key={ chip } id={ currentGroup.category + idCount++ } onClick={ () => this.removeChip(chip) }>
+                            <Chip key={ currentGroup.category + chipKeyCount++ } onClick={ () => this.removeChip(chip) }>
                                 { chip }
                             </Chip>
                         )) }
