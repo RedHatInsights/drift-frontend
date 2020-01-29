@@ -1,29 +1,29 @@
 import types from './types';
 
 const initialState = {
-    selectedPITIds: []
+    selectedHSPIds: []
 };
 
 export function historicProfilesReducer(state = initialState, action) {
-    let newSelectedPITIds = [];
+    let newSelectedHSPIds = [];
 
     switch (action.type) {
         case types.SELECT_HISTORIC_PROFILE:
-            newSelectedPITIds = [ ...state.selectedPITIds ];
+            newSelectedHSPIds = [ ...state.selectedHSPIds ];
 
-            if (!newSelectedPITIds.includes(action.payload)) {
-                newSelectedPITIds.push(action.payload);
+            if (!newSelectedHSPIds.includes(action.payload)) {
+                newSelectedHSPIds.push(action.payload);
             } else {
-                for (let i = 0; i < newSelectedPITIds.length; i++) {
-                    if (newSelectedPITIds[i] === action.payload) {
-                        newSelectedPITIds.splice(i, 1);
+                for (let i = 0; i < newSelectedHSPIds.length; i++) {
+                    if (newSelectedHSPIds[i] === action.payload) {
+                        newSelectedHSPIds.splice(i, 1);
                     }
                 }
             }
 
             return {
                 ...state,
-                selectedPITIds: newSelectedPITIds
+                selectedHSPIds: newSelectedHSPIds
             };
 
         default:

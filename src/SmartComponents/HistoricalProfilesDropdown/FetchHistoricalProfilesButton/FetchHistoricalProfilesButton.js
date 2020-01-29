@@ -13,12 +13,12 @@ class FetchHistoricalProfilesButton extends Component {
     }
 
     fetchHistoricalComparison = () => {
-        const { baselines, systems, selectedPITIds, fetchCompare, history } = this.props;
+        const { baselines, systems, selectedHSPIds, fetchCompare, history } = this.props;
         let baselineIds = baselines.map(baseline => baseline.id);
         let systemIds = systems.map(system => system.id);
 
-        setHistory(history, systemIds, baselineIds, selectedPITIds);
-        fetchCompare(systemIds, baselineIds, selectedPITIds);
+        setHistory(history, systemIds, baselineIds, selectedHSPIds);
+        fetchCompare(systemIds, baselineIds, selectedHSPIds);
     }
 
     render() {
@@ -38,7 +38,7 @@ FetchHistoricalProfilesButton.propTypes = {
     fetchHistoricalComparison: PropTypes.func,
     baselines: PropTypes.array,
     systems: PropTypes.array,
-    selectedPITIds: PropTypes.array,
+    selectedHSPIds: PropTypes.array,
     fetchCompare: PropTypes.func,
     location: PropTypes.object,
     history: PropTypes.object
@@ -48,13 +48,13 @@ function mapStateToProps(state) {
     return {
         baselines: state.compareState.baselines,
         systems: state.compareState.systems,
-        selectedPITIds: state.historicProfilesState.selectedPITIds
+        selectedHSPIds: state.historicProfilesState.selectedHSPIds
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        fetchCompare: (systemIds, baselineIds, selectedPITIds) => dispatch(compareActions.fetchCompare(systemIds, baselineIds, selectedPITIds))
+        fetchCompare: (systemIds, baselineIds, selectedHSPIds) => dispatch(compareActions.fetchCompare(systemIds, baselineIds, selectedHSPIds))
     };
 }
 

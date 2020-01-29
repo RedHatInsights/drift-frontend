@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 export const compareReducerPayload = ({
     facts: [
         {
@@ -37,7 +38,6 @@ export const compareReducerPayload = ({
             ]
         }
     ],
-    /* eslint-disable camelcase */
     systems: [
         {
             display_name: 'sgi-xe500-01.rhts.eng.bos.redhat.com',
@@ -91,7 +91,6 @@ export const compareReducerState = ({
             ]
         }
     ],
-    /* eslint-disable camelcase */
     systems: [
         {
             display_name: 'sgi-xe500-01.rhts.eng.bos.redhat.com',
@@ -104,7 +103,6 @@ export const compareReducerState = ({
             last_updated: '2019-01-15T15:25:16.304899Z'
         }
     ]
-    /* eslint-enable camelcase */
 });
 
 export const paginatedStatePageOne = ({
@@ -134,7 +132,6 @@ export const paginatedStatePageOne = ({
             ]
         }
     ],
-    /* eslint-disable camelcase */
     systems: [
         {
             display_name: 'sgi-xe500-01.rhts.eng.bos.redhat.com',
@@ -147,7 +144,6 @@ export const paginatedStatePageOne = ({
             last_updated: '2019-01-15T15:25:16.304899Z'
         }
     ]
-    /* eslint-enable camelcase */
 });
 
 export const paginatedStatePageTwo = ({
@@ -165,7 +161,6 @@ export const paginatedStatePageTwo = ({
             ]
         }
     ],
-    /* eslint-disable camelcase */
     systems: [
         {
             display_name: 'sgi-xe500-01.rhts.eng.bos.redhat.com',
@@ -178,5 +173,18 @@ export const paginatedStatePageTwo = ({
             last_updated: '2019-01-15T15:25:16.304899Z'
         }
     ]
-    /* eslint-enable camelcase */
 });
+
+export const baselinesPayload = ([
+    {
+        display_name: 'baseline1',
+        id: '9bbbefcc-8f23-4d97-07f2-142asdl234e9',
+        last_updated: '2019-01-15T14:53:15.886891Z'
+    },
+    {
+        display_name: 'baseline2',
+        id: 'fdmk59dj-fn42-dfjk-alv3-bmn2854mnn29',
+        last_updated: '2019-01-15T15:25:16.304899Z'
+    }
+]);
+/* eslint-enable camelcase */

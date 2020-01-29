@@ -11,7 +11,7 @@ class HistoricalProfilesCheckbox extends Component {
         super(props);
 
         this.state = {
-            checked: this.props.selectedPITIds.some(id => id === this.props.profile.id)
+            checked: this.props.selectedHSPIds.some(id => id === this.props.profile.id)
         };
     }
 
@@ -48,12 +48,12 @@ class HistoricalProfilesCheckbox extends Component {
 HistoricalProfilesCheckbox.propTypes = {
     profile: PropTypes.object,
     selectHistoricProfile: PropTypes.func,
-    selectedPITIds: PropTypes.array
+    selectedHSPIds: PropTypes.array
 };
 
 function mapStateToProps(state) {
     return {
-        selectedPITIds: state.historicProfilesState.selectedPITIds
+        selectedHSPIds: state.historicProfilesState.selectedHSPIds
     };
 }
 
