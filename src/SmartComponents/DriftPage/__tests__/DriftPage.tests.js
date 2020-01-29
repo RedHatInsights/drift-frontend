@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import toJson from 'enzyme-to-json';
 
 import ConnectedDriftPage, { DriftPage } from '../DriftPage';
+import { compareReducerPayload, baselinesPayload } from '../../modules/__tests__/reducer.fixtures';
 
 global.insights = {
     chrome: {
@@ -49,6 +50,7 @@ describe('ConnectedDriftPage', () => {
                 loading: false,
                 systems: [],
                 baselines: [],
+                hspIds: [],
                 fullCompareData: [],
                 stateFilters: [
                     { filter: 'SAME', display: 'Same', selected: true },
@@ -97,8 +99,8 @@ describe('ConnectedDriftPage', () => {
     });
 
     it('should render systems and baselines', () => {
-        initialState.compareState.systems = [ 'systemA' ];
-        initialState.compareState.baselines = [ 'baselineA' ];
+        initialState.compareState.systems = compareReducerPayload.systems;
+        initialState.compareState.baselines = baselinesPayload;
         const store = mockStore(initialState);
         const wrapper = mount(
             <MemoryRouter keyLength={ 0 }>

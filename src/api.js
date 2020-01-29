@@ -35,7 +35,7 @@ async function getHistoricalData(path) {
     return request.data.data[0];
 }
 
-function getCompare(systemIds = [], baselineIds = [], pits = []) {
+function getCompare(systemIds = [], baselineIds = [], historicalSystemProfileIds = []) {
     if (!Array.isArray(systemIds)) {
         systemIds = [ systemIds ];
     }
@@ -44,12 +44,16 @@ function getCompare(systemIds = [], baselineIds = [], pits = []) {
         baselineIds = [ baselineIds ];
     }
 
-    if (!Array.isArray(pits)) {
-        pits = [ pits ];
+    if (!Array.isArray(historicalSystemProfileIds)) {
+        historicalSystemProfileIds = [ historicalSystemProfileIds ];
     }
 
     /*eslint-disable camelcase*/
-    return post('/comparison_report', { system_ids: systemIds, baseline_ids: baselineIds, pit_ids: pits });
+    return post('/comparison_report', {
+        system_ids: systemIds,
+        baseline_ids: baselineIds,
+        historical_system_profile_ids: historicalSystemProfileIds
+    });
     /*eslint-enable camelcase*/
 }
 

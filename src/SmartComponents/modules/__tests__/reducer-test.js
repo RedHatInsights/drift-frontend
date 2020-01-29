@@ -25,7 +25,7 @@ describe('compare reducer', () => {
                 previousStateSystems: [],
                 page: 1,
                 perPage: 50,
-                pits: [],
+                hspIds: [],
                 totalFacts: 0,
                 baselines: [],
                 loading: false,
@@ -64,7 +64,7 @@ describe('compare reducer', () => {
             previousStateSystems: [],
             page: 1,
             perPage: 50,
-            pits: [],
+            hspIds: [],
             totalFacts: 0,
             loading: false,
             expandedRows: [],
@@ -96,7 +96,7 @@ describe('compare reducer', () => {
             previousStateSystems: [],
             systems: [],
             loading: true,
-            pits: []
+            hspIds: []
         });
     });
 
@@ -110,7 +110,7 @@ describe('compare reducer', () => {
             previousStateSystems: compareReducerState.systems,
             systems: [],
             loading: true,
-            pits: []
+            hspIds: []
         });
     });
 
@@ -1041,7 +1041,7 @@ describe('compare reducer', () => {
                 previousStateSystems: [],
                 page: 1,
                 perPage: 50,
-                pits: [],
+                hspIds: [],
                 totalFacts: 0,
                 loading: false,
                 expandedRows: [],
