@@ -11,15 +11,17 @@ export function historicProfilesReducer(state = initialState, action) {
         case types.SELECT_HISTORIC_PROFILE:
             newSelectedHSPIds = [ ...state.selectedHSPIds ];
 
-            if (!newSelectedHSPIds.includes(action.payload)) {
-                newSelectedHSPIds.push(action.payload);
-            } else {
-                for (let i = 0; i < newSelectedHSPIds.length; i++) {
-                    if (newSelectedHSPIds[i] === action.payload) {
-                        newSelectedHSPIds.splice(i, 1);
+            action.payload.forEach((hspId) => {
+                if (!newSelectedHSPIds.includes(hspId)) {
+                    newSelectedHSPIds.push(hspId);
+                } else {
+                    for (let i = 0; i < newSelectedHSPIds.length; i++) {
+                        if (newSelectedHSPIds[i] === hspId) {
+                            newSelectedHSPIds.splice(i, 1);
+                        }
                     }
                 }
-            }
+            });
 
             return {
                 ...state,

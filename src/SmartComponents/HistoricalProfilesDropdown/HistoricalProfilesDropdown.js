@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Dropdown, DropdownItem, DropdownToggle } from '@patternfly/react-core';
-import { ClockIcon } from '@patternfly/react-icons';
+import { UndoIcon } from '@patternfly/react-icons';
 import PropTypes from 'prop-types';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
 
@@ -39,6 +39,8 @@ class HistoricalProfilesDropdown extends Component {
     }
 
     createDropdownArray = (historicalData) => {
+        const { fetchCompare } = this.props;
+
         let dropdownItems = [];
 
         historicalData.profiles.forEach(function(profile) {
@@ -49,7 +51,7 @@ class HistoricalProfilesDropdown extends Component {
             );
         });
 
-        dropdownItems.push(<FetchHistoricalProfilesButton />);
+        dropdownItems.push(<FetchHistoricalProfilesButton fetchCompare={ fetchCompare }/>);
 
         return dropdownItems;
     }
@@ -73,8 +75,11 @@ class HistoricalProfilesDropdown extends Component {
         return (
             <React.Fragment>
                 <Dropdown
-                    toggle={ <DropdownToggle iconComponent={ null } onToggle={ this.onToggle }>
-                        <ClockIcon />
+                    toggle={ <DropdownToggle
+                        className='historical-system-profile-dropdown'
+                        iconComponent={ null }
+                        onToggle={ this.onToggle }>
+                        <UndoIcon />
                     </DropdownToggle> }
                     isOpen={ isOpen }
                     isPlain
@@ -87,7 +92,8 @@ class HistoricalProfilesDropdown extends Component {
 
 HistoricalProfilesDropdown.propTypes = {
     fetchHistoricalData: PropTypes.func,
-    systemId: PropTypes.string
+    systemId: PropTypes.string,
+    fetchCompare: PropTypes.func
 };
 
 export default HistoricalProfilesDropdown;

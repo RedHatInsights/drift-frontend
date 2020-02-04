@@ -23,7 +23,7 @@ class HistoricalProfilesCheckbox extends Component {
             checked: !checked
         });
 
-        selectHistoricProfile(profile.id);
+        selectHistoricProfile([ profile.id ]);
     }
 
     render() {
@@ -59,7 +59,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        selectHistoricProfile: (historicProfileId) => dispatch(historicProfilesActions.selectHistoricProfile(historicProfileId))
+        selectHistoricProfile: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfile(historicProfileIds))
     };
 }
 

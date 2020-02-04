@@ -66,6 +66,12 @@ describe('ConnectedDriftPage', () => {
             },
             baselinesTableActions: {
                 toggleErrorAlert: jest.fn()
+            },
+            historicProfilesActions: {
+                selectHistoricProfile: jest.fn()
+            },
+            historicProfilesState: {
+                selectedHSPIds: []
             }
         };
     });

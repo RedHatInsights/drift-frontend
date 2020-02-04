@@ -76,6 +76,10 @@
     padding: 16px;
   }
 
+  .historical-system-profile-header {
+    background-color: rgb(121, 198, 228);
+  }
+
   .add-system-header {
     background-color: #F5F5F5;
     padding: 20px 20px;
@@ -85,8 +89,6 @@
   .system-name {
     font-weight: bold;
     font-size: 16px;
-    //margin-top: 10px;
-    //margin-bottom: 10px;
     word-wrap: break-word;
     white-space: pre-wrap;
   }
@@ -103,6 +105,11 @@
     svg {
       margin-right: 5px;
     }
+  }
+
+  .hsp-dropdown {
+    margin-top: -7.5px;
+    margin-bottom: -7.5px;
   }
 
   .cluster-icon-large {
@@ -244,10 +251,12 @@
     }
   }
 
-  .fetch-historic-button {
-    margin-left: 15px;
-    margin-bottom: 2px;
-    margin-top: 10px;
+  .historical-system-profile-dropdown {
+    max-height: 21px;
+  }
+
+  .this-in-button {
+    margin-top: 20px;
   }
 
   .pit-button {

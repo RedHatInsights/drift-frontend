@@ -18,6 +18,7 @@ import { setHistory } from '../../../Utilities/SetHistory';
 import HistoricalProfilesDropdown from '../../HistoricalProfilesDropdown/HistoricalProfilesDropdown';
 import { compareActions } from '../../modules';
 import { baselinesTableActions } from '../../BaselinesTable/redux';
+import { historicProfilesActions } from '../../HistoricalProfilesDropdown/redux';
 
 class DriftTable extends Component {
     constructor(props) {
@@ -50,9 +51,12 @@ class DriftTable extends Component {
     }
 
     setHSPIds() {
+        const { selectHistoricProfile } = this.props;
+
         this.HSPIds = queryString.parse(this.props.location.search).hsp_ids;
         this.HSPIds = Array.isArray(this.HSPIds) ? this.HSPIds : [ this.HSPIds ];
         this.HSPIds = this.HSPIds.filter(item => item !== undefined);
+        selectHistoricProfile(this.HSPIds);
     }
 
     formatDate(dateString) {
@@ -60,7 +64,7 @@ class DriftTable extends Component {
     }
 
     removeSystem = (systemBaseline) => {
-        const { history, clearState, setSelectedBaselines, stateFilters, addStateFilter, hspIds } = this.props;
+        const { history, clearState, setSelectedBaselines, stateFilters, addStateFilter, hspIds, selectHistoricProfile } = this.props;
         const newSystemIds = [];
 
         this.systemIds.forEach((system) => {
@@ -74,12 +78,13 @@ class DriftTable extends Component {
                 newSystemIds.push(system);
             }
         });
+
         this.systemIds = newSystemIds;
         this.baselineIds = this.baselineIds.filter(item => item !== systemBaseline.id);
         this.HSPIds = this.HSPIds.filter(item => item !== systemBaseline.id);
 
         if ((this.systemIds.length + this.baselineIds.length + this.HSPIds.length) === 1) {
-            stateFilters.forEach(function(stateFilter) {
+            stateFilters.forEach((stateFilter) => {
                 if (stateFilter.selected === false) {
                     addStateFilter(stateFilter);
                 }
@@ -93,6 +98,7 @@ class DriftTable extends Component {
             clearState();
         }
 
+        selectHistoricProfile([ systemBaseline.id ]);
         setSelectedBaselines(this.baselineIds);
     }
 
@@ -218,9 +224,9 @@ class DriftTable extends Component {
             type = data[i].type;
 
             row.push(
-                <th key={ data[i].id } className={ type === 'baseline' ? 'drift-header baseline-header' : 'drift-header system-header' }>
+                <th key={ data[i].id } className={ data[i].type + '-header drift-header' }>
                     <div>
-                        <a onClick={ () => this.removeSystem(data[i].id) } className="remove-system-icon">
+                        <a onClick={ () => this.removeSystem(data[i]) } className="remove-system-icon">
                             <TimesIcon/>
                         </a>
                     </div>
@@ -245,7 +251,9 @@ class DriftTable extends Component {
                                 : this.formatDate(data[i].updated)
                             }
                             { insights.chrome.isBeta()
-                                ? data[i].type === 'system' ? <HistoricalProfilesDropdown systemId={ data[i].id }/> : null
+                                ? data[i].type === 'system'
+                                    ? <HistoricalProfilesDropdown systemId={ data[i].id } fetchCompare={ this.fetchCompare }/>
+                                    : null
                                 : null
                             }
                         </div>
@@ -263,7 +271,7 @@ class DriftTable extends Component {
         let row = [];
         let fullHistoricalSystemList = [];
 
-        if (systems === undefined && baselines === undefined && hspIds === undefined) {
+        if (systems.length === 0 && baselines.length === 0 && hspIds.length === 0) {
             return row;
         }
 
@@ -276,7 +284,7 @@ class DriftTable extends Component {
             return baseline;
         });
         let modifiedHSPs = hspIds.map(function(hsp) {
-            hsp.type = 'system-profile';
+            hsp.type = 'historical-system-profile';
             return hsp;
         });
 
@@ -422,7 +430,8 @@ function mapStateToProps(state) {
         hspIds: state.compareState.hspIds,
         factSort: state.compareState.factSort,
         stateSort: state.compareState.stateSort,
-        expandedRows: state.compareState.expandedRows
+        expandedRows: state.compareState.expandedRows,
+        selectedHSPIds: state.historicProfilesState.selectedHSPIds
     };
 }
 
@@ -434,7 +443,8 @@ function mapDispatchToProps(dispatch) {
         expandRow: (factName) => dispatch(compareActions.expandRow(factName)),
         clearState: () => dispatch(compareActions.clearState()),
         setSelectedBaselines: (selectedBaselineIds) => dispatch(baselinesTableActions.setSelectedBaselines(selectedBaselineIds)),
-        addStateFilter: (filter) => dispatch(compareActions.addStateFilter(filter))
+        addStateFilter: (filter) => dispatch(compareActions.addStateFilter(filter)),
+        selectHistoricProfile: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfile(historicProfileIds))
     };
 }
 
@@ -460,7 +470,9 @@ DriftTable.propTypes = {
     expandRows: PropTypes.func,
     expandedRows: PropTypes.array,
     setSelectedBaselines: PropTypes.func,
-    addStateFilter: PropTypes.func
+    addStateFilter: PropTypes.func,
+    selectHistoricProfile: PropTypes.func,
+    selectedHSPIds: PropTypes.array
 };
 
 export default withRouter (connect(mapStateToProps, mapDispatchToProps)(DriftTable));

@@ -9,6 +9,7 @@ import { Dropdown, KebabToggle, DropdownItem } from '@patternfly/react-core';
 import { setHistory } from '../../../Utilities/SetHistory';
 
 import { baselinesTableActions } from '../../BaselinesTable/redux';
+import { historicProfilesActions } from '../../HistoricalProfilesDropdown/redux';
 
 class ActionKebab extends Component {
     constructor(props) {
@@ -18,11 +19,12 @@ class ActionKebab extends Component {
     }
 
     removeSystemsSelect() {
-        const { history, toggleKebab, removeSystems, clearSelectedBaselines } = this.props;
+        const { history, toggleKebab, removeSystems, clearSelectedBaselines, selectHistoricProfile, selectedHSPIds } = this.props;
 
         toggleKebab();
         removeSystems();
         clearSelectedBaselines();
+        selectHistoricProfile(selectedHSPIds);
         setHistory(history, []);
     }
 
@@ -47,12 +49,15 @@ ActionKebab.propTypes = {
     clearSelectedBaselines: PropTypes.func,
     toggleKebab: PropTypes.func,
     kebabOpened: PropTypes.bool,
-    history: PropTypes.object
+    history: PropTypes.object,
+    selectedHSPIds: PropTypes.array,
+    selectHistoricProfile: PropTypes.func
 };
 
 function mapStateToProps(state) {
     return {
-        kebabOpened: state.kebabOpened
+        kebabOpened: state.kebabOpened,
+        selectedHSPIds: state.historicProfilesState.selectedHSPIds
     };
 }
 
@@ -60,7 +65,8 @@ function mapDispatchToProps(dispatch) {
     return {
         removeSystems: () => dispatch(compareActions.clearState()),
         clearSelectedBaselines: () => dispatch(baselinesTableActions.clearSelectedBaselines()),
-        toggleKebab: () => dispatch(actionKebabActions.toggleKebab())
+        toggleKebab: () => dispatch(actionKebabActions.toggleKebab()),
+        selectHistoricProfile: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfile(historicProfileIds))
     };
 }
 
