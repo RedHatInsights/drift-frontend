@@ -4,27 +4,22 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Button } from '@patternfly/react-core';
 
-import { setHistory } from '../../../Utilities/SetHistory';
-import { compareActions } from '../../modules';
-
 class FetchHistoricalProfilesButton extends Component {
     constructor(props) {
         super(props);
     }
 
     fetchHistoricalComparison = () => {
-        const { baselines, systems, selectedHSPIds, fetchCompare, history } = this.props;
+        const { baselines, systems, selectedHSPIds } = this.props;
         let baselineIds = baselines.map(baseline => baseline.id);
         let systemIds = systems.map(system => system.id);
 
-        setHistory(history, systemIds, baselineIds, selectedHSPIds);
-        fetchCompare(systemIds, baselineIds, selectedHSPIds);
+        this.props.fetchCompare(systemIds, baselineIds, selectedHSPIds);
     }
 
     render() {
         return (
             <Button
-                className='fetch-historic-button'
                 style={ { float: 'left' } }
                 variant='primary'
                 onClick={ this.fetchHistoricalComparison }>
@@ -52,10 +47,4 @@ function mapStateToProps(state) {
     };
 }
 
-function mapDispatchToProps(dispatch) {
-    return {
-        fetchCompare: (systemIds, baselineIds, selectedHSPIds) => dispatch(compareActions.fetchCompare(systemIds, baselineIds, selectedHSPIds))
-    };
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(FetchHistoricalProfilesButton));
+export default withRouter(connect(mapStateToProps, null)(FetchHistoricalProfilesButton));

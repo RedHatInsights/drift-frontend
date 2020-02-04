@@ -26,9 +26,9 @@ class AddSystemModal extends Component {
     }
 
     confirmModal() {
-        const { confirmModal, entities, selectedBaselineIds, toggleModal } = this.props;
+        const { confirmModal, entities, selectedBaselineIds, toggleModal, selectedHSPIds } = this.props;
 
-        confirmModal(entities.selectedSystemIds, selectedBaselineIds);
+        confirmModal(entities.selectedSystemIds, selectedBaselineIds, selectedHSPIds);
         toggleModal();
     }
 
@@ -112,7 +112,8 @@ AddSystemModal.propTypes = {
     entities: PropTypes.object,
     systems: PropTypes.array,
     selectedBaselineIds: PropTypes.array,
-    baselines: PropTypes.array
+    baselines: PropTypes.array,
+    selectedHSPIds: PropTypes.array
 };
 
 function mapStateToProps(state) {
@@ -122,7 +123,8 @@ function mapStateToProps(state) {
         activeTab: state.addSystemModalState.activeTab,
         entities: state.entities,
         selectedBaselineIds: state.baselinesTableState.selectedBaselineIds,
-        baselines: state.compareState.baselines
+        baselines: state.compareState.baselines,
+        selectedHSPIds: state.historicProfilesState.selectedHSPIds
     };
 }
 
