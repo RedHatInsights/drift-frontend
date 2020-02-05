@@ -12,10 +12,9 @@ import { Button,
     Title } from '@patternfly/react-core';
 import { CubesIcon } from '@patternfly/react-icons';
 
-import { baselinesPageActions } from '../redux';
 import { baselinesTableActions } from '../../BaselinesTable/redux';
 
-class CreateBaseline extends Component {
+export class CreateBaseline extends Component {
     constructor(props) {
         super(props);
         this.submitBaselineName = this.submitBaselineName.bind(this);
@@ -31,14 +30,13 @@ class CreateBaseline extends Component {
 
     async submitBaselineName() {
         const { baselineName } = this.state;
-        const { createBaseline, toggleCreateBaseline } = this.props;
+        const { createBaseline } = this.props;
         /*eslint-disable camelcase*/
         let newBaselineObject = { display_name: baselineName, baseline_facts: []};
         /*eslint-enable camelcase*/
 
         await createBaseline(newBaselineObject);
         this.props.history.push('baselines/' + this.props.baselineData.id);
-        toggleCreateBaseline();
     }
 
     render() {
@@ -65,7 +63,6 @@ class CreateBaseline extends Component {
 }
 
 CreateBaseline.propTypes = {
-    toggleCreateBaseline: PropTypes.func,
     createBaseline: PropTypes.func,
     baselineData: PropTypes.object,
     history: PropTypes.obj
@@ -79,7 +76,6 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        toggleCreateBaseline: () => dispatch(baselinesPageActions.toggleCreateBaseline()),
         createBaseline: (newBaselineObject) => dispatch(baselinesTableActions.createBaseline(newBaselineObject))
     };
 }
