@@ -454,37 +454,49 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                     value=""
                                                     widget-type="InsightsInput"
                                                   >
-                                                    <TextInput
-                                                      aria-label={null}
+                                                    <ForwardRef
                                                       className="ins-c-conditional-filter "
                                                       id="default-input"
-                                                      isDisabled={false}
-                                                      isReadOnly={false}
-                                                      isRequired={false}
-                                                      isValid={true}
                                                       onChange={[Function]}
                                                       onKeyDown={[Function]}
                                                       placeholder="Filter by name"
-                                                      type="text"
                                                       value=""
                                                       widget-type="InsightsInput"
                                                     >
-                                                      <input
-                                                        aria-invalid={false}
+                                                      <TextInputBase
                                                         aria-label={null}
-                                                        className="pf-c-form-control ins-c-conditional-filter "
-                                                        disabled={false}
+                                                        className="ins-c-conditional-filter "
                                                         id="default-input"
+                                                        innerRef={null}
+                                                        isDisabled={false}
+                                                        isReadOnly={false}
+                                                        isRequired={false}
+                                                        isValid={true}
                                                         onChange={[Function]}
                                                         onKeyDown={[Function]}
                                                         placeholder="Filter by name"
-                                                        readOnly={false}
-                                                        required={false}
                                                         type="text"
+                                                        validated="default"
                                                         value=""
                                                         widget-type="InsightsInput"
-                                                      />
-                                                    </TextInput>
+                                                      >
+                                                        <input
+                                                          aria-invalid={false}
+                                                          aria-label={null}
+                                                          className="pf-c-form-control ins-c-conditional-filter "
+                                                          disabled={false}
+                                                          id="default-input"
+                                                          onChange={[Function]}
+                                                          onKeyDown={[Function]}
+                                                          placeholder="Filter by name"
+                                                          readOnly={false}
+                                                          required={false}
+                                                          type="text"
+                                                          value=""
+                                                          widget-type="InsightsInput"
+                                                        />
+                                                      </TextInputBase>
+                                                    </ForwardRef>
                                                     <SearchIcon
                                                       className="ins-c-search-icon"
                                                       color="currentColor"

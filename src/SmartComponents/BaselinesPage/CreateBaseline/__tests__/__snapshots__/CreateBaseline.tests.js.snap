@@ -205,29 +205,38 @@ exports[`ConnectedCreateBaseline should render correctly 1`] = `
                       <div
                         className="pf-c-input-group"
                       >
-                        <TextInput
+                        <ForwardRef
                           aria-label="baseline name"
-                          className=""
-                          isDisabled={false}
-                          isReadOnly={false}
-                          isRequired={false}
-                          isValid={true}
                           onChange={[Function]}
                           type="text"
                           value=""
                         >
-                          <input
-                            aria-invalid={false}
+                          <TextInputBase
                             aria-label="baseline name"
-                            className="pf-c-form-control"
-                            disabled={false}
+                            className=""
+                            innerRef={null}
+                            isDisabled={false}
+                            isReadOnly={false}
+                            isRequired={false}
+                            isValid={true}
                             onChange={[Function]}
-                            readOnly={false}
-                            required={false}
                             type="text"
+                            validated="default"
                             value=""
-                          />
-                        </TextInput>
+                          >
+                            <input
+                              aria-invalid={false}
+                              aria-label="baseline name"
+                              className="pf-c-form-control"
+                              disabled={false}
+                              onChange={[Function]}
+                              readOnly={false}
+                              required={false}
+                              type="text"
+                              value=""
+                            />
+                          </TextInputBase>
+                        </ForwardRef>
                         <Component
                           onClick={[Function]}
                         >
@@ -295,13 +304,8 @@ exports[`CreateBaseline should render correctly 1`] = `
     <EmptyStateBody>
       Create a baseline name
       <InputGroup>
-        <TextInput
+        <ForwardRef
           aria-label="baseline name"
-          className=""
-          isDisabled={false}
-          isReadOnly={false}
-          isRequired={false}
-          isValid={true}
           onChange={[Function]}
           type="text"
           value=""
