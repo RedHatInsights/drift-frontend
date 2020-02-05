@@ -5,7 +5,7 @@ import { Modal, Button } from '@patternfly/react-core';
 
 import { baselinesTableActions } from '../../BaselinesTable/redux/index';
 
-class DeleteBaselinesModal extends Component {
+export class DeleteBaselinesModal extends Component {
     constructor(props) {
         super(props);
         this.deleteBaselines = this.deleteBaselines.bind(this);

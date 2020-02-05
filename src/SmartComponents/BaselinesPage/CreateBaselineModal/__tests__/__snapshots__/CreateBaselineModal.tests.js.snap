@@ -1,0 +1,1717 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConnectedCreateBaselineModal should render correctly 1`] = `
+<MemoryRouter
+  keyLength={0}
+>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Provider
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+    >
+      <withRouter(Connect(CreateBaselineModal))>
+        <Connect(CreateBaselineModal)
+          history={
+            Object {
+              "action": "POP",
+              "block": [Function],
+              "canGo": [Function],
+              "createHref": [Function],
+              "entries": Array [
+                Object {
+                  "hash": "",
+                  "pathname": "/",
+                  "search": "",
+                  "state": undefined,
+                },
+              ],
+              "go": [Function],
+              "goBack": [Function],
+              "goForward": [Function],
+              "index": 0,
+              "length": 1,
+              "listen": [Function],
+              "location": Object {
+                "hash": "",
+                "pathname": "/",
+                "search": "",
+                "state": undefined,
+              },
+              "push": [Function],
+              "replace": [Function],
+            }
+          }
+          location={
+            Object {
+              "hash": "",
+              "pathname": "/",
+              "search": "",
+              "state": undefined,
+            }
+          }
+          match={
+            Object {
+              "isExact": true,
+              "params": Object {},
+              "path": "/",
+              "url": "/",
+            }
+          }
+        >
+          <CreateBaselineModal
+            baselineData={Array []}
+            clearSelectedBaselines={[Function]}
+            createBaseline={[Function]}
+            createBaselineModalOpened={true}
+            entities={Object {}}
+            error={Object {}}
+            history={
+              Object {
+                "action": "POP",
+                "block": [Function],
+                "canGo": [Function],
+                "createHref": [Function],
+                "entries": Array [
+                  Object {
+                    "hash": "",
+                    "pathname": "/",
+                    "search": "",
+                    "state": undefined,
+                  },
+                ],
+                "go": [Function],
+                "goBack": [Function],
+                "goForward": [Function],
+                "index": 0,
+                "length": 1,
+                "listen": [Function],
+                "location": Object {
+                  "hash": "",
+                  "pathname": "/",
+                  "search": "",
+                  "state": undefined,
+                },
+                "push": [Function],
+                "replace": [Function],
+              }
+            }
+            location={
+              Object {
+                "hash": "",
+                "pathname": "/",
+                "search": "",
+                "state": undefined,
+              }
+            }
+            match={
+              Object {
+                "isExact": true,
+                "params": Object {},
+                "path": "/",
+                "url": "/",
+              }
+            }
+            selectedBaselineIds={Array []}
+            toggleCreateBaselineModal={[Function]}
+          >
+            <Modal
+              actions={
+                Array [
+                  <Unknown
+                    isDisabled={true}
+                    variant="primary"
+                  >
+                    Create baseline
+                  </Unknown>,
+                  <Unknown
+                    onClick={[Function]}
+                    variant="secondary"
+                  >
+                    Cancel
+                  </Unknown>,
+                ]
+              }
+              appendTo={
+                <body
+                  class="pf-c-backdrop__open"
+                >
+                  <div
+                    aria-hidden="true"
+                  />
+                  <div
+                    aria-hidden="true"
+                  >
+                    <div
+                      class="pf-c-backdrop"
+                    >
+                      <div
+                        class="pf-l-bullseye"
+                      >
+                        <div
+                          aria-describedby="pf-modal-1"
+                          aria-label="Create baseline"
+                          aria-modal="true"
+                          class="pf-c-modal-box create-baseline-modal"
+                          role="dialog"
+                          style="width: auto;"
+                        >
+                          <button
+                            aria-label="Close"
+                            class="pf-c-button pf-m-plain"
+                            type="button"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              style="vertical-align: -0.125em;"
+                              viewBox="0 0 352 512"
+                              width="1em"
+                            >
+                              <path
+                                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                transform=""
+                              />
+                            </svg>
+                          </button>
+                          <h1
+                            class="pf-c-title pf-m-2xl"
+                          >
+                             
+                            Create baseline
+                             
+                          </h1>
+                          <div
+                            class="pf-c-modal-box__body"
+                            id="pf-modal-1"
+                          >
+                            <div
+                              class="pf-c-radio"
+                            >
+                              <input
+                                aria-invalid="false"
+                                checked=""
+                                class="pf-c-radio__input"
+                                id="create baseline"
+                                name="baseline-create-options"
+                                type="radio"
+                                value="fromScratchChecked"
+                              />
+                              <label
+                                class="pf-c-radio__label"
+                                for="create baseline"
+                              >
+                                Create baseline from scratch
+                              </label>
+                            </div>
+                            <div
+                              class="pf-c-radio"
+                            >
+                              <input
+                                aria-invalid="false"
+                                class="pf-c-radio__input"
+                                id="copy baseline"
+                                name="baseline-create-options"
+                                type="radio"
+                                value="copyBaselineChecked"
+                              />
+                              <label
+                                class="pf-c-radio__label"
+                                for="copy baseline"
+                              >
+                                Copy an existing baseline
+                              </label>
+                            </div>
+                            <div
+                              class="pf-c-radio"
+                            >
+                              <input
+                                aria-invalid="false"
+                                class="pf-c-radio__input"
+                                id="copy system"
+                                name="baseline-create-options"
+                                type="radio"
+                                value="copySystemChecked"
+                              />
+                              <label
+                                class="pf-c-radio__label"
+                                for="copy system"
+                              >
+                                Copy an existing system
+                              </label>
+                            </div>
+                            <br />
+                            <b>
+                              Baseline name
+                            </b>
+                            <br />
+                            <form
+                              class="pf-c-form"
+                              novalidate=""
+                            >
+                              <div
+                                class="pf-c-form__group"
+                                type="text"
+                              >
+                                <input
+                                  aria-invalid="false"
+                                  aria-label="baseline name"
+                                  class="pf-c-form-control fact-value"
+                                  placeholder="Baseline name"
+                                  type="text"
+                                  value=""
+                                />
+                                
+                              </div>
+                            </form>
+                            <br />
+                            <br />
+                          </div>
+                          <div
+                            class="pf-c-modal-box__footer pf-m-align-left"
+                          >
+                            <button
+                              class="pf-c-button pf-m-primary"
+                              disabled=""
+                              type="button"
+                            >
+                              Create baseline
+                            </button>
+                            <button
+                              class="pf-c-button pf-m-secondary"
+                              type="button"
+                            >
+                              Cancel
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    aria-hidden="true"
+                  >
+                    <div
+                      class="pf-c-backdrop"
+                    >
+                      <div
+                        class="pf-l-bullseye"
+                      >
+                        <div
+                          aria-describedby="pf-modal-2"
+                          aria-label="Create baseline"
+                          aria-modal="true"
+                          class="pf-c-modal-box create-baseline-modal"
+                          role="dialog"
+                          style="width: auto;"
+                        >
+                          <button
+                            aria-label="Close"
+                            class="pf-c-button pf-m-plain"
+                            type="button"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              style="vertical-align: -0.125em;"
+                              viewBox="0 0 352 512"
+                              width="1em"
+                            >
+                              <path
+                                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                transform=""
+                              />
+                            </svg>
+                          </button>
+                          <h1
+                            class="pf-c-title pf-m-2xl"
+                          >
+                             
+                            Create baseline
+                             
+                          </h1>
+                          <div
+                            class="pf-c-modal-box__body"
+                            id="pf-modal-2"
+                          >
+                            <div
+                              class="pf-c-radio"
+                            >
+                              <input
+                                aria-invalid="false"
+                                checked=""
+                                class="pf-c-radio__input"
+                                id="create baseline"
+                                name="baseline-create-options"
+                                type="radio"
+                                value="fromScratchChecked"
+                              />
+                              <label
+                                class="pf-c-radio__label"
+                                for="create baseline"
+                              >
+                                Create baseline from scratch
+                              </label>
+                            </div>
+                            <div
+                              class="pf-c-radio"
+                            >
+                              <input
+                                aria-invalid="false"
+                                class="pf-c-radio__input"
+                                id="copy baseline"
+                                name="baseline-create-options"
+                                type="radio"
+                                value="copyBaselineChecked"
+                              />
+                              <label
+                                class="pf-c-radio__label"
+                                for="copy baseline"
+                              >
+                                Copy an existing baseline
+                              </label>
+                            </div>
+                            <div
+                              class="pf-c-radio"
+                            >
+                              <input
+                                aria-invalid="false"
+                                class="pf-c-radio__input"
+                                id="copy system"
+                                name="baseline-create-options"
+                                type="radio"
+                                value="copySystemChecked"
+                              />
+                              <label
+                                class="pf-c-radio__label"
+                                for="copy system"
+                              >
+                                Copy an existing system
+                              </label>
+                            </div>
+                            <br />
+                            <b>
+                              Baseline name
+                            </b>
+                            <br />
+                            <form
+                              class="pf-c-form"
+                              novalidate=""
+                            >
+                              <div
+                                class="pf-c-form__group"
+                                type="text"
+                              >
+                                <input
+                                  aria-invalid="false"
+                                  aria-label="baseline name"
+                                  class="pf-c-form-control fact-value"
+                                  placeholder="Baseline name"
+                                  type="text"
+                                  value="baseline"
+                                />
+                                
+                              </div>
+                            </form>
+                            <br />
+                            <br />
+                          </div>
+                          <div
+                            class="pf-c-modal-box__footer pf-m-align-left"
+                          >
+                            <button
+                              class="pf-c-button pf-m-primary"
+                              type="button"
+                            >
+                              Create baseline
+                            </button>
+                            <button
+                              class="pf-c-button pf-m-secondary"
+                              type="button"
+                            >
+                              Cancel
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    aria-hidden="true"
+                  >
+                    <div
+                      class="pf-c-backdrop"
+                    >
+                      <div
+                        class="pf-l-bullseye"
+                      >
+                        <div
+                          aria-describedby="pf-modal-3"
+                          aria-label="Create baseline"
+                          aria-modal="true"
+                          class="pf-c-modal-box create-baseline-modal"
+                          role="dialog"
+                          style="width: auto;"
+                        >
+                          <button
+                            aria-label="Close"
+                            class="pf-c-button pf-m-plain"
+                            type="button"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              style="vertical-align: -0.125em;"
+                              viewBox="0 0 352 512"
+                              width="1em"
+                            >
+                              <path
+                                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                transform=""
+                              />
+                            </svg>
+                          </button>
+                          <h1
+                            class="pf-c-title pf-m-2xl"
+                          >
+                             
+                            Create baseline
+                             
+                          </h1>
+                          <div
+                            class="pf-c-modal-box__body"
+                            id="pf-modal-3"
+                          >
+                            <div
+                              class="pf-c-radio"
+                            >
+                              <input
+                                aria-invalid="false"
+                                checked=""
+                                class="pf-c-radio__input"
+                                id="create baseline"
+                                name="baseline-create-options"
+                                type="radio"
+                                value="fromScratchChecked"
+                              />
+                              <label
+                                class="pf-c-radio__label"
+                                for="create baseline"
+                              >
+                                Create baseline from scratch
+                              </label>
+                            </div>
+                            <div
+                              class="pf-c-radio"
+                            >
+                              <input
+                                aria-invalid="false"
+                                class="pf-c-radio__input"
+                                id="copy baseline"
+                                name="baseline-create-options"
+                                type="radio"
+                                value="copyBaselineChecked"
+                              />
+                              <label
+                                class="pf-c-radio__label"
+                                for="copy baseline"
+                              >
+                                Copy an existing baseline
+                              </label>
+                            </div>
+                            <div
+                              class="pf-c-radio"
+                            >
+                              <input
+                                aria-invalid="false"
+                                class="pf-c-radio__input"
+                                id="copy system"
+                                name="baseline-create-options"
+                                type="radio"
+                                value="copySystemChecked"
+                              />
+                              <label
+                                class="pf-c-radio__label"
+                                for="copy system"
+                              >
+                                Copy an existing system
+                              </label>
+                            </div>
+                            <br />
+                            <b>
+                              Baseline name
+                            </b>
+                            <br />
+                            <form
+                              class="pf-c-form"
+                              novalidate=""
+                            >
+                              <div
+                                class="pf-c-form__group"
+                                type="text"
+                              >
+                                <input
+                                  aria-invalid="false"
+                                  aria-label="baseline name"
+                                  class="pf-c-form-control fact-value"
+                                  placeholder="Baseline name"
+                                  type="text"
+                                  value=""
+                                />
+                                
+                              </div>
+                            </form>
+                            <br />
+                            <br />
+                          </div>
+                          <div
+                            class="pf-c-modal-box__footer pf-m-align-left"
+                          >
+                            <button
+                              class="pf-c-button pf-m-primary"
+                              disabled=""
+                              type="button"
+                            >
+                              Create baseline
+                            </button>
+                            <button
+                              class="pf-c-button pf-m-secondary"
+                              type="button"
+                            >
+                              Cancel
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    aria-hidden="true"
+                  >
+                    <div
+                      class="pf-c-backdrop"
+                    >
+                      <div
+                        class="pf-l-bullseye"
+                      >
+                        <div
+                          aria-describedby="pf-modal-4"
+                          aria-label="Create baseline"
+                          aria-modal="true"
+                          class="pf-c-modal-box create-baseline-modal"
+                          role="dialog"
+                          style="width: auto;"
+                        >
+                          <button
+                            aria-label="Close"
+                            class="pf-c-button pf-m-plain"
+                            type="button"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              style="vertical-align: -0.125em;"
+                              viewBox="0 0 352 512"
+                              width="1em"
+                            >
+                              <path
+                                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                transform=""
+                              />
+                            </svg>
+                          </button>
+                          <h1
+                            class="pf-c-title pf-m-2xl"
+                          >
+                             
+                            Create baseline
+                             
+                          </h1>
+                          <div
+                            class="pf-c-modal-box__body"
+                            id="pf-modal-4"
+                          >
+                            <div
+                              class="pf-c-radio"
+                            >
+                              <input
+                                aria-invalid="false"
+                                checked=""
+                                class="pf-c-radio__input"
+                                id="create baseline"
+                                name="baseline-create-options"
+                                type="radio"
+                                value="fromScratchChecked"
+                              />
+                              <label
+                                class="pf-c-radio__label"
+                                for="create baseline"
+                              >
+                                Create baseline from scratch
+                              </label>
+                            </div>
+                            <div
+                              class="pf-c-radio"
+                            >
+                              <input
+                                aria-invalid="false"
+                                class="pf-c-radio__input"
+                                id="copy baseline"
+                                name="baseline-create-options"
+                                type="radio"
+                                value="copyBaselineChecked"
+                              />
+                              <label
+                                class="pf-c-radio__label"
+                                for="copy baseline"
+                              >
+                                Copy an existing baseline
+                              </label>
+                            </div>
+                            <div
+                              class="pf-c-radio"
+                            >
+                              <input
+                                aria-invalid="false"
+                                class="pf-c-radio__input"
+                                id="copy system"
+                                name="baseline-create-options"
+                                type="radio"
+                                value="copySystemChecked"
+                              />
+                              <label
+                                class="pf-c-radio__label"
+                                for="copy system"
+                              >
+                                Copy an existing system
+                              </label>
+                            </div>
+                            <br />
+                            <b>
+                              Baseline name
+                            </b>
+                            <br />
+                            <form
+                              class="pf-c-form"
+                              novalidate=""
+                            >
+                              <div
+                                class="pf-c-form__group"
+                                type="text"
+                              >
+                                <input
+                                  aria-invalid="false"
+                                  aria-label="baseline name"
+                                  class="pf-c-form-control fact-value"
+                                  placeholder="Baseline name"
+                                  type="text"
+                                  value="baseline"
+                                />
+                                
+                              </div>
+                            </form>
+                            <br />
+                            <br />
+                          </div>
+                          <div
+                            class="pf-c-modal-box__footer pf-m-align-left"
+                          >
+                            <button
+                              class="pf-c-button pf-m-primary"
+                              type="button"
+                            >
+                              Create baseline
+                            </button>
+                            <button
+                              class="pf-c-button pf-m-secondary"
+                              type="button"
+                            >
+                              Cancel
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div
+                      class="pf-c-backdrop"
+                    >
+                      <div
+                        class="pf-l-bullseye"
+                      >
+                        <div
+                          aria-describedby="pf-modal-5"
+                          aria-label="Create baseline"
+                          aria-modal="true"
+                          class="pf-c-modal-box create-baseline-modal"
+                          role="dialog"
+                          style="width: auto;"
+                        >
+                          <button
+                            aria-label="Close"
+                            class="pf-c-button pf-m-plain"
+                            type="button"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              style="vertical-align: -0.125em;"
+                              viewBox="0 0 352 512"
+                              width="1em"
+                            >
+                              <path
+                                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                transform=""
+                              />
+                            </svg>
+                          </button>
+                          <h1
+                            class="pf-c-title pf-m-2xl"
+                          >
+                             
+                            Create baseline
+                             
+                          </h1>
+                          <div
+                            class="pf-c-modal-box__body"
+                            id="pf-modal-5"
+                          >
+                            <div
+                              class="pf-c-radio"
+                            >
+                              <input
+                                aria-invalid="false"
+                                checked=""
+                                class="pf-c-radio__input"
+                                id="create baseline"
+                                name="baseline-create-options"
+                                type="radio"
+                                value="fromScratchChecked"
+                              />
+                              <label
+                                class="pf-c-radio__label"
+                                for="create baseline"
+                              >
+                                Create baseline from scratch
+                              </label>
+                            </div>
+                            <div
+                              class="pf-c-radio"
+                            >
+                              <input
+                                aria-invalid="false"
+                                class="pf-c-radio__input"
+                                id="copy baseline"
+                                name="baseline-create-options"
+                                type="radio"
+                                value="copyBaselineChecked"
+                              />
+                              <label
+                                class="pf-c-radio__label"
+                                for="copy baseline"
+                              >
+                                Copy an existing baseline
+                              </label>
+                            </div>
+                            <div
+                              class="pf-c-radio"
+                            >
+                              <input
+                                aria-invalid="false"
+                                class="pf-c-radio__input"
+                                id="copy system"
+                                name="baseline-create-options"
+                                type="radio"
+                                value="copySystemChecked"
+                              />
+                              <label
+                                class="pf-c-radio__label"
+                                for="copy system"
+                              >
+                                Copy an existing system
+                              </label>
+                            </div>
+                            <br />
+                            <b>
+                              Baseline name
+                            </b>
+                            <br />
+                            <form
+                              class="pf-c-form"
+                              novalidate=""
+                            >
+                              <div
+                                class="pf-c-form__group"
+                                type="text"
+                              >
+                                <input
+                                  aria-invalid="false"
+                                  aria-label="baseline name"
+                                  class="pf-c-form-control fact-value"
+                                  placeholder="Baseline name"
+                                  type="text"
+                                  value=""
+                                />
+                                
+                              </div>
+                            </form>
+                            <br />
+                            <br />
+                          </div>
+                          <div
+                            class="pf-c-modal-box__footer pf-m-align-left"
+                          >
+                            <button
+                              class="pf-c-button pf-m-primary"
+                              disabled=""
+                              type="button"
+                            >
+                              Create baseline
+                            </button>
+                            <button
+                              class="pf-c-button pf-m-secondary"
+                              type="button"
+                            >
+                              Cancel
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </body>
+              }
+              ariaDescribedById=""
+              className="create-baseline-modal"
+              hideTitle={false}
+              isFooterLeftAligned={true}
+              isLarge={false}
+              isOpen={true}
+              isSmall={false}
+              onClose={[Function]}
+              showClose={true}
+              title="Create baseline"
+              width="auto"
+            >
+              <Portal
+                containerInfo={
+                  <div>
+                    <div
+                      class="pf-c-backdrop"
+                    >
+                      <div
+                        class="pf-l-bullseye"
+                      >
+                        <div
+                          aria-describedby="pf-modal-5"
+                          aria-label="Create baseline"
+                          aria-modal="true"
+                          class="pf-c-modal-box create-baseline-modal"
+                          role="dialog"
+                          style="width: auto;"
+                        >
+                          <button
+                            aria-label="Close"
+                            class="pf-c-button pf-m-plain"
+                            type="button"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              style="vertical-align: -0.125em;"
+                              viewBox="0 0 352 512"
+                              width="1em"
+                            >
+                              <path
+                                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                transform=""
+                              />
+                            </svg>
+                          </button>
+                          <h1
+                            class="pf-c-title pf-m-2xl"
+                          >
+                             
+                            Create baseline
+                             
+                          </h1>
+                          <div
+                            class="pf-c-modal-box__body"
+                            id="pf-modal-5"
+                          >
+                            <div
+                              class="pf-c-radio"
+                            >
+                              <input
+                                aria-invalid="false"
+                                checked=""
+                                class="pf-c-radio__input"
+                                id="create baseline"
+                                name="baseline-create-options"
+                                type="radio"
+                                value="fromScratchChecked"
+                              />
+                              <label
+                                class="pf-c-radio__label"
+                                for="create baseline"
+                              >
+                                Create baseline from scratch
+                              </label>
+                            </div>
+                            <div
+                              class="pf-c-radio"
+                            >
+                              <input
+                                aria-invalid="false"
+                                class="pf-c-radio__input"
+                                id="copy baseline"
+                                name="baseline-create-options"
+                                type="radio"
+                                value="copyBaselineChecked"
+                              />
+                              <label
+                                class="pf-c-radio__label"
+                                for="copy baseline"
+                              >
+                                Copy an existing baseline
+                              </label>
+                            </div>
+                            <div
+                              class="pf-c-radio"
+                            >
+                              <input
+                                aria-invalid="false"
+                                class="pf-c-radio__input"
+                                id="copy system"
+                                name="baseline-create-options"
+                                type="radio"
+                                value="copySystemChecked"
+                              />
+                              <label
+                                class="pf-c-radio__label"
+                                for="copy system"
+                              >
+                                Copy an existing system
+                              </label>
+                            </div>
+                            <br />
+                            <b>
+                              Baseline name
+                            </b>
+                            <br />
+                            <form
+                              class="pf-c-form"
+                              novalidate=""
+                            >
+                              <div
+                                class="pf-c-form__group"
+                                type="text"
+                              >
+                                <input
+                                  aria-invalid="false"
+                                  aria-label="baseline name"
+                                  class="pf-c-form-control fact-value"
+                                  placeholder="Baseline name"
+                                  type="text"
+                                  value=""
+                                />
+                                
+                              </div>
+                            </form>
+                            <br />
+                            <br />
+                          </div>
+                          <div
+                            class="pf-c-modal-box__footer pf-m-align-left"
+                          >
+                            <button
+                              class="pf-c-button pf-m-primary"
+                              disabled=""
+                              type="button"
+                            >
+                              Create baseline
+                            </button>
+                            <button
+                              class="pf-c-button pf-m-secondary"
+                              type="button"
+                            >
+                              Cancel
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                }
+              >
+                <ModalContent
+                  actions={
+                    Array [
+                      <Unknown
+                        isDisabled={true}
+                        variant="primary"
+                      >
+                        Create baseline
+                      </Unknown>,
+                      <Unknown
+                        onClick={[Function]}
+                        variant="secondary"
+                      >
+                        Cancel
+                      </Unknown>,
+                    ]
+                  }
+                  ariaDescribedById=""
+                  className="create-baseline-modal"
+                  hideTitle={false}
+                  id="pf-modal-5"
+                  isFooterLeftAligned={true}
+                  isLarge={false}
+                  isOpen={true}
+                  isSmall={false}
+                  onClose={[Function]}
+                  showClose={true}
+                  title="Create baseline"
+                  width="auto"
+                >
+                  <Backdrop>
+                    <div
+                      className="pf-c-backdrop"
+                    >
+                      <FocusTrap
+                        _createFocusTrap={[Function]}
+                        active={true}
+                        className="pf-l-bullseye"
+                        focusTrapOptions={
+                          Object {
+                            "clickOutsideDeactivates": true,
+                          }
+                        }
+                        paused={false}
+                        tag="div"
+                      >
+                        <div
+                          className="pf-l-bullseye"
+                        >
+                          <ModalBox
+                            className="create-baseline-modal"
+                            id="pf-modal-5"
+                            isLarge={false}
+                            isSmall={false}
+                            style={
+                              Object {
+                                "width": "auto",
+                              }
+                            }
+                            title="Create baseline"
+                          >
+                            <div
+                              aria-describedby="pf-modal-5"
+                              aria-label="Create baseline"
+                              aria-modal="true"
+                              className="pf-c-modal-box create-baseline-modal"
+                              role="dialog"
+                              style={
+                                Object {
+                                  "width": "auto",
+                                }
+                              }
+                            >
+                              <ModalBoxCloseButton
+                                onClose={[Function]}
+                              >
+                                <Component
+                                  aria-label="Close"
+                                  className=""
+                                  onClick={[Function]}
+                                  variant="plain"
+                                >
+                                  <ComponentWithOuia
+                                    component={[Function]}
+                                    componentProps={
+                                      Object {
+                                        "aria-label": "Close",
+                                        "children": <TimesIcon
+                                          color="currentColor"
+                                          noVerticalAlign={false}
+                                          size="sm"
+                                          title={null}
+                                        />,
+                                        "className": "",
+                                        "onClick": [Function],
+                                        "variant": "plain",
+                                      }
+                                    }
+                                    consumerContext={null}
+                                  >
+                                    <Button
+                                      aria-label="Close"
+                                      className=""
+                                      onClick={[Function]}
+                                      ouiaContext={
+                                        Object {
+                                          "isOuia": false,
+                                          "ouiaId": null,
+                                        }
+                                      }
+                                      variant="plain"
+                                    >
+                                      <button
+                                        aria-disabled={null}
+                                        aria-label="Close"
+                                        className="pf-c-button pf-m-plain"
+                                        disabled={false}
+                                        onClick={[Function]}
+                                        tabIndex={null}
+                                        type="button"
+                                      >
+                                        <TimesIcon
+                                          color="currentColor"
+                                          noVerticalAlign={false}
+                                          size="sm"
+                                          title={null}
+                                        >
+                                          <svg
+                                            aria-hidden={true}
+                                            aria-labelledby={null}
+                                            fill="currentColor"
+                                            height="1em"
+                                            role="img"
+                                            style={
+                                              Object {
+                                                "verticalAlign": "-0.125em",
+                                              }
+                                            }
+                                            viewBox="0 0 352 512"
+                                            width="1em"
+                                          >
+                                            <path
+                                              d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                              transform=""
+                                            />
+                                          </svg>
+                                        </TimesIcon>
+                                      </button>
+                                    </Button>
+                                  </ComponentWithOuia>
+                                </Component>
+                              </ModalBoxCloseButton>
+                              <ModalBoxHeader
+                                hideTitle={false}
+                              >
+                                <Title
+                                  className=""
+                                  headingLevel="h1"
+                                  size="2xl"
+                                >
+                                  <h1
+                                    className="pf-c-title pf-m-2xl"
+                                  >
+                                     
+                                    Create baseline
+                                     
+                                  </h1>
+                                </Title>
+                              </ModalBoxHeader>
+                              <ModalBoxBody
+                                id="pf-modal-5"
+                              >
+                                <div
+                                  className="pf-c-modal-box__body"
+                                  id="pf-modal-5"
+                                >
+                                  <Radio
+                                    className=""
+                                    id="create baseline"
+                                    isChecked={true}
+                                    isDisabled={false}
+                                    isValid={true}
+                                    label="Create baseline from scratch"
+                                    name="baseline-create-options"
+                                    onChange={[Function]}
+                                    value="fromScratchChecked"
+                                  >
+                                    <div
+                                      className="pf-c-radio"
+                                    >
+                                      <input
+                                        aria-invalid={false}
+                                        checked={true}
+                                        className="pf-c-radio__input"
+                                        disabled={false}
+                                        id="create baseline"
+                                        name="baseline-create-options"
+                                        onChange={[Function]}
+                                        type="radio"
+                                        value="fromScratchChecked"
+                                      />
+                                      <label
+                                        className="pf-c-radio__label"
+                                        htmlFor="create baseline"
+                                      >
+                                        Create baseline from scratch
+                                      </label>
+                                    </div>
+                                  </Radio>
+                                  <Radio
+                                    className=""
+                                    id="copy baseline"
+                                    isChecked={false}
+                                    isDisabled={false}
+                                    isValid={true}
+                                    label="Copy an existing baseline"
+                                    name="baseline-create-options"
+                                    onChange={[Function]}
+                                    value="copyBaselineChecked"
+                                  >
+                                    <div
+                                      className="pf-c-radio"
+                                    >
+                                      <input
+                                        aria-invalid={false}
+                                        checked={false}
+                                        className="pf-c-radio__input"
+                                        disabled={false}
+                                        id="copy baseline"
+                                        name="baseline-create-options"
+                                        onChange={[Function]}
+                                        type="radio"
+                                        value="copyBaselineChecked"
+                                      />
+                                      <label
+                                        className="pf-c-radio__label"
+                                        htmlFor="copy baseline"
+                                      >
+                                        Copy an existing baseline
+                                      </label>
+                                    </div>
+                                  </Radio>
+                                  <Radio
+                                    className=""
+                                    id="copy system"
+                                    isChecked={false}
+                                    isDisabled={false}
+                                    isValid={true}
+                                    label="Copy an existing system"
+                                    name="baseline-create-options"
+                                    onChange={[Function]}
+                                    value="copySystemChecked"
+                                  >
+                                    <div
+                                      className="pf-c-radio"
+                                    >
+                                      <input
+                                        aria-invalid={false}
+                                        checked={false}
+                                        className="pf-c-radio__input"
+                                        disabled={false}
+                                        id="copy system"
+                                        name="baseline-create-options"
+                                        onChange={[Function]}
+                                        type="radio"
+                                        value="copySystemChecked"
+                                      />
+                                      <label
+                                        className="pf-c-radio__label"
+                                        htmlFor="copy system"
+                                      >
+                                        Copy an existing system
+                                      </label>
+                                    </div>
+                                  </Radio>
+                                  <br />
+                                  <b>
+                                    Baseline name
+                                  </b>
+                                  <br />
+                                  <Form>
+                                    <form
+                                      className="pf-c-form"
+                                      noValidate={true}
+                                    >
+                                      <FormGroup
+                                        fieldId="name"
+                                        helperTextInvalid={null}
+                                        isValid={true}
+                                        onKeyPress={[Function]}
+                                        type="text"
+                                      >
+                                        <div
+                                          className="pf-c-form__group"
+                                          onKeyPress={[Function]}
+                                          type="text"
+                                        >
+                                          <ForwardRef
+                                            aria-label="baseline name"
+                                            className="fact-value"
+                                            isValid={true}
+                                            onChange={[Function]}
+                                            placeHolder="Baseline name"
+                                            type="text"
+                                            value=""
+                                          >
+                                            <TextInputBase
+                                              aria-label="baseline name"
+                                              className="fact-value"
+                                              innerRef={null}
+                                              isDisabled={false}
+                                              isReadOnly={false}
+                                              isRequired={false}
+                                              isValid={true}
+                                              onChange={[Function]}
+                                              placeHolder="Baseline name"
+                                              type="text"
+                                              validated="default"
+                                              value=""
+                                            >
+                                              <input
+                                                aria-invalid={false}
+                                                aria-label="baseline name"
+                                                className="pf-c-form-control fact-value"
+                                                disabled={false}
+                                                onChange={[Function]}
+                                                placeHolder="Baseline name"
+                                                readOnly={false}
+                                                required={false}
+                                                type="text"
+                                                value=""
+                                              />
+                                            </TextInputBase>
+                                          </ForwardRef>
+                                        </div>
+                                      </FormGroup>
+                                    </form>
+                                  </Form>
+                                  <br />
+                                  <br />
+                                </div>
+                              </ModalBoxBody>
+                              <ModalBoxFooter
+                                isLeftAligned={true}
+                              >
+                                <div
+                                  className="pf-c-modal-box__footer pf-m-align-left"
+                                >
+                                  <Component
+                                    isDisabled={true}
+                                    key="confirm"
+                                    variant="primary"
+                                  >
+                                    <ComponentWithOuia
+                                      component={[Function]}
+                                      componentProps={
+                                        Object {
+                                          "children": "Create baseline",
+                                          "isDisabled": true,
+                                          "variant": "primary",
+                                        }
+                                      }
+                                      consumerContext={null}
+                                    >
+                                      <Button
+                                        isDisabled={true}
+                                        ouiaContext={
+                                          Object {
+                                            "isOuia": false,
+                                            "ouiaId": null,
+                                          }
+                                        }
+                                        variant="primary"
+                                      >
+                                        <button
+                                          aria-disabled={null}
+                                          aria-label={null}
+                                          className="pf-c-button pf-m-primary"
+                                          disabled={true}
+                                          tabIndex={null}
+                                          type="button"
+                                        >
+                                          Create baseline
+                                        </button>
+                                      </Button>
+                                    </ComponentWithOuia>
+                                  </Component>
+                                  <Component
+                                    key="cancel"
+                                    onClick={[Function]}
+                                    variant="secondary"
+                                  >
+                                    <ComponentWithOuia
+                                      component={[Function]}
+                                      componentProps={
+                                        Object {
+                                          "children": "Cancel",
+                                          "onClick": [Function],
+                                          "variant": "secondary",
+                                        }
+                                      }
+                                      consumerContext={null}
+                                    >
+                                      <Button
+                                        onClick={[Function]}
+                                        ouiaContext={
+                                          Object {
+                                            "isOuia": false,
+                                            "ouiaId": null,
+                                          }
+                                        }
+                                        variant="secondary"
+                                      >
+                                        <button
+                                          aria-disabled={null}
+                                          aria-label={null}
+                                          className="pf-c-button pf-m-secondary"
+                                          disabled={false}
+                                          onClick={[Function]}
+                                          tabIndex={null}
+                                          type="button"
+                                        >
+                                          Cancel
+                                        </button>
+                                      </Button>
+                                    </ComponentWithOuia>
+                                  </Component>
+                                </div>
+                              </ModalBoxFooter>
+                            </div>
+                          </ModalBox>
+                        </div>
+                      </FocusTrap>
+                    </div>
+                  </Backdrop>
+                </ModalContent>
+              </Portal>
+            </Modal>
+          </CreateBaselineModal>
+        </Connect(CreateBaselineModal)>
+      </withRouter(Connect(CreateBaselineModal))>
+    </Provider>
+  </Router>
+</MemoryRouter>
+`;
+
+exports[`CreateBaselineModal should render correctly 1`] = `
+<Modal
+  actions={
+    Array [
+      <Unknown
+        isDisabled={true}
+        variant="primary"
+      >
+        Create baseline
+      </Unknown>,
+      <Unknown
+        onClick={[Function]}
+        variant="secondary"
+      >
+        Cancel
+      </Unknown>,
+    ]
+  }
+  appendTo={<body />}
+  ariaDescribedById=""
+  className="create-baseline-modal"
+  hideTitle={false}
+  isFooterLeftAligned={true}
+  isLarge={false}
+  isOpen={false}
+  isSmall={false}
+  onClose={[Function]}
+  showClose={true}
+  title="Create baseline"
+  width="auto"
+>
+  <Radio
+    className=""
+    id="create baseline"
+    isChecked={true}
+    isDisabled={false}
+    isValid={true}
+    label="Create baseline from scratch"
+    name="baseline-create-options"
+    onChange={[Function]}
+    value="fromScratchChecked"
+  />
+  <Radio
+    className=""
+    id="copy baseline"
+    isChecked={false}
+    isDisabled={false}
+    isValid={true}
+    label="Copy an existing baseline"
+    name="baseline-create-options"
+    onChange={[Function]}
+    value="copyBaselineChecked"
+  />
+  <Radio
+    className=""
+    id="copy system"
+    isChecked={false}
+    isDisabled={false}
+    isValid={true}
+    label="Copy an existing system"
+    name="baseline-create-options"
+    onChange={[Function]}
+    value="copySystemChecked"
+  />
+  <br />
+  <b>
+    Baseline name
+  </b>
+  <br />
+  <Form>
+    <FormGroup
+      fieldId="name"
+      helperTextInvalid={null}
+      isValid={true}
+      onKeyPress={[Function]}
+      type="text"
+    >
+      <ForwardRef
+        aria-label="baseline name"
+        className="fact-value"
+        isValid={true}
+        onChange={[Function]}
+        placeHolder="Baseline name"
+        type="text"
+        value=""
+      />
+    </FormGroup>
+  </Form>
+  <br />
+  <br />
+</Modal>
+`;
+
+exports[`CreateBaselineModal should render mount correctly 1`] = `
+<CreateBaselineModal
+  baselineData={Array []}
+  clearSelectedBaselines={[MockFunction]}
+  createBaselineModalOpened={false}
+  entities={Object {}}
+  error={Object {}}
+  handleChecked={[MockFunction]}
+  selectedBaselineIds={Array []}
+>
+  <Modal
+    actions={
+      Array [
+        <Unknown
+          isDisabled={true}
+          variant="primary"
+        >
+          Create baseline
+        </Unknown>,
+        <Unknown
+          onClick={[Function]}
+          variant="secondary"
+        >
+          Cancel
+        </Unknown>,
+      ]
+    }
+    appendTo={
+      <body>
+        <div />
+      </body>
+    }
+    ariaDescribedById=""
+    className="create-baseline-modal"
+    hideTitle={false}
+    isFooterLeftAligned={true}
+    isLarge={false}
+    isOpen={false}
+    isSmall={false}
+    onClose={[Function]}
+    showClose={true}
+    title="Create baseline"
+    width="auto"
+  >
+    <Portal
+      containerInfo={<div />}
+    >
+      <ModalContent
+        actions={
+          Array [
+            <Unknown
+              isDisabled={true}
+              variant="primary"
+            >
+              Create baseline
+            </Unknown>,
+            <Unknown
+              onClick={[Function]}
+              variant="secondary"
+            >
+              Cancel
+            </Unknown>,
+          ]
+        }
+        ariaDescribedById=""
+        className="create-baseline-modal"
+        hideTitle={false}
+        id="pf-modal-0"
+        isFooterLeftAligned={true}
+        isLarge={false}
+        isOpen={false}
+        isSmall={false}
+        onClose={[Function]}
+        showClose={true}
+        title="Create baseline"
+        width="auto"
+      />
+    </Portal>
+  </Modal>
+</CreateBaselineModal>
+`;
