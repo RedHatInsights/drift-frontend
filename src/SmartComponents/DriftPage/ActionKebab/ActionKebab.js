@@ -19,12 +19,12 @@ class ActionKebab extends Component {
     }
 
     removeSystemsSelect() {
-        const { history, toggleKebab, removeSystems, clearSelectedBaselines, selectHistoricProfile, selectedHSPIds } = this.props;
+        const { history, toggleKebab, removeSystems, clearSelectedBaselines, selectHistoricProfiles, selectedHSPIds } = this.props;
 
         toggleKebab();
         removeSystems();
         clearSelectedBaselines();
-        selectHistoricProfile(selectedHSPIds);
+        selectHistoricProfiles(selectedHSPIds);
         setHistory(history, []);
     }
 
@@ -53,7 +53,7 @@ ActionKebab.propTypes = {
     kebabOpened: PropTypes.bool,
     history: PropTypes.object,
     selectedHSPIds: PropTypes.array,
-    selectHistoricProfile: PropTypes.func
+    selectHistoricProfiles: PropTypes.func
 };
 
 function mapStateToProps(state) {
@@ -68,7 +68,7 @@ function mapDispatchToProps(dispatch) {
         removeSystems: () => dispatch(compareActions.clearState()),
         clearSelectedBaselines: () => dispatch(baselinesTableActions.clearSelectedBaselines()),
         toggleKebab: () => dispatch(actionKebabActions.toggleKebab()),
-        selectHistoricProfile: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfile(historicProfileIds))
+        selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds))
     };
 }
 

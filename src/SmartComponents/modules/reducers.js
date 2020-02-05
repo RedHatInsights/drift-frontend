@@ -8,7 +8,7 @@ const initialState = {
     sortedFilteredFacts: [],
     systems: [],
     baselines: [],
-    hspIds: [],
+    historicalProfiles: [],
     previousStateSystems: [],
     stateFilters: [
         { filter: 'SAME', display: 'Same', selected: true },
@@ -54,7 +54,7 @@ export function compareReducer(state = initialState, action) {
                 previousStateSystems: state.systems,
                 systems: [],
                 baselines: [],
-                hspIds: [],
+                historicalProfiles: [],
                 loading: true
             };
         case `${types.FETCH_COMPARE}_FULFILLED`:
@@ -69,7 +69,7 @@ export function compareReducer(state = initialState, action) {
                 sortedFilteredFacts: sortedFacts,
                 systems: action.payload.systems || [],
                 baselines: action.payload.baselines || [],
-                hspIds: action.payload.historical_system_profiles || [],
+                historicalProfiles: action.payload.historical_system_profiles || [],
                 page: 1,
                 totalFacts: filteredFacts.length
             };
@@ -149,7 +149,7 @@ export function compareReducer(state = initialState, action) {
                 totalFacts: filteredFacts.length
             };
         case `${types.EXPORT_TO_CSV}`:
-            reducerHelpers.downloadCSV(state.sortedFilteredFacts, [ ...state.baselines, ...state.systems, ...state.hspIds ]);
+            reducerHelpers.downloadCSV(state.sortedFilteredFacts, [ ...state.baselines, ...state.systems, ...state.historicalProfiles ]);
             return {
                 ...state
             };
