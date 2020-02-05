@@ -34,6 +34,8 @@ class ActionKebab extends Component {
         ];
         return (
             <Dropdown
+                id='action-kebab'
+                aria-label='action-kebab'
                 style={ { float: 'left' } }
                 toggle={ <KebabToggle onToggle={ this.props.toggleKebab } /> }
                 isOpen={ this.props.kebabOpened }
