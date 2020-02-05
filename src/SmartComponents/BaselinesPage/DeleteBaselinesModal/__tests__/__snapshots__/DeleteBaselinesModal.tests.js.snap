@@ -1,0 +1,770 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConnectedDeleteBaselinesModal should render correctly 1`] = `
+<MemoryRouter
+  keyLength={0}
+>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Provider
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+    >
+      <Connect(DeleteBaselinesModal)>
+        <DeleteBaselinesModal
+          clearSelectedBaselines={[Function]}
+          deleteSelectedBaselines={[Function]}
+          fetchBaselines={[Function]}
+          selectedBaselineIds={Array []}
+        >
+          <Modal
+            actions={
+              Array [
+                <Unknown
+                  onClick={[Function]}
+                  variant="danger"
+                >
+                  Delete Baselines
+                </Unknown>,
+                <Unknown
+                  onClick={[Function]}
+                  variant="secondary"
+                >
+                  Cancel
+                </Unknown>,
+              ]
+            }
+            appendTo={
+              <body
+                class=""
+              >
+                <div>
+                  <div
+                    class="pf-c-backdrop"
+                  >
+                    <div
+                      class="pf-l-bullseye"
+                    >
+                      <div
+                        aria-describedby="pf-modal-0"
+                        aria-label="Delete baselines"
+                        aria-modal="true"
+                        class="pf-c-modal-box small-modal-body"
+                        role="dialog"
+                        style="width: auto;"
+                      >
+                        <button
+                          aria-label="Close"
+                          class="pf-c-button pf-m-plain"
+                          type="button"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            fill="currentColor"
+                            height="1em"
+                            role="img"
+                            style="vertical-align: -0.125em;"
+                            viewBox="0 0 352 512"
+                            width="1em"
+                          >
+                            <path
+                              d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                              transform=""
+                            />
+                          </svg>
+                        </button>
+                        <h1
+                          class="pf-c-title pf-m-2xl"
+                        >
+                           
+                          Delete baselines
+                           
+                        </h1>
+                        <div
+                          class="pf-c-modal-box__body"
+                          id="pf-modal-0"
+                        >
+                          Deleting a baseline is permanent and cannot be undone.
+                        </div>
+                        <div
+                          class="pf-c-modal-box__footer pf-m-align-left"
+                        >
+                          <button
+                            class="pf-c-button pf-m-danger"
+                            type="button"
+                          >
+                            Delete Baselines
+                          </button>
+                          <button
+                            class="pf-c-button pf-m-secondary"
+                            type="button"
+                          >
+                            Cancel
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div
+                    class="pf-c-backdrop"
+                  >
+                    <div
+                      class="pf-l-bullseye"
+                    >
+                      <div
+                        aria-describedby="pf-modal-1"
+                        aria-label="Delete baselines"
+                        aria-modal="true"
+                        class="pf-c-modal-box small-modal-body"
+                        role="dialog"
+                        style="width: auto;"
+                      >
+                        <button
+                          aria-label="Close"
+                          class="pf-c-button pf-m-plain"
+                          type="button"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            fill="currentColor"
+                            height="1em"
+                            role="img"
+                            style="vertical-align: -0.125em;"
+                            viewBox="0 0 352 512"
+                            width="1em"
+                          >
+                            <path
+                              d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                              transform=""
+                            />
+                          </svg>
+                        </button>
+                        <h1
+                          class="pf-c-title pf-m-2xl"
+                        >
+                           
+                          Delete baselines
+                           
+                        </h1>
+                        <div
+                          class="pf-c-modal-box__body"
+                          id="pf-modal-1"
+                        >
+                          Deleting a baseline is permanent and cannot be undone.
+                        </div>
+                        <div
+                          class="pf-c-modal-box__footer pf-m-align-left"
+                        >
+                          <button
+                            class="pf-c-button pf-m-danger"
+                            type="button"
+                          >
+                            Delete Baselines
+                          </button>
+                          <button
+                            class="pf-c-button pf-m-secondary"
+                            type="button"
+                          >
+                            Cancel
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div />
+                <div />
+                <div />
+                <div />
+              </body>
+            }
+            ariaDescribedById=""
+            className="small-modal-body"
+            hideTitle={false}
+            isFooterLeftAligned={true}
+            isLarge={false}
+            isOpen={false}
+            isSmall={false}
+            onClose={[Function]}
+            showClose={true}
+            title="Delete baselines"
+            width="auto"
+          >
+            <Portal
+              containerInfo={<div />}
+            >
+              <ModalContent
+                actions={
+                  Array [
+                    <Unknown
+                      onClick={[Function]}
+                      variant="danger"
+                    >
+                      Delete Baselines
+                    </Unknown>,
+                    <Unknown
+                      onClick={[Function]}
+                      variant="secondary"
+                    >
+                      Cancel
+                    </Unknown>,
+                  ]
+                }
+                ariaDescribedById=""
+                className="small-modal-body"
+                hideTitle={false}
+                id="pf-modal-5"
+                isFooterLeftAligned={true}
+                isLarge={false}
+                isOpen={false}
+                isSmall={false}
+                onClose={[Function]}
+                showClose={true}
+                title="Delete baselines"
+                width="auto"
+              />
+            </Portal>
+          </Modal>
+        </DeleteBaselinesModal>
+      </Connect(DeleteBaselinesModal)>
+    </Provider>
+  </Router>
+</MemoryRouter>
+`;
+
+exports[`DeleteBaselinesModal should render correctly 1`] = `
+<Modal
+  actions={
+    Array [
+      <Unknown
+        onClick={[Function]}
+        variant="danger"
+      >
+        Delete Baselines
+      </Unknown>,
+      <Unknown
+        onClick={[Function]}
+        variant="secondary"
+      >
+        Cancel
+      </Unknown>,
+    ]
+  }
+  appendTo={<body />}
+  ariaDescribedById=""
+  className="small-modal-body"
+  hideTitle={false}
+  isFooterLeftAligned={true}
+  isLarge={false}
+  isOpen={true}
+  isSmall={false}
+  onClose={[Function]}
+  showClose={true}
+  title="Delete baselines"
+  width="auto"
+>
+  Deleting a baseline is permanent and cannot be undone.
+</Modal>
+`;
+
+exports[`DeleteBaselinesModal should render mount correctly 1`] = `
+<DeleteBaselinesModal
+  clearSelectedBaselines={[MockFunction]}
+  deleteSelectedBaselines={[MockFunction]}
+  fetchBaselines={[MockFunction]}
+  modalOpened={true}
+  selectedBaselineIds={Array []}
+>
+  <Modal
+    actions={
+      Array [
+        <Unknown
+          onClick={[Function]}
+          variant="danger"
+        >
+          Delete Baselines
+        </Unknown>,
+        <Unknown
+          onClick={[Function]}
+          variant="secondary"
+        >
+          Cancel
+        </Unknown>,
+      ]
+    }
+    appendTo={
+      <body
+        class="pf-c-backdrop__open"
+      >
+        <div>
+          <div
+            class="pf-c-backdrop"
+          >
+            <div
+              class="pf-l-bullseye"
+            >
+              <div
+                aria-describedby="pf-modal-0"
+                aria-label="Delete baselines"
+                aria-modal="true"
+                class="pf-c-modal-box small-modal-body"
+                role="dialog"
+                style="width: auto;"
+              >
+                <button
+                  aria-label="Close"
+                  class="pf-c-button pf-m-plain"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="currentColor"
+                    height="1em"
+                    role="img"
+                    style="vertical-align: -0.125em;"
+                    viewBox="0 0 352 512"
+                    width="1em"
+                  >
+                    <path
+                      d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                      transform=""
+                    />
+                  </svg>
+                </button>
+                <h1
+                  class="pf-c-title pf-m-2xl"
+                >
+                   
+                  Delete baselines
+                   
+                </h1>
+                <div
+                  class="pf-c-modal-box__body"
+                  id="pf-modal-0"
+                >
+                  Deleting a baseline is permanent and cannot be undone.
+                </div>
+                <div
+                  class="pf-c-modal-box__footer pf-m-align-left"
+                >
+                  <button
+                    class="pf-c-button pf-m-danger"
+                    type="button"
+                  >
+                    Delete Baselines
+                  </button>
+                  <button
+                    class="pf-c-button pf-m-secondary"
+                    type="button"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </body>
+    }
+    ariaDescribedById=""
+    className="small-modal-body"
+    hideTitle={false}
+    isFooterLeftAligned={true}
+    isLarge={false}
+    isOpen={true}
+    isSmall={false}
+    onClose={[Function]}
+    showClose={true}
+    title="Delete baselines"
+    width="auto"
+  >
+    <Portal
+      containerInfo={
+        <div>
+          <div
+            class="pf-c-backdrop"
+          >
+            <div
+              class="pf-l-bullseye"
+            >
+              <div
+                aria-describedby="pf-modal-0"
+                aria-label="Delete baselines"
+                aria-modal="true"
+                class="pf-c-modal-box small-modal-body"
+                role="dialog"
+                style="width: auto;"
+              >
+                <button
+                  aria-label="Close"
+                  class="pf-c-button pf-m-plain"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="currentColor"
+                    height="1em"
+                    role="img"
+                    style="vertical-align: -0.125em;"
+                    viewBox="0 0 352 512"
+                    width="1em"
+                  >
+                    <path
+                      d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                      transform=""
+                    />
+                  </svg>
+                </button>
+                <h1
+                  class="pf-c-title pf-m-2xl"
+                >
+                   
+                  Delete baselines
+                   
+                </h1>
+                <div
+                  class="pf-c-modal-box__body"
+                  id="pf-modal-0"
+                >
+                  Deleting a baseline is permanent and cannot be undone.
+                </div>
+                <div
+                  class="pf-c-modal-box__footer pf-m-align-left"
+                >
+                  <button
+                    class="pf-c-button pf-m-danger"
+                    type="button"
+                  >
+                    Delete Baselines
+                  </button>
+                  <button
+                    class="pf-c-button pf-m-secondary"
+                    type="button"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    >
+      <ModalContent
+        actions={
+          Array [
+            <Unknown
+              onClick={[Function]}
+              variant="danger"
+            >
+              Delete Baselines
+            </Unknown>,
+            <Unknown
+              onClick={[Function]}
+              variant="secondary"
+            >
+              Cancel
+            </Unknown>,
+          ]
+        }
+        ariaDescribedById=""
+        className="small-modal-body"
+        hideTitle={false}
+        id="pf-modal-0"
+        isFooterLeftAligned={true}
+        isLarge={false}
+        isOpen={true}
+        isSmall={false}
+        onClose={[Function]}
+        showClose={true}
+        title="Delete baselines"
+        width="auto"
+      >
+        <Backdrop>
+          <div
+            className="pf-c-backdrop"
+          >
+            <FocusTrap
+              _createFocusTrap={[Function]}
+              active={true}
+              className="pf-l-bullseye"
+              focusTrapOptions={
+                Object {
+                  "clickOutsideDeactivates": true,
+                }
+              }
+              paused={false}
+              tag="div"
+            >
+              <div
+                className="pf-l-bullseye"
+              >
+                <ModalBox
+                  className="small-modal-body"
+                  id="pf-modal-0"
+                  isLarge={false}
+                  isSmall={false}
+                  style={
+                    Object {
+                      "width": "auto",
+                    }
+                  }
+                  title="Delete baselines"
+                >
+                  <div
+                    aria-describedby="pf-modal-0"
+                    aria-label="Delete baselines"
+                    aria-modal="true"
+                    className="pf-c-modal-box small-modal-body"
+                    role="dialog"
+                    style={
+                      Object {
+                        "width": "auto",
+                      }
+                    }
+                  >
+                    <ModalBoxCloseButton
+                      onClose={[Function]}
+                    >
+                      <Component
+                        aria-label="Close"
+                        className=""
+                        onClick={[Function]}
+                        variant="plain"
+                      >
+                        <ComponentWithOuia
+                          component={[Function]}
+                          componentProps={
+                            Object {
+                              "aria-label": "Close",
+                              "children": <TimesIcon
+                                color="currentColor"
+                                noVerticalAlign={false}
+                                size="sm"
+                                title={null}
+                              />,
+                              "className": "",
+                              "onClick": [Function],
+                              "variant": "plain",
+                            }
+                          }
+                          consumerContext={null}
+                        >
+                          <Button
+                            aria-label="Close"
+                            className=""
+                            onClick={[Function]}
+                            ouiaContext={
+                              Object {
+                                "isOuia": false,
+                                "ouiaId": null,
+                              }
+                            }
+                            variant="plain"
+                          >
+                            <button
+                              aria-disabled={null}
+                              aria-label="Close"
+                              className="pf-c-button pf-m-plain"
+                              disabled={false}
+                              onClick={[Function]}
+                              tabIndex={null}
+                              type="button"
+                            >
+                              <TimesIcon
+                                color="currentColor"
+                                noVerticalAlign={false}
+                                size="sm"
+                                title={null}
+                              >
+                                <svg
+                                  aria-hidden={true}
+                                  aria-labelledby={null}
+                                  fill="currentColor"
+                                  height="1em"
+                                  role="img"
+                                  style={
+                                    Object {
+                                      "verticalAlign": "-0.125em",
+                                    }
+                                  }
+                                  viewBox="0 0 352 512"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                    transform=""
+                                  />
+                                </svg>
+                              </TimesIcon>
+                            </button>
+                          </Button>
+                        </ComponentWithOuia>
+                      </Component>
+                    </ModalBoxCloseButton>
+                    <ModalBoxHeader
+                      hideTitle={false}
+                    >
+                      <Title
+                        className=""
+                        headingLevel="h1"
+                        size="2xl"
+                      >
+                        <h1
+                          className="pf-c-title pf-m-2xl"
+                        >
+                           
+                          Delete baselines
+                           
+                        </h1>
+                      </Title>
+                    </ModalBoxHeader>
+                    <ModalBoxBody
+                      id="pf-modal-0"
+                    >
+                      <div
+                        className="pf-c-modal-box__body"
+                        id="pf-modal-0"
+                      >
+                        Deleting a baseline is permanent and cannot be undone.
+                      </div>
+                    </ModalBoxBody>
+                    <ModalBoxFooter
+                      isLeftAligned={true}
+                    >
+                      <div
+                        className="pf-c-modal-box__footer pf-m-align-left"
+                      >
+                        <Component
+                          key="confirm"
+                          onClick={[Function]}
+                          variant="danger"
+                        >
+                          <ComponentWithOuia
+                            component={[Function]}
+                            componentProps={
+                              Object {
+                                "children": "Delete Baselines",
+                                "onClick": [Function],
+                                "variant": "danger",
+                              }
+                            }
+                            consumerContext={null}
+                          >
+                            <Button
+                              onClick={[Function]}
+                              ouiaContext={
+                                Object {
+                                  "isOuia": false,
+                                  "ouiaId": null,
+                                }
+                              }
+                              variant="danger"
+                            >
+                              <button
+                                aria-disabled={null}
+                                aria-label={null}
+                                className="pf-c-button pf-m-danger"
+                                disabled={false}
+                                onClick={[Function]}
+                                tabIndex={null}
+                                type="button"
+                              >
+                                Delete Baselines
+                              </button>
+                            </Button>
+                          </ComponentWithOuia>
+                        </Component>
+                        <Component
+                          key="cancel"
+                          onClick={[Function]}
+                          variant="secondary"
+                        >
+                          <ComponentWithOuia
+                            component={[Function]}
+                            componentProps={
+                              Object {
+                                "children": "Cancel",
+                                "onClick": [Function],
+                                "variant": "secondary",
+                              }
+                            }
+                            consumerContext={null}
+                          >
+                            <Button
+                              onClick={[Function]}
+                              ouiaContext={
+                                Object {
+                                  "isOuia": false,
+                                  "ouiaId": null,
+                                }
+                              }
+                              variant="secondary"
+                            >
+                              <button
+                                aria-disabled={null}
+                                aria-label={null}
+                                className="pf-c-button pf-m-secondary"
+                                disabled={false}
+                                onClick={[Function]}
+                                tabIndex={null}
+                                type="button"
+                              >
+                                Cancel
+                              </button>
+                            </Button>
+                          </ComponentWithOuia>
+                        </Component>
+                      </div>
+                    </ModalBoxFooter>
+                  </div>
+                </ModalBox>
+              </div>
+            </FocusTrap>
+          </div>
+        </Backdrop>
+      </ModalContent>
+    </Portal>
+  </Modal>
+</DeleteBaselinesModal>
+`;

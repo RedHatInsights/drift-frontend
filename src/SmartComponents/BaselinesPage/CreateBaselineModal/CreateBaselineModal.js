@@ -9,7 +9,7 @@ import BaselinesTable from '../../BaselinesTable/BaselinesTable';
 import { createBaselineModalActions } from './redux';
 import { baselinesTableActions } from '../../BaselinesTable/redux';
 
-class CreateBaselineModal extends Component {
+export class CreateBaselineModal extends Component {
     constructor(props) {
         super(props);
 
@@ -27,7 +27,7 @@ class CreateBaselineModal extends Component {
         };
 
         this.handleChecked = (_, event) => {
-            const { value } = event.currentTarget;
+            const value = event.currentTarget;
             this.props.clearSelectedBaselines();
 
             if (value === 'fromScratchChecked') {

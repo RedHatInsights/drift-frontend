@@ -7,7 +7,7 @@ import { Button } from '@patternfly/react-core';
 import { createBaselineModalActions } from '../CreateBaselineModal/redux';
 import { addSystemModalActions } from '../../AddSystemModal/redux';
 
-class CreateBaselineButton extends Component {
+export class CreateBaselineButton extends Component {
     constructor(props) {
         super(props);
     }
@@ -29,6 +29,7 @@ class CreateBaselineButton extends Component {
     render() {
         return (
             <Button
+                id='create-baseline-button'
                 variant='primary'
                 onClick={ this.createBaseline }>
                 Create baseline

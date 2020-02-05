@@ -1,0 +1,260 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConnectedCreateBaselineButton should render correctly 1`] = `
+<MemoryRouter
+  keyLength={0}
+>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Provider
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+    >
+      <withRouter(Connect(CreateBaselineButton))>
+        <Connect(CreateBaselineButton)
+          history={
+            Object {
+              "action": "POP",
+              "block": [Function],
+              "canGo": [Function],
+              "createHref": [Function],
+              "entries": Array [
+                Object {
+                  "hash": "",
+                  "pathname": "/",
+                  "search": "",
+                  "state": undefined,
+                },
+              ],
+              "go": [Function],
+              "goBack": [Function],
+              "goForward": [Function],
+              "index": 0,
+              "length": 1,
+              "listen": [Function],
+              "location": Object {
+                "hash": "",
+                "pathname": "/",
+                "search": "",
+                "state": undefined,
+              },
+              "push": [Function],
+              "replace": [Function],
+            }
+          }
+          location={
+            Object {
+              "hash": "",
+              "pathname": "/",
+              "search": "",
+              "state": undefined,
+            }
+          }
+          match={
+            Object {
+              "isExact": true,
+              "params": Object {},
+              "path": "/",
+              "url": "/",
+            }
+          }
+        >
+          <CreateBaselineButton
+            addSystemModalOpened={false}
+            history={
+              Object {
+                "action": "POP",
+                "block": [Function],
+                "canGo": [Function],
+                "createHref": [Function],
+                "entries": Array [
+                  Object {
+                    "hash": "",
+                    "pathname": "/",
+                    "search": "",
+                    "state": undefined,
+                  },
+                ],
+                "go": [Function],
+                "goBack": [Function],
+                "goForward": [Function],
+                "index": 0,
+                "length": 1,
+                "listen": [Function],
+                "location": Object {
+                  "hash": "",
+                  "pathname": "/",
+                  "search": "",
+                  "state": undefined,
+                },
+                "push": [Function],
+                "replace": [Function],
+              }
+            }
+            location={
+              Object {
+                "hash": "",
+                "pathname": "/",
+                "search": "",
+                "state": undefined,
+              }
+            }
+            match={
+              Object {
+                "isExact": true,
+                "params": Object {},
+                "path": "/",
+                "url": "/",
+              }
+            }
+            toggleAddSystemModal={[Function]}
+            toggleCreateBaselineModal={[Function]}
+          >
+            <Component
+              id="create-baseline-button"
+              onClick={[Function]}
+              variant="primary"
+            >
+              <ComponentWithOuia
+                component={[Function]}
+                componentProps={
+                  Object {
+                    "children": "Create baseline",
+                    "id": "create-baseline-button",
+                    "onClick": [Function],
+                    "variant": "primary",
+                  }
+                }
+                consumerContext={null}
+              >
+                <Button
+                  id="create-baseline-button"
+                  onClick={[Function]}
+                  ouiaContext={
+                    Object {
+                      "isOuia": false,
+                      "ouiaId": null,
+                    }
+                  }
+                  variant="primary"
+                >
+                  <button
+                    aria-disabled={null}
+                    aria-label={null}
+                    className="pf-c-button pf-m-primary"
+                    disabled={false}
+                    id="create-baseline-button"
+                    onClick={[Function]}
+                    tabIndex={null}
+                    type="button"
+                  >
+                    Create baseline
+                  </button>
+                </Button>
+              </ComponentWithOuia>
+            </Component>
+          </CreateBaselineButton>
+        </Connect(CreateBaselineButton)>
+      </withRouter(Connect(CreateBaselineButton))>
+    </Provider>
+  </Router>
+</MemoryRouter>
+`;
+
+exports[`CreateBaselineButton should render correctly 1`] = `
+<Component
+  id="create-baseline-button"
+  onClick={[Function]}
+  variant="primary"
+>
+  Create baseline
+</Component>
+`;
+
+exports[`CreateBaselineButton should render mount correctly 1`] = `
+<CreateBaselineButton
+  addSystemModalOpened={false}
+>
+  <Component
+    id="create-baseline-button"
+    onClick={[Function]}
+    variant="primary"
+  >
+    <ComponentWithOuia
+      component={[Function]}
+      componentProps={
+        Object {
+          "children": "Create baseline",
+          "id": "create-baseline-button",
+          "onClick": [Function],
+          "variant": "primary",
+        }
+      }
+      consumerContext={null}
+    >
+      <Button
+        id="create-baseline-button"
+        onClick={[Function]}
+        ouiaContext={
+          Object {
+            "isOuia": false,
+            "ouiaId": null,
+          }
+        }
+        variant="primary"
+      >
+        <button
+          aria-disabled={null}
+          aria-label={null}
+          className="pf-c-button pf-m-primary"
+          disabled={false}
+          id="create-baseline-button"
+          onClick={[Function]}
+          tabIndex={null}
+          type="button"
+        >
+          Create baseline
+        </button>
+      </Button>
+    </ComponentWithOuia>
+  </Component>
+</CreateBaselineButton>
+`;

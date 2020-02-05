@@ -16,7 +16,7 @@ import { editBaselineActions } from './redux';
 import editBaselineHelpers from './helpers';
 import { FACT_ID, FACT_NAME, FACT_VALUE } from '../../../constants';
 
-class EditBaseline extends Component {
+export class EditBaseline extends Component {
     constructor(props) {
         super(props);
 
