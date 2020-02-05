@@ -8,7 +8,7 @@ export function historicProfilesReducer(state = initialState, action) {
     let newSelectedHSPIds = [];
 
     switch (action.type) {
-        case types.SELECT_HISTORIC_PROFILE:
+        case types.SELECT_HISTORIC_PROFILES:
             newSelectedHSPIds = [ ...state.selectedHSPIds ];
 
             action.payload.forEach((hspId) => {
@@ -26,6 +26,11 @@ export function historicProfilesReducer(state = initialState, action) {
             return {
                 ...state,
                 selectedHSPIds: newSelectedHSPIds
+            };
+        case types.SET_SELECTED_HISTORIC_PROFILES:
+            return {
+                ...state,
+                selectedHSPIds: action.payload
             };
 
         default:

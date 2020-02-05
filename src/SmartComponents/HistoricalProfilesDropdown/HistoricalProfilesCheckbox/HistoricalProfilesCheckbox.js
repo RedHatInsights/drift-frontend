@@ -17,13 +17,13 @@ class HistoricalProfilesCheckbox extends Component {
 
     handleChange = () => {
         const { checked } = this.state;
-        const { selectHistoricProfile, profile } = this.props;
+        const { selectHistoricProfiles, profile } = this.props;
 
         this.setState({
             checked: !checked
         });
 
-        selectHistoricProfile([ profile.id ]);
+        selectHistoricProfiles([ profile.id ]);
     }
 
     render() {
@@ -47,7 +47,7 @@ class HistoricalProfilesCheckbox extends Component {
 
 HistoricalProfilesCheckbox.propTypes = {
     profile: PropTypes.object,
-    selectHistoricProfile: PropTypes.func,
+    selectHistoricProfiles: PropTypes.func,
     selectedHSPIds: PropTypes.array
 };
 
@@ -59,7 +59,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        selectHistoricProfile: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfile(historicProfileIds))
+        selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds))
     };
 }
 

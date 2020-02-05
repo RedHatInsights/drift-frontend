@@ -50,7 +50,7 @@ describe('ConnectedDriftPage', () => {
                 loading: false,
                 systems: [],
                 baselines: [],
-                hspIds: [],
+                historicalProfiles: [],
                 fullCompareData: [],
                 stateFilters: [
                     { filter: 'SAME', display: 'Same', selected: true },
@@ -68,7 +68,7 @@ describe('ConnectedDriftPage', () => {
                 toggleErrorAlert: jest.fn()
             },
             historicProfilesActions: {
-                selectHistoricProfile: jest.fn()
+                selectHistoricProfiles: jest.fn()
             },
             historicProfilesState: {
                 selectedHSPIds: []
