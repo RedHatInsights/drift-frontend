@@ -1,4 +1,5 @@
 import { ASC, DESC } from '../../constants';
+import moment from 'moment';
 
 function paginateData(data, selectedPage, factsPerPage) {
     let paginatedFacts = [];
@@ -192,10 +193,18 @@ function convertFactsToCSV(data, systems) {
     let lineDelimiter = data.lineDelimiter || '\n';
 
     let systemNames = systems.map(system => system.display_name);
+    let mappedDates = systems.map(system => system.last_updated ? system.last_updated : system.updated);
+    let systemUpdates = [];
+    mappedDates.forEach((date) => {
+        systemUpdates.push(moment.utc(date).format('DD MMM YYYY HH:mm UTC'));
+    });
 
     let headers = 'Fact,State,';
     systemNames = systemNames.join(columnDelimiter);
     let result = headers + systemNames + lineDelimiter;
+
+    systemUpdates = systemUpdates.join(columnDelimiter);
+    result += columnDelimiter + columnDelimiter + systemUpdates + lineDelimiter;
 
     let comparisons;
 

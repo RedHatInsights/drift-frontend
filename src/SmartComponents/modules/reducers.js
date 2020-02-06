@@ -149,7 +149,7 @@ export function compareReducer(state = initialState, action) {
                 totalFacts: filteredFacts.length
             };
         case `${types.EXPORT_TO_CSV}`:
-            reducerHelpers.downloadCSV(state.sortedFilteredFacts, [ ...state.baselines, ...state.systems ]);
+            reducerHelpers.downloadCSV(state.sortedFilteredFacts, [ ...state.baselines, ...state.systems, ...state.hspIds ]);
             return {
                 ...state
             };
