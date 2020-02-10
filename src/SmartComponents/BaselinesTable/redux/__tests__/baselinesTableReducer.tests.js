@@ -12,24 +12,25 @@ describe('baselines table reducer', () => {
             fullBaselineListData: [],
             selectedBaselineIds: [],
             IdToDelete: '',
-            emptyState: false
+            emptyState: false,
+            baselineError: {}
         });
     });
 
     it('should handle FETCH_BASELINE_LIST_PENDING', () => {
         expect(
             checkboxTableReducer({ loading: false }, {
-                type: `${types.FETCH_BASELINE_LIST_CHECKBOX}_PENDING`
+                type: `${types.FETCH_BASELINE_LIST}_CHECKBOX_PENDING`
             })
         ).toEqual({
-            loading: true }
-        );
+            loading: true
+        });
     });
 
     it('should handle FETCH_BASELINE_LIST_FULFILLED', () => {
         expect(
             checkboxTableReducer({ loading: true }, {
-                type: `${types.FETCH_BASELINE_LIST_CHECKBOX}_FULFILLED`,
+                type: `${types.FETCH_BASELINE_LIST}_CHECKBOX_FULFILLED`,
                 payload: baselinesFixtures.baselinesListPayload
             })
         ).toEqual({
@@ -43,7 +44,7 @@ describe('baselines table reducer', () => {
     it('should handle FETCH_BASELINE_LIST_FULFILLED empty', () => {
         expect(
             checkboxTableReducer({ loading: true }, {
-                type: `${types.FETCH_BASELINE_LIST_CHECKBOX}_FULFILLED`,
+                type: `${types.FETCH_BASELINE_LIST}_CHECKBOX_FULFILLED`,
                 payload: baselinesFixtures.baselinesListEmptyPayload
             })
         ).toEqual({
@@ -60,7 +61,7 @@ describe('baselines table reducer', () => {
 
         expect(
             checkboxTableReducer({ loading: true, selectedBaselineIds: [ '1234' ]}, {
-                type: `${types.FETCH_BASELINE_LIST_CHECKBOX}_FULFILLED`,
+                type: `${types.FETCH_BASELINE_LIST}_CHECKBOX_FULFILLED`,
                 payload: baselinesFixtures.baselinesListPayload
             })
         ).toEqual({

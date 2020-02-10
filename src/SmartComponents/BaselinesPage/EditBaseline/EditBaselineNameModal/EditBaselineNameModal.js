@@ -114,7 +114,7 @@ class EditBaselineNameModal extends Component {
 EditBaselineNameModal.propTypes = {
     baselineId: PropTypes.string,
     baselineName: PropTypes.string,
-    baselineData: PropTypes.object,
+    baselineData: PropTypes.array,
     editNameModalOpened: PropTypes.bool,
     toggleEditNameModal: PropTypes.func,
     patchBaseline: PropTypes.func,

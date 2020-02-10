@@ -905,3 +905,1426 @@ exports[`EditBaseline should render correctly 1`] = `
   </Connect(Main)>
 </Fragment>
 `;
+
+exports[`EditBaseline should render expandable rows closed 1`] = `
+<Fragment>
+  <Connect(EditBaselineNameModal) />
+  <PageHeader>
+    <Component>
+      <BreadcrumbItem>
+        <a
+          onClick={[Function]}
+        >
+          Baselines
+        </a>
+      </BreadcrumbItem>
+      <BreadcrumbItem
+        isActive={true}
+      >
+        lotr_baseline
+      </BreadcrumbItem>
+    </Component>
+    <PageHeaderTitle
+      title="lotr_baseline"
+    />
+    <EditAltIcon
+      className="pointer not-active edit-icon-margin"
+      color="currentColor"
+      noVerticalAlign={false}
+      onClick={[Function]}
+      size="sm"
+      title={null}
+    />
+  </PageHeader>
+  <Connect(Main)>
+    <Card
+      className="pf-t-light pf-m-opaque-100"
+    >
+      <CardBody>
+        <Connect(EditBaselineToolbar) />
+        <table
+          className="pf-c-table ins-c-table pf-m-compact ins-entity-table drift-table"
+        >
+          <thead>
+            <tr
+              key="edit-baseline-table-header"
+            >
+              <td
+                className="pf-c-table__check"
+              >
+                <Checkbox
+                  className=""
+                  id="select-all"
+                  isChecked={false}
+                  isDisabled={false}
+                  isValid={true}
+                  name="select-all"
+                  onChange={[Function]}
+                />
+              </td>
+              <th
+                className="edit-baseline-header"
+              >
+                <div>
+                  Fact
+                </div>
+              </th>
+              <th
+                className="edit-baseline-header"
+              >
+                <div>
+                  Value
+                </div>
+              </th>
+              <th />
+            </tr>
+          </thead>
+          <tbody
+            key="edit-baseline-table"
+          >
+            <tr
+              key="Sauron"
+            >
+              <td
+                className="pf-c-table__check"
+              >
+                <Checkbox
+                  className=""
+                  id="fact-0"
+                  isChecked={false}
+                  isDisabled={false}
+                  isValid={true}
+                  name={0}
+                  onChange={[Function]}
+                />
+              </td>
+              <td>
+                Sauron
+              </td>
+              <td>
+                the Dark Lord
+              </td>
+              <td>
+                <Connect(FactKebab)
+                  fact={
+                    Object {
+                      "name": "Sauron",
+                      "value": "the Dark Lord",
+                    }
+                  }
+                  factName="Sauron"
+                  factValue="the Dark Lord"
+                />
+              </td>
+            </tr>
+            <tr
+              key="Galadriel"
+            >
+              <td
+                className="pf-c-table__check"
+              >
+                <Checkbox
+                  className=""
+                  id="fact-1"
+                  isChecked={false}
+                  isDisabled={false}
+                  isValid={true}
+                  name={1}
+                  onChange={[Function]}
+                />
+              </td>
+              <td>
+                Galadriel
+              </td>
+              <td>
+                the Elven Queen
+              </td>
+              <td>
+                <Connect(FactKebab)
+                  fact={
+                    Object {
+                      "name": "Galadriel",
+                      "value": "the Elven Queen",
+                    }
+                  }
+                  factName="Galadriel"
+                  factValue="the Elven Queen"
+                />
+              </td>
+            </tr>
+            <tr
+              key="The Fellowship of the Ring"
+            >
+              <td
+                className="pf-c-table__check"
+              >
+                <Checkbox
+                  className=""
+                  id="category-2"
+                  isChecked={false}
+                  isDisabled={false}
+                  isValid={true}
+                  name={2}
+                  onChange={[Function]}
+                />
+              </td>
+              <td>
+                <AngleRightIcon
+                  className="pointer"
+                  color="currentColor"
+                  noVerticalAlign={false}
+                  onClick={[Function]}
+                  size="sm"
+                  title={null}
+                />
+                 
+                The Fellowship of the Ring
+              </td>
+              <td />
+              <td>
+                <Connect(FactKebab)
+                  fact={
+                    Object {
+                      "name": "The Fellowship of the Ring",
+                      "values": Array [
+                        Object {
+                          "name": "Frodo",
+                          "value": "Baggins",
+                        },
+                        Object {
+                          "name": "Samwise",
+                          "value": "Gamgee",
+                        },
+                        Object {
+                          "name": "Gandalf",
+                          "value": "the Grey",
+                        },
+                        Object {
+                          "name": "Meriadoc",
+                          "value": "Brandybuck",
+                        },
+                        Object {
+                          "name": "Peregrin",
+                          "value": "Took",
+                        },
+                        Object {
+                          "name": "Gimli",
+                          "value": "song of Gloin",
+                        },
+                        Object {
+                          "name": "Legolas",
+                          "value": "Greenleaf",
+                        },
+                        Object {
+                          "name": "Boromir",
+                          "value": "son of Denethor",
+                        },
+                        Object {
+                          "name": "Aragorn",
+                          "value": "son of Arathorn",
+                        },
+                      ],
+                    }
+                  }
+                  factName="The Fellowship of the Ring"
+                  isCategory={true}
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </CardBody>
+    </Card>
+  </Connect(Main)>
+</Fragment>
+`;
+
+exports[`EditBaseline should render expandable rows opened 1`] = `
+<Fragment>
+  <Connect(EditBaselineNameModal) />
+  <PageHeader>
+    <Component>
+      <BreadcrumbItem>
+        <a
+          onClick={[Function]}
+        >
+          Baselines
+        </a>
+      </BreadcrumbItem>
+      <BreadcrumbItem
+        isActive={true}
+      >
+        lotr_baseline
+      </BreadcrumbItem>
+    </Component>
+    <PageHeaderTitle
+      title="lotr_baseline"
+    />
+    <EditAltIcon
+      className="pointer not-active edit-icon-margin"
+      color="currentColor"
+      noVerticalAlign={false}
+      onClick={[Function]}
+      size="sm"
+      title={null}
+    />
+  </PageHeader>
+  <Connect(Main)>
+    <Card
+      className="pf-t-light pf-m-opaque-100"
+    >
+      <CardBody>
+        <Connect(EditBaselineToolbar) />
+        <table
+          className="pf-c-table ins-c-table pf-m-compact ins-entity-table drift-table"
+        >
+          <thead>
+            <tr
+              key="edit-baseline-table-header"
+            >
+              <td
+                className="pf-c-table__check"
+              >
+                <Checkbox
+                  className=""
+                  id="select-all"
+                  isChecked={false}
+                  isDisabled={false}
+                  isValid={true}
+                  name="select-all"
+                  onChange={[Function]}
+                />
+              </td>
+              <th
+                className="edit-baseline-header"
+              >
+                <div>
+                  Fact
+                </div>
+              </th>
+              <th
+                className="edit-baseline-header"
+              >
+                <div>
+                  Value
+                </div>
+              </th>
+              <th />
+            </tr>
+          </thead>
+          <tbody
+            key="edit-baseline-table"
+          >
+            <tr
+              key="Sauron"
+            >
+              <td
+                className="pf-c-table__check"
+              >
+                <Checkbox
+                  className=""
+                  id="fact-0"
+                  isChecked={false}
+                  isDisabled={false}
+                  isValid={true}
+                  name={0}
+                  onChange={[Function]}
+                />
+              </td>
+              <td>
+                Sauron
+              </td>
+              <td>
+                the Dark Lord
+              </td>
+              <td>
+                <Connect(FactKebab)
+                  fact={
+                    Object {
+                      "name": "Sauron",
+                      "value": "the Dark Lord",
+                    }
+                  }
+                  factName="Sauron"
+                  factValue="the Dark Lord"
+                />
+              </td>
+            </tr>
+            <tr
+              key="Galadriel"
+            >
+              <td
+                className="pf-c-table__check"
+              >
+                <Checkbox
+                  className=""
+                  id="fact-1"
+                  isChecked={false}
+                  isDisabled={false}
+                  isValid={true}
+                  name={1}
+                  onChange={[Function]}
+                />
+              </td>
+              <td>
+                Galadriel
+              </td>
+              <td>
+                the Elven Queen
+              </td>
+              <td>
+                <Connect(FactKebab)
+                  fact={
+                    Object {
+                      "name": "Galadriel",
+                      "value": "the Elven Queen",
+                    }
+                  }
+                  factName="Galadriel"
+                  factValue="the Elven Queen"
+                />
+              </td>
+            </tr>
+            <tr
+              key="The Fellowship of the Ring"
+            >
+              <td
+                className="pf-c-table__check nested-fact"
+              >
+                <Checkbox
+                  className=""
+                  id="category-2"
+                  isChecked={false}
+                  isDisabled={false}
+                  isValid={true}
+                  name={2}
+                  onChange={[Function]}
+                />
+              </td>
+              <td>
+                <AngleDownIcon
+                  className="pointer active-blue"
+                  color="currentColor"
+                  noVerticalAlign={false}
+                  onClick={[Function]}
+                  size="sm"
+                  title={null}
+                />
+                 
+                The Fellowship of the Ring
+              </td>
+              <td />
+              <td>
+                <Connect(FactKebab)
+                  fact={
+                    Object {
+                      "name": "The Fellowship of the Ring",
+                      "values": Array [
+                        Object {
+                          "name": "Frodo",
+                          "value": "Baggins",
+                        },
+                        Object {
+                          "name": "Samwise",
+                          "value": "Gamgee",
+                        },
+                        Object {
+                          "name": "Gandalf",
+                          "value": "the Grey",
+                        },
+                        Object {
+                          "name": "Meriadoc",
+                          "value": "Brandybuck",
+                        },
+                        Object {
+                          "name": "Peregrin",
+                          "value": "Took",
+                        },
+                        Object {
+                          "name": "Gimli",
+                          "value": "song of Gloin",
+                        },
+                        Object {
+                          "name": "Legolas",
+                          "value": "Greenleaf",
+                        },
+                        Object {
+                          "name": "Boromir",
+                          "value": "son of Denethor",
+                        },
+                        Object {
+                          "name": "Aragorn",
+                          "value": "son of Arathorn",
+                        },
+                      ],
+                    }
+                  }
+                  factName="The Fellowship of the Ring"
+                  isCategory={true}
+                />
+              </td>
+            </tr>
+            <tr
+              key="Frodo"
+            >
+              <td
+                className="pf-c-table__check nested-fact"
+              >
+                <Checkbox
+                  className=""
+                  id="fact-3"
+                  isChecked={false}
+                  isDisabled={false}
+                  isValid={true}
+                  name={3}
+                  onChange={[Function]}
+                />
+              </td>
+              <td>
+                <p
+                  className="child-row"
+                >
+                  Frodo
+                </p>
+              </td>
+              <td>
+                Baggins
+              </td>
+              <td>
+                <Connect(FactKebab)
+                  fact={
+                    Object {
+                      "name": "The Fellowship of the Ring",
+                      "values": Array [
+                        Object {
+                          "name": "Frodo",
+                          "value": "Baggins",
+                        },
+                        Object {
+                          "name": "Samwise",
+                          "value": "Gamgee",
+                        },
+                        Object {
+                          "name": "Gandalf",
+                          "value": "the Grey",
+                        },
+                        Object {
+                          "name": "Meriadoc",
+                          "value": "Brandybuck",
+                        },
+                        Object {
+                          "name": "Peregrin",
+                          "value": "Took",
+                        },
+                        Object {
+                          "name": "Gimli",
+                          "value": "song of Gloin",
+                        },
+                        Object {
+                          "name": "Legolas",
+                          "value": "Greenleaf",
+                        },
+                        Object {
+                          "name": "Boromir",
+                          "value": "son of Denethor",
+                        },
+                        Object {
+                          "name": "Aragorn",
+                          "value": "son of Arathorn",
+                        },
+                      ],
+                    }
+                  }
+                  factName="Frodo"
+                  factValue="Baggins"
+                  isSubFact={true}
+                />
+              </td>
+            </tr>
+            <tr
+              key="Samwise"
+            >
+              <td
+                className="pf-c-table__check nested-fact"
+              >
+                <Checkbox
+                  className=""
+                  id="fact-4"
+                  isChecked={false}
+                  isDisabled={false}
+                  isValid={true}
+                  name={4}
+                  onChange={[Function]}
+                />
+              </td>
+              <td>
+                <p
+                  className="child-row"
+                >
+                  Samwise
+                </p>
+              </td>
+              <td>
+                Gamgee
+              </td>
+              <td>
+                <Connect(FactKebab)
+                  fact={
+                    Object {
+                      "name": "The Fellowship of the Ring",
+                      "values": Array [
+                        Object {
+                          "name": "Frodo",
+                          "value": "Baggins",
+                        },
+                        Object {
+                          "name": "Samwise",
+                          "value": "Gamgee",
+                        },
+                        Object {
+                          "name": "Gandalf",
+                          "value": "the Grey",
+                        },
+                        Object {
+                          "name": "Meriadoc",
+                          "value": "Brandybuck",
+                        },
+                        Object {
+                          "name": "Peregrin",
+                          "value": "Took",
+                        },
+                        Object {
+                          "name": "Gimli",
+                          "value": "song of Gloin",
+                        },
+                        Object {
+                          "name": "Legolas",
+                          "value": "Greenleaf",
+                        },
+                        Object {
+                          "name": "Boromir",
+                          "value": "son of Denethor",
+                        },
+                        Object {
+                          "name": "Aragorn",
+                          "value": "son of Arathorn",
+                        },
+                      ],
+                    }
+                  }
+                  factName="Samwise"
+                  factValue="Gamgee"
+                  isSubFact={true}
+                />
+              </td>
+            </tr>
+            <tr
+              key="Gandalf"
+            >
+              <td
+                className="pf-c-table__check nested-fact"
+              >
+                <Checkbox
+                  className=""
+                  id="fact-5"
+                  isChecked={false}
+                  isDisabled={false}
+                  isValid={true}
+                  name={5}
+                  onChange={[Function]}
+                />
+              </td>
+              <td>
+                <p
+                  className="child-row"
+                >
+                  Gandalf
+                </p>
+              </td>
+              <td>
+                the Grey
+              </td>
+              <td>
+                <Connect(FactKebab)
+                  fact={
+                    Object {
+                      "name": "The Fellowship of the Ring",
+                      "values": Array [
+                        Object {
+                          "name": "Frodo",
+                          "value": "Baggins",
+                        },
+                        Object {
+                          "name": "Samwise",
+                          "value": "Gamgee",
+                        },
+                        Object {
+                          "name": "Gandalf",
+                          "value": "the Grey",
+                        },
+                        Object {
+                          "name": "Meriadoc",
+                          "value": "Brandybuck",
+                        },
+                        Object {
+                          "name": "Peregrin",
+                          "value": "Took",
+                        },
+                        Object {
+                          "name": "Gimli",
+                          "value": "song of Gloin",
+                        },
+                        Object {
+                          "name": "Legolas",
+                          "value": "Greenleaf",
+                        },
+                        Object {
+                          "name": "Boromir",
+                          "value": "son of Denethor",
+                        },
+                        Object {
+                          "name": "Aragorn",
+                          "value": "son of Arathorn",
+                        },
+                      ],
+                    }
+                  }
+                  factName="Gandalf"
+                  factValue="the Grey"
+                  isSubFact={true}
+                />
+              </td>
+            </tr>
+            <tr
+              key="Meriadoc"
+            >
+              <td
+                className="pf-c-table__check nested-fact"
+              >
+                <Checkbox
+                  className=""
+                  id="fact-6"
+                  isChecked={false}
+                  isDisabled={false}
+                  isValid={true}
+                  name={6}
+                  onChange={[Function]}
+                />
+              </td>
+              <td>
+                <p
+                  className="child-row"
+                >
+                  Meriadoc
+                </p>
+              </td>
+              <td>
+                Brandybuck
+              </td>
+              <td>
+                <Connect(FactKebab)
+                  fact={
+                    Object {
+                      "name": "The Fellowship of the Ring",
+                      "values": Array [
+                        Object {
+                          "name": "Frodo",
+                          "value": "Baggins",
+                        },
+                        Object {
+                          "name": "Samwise",
+                          "value": "Gamgee",
+                        },
+                        Object {
+                          "name": "Gandalf",
+                          "value": "the Grey",
+                        },
+                        Object {
+                          "name": "Meriadoc",
+                          "value": "Brandybuck",
+                        },
+                        Object {
+                          "name": "Peregrin",
+                          "value": "Took",
+                        },
+                        Object {
+                          "name": "Gimli",
+                          "value": "song of Gloin",
+                        },
+                        Object {
+                          "name": "Legolas",
+                          "value": "Greenleaf",
+                        },
+                        Object {
+                          "name": "Boromir",
+                          "value": "son of Denethor",
+                        },
+                        Object {
+                          "name": "Aragorn",
+                          "value": "son of Arathorn",
+                        },
+                      ],
+                    }
+                  }
+                  factName="Meriadoc"
+                  factValue="Brandybuck"
+                  isSubFact={true}
+                />
+              </td>
+            </tr>
+            <tr
+              key="Peregrin"
+            >
+              <td
+                className="pf-c-table__check nested-fact"
+              >
+                <Checkbox
+                  className=""
+                  id="fact-7"
+                  isChecked={false}
+                  isDisabled={false}
+                  isValid={true}
+                  name={7}
+                  onChange={[Function]}
+                />
+              </td>
+              <td>
+                <p
+                  className="child-row"
+                >
+                  Peregrin
+                </p>
+              </td>
+              <td>
+                Took
+              </td>
+              <td>
+                <Connect(FactKebab)
+                  fact={
+                    Object {
+                      "name": "The Fellowship of the Ring",
+                      "values": Array [
+                        Object {
+                          "name": "Frodo",
+                          "value": "Baggins",
+                        },
+                        Object {
+                          "name": "Samwise",
+                          "value": "Gamgee",
+                        },
+                        Object {
+                          "name": "Gandalf",
+                          "value": "the Grey",
+                        },
+                        Object {
+                          "name": "Meriadoc",
+                          "value": "Brandybuck",
+                        },
+                        Object {
+                          "name": "Peregrin",
+                          "value": "Took",
+                        },
+                        Object {
+                          "name": "Gimli",
+                          "value": "song of Gloin",
+                        },
+                        Object {
+                          "name": "Legolas",
+                          "value": "Greenleaf",
+                        },
+                        Object {
+                          "name": "Boromir",
+                          "value": "son of Denethor",
+                        },
+                        Object {
+                          "name": "Aragorn",
+                          "value": "son of Arathorn",
+                        },
+                      ],
+                    }
+                  }
+                  factName="Peregrin"
+                  factValue="Took"
+                  isSubFact={true}
+                />
+              </td>
+            </tr>
+            <tr
+              key="Gimli"
+            >
+              <td
+                className="pf-c-table__check nested-fact"
+              >
+                <Checkbox
+                  className=""
+                  id="fact-8"
+                  isChecked={false}
+                  isDisabled={false}
+                  isValid={true}
+                  name={8}
+                  onChange={[Function]}
+                />
+              </td>
+              <td>
+                <p
+                  className="child-row"
+                >
+                  Gimli
+                </p>
+              </td>
+              <td>
+                son of Gloin
+              </td>
+              <td>
+                <Connect(FactKebab)
+                  fact={
+                    Object {
+                      "name": "The Fellowship of the Ring",
+                      "values": Array [
+                        Object {
+                          "name": "Frodo",
+                          "value": "Baggins",
+                        },
+                        Object {
+                          "name": "Samwise",
+                          "value": "Gamgee",
+                        },
+                        Object {
+                          "name": "Gandalf",
+                          "value": "the Grey",
+                        },
+                        Object {
+                          "name": "Meriadoc",
+                          "value": "Brandybuck",
+                        },
+                        Object {
+                          "name": "Peregrin",
+                          "value": "Took",
+                        },
+                        Object {
+                          "name": "Gimli",
+                          "value": "song of Gloin",
+                        },
+                        Object {
+                          "name": "Legolas",
+                          "value": "Greenleaf",
+                        },
+                        Object {
+                          "name": "Boromir",
+                          "value": "son of Denethor",
+                        },
+                        Object {
+                          "name": "Aragorn",
+                          "value": "son of Arathorn",
+                        },
+                      ],
+                    }
+                  }
+                  factName="Gimli"
+                  factValue="son of Gloin"
+                  isSubFact={true}
+                />
+              </td>
+            </tr>
+            <tr
+              key="Legolas"
+            >
+              <td
+                className="pf-c-table__check nested-fact"
+              >
+                <Checkbox
+                  className=""
+                  id="fact-9"
+                  isChecked={false}
+                  isDisabled={false}
+                  isValid={true}
+                  name={9}
+                  onChange={[Function]}
+                />
+              </td>
+              <td>
+                <p
+                  className="child-row"
+                >
+                  Legolas
+                </p>
+              </td>
+              <td>
+                Greenleaf
+              </td>
+              <td>
+                <Connect(FactKebab)
+                  fact={
+                    Object {
+                      "name": "The Fellowship of the Ring",
+                      "values": Array [
+                        Object {
+                          "name": "Frodo",
+                          "value": "Baggins",
+                        },
+                        Object {
+                          "name": "Samwise",
+                          "value": "Gamgee",
+                        },
+                        Object {
+                          "name": "Gandalf",
+                          "value": "the Grey",
+                        },
+                        Object {
+                          "name": "Meriadoc",
+                          "value": "Brandybuck",
+                        },
+                        Object {
+                          "name": "Peregrin",
+                          "value": "Took",
+                        },
+                        Object {
+                          "name": "Gimli",
+                          "value": "song of Gloin",
+                        },
+                        Object {
+                          "name": "Legolas",
+                          "value": "Greenleaf",
+                        },
+                        Object {
+                          "name": "Boromir",
+                          "value": "son of Denethor",
+                        },
+                        Object {
+                          "name": "Aragorn",
+                          "value": "son of Arathorn",
+                        },
+                      ],
+                    }
+                  }
+                  factName="Legolas"
+                  factValue="Greenleaf"
+                  isSubFact={true}
+                />
+              </td>
+            </tr>
+            <tr
+              key="Boromir"
+            >
+              <td
+                className="pf-c-table__check nested-fact"
+              >
+                <Checkbox
+                  className=""
+                  id="fact-10"
+                  isChecked={false}
+                  isDisabled={false}
+                  isValid={true}
+                  name={10}
+                  onChange={[Function]}
+                />
+              </td>
+              <td>
+                <p
+                  className="child-row"
+                >
+                  Boromir
+                </p>
+              </td>
+              <td>
+                son of Denethor
+              </td>
+              <td>
+                <Connect(FactKebab)
+                  fact={
+                    Object {
+                      "name": "The Fellowship of the Ring",
+                      "values": Array [
+                        Object {
+                          "name": "Frodo",
+                          "value": "Baggins",
+                        },
+                        Object {
+                          "name": "Samwise",
+                          "value": "Gamgee",
+                        },
+                        Object {
+                          "name": "Gandalf",
+                          "value": "the Grey",
+                        },
+                        Object {
+                          "name": "Meriadoc",
+                          "value": "Brandybuck",
+                        },
+                        Object {
+                          "name": "Peregrin",
+                          "value": "Took",
+                        },
+                        Object {
+                          "name": "Gimli",
+                          "value": "song of Gloin",
+                        },
+                        Object {
+                          "name": "Legolas",
+                          "value": "Greenleaf",
+                        },
+                        Object {
+                          "name": "Boromir",
+                          "value": "son of Denethor",
+                        },
+                        Object {
+                          "name": "Aragorn",
+                          "value": "son of Arathorn",
+                        },
+                      ],
+                    }
+                  }
+                  factName="Boromir"
+                  factValue="son of Denethor"
+                  isSubFact={true}
+                />
+              </td>
+            </tr>
+            <tr
+              key="Aragorn"
+            >
+              <td
+                className="pf-c-table__check nested-fact"
+              >
+                <Checkbox
+                  className=""
+                  id="fact-11"
+                  isChecked={false}
+                  isDisabled={false}
+                  isValid={true}
+                  name={11}
+                  onChange={[Function]}
+                />
+              </td>
+              <td>
+                <p
+                  className="child-row"
+                >
+                  Aragorn
+                </p>
+              </td>
+              <td>
+                son of Arathorn
+              </td>
+              <td>
+                <Connect(FactKebab)
+                  fact={
+                    Object {
+                      "name": "The Fellowship of the Ring",
+                      "values": Array [
+                        Object {
+                          "name": "Frodo",
+                          "value": "Baggins",
+                        },
+                        Object {
+                          "name": "Samwise",
+                          "value": "Gamgee",
+                        },
+                        Object {
+                          "name": "Gandalf",
+                          "value": "the Grey",
+                        },
+                        Object {
+                          "name": "Meriadoc",
+                          "value": "Brandybuck",
+                        },
+                        Object {
+                          "name": "Peregrin",
+                          "value": "Took",
+                        },
+                        Object {
+                          "name": "Gimli",
+                          "value": "song of Gloin",
+                        },
+                        Object {
+                          "name": "Legolas",
+                          "value": "Greenleaf",
+                        },
+                        Object {
+                          "name": "Boromir",
+                          "value": "son of Denethor",
+                        },
+                        Object {
+                          "name": "Aragorn",
+                          "value": "son of Arathorn",
+                        },
+                      ],
+                    }
+                  }
+                  factName="Aragorn"
+                  factValue="son of Arathorn"
+                  isSubFact={true}
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </CardBody>
+    </Card>
+  </Connect(Main)>
+</Fragment>
+`;
+
+exports[`EditBaseline should render loading rows 1`] = `
+<Fragment>
+  <PageHeader>
+    <div>
+      <Skeleton
+        isDark={false}
+        size="lg"
+      />
+    </div>
+  </PageHeader>
+  <Connect(Main)>
+    <Card
+      className="pf-t-light pf-m-opaque-100"
+    >
+      <CardBody>
+        <Connect(EditBaselineToolbar) />
+        <table
+          className="pf-c-table ins-c-table pf-m-compact ins-entity-table drift-table"
+        >
+          <thead>
+            <tr
+              key="edit-baseline-table-header"
+            >
+              <td
+                className="pf-c-table__check"
+              >
+                <Checkbox
+                  className=""
+                  id="select-all"
+                  isChecked={false}
+                  isDisabled={false}
+                  isValid={true}
+                  name="select-all"
+                  onChange={[Function]}
+                />
+              </td>
+              <th
+                className="edit-baseline-header"
+              >
+                <div>
+                  Fact
+                </div>
+              </th>
+              <th
+                className="edit-baseline-header"
+              >
+                <div>
+                  Value
+                </div>
+              </th>
+              <th />
+            </tr>
+          </thead>
+          <tbody
+            key="edit-baseline-table"
+          >
+            <tr>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </CardBody>
+    </Card>
+  </Connect(Main)>
+</Fragment>
+`;

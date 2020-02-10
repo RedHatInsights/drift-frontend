@@ -7,14 +7,14 @@ import { withRouter } from 'react-router-dom';
 import { compareActions } from '../modules';
 import { errorAlertActions } from './redux';
 import { setHistory } from '../../Utilities/SetHistory';
+import { baselinesTableActions } from '../BaselinesTable/redux';
 
 class ErrorAlert extends Component {
     constructor(props) {
         super(props);
-        this.confirmModal = this.confirmModal.bind(this);
     }
 
-    confirmModal() {
+    confirmDriftModal = () => {
         const { toggleModal, revertCompareData, history, previousStateSystems } = this.props;
 
         toggleModal();
@@ -22,8 +22,16 @@ class ErrorAlert extends Component {
         setHistory(history, previousStateSystems.map(system => system.id));
     }
 
+    confirmBaselineModal = () => {
+        const { toggleModal, revertBaselineFetch, tableId } = this.props;
+
+        toggleModal();
+        revertBaselineFetch(tableId);
+    }
+
     render() {
-        const { errorAlertOpened } = this.props;
+        const { errorAlertOpened, error, baselineError } = this.props;
+
         return (
             <React.Fragment>
                 { errorAlertOpened && (
@@ -32,11 +40,14 @@ class ErrorAlert extends Component {
                         title="Error"
                         action={
                             <AlertActionCloseButton
-                                onClose={ () => this.confirmModal() }
-                            /> }
+                                onClose={ () =>
+                                    error.status ? this.confirmDriftModal() : this.confirmBaselineModal()
+                                }
+                            />
+                        }
                     >
-                        Status Code: { this.props.error.status }<br></br>
-                        { this.props.error.detail }
+                        Status Code: { error.status ? error.status : baselineError.status }<br></br>
+                        { error.detail ? error.detail : baselineError.detail }
                     </Alert>
                 ) }
             </React.Fragment>
@@ -48,14 +59,14 @@ ErrorAlert.propTypes = {
     confirmModal: PropTypes.func,
     errorAlertOpened: PropTypes.bool,
     error: PropTypes.object,
-    status: PropTypes.number,
-    detail: PropTypes.string,
+    baselineError: PropTypes.object,
     toggleModal: PropTypes.func,
     history: PropTypes.object,
-    clearState: PropTypes.func,
     fullCompareData: PropTypes.array,
     revertCompareData: PropTypes.func,
-    previousStateSystems: PropTypes.array
+    previousStateSystems: PropTypes.array,
+    revertBaselineFetch: PropTypes.func,
+    tableId: PropTypes.string
 };
 
 function mapStateToProps(state) {
@@ -63,14 +74,16 @@ function mapStateToProps(state) {
         fullCompareData: state.compareState.fullCompareData,
         previousStateSystems: state.compareState.previousStateSystems,
         errorAlertOpened: state.errorAlertOpened,
-        error: state.compareState.error
+        error: state.compareState.error,
+        baselineError: state.baselinesTableState.checkboxTable.baselineError
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
         toggleModal: () => dispatch(errorAlertActions.toggleErrorAlert()),
-        revertCompareData: () => dispatch(compareActions.revertCompareData())
+        revertCompareData: () => dispatch(compareActions.revertCompareData()),
+        revertBaselineFetch: (tableId) => dispatch(baselinesTableActions.revertBaselineFetch(tableId))
     };
 }
 
