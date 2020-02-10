@@ -17,6 +17,29 @@ const mockBaselineTableData1 = [
 ];
 /*eslint-disable camelcase*/
 
+const mockBaselineAPIBody = {
+    id: '38gnw73l-fn36-5829-1287-2m5ghs46801c',
+    display_name: 'lotr_baseline',
+    baseline_facts: [
+        { name: 'Sauron', value: 'the Dark Lord' },
+        { name: 'Galadriel', value: 'the Elven Queen' },
+        {
+            name: 'The Fellowship of the Ring',
+            values: [
+                { name: 'Frodo', value: 'Baggins' },
+                { name: 'Samwise', value: 'Gamgee' },
+                { name: 'Gandalf', value: 'the Grey' },
+                { name: 'Meriadoc', value: 'Brandybuck' },
+                { name: 'Peregrin', value: 'Took' },
+                { name: 'Gimli', value: 'song of Gloin' },
+                { name: 'Legolas', value: 'Greenleaf' },
+                { name: 'Boromir', value: 'son of Denethor' },
+                { name: 'Aragorn', value: 'son of Arathorn' }
+            ]
+        }
+    ]
+};
+
 const originalAPIBody = {
     id: '4634f207-eb91-4689-9843-81c72285840a',
     display_name: 'testing_baseline',
@@ -199,6 +222,7 @@ const editParentFactAPIBody = {
 
 export default {
     mockBaselineTableData1,
+    mockBaselineAPIBody,
     originalAPIBody,
     rows,
     childFactsOne,

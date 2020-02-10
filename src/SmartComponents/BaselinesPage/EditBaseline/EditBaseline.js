@@ -268,7 +268,7 @@ export class EditBaseline extends Component {
                         <EditBaselineNameModal />
                         <PageHeader>
                             { this.renderBreadcrumb() }
-                            <PageHeaderTitle title={ baselineData.display_name }/>
+                            <PageHeaderTitle title={ baselineData ? baselineData.display_name : '' }/>
                             <EditAltIcon className='pointer not-active edit-icon-margin' onClick={ () => toggleEditNameModal() } />
                         </PageHeader>
                     </React.Fragment>
@@ -297,7 +297,7 @@ EditBaseline.propTypes = {
     history: PropTypes.object,
     match: PropTypes.any,
     clearBaselineData: PropTypes.func,
-    baselineData: PropTypes.object,
+    baselineData: PropTypes.array,
     baselineDataLoading: PropTypes.bool,
     patchBaseline: PropTypes.func,
     fetchBaselineData: PropTypes.func,

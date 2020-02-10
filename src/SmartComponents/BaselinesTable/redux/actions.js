@@ -7,6 +7,12 @@ function fetchBaselines(tableId, params = {}) {
     };
 }
 
+function revertBaselineFetch(tableId) {
+    return {
+        type: `REVERT_BASELINE_FETCH_${tableId}`
+    };
+}
+
 function selectBaseline(ids, isSelected, tableId) {
     return {
         type: `SELECT_BASELINE_${tableId}`,
@@ -42,6 +48,7 @@ function deleteSelectedBaselines(deleteBaselinesAPIBody, tableId) {
 
 export default {
     fetchBaselines,
+    revertBaselineFetch,
     selectBaseline,
     setSelectedBaselines,
     clearSelectedBaselines,

@@ -4,6 +4,7 @@ import { MemoryRouter } from 'react-router-dom';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import toJson from 'enzyme-to-json';
+import helpersFixtures from './helpers.fixtures';
 
 import ConnectedEditBaseline, { EditBaseline } from '../EditBaseline';
 
@@ -30,14 +31,56 @@ describe('EditBaseline', () => {
             expandedRows: [],
             selectAll: false,
             match: { params: {}},
+            history: { push: jest.fn() },
             fetchBaselineData: jest.fn()
         };
     });
 
-    it('should render correctly', () =>{
+    it('should render correctly', () => {
         const wrapper = shallow(
-            <EditBaseline { ...props }/>
+            <EditBaseline { ...props } />
         );
+
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('should call clearBaselineData on Breadcrumb click', () => {
+        const clearBaselineData = jest.fn();
+        const wrapper = shallow(
+            <EditBaseline { ...props } clearBaselineData={ clearBaselineData } />
+        );
+
+        wrapper.find('a').simulate('click');
+        expect(clearBaselineData).toHaveBeenCalledTimes(1);
+    });
+
+    it('should render loading rows', () => {
+        props.baselineData = undefined;
+        const wrapper = shallow(
+            <EditBaseline { ...props } />
+        );
+
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('should render expandable rows closed', () => {
+        props.editBaselineTableData = helpersFixtures.mockBaselineTableData1;
+        props.baselineData = helpersFixtures.mockBaselineAPIBody;
+        const wrapper = shallow(
+            <EditBaseline { ...props } />
+        );
+
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('should render expandable rows opened', () => {
+        props.editBaselineTableData = helpersFixtures.mockBaselineTableData1;
+        props.baselineData = helpersFixtures.mockBaselineAPIBody;
+        props.expandedRows = [ 'The Fellowship of the Ring' ];
+        const wrapper = shallow(
+            <EditBaseline { ...props } />
+        );
+
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 });

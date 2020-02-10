@@ -7,7 +7,8 @@ const initialState = {
     baselineTableData: [],
     selectedBaselineIds: [],
     IdToDelete: '',
-    emptyState: false
+    emptyState: false,
+    baselineError: {}
 };
 
 const baselinesTableReducer = (tableId = '') => {
@@ -16,6 +17,8 @@ const baselinesTableReducer = (tableId = '') => {
         let selectedBaselines = [];
         let newBaselineTableData = [];
         let newFullBaselineList;
+        let response;
+        let errorObject;
 
         switch (action.type) {
             case `FETCH_BASELINE_LIST_${tableId}_PENDING`:
@@ -31,6 +34,26 @@ const baselinesTableReducer = (tableId = '') => {
                     fullBaselineListData: action.payload.data,
                     emptyState: action.payload.meta.total_available === 0,
                     baselineTableData: rows
+                };
+            case `FETCH_BASELINE_LIST_${tableId}_REJECTED`:
+                response = action.payload.response;
+                if (response.data === '') {
+                    errorObject = { detail: response.statusText, status: response.status };
+                } else if (response.data.message) {
+                    errorObject = { detail: response.data.message, status: response.status };
+                } else {
+                    errorObject = { detail: response.data.detail, status: response.status };
+                }
+
+                return {
+                    ...state,
+                    baselineError: errorObject
+                };
+            case `REVERT_BASELINE_FETCH_${tableId}`:
+                return {
+                    ...state,
+                    baselineError: {},
+                    loading: false
                 };
             case `SELECT_BASELINE_${tableId}`:
                 selectedBaselines = [ ...state.selectedBaselineIds ];

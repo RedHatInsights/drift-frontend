@@ -265,7 +265,7 @@ CreateBaselineModal.propTypes = {
     createBaseline: PropTypes.func,
     selectBaseline: PropTypes.func,
     history: PropTypes.object,
-    baselineData: PropTypes.object,
+    baselineData: PropTypes.array,
     toggleCreateBaselineModal: PropTypes.func,
     clearSelectedBaselines: PropTypes.func,
     entities: PropTypes.object,

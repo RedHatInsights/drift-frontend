@@ -5,14 +5,13 @@ import { withRouter } from 'react-router-dom';
 
 import { Main, PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components';
 import { Card, CardBody } from '@patternfly/react-core';
-import { AddCircleOIcon } from '@patternfly/react-icons';
+import { AddCircleOIcon, ExclamationCircleIcon, UndoIcon } from '@patternfly/react-icons';
 import { EmptyState, EmptyStateBody, EmptyStateIcon, Title } from '@patternfly/react-core';
 import { sortable } from '@patternfly/react-table';
 
 import BaselinesTable from '../BaselinesTable/BaselinesTable';
 import CreateBaselineButton from './CreateBaselineButton/CreateBaselineButton';
 import CreateBaselineModal from './CreateBaselineModal/CreateBaselineModal';
-
 import { baselinesTableActions } from '../BaselinesTable/redux';
 
 export class BaselinesPage extends Component {
@@ -51,6 +50,32 @@ export class BaselinesPage extends Component {
         }
 
         selectBaseline(ids, isSelected, 'CHECKBOX');
+    }
+
+    renderDisplayError() {
+        const { revertBaselineFetch, baselineError } = this.props;
+
+        return (
+            <center>
+                <EmptyState>
+                    <EmptyStateIcon icon={ ExclamationCircleIcon } />
+                    <br></br>
+                    <Title size="lg">Baselines cannot be displayed</Title>
+                    <EmptyStateBody>
+                        The list of baselines cannot be displayed at this time. Please retry and if
+                        <br/>
+                        the problem persists contact your system administrator.
+                        <br></br>
+                        <br></br>
+                        <p><small>Error { baselineError.status }: { baselineError.detail }</small></p>
+                    </EmptyStateBody>
+                    <a onClick={ () => revertBaselineFetch('CHECKBOX') }>
+                        <UndoIcon />
+                        Retry
+                    </a>
+                </EmptyState>
+            </center>
+        );
     }
 
     renderEmptyState() {
@@ -96,10 +121,19 @@ export class BaselinesPage extends Component {
         );
     }
 
-    render() {
-        const { emptyState, loading } = this.props;
+    renderCardBody = () => {
+        const { emptyState, loading, baselineError } = this.props;
 
-        /*eslint-disable camelcase*/
+        if (emptyState && !loading) {
+            return this.renderEmptyState();
+        } else if (loading && baselineError.status !== 200 && baselineError.status !== undefined) {
+            return this.renderDisplayError();
+        } else {
+            return this.renderTable();
+        }
+    }
+
+    render() {
         return (
             <React.Fragment>
                 <CreateBaselineModal />
@@ -108,40 +142,41 @@ export class BaselinesPage extends Component {
                 </PageHeader>
                 <Main>
                     <Card className='pf-t-light pf-m-opaque-100'>
-                        { (emptyState && !loading)
-                            ? this.renderEmptyState() : this.renderTable()
+                        {
+                            this.renderCardBody()
                         }
                     </Card>
                 </Main>
             </React.Fragment>
         );
-        /*eslint-enable camelcase*/
     }
 }
 
 BaselinesPage.propTypes = {
     loading: PropTypes.bool,
-    fullBaselineListData: PropTypes.array,
     baselineTableData: PropTypes.array,
     emptyState: PropTypes.bool,
     createBaselineModalOpened: PropTypes.bool,
     selectBaseline: PropTypes.func,
-    history: PropTypes.object
+    history: PropTypes.object,
+    baselineError: PropTypes.object,
+    revertBaselineFetch: PropTypes.func
 };
 
 function mapStateToProps(state) {
     return {
         loading: state.baselinesTableState.checkboxTable.loading,
-        fullBaselineListData: state.baselinesTableState.checkboxTable.fullBaselineListData,
         emptyState: state.baselinesTableState.checkboxTable.emptyState,
         baselineTableData: state.baselinesTableState.checkboxTable.baselineTableData,
-        createBaselineModalOpened: state.createBaselineModalState.createBaselineModalOpened
+        createBaselineModalOpened: state.createBaselineModalState.createBaselineModalOpened,
+        baselineError: state.baselinesTableState.checkboxTable.baselineError
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        selectBaseline: (id, isSelected, tableId) => dispatch(baselinesTableActions.selectBaseline(id, isSelected, tableId))
+        selectBaseline: (id, isSelected, tableId) => dispatch(baselinesTableActions.selectBaseline(id, isSelected, tableId)),
+        revertBaselineFetch: (tableId) => dispatch(baselinesTableActions.revertBaselineFetch(tableId))
     };
 }
 
