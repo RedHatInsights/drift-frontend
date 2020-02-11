@@ -231,10 +231,10 @@ class DriftTable extends Component {
                         </a>
                     </div>
                     <div className={ type === 'baselines' ? 'comparison-header' : 'comparison-header' }>
-                        <div>
+                        <div className="drift-header-icon">
                             { type === 'baseline' ? <BlueprintIcon/> : <ServerIcon/> }
-                            <span className="system-name">{ data[i].display_name }</span>
                         </div>
+                        <span className="system-name">{ data[i].display_name }</span>
                         <div className="system-updated">
                             { data[i].system_profile_exists === false ?
                                 <Tooltip
