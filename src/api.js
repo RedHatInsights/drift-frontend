@@ -27,7 +27,7 @@ async function postBaseline(path, body = {}) {
 }
 
 async function deleteBaselines(path, body = {}) {
-    return await axios.delete(BASELINE_API_ROOT.concat(path), body);
+    return await axios.post(BASELINE_API_ROOT.concat(path), body);
 }
 
 async function getHistoricalData(path) {
@@ -74,7 +74,7 @@ function patchBaselineData(baselineId = [], apiBody) {
 }
 
 function deleteBaselinesData(deleteBaselinesAPIBody = []) {
-    let path = '/baselines';
+    let path = '/baselines/deletion_request';
 
     return deleteBaselines(path, deleteBaselinesAPIBody);
 }
