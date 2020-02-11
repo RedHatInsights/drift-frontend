@@ -44,6 +44,7 @@ class TablePagination extends Component {
                 dropDirection={ DropdownDirection.down }
                 onSetPage={ this.onSetPage }
                 onPerPageSelect={ this.onPerPageSelect }
+                isCompact={ true }
             />
         );
     }
