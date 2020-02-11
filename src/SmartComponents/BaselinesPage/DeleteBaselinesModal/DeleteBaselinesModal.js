@@ -27,9 +27,9 @@ class DeleteBaselinesModal extends Component {
 
         /*eslint-disable camelcase*/
         if (baselineId) {
-            apiBody = { data: { baseline_ids: [ baselineId ]}};
+            apiBody = { baseline_ids: [ baselineId ]};
         } else {
-            apiBody = { data: { baseline_ids: selectedBaselineIds }};
+            apiBody = { baseline_ids: selectedBaselineIds };
         }
         /*eslint-enable camelcase*/
 
