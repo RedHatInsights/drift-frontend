@@ -67,9 +67,9 @@ export function compareReducer(state = initialState, action) {
                 fullCompareData: action.payload.facts,
                 filteredCompareData: paginatedFacts,
                 sortedFilteredFacts: sortedFacts,
-                systems: action.payload.systems,
-                baselines: action.payload.baselines,
-                hspIds: action.payload.historical_system_profiles,
+                systems: action.payload.systems || [],
+                baselines: action.payload.baselines || [],
+                hspIds: action.payload.historical_system_profiles || [],
                 page: 1,
                 totalFacts: filteredFacts.length
             };

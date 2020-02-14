@@ -182,6 +182,8 @@ describe('compare reducer', () => {
                 type: `${types.FETCH_COMPARE}_FULFILLED`
             })
         ).toEqual({
+            baselines: [],
+            hspIds: [],
             fullCompareData: compareReducerState.facts,
             loading: false,
             factFilter: '',
@@ -215,6 +217,8 @@ describe('compare reducer', () => {
                 type: `${types.FETCH_COMPARE}_FULFILLED`
             })
         ).toEqual({
+            baselines: [],
+            hspIds: [],
             fullCompareData: [],
             loading: false,
             factFilter: '',
