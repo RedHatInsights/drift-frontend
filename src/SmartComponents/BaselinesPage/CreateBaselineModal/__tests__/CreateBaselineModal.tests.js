@@ -51,7 +51,7 @@ describe('CreateBaselineModal', () => {
         });
 
         it('should use handleChecked', () => {
-            const event = { currentTarget: 'copyBaselineChecked' };
+            const event = { currentTarget: { value: 'copyBaselineChecked' }};
             props.createBaselineModalOpened = true;
             const wrapper = shallow(
                 <CreateBaselineModal { ...props }/>
@@ -61,11 +61,11 @@ describe('CreateBaselineModal', () => {
             wrapper.find('[id="copy baseline"]').simulate('change', _, event);
             expect(wrapper.state('copyBaselineChecked')).toEqual(true);
 
-            event.currentTarget = 'copySystemChecked';
+            event.currentTarget.value = 'copySystemChecked';
             wrapper.find('[id="copy system"]').simulate('change', _, event);
             expect(wrapper.state('copySystemChecked')).toEqual(true);
 
-            event.currentTarget = 'fromScratchChecked';
+            event.currentTarget.value = 'fromScratchChecked';
             wrapper.find('[id="create baseline"]').simulate('change', _, event);
             expect(wrapper.state('fromScratchChecked')).toEqual(true);
             /*eslint-enable no-undef*/

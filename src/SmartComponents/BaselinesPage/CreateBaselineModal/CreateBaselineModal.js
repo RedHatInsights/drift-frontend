@@ -27,7 +27,7 @@ export class CreateBaselineModal extends Component {
         };
 
         this.handleChecked = (_, event) => {
-            const value = event.currentTarget;
+            const value = event.currentTarget.value;
             this.props.clearSelectedBaselines();
 
             if (value === 'fromScratchChecked') {
@@ -158,7 +158,7 @@ export class CreateBaselineModal extends Component {
                 >
                     <TextInput
                         className="fact-value"
-                        placeHolder="Baseline name"
+                        placeholder="Baseline name"
                         value={ baselineName }
                         type="text"
                         onChange={ this.updateBaselineName }
