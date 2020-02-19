@@ -346,9 +346,8 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                 }
                               >
                                 <DriftTable
-                                  addStateFilter={[Function]}
+                                  addSystemModalOpened={false}
                                   baselines={Array []}
-                                  clearState={[Function]}
                                   expandRow={[Function]}
                                   fetchCompare={[Function]}
                                   fullCompareData={Array []}
@@ -401,28 +400,8 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                     }
                                   }
                                   selectHistoricProfiles={[Function]}
-                                  selectedHSPIds={Array []}
                                   setSelectedBaselines={[Function]}
                                   setSelectedHistoricProfiles={[Function]}
-                                  stateFilters={
-                                    Array [
-                                      Object {
-                                        "display": "Same",
-                                        "filter": "SAME",
-                                        "selected": true,
-                                      },
-                                      Object {
-                                        "display": "Different",
-                                        "filter": "DIFFERENT",
-                                        "selected": true,
-                                      },
-                                      Object {
-                                        "display": "Incomplete data",
-                                        "filter": "INCOMPLETE_DATA",
-                                        "selected": true,
-                                      },
-                                    ]
-                                  }
                                   systems={Array []}
                                   toggleFactSort={[Function]}
                                   toggleStateSort={[Function]}
@@ -1025,9 +1004,8 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                 }
                               >
                                 <DriftTable
-                                  addStateFilter={[Function]}
+                                  addSystemModalOpened={false}
                                   baselines={Array []}
-                                  clearState={[Function]}
                                   expandRow={[Function]}
                                   fetchCompare={[Function]}
                                   fullCompareData={Array []}
@@ -1080,28 +1058,8 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                     }
                                   }
                                   selectHistoricProfiles={[Function]}
-                                  selectedHSPIds={Array []}
                                   setSelectedBaselines={[Function]}
                                   setSelectedHistoricProfiles={[Function]}
-                                  stateFilters={
-                                    Array [
-                                      Object {
-                                        "display": "Same",
-                                        "filter": "SAME",
-                                        "selected": true,
-                                      },
-                                      Object {
-                                        "display": "Different",
-                                        "filter": "DIFFERENT",
-                                        "selected": true,
-                                      },
-                                      Object {
-                                        "display": "Incomplete data",
-                                        "filter": "INCOMPLETE_DATA",
-                                        "selected": true,
-                                      },
-                                    ]
-                                  }
                                   systems={Array []}
                                   toggleFactSort={[Function]}
                                   toggleStateSort={[Function]}

@@ -1,0 +1,2193 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConnectedDriftTable should render correctly 1`] = `
+<MemoryRouter
+  keyLength={0}
+>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Provider
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+    >
+      <withRouter(Connect(DriftTable))>
+        <Connect(DriftTable)
+          history={
+            Object {
+              "action": "POP",
+              "block": [Function],
+              "canGo": [Function],
+              "createHref": [Function],
+              "entries": Array [
+                Object {
+                  "hash": "",
+                  "pathname": "/",
+                  "search": "",
+                  "state": undefined,
+                },
+              ],
+              "go": [Function],
+              "goBack": [Function],
+              "goForward": [Function],
+              "index": 0,
+              "length": 1,
+              "listen": [Function],
+              "location": Object {
+                "hash": "",
+                "pathname": "/",
+                "search": "",
+                "state": undefined,
+              },
+              "push": [Function],
+              "replace": [Function],
+            }
+          }
+          location={
+            Object {
+              "hash": "",
+              "pathname": "/",
+              "search": "",
+              "state": undefined,
+            }
+          }
+          match={
+            Object {
+              "isExact": true,
+              "params": Object {},
+              "path": "/",
+              "url": "/",
+            }
+          }
+        >
+          <DriftTable
+            addSystemModalOpened={false}
+            baselines={Array []}
+            expandRow={[Function]}
+            fetchCompare={[Function]}
+            fullCompareData={Array []}
+            historicalProfiles={Array []}
+            history={
+              Object {
+                "action": "POP",
+                "block": [Function],
+                "canGo": [Function],
+                "createHref": [Function],
+                "entries": Array [
+                  Object {
+                    "hash": "",
+                    "pathname": "/",
+                    "search": "",
+                    "state": undefined,
+                  },
+                ],
+                "go": [Function],
+                "goBack": [Function],
+                "goForward": [Function],
+                "index": 0,
+                "length": 1,
+                "listen": [Function],
+                "location": Object {
+                  "hash": "",
+                  "pathname": "/",
+                  "search": "",
+                  "state": undefined,
+                },
+                "push": [Function],
+                "replace": [Function],
+              }
+            }
+            loading={false}
+            location={
+              Object {
+                "hash": "",
+                "pathname": "/",
+                "search": "",
+                "state": undefined,
+              }
+            }
+            match={
+              Object {
+                "isExact": true,
+                "params": Object {},
+                "path": "/",
+                "url": "/",
+              }
+            }
+            selectHistoricProfiles={[Function]}
+            setSelectedBaselines={[Function]}
+            setSelectedHistoricProfiles={[Function]}
+            systems={Array []}
+            toggleFactSort={[Function]}
+            toggleStateSort={[Function]}
+          >
+            <withCookies(Connect(AddSystemModal))
+              confirmModal={[Function]}
+              selectedSystemIds={Array []}
+            >
+              <withCookies(Connect(AddSystemModal))
+                confirmModal={[Function]}
+                cookies={
+                  Cookies {
+                    "HAS_DOCUMENT_COOKIE": true,
+                    "changeListeners": Array [
+                      [Function],
+                    ],
+                    "cookies": Object {},
+                  }
+                }
+                forwardedRef={null}
+                selectedSystemIds={Array []}
+              >
+                <Connect(AddSystemModal)
+                  allCookies={Object {}}
+                  confirmModal={[Function]}
+                  cookies={
+                    Cookies {
+                      "HAS_DOCUMENT_COOKIE": true,
+                      "changeListeners": Array [
+                        [Function],
+                      ],
+                      "cookies": Object {},
+                    }
+                  }
+                  selectedSystemIds={Array []}
+                >
+                  <AddSystemModal
+                    addSystemModalOpened={false}
+                    allCookies={Object {}}
+                    baselines={Array []}
+                    confirmModal={[Function]}
+                    cookies={
+                      Cookies {
+                        "HAS_DOCUMENT_COOKIE": true,
+                        "changeListeners": Array [
+                          [Function],
+                        ],
+                        "cookies": Object {},
+                      }
+                    }
+                    selectActiveTab={[Function]}
+                    selectedSystemIds={Array []}
+                    systems={Array []}
+                    toggleModal={[Function]}
+                  >
+                    <Modal
+                      actions={
+                        Array [
+                          <Unknown
+                            onClick={[Function]}
+                            variant="primary"
+                          >
+                            Submit
+                          </Unknown>,
+                        ]
+                      }
+                      appendTo={
+                        <body>
+                          <div />
+                        </body>
+                      }
+                      ariaDescribedById=""
+                      className=""
+                      hideTitle={false}
+                      isFooterLeftAligned={true}
+                      isLarge={false}
+                      isOpen={false}
+                      isSmall={false}
+                      onClose={[Function]}
+                      showClose={true}
+                      title="Choose systems"
+                      width="auto"
+                    >
+                      <Portal
+                        containerInfo={<div />}
+                      >
+                        <ModalContent
+                          actions={
+                            Array [
+                              <Unknown
+                                onClick={[Function]}
+                                variant="primary"
+                              >
+                                Submit
+                              </Unknown>,
+                            ]
+                          }
+                          ariaDescribedById=""
+                          className=""
+                          hideTitle={false}
+                          id="pf-modal-0"
+                          isFooterLeftAligned={true}
+                          isLarge={false}
+                          isOpen={false}
+                          isSmall={false}
+                          onClose={[Function]}
+                          showClose={true}
+                          title="Choose systems"
+                          width="auto"
+                        />
+                      </Portal>
+                    </Modal>
+                  </AddSystemModal>
+                </Connect(AddSystemModal)>
+              </withCookies(Connect(AddSystemModal))>
+            </withCookies(Connect(AddSystemModal))>
+            <center>
+              <EmptyState>
+                <div
+                  className="pf-c-empty-state pf-m-lg"
+                >
+                  <EmptyStateIcon
+                    icon={[Function]}
+                  >
+                    <PlusCircleIcon
+                      aria-hidden="true"
+                      className="pf-c-empty-state__icon"
+                      color="currentColor"
+                      noVerticalAlign={false}
+                      size="sm"
+                      title={null}
+                    >
+                      <svg
+                        aria-hidden="true"
+                        aria-labelledby={null}
+                        className="pf-c-empty-state__icon"
+                        fill="currentColor"
+                        height="1em"
+                        role="img"
+                        style={
+                          Object {
+                            "verticalAlign": "-0.125em",
+                          }
+                        }
+                        viewBox="0 0 512 512"
+                        width="1em"
+                      >
+                        <path
+                          d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z"
+                          transform=""
+                        />
+                      </svg>
+                    </PlusCircleIcon>
+                  </EmptyStateIcon>
+                  <br />
+                  <Title
+                    size="lg"
+                  >
+                    <h1
+                      className="pf-c-title pf-m-lg"
+                    >
+                      Add systems or baselines to compare
+                    </h1>
+                  </Title>
+                  <EmptyStateBody>
+                    <div
+                      className="pf-c-empty-state__body"
+                    >
+                      You currently have no systems or baselines displayed. Add at least two
+                      <br />
+                      systems or baselines to compare their facts.
+                    </div>
+                  </EmptyStateBody>
+                  <Connect(AddSystemButton)
+                    isTable={false}
+                  >
+                    <AddSystemButton
+                      isTable={false}
+                      toggleAddSystemModal={[Function]}
+                    >
+                      <Component
+                        className="add-system-button"
+                        onClick={[Function]}
+                        variant="primary"
+                      >
+                        <ComponentWithOuia
+                          component={[Function]}
+                          componentProps={
+                            Object {
+                              "children": "Add systems or baselines",
+                              "className": "add-system-button",
+                              "onClick": [Function],
+                              "variant": "primary",
+                            }
+                          }
+                          consumerContext={null}
+                        >
+                          <Button
+                            className="add-system-button"
+                            onClick={[Function]}
+                            ouiaContext={
+                              Object {
+                                "isOuia": false,
+                                "ouiaId": null,
+                              }
+                            }
+                            variant="primary"
+                          >
+                            <button
+                              aria-disabled={null}
+                              aria-label={null}
+                              className="pf-c-button pf-m-primary add-system-button"
+                              disabled={false}
+                              onClick={[Function]}
+                              tabIndex={null}
+                              type="button"
+                            >
+                              Add systems or baselines
+                            </button>
+                          </Button>
+                        </ComponentWithOuia>
+                      </Component>
+                    </AddSystemButton>
+                  </Connect(AddSystemButton)>
+                </div>
+              </EmptyState>
+            </center>
+          </DriftTable>
+        </Connect(DriftTable)>
+      </withRouter(Connect(DriftTable))>
+    </Provider>
+  </Router>
+</MemoryRouter>
+`;
+
+exports[`ConnectedDriftTable should render loading rows 1`] = `
+<MemoryRouter
+  keyLength={0}
+>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Provider
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+    >
+      <withRouter(Connect(DriftTable))>
+        <Connect(DriftTable)
+          history={
+            Object {
+              "action": "POP",
+              "block": [Function],
+              "canGo": [Function],
+              "createHref": [Function],
+              "entries": Array [
+                Object {
+                  "hash": "",
+                  "pathname": "/",
+                  "search": "",
+                  "state": undefined,
+                },
+              ],
+              "go": [Function],
+              "goBack": [Function],
+              "goForward": [Function],
+              "index": 0,
+              "length": 1,
+              "listen": [Function],
+              "location": Object {
+                "hash": "",
+                "pathname": "/",
+                "search": "",
+                "state": undefined,
+              },
+              "push": [Function],
+              "replace": [Function],
+            }
+          }
+          location={
+            Object {
+              "hash": "",
+              "pathname": "/",
+              "search": "",
+              "state": undefined,
+            }
+          }
+          match={
+            Object {
+              "isExact": true,
+              "params": Object {},
+              "path": "/",
+              "url": "/",
+            }
+          }
+        >
+          <DriftTable
+            addSystemModalOpened={false}
+            baselines={Array []}
+            expandRow={[Function]}
+            fetchCompare={[Function]}
+            fullCompareData={Array []}
+            historicalProfiles={Array []}
+            history={
+              Object {
+                "action": "POP",
+                "block": [Function],
+                "canGo": [Function],
+                "createHref": [Function],
+                "entries": Array [
+                  Object {
+                    "hash": "",
+                    "pathname": "/",
+                    "search": "",
+                    "state": undefined,
+                  },
+                ],
+                "go": [Function],
+                "goBack": [Function],
+                "goForward": [Function],
+                "index": 0,
+                "length": 1,
+                "listen": [Function],
+                "location": Object {
+                  "hash": "",
+                  "pathname": "/",
+                  "search": "",
+                  "state": undefined,
+                },
+                "push": [Function],
+                "replace": [Function],
+              }
+            }
+            loading={true}
+            location={
+              Object {
+                "hash": "",
+                "pathname": "/",
+                "search": "",
+                "state": undefined,
+              }
+            }
+            match={
+              Object {
+                "isExact": true,
+                "params": Object {},
+                "path": "/",
+                "url": "/",
+              }
+            }
+            selectHistoricProfiles={[Function]}
+            setSelectedBaselines={[Function]}
+            setSelectedHistoricProfiles={[Function]}
+            systems={Array []}
+            toggleFactSort={[Function]}
+            toggleStateSort={[Function]}
+          >
+            <withCookies(Connect(AddSystemModal))
+              confirmModal={[Function]}
+              selectedSystemIds={Array []}
+            >
+              <withCookies(Connect(AddSystemModal))
+                confirmModal={[Function]}
+                cookies={
+                  Cookies {
+                    "HAS_DOCUMENT_COOKIE": true,
+                    "changeListeners": Array [
+                      [Function],
+                      [Function],
+                      [Function],
+                    ],
+                    "cookies": Object {},
+                  }
+                }
+                forwardedRef={null}
+                selectedSystemIds={Array []}
+              >
+                <Connect(AddSystemModal)
+                  allCookies={Object {}}
+                  confirmModal={[Function]}
+                  cookies={
+                    Cookies {
+                      "HAS_DOCUMENT_COOKIE": true,
+                      "changeListeners": Array [
+                        [Function],
+                        [Function],
+                        [Function],
+                      ],
+                      "cookies": Object {},
+                    }
+                  }
+                  selectedSystemIds={Array []}
+                >
+                  <AddSystemModal
+                    addSystemModalOpened={false}
+                    allCookies={Object {}}
+                    baselines={Array []}
+                    confirmModal={[Function]}
+                    cookies={
+                      Cookies {
+                        "HAS_DOCUMENT_COOKIE": true,
+                        "changeListeners": Array [
+                          [Function],
+                          [Function],
+                          [Function],
+                        ],
+                        "cookies": Object {},
+                      }
+                    }
+                    selectActiveTab={[Function]}
+                    selectedSystemIds={Array []}
+                    systems={Array []}
+                    toggleModal={[Function]}
+                  >
+                    <Modal
+                      actions={
+                        Array [
+                          <Unknown
+                            onClick={[Function]}
+                            variant="primary"
+                          >
+                            Submit
+                          </Unknown>,
+                        ]
+                      }
+                      appendTo={
+                        <body>
+                          <div />
+                          <div />
+                          <div />
+                        </body>
+                      }
+                      ariaDescribedById=""
+                      className=""
+                      hideTitle={false}
+                      isFooterLeftAligned={true}
+                      isLarge={false}
+                      isOpen={false}
+                      isSmall={false}
+                      onClose={[Function]}
+                      showClose={true}
+                      title="Choose systems"
+                      width="auto"
+                    >
+                      <Portal
+                        containerInfo={<div />}
+                      >
+                        <ModalContent
+                          actions={
+                            Array [
+                              <Unknown
+                                onClick={[Function]}
+                                variant="primary"
+                              >
+                                Submit
+                              </Unknown>,
+                            ]
+                          }
+                          ariaDescribedById=""
+                          className=""
+                          hideTitle={false}
+                          id="pf-modal-2"
+                          isFooterLeftAligned={true}
+                          isLarge={false}
+                          isOpen={false}
+                          isSmall={false}
+                          onClose={[Function]}
+                          showClose={true}
+                          title="Choose systems"
+                          width="auto"
+                        />
+                      </Portal>
+                    </Modal>
+                  </AddSystemModal>
+                </Connect(AddSystemModal)>
+              </withCookies(Connect(AddSystemModal))>
+            </withCookies(Connect(AddSystemModal))>
+            <div
+              className="drift-table-wrapper"
+            >
+              <table
+                className="pf-c-table pf-m-compact drift-table"
+              >
+                <thead>
+                  <tr
+                    className="sticky-column-header"
+                  >
+                    <th
+                      className="fact-header sticky-column fixed-column-1"
+                      key="fact-header"
+                    >
+                      <div
+                        className="active-blue"
+                      >
+                        Fact 
+                        <ArrowsAltVIcon
+                          className="pointer not-active"
+                          color="currentColor"
+                          noVerticalAlign={false}
+                          onClick={[Function]}
+                          size="sm"
+                          title={null}
+                        >
+                          <svg
+                            aria-hidden={true}
+                            aria-labelledby={null}
+                            className="pointer not-active"
+                            fill="currentColor"
+                            height="1em"
+                            onClick={[Function]}
+                            role="img"
+                            style={
+                              Object {
+                                "verticalAlign": "-0.125em",
+                              }
+                            }
+                            viewBox="0 0 256 512"
+                            width="1em"
+                          >
+                            <path
+                              d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                              transform=""
+                            />
+                          </svg>
+                        </ArrowsAltVIcon>
+                      </div>
+                    </th>
+                    <th
+                      className="state-header sticky-column fixed-column-2"
+                      key="state-header"
+                    >
+                      <div
+                        className="active-blue"
+                      >
+                        State 
+                        <ArrowsAltVIcon
+                          className="pointer not-active"
+                          color="currentColor"
+                          noVerticalAlign={false}
+                          onClick={[Function]}
+                          size="sm"
+                          title={null}
+                        >
+                          <svg
+                            aria-hidden={true}
+                            aria-labelledby={null}
+                            className="pointer not-active"
+                            fill="currentColor"
+                            height="1em"
+                            onClick={[Function]}
+                            role="img"
+                            style={
+                              Object {
+                                "verticalAlign": "-0.125em",
+                              }
+                            }
+                            viewBox="0 0 256 512"
+                            width="1em"
+                          >
+                            <path
+                              d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                              transform=""
+                            />
+                          </svg>
+                        </ArrowsAltVIcon>
+                      </div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <Skeleton
+                        isDark={false}
+                        size="md"
+                      >
+                        <div
+                          className="ins-c-skeleton ins-c-skeleton__md"
+                        >
+                           
+                        </div>
+                      </Skeleton>
+                    </td>
+                    <td>
+                      <Skeleton
+                        isDark={false}
+                        size="md"
+                      >
+                        <div
+                          className="ins-c-skeleton ins-c-skeleton__md"
+                        >
+                           
+                        </div>
+                      </Skeleton>
+                    </td>
+                    <td>
+                      <Skeleton
+                        isDark={false}
+                        size="md"
+                      >
+                        <div
+                          className="ins-c-skeleton ins-c-skeleton__md"
+                        >
+                           
+                        </div>
+                      </Skeleton>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <Skeleton
+                        isDark={false}
+                        size="md"
+                      >
+                        <div
+                          className="ins-c-skeleton ins-c-skeleton__md"
+                        >
+                           
+                        </div>
+                      </Skeleton>
+                    </td>
+                    <td>
+                      <Skeleton
+                        isDark={false}
+                        size="md"
+                      >
+                        <div
+                          className="ins-c-skeleton ins-c-skeleton__md"
+                        >
+                           
+                        </div>
+                      </Skeleton>
+                    </td>
+                    <td>
+                      <Skeleton
+                        isDark={false}
+                        size="md"
+                      >
+                        <div
+                          className="ins-c-skeleton ins-c-skeleton__md"
+                        >
+                           
+                        </div>
+                      </Skeleton>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <Skeleton
+                        isDark={false}
+                        size="md"
+                      >
+                        <div
+                          className="ins-c-skeleton ins-c-skeleton__md"
+                        >
+                           
+                        </div>
+                      </Skeleton>
+                    </td>
+                    <td>
+                      <Skeleton
+                        isDark={false}
+                        size="md"
+                      >
+                        <div
+                          className="ins-c-skeleton ins-c-skeleton__md"
+                        >
+                           
+                        </div>
+                      </Skeleton>
+                    </td>
+                    <td>
+                      <Skeleton
+                        isDark={false}
+                        size="md"
+                      >
+                        <div
+                          className="ins-c-skeleton ins-c-skeleton__md"
+                        >
+                           
+                        </div>
+                      </Skeleton>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <Skeleton
+                        isDark={false}
+                        size="md"
+                      >
+                        <div
+                          className="ins-c-skeleton ins-c-skeleton__md"
+                        >
+                           
+                        </div>
+                      </Skeleton>
+                    </td>
+                    <td>
+                      <Skeleton
+                        isDark={false}
+                        size="md"
+                      >
+                        <div
+                          className="ins-c-skeleton ins-c-skeleton__md"
+                        >
+                           
+                        </div>
+                      </Skeleton>
+                    </td>
+                    <td>
+                      <Skeleton
+                        isDark={false}
+                        size="md"
+                      >
+                        <div
+                          className="ins-c-skeleton ins-c-skeleton__md"
+                        >
+                           
+                        </div>
+                      </Skeleton>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <Skeleton
+                        isDark={false}
+                        size="md"
+                      >
+                        <div
+                          className="ins-c-skeleton ins-c-skeleton__md"
+                        >
+                           
+                        </div>
+                      </Skeleton>
+                    </td>
+                    <td>
+                      <Skeleton
+                        isDark={false}
+                        size="md"
+                      >
+                        <div
+                          className="ins-c-skeleton ins-c-skeleton__md"
+                        >
+                           
+                        </div>
+                      </Skeleton>
+                    </td>
+                    <td>
+                      <Skeleton
+                        isDark={false}
+                        size="md"
+                      >
+                        <div
+                          className="ins-c-skeleton ins-c-skeleton__md"
+                        >
+                           
+                        </div>
+                      </Skeleton>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <Skeleton
+                        isDark={false}
+                        size="md"
+                      >
+                        <div
+                          className="ins-c-skeleton ins-c-skeleton__md"
+                        >
+                           
+                        </div>
+                      </Skeleton>
+                    </td>
+                    <td>
+                      <Skeleton
+                        isDark={false}
+                        size="md"
+                      >
+                        <div
+                          className="ins-c-skeleton ins-c-skeleton__md"
+                        >
+                           
+                        </div>
+                      </Skeleton>
+                    </td>
+                    <td>
+                      <Skeleton
+                        isDark={false}
+                        size="md"
+                      >
+                        <div
+                          className="ins-c-skeleton ins-c-skeleton__md"
+                        >
+                           
+                        </div>
+                      </Skeleton>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <Skeleton
+                        isDark={false}
+                        size="md"
+                      >
+                        <div
+                          className="ins-c-skeleton ins-c-skeleton__md"
+                        >
+                           
+                        </div>
+                      </Skeleton>
+                    </td>
+                    <td>
+                      <Skeleton
+                        isDark={false}
+                        size="md"
+                      >
+                        <div
+                          className="ins-c-skeleton ins-c-skeleton__md"
+                        >
+                           
+                        </div>
+                      </Skeleton>
+                    </td>
+                    <td>
+                      <Skeleton
+                        isDark={false}
+                        size="md"
+                      >
+                        <div
+                          className="ins-c-skeleton ins-c-skeleton__md"
+                        >
+                           
+                        </div>
+                      </Skeleton>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <Skeleton
+                        isDark={false}
+                        size="md"
+                      >
+                        <div
+                          className="ins-c-skeleton ins-c-skeleton__md"
+                        >
+                           
+                        </div>
+                      </Skeleton>
+                    </td>
+                    <td>
+                      <Skeleton
+                        isDark={false}
+                        size="md"
+                      >
+                        <div
+                          className="ins-c-skeleton ins-c-skeleton__md"
+                        >
+                           
+                        </div>
+                      </Skeleton>
+                    </td>
+                    <td>
+                      <Skeleton
+                        isDark={false}
+                        size="md"
+                      >
+                        <div
+                          className="ins-c-skeleton ins-c-skeleton__md"
+                        >
+                           
+                        </div>
+                      </Skeleton>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <Skeleton
+                        isDark={false}
+                        size="md"
+                      >
+                        <div
+                          className="ins-c-skeleton ins-c-skeleton__md"
+                        >
+                           
+                        </div>
+                      </Skeleton>
+                    </td>
+                    <td>
+                      <Skeleton
+                        isDark={false}
+                        size="md"
+                      >
+                        <div
+                          className="ins-c-skeleton ins-c-skeleton__md"
+                        >
+                           
+                        </div>
+                      </Skeleton>
+                    </td>
+                    <td>
+                      <Skeleton
+                        isDark={false}
+                        size="md"
+                      >
+                        <div
+                          className="ins-c-skeleton ins-c-skeleton__md"
+                        >
+                           
+                        </div>
+                      </Skeleton>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <Skeleton
+                        isDark={false}
+                        size="md"
+                      >
+                        <div
+                          className="ins-c-skeleton ins-c-skeleton__md"
+                        >
+                           
+                        </div>
+                      </Skeleton>
+                    </td>
+                    <td>
+                      <Skeleton
+                        isDark={false}
+                        size="md"
+                      >
+                        <div
+                          className="ins-c-skeleton ins-c-skeleton__md"
+                        >
+                           
+                        </div>
+                      </Skeleton>
+                    </td>
+                    <td>
+                      <Skeleton
+                        isDark={false}
+                        size="md"
+                      >
+                        <div
+                          className="ins-c-skeleton ins-c-skeleton__md"
+                        >
+                           
+                        </div>
+                      </Skeleton>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </DriftTable>
+        </Connect(DriftTable)>
+      </withRouter(Connect(DriftTable))>
+    </Provider>
+  </Router>
+</MemoryRouter>
+`;
+
+exports[`ConnectedDriftTable should render systems, baselines and historicalProfiles 1`] = `
+<MemoryRouter
+  keyLength={0}
+>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Provider
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+    >
+      <withRouter(Connect(DriftTable))>
+        <Connect(DriftTable)
+          history={
+            Object {
+              "action": "POP",
+              "block": [Function],
+              "canGo": [Function],
+              "createHref": [Function],
+              "entries": Array [
+                Object {
+                  "hash": "",
+                  "pathname": "/",
+                  "search": "",
+                  "state": undefined,
+                },
+              ],
+              "go": [Function],
+              "goBack": [Function],
+              "goForward": [Function],
+              "index": 0,
+              "length": 1,
+              "listen": [Function],
+              "location": Object {
+                "hash": "",
+                "pathname": "/",
+                "search": "",
+                "state": undefined,
+              },
+              "push": [Function],
+              "replace": [Function],
+            }
+          }
+          location={
+            Object {
+              "hash": "",
+              "pathname": "/",
+              "search": "",
+              "state": undefined,
+            }
+          }
+          match={
+            Object {
+              "isExact": true,
+              "params": Object {},
+              "path": "/",
+              "url": "/",
+            }
+          }
+        >
+          <DriftTable
+            addSystemModalOpened={false}
+            baselines={
+              Array [
+                Object {
+                  "display_name": "baseline1",
+                  "id": "9bbbefcc-8f23-4d97-07f2-142asdl234e9",
+                  "last_updated": "2019-01-15T14:53:15.886891Z",
+                  "type": "baseline",
+                },
+                Object {
+                  "display_name": "baseline2",
+                  "id": "fdmk59dj-fn42-dfjk-alv3-bmn2854mnn29",
+                  "last_updated": "2019-01-15T15:25:16.304899Z",
+                  "type": "baseline",
+                },
+              ]
+            }
+            expandRow={[Function]}
+            fetchCompare={[Function]}
+            fullCompareData={
+              Array [
+                Object {
+                  "name": "bios_uuid",
+                  "state": "SAME",
+                  "systems": Array [
+                    Object {
+                      "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                      "value": "FAKE-BIOS",
+                    },
+                    Object {
+                      "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                      "value": "FAKE-BIOS",
+                    },
+                  ],
+                },
+                Object {
+                  "name": "display_name",
+                  "state": "SAME",
+                  "systems": Array [
+                    Object {
+                      "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                      "value": "PC-NAME",
+                    },
+                    Object {
+                      "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                      "value": "PC-NAME",
+                    },
+                  ],
+                },
+                Object {
+                  "name": "cpus",
+                  "state": "DIFFERENT",
+                  "systems": Array [
+                    Object {
+                      "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                      "value": "4",
+                    },
+                    Object {
+                      "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                      "value": "3",
+                    },
+                  ],
+                },
+              ]
+            }
+            historicalProfiles={
+              Array [
+                Object {
+                  "display_name": "system1",
+                  "id": "9bbbefcc-8f23-4d97-07f2-142asdl234e8",
+                  "last_updated": "2019-01-15T14:53:15.886891Z",
+                  "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                  "type": "historical-system-profile",
+                },
+                Object {
+                  "display_name": "system1",
+                  "id": "edmk59dj-fn42-dfjk-alv3-bmn2854mnn27",
+                  "last_updated": "2019-01-15T15:25:16.304899Z",
+                  "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                  "type": "historical-system-profile",
+                },
+              ]
+            }
+            history={
+              Object {
+                "action": "POP",
+                "block": [Function],
+                "canGo": [Function],
+                "createHref": [Function],
+                "entries": Array [
+                  Object {
+                    "hash": "",
+                    "pathname": "/",
+                    "search": "",
+                    "state": undefined,
+                  },
+                ],
+                "go": [Function],
+                "goBack": [Function],
+                "goForward": [Function],
+                "index": 0,
+                "length": 1,
+                "listen": [Function],
+                "location": Object {
+                  "hash": "",
+                  "pathname": "/",
+                  "search": "",
+                  "state": undefined,
+                },
+                "push": [Function],
+                "replace": [Function],
+              }
+            }
+            loading={false}
+            location={
+              Object {
+                "hash": "",
+                "pathname": "/",
+                "search": "",
+                "state": undefined,
+              }
+            }
+            match={
+              Object {
+                "isExact": true,
+                "params": Object {},
+                "path": "/",
+                "url": "/",
+              }
+            }
+            selectHistoricProfiles={[Function]}
+            setSelectedBaselines={[Function]}
+            setSelectedHistoricProfiles={[Function]}
+            systems={
+              Array [
+                Object {
+                  "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                  "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                  "last_updated": "2019-01-15T14:53:15.886891Z",
+                  "type": "system",
+                },
+                Object {
+                  "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                  "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                  "last_updated": "2019-01-15T15:25:16.304899Z",
+                  "type": "system",
+                },
+              ]
+            }
+            toggleFactSort={[Function]}
+            toggleStateSort={[Function]}
+          >
+            <withCookies(Connect(AddSystemModal))
+              confirmModal={[Function]}
+              selectedSystemIds={
+                Array [
+                  "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                  "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                ]
+              }
+            >
+              <withCookies(Connect(AddSystemModal))
+                confirmModal={[Function]}
+                cookies={
+                  Cookies {
+                    "HAS_DOCUMENT_COOKIE": true,
+                    "changeListeners": Array [
+                      [Function],
+                      [Function],
+                    ],
+                    "cookies": Object {},
+                  }
+                }
+                forwardedRef={null}
+                selectedSystemIds={
+                  Array [
+                    "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                    "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                  ]
+                }
+              >
+                <Connect(AddSystemModal)
+                  allCookies={Object {}}
+                  confirmModal={[Function]}
+                  cookies={
+                    Cookies {
+                      "HAS_DOCUMENT_COOKIE": true,
+                      "changeListeners": Array [
+                        [Function],
+                        [Function],
+                      ],
+                      "cookies": Object {},
+                    }
+                  }
+                  selectedSystemIds={
+                    Array [
+                      "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                      "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                    ]
+                  }
+                >
+                  <AddSystemModal
+                    addSystemModalOpened={false}
+                    allCookies={Object {}}
+                    baselines={
+                      Array [
+                        Object {
+                          "display_name": "baseline1",
+                          "id": "9bbbefcc-8f23-4d97-07f2-142asdl234e9",
+                          "last_updated": "2019-01-15T14:53:15.886891Z",
+                          "type": "baseline",
+                        },
+                        Object {
+                          "display_name": "baseline2",
+                          "id": "fdmk59dj-fn42-dfjk-alv3-bmn2854mnn29",
+                          "last_updated": "2019-01-15T15:25:16.304899Z",
+                          "type": "baseline",
+                        },
+                      ]
+                    }
+                    confirmModal={[Function]}
+                    cookies={
+                      Cookies {
+                        "HAS_DOCUMENT_COOKIE": true,
+                        "changeListeners": Array [
+                          [Function],
+                          [Function],
+                        ],
+                        "cookies": Object {},
+                      }
+                    }
+                    selectActiveTab={[Function]}
+                    selectedSystemIds={
+                      Array [
+                        "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                        "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                      ]
+                    }
+                    systems={
+                      Array [
+                        Object {
+                          "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                          "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                          "last_updated": "2019-01-15T14:53:15.886891Z",
+                          "type": "system",
+                        },
+                        Object {
+                          "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                          "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                          "last_updated": "2019-01-15T15:25:16.304899Z",
+                          "type": "system",
+                        },
+                      ]
+                    }
+                    toggleModal={[Function]}
+                  >
+                    <Modal
+                      actions={
+                        Array [
+                          <Unknown
+                            onClick={[Function]}
+                            variant="primary"
+                          >
+                            Submit
+                          </Unknown>,
+                        ]
+                      }
+                      appendTo={
+                        <body>
+                          <div />
+                          <div />
+                        </body>
+                      }
+                      ariaDescribedById=""
+                      className=""
+                      hideTitle={false}
+                      isFooterLeftAligned={true}
+                      isLarge={false}
+                      isOpen={false}
+                      isSmall={false}
+                      onClose={[Function]}
+                      showClose={true}
+                      title="Choose systems"
+                      width="auto"
+                    >
+                      <Portal
+                        containerInfo={<div />}
+                      >
+                        <ModalContent
+                          actions={
+                            Array [
+                              <Unknown
+                                onClick={[Function]}
+                                variant="primary"
+                              >
+                                Submit
+                              </Unknown>,
+                            ]
+                          }
+                          ariaDescribedById=""
+                          className=""
+                          hideTitle={false}
+                          id="pf-modal-1"
+                          isFooterLeftAligned={true}
+                          isLarge={false}
+                          isOpen={false}
+                          isSmall={false}
+                          onClose={[Function]}
+                          showClose={true}
+                          title="Choose systems"
+                          width="auto"
+                        />
+                      </Portal>
+                    </Modal>
+                  </AddSystemModal>
+                </Connect(AddSystemModal)>
+              </withCookies(Connect(AddSystemModal))>
+            </withCookies(Connect(AddSystemModal))>
+            <div
+              className="drift-table-wrapper"
+            >
+              <table
+                className="pf-c-table pf-m-compact drift-table"
+              >
+                <thead>
+                  <tr
+                    className="sticky-column-header"
+                  >
+                    <th
+                      className="fact-header sticky-column fixed-column-1"
+                      key="fact-header"
+                    >
+                      <div
+                        className="active-blue"
+                      >
+                        Fact 
+                        <ArrowsAltVIcon
+                          className="pointer not-active"
+                          color="currentColor"
+                          noVerticalAlign={false}
+                          onClick={[Function]}
+                          size="sm"
+                          title={null}
+                        >
+                          <svg
+                            aria-hidden={true}
+                            aria-labelledby={null}
+                            className="pointer not-active"
+                            fill="currentColor"
+                            height="1em"
+                            onClick={[Function]}
+                            role="img"
+                            style={
+                              Object {
+                                "verticalAlign": "-0.125em",
+                              }
+                            }
+                            viewBox="0 0 256 512"
+                            width="1em"
+                          >
+                            <path
+                              d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                              transform=""
+                            />
+                          </svg>
+                        </ArrowsAltVIcon>
+                      </div>
+                    </th>
+                    <th
+                      className="state-header sticky-column fixed-column-2"
+                      key="state-header"
+                    >
+                      <div
+                        className="active-blue"
+                      >
+                        State 
+                        <ArrowsAltVIcon
+                          className="pointer not-active"
+                          color="currentColor"
+                          noVerticalAlign={false}
+                          onClick={[Function]}
+                          size="sm"
+                          title={null}
+                        >
+                          <svg
+                            aria-hidden={true}
+                            aria-labelledby={null}
+                            className="pointer not-active"
+                            fill="currentColor"
+                            height="1em"
+                            onClick={[Function]}
+                            role="img"
+                            style={
+                              Object {
+                                "verticalAlign": "-0.125em",
+                              }
+                            }
+                            viewBox="0 0 256 512"
+                            width="1em"
+                          >
+                            <path
+                              d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                              transform=""
+                            />
+                          </svg>
+                        </ArrowsAltVIcon>
+                      </div>
+                    </th>
+                    <th
+                      className="drift-header baseline-header"
+                      key="9bbbefcc-8f23-4d97-07f2-142asdl234e9"
+                    >
+                      <div>
+                        <a
+                          className="remove-system-icon"
+                          onClick={[Function]}
+                        >
+                          <TimesIcon
+                            color="currentColor"
+                            noVerticalAlign={false}
+                            size="sm"
+                            title={null}
+                          >
+                            <svg
+                              aria-hidden={true}
+                              aria-labelledby={null}
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              style={
+                                Object {
+                                  "verticalAlign": "-0.125em",
+                                }
+                              }
+                              viewBox="0 0 352 512"
+                              width="1em"
+                            >
+                              <path
+                                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                transform=""
+                              />
+                            </svg>
+                          </TimesIcon>
+                        </a>
+                      </div>
+                      <div
+                        className="comparison-header"
+                      >
+                        <div
+                          className="drift-header-icon"
+                        >
+                          <BlueprintIcon
+                            color="currentColor"
+                            noVerticalAlign={false}
+                            size="sm"
+                            title={null}
+                          >
+                            <svg
+                              aria-hidden={true}
+                              aria-labelledby={null}
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              style={
+                                Object {
+                                  "verticalAlign": "-0.125em",
+                                }
+                              }
+                              viewBox="0 64 1024 1024"
+                              width="1em"
+                            >
+                              <path
+                                d="M78.629 225.143c-3.657 3.657-5.486 8-5.486 12.8v55.086h-73.143v-55.086c0-25.143 8.914-46.629 26.971-64.686 17.829-17.829 39.543-26.971 64.686-26.971h91.429v73.143h-91.657c-5.029 0.457-9.143 2.286-12.8 5.714zM997.257 705.143c-17.829 17.829-39.543 26.971-64.686 26.971h-621.714c-25.143 0-46.629-8.914-64.686-26.971-17.829-17.829-26.971-39.543-26.971-64.686v-621.943c0-25.143 8.914-46.629 26.971-64.686 17.829-17.829 39.543-26.971 64.686-26.971h621.943c25.143 0 46.629 8.914 64.686 26.971 17.829 17.829 26.971 39.543 26.971 64.686v621.943c-0.229 25.143-9.143 46.629-27.2 64.686zM951.086 18.514c0-5.029-1.829-9.143-5.486-12.8s-8-5.486-12.8-5.486h-621.943c-5.029 0-9.143 1.829-12.8 5.486s-5.486 8-5.486 12.8v621.943c0 5.029 1.829 9.143 5.486 12.8s8 5.486 12.8 5.486h621.943c5.029 0 9.143-1.829 12.8-5.486s5.486-8 5.486-12.8v-621.943zM0 1024.686h73.143v-147.429h-73.143v147.429zM0 732.114h73.143v-147.429h-73.143v147.429zM73.143 859.886c0 5.029 1.829 9.143 5.486 12.8s8 5.486 12.8 5.486h55.314v73.143h-55.314c-25.143 0-46.629-8.914-64.686-26.971-17.829-17.829-26.743-39.314-26.743-64.457v-55.771h73.143v55.771zM218.971 951.314h147.429v-73.143h-147.429v73.143zM726.171 872.686c3.657-3.657 5.486-8 5.486-12.8v-91.429h73.143v91.429c0 25.143-8.914 46.629-26.971 64.686-17.829 17.829-39.543 26.971-64.686 26.971h-55.543v-73.143h55.543c5.029-0.229 9.371-2.057 13.029-5.714zM438.4 951.314h147.429v-73.143h-147.429v73.143z"
+                                transform="rotate(180 0 512) scale(-1 1)"
+                              />
+                            </svg>
+                          </BlueprintIcon>
+                        </div>
+                        <span
+                          className="system-name"
+                        >
+                          baseline1
+                        </span>
+                        <div
+                          className="system-updated"
+                        >
+                          15 Jan 2019, 14:53 UTC
+                        </div>
+                      </div>
+                    </th>
+                    <th
+                      className="drift-header baseline-header"
+                      key="fdmk59dj-fn42-dfjk-alv3-bmn2854mnn29"
+                    >
+                      <div>
+                        <a
+                          className="remove-system-icon"
+                          onClick={[Function]}
+                        >
+                          <TimesIcon
+                            color="currentColor"
+                            noVerticalAlign={false}
+                            size="sm"
+                            title={null}
+                          >
+                            <svg
+                              aria-hidden={true}
+                              aria-labelledby={null}
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              style={
+                                Object {
+                                  "verticalAlign": "-0.125em",
+                                }
+                              }
+                              viewBox="0 0 352 512"
+                              width="1em"
+                            >
+                              <path
+                                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                transform=""
+                              />
+                            </svg>
+                          </TimesIcon>
+                        </a>
+                      </div>
+                      <div
+                        className="comparison-header"
+                      >
+                        <div
+                          className="drift-header-icon"
+                        >
+                          <BlueprintIcon
+                            color="currentColor"
+                            noVerticalAlign={false}
+                            size="sm"
+                            title={null}
+                          >
+                            <svg
+                              aria-hidden={true}
+                              aria-labelledby={null}
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              style={
+                                Object {
+                                  "verticalAlign": "-0.125em",
+                                }
+                              }
+                              viewBox="0 64 1024 1024"
+                              width="1em"
+                            >
+                              <path
+                                d="M78.629 225.143c-3.657 3.657-5.486 8-5.486 12.8v55.086h-73.143v-55.086c0-25.143 8.914-46.629 26.971-64.686 17.829-17.829 39.543-26.971 64.686-26.971h91.429v73.143h-91.657c-5.029 0.457-9.143 2.286-12.8 5.714zM997.257 705.143c-17.829 17.829-39.543 26.971-64.686 26.971h-621.714c-25.143 0-46.629-8.914-64.686-26.971-17.829-17.829-26.971-39.543-26.971-64.686v-621.943c0-25.143 8.914-46.629 26.971-64.686 17.829-17.829 39.543-26.971 64.686-26.971h621.943c25.143 0 46.629 8.914 64.686 26.971 17.829 17.829 26.971 39.543 26.971 64.686v621.943c-0.229 25.143-9.143 46.629-27.2 64.686zM951.086 18.514c0-5.029-1.829-9.143-5.486-12.8s-8-5.486-12.8-5.486h-621.943c-5.029 0-9.143 1.829-12.8 5.486s-5.486 8-5.486 12.8v621.943c0 5.029 1.829 9.143 5.486 12.8s8 5.486 12.8 5.486h621.943c5.029 0 9.143-1.829 12.8-5.486s5.486-8 5.486-12.8v-621.943zM0 1024.686h73.143v-147.429h-73.143v147.429zM0 732.114h73.143v-147.429h-73.143v147.429zM73.143 859.886c0 5.029 1.829 9.143 5.486 12.8s8 5.486 12.8 5.486h55.314v73.143h-55.314c-25.143 0-46.629-8.914-64.686-26.971-17.829-17.829-26.743-39.314-26.743-64.457v-55.771h73.143v55.771zM218.971 951.314h147.429v-73.143h-147.429v73.143zM726.171 872.686c3.657-3.657 5.486-8 5.486-12.8v-91.429h73.143v91.429c0 25.143-8.914 46.629-26.971 64.686-17.829 17.829-39.543 26.971-64.686 26.971h-55.543v-73.143h55.543c5.029-0.229 9.371-2.057 13.029-5.714zM438.4 951.314h147.429v-73.143h-147.429v73.143z"
+                                transform="rotate(180 0 512) scale(-1 1)"
+                              />
+                            </svg>
+                          </BlueprintIcon>
+                        </div>
+                        <span
+                          className="system-name"
+                        >
+                          baseline2
+                        </span>
+                        <div
+                          className="system-updated"
+                        >
+                          15 Jan 2019, 15:25 UTC
+                        </div>
+                      </div>
+                    </th>
+                    <th
+                      className="drift-header system-header"
+                      key="9c79efcc-8f9a-47c7-b0f2-142ff52e89e9"
+                    >
+                      <div>
+                        <a
+                          className="remove-system-icon"
+                          onClick={[Function]}
+                        >
+                          <TimesIcon
+                            color="currentColor"
+                            noVerticalAlign={false}
+                            size="sm"
+                            title={null}
+                          >
+                            <svg
+                              aria-hidden={true}
+                              aria-labelledby={null}
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              style={
+                                Object {
+                                  "verticalAlign": "-0.125em",
+                                }
+                              }
+                              viewBox="0 0 352 512"
+                              width="1em"
+                            >
+                              <path
+                                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                transform=""
+                              />
+                            </svg>
+                          </TimesIcon>
+                        </a>
+                      </div>
+                      <div
+                        className="comparison-header"
+                      >
+                        <div
+                          className="drift-header-icon"
+                        >
+                          <ServerIcon
+                            color="currentColor"
+                            noVerticalAlign={false}
+                            size="sm"
+                            title={null}
+                          >
+                            <svg
+                              aria-hidden={true}
+                              aria-labelledby={null}
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              style={
+                                Object {
+                                  "verticalAlign": "-0.125em",
+                                }
+                              }
+                              viewBox="0 0 512 512"
+                              width="1em"
+                            >
+                              <path
+                                d="M480 160H32c-17.673 0-32-14.327-32-32V64c0-17.673 14.327-32 32-32h448c17.673 0 32 14.327 32 32v64c0 17.673-14.327 32-32 32zm-48-88c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24zm-64 0c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24zm112 248H32c-17.673 0-32-14.327-32-32v-64c0-17.673 14.327-32 32-32h448c17.673 0 32 14.327 32 32v64c0 17.673-14.327 32-32 32zm-48-88c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24zm-64 0c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24zm112 248H32c-17.673 0-32-14.327-32-32v-64c0-17.673 14.327-32 32-32h448c17.673 0 32 14.327 32 32v64c0 17.673-14.327 32-32 32zm-48-88c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24zm-64 0c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24z"
+                                transform=""
+                              />
+                            </svg>
+                          </ServerIcon>
+                        </div>
+                        <span
+                          className="system-name"
+                        >
+                          sgi-xe500-01.rhts.eng.bos.redhat.com
+                        </span>
+                        <div
+                          className="system-updated"
+                        >
+                          15 Jan 2019, 14:53 UTC
+                        </div>
+                      </div>
+                    </th>
+                    <th
+                      className="drift-header historical-system-profile-header"
+                      key="9bbbefcc-8f23-4d97-07f2-142asdl234e8"
+                    >
+                      <div>
+                        <a
+                          className="remove-system-icon"
+                          onClick={[Function]}
+                        >
+                          <TimesIcon
+                            color="currentColor"
+                            noVerticalAlign={false}
+                            size="sm"
+                            title={null}
+                          >
+                            <svg
+                              aria-hidden={true}
+                              aria-labelledby={null}
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              style={
+                                Object {
+                                  "verticalAlign": "-0.125em",
+                                }
+                              }
+                              viewBox="0 0 352 512"
+                              width="1em"
+                            >
+                              <path
+                                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                transform=""
+                              />
+                            </svg>
+                          </TimesIcon>
+                        </a>
+                      </div>
+                      <div
+                        className="comparison-header"
+                      >
+                        <div
+                          className="drift-header-icon"
+                        >
+                          <ClockIcon
+                            color="currentColor"
+                            noVerticalAlign={false}
+                            size="sm"
+                            title={null}
+                          >
+                            <svg
+                              aria-hidden={true}
+                              aria-labelledby={null}
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              style={
+                                Object {
+                                  "verticalAlign": "-0.125em",
+                                }
+                              }
+                              viewBox="0 0 512 512"
+                              width="1em"
+                            >
+                              <path
+                                d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm57.1 350.1L224.9 294c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h48c6.6 0 12 5.4 12 12v137.7l63.5 46.2c5.4 3.9 6.5 11.4 2.6 16.8l-28.2 38.8c-3.9 5.3-11.4 6.5-16.8 2.6z"
+                                transform=""
+                              />
+                            </svg>
+                          </ClockIcon>
+                        </div>
+                        <span
+                          className="system-name"
+                        >
+                          system1
+                        </span>
+                        <div
+                          className="system-updated"
+                        >
+                          15 Jan 2019, 14:53 UTC
+                        </div>
+                      </div>
+                    </th>
+                    <th
+                      className="drift-header historical-system-profile-header"
+                      key="edmk59dj-fn42-dfjk-alv3-bmn2854mnn27"
+                    >
+                      <div>
+                        <a
+                          className="remove-system-icon"
+                          onClick={[Function]}
+                        >
+                          <TimesIcon
+                            color="currentColor"
+                            noVerticalAlign={false}
+                            size="sm"
+                            title={null}
+                          >
+                            <svg
+                              aria-hidden={true}
+                              aria-labelledby={null}
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              style={
+                                Object {
+                                  "verticalAlign": "-0.125em",
+                                }
+                              }
+                              viewBox="0 0 352 512"
+                              width="1em"
+                            >
+                              <path
+                                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                transform=""
+                              />
+                            </svg>
+                          </TimesIcon>
+                        </a>
+                      </div>
+                      <div
+                        className="comparison-header"
+                      >
+                        <div
+                          className="drift-header-icon"
+                        >
+                          <ClockIcon
+                            color="currentColor"
+                            noVerticalAlign={false}
+                            size="sm"
+                            title={null}
+                          >
+                            <svg
+                              aria-hidden={true}
+                              aria-labelledby={null}
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              style={
+                                Object {
+                                  "verticalAlign": "-0.125em",
+                                }
+                              }
+                              viewBox="0 0 512 512"
+                              width="1em"
+                            >
+                              <path
+                                d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm57.1 350.1L224.9 294c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h48c6.6 0 12 5.4 12 12v137.7l63.5 46.2c5.4 3.9 6.5 11.4 2.6 16.8l-28.2 38.8c-3.9 5.3-11.4 6.5-16.8 2.6z"
+                                transform=""
+                              />
+                            </svg>
+                          </ClockIcon>
+                        </div>
+                        <span
+                          className="system-name"
+                        >
+                          system1
+                        </span>
+                        <div
+                          className="system-updated"
+                        >
+                          15 Jan 2019, 15:25 UTC
+                        </div>
+                      </div>
+                    </th>
+                    <th
+                      className="drift-header system-header"
+                      key="f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2"
+                    >
+                      <div>
+                        <a
+                          className="remove-system-icon"
+                          onClick={[Function]}
+                        >
+                          <TimesIcon
+                            color="currentColor"
+                            noVerticalAlign={false}
+                            size="sm"
+                            title={null}
+                          >
+                            <svg
+                              aria-hidden={true}
+                              aria-labelledby={null}
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              style={
+                                Object {
+                                  "verticalAlign": "-0.125em",
+                                }
+                              }
+                              viewBox="0 0 352 512"
+                              width="1em"
+                            >
+                              <path
+                                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                transform=""
+                              />
+                            </svg>
+                          </TimesIcon>
+                        </a>
+                      </div>
+                      <div
+                        className="comparison-header"
+                      >
+                        <div
+                          className="drift-header-icon"
+                        >
+                          <ServerIcon
+                            color="currentColor"
+                            noVerticalAlign={false}
+                            size="sm"
+                            title={null}
+                          >
+                            <svg
+                              aria-hidden={true}
+                              aria-labelledby={null}
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              style={
+                                Object {
+                                  "verticalAlign": "-0.125em",
+                                }
+                              }
+                              viewBox="0 0 512 512"
+                              width="1em"
+                            >
+                              <path
+                                d="M480 160H32c-17.673 0-32-14.327-32-32V64c0-17.673 14.327-32 32-32h448c17.673 0 32 14.327 32 32v64c0 17.673-14.327 32-32 32zm-48-88c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24zm-64 0c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24zm112 248H32c-17.673 0-32-14.327-32-32v-64c0-17.673 14.327-32 32-32h448c17.673 0 32 14.327 32 32v64c0 17.673-14.327 32-32 32zm-48-88c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24zm-64 0c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24zm112 248H32c-17.673 0-32-14.327-32-32v-64c0-17.673 14.327-32 32-32h448c17.673 0 32 14.327 32 32v64c0 17.673-14.327 32-32 32zm-48-88c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24zm-64 0c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24z"
+                                transform=""
+                              />
+                            </svg>
+                          </ServerIcon>
+                        </div>
+                        <span
+                          className="system-name"
+                        >
+                          ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com
+                        </span>
+                        <div
+                          className="system-updated"
+                        >
+                          15 Jan 2019, 15:25 UTC
+                        </div>
+                      </div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody />
+              </table>
+            </div>
+          </DriftTable>
+        </Connect(DriftTable)>
+      </withRouter(Connect(DriftTable))>
+    </Provider>
+  </Router>
+</MemoryRouter>
+`;
+
+exports[`DriftTable should render correctly 1`] = `
+<Fragment>
+  <withCookies(Connect(AddSystemModal))
+    confirmModal={[Function]}
+    selectedSystemIds={Array []}
+  />
+  <center>
+    <EmptyState>
+      <EmptyStateIcon
+        icon={[Function]}
+      />
+      <br />
+      <Title
+        size="lg"
+      >
+        Add systems or baselines to compare
+      </Title>
+      <EmptyStateBody>
+        You currently have no systems or baselines displayed. Add at least two
+        <br />
+        systems or baselines to compare their facts.
+      </EmptyStateBody>
+      <Connect(AddSystemButton)
+        isTable={false}
+      />
+    </EmptyState>
+  </center>
+</Fragment>
+`;
