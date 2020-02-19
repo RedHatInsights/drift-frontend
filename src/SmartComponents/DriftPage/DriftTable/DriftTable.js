@@ -122,7 +122,7 @@ export class DriftTable extends Component {
         this.HSPIds = HSPIds;
 
         setHistory(this.props.history, systemIds, baselineIds, HSPIds);
-        this.props.setSelectedBaselines(this.baselineIds);
+        this.props.setSelectedBaselines(this.baselineIds, 'CHECKBOX');
         this.props.fetchCompare(systemIds, baselineIds, HSPIds);
     }
 
@@ -422,7 +422,9 @@ function mapDispatchToProps(dispatch) {
         toggleFactSort: (sortType) => dispatch(compareActions.toggleFactSort(sortType)),
         toggleStateSort: (sortType) => dispatch(compareActions.toggleStateSort(sortType)),
         expandRow: (factName) => dispatch(compareActions.expandRow(factName)),
-        setSelectedBaselines: (selectedBaselineIds) => dispatch(baselinesTableActions.setSelectedBaselines(selectedBaselineIds)),
+        setSelectedBaselines: ((selectedBaselineIds, tableId) =>
+            dispatch(baselinesTableActions.setSelectedBaselines(selectedBaselineIds, tableId))
+        ),
         selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds)),
         setSelectedHistoricProfiles: (HPIds) => dispatch(historicProfilesActions.setSelectedHistoricProfiles(HPIds))
     };

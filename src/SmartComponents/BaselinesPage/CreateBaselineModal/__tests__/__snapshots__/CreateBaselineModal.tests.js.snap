@@ -99,9 +99,11 @@ exports[`ConnectedCreateBaselineModal should render correctly 1`] = `
         >
           <CreateBaselineModal
             baselineData={Array []}
+            baselineTableData={Array []}
             clearSelectedBaselines={[Function]}
             createBaseline={[Function]}
             createBaselineModalOpened={true}
+            emptyState={Object {}}
             entities={Object {}}
             error={Object {}}
             history={
@@ -150,6 +152,7 @@ exports[`ConnectedCreateBaselineModal should render correctly 1`] = `
                 "url": "/",
               }
             }
+            selectBaseline={[Function]}
             selectedBaselineIds={Array []}
             toggleCreateBaselineModal={[Function]}
           >

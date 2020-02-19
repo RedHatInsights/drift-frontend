@@ -3,7 +3,7 @@ import { getRegistry } from '@redhat-cloud-services/frontend-components-utilitie
 
 import { compareReducer } from '../SmartComponents/modules/reducers';
 import { addSystemModalReducer } from '../SmartComponents/AddSystemModal/redux/addSystemModalReducer';
-import { baselinesTableReducer } from '../SmartComponents/BaselinesTable/redux/baselinesTableReducer';
+import { baselinesTableRootReducer } from '../SmartComponents/BaselinesTable/redux';
 import { errorAlertReducer } from '../SmartComponents/ErrorAlert/redux/errorAlertReducer';
 import { filterDropdownReducer } from '../SmartComponents/DriftPage/FilterDropDown/redux/filterDropdownReducer';
 import { actionKebabReducer } from '../SmartComponents/DriftPage/ActionKebab/redux/actionKebabReducer';
@@ -27,7 +27,7 @@ export function init (...middleware) {
     registry.register({
         compareState: compareReducer,
         addSystemModalState: addSystemModalReducer,
-        baselinesTableState: baselinesTableReducer,
+        baselinesTableState: baselinesTableRootReducer,
         errorAlertOpened: errorAlertReducer,
         filterDropdownOpened: filterDropdownReducer,
         kebabOpened: actionKebabReducer,

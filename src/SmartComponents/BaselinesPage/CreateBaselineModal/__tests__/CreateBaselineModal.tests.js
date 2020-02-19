@@ -138,7 +138,12 @@ describe('ConnectedCreateBaselineModal', () => {
             },
             entities: {},
             baselinesTableState: {
-                selectedBaselineIds: []
+                radioTable: {
+                    selectedBaselineIds: [],
+                    baselineListLoading: false,
+                    emptyState: {},
+                    baselineTableData: []
+                }
             },
             toggleCreateBaselineModal: jest.fn(),
             createBaseline: jest.fn(),
@@ -172,7 +177,7 @@ describe('ConnectedCreateBaselineModal', () => {
         const actions = store.getActions();
         wrapper.find('.pf-c-button').at(2).simulate('click');
         expect(actions).toEqual([
-            { type: 'CLEAR_SELECTED_BASELINES' },
+            { type: 'CLEAR_SELECTED_BASELINES_RADIO' },
             { type: 'TOGGLE_CREATE_BASELINE_MODAL' }
         ]);
     });

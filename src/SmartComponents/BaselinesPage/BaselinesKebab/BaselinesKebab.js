@@ -32,7 +32,7 @@ export class BaselinesKebab extends Component {
 
     render() {
         const { kebabOpened, modalOpened } = this.state;
-        const { selectedBaselineIds } = this.props;
+        const { selectedBaselineIds, tableId } = this.props;
         let dropdownItems;
 
         dropdownItems = [
@@ -48,7 +48,7 @@ export class BaselinesKebab extends Component {
 
         return (
             <React.Fragment>
-                { modalOpened ? <DeleteBaselinesModal modalOpened={ true } /> : null }
+                { modalOpened ? <DeleteBaselinesModal modalOpened={ true } tableId={ tableId } /> : null }
                 <Dropdown
                     style={ { float: 'left' } }
                     toggle={ <KebabToggle onToggle={ this.toggleKebab } /> }
@@ -62,12 +62,13 @@ export class BaselinesKebab extends Component {
 }
 
 BaselinesKebab.propTypes = {
-    selectedBaselineIds: PropTypes.array
+    selectedBaselineIds: PropTypes.array,
+    tableId: PropTypes.string
 };
 
 function mapStateToProps(state) {
     return {
-        selectedBaselineIds: state.baselinesTableState.selectedBaselineIds
+        selectedBaselineIds: state.baselinesTableState.checkboxTable.selectedBaselineIds
     };
 }
 

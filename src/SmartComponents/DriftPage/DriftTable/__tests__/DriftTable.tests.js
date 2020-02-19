@@ -82,7 +82,7 @@ describe('ConnectedDriftTable', () => {
                 ]
             },
             addSystemModalState: { addSystemModalOpened: false },
-            baselinesTableState: {},
+            baselinesTableState: { checkboxTable: {}},
             historicProfilesState: {}
         };
     });

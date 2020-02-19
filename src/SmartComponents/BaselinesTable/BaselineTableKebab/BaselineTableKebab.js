@@ -37,7 +37,7 @@ class BaselineTableKebab extends Component {
 
     render() {
         const { isOpen, modalOpened } = this.state;
-        const { baselineRowData } = this.props;
+        const { baselineRowData, tableId } = this.props;
         const dropdownItems = [
             <DropdownItem
                 key="edit"
@@ -55,7 +55,14 @@ class BaselineTableKebab extends Component {
 
         return (
             <React.Fragment>
-                { modalOpened ? <DeleteBaselinesModal modalOpened={ true } baselineId={ baselineRowData[0] } /> : null }
+                { modalOpened
+                    ? <DeleteBaselinesModal
+                        modalOpened={ true }
+                        baselineId={ baselineRowData[0] }
+                        tableId={ tableId }
+                    />
+                    : null
+                }
                 <Dropdown
                     style={ { float: 'right' } }
                     className={ 'baseline-table-kebab' }
@@ -71,7 +78,8 @@ class BaselineTableKebab extends Component {
 
 BaselineTableKebab.propTypes = {
     baselineRowData: PropTypes.array,
-    history: PropTypes.object
+    history: PropTypes.object,
+    tableId: PropTypes.string
 };
 
 export default withRouter(BaselineTableKebab);

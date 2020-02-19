@@ -100,7 +100,9 @@ describe('ConnectedDeleteBaselinesModal', () => {
         mockStore = configureStore();
         initialState = {
             baselinesTableState: {
-                selectedBaselineIds: []
+                checkboxTable: {
+                    selectedBaselineIds: []
+                }
             },
             modalOpened: true
         };

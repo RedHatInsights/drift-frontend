@@ -39,13 +39,21 @@ describe('ConnectedBaselinesPage', () => {
 
     beforeEach(() => {
         mockStore = configureStore();
+
         initialState = {
             baselinesTableState: {
-                baselineListLoading: false,
-                fullBaselineListData: [],
-                emptyState: false,
-                baselineTableData: [],
-                selectedBaselineIds: []
+                checkboxTable: {
+                    baselineListLoading: false,
+                    fullBaselineListData: [],
+                    emptyState: false,
+                    baselineTableData: [],
+                    selectedBaselineIds: []
+                },
+                radioTable: {
+                    baselineListLoading: false,
+                    emptyState: false,
+                    selectedBaselineIds: []
+                }
             },
             createBaselineModalState: {
                 createBaselineModalOpened: false,
