@@ -187,4 +187,19 @@ export const baselinesPayload = ([
         last_updated: '2019-01-15T15:25:16.304899Z'
     }
 ]);
+
+export const historicalProfilesPayload = ([
+    {
+        display_name: 'system1',
+        id: '9bbbefcc-8f23-4d97-07f2-142asdl234e8',
+        system_id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9',
+        last_updated: '2019-01-15T14:53:15.886891Z'
+    },
+    {
+        display_name: 'system1',
+        id: 'edmk59dj-fn42-dfjk-alv3-bmn2854mnn27',
+        system_id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9',
+        last_updated: '2019-01-15T15:25:16.304899Z'
+    }
+]);
 /* eslint-enable camelcase */

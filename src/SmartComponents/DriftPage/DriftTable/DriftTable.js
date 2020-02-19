@@ -20,9 +20,12 @@ import { compareActions } from '../../modules';
 import { baselinesTableActions } from '../../BaselinesTable/redux';
 import { historicProfilesActions } from '../../HistoricalProfilesDropdown/redux';
 
-class DriftTable extends Component {
+export class DriftTable extends Component {
     constructor(props) {
         super(props);
+
+        this.masterList = [];
+
         this.setSystemIds();
         this.setBaselineIds();
         this.setHSPIds();
@@ -36,6 +39,38 @@ class DriftTable extends Component {
         const { fetchCompare } = this.props;
 
         fetchCompare(this.systemIds, this.baselineIds, this.HSPIds);
+    }
+
+    formatEntities(systems, baselines, historicalProfiles) {
+        let fullHistoricalSystemList = [];
+
+        if (systems.length === 0 && baselines.length === 0 && historicalProfiles.length === 0) {
+            return [];
+        }
+
+        systems = systems.map(function(system) {
+            system.type = 'system';
+            return system;
+        });
+        baselines = baselines.map(function(baseline) {
+            baseline.type = 'baseline';
+            return baseline;
+        });
+        historicalProfiles = historicalProfiles.map(function(hsp) {
+            hsp.type = 'historical-system-profile';
+            return hsp;
+        });
+
+        systems.forEach(function(system) {
+            fullHistoricalSystemList.push(system);
+            historicalProfiles.forEach(function(hsp) {
+                if (hsp.system_id === system.id) {
+                    fullHistoricalSystemList.push(hsp);
+                }
+            });
+        });
+
+        return baselines.concat(fullHistoricalSystemList);
     }
 
     setSystemIds() {
@@ -91,15 +126,13 @@ class DriftTable extends Component {
         this.props.fetchCompare(systemIds, baselineIds, HSPIds);
     }
 
-    renderRows(facts, systems, baselines, historicalProfiles) {
+    renderRows(facts) {
         let rows = [];
-        let rowData = [];
 
         if (facts !== undefined) {
-            for (let i = 0; i < facts.length; i += 1) {
-                rowData = this.renderRowData(facts[i], systems, baselines, historicalProfiles);
-                rows.push(rowData);
-            }
+            facts.forEach(fact => {
+                rows.push(this.renderRow(fact));
+            });
         }
 
         return rows;
@@ -120,27 +153,28 @@ class DriftTable extends Component {
         return rows;
     }
 
-    findSystem(fact, systemsBaselinesList) {
+    findSystem(fact) {
         let row = [];
+        let system = undefined;
 
-        for (let i = 0; i < systemsBaselinesList.length; i += 1) {
-            let system = fact.systems.find(function(system) {
-                return system.id === systemsBaselinesList[i].id;
+        this.masterList.forEach(item => {
+            system = fact.systems.find(function(sys) {
+                return sys.id === item.id;
             });
+
             row.push(
                 <td className={ fact.state === 'DIFFERENT' ? 'highlight comparison-cell' : 'comparison-cell' }>
                     { system.value === null ? 'No Data' : system.value }
                 </td>
             );
-        }
+        });
 
         return row;
     }
 
-    renderRowData(fact, systems, baselines, historicalProfiles) {
+    renderRow(fact) {
         let row = [];
         let rows = [];
-        let baselineSystemCount = systems.length + baselines.length + historicalProfiles.length;
 
         if (fact.comparisons) {
             row.push(
@@ -151,27 +185,33 @@ class DriftTable extends Component {
                     { this.renderExpandableRowButton(this.props.expandedRows, fact.name) } { fact.name }
                 </td>
             );
-            row.push(<td className="fact-state sticky-column fixed-column-2"><StateIcon factState={ fact.state }/></td>);
+            row.push(
+                <td className="fact-state sticky-column fixed-column-2">
+                    <StateIcon factState={ fact.state }/>
+                </td>
+            );
 
-            for (let i = 0; i < baselineSystemCount; i += 1) {
+            this.masterList.forEach(() => {
                 row.push(<td className="comparison-cell"></td>);
-            }
+            });
 
             rows.push(<tr>{ row }</tr>);
 
             if (this.props.expandedRows.includes(fact.name)) {
-                for (let i = 0; i < fact.comparisons.length; i++) {
-                    row = this.renderRowChild(fact.comparisons[i], systems, baselines, historicalProfiles);
+                fact.comparisons.forEach(comparison => {
+                    row = this.renderRowChild(comparison);
                     rows.push(<tr>{ row }</tr>);
-                }
+                });
             }
         } else {
             row.push(<td className="sticky-column fixed-column-1">{ fact.name }</td>);
-            row.push(<td className="fact-state sticky-column fixed-column-2"><StateIcon factState={ fact.state }/></td>);
+            row.push(
+                <td className="fact-state sticky-column fixed-column-2">
+                    <StateIcon factState={ fact.state }/>
+                </td>
+            );
 
-            row = row.concat(this.findSystem(fact, baselines, 'baselines'));
-            row = row.concat(this.findSystem(fact, systems, 'systems'));
-            row = row.concat(this.findSystem(fact, historicalProfiles, 'system profiles'));
+            row = row.concat(this.findSystem(fact));
 
             rows.push(<tr>{ row }</tr>);
         }
@@ -179,7 +219,7 @@ class DriftTable extends Component {
         return rows;
     }
 
-    renderRowChild(fact, systems, baselines, historicalProfiles) {
+    renderRowChild(fact) {
         let row = [];
 
         row.push(<td className="nested-fact sticky-column fixed-column-1">
@@ -187,33 +227,28 @@ class DriftTable extends Component {
         </td>);
         row.push(<td className="fact-state sticky-column fixed-column-2"><StateIcon factState={ fact.state }/></td>);
 
-        row = row.concat(this.findSystem(fact, baselines, 'baselines'));
-        row = row.concat(this.findSystem(fact, systems, 'systems'));
-        row = row.concat(this.findSystem(fact, historicalProfiles, 'system profiles'));
+        row = row.concat(this.findSystem(fact));
 
         return row;
     }
 
-    addSystems(data) {
+    renderSystemHeaders() {
         let row = [];
-        let type = '';
         let typeIcon = '';
 
-        for (let i = 0; i < data.length; i++) {
-            type = data[i].type;
-
-            if (type === 'system') {
+        this.masterList.forEach(item => {
+            if (item.type === 'system') {
                 typeIcon = <ServerIcon/>;
-            } else if (type === 'baseline') {
+            } else if (item.type === 'baseline') {
                 typeIcon = <BlueprintIcon/>;
-            } else if (type === 'historical-system-profile') {
+            } else if (item.type === 'historical-system-profile') {
                 typeIcon = <ClockIcon />;
             }
 
             row.push(
-                <th key={ data[i].id } className={ `drift-header ${type}-header` }>
+                <th key={ item.id } className={ `drift-header ${item.type}-header` }>
                     <div>
-                        <a onClick={ () => this.removeSystem(data[i]) } className="remove-system-icon">
+                        <a onClick={ () => this.removeSystem(item) } className="remove-system-icon">
                             <TimesIcon/>
                         </a>
                     </div>
@@ -221,9 +256,9 @@ class DriftTable extends Component {
                         <div className="drift-header-icon">
                             { typeIcon }
                         </div>
-                        <span className="system-name">{ data[i].display_name }</span>
+                        <span className="system-name">{ item.display_name }</span>
                         <div className="system-updated">
-                            { data[i].system_profile_exists === false ?
+                            { item.system_profile_exists === false ?
                                 <Tooltip
                                     position='top'
                                     content={
@@ -233,13 +268,13 @@ class DriftTable extends Component {
                                     <ExclamationTriangleIcon color="#f0ab00"/>
                                 </Tooltip> : ''
                             }
-                            { data[i].last_updated
-                                ? this.formatDate(data[i].last_updated)
-                                : this.formatDate(data[i].updated)
+                            { item.last_updated
+                                ? this.formatDate(item.last_updated)
+                                : this.formatDate(item.updated)
                             }
                             { insights.chrome.isBeta()
-                                ? data[i].type === 'system'
-                                    ? <HistoricalProfilesDropdown systemId={ data[i].id } fetchCompare={ this.fetchCompare }/>
+                                ? item.type === 'system'
+                                    ? <HistoricalProfilesDropdown systemId={ item.id } fetchCompare={ this.fetchCompare }/>
                                     : null
                                 : null
                             }
@@ -247,47 +282,7 @@ class DriftTable extends Component {
                     </div>
                 </th>
             );
-        }
-
-        return row;
-    }
-
-    renderSystems(systems, baselines, historicalProfiles) {
-        let baselinesList = [];
-        let systemsList = [];
-        let row = [];
-        let fullHistoricalSystemList = [];
-
-        if (systems.length === 0 && baselines.length === 0 && historicalProfiles.length === 0) {
-            return row;
-        }
-
-        let modifiedSystems = systems.map(function(system) {
-            system.type = 'system';
-            return system;
         });
-        let modifiedBaselines = baselines.map(function(baseline) {
-            baseline.type = 'baseline';
-            return baseline;
-        });
-        let modifiedHSPs = historicalProfiles.map(function(hsp) {
-            hsp.type = 'historical-system-profile';
-            return hsp;
-        });
-
-        modifiedSystems.forEach(function(system) {
-            fullHistoricalSystemList.push(system);
-            modifiedHSPs.forEach(function(hsp) {
-                if (hsp.system_id === system.id) {
-                    fullHistoricalSystemList.push(hsp);
-                }
-            });
-        });
-
-        baselinesList = this.addSystems(modifiedBaselines);
-        systemsList = this.addSystems(fullHistoricalSystemList);
-
-        row = baselinesList.concat(systemsList);
 
         return row;
     }
@@ -316,7 +311,7 @@ class DriftTable extends Component {
         }
     }
 
-    renderHeaderRow(systems, baselines, historicalProfiles) {
+    renderHeaderRow() {
         const { stateSort } = this.props;
 
         return (
@@ -330,7 +325,7 @@ class DriftTable extends Component {
                         <div>State { this.renderSortButton('state', this.props.stateSort) }</div>
                     }
                 </th>
-                { this.renderSystems(systems, baselines, historicalProfiles) }
+                { this.renderSystemHeaders() }
             </tr>
         );
     }
@@ -365,16 +360,16 @@ class DriftTable extends Component {
         );
     }
 
-    renderTable(compareData, systems, baselines, historicalProfiles, loading) {
+    renderTable(compareData, loading) {
         return (
             <React.Fragment>
                 <div className="drift-table-wrapper">
                     <table className="pf-c-table pf-m-compact drift-table">
                         <thead>
-                            { this.renderHeaderRow(systems, baselines, historicalProfiles, loading) }
+                            { this.renderHeaderRow() }
                         </thead>
                         <tbody>
-                            { loading ? this.renderLoadingRows() : this.renderRows(compareData, systems, baselines, historicalProfiles) }
+                            { loading ? this.renderLoadingRows() : this.renderRows(compareData) }
                         </tbody>
                     </table>
                 </div>
@@ -385,6 +380,8 @@ class DriftTable extends Component {
     render() {
         const { fullCompareData, filteredCompareData, systems, baselines, historicalProfiles, loading } = this.props;
 
+        this.masterList = this.formatEntities(systems, baselines, historicalProfiles);
+
         return (
             <React.Fragment>
                 <AddSystemModal
@@ -392,12 +389,10 @@ class DriftTable extends Component {
                     confirmModal={ this.fetchCompare }
                 />
                 {
-                    systems.length > 0 ||
-                    baselines.length > 0 ||
-                    historicalProfiles.length > 0 ||
+                    this.masterList.length !== 0 ||
                     loading ||
                     (fullCompareData.length !== 0 && this.systemIds.length !== 0)
-                        ? this.renderTable(filteredCompareData, systems, baselines, historicalProfiles, loading) : this.renderEmptyState()
+                        ? this.renderTable(filteredCompareData, loading) : this.renderEmptyState()
                 }
             </React.Fragment>
         );
@@ -406,19 +401,16 @@ class DriftTable extends Component {
 
 function mapStateToProps(state) {
     return {
+        addSystemModalOpened: state.addSystemModalState.addSystemModalOpened,
         fullCompareData: state.compareState.fullCompareData,
         filteredCompareData: state.compareState.filteredCompareData,
-        addSystemModalOpened: state.addSystemModalOpened,
-        stateFilters: state.compareState.stateFilters,
-        factFilter: state.compareState.factFilter,
         loading: state.compareState.loading,
         systems: state.compareState.systems,
         baselines: state.compareState.baselines,
         historicalProfiles: state.compareState.historicalProfiles,
         factSort: state.compareState.factSort,
         stateSort: state.compareState.stateSort,
-        expandedRows: state.compareState.expandedRows,
-        selectedHSPIds: state.historicProfilesState.selectedHSPIds
+        expandedRows: state.compareState.expandedRows
     };
 }
 
@@ -430,40 +422,32 @@ function mapDispatchToProps(dispatch) {
         toggleFactSort: (sortType) => dispatch(compareActions.toggleFactSort(sortType)),
         toggleStateSort: (sortType) => dispatch(compareActions.toggleStateSort(sortType)),
         expandRow: (factName) => dispatch(compareActions.expandRow(factName)),
-        clearState: () => dispatch(compareActions.clearState()),
         setSelectedBaselines: (selectedBaselineIds) => dispatch(baselinesTableActions.setSelectedBaselines(selectedBaselineIds)),
-        addStateFilter: (filter) => dispatch(compareActions.addStateFilter(filter)),
         selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds)),
         setSelectedHistoricProfiles: (HPIds) => dispatch(historicProfilesActions.setSelectedHistoricProfiles(HPIds))
     };
 }
 
 DriftTable.propTypes = {
+    addSystemModalOpened: PropTypes.bool,
     location: PropTypes.object,
     history: PropTypes.object,
     fetchCompare: PropTypes.func,
-    clearState: PropTypes.func,
     fullCompareData: PropTypes.array,
     filteredCompareData: PropTypes.array,
     systems: PropTypes.array,
     baselines: PropTypes.array,
     historicalProfiles: PropTypes.array,
-    addSystemModalOpened: PropTypes.bool,
-    stateFilters: PropTypes.array,
-    factFilter: PropTypes.string,
     factSort: PropTypes.string,
     stateSort: PropTypes.string,
     loading: PropTypes.bool,
     toggleFactSort: PropTypes.func,
     toggleStateSort: PropTypes.func,
     expandRow: PropTypes.func,
-    expandRows: PropTypes.func,
     expandedRows: PropTypes.array,
     setSelectedBaselines: PropTypes.func,
     setSelectedHistoricProfiles: PropTypes.func,
-    addStateFilter: PropTypes.func,
-    selectHistoricProfiles: PropTypes.func,
-    selectedHSPIds: PropTypes.array
+    selectHistoricProfiles: PropTypes.func
 };
 
-export default withRouter (connect(mapStateToProps, mapDispatchToProps)(DriftTable));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DriftTable));

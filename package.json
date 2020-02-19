@@ -107,6 +107,7 @@
   "scripts": {
     "build": "webpack --config config/prod.webpack.config.js",
     "test": "jest --verbose",
+    "test-watch": "jest --verbose --watch",
     "lint": "npm-run-all lint:*",
     "lint:js": "eslint config src",
     "lint:js:fix": "eslint config src --fix",
