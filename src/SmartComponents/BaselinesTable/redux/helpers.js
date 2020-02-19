@@ -1,5 +1,20 @@
 import moment from 'moment';
 
+function fetchBaselines (tableId, fetchBaselines, fetchParams = {}) {
+    let params = {};
+
+    /*eslint-disable camelcase*/
+    params.order_by = fetchParams.orderBy;
+    params.order_how = fetchParams.orderHow;
+
+    if (fetchParams.search) {
+        params.display_name = fetchParams.search;
+    }
+    /*eslint-enable camelcase*/
+
+    fetchBaselines(tableId, params);
+}
+
 function buildBaselinesTable(data, selectedBaselineIds) {
     let rows = [];
 
@@ -78,6 +93,7 @@ function toggleExpandedRow(expandedRows, factName) {
 }
 
 export default {
+    fetchBaselines,
     buildBaselinesTable,
     setBaselineArray,
     buildNewTableData,

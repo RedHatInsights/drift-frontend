@@ -22,7 +22,14 @@ export class DeleteBaselinesModal extends Component {
     }
 
     async deleteBaselines() {
-        const { clearSelectedBaselines, deleteSelectedBaselines, selectedBaselineIds, fetchBaselines, baselineId } = this.props;
+        const {
+            clearSelectedBaselines,
+            deleteSelectedBaselines,
+            selectedBaselineIds,
+            fetchBaselines,
+            baselineId,
+            tableId
+        } = this.props;
         let apiBody;
 
         /*eslint-disable camelcase*/
@@ -34,11 +41,11 @@ export class DeleteBaselinesModal extends Component {
         /*eslint-enable camelcase*/
 
         this.toggleModal();
-        let results = await deleteSelectedBaselines(apiBody);
+        let results = await deleteSelectedBaselines(apiBody, tableId);
 
         if (results.value.data === 'OK') {
-            clearSelectedBaselines();
-            fetchBaselines();
+            clearSelectedBaselines(tableId);
+            fetchBaselines(tableId);
         }
     }
 
@@ -82,20 +89,21 @@ DeleteBaselinesModal.propTypes = {
     selectedBaselineIds: PropTypes.array,
     deleteSelectedBaselines: PropTypes.func,
     fetchBaselines: PropTypes.func,
-    baselineId: PropTypes.string
+    baselineId: PropTypes.string,
+    tableId: PropTypes.string
 };
 
 function mapStateToProps(state) {
     return {
-        selectedBaselineIds: state.baselinesTableState.selectedBaselineIds
+        selectedBaselineIds: state.baselinesTableState.checkboxTable.selectedBaselineIds
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        deleteSelectedBaselines: (apiBody) => dispatch(baselinesTableActions.deleteSelectedBaselines(apiBody)),
-        clearSelectedBaselines: () => dispatch(baselinesTableActions.clearSelectedBaselines()),
-        fetchBaselines: () => dispatch(baselinesTableActions.fetchBaselines())
+        deleteSelectedBaselines: (apiBody, tableId) => dispatch(baselinesTableActions.deleteSelectedBaselines(apiBody, tableId)),
+        clearSelectedBaselines: (tableId) => dispatch(baselinesTableActions.clearSelectedBaselines(tableId)),
+        fetchBaselines: (tableId) => dispatch(baselinesTableActions.fetchBaselines(tableId))
     };
 }
 

@@ -62,7 +62,9 @@ describe('ConnectedDriftPage', () => {
                 addSystemModalOpened: false
             },
             baselinesTableState: {
-                selectedBaselineIds: []
+                checkboxTable: {
+                    selectedBaselineIds: []
+                }
             },
             baselinesTableActions: {
                 toggleErrorAlert: jest.fn()

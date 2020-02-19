@@ -4,10 +4,12 @@ import PropTypes from 'prop-types';
 import { Button, Modal, Tab, Tabs } from '@patternfly/react-core';
 import { connect } from 'react-redux';
 import { withCookies, Cookies } from 'react-cookie';
+import { sortable } from '@patternfly/react-table';
 
 import SystemsTable from '../SystemsTable/SystemsTable';
 import BaselinesTable from '../BaselinesTable/BaselinesTable';
 import { addSystemModalActions } from './redux';
+import { baselinesTableActions } from '../BaselinesTable/redux';
 
 class AddSystemModal extends Component {
     static propTypes = {
@@ -19,10 +21,32 @@ class AddSystemModal extends Component {
         this.confirmModal = this.confirmModal.bind(this);
         this.cancelSelection = this.cancelSelection.bind(this);
         this.changeActiveTab = this.changeActiveTab.bind(this);
+
+        this.state = {
+            columns: [
+                { title: 'Name', transforms: [ sortable ]},
+                { title: 'Last updated', transforms: [ sortable ]}
+            ]
+        };
     }
 
     async componentDidMount() {
         await window.insights.chrome.auth.getUser();
+    }
+
+    onSelect = (event, isSelected, rowId) => {
+        const { baselineTableData, selectBaseline } = this.props;
+        let ids;
+
+        if (rowId === -1) {
+            ids = baselineTableData.map(function(item) {
+                return item[0];
+            });
+        } else {
+            ids = [ baselineTableData[rowId][0] ];
+        }
+
+        selectBaseline(ids, isSelected, 'CHECKBOX');
     }
 
     confirmModal() {
@@ -59,7 +83,8 @@ class AddSystemModal extends Component {
     }
 
     render() {
-        const { activeTab, addSystemModalOpened } = this.props;
+        const { activeTab, addSystemModalOpened, baselineTableData, loading } = this.props;
+        const { columns } = this.state;
 
         return (
             <React.Fragment>
@@ -92,7 +117,13 @@ class AddSystemModal extends Component {
                             eventKey={ 1 }
                             title="Baselines"
                         >
-                            <BaselinesTable hasSelect={ true }/>
+                            <BaselinesTable
+                                tableId='CHECKBOX'
+                                hasMultiSelect={ true }
+                                onSelect={ this.onSelect }
+                                tableData={ baselineTableData }
+                                loading={ loading }
+                                columns={ columns }/>
                         </Tab>
                     </Tabs>
                 </Modal>
@@ -113,7 +144,10 @@ AddSystemModal.propTypes = {
     systems: PropTypes.array,
     selectedBaselineIds: PropTypes.array,
     baselines: PropTypes.array,
-    selectedHSPIds: PropTypes.array
+    selectedHSPIds: PropTypes.array,
+    loading: PropTypes.bool,
+    baselineTableData: PropTypes.array,
+    selectBaseline: PropTypes.func
 };
 
 function mapStateToProps(state) {
@@ -122,16 +156,19 @@ function mapStateToProps(state) {
         systems: state.compareState.systems,
         activeTab: state.addSystemModalState.activeTab,
         entities: state.entities,
-        selectedBaselineIds: state.baselinesTableState.selectedBaselineIds,
+        selectedBaselineIds: state.baselinesTableState.checkboxTable.selectedBaselineIds,
         baselines: state.compareState.baselines,
-        selectedHSPIds: state.historicProfilesState.selectedHSPIds
+        selectedHSPIds: state.historicProfilesState.selectedHSPIds,
+        loading: state.baselinesTableState.checkboxTable.loading,
+        baselineTableData: state.baselinesTableState.checkboxTable.baselineTableData
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
         toggleModal: () => dispatch(addSystemModalActions.toggleAddSystemModal()),
-        selectActiveTab: (newActiveTab) => dispatch(addSystemModalActions.selectActiveTab(newActiveTab))
+        selectActiveTab: (newActiveTab) => dispatch(addSystemModalActions.selectActiveTab(newActiveTab)),
+        selectBaseline: (id, isSelected, tableId) => dispatch(baselinesTableActions.selectBaseline(id, isSelected, tableId))
     };
 }
 

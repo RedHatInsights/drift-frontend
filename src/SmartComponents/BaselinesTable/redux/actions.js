@@ -1,56 +1,41 @@
-import types from './types';
 import api from '../../../api';
 
-function fetchBaselines(params = {}) {
+function fetchBaselines(tableId, params = {}) {
     return {
-        type: types.FETCH_BASELINE_LIST,
+        type: `FETCH_BASELINE_LIST_${ tableId }`,
         payload: api.getBaselineList(params)
     };
 }
 
-function selectBaseline(ids, isSelected) {
+function selectBaseline(ids, isSelected, tableId) {
     return {
-        type: types.SELECT_BASELINE,
+        type: `SELECT_BASELINE_${tableId}`,
         payload: { ids, isSelected }
     };
 }
 
-function selectOneBaseline(id, isSelected) {
+function setSelectedBaselines(selectedBaselineIds, tableId) {
     return {
-        type: types.SELECT_ONE_BASELINE,
-        payload: { id, isSelected }
-    };
-}
-
-function setSelectedBaselines(selectedBaselineIds) {
-    return {
-        type: types.SET_SELECTED_BASELINES,
+        type: `SET_SELECTED_BASELINES_${tableId}`,
         payload: selectedBaselineIds
     };
 }
 
-function clearSelectedBaselines() {
+function clearSelectedBaselines(tableId) {
     return {
-        type: types.CLEAR_SELECTED_BASELINES
+        type: `CLEAR_SELECTED_BASELINES_${tableId}`
     };
 }
 
-function clearBaselineData() {
+function clearBaselineData(tableId) {
     return {
-        type: types.CLEAR_BASELINE_DATA
+        type: `CLEAR_BASELINE_DATA_${tableId}`
     };
 }
 
-function setIdDelete(baselineUUID) {
+function deleteSelectedBaselines(deleteBaselinesAPIBody, tableId) {
     return {
-        type: types.SET_ID_DELETE,
-        payload: baselineUUID
-    };
-}
-
-function deleteSelectedBaselines(deleteBaselinesAPIBody) {
-    return {
-        type: types.DELETE_SELECTED_BASELINES,
+        type: `DELETE_SELECTED_BASELINES_${tableId}`,
         payload: api.deleteBaselinesData(deleteBaselinesAPIBody)
     };
 }
@@ -58,10 +43,8 @@ function deleteSelectedBaselines(deleteBaselinesAPIBody) {
 export default {
     fetchBaselines,
     selectBaseline,
-    selectOneBaseline,
     setSelectedBaselines,
     clearSelectedBaselines,
     clearBaselineData,
-    setIdDelete,
     deleteSelectedBaselines
 };
