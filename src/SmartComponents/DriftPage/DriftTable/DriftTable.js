@@ -246,7 +246,7 @@ export class DriftTable extends Component {
             }
 
             row.push(
-                <th key={ item.id } className={ `drift-header ${item.type}-header` }>
+                <th header-id={ item.id } key={ item.id } className={ `drift-header ${item.type}-header` }>
                     <div>
                         <a onClick={ () => this.removeSystem(item) } className="remove-system-icon">
                             <TimesIcon/>
