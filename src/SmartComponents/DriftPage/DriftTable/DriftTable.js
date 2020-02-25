@@ -256,7 +256,7 @@ export class DriftTable extends Component {
                         <div className="drift-header-icon">
                             { typeIcon }
                         </div>
-                        <span className="system-name">{ item.display_name }</span>
+                        <div className="system-name">{ item.display_name }</div>
                         <div className="system-updated">
                             { item.system_profile_exists === false ?
                                 <Tooltip
