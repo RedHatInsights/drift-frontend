@@ -51,7 +51,7 @@ class HistoricalProfilesDropdown extends Component {
             );
         });
 
-        dropdownItems.push(<FetchHistoricalProfilesButton fetchCompare={ fetchCompare }/>);
+        dropdownItems.push(<div className='hsp-button'><FetchHistoricalProfilesButton fetchCompare={ fetchCompare } /></div>);
 
         return dropdownItems;
     }
@@ -61,7 +61,7 @@ class HistoricalProfilesDropdown extends Component {
 
         for (let i = 0; i < 3; i += 1) {
             rows.push(
-                <Skeleton className='pit-dropdown-loading pit-button' size={ SkeletonSize.sm } />
+                <Skeleton className='hsp-dropdown-loading hsp-button' size={ SkeletonSize.sm } />
             );
             rows.push(<br></br>);
         }
