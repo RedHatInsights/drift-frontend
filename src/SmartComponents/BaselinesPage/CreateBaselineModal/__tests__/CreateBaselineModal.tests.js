@@ -82,8 +82,9 @@ describe('CreateBaselineModal', () => {
             expect(wrapper.state('baselineName')).toEqual('baseline');
         });
 
-        it('should submit baselineName with fromScratchChecked', () => {
+        it('should submit baselineName with copyBaselineChecked', () => {
             props.createBaselineModalOpened = true;
+            props.selectedBaselineIds = [ 'abcd' ];
             const createBaseline = jest.fn();
             const wrapper = mount(
                 <CreateBaselineModal { ...props }

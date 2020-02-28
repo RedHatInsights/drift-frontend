@@ -1,27 +1,35 @@
 import React, { Component } from 'react';
-import { Dropdown, DropdownItem, DropdownToggle } from '@patternfly/react-core';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { Badge, Dropdown, DropdownItem, DropdownToggle, DropdownPosition } from '@patternfly/react-core';
 import { UndoIcon } from '@patternfly/react-icons';
 import PropTypes from 'prop-types';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
+import { setHistory } from '../../Utilities/SetHistory';
 
+import { compareActions } from '../modules';
+import { historicProfilesActions } from '../HistoricalProfilesDropdown/redux';
 import HistoricalProfilesCheckbox from './HistoricalProfilesCheckbox/HistoricalProfilesCheckbox';
 import api from '../../api';
 import FetchHistoricalProfilesButton from './FetchHistoricalProfilesButton/FetchHistoricalProfilesButton';
+import moment from 'moment';
 
-class HistoricalProfilesDropdown extends Component {
+export class HistoricalProfilesDropdown extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
             isOpen: false,
-            historicalData: this.renderLoadingRows()
+            historicalData: undefined,
+            dropDownArray: this.renderLoadingRows(),
+            badgeCount: this.props.badgeCount ? this.props.badgeCount : 0
         };
 
         this.onToggle = () => {
             const { isOpen } = this.state;
 
             if (isOpen === false) {
-                this.fetchData(this.props.systemId);
+                this.fetchData(this.props.system);
             }
 
             this.setState({
@@ -30,28 +38,68 @@ class HistoricalProfilesDropdown extends Component {
         };
     }
 
-    async fetchData(systemId) {
-        let historicalData = await api.fetchHistoricalData(systemId);
+    fetchCompare = () => {
+        const { systemIds, selectedBaselineIds, selectedHSPIds, fetchCompare, history } = this.props;
+
+        setHistory(history, systemIds, selectedBaselineIds, selectedHSPIds);
+        fetchCompare(systemIds, selectedBaselineIds, selectedHSPIds);
+    }
+
+    async fetchData(system) {
+        let fetchedData = await api.fetchHistoricalData(system.system_id ? system.system_id : system.id);
+
+        /*eslint-disable camelcase*/
+        const filteredProfiles = fetchedData.profiles.filter(profile =>
+            moment.utc(profile.captured_date).format('DD MMM YYYY, HH:mm UTC') !==
+            moment.utc(system.system_last_updated ? system.system_last_updated : system.last_updated).format('DD MMM YYYY, HH:mm UTC')
+        );
+        fetchedData.profiles = filteredProfiles;
 
         this.setState({
-            historicalData: this.createDropdownArray(historicalData)
+            historicalData: fetchedData
+        });
+        /*eslint-enable camelcase*/
+
+        this.setState({
+            dropDownArray: this.createDropdownArray(this.state.historicalData)
         });
     }
 
     createDropdownArray = (historicalData) => {
-        const { fetchCompare } = this.props;
+        const { hasBadge } = this.props;
 
         let dropdownItems = [];
+        let badgeCountFunc = this.updateBadgeCount;
 
-        historicalData.profiles.forEach(function(profile) {
+        if (historicalData.profiles.length > 0) {
+            historicalData.profiles.forEach(function(profile) {
+                dropdownItems.push(
+                    <DropdownItem>
+                        <HistoricalProfilesCheckbox
+                            profile={ profile }
+                            updateBadgeCount={ badgeCountFunc }
+                        />
+                    </DropdownItem>
+                );
+            });
+
             dropdownItems.push(
-                <DropdownItem>
-                    <HistoricalProfilesCheckbox profile={ profile } />
+                <div className='hsp-button'>
+                    { !hasBadge
+                        ? <FetchHistoricalProfilesButton
+                            fetchCompare={ this.fetchCompare }
+                        />
+                        : null
+                    }
+                </div>
+            );
+        } else {
+            dropdownItems.push(
+                <DropdownItem isDisabled>
+                    There are no historical profiles to display.
                 </DropdownItem>
             );
-        });
-
-        dropdownItems.push(<div className='hsp-button'><FetchHistoricalProfilesButton fetchCompare={ fetchCompare } /></div>);
+        }
 
         return dropdownItems;
     }
@@ -69,8 +117,26 @@ class HistoricalProfilesDropdown extends Component {
         return rows;
     }
 
+    updateBadgeCount = (checked) => {
+        let newBadgeCount = this.state.badgeCount;
+        newBadgeCount += checked ? 1 : -1;
+
+        this.setState({ badgeCount: newBadgeCount });
+    }
+
+    renderBadge = () => {
+        const { badgeCount } = this.state;
+
+        if (badgeCount > 0) {
+            return <Badge key={ 1 }>{ badgeCount }</Badge>;
+        } else {
+            return null;
+        }
+    }
+
     render() {
-        const { isOpen, historicalData } = this.state;
+        const { isOpen, dropDownArray } = this.state;
+        const { hasBadge } = this.props;
 
         return (
             <React.Fragment>
@@ -83,8 +149,10 @@ class HistoricalProfilesDropdown extends Component {
                     </DropdownToggle> }
                     isOpen={ isOpen }
                     isPlain
-                    dropdownItems={ historicalData }
+                    position={ DropdownPosition.right }
+                    dropdownItems={ dropDownArray }
                 />
+                { hasBadge ? this.renderBadge() : null }
             </React.Fragment>
         );
     }
@@ -92,8 +160,31 @@ class HistoricalProfilesDropdown extends Component {
 
 HistoricalProfilesDropdown.propTypes = {
     fetchHistoricalData: PropTypes.func,
-    systemId: PropTypes.string,
-    fetchCompare: PropTypes.func
+    system: PropTypes.object,
+    fetchCompare: PropTypes.func,
+    history: PropTypes.object,
+    systemIds: PropTypes.array,
+    selectedHSPIds: PropTypes.array,
+    selectedBaselineIds: PropTypes.array,
+    selectHistoricProfiles: PropTypes.func,
+    hasBadge: PropTypes.bool,
+    badgeCount: PropTypes.number
 };
 
-export default HistoricalProfilesDropdown;
+function mapStateToProps(state) {
+    return {
+        selectedHSPIds: state.historicProfilesState.selectedHSPIds,
+        selectedBaselineIds: state.baselinesTableState.checkboxTable.selectedBaselineIds
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        fetchCompare: ((systemIds, selectedBaselineIds, selectedHSPIds) =>
+            dispatch(compareActions.fetchCompare(systemIds, selectedBaselineIds, selectedHSPIds))
+        ),
+        selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds))
+    };
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HistoricalProfilesDropdown));
