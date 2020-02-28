@@ -34,12 +34,13 @@ class SystemsTable extends Component {
             reactIcons,
             pfReactTable
         });
+        const { createBaselineModal, hasHistoricalDropdown, historicalProfiles } = this.props;
 
         this.props.driftClearFilters();
 
         this.getRegistry().register({
             ...mergeWithEntities(
-                selectedReducer(INVENTORY_ACTION_TYPES, this.props.createBaselineModal)
+                selectedReducer(INVENTORY_ACTION_TYPES, createBaselineModal, historicalProfiles, hasHistoricalDropdown)
             )
         });
 
@@ -69,7 +70,9 @@ SystemsTable.propTypes = {
     setSelectedSystemIds: PropTypes.func,
     selectedSystemIds: PropTypes.array,
     createBaselineModal: PropTypes.bool,
-    driftClearFilters: PropTypes.func
+    driftClearFilters: PropTypes.func,
+    hasHistoricalDropdown: PropTypes.bool,
+    historicalProfiles: PropTypes.array
 };
 
 SystemsTable.defaultProps = {

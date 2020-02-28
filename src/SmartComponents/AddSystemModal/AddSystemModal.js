@@ -83,7 +83,7 @@ class AddSystemModal extends Component {
     }
 
     render() {
-        const { activeTab, addSystemModalOpened, baselineTableData, loading } = this.props;
+        const { activeTab, addSystemModalOpened, baselineTableData, historicalProfiles, loading } = this.props;
         const { columns } = this.state;
 
         return (
@@ -111,7 +111,11 @@ class AddSystemModal extends Component {
                             eventKey={ 0 }
                             title="Systems"
                         >
-                            <SystemsTable selectedSystemIds={ this.selectedSystemIds() }/>
+                            <SystemsTable
+                                selectedSystemIds={ this.selectedSystemIds() }
+                                hasHistoricalDropdown={ true }
+                                historicalProfiles={ historicalProfiles }
+                            />
                         </Tab>
                         <Tab
                             eventKey={ 1 }
@@ -147,7 +151,8 @@ AddSystemModal.propTypes = {
     selectedHSPIds: PropTypes.array,
     loading: PropTypes.bool,
     baselineTableData: PropTypes.array,
-    selectBaseline: PropTypes.func
+    selectBaseline: PropTypes.func,
+    historicalProfiles: PropTypes.array
 };
 
 function mapStateToProps(state) {
@@ -160,7 +165,8 @@ function mapStateToProps(state) {
         baselines: state.compareState.baselines,
         selectedHSPIds: state.historicProfilesState.selectedHSPIds,
         loading: state.baselinesTableState.checkboxTable.loading,
-        baselineTableData: state.baselinesTableState.checkboxTable.baselineTableData
+        baselineTableData: state.baselinesTableState.checkboxTable.baselineTableData,
+        historicalProfiles: state.compareState.historicalProfiles
     };
 }
 

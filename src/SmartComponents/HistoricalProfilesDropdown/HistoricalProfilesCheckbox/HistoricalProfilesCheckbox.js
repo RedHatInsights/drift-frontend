@@ -11,19 +11,39 @@ class HistoricalProfilesCheckbox extends Component {
         super(props);
 
         this.state = {
-            checked: this.props.selectedHSPIds.some(id => id === this.props.profile.id)
+            checked: this.findChecked()
         };
+    }
+
+    findChecked = () => {
+        const { profile, selectedHSPIds, entities, updateBadgeCount } = this.props;
+        let checked;
+
+        if (profile.captured_date === 'Latest') {
+            checked = entities.selectedSystemIds.some(id => id === profile.id);
+            updateBadgeCount(checked);
+        } else {
+            checked = selectedHSPIds.some(id => id === profile.id);
+        }
+
+        return checked;
     }
 
     handleChange = () => {
         const { checked } = this.state;
-        const { selectHistoricProfiles, profile } = this.props;
+        const { selectHistoricProfiles, selectSystem, profile, updateBadgeCount } = this.props;
 
         this.setState({
             checked: !checked
         });
 
-        selectHistoricProfiles([ profile.id ]);
+        updateBadgeCount(!checked);
+
+        if (profile.captured_date === 'Latest') {
+            selectSystem(profile.id, !checked);
+        } else {
+            selectHistoricProfiles([ profile.id ]);
+        }
     }
 
     render() {
@@ -34,7 +54,10 @@ class HistoricalProfilesCheckbox extends Component {
         return (
             <React.Fragment>
                 <Checkbox
-                    label={ moment.utc(profile.captured_date).format('DD MMM YYYY, HH:mm UTC') }
+                    label={ profile.captured_date === 'Latest'
+                        ? profile.captured_date
+                        : moment.utc(profile.captured_date).format('DD MMM YYYY, HH:mm UTC')
+                    }
                     isChecked={ checked }
                     onChange={ this.handleChange }
                     aria-label={ profile.id }
@@ -50,18 +73,26 @@ class HistoricalProfilesCheckbox extends Component {
 HistoricalProfilesCheckbox.propTypes = {
     profile: PropTypes.object,
     selectHistoricProfiles: PropTypes.func,
-    selectedHSPIds: PropTypes.array
+    selectedHSPIds: PropTypes.array,
+    updateBadgeCount: PropTypes.func,
+    selectSystem: PropTypes.func,
+    entities: PropTypes.object
 };
 
 function mapStateToProps(state) {
     return {
-        selectedHSPIds: state.historicProfilesState.selectedHSPIds
+        selectedHSPIds: state.historicProfilesState.selectedHSPIds,
+        entities: state.entities
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds))
+        selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds)),
+        selectSystem: (id, selected) => dispatch({
+            type: 'SELECT_ENTITY',
+            payload: { id, selected }
+        })
     };
 }
 

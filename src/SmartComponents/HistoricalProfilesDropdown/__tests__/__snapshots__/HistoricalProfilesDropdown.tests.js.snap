@@ -1,0 +1,850 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConnectedHistoricalProfilesDropdown should render correctly 1`] = `
+<MemoryRouter
+  keyLength={0}
+>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Provider
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+    >
+      <withRouter(Connect(HistoricalProfilesDropdown))>
+        <Connect(HistoricalProfilesDropdown)
+          history={
+            Object {
+              "action": "POP",
+              "block": [Function],
+              "canGo": [Function],
+              "createHref": [Function],
+              "entries": Array [
+                Object {
+                  "hash": "",
+                  "pathname": "/",
+                  "search": "",
+                  "state": undefined,
+                },
+              ],
+              "go": [Function],
+              "goBack": [Function],
+              "goForward": [Function],
+              "index": 0,
+              "length": 1,
+              "listen": [Function],
+              "location": Object {
+                "hash": "",
+                "pathname": "/",
+                "search": "",
+                "state": undefined,
+              },
+              "push": [Function],
+              "replace": [Function],
+            }
+          }
+          location={
+            Object {
+              "hash": "",
+              "pathname": "/",
+              "search": "",
+              "state": undefined,
+            }
+          }
+          match={
+            Object {
+              "isExact": true,
+              "params": Object {},
+              "path": "/",
+              "url": "/",
+            }
+          }
+        >
+          <HistoricalProfilesDropdown
+            fetchCompare={[Function]}
+            history={
+              Object {
+                "action": "POP",
+                "block": [Function],
+                "canGo": [Function],
+                "createHref": [Function],
+                "entries": Array [
+                  Object {
+                    "hash": "",
+                    "pathname": "/",
+                    "search": "",
+                    "state": undefined,
+                  },
+                ],
+                "go": [Function],
+                "goBack": [Function],
+                "goForward": [Function],
+                "index": 0,
+                "length": 1,
+                "listen": [Function],
+                "location": Object {
+                  "hash": "",
+                  "pathname": "/",
+                  "search": "",
+                  "state": undefined,
+                },
+                "push": [Function],
+                "replace": [Function],
+              }
+            }
+            location={
+              Object {
+                "hash": "",
+                "pathname": "/",
+                "search": "",
+                "state": undefined,
+              }
+            }
+            match={
+              Object {
+                "isExact": true,
+                "params": Object {},
+                "path": "/",
+                "url": "/",
+              }
+            }
+            selectHistoricProfiles={[Function]}
+            selectedBaselineIds={Array []}
+            selectedHSPIds={Array []}
+          >
+            <Dropdown
+              dropdownItems={
+                Array [
+                  <Skeleton
+                    className="hsp-dropdown-loading hsp-button"
+                    isDark={false}
+                    size="sm"
+                  />,
+                  <br />,
+                  <Skeleton
+                    className="hsp-dropdown-loading hsp-button"
+                    isDark={false}
+                    size="sm"
+                  />,
+                  <br />,
+                  <Skeleton
+                    className="hsp-dropdown-loading hsp-button"
+                    isDark={false}
+                    size="sm"
+                  />,
+                  <br />,
+                ]
+              }
+              isOpen={false}
+              isPlain={true}
+              position="right"
+              toggle={
+                <DropdownToggle
+                  className="historical-system-profile-dropdown"
+                  iconComponent={null}
+                  onToggle={[Function]}
+                >
+                  <UndoIcon
+                    color="currentColor"
+                    noVerticalAlign={false}
+                    size="sm"
+                    title={null}
+                  />
+                </DropdownToggle>
+              }
+            >
+              <Component
+                dropdownItems={
+                  Array [
+                    <Skeleton
+                      className="hsp-dropdown-loading hsp-button"
+                      isDark={false}
+                      size="sm"
+                    />,
+                    <br />,
+                    <Skeleton
+                      className="hsp-dropdown-loading hsp-button"
+                      isDark={false}
+                      size="sm"
+                    />,
+                    <br />,
+                    <Skeleton
+                      className="hsp-dropdown-loading hsp-button"
+                      isDark={false}
+                      size="sm"
+                    />,
+                    <br />,
+                  ]
+                }
+                isOpen={false}
+                isPlain={true}
+                position="right"
+                toggle={
+                  <DropdownToggle
+                    className="historical-system-profile-dropdown"
+                    iconComponent={null}
+                    onToggle={[Function]}
+                  >
+                    <UndoIcon
+                      color="currentColor"
+                      noVerticalAlign={false}
+                      size="sm"
+                      title={null}
+                    />
+                  </DropdownToggle>
+                }
+              >
+                <ComponentWithOuia
+                  component={[Function]}
+                  componentProps={
+                    Object {
+                      "dropdownItems": Array [
+                        <Skeleton
+                          className="hsp-dropdown-loading hsp-button"
+                          isDark={false}
+                          size="sm"
+                        />,
+                        <br />,
+                        <Skeleton
+                          className="hsp-dropdown-loading hsp-button"
+                          isDark={false}
+                          size="sm"
+                        />,
+                        <br />,
+                        <Skeleton
+                          className="hsp-dropdown-loading hsp-button"
+                          isDark={false}
+                          size="sm"
+                        />,
+                        <br />,
+                      ],
+                      "isOpen": false,
+                      "isPlain": true,
+                      "position": "right",
+                      "toggle": <DropdownToggle
+                        className="historical-system-profile-dropdown"
+                        iconComponent={null}
+                        onToggle={[Function]}
+                      >
+                        <UndoIcon
+                          color="currentColor"
+                          noVerticalAlign={false}
+                          size="sm"
+                          title={null}
+                        />
+                      </DropdownToggle>,
+                    }
+                  }
+                  consumerContext={null}
+                >
+                  <DropdownWithContext
+                    autoFocus={true}
+                    className=""
+                    direction="down"
+                    dropdownItems={
+                      Array [
+                        <Skeleton
+                          className="hsp-dropdown-loading hsp-button"
+                          isDark={false}
+                          size="sm"
+                        />,
+                        <br />,
+                        <Skeleton
+                          className="hsp-dropdown-loading hsp-button"
+                          isDark={false}
+                          size="sm"
+                        />,
+                        <br />,
+                        <Skeleton
+                          className="hsp-dropdown-loading hsp-button"
+                          isDark={false}
+                          size="sm"
+                        />,
+                        <br />,
+                      ]
+                    }
+                    isGrouped={false}
+                    isOpen={false}
+                    isPlain={true}
+                    onSelect={[Function]}
+                    ouiaComponentType="Dropdown"
+                    ouiaContext={
+                      Object {
+                        "isOuia": false,
+                        "ouiaId": null,
+                      }
+                    }
+                    position="right"
+                    toggle={
+                      <DropdownToggle
+                        className="historical-system-profile-dropdown"
+                        iconComponent={null}
+                        onToggle={[Function]}
+                      >
+                        <UndoIcon
+                          color="currentColor"
+                          noVerticalAlign={false}
+                          size="sm"
+                          title={null}
+                        />
+                      </DropdownToggle>
+                    }
+                  >
+                    <div
+                      className="pf-c-dropdown pf-m-align-right"
+                    >
+                      <DropdownToggle
+                        ariaHasPopup={true}
+                        className="historical-system-profile-dropdown"
+                        iconComponent={null}
+                        id="pf-toggle-id-1"
+                        isOpen={false}
+                        isPlain={true}
+                        key=".0"
+                        onEnter={[Function]}
+                        onToggle={[Function]}
+                        parentRef={
+                          Object {
+                            "current": <div
+                              class="pf-c-dropdown pf-m-align-right"
+                            >
+                              <button
+                                aria-expanded="false"
+                                aria-haspopup="true"
+                                class="pf-c-dropdown__toggle pf-m-plain historical-system-profile-dropdown"
+                                id="pf-toggle-id-1"
+                                type="button"
+                              >
+                                <span>
+                                  <svg
+                                    aria-hidden="true"
+                                    fill="currentColor"
+                                    height="1em"
+                                    role="img"
+                                    style="vertical-align: -0.125em;"
+                                    viewBox="0 0 512 512"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M212.333 224.333H12c-6.627 0-12-5.373-12-12V12C0 5.373 5.373 0 12 0h48c6.627 0 12 5.373 12 12v78.112C117.773 39.279 184.26 7.47 258.175 8.007c136.906.994 246.448 111.623 246.157 248.532C504.041 393.258 393.12 504 256.333 504c-64.089 0-122.496-24.313-166.51-64.215-5.099-4.622-5.334-12.554-.467-17.42l33.967-33.967c4.474-4.474 11.662-4.717 16.401-.525C170.76 415.336 211.58 432 256.333 432c97.268 0 176-78.716 176-176 0-97.267-78.716-176-176-176-58.496 0-110.28 28.476-142.274 72.333h98.274c6.627 0 12 5.373 12 12v48c0 6.627-5.373 12-12 12z"
+                                      transform=""
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                            </div>,
+                          }
+                        }
+                      >
+                        <Toggle
+                          ariaHasPopup={true}
+                          className="historical-system-profile-dropdown"
+                          id="pf-toggle-id-1"
+                          isActive={false}
+                          isDisabled={false}
+                          isFocused={false}
+                          isHovered={false}
+                          isOpen={false}
+                          isPlain={true}
+                          isPrimary={false}
+                          isSplitButton={false}
+                          onEnter={[Function]}
+                          onToggle={[Function]}
+                          parentRef={
+                            Object {
+                              "current": <div
+                                class="pf-c-dropdown pf-m-align-right"
+                              >
+                                <button
+                                  aria-expanded="false"
+                                  aria-haspopup="true"
+                                  class="pf-c-dropdown__toggle pf-m-plain historical-system-profile-dropdown"
+                                  id="pf-toggle-id-1"
+                                  type="button"
+                                >
+                                  <span>
+                                    <svg
+                                      aria-hidden="true"
+                                      fill="currentColor"
+                                      height="1em"
+                                      role="img"
+                                      style="vertical-align: -0.125em;"
+                                      viewBox="0 0 512 512"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M212.333 224.333H12c-6.627 0-12-5.373-12-12V12C0 5.373 5.373 0 12 0h48c6.627 0 12 5.373 12 12v78.112C117.773 39.279 184.26 7.47 258.175 8.007c136.906.994 246.448 111.623 246.157 248.532C504.041 393.258 393.12 504 256.333 504c-64.089 0-122.496-24.313-166.51-64.215-5.099-4.622-5.334-12.554-.467-17.42l33.967-33.967c4.474-4.474 11.662-4.717 16.401-.525C170.76 415.336 211.58 432 256.333 432c97.268 0 176-78.716 176-176 0-97.267-78.716-176-176-176-58.496 0-110.28 28.476-142.274 72.333h98.274c6.627 0 12 5.373 12 12v48c0 6.627-5.373 12-12 12z"
+                                        transform=""
+                                      />
+                                    </svg>
+                                  </span>
+                                </button>
+                              </div>,
+                            }
+                          }
+                        >
+                          <button
+                            aria-expanded={false}
+                            aria-haspopup={true}
+                            className="pf-c-dropdown__toggle pf-m-plain historical-system-profile-dropdown"
+                            disabled={false}
+                            id="pf-toggle-id-1"
+                            onClick={[Function]}
+                            onKeyDown={[Function]}
+                            type="button"
+                          >
+                            <span
+                              className={null}
+                            >
+                              <UndoIcon
+                                color="currentColor"
+                                noVerticalAlign={false}
+                                size="sm"
+                                title={null}
+                              >
+                                <svg
+                                  aria-hidden={true}
+                                  aria-labelledby={null}
+                                  fill="currentColor"
+                                  height="1em"
+                                  role="img"
+                                  style={
+                                    Object {
+                                      "verticalAlign": "-0.125em",
+                                    }
+                                  }
+                                  viewBox="0 0 512 512"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M212.333 224.333H12c-6.627 0-12-5.373-12-12V12C0 5.373 5.373 0 12 0h48c6.627 0 12 5.373 12 12v78.112C117.773 39.279 184.26 7.47 258.175 8.007c136.906.994 246.448 111.623 246.157 248.532C504.041 393.258 393.12 504 256.333 504c-64.089 0-122.496-24.313-166.51-64.215-5.099-4.622-5.334-12.554-.467-17.42l33.967-33.967c4.474-4.474 11.662-4.717 16.401-.525C170.76 415.336 211.58 432 256.333 432c97.268 0 176-78.716 176-176 0-97.267-78.716-176-176-176-58.496 0-110.28 28.476-142.274 72.333h98.274c6.627 0 12 5.373 12 12v48c0 6.627-5.373 12-12 12z"
+                                    transform=""
+                                  />
+                                </svg>
+                              </UndoIcon>
+                            </span>
+                          </button>
+                        </Toggle>
+                      </DropdownToggle>
+                    </div>
+                  </DropdownWithContext>
+                </ComponentWithOuia>
+              </Component>
+            </Dropdown>
+          </HistoricalProfilesDropdown>
+        </Connect(HistoricalProfilesDropdown)>
+      </withRouter(Connect(HistoricalProfilesDropdown))>
+    </Provider>
+  </Router>
+</MemoryRouter>
+`;
+
+exports[`HistoricalProfilesDropdown should render correctly 1`] = `
+<Fragment>
+  <Dropdown
+    dropdownItems={
+      Array [
+        <Skeleton
+          className="hsp-dropdown-loading hsp-button"
+          isDark={false}
+          size="sm"
+        />,
+        <br />,
+        <Skeleton
+          className="hsp-dropdown-loading hsp-button"
+          isDark={false}
+          size="sm"
+        />,
+        <br />,
+        <Skeleton
+          className="hsp-dropdown-loading hsp-button"
+          isDark={false}
+          size="sm"
+        />,
+        <br />,
+      ]
+    }
+    isOpen={false}
+    isPlain={true}
+    position="right"
+    toggle={
+      <DropdownToggle
+        className="historical-system-profile-dropdown"
+        iconComponent={null}
+        onToggle={[Function]}
+      >
+        <UndoIcon
+          color="currentColor"
+          noVerticalAlign={false}
+          size="sm"
+          title={null}
+        />
+      </DropdownToggle>
+    }
+  />
+</Fragment>
+`;
+
+exports[`HistoricalProfilesDropdown should render mount correctly 1`] = `
+<HistoricalProfilesDropdown
+  selectedBaselineIds={Array []}
+  selectedHSPIds={Array []}
+>
+  <Dropdown
+    dropdownItems={
+      Array [
+        <Skeleton
+          className="hsp-dropdown-loading hsp-button"
+          isDark={false}
+          size="sm"
+        />,
+        <br />,
+        <Skeleton
+          className="hsp-dropdown-loading hsp-button"
+          isDark={false}
+          size="sm"
+        />,
+        <br />,
+        <Skeleton
+          className="hsp-dropdown-loading hsp-button"
+          isDark={false}
+          size="sm"
+        />,
+        <br />,
+      ]
+    }
+    isOpen={false}
+    isPlain={true}
+    position="right"
+    toggle={
+      <DropdownToggle
+        className="historical-system-profile-dropdown"
+        iconComponent={null}
+        onToggle={[Function]}
+      >
+        <UndoIcon
+          color="currentColor"
+          noVerticalAlign={false}
+          size="sm"
+          title={null}
+        />
+      </DropdownToggle>
+    }
+  >
+    <Component
+      dropdownItems={
+        Array [
+          <Skeleton
+            className="hsp-dropdown-loading hsp-button"
+            isDark={false}
+            size="sm"
+          />,
+          <br />,
+          <Skeleton
+            className="hsp-dropdown-loading hsp-button"
+            isDark={false}
+            size="sm"
+          />,
+          <br />,
+          <Skeleton
+            className="hsp-dropdown-loading hsp-button"
+            isDark={false}
+            size="sm"
+          />,
+          <br />,
+        ]
+      }
+      isOpen={false}
+      isPlain={true}
+      position="right"
+      toggle={
+        <DropdownToggle
+          className="historical-system-profile-dropdown"
+          iconComponent={null}
+          onToggle={[Function]}
+        >
+          <UndoIcon
+            color="currentColor"
+            noVerticalAlign={false}
+            size="sm"
+            title={null}
+          />
+        </DropdownToggle>
+      }
+    >
+      <ComponentWithOuia
+        component={[Function]}
+        componentProps={
+          Object {
+            "dropdownItems": Array [
+              <Skeleton
+                className="hsp-dropdown-loading hsp-button"
+                isDark={false}
+                size="sm"
+              />,
+              <br />,
+              <Skeleton
+                className="hsp-dropdown-loading hsp-button"
+                isDark={false}
+                size="sm"
+              />,
+              <br />,
+              <Skeleton
+                className="hsp-dropdown-loading hsp-button"
+                isDark={false}
+                size="sm"
+              />,
+              <br />,
+            ],
+            "isOpen": false,
+            "isPlain": true,
+            "position": "right",
+            "toggle": <DropdownToggle
+              className="historical-system-profile-dropdown"
+              iconComponent={null}
+              onToggle={[Function]}
+            >
+              <UndoIcon
+                color="currentColor"
+                noVerticalAlign={false}
+                size="sm"
+                title={null}
+              />
+            </DropdownToggle>,
+          }
+        }
+        consumerContext={null}
+      >
+        <DropdownWithContext
+          autoFocus={true}
+          className=""
+          direction="down"
+          dropdownItems={
+            Array [
+              <Skeleton
+                className="hsp-dropdown-loading hsp-button"
+                isDark={false}
+                size="sm"
+              />,
+              <br />,
+              <Skeleton
+                className="hsp-dropdown-loading hsp-button"
+                isDark={false}
+                size="sm"
+              />,
+              <br />,
+              <Skeleton
+                className="hsp-dropdown-loading hsp-button"
+                isDark={false}
+                size="sm"
+              />,
+              <br />,
+            ]
+          }
+          isGrouped={false}
+          isOpen={false}
+          isPlain={true}
+          onSelect={[Function]}
+          ouiaComponentType="Dropdown"
+          ouiaContext={
+            Object {
+              "isOuia": false,
+              "ouiaId": null,
+            }
+          }
+          position="right"
+          toggle={
+            <DropdownToggle
+              className="historical-system-profile-dropdown"
+              iconComponent={null}
+              onToggle={[Function]}
+            >
+              <UndoIcon
+                color="currentColor"
+                noVerticalAlign={false}
+                size="sm"
+                title={null}
+              />
+            </DropdownToggle>
+          }
+        >
+          <div
+            className="pf-c-dropdown pf-m-align-right"
+          >
+            <DropdownToggle
+              ariaHasPopup={true}
+              className="historical-system-profile-dropdown"
+              iconComponent={null}
+              id="pf-toggle-id-0"
+              isOpen={false}
+              isPlain={true}
+              key=".0"
+              onEnter={[Function]}
+              onToggle={[Function]}
+              parentRef={
+                Object {
+                  "current": <div
+                    class="pf-c-dropdown pf-m-align-right"
+                  >
+                    <button
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      class="pf-c-dropdown__toggle pf-m-plain historical-system-profile-dropdown"
+                      id="pf-toggle-id-0"
+                      type="button"
+                    >
+                      <span>
+                        <svg
+                          aria-hidden="true"
+                          fill="currentColor"
+                          height="1em"
+                          role="img"
+                          style="vertical-align: -0.125em;"
+                          viewBox="0 0 512 512"
+                          width="1em"
+                        >
+                          <path
+                            d="M212.333 224.333H12c-6.627 0-12-5.373-12-12V12C0 5.373 5.373 0 12 0h48c6.627 0 12 5.373 12 12v78.112C117.773 39.279 184.26 7.47 258.175 8.007c136.906.994 246.448 111.623 246.157 248.532C504.041 393.258 393.12 504 256.333 504c-64.089 0-122.496-24.313-166.51-64.215-5.099-4.622-5.334-12.554-.467-17.42l33.967-33.967c4.474-4.474 11.662-4.717 16.401-.525C170.76 415.336 211.58 432 256.333 432c97.268 0 176-78.716 176-176 0-97.267-78.716-176-176-176-58.496 0-110.28 28.476-142.274 72.333h98.274c6.627 0 12 5.373 12 12v48c0 6.627-5.373 12-12 12z"
+                            transform=""
+                          />
+                        </svg>
+                      </span>
+                    </button>
+                  </div>,
+                }
+              }
+            >
+              <Toggle
+                ariaHasPopup={true}
+                className="historical-system-profile-dropdown"
+                id="pf-toggle-id-0"
+                isActive={false}
+                isDisabled={false}
+                isFocused={false}
+                isHovered={false}
+                isOpen={false}
+                isPlain={true}
+                isPrimary={false}
+                isSplitButton={false}
+                onEnter={[Function]}
+                onToggle={[Function]}
+                parentRef={
+                  Object {
+                    "current": <div
+                      class="pf-c-dropdown pf-m-align-right"
+                    >
+                      <button
+                        aria-expanded="false"
+                        aria-haspopup="true"
+                        class="pf-c-dropdown__toggle pf-m-plain historical-system-profile-dropdown"
+                        id="pf-toggle-id-0"
+                        type="button"
+                      >
+                        <span>
+                          <svg
+                            aria-hidden="true"
+                            fill="currentColor"
+                            height="1em"
+                            role="img"
+                            style="vertical-align: -0.125em;"
+                            viewBox="0 0 512 512"
+                            width="1em"
+                          >
+                            <path
+                              d="M212.333 224.333H12c-6.627 0-12-5.373-12-12V12C0 5.373 5.373 0 12 0h48c6.627 0 12 5.373 12 12v78.112C117.773 39.279 184.26 7.47 258.175 8.007c136.906.994 246.448 111.623 246.157 248.532C504.041 393.258 393.12 504 256.333 504c-64.089 0-122.496-24.313-166.51-64.215-5.099-4.622-5.334-12.554-.467-17.42l33.967-33.967c4.474-4.474 11.662-4.717 16.401-.525C170.76 415.336 211.58 432 256.333 432c97.268 0 176-78.716 176-176 0-97.267-78.716-176-176-176-58.496 0-110.28 28.476-142.274 72.333h98.274c6.627 0 12 5.373 12 12v48c0 6.627-5.373 12-12 12z"
+                              transform=""
+                            />
+                          </svg>
+                        </span>
+                      </button>
+                    </div>,
+                  }
+                }
+              >
+                <button
+                  aria-expanded={false}
+                  aria-haspopup={true}
+                  className="pf-c-dropdown__toggle pf-m-plain historical-system-profile-dropdown"
+                  disabled={false}
+                  id="pf-toggle-id-0"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  type="button"
+                >
+                  <span
+                    className={null}
+                  >
+                    <UndoIcon
+                      color="currentColor"
+                      noVerticalAlign={false}
+                      size="sm"
+                      title={null}
+                    >
+                      <svg
+                        aria-hidden={true}
+                        aria-labelledby={null}
+                        fill="currentColor"
+                        height="1em"
+                        role="img"
+                        style={
+                          Object {
+                            "verticalAlign": "-0.125em",
+                          }
+                        }
+                        viewBox="0 0 512 512"
+                        width="1em"
+                      >
+                        <path
+                          d="M212.333 224.333H12c-6.627 0-12-5.373-12-12V12C0 5.373 5.373 0 12 0h48c6.627 0 12 5.373 12 12v78.112C117.773 39.279 184.26 7.47 258.175 8.007c136.906.994 246.448 111.623 246.157 248.532C504.041 393.258 393.12 504 256.333 504c-64.089 0-122.496-24.313-166.51-64.215-5.099-4.622-5.334-12.554-.467-17.42l33.967-33.967c4.474-4.474 11.662-4.717 16.401-.525C170.76 415.336 211.58 432 256.333 432c97.268 0 176-78.716 176-176 0-97.267-78.716-176-176-176-58.496 0-110.28 28.476-142.274 72.333h98.274c6.627 0 12 5.373 12 12v48c0 6.627-5.373 12-12 12z"
+                          transform=""
+                        />
+                      </svg>
+                    </UndoIcon>
+                  </span>
+                </button>
+              </Toggle>
+            </DropdownToggle>
+          </div>
+        </DropdownWithContext>
+      </ComponentWithOuia>
+    </Component>
+  </Dropdown>
+</HistoricalProfilesDropdown>
+`;

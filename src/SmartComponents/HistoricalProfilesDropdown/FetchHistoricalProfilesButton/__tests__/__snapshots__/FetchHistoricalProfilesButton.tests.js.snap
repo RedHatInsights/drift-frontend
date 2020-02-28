@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FetchHistoricalProfilesButton should render correctly 1`] = `
+<Component
+  onClick={[Function]}
+  style={
+    Object {
+      "float": "left",
+    }
+  }
+  variant="primary"
+>
+  Compare
+</Component>
+`;
+
+exports[`FetchHistoricalProfilesButton should render mount correctly 1`] = `
+<FetchHistoricalProfilesButton>
+  <Component
+    onClick={[Function]}
+    style={
+      Object {
+        "float": "left",
+      }
+    }
+    variant="primary"
+  >
+    <ComponentWithOuia
+      component={[Function]}
+      componentProps={
+        Object {
+          "children": "Compare",
+          "onClick": [Function],
+          "style": Object {
+            "float": "left",
+          },
+          "variant": "primary",
+        }
+      }
+      consumerContext={null}
+    >
+      <Button
+        onClick={[Function]}
+        ouiaContext={
+          Object {
+            "isOuia": false,
+            "ouiaId": null,
+          }
+        }
+        style={
+          Object {
+            "float": "left",
+          }
+        }
+        variant="primary"
+      >
+        <button
+          aria-disabled={null}
+          aria-label={null}
+          className="pf-c-button pf-m-primary"
+          disabled={false}
+          onClick={[Function]}
+          style={
+            Object {
+              "float": "left",
+            }
+          }
+          tabIndex={null}
+          type="button"
+        >
+          Compare
+        </button>
+      </Button>
+    </ComponentWithOuia>
+  </Component>
+</FetchHistoricalProfilesButton>
+`;

@@ -1,11 +1,17 @@
+import React from 'react';
 import { mergeArraysByKey } from '@redhat-cloud-services/frontend-components-utilities/files/helpers';
 import { applyReducerHash } from '@redhat-cloud-services/frontend-components-utilities/files/ReducerRegistry';
+import HistoricalProfilesDropdown from '../HistoricalProfilesDropdown/HistoricalProfilesDropdown';
 
 import types from '../modules/types';
 
-function selectedReducer(INVENTORY_ACTIONS, createBaselineModal) {
+function selectedReducer(INVENTORY_ACTIONS, createBaselineModal, historicalProfiles, hasHistoricalDropdown) {
+    let newColumns;
+
     return applyReducerHash({
         [INVENTORY_ACTIONS.LOAD_ENTITIES_FULFILLED]: (state, action) => {
+            newColumns = [ ...state.columns ];
+
             for (let i = 0; i < action.payload.results.length; i += 1) {
                 if (state.selectedSystemIds.includes(action.payload.results[i].id)) {
                     action.payload.results[i].selected = true;
@@ -14,8 +20,43 @@ function selectedReducer(INVENTORY_ACTIONS, createBaselineModal) {
 
             let rows = mergeArraysByKey([ action.payload.results, state.rows ]);
 
+            /*eslint-disable camelcase*/
+            if (!newColumns.find(({ key }) => key === 'historical_profiles') && hasHistoricalDropdown) {
+                newColumns.push({
+                    key: 'historical_profiles',
+                    title: 'Historical profiles',
+                    props: {
+                        width: 10
+                    }
+                });
+            }
+
+            rows.forEach(function(row) {
+                let badgeCount = 0;
+                let systemInfo = {
+                    id: row.id,
+                    last_updated: row.updated
+                };
+
+                historicalProfiles.forEach(function(profile) {
+                    if (profile.system_id === row.id) {
+                        badgeCount += 1;
+                    }
+                });
+
+                row.historical_profiles = <React.Fragment>
+                    <HistoricalProfilesDropdown
+                        system={ systemInfo }
+                        hasBadge={ true }
+                        badgeCount={ badgeCount }
+                    />
+                </React.Fragment>;
+            });
+            /*eslint-enable camelcase*/
+
             return {
                 ...state,
+                columns: newColumns,
                 rows
             };
         },

@@ -63,7 +63,11 @@ export class DriftTable extends Component {
             return hsp;
         });
 
+        /*eslint-disable camelcase*/
         historicalProfiles.forEach(function(hsp) {
+            let system = systems.find(item => item.id === hsp.system_id);
+            hsp.system_last_updated = system.last_updated;
+
             if (historicalGroups.hasOwnProperty(hsp.system_id)) {
                 historicalGroups[hsp.system_id].push(hsp);
             } else {
@@ -88,6 +92,7 @@ export class DriftTable extends Component {
                 fullHistoricalSystemList = fullHistoricalSystemList.concat(hsps);
             }
         }
+        /*eslint-enable camelcase*/
 
         return baselines.concat(fullHistoricalSystemList);
     }
@@ -292,8 +297,11 @@ export class DriftTable extends Component {
                                 : this.formatDate(item.updated)
                             }
                             { insights.chrome.isBeta()
-                                ? item.type === 'system'
-                                    ? <HistoricalProfilesDropdown systemId={ item.id } fetchCompare={ this.fetchCompare }/>
+                                ? item.type === 'system' || item.type === 'historical-system-profile'
+                                    ? <HistoricalProfilesDropdown
+                                        system={ item }
+                                        systemIds={ this.systemIds }
+                                    />
                                     : null
                                 : null
                             }
