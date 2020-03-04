@@ -30,10 +30,11 @@ class HistoricalProfilesCheckbox extends Component {
         const { profile } = this.props;
         const { checked } = this.state;
 
+        /*eslint-disable camelcase*/
         return (
             <React.Fragment>
                 <Checkbox
-                    label={ moment.utc(profile.created).format('DD MMM YYYY, HH:mm UTC') }
+                    label={ moment.utc(profile.captured_date).format('DD MMM YYYY, HH:mm UTC') }
                     isChecked={ checked }
                     onChange={ this.handleChange }
                     aria-label={ profile.id }
@@ -42,6 +43,7 @@ class HistoricalProfilesCheckbox extends Component {
                 />
             </React.Fragment>
         );
+        /*eslint-enable camelcase*/
     }
 }
 
