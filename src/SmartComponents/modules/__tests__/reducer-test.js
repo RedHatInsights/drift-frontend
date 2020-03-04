@@ -30,7 +30,8 @@ describe('compare reducer', () => {
                 baselines: [],
                 loading: false,
                 expandedRows: [],
-                error: {}
+                error: {},
+                emptyState: false
             }
         );
     });
@@ -68,7 +69,8 @@ describe('compare reducer', () => {
             totalFacts: 0,
             loading: false,
             expandedRows: [],
-            error: {}
+            error: {},
+            emptyState: false
         });
     });
 
@@ -96,7 +98,8 @@ describe('compare reducer', () => {
             previousStateSystems: [],
             systems: [],
             loading: true,
-            historicalProfiles: []
+            historicalProfiles: [],
+            emptyState: false
         });
     });
 
@@ -110,7 +113,8 @@ describe('compare reducer', () => {
             previousStateSystems: compareReducerState.systems,
             systems: [],
             loading: true,
-            historicalProfiles: []
+            historicalProfiles: [],
+            emptyState: false
         });
     });
 
@@ -124,6 +128,7 @@ describe('compare reducer', () => {
                 }}
             })
         ).toEqual({
+            emptyState: false,
             error: {
                 detail: 'system_id 7 is not a UUID',
                 status: 400
@@ -142,6 +147,7 @@ describe('compare reducer', () => {
                 }}
             })
         ).toEqual({
+            emptyState: false,
             error: {
                 detail: 'Service is unreachable',
                 status: 500
@@ -159,6 +165,7 @@ describe('compare reducer', () => {
                 }}
             })
         ).toEqual({
+            emptyState: false,
             error: {
                 detail: 'This is a 400 error',
                 status: 400
@@ -197,7 +204,8 @@ describe('compare reducer', () => {
                 { filter: 'DIFFERENT', display: 'Different', selected: true },
                 { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
             ],
-            totalFacts: 3
+            totalFacts: 3,
+            emptyState: false
         });
     });
 
@@ -232,7 +240,8 @@ describe('compare reducer', () => {
                 { filter: 'DIFFERENT', display: 'Different', selected: true },
                 { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
             ],
-            totalFacts: 0
+            totalFacts: 0,
+            emptyState: false
         });
     });
 
@@ -1049,7 +1058,8 @@ describe('compare reducer', () => {
                 totalFacts: 0,
                 loading: false,
                 expandedRows: [],
-                error: {}
+                error: {},
+                emptyState: false
             }
         );
     });

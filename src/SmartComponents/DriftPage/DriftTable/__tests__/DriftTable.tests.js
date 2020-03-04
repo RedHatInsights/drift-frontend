@@ -79,7 +79,8 @@ describe('ConnectedDriftTable', () => {
                     { filter: 'SAME', display: 'Same', selected: true },
                     { filter: 'DIFFERENT', display: 'Different', selected: true },
                     { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
-                ]
+                ],
+                emptyState: true
             },
             addSystemModalState: { addSystemModalOpened: false },
             baselinesTableState: { checkboxTable: {}},
@@ -107,6 +108,8 @@ describe('ConnectedDriftTable', () => {
         initialState.compareState.systems = compareReducerPayload.systems;
         initialState.compareState.baselines = baselinesPayload;
         initialState.compareState.historicalProfiles = historicalProfilesPayload;
+        initialState.compareState.emptyState = false;
+        initialState.compareState.loading = false;
 
         const store = mockStore(initialState);
 
@@ -120,6 +123,7 @@ describe('ConnectedDriftTable', () => {
 
         expect(wrapper.find('table')).toHaveLength(1);
         expect(wrapper.find('tr')).toHaveLength(1);
+        expect(wrapper.find(EmptyState)).toHaveLength(0);
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 
@@ -137,6 +141,7 @@ describe('ConnectedDriftTable', () => {
 
         expect(wrapper.find('tr')).toHaveLength(11);
         expect(wrapper.find(Skeleton)).toHaveLength(30);
+        expect(wrapper.find(EmptyState)).toHaveLength(0);
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 });

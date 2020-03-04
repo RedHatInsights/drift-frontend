@@ -30,7 +30,7 @@ export class DriftPage extends Component {
     }
 
     render() {
-        const { systems, baselines, loading } = this.props;
+        const { loading, emptyState } = this.props;
 
         if (this.props.error.detail) {
             this.props.toggleErrorAlert();
@@ -46,7 +46,7 @@ export class DriftPage extends Component {
                     <Card className='pf-t-light pf-m-opaque-100'>
                         <CardBody>
                             <div>
-                                { (systems.length > 0 || baselines.length > 0) && !loading ?
+                                { !emptyState ?
                                     <React.Fragment>
                                         <Toolbar className="drift-toolbar">
                                             <ToolbarGroup>
@@ -83,7 +83,7 @@ export class DriftPage extends Component {
                                     : null
                                 }
                                 <DriftTable />
-                                { systems.length > 0 && !loading ?
+                                { !emptyState && !loading ?
                                     <Toolbar className="drift-toolbar">
                                         <ToolbarGroup className="pf-c-pagination">
                                             <ToolbarItem>
@@ -105,10 +105,9 @@ export class DriftPage extends Component {
 DriftPage.propTypes = {
     error: PropTypes.object,
     loading: PropTypes.bool,
-    systems: PropTypes.array,
-    baselines: PropTypes.array,
     toggleErrorAlert: PropTypes.func,
-    clearSelectedBaselines: PropTypes.func
+    clearSelectedBaselines: PropTypes.func,
+    emptyState: PropTypes.bool
 };
 
 function mapDispatchToProps(dispatch) {
@@ -122,8 +121,7 @@ function mapStateToProps(state) {
     return {
         error: state.compareState.error,
         loading: state.compareState.loading,
-        systems: state.compareState.systems,
-        baselines: state.compareState.baselines
+        emptyState: state.compareState.emptyState
     };
 }
 
