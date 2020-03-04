@@ -1,6 +1,6 @@
 /*global module*/
 
-const SECTION = 'rhel';
+const SECTION = 'insights';
 const APP_ID = 'drift';
 const FRONTEND_PORT = 8002;
 const routes = {};

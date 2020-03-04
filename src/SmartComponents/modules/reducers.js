@@ -23,7 +23,8 @@ const initialState = {
     perPage: 50,
     loading: false,
     expandedRows: [],
-    error: {}
+    error: {},
+    emptyState: false
 };
 
 export function compareReducer(state = initialState, action) {
@@ -55,12 +56,14 @@ export function compareReducer(state = initialState, action) {
                 systems: [],
                 baselines: [],
                 historicalProfiles: [],
-                loading: true
+                loading: true,
+                emptyState: false
             };
         case `${types.FETCH_COMPARE}_FULFILLED`:
             filteredFacts = reducerHelpers.filterCompareData(action.payload.facts, state.stateFilters, state.factFilter);
             sortedFacts = reducerHelpers.sortData(filteredFacts, state.factSort, state.stateSort);
             paginatedFacts = reducerHelpers.paginateData(sortedFacts, 1, state.perPage);
+
             return {
                 ...state,
                 loading: false,
@@ -71,7 +74,8 @@ export function compareReducer(state = initialState, action) {
                 baselines: action.payload.baselines || [],
                 historicalProfiles: action.payload.historical_system_profiles || [],
                 page: 1,
-                totalFacts: filteredFacts.length
+                totalFacts: filteredFacts.length,
+                emptyState: (action.payload.systems.concat(action.payload.baselines).concat(action.payload.historical_system_profiles)).length === 0
             };
         case `${types.FETCH_COMPARE}_REJECTED`:
             response = action.payload.response;
@@ -85,7 +89,8 @@ export function compareReducer(state = initialState, action) {
 
             return {
                 ...state,
-                error: errorObject
+                error: errorObject,
+                emptyState: false
             };
         case `${types.UPDATE_PAGINATION}`:
             filteredFacts = reducerHelpers.filterCompareData(state.fullCompareData, state.stateFilters, state.factFilter);

@@ -100,6 +100,7 @@ exports[`ConnectedDriftTable should render correctly 1`] = `
           <DriftTable
             addSystemModalOpened={false}
             baselines={Array []}
+            emptyState={true}
             expandRow={[Function]}
             fetchCompare={[Function]}
             fullCompareData={Array []}
@@ -490,6 +491,7 @@ exports[`ConnectedDriftTable should render loading rows 1`] = `
           <DriftTable
             addSystemModalOpened={false}
             baselines={Array []}
+            emptyState={true}
             expandRow={[Function]}
             fetchCompare={[Function]}
             fullCompareData={Array []}
@@ -1268,6 +1270,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                 },
               ]
             }
+            emptyState={false}
             expandRow={[Function]}
             fetchCompare={[Function]}
             fullCompareData={
@@ -2177,26 +2180,54 @@ exports[`DriftTable should render correctly 1`] = `
     confirmModal={[Function]}
     selectedSystemIds={Array []}
   />
-  <center>
-    <EmptyState>
-      <EmptyStateIcon
-        icon={[Function]}
-      />
-      <br />
-      <Title
-        size="lg"
-      >
-        Add systems or baselines to compare
-      </Title>
-      <EmptyStateBody>
-        You currently have no systems or baselines displayed. Add at least two
-        <br />
-        systems or baselines to compare their facts.
-      </EmptyStateBody>
-      <Connect(AddSystemButton)
-        isTable={false}
-      />
-    </EmptyState>
-  </center>
+  <div
+    className="drift-table-wrapper"
+  >
+    <table
+      className="pf-c-table pf-m-compact drift-table"
+    >
+      <thead>
+        <tr
+          className="sticky-column-header"
+        >
+          <th
+            className="fact-header sticky-column fixed-column-1"
+            key="fact-header"
+          >
+            <div
+              className="active-blue"
+            >
+              Fact 
+              <ArrowsAltVIcon
+                className="pointer not-active"
+                color="currentColor"
+                noVerticalAlign={false}
+                onClick={[Function]}
+                size="sm"
+                title={null}
+              />
+            </div>
+          </th>
+          <th
+            className="state-header sticky-column fixed-column-2"
+            key="state-header"
+          >
+            <div>
+              State 
+              <ArrowsAltVIcon
+                className="pointer not-active"
+                color="currentColor"
+                noVerticalAlign={false}
+                onClick={[Function]}
+                size="sm"
+                title={null}
+              />
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody />
+    </table>
+  </div>
 </Fragment>
 `;

@@ -42,7 +42,9 @@ export class DriftTable extends Component {
     }
 
     formatEntities(systems, baselines, historicalProfiles) {
+        /*eslint-disable camelcase*/
         let fullHistoricalSystemList = [];
+        let historicalGroups = {};
 
         if (systems.length === 0 && baselines.length === 0 && historicalProfiles.length === 0) {
             return [];
@@ -61,14 +63,31 @@ export class DriftTable extends Component {
             return hsp;
         });
 
-        systems.forEach(function(system) {
-            fullHistoricalSystemList.push(system);
-            historicalProfiles.forEach(function(hsp) {
-                if (hsp.system_id === system.id) {
-                    fullHistoricalSystemList.push(hsp);
-                }
-            });
+        historicalProfiles.forEach(function(hsp) {
+            if (historicalGroups.hasOwnProperty(hsp.system_id)) {
+                historicalGroups[hsp.system_id].push(hsp);
+            } else {
+                historicalGroups[hsp.system_id] = [ hsp ];
+            }
         });
+
+        fullHistoricalSystemList = systems;
+
+        for (const [ system_id, hsps ] of Object.entries(historicalGroups)) {
+            let system = systems.find(item => system_id === item.id);
+            let index;
+
+            if (system !== undefined) {
+                index = fullHistoricalSystemList.indexOf(system);
+                fullHistoricalSystemList = [
+                    ...fullHistoricalSystemList.slice(0, index + 1),
+                    ...hsps,
+                    ...fullHistoricalSystemList.slice(index + 1, fullHistoricalSystemList.length)
+                ];
+            } else {
+                fullHistoricalSystemList = fullHistoricalSystemList.concat(hsps);
+            }
+        }
 
         return baselines.concat(fullHistoricalSystemList);
     }
@@ -378,7 +397,7 @@ export class DriftTable extends Component {
     }
 
     render() {
-        const { fullCompareData, filteredCompareData, systems, baselines, historicalProfiles, loading } = this.props;
+        const { emptyState, filteredCompareData, systems, baselines, historicalProfiles, loading } = this.props;
 
         this.masterList = this.formatEntities(systems, baselines, historicalProfiles);
 
@@ -388,12 +407,7 @@ export class DriftTable extends Component {
                     selectedSystemIds={ systems.map(system => system.id) }
                     confirmModal={ this.fetchCompare }
                 />
-                {
-                    this.masterList.length !== 0 ||
-                    loading ||
-                    (fullCompareData.length !== 0 && this.systemIds.length !== 0)
-                        ? this.renderTable(filteredCompareData, loading) : this.renderEmptyState()
-                }
+                { emptyState && !loading ? this.renderEmptyState() : this.renderTable(filteredCompareData, loading) }
             </React.Fragment>
         );
     }
@@ -410,7 +424,8 @@ function mapStateToProps(state) {
         historicalProfiles: state.compareState.historicalProfiles,
         factSort: state.compareState.factSort,
         stateSort: state.compareState.stateSort,
-        expandedRows: state.compareState.expandedRows
+        expandedRows: state.compareState.expandedRows,
+        emptyState: state.compareState.emptyState
     };
 }
 
@@ -449,7 +464,8 @@ DriftTable.propTypes = {
     expandedRows: PropTypes.array,
     setSelectedBaselines: PropTypes.func,
     setSelectedHistoricProfiles: PropTypes.func,
-    selectHistoricProfiles: PropTypes.func
+    selectHistoricProfiles: PropTypes.func,
+    emptyState: PropTypes.bool
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DriftTable));

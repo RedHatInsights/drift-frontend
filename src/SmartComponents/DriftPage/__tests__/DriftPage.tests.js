@@ -88,7 +88,7 @@ describe('ConnectedDriftPage', () => {
             </MemoryRouter>
         );
 
-        expect(wrapper.find('.drift-toolbar')).toHaveLength(0);
+        expect(wrapper.find('.drift-toolbar')).toHaveLength(6);
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 
