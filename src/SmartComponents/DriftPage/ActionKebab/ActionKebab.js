@@ -23,7 +23,7 @@ class ActionKebab extends Component {
 
         toggleKebab();
         removeSystems();
-        clearSelectedBaselines();
+        clearSelectedBaselines('CHECKBOX');
         selectHistoricProfiles(selectedHSPIds);
         setHistory(history, []);
     }
@@ -66,7 +66,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         removeSystems: () => dispatch(compareActions.clearState()),
-        clearSelectedBaselines: () => dispatch(baselinesTableActions.clearSelectedBaselines()),
+        clearSelectedBaselines: (tableId) => dispatch(baselinesTableActions.clearSelectedBaselines(tableId)),
         toggleKebab: () => dispatch(actionKebabActions.toggleKebab()),
         selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds))
     };
