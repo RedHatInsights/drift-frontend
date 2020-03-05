@@ -22,7 +22,7 @@ export class DriftPage extends Component {
     constructor(props) {
         super(props);
 
-        this.props.clearSelectedBaselines();
+        this.props.clearSelectedBaselines('CHECKBOX');
     }
 
     async componentDidMount() {
@@ -114,7 +114,7 @@ DriftPage.propTypes = {
 function mapDispatchToProps(dispatch) {
     return {
         toggleErrorAlert: () => dispatch(errorAlertActions.toggleErrorAlert()),
-        clearSelectedBaselines: () => dispatch(baselinesTableActions.clearSelectedBaselines())
+        clearSelectedBaselines: (tableId) => dispatch(baselinesTableActions.clearSelectedBaselines(tableId))
     };
 }
 
