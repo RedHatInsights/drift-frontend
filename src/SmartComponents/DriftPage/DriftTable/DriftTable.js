@@ -200,7 +200,7 @@ export class DriftTable extends Component {
             if (this.props.expandedRows.includes(fact.name)) {
                 fact.comparisons.forEach(comparison => {
                     row = this.renderRowChild(comparison);
-                    rows.push(<tr>{ row }</tr>);
+                    rows.push(<tr className={ comparison.state === 'DIFFERENT' ? 'unexpected-row' : '' }>{ row }</tr>);
                 });
             }
         } else {
@@ -213,7 +213,7 @@ export class DriftTable extends Component {
 
             row = row.concat(this.findSystem(fact));
 
-            rows.push(<tr>{ row }</tr>);
+            rows.push(<tr className={ fact.state === 'DIFFERENT' ? 'unexpected-row' : '' }>{ row }</tr>);
         }
 
         return rows;

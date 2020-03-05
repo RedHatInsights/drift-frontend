@@ -162,6 +162,23 @@
       word-wrap: break-word;
       white-space: pre-wrap;
     }
+
+    tr:hover td {
+      background: #DEF3FF;
+    }
+
+    .unexpected-row .highlight {
+      background: rgba(201, 25, 11, 0.08);
+
+      &:nth-child(3) {
+        border-left: 6px solid rgb(201, 25, 11);
+        border-left-width: medium;
+      }
+    }
+
+    .unexpected-row:hover .highlight {
+      background: rgba(201, 25, 11, 0.28);
+    }
   }
   .drift-table-wrapper {
     overflow: auto;
