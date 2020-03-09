@@ -14,30 +14,6 @@ function selectedReducer(INVENTORY_ACTIONS, createBaselineModal) {
 
             let rows = mergeArraysByKey([ action.payload.results, state.rows ]);
 
-            rows = rows.sort(function(a, b) {
-                let comparison = 0;
-
-                if (a.display_name < b.display_name) {
-                    comparison = -1;
-                } else if (a.display_name > b.display_name) {
-                    comparison = 1;
-                }
-
-                return comparison;
-            });
-
-            rows = rows.sort(function(a, b) {
-                let comparison = 0;
-
-                if (a.selected && !b.selected) {
-                    comparison = -1;
-                } else if (!a.selected && b.selected) {
-                    comparison = 1;
-                }
-
-                return comparison;
-            });
-
             return {
                 ...state,
                 rows
