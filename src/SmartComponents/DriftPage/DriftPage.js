@@ -57,7 +57,7 @@ export class DriftPage extends Component {
                                                     <FilterDropDown />
                                                 </ToolbarItem>
                                                 <ToolbarItem>
-                                                    <AddSystemButton/>
+                                                    <AddSystemButton loading={ loading } />
                                                 </ToolbarItem>
                                                 <ToolbarItem>
                                                     <ExportCSVButton />

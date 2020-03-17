@@ -725,12 +725,16 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                       <div
                                         className="pf-l-toolbar__item"
                                       >
-                                        <Connect(AddSystemButton)>
+                                        <Connect(AddSystemButton)
+                                          loading={false}
+                                        >
                                           <AddSystemButton
+                                            loading={false}
                                             toggleAddSystemModal={[Function]}
                                           >
                                             <Component
                                               className="add-system-button"
+                                              isDisabled={false}
                                               onClick={[Function]}
                                               variant="primary"
                                             >
@@ -740,6 +744,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                   Object {
                                                     "children": "Add systems or baselines",
                                                     "className": "add-system-button",
+                                                    "isDisabled": false,
                                                     "onClick": [Function],
                                                     "variant": "primary",
                                                   }
@@ -748,6 +753,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                               >
                                                 <Button
                                                   className="add-system-button"
+                                                  isDisabled={false}
                                                   onClick={[Function]}
                                                   ouiaContext={
                                                     Object {
@@ -4842,12 +4848,16 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                       <div
                                         className="pf-l-toolbar__item"
                                       >
-                                        <Connect(AddSystemButton)>
+                                        <Connect(AddSystemButton)
+                                          loading={false}
+                                        >
                                           <AddSystemButton
+                                            loading={false}
                                             toggleAddSystemModal={[Function]}
                                           >
                                             <Component
                                               className="add-system-button"
+                                              isDisabled={false}
                                               onClick={[Function]}
                                               variant="primary"
                                             >
@@ -4857,6 +4867,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                   Object {
                                                     "children": "Add systems or baselines",
                                                     "className": "add-system-button",
+                                                    "isDisabled": false,
                                                     "onClick": [Function],
                                                     "variant": "primary",
                                                   }
@@ -4865,6 +4876,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                               >
                                                 <Button
                                                   className="add-system-button"
+                                                  isDisabled={false}
                                                   onClick={[Function]}
                                                   ouiaContext={
                                                     Object {
@@ -8255,7 +8267,9 @@ exports[`DriftPage should render correctly 1`] = `
                 <Connect(FilterDropDown) />
               </ToolbarItem>
               <ToolbarItem>
-                <Connect(AddSystemButton) />
+                <Connect(AddSystemButton)
+                  loading={false}
+                />
               </ToolbarItem>
               <ToolbarItem>
                 <Connect(ExportCSVButton) />

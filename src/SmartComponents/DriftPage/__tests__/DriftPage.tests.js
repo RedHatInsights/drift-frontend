@@ -21,8 +21,10 @@ global.insights = {
 };
 
 describe('DriftPage', () => {
-    it('should render correctly', () =>{
-        const props = {
+    let props;
+
+    beforeEach(() => {
+        props = {
             error: {},
             loading: false,
             systems: [],
@@ -30,9 +32,11 @@ describe('DriftPage', () => {
             clearSelectedBaselines: jest.fn(),
             toggleErrorAlert: jest.fn()
         };
+    });
 
+    it('should render correctly', () => {
         const wrapper = shallow(
-            <DriftPage { ...props }/>
+            <DriftPage { ...props } />
         );
         expect(toJson(wrapper)).toMatchSnapshot();
     });
