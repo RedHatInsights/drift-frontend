@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Badge, Dropdown, DropdownItem, DropdownToggle, DropdownPosition } from '@patternfly/react-core';
-import { UndoIcon } from '@patternfly/react-icons';
+import { HistoryIcon } from '@patternfly/react-icons';
 import PropTypes from 'prop-types';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
 import { setHistory } from '../../Utilities/SetHistory';
@@ -142,10 +142,10 @@ export class HistoricalProfilesDropdown extends Component {
             <React.Fragment>
                 <Dropdown
                     toggle={ <DropdownToggle
-                        className='historical-system-profile-dropdown'
+                        className='historical-system-profile-dropdown hsp-dropdown-icon'
                         iconComponent={ null }
                         onToggle={ this.onToggle }>
-                        <UndoIcon />
+                        <HistoryIcon />
                     </DropdownToggle> }
                     isOpen={ isOpen }
                     isPlain
