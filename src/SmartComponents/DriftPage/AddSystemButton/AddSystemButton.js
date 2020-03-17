@@ -5,18 +5,22 @@ import { Button } from '@patternfly/react-core';
 
 import { addSystemModalActions } from '../../AddSystemModal/redux';
 
-class AddSystemButton extends Component {
+export class AddSystemButton extends Component {
     constructor(props) {
         super(props);
     }
 
     render() {
+        const { loading, toggleAddSystemModal, isTable } = this.props;
+
         return (
             <Button
                 className="add-system-button"
                 variant='primary'
-                onClick={ this.props.toggleAddSystemModal }>
-                { this.props.isTable ? 'Add' : 'Add systems or baselines' }
+                onClick={ toggleAddSystemModal }
+                isDisabled={ loading ? true : false }
+            >
+                { isTable ? 'Add' : 'Add systems or baselines' }
             </Button>
         );
     }
@@ -24,7 +28,8 @@ class AddSystemButton extends Component {
 
 AddSystemButton.propTypes = {
     toggleAddSystemModal: PropTypes.func,
-    isTable: PropTypes.bool
+    isTable: PropTypes.bool,
+    loading: PropTypes.bool
 };
 
 function mapDispatchToProps(dispatch) {
