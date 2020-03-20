@@ -44,7 +44,7 @@ export class EditBaseline extends Component {
     goToBaselinesList() {
         const { history, clearBaselineData } = this.props;
 
-        clearBaselineData();
+        clearBaselineData('CHECKBOX');
         history.push('/baselines');
     }
 
@@ -299,7 +299,6 @@ EditBaseline.propTypes = {
     clearBaselineData: PropTypes.func,
     baselineData: PropTypes.array,
     baselineDataLoading: PropTypes.bool,
-    patchBaseline: PropTypes.func,
     fetchBaselineData: PropTypes.func,
     factModalOpened: PropTypes.bool,
     editBaselineTableData: PropTypes.array,
@@ -323,8 +322,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        clearBaselineData: () => dispatch(baselinesTableActions.clearBaselineData()),
-        patchBaseline: (baselineId, newBaselineBody) => dispatch(editBaselineActions.patchBaseline(baselineId, newBaselineBody)),
+        clearBaselineData: (tableId) => dispatch(baselinesTableActions.clearBaselineData(tableId)),
         expandRow: (factName) => dispatch(editBaselineActions.expandRow(factName)),
         fetchBaselineData: (baselineUUID) => dispatch(editBaselineActions.fetchBaselineData(baselineUUID)),
         toggleEditNameModal: () => dispatch(editBaselineActions.toggleEditNameModal()),

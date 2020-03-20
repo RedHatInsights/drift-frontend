@@ -1,3 +1,28 @@
+/*eslint-disable camelcase*/
+const mockBaselineData1 = {
+    account: '12345678',
+    created: '2019-10-17T16:20:06.050710Z',
+    display_name: 'lotr-baseline',
+    fact_count: 3,
+    id: 'jf8alskj-jf74-aje8-ke83-jf84ldjru439k',
+    updated: '2020-02-06T21:48:30.661510Z',
+    baseline_facts: [
+        { name: 'Sauron', value: 'the Dark Lord' },
+        { name: 'Galadriel', value: 'the Elven Queen' },
+        { name: 'The Fellowship of the Ring', values: [
+            { name: 'Frodo', value: 'Baggins' },
+            { name: 'Samwise', value: 'Gamgee' },
+            { name: 'Gandalf', value: 'the Grey' },
+            { name: 'Meriadoc', value: 'Brandybuck' },
+            { name: 'Peregrin', value: 'Took' },
+            { name: 'Gimli', value: 'son of Gloin' },
+            { name: 'Legolas', value: 'Greenleaf' },
+            { name: 'Boromir', value: 'son of Denethor' },
+            { name: 'Aragorn', value: 'son of Arathorn' }
+        ]}
+    ]
+};
+
 const mockBaselineTableData1 = [
     [ 0, 'Sauron', 'the Dark Lord' ],
     [ 1, 'Galadriel', 'the Elven Queen' ],
@@ -15,7 +40,6 @@ const mockBaselineTableData1 = [
         ]
     ]
 ];
-/*eslint-disable camelcase*/
 
 const mockBaselineAPIBody = {
     id: '38gnw73l-fn36-5829-1287-2m5ghs46801c',
@@ -221,6 +245,7 @@ const editParentFactAPIBody = {
 /*eslint-enable camelcase*/
 
 export default {
+    mockBaselineData1,
     mockBaselineTableData1,
     mockBaselineAPIBody,
     originalAPIBody,
