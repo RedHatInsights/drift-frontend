@@ -11,7 +11,7 @@ import BaselinesTable from '../BaselinesTable/BaselinesTable';
 import { addSystemModalActions } from './redux';
 import { baselinesTableActions } from '../BaselinesTable/redux';
 
-class AddSystemModal extends Component {
+export class AddSystemModal extends Component {
     static propTypes = {
         cookies: instanceOf(Cookies).isRequired
     };
@@ -68,14 +68,6 @@ class AddSystemModal extends Component {
         return ids ? ids : [];
     }
 
-    selectedBaselineIds() {
-        let ids = this.props.baselines.map(function (baseline) {
-            return baseline.id;
-        });
-
-        return ids ? ids : [];
-    }
-
     changeActiveTab(event, tabIndex) {
         const { selectActiveTab } = this.props;
 
@@ -110,6 +102,7 @@ class AddSystemModal extends Component {
                         <Tab
                             eventKey={ 0 }
                             title="Systems"
+                            id='systems-tab'
                         >
                             <SystemsTable
                                 selectedSystemIds={ this.selectedSystemIds() }
@@ -120,6 +113,7 @@ class AddSystemModal extends Component {
                         <Tab
                             eventKey={ 1 }
                             title="Baselines"
+                            id='baselines-tab'
                         >
                             <BaselinesTable
                                 tableId='CHECKBOX'

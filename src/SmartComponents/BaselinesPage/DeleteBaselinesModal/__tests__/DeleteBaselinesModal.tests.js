@@ -74,10 +74,6 @@ describe('DeleteBaselinesModal', () => {
         it('should delete multiple baseline', async () => {
             const deleteSelectedBaselines = jest.fn();
             const selectedBaselineIds = [ 'abcd', 'efgh' ];
-            deleteSelectedBaselines
-            .mockReturnValue({
-                value: { data: 'OK' }
-            });
 
             const wrapper = mount(
                 <DeleteBaselinesModal { ...props }
@@ -119,5 +115,26 @@ describe('ConnectedDeleteBaselinesModal', () => {
         );
 
         expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it.skip('should dispatch actions', () => {
+        initialState.baselinesTableState.checkboxTable.selectedBaselineIds = [ 'abcd', 'efgh' ];
+        const store = mockStore(initialState);
+
+        const wrapper = mount(
+            <MemoryRouter keyLength={ 0 }>
+                <Provider store={ store }>
+                    <ConnectedDeleteBaselinesModal />
+                </Provider>
+            </MemoryRouter>
+        );
+
+        expect(toJson(wrapper)).toMatchSnapshot();
+
+        const actions = store.getActions();
+        wrapper.find('.pf-c-button').simulate('click');
+        expect(actions).toEqual([
+            { type: 'DELETE_SELECTED_BASELINES_CHECKBOX' }
+        ]);
     });
 });

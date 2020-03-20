@@ -152,7 +152,6 @@ exports[`ConnectedEditBaseline should render correctly 1`] = `
                 "url": "/",
               }
             }
-            patchBaseline={[Function]}
             selectAll={false}
             selectFact={[Function]}
             toggleEditNameModal={[Function]}
@@ -827,6 +826,982 @@ exports[`ConnectedEditBaseline should render correctly 1`] = `
 </MemoryRouter>
 `;
 
+exports[`ConnectedEditBaseline should render loading rows 1`] = `
+<MemoryRouter
+  keyLength={0}
+>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Provider
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+    >
+      <withRouter(Connect(EditBaseline))>
+        <Connect(EditBaseline)
+          history={
+            Object {
+              "action": "POP",
+              "block": [Function],
+              "canGo": [Function],
+              "createHref": [Function],
+              "entries": Array [
+                Object {
+                  "hash": "",
+                  "pathname": "/",
+                  "search": "",
+                  "state": undefined,
+                },
+              ],
+              "go": [Function],
+              "goBack": [Function],
+              "goForward": [Function],
+              "index": 0,
+              "length": 1,
+              "listen": [Function],
+              "location": Object {
+                "hash": "",
+                "pathname": "/",
+                "search": "",
+                "state": undefined,
+              },
+              "push": [Function],
+              "replace": [Function],
+            }
+          }
+          location={
+            Object {
+              "hash": "",
+              "pathname": "/",
+              "search": "",
+              "state": undefined,
+            }
+          }
+          match={
+            Object {
+              "isExact": true,
+              "params": Object {},
+              "path": "/",
+              "url": "/",
+            }
+          }
+        >
+          <EditBaseline
+            baselineDataLoading={true}
+            clearBaselineData={[Function]}
+            editBaselineTableData={Array []}
+            expandRow={[Function]}
+            expandedRows={Array []}
+            factModalOpened={false}
+            fetchBaselineData={[Function]}
+            history={
+              Object {
+                "action": "POP",
+                "block": [Function],
+                "canGo": [Function],
+                "createHref": [Function],
+                "entries": Array [
+                  Object {
+                    "hash": "",
+                    "pathname": "/",
+                    "search": "",
+                    "state": undefined,
+                  },
+                ],
+                "go": [Function],
+                "goBack": [Function],
+                "goForward": [Function],
+                "index": 0,
+                "length": 1,
+                "listen": [Function],
+                "location": Object {
+                  "hash": "",
+                  "pathname": "/",
+                  "search": "",
+                  "state": undefined,
+                },
+                "push": [Function],
+                "replace": [Function],
+              }
+            }
+            location={
+              Object {
+                "hash": "",
+                "pathname": "/",
+                "search": "",
+                "state": undefined,
+              }
+            }
+            match={
+              Object {
+                "isExact": true,
+                "params": Object {},
+                "path": "/",
+                "url": "/",
+              }
+            }
+            selectAll={false}
+            selectFact={[Function]}
+            toggleEditNameModal={[Function]}
+          >
+            <PageHeader>
+              <section
+                className="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
+                widget-type="InsightsPageHeader"
+              >
+                <div>
+                  <Skeleton
+                    isDark={false}
+                    size="lg"
+                  >
+                    <div
+                      className="ins-c-skeleton ins-c-skeleton__lg"
+                    >
+                       
+                    </div>
+                  </Skeleton>
+                </div>
+              </section>
+            </PageHeader>
+            <Connect(Main)>
+              <Main>
+                <section
+                  className="pf-l-page__main-section pf-c-page__main-section"
+                  page-type=""
+                >
+                  <Card
+                    className="pf-t-light pf-m-opaque-100"
+                  >
+                    <article
+                      className="pf-c-card pf-t-light pf-m-opaque-100"
+                    >
+                      <CardBody>
+                        <div
+                          className="pf-c-card__body"
+                        >
+                          <Connect(EditBaselineToolbar)>
+                            <EditBaselineToolbar
+                              setFactData={[Function]}
+                              toggleFactModal={[Function]}
+                            >
+                              <Toolbar
+                                className="display-margin"
+                              >
+                                <div
+                                  className="pf-l-toolbar display-margin"
+                                >
+                                  <ToolbarGroup>
+                                    <div
+                                      className="pf-l-toolbar__group"
+                                    >
+                                      <ToolbarItem>
+                                        <div
+                                          className="pf-l-toolbar__item"
+                                        >
+                                          <Component
+                                            onClick={[Function]}
+                                            variant="primary"
+                                          >
+                                            <ComponentWithOuia
+                                              component={[Function]}
+                                              componentProps={
+                                                Object {
+                                                  "children": "Add fact",
+                                                  "onClick": [Function],
+                                                  "variant": "primary",
+                                                }
+                                              }
+                                              consumerContext={null}
+                                            >
+                                              <Button
+                                                onClick={[Function]}
+                                                ouiaContext={
+                                                  Object {
+                                                    "isOuia": false,
+                                                    "ouiaId": null,
+                                                  }
+                                                }
+                                                variant="primary"
+                                              >
+                                                <button
+                                                  aria-disabled={null}
+                                                  aria-label={null}
+                                                  className="pf-c-button pf-m-primary"
+                                                  disabled={false}
+                                                  onClick={[Function]}
+                                                  tabIndex={null}
+                                                  type="button"
+                                                >
+                                                  Add fact
+                                                </button>
+                                              </Button>
+                                            </ComponentWithOuia>
+                                          </Component>
+                                        </div>
+                                      </ToolbarItem>
+                                      <ToolbarItem>
+                                        <div
+                                          className="pf-l-toolbar__item"
+                                        >
+                                          <Connect(EditBaselineKebab)>
+                                            <EditBaselineKebab
+                                              dispatch={[Function]}
+                                              editBaselineTableData={Array []}
+                                            >
+                                              <Dropdown
+                                                dropdownItems={
+                                                  Array [
+                                                    <DropdownItem
+                                                      component="button"
+                                                      isDisabled={true}
+                                                      onClick={[Function]}
+                                                    >
+                                                      Delete facts
+                                                    </DropdownItem>,
+                                                  ]
+                                                }
+                                                isOpen={false}
+                                                isPlain={true}
+                                                style={
+                                                  Object {
+                                                    "float": "left",
+                                                  }
+                                                }
+                                                toggle={
+                                                  <KebabToggle
+                                                    onToggle={[Function]}
+                                                  />
+                                                }
+                                              >
+                                                <Component
+                                                  dropdownItems={
+                                                    Array [
+                                                      <DropdownItem
+                                                        component="button"
+                                                        isDisabled={true}
+                                                        onClick={[Function]}
+                                                      >
+                                                        Delete facts
+                                                      </DropdownItem>,
+                                                    ]
+                                                  }
+                                                  isOpen={false}
+                                                  isPlain={true}
+                                                  style={
+                                                    Object {
+                                                      "float": "left",
+                                                    }
+                                                  }
+                                                  toggle={
+                                                    <KebabToggle
+                                                      onToggle={[Function]}
+                                                    />
+                                                  }
+                                                >
+                                                  <ComponentWithOuia
+                                                    component={[Function]}
+                                                    componentProps={
+                                                      Object {
+                                                        "dropdownItems": Array [
+                                                          <DropdownItem
+                                                            component="button"
+                                                            isDisabled={true}
+                                                            onClick={[Function]}
+                                                          >
+                                                            Delete facts
+                                                          </DropdownItem>,
+                                                        ],
+                                                        "isOpen": false,
+                                                        "isPlain": true,
+                                                        "style": Object {
+                                                          "float": "left",
+                                                        },
+                                                        "toggle": <KebabToggle
+                                                          onToggle={[Function]}
+                                                        />,
+                                                      }
+                                                    }
+                                                    consumerContext={null}
+                                                  >
+                                                    <DropdownWithContext
+                                                      autoFocus={true}
+                                                      className=""
+                                                      direction="down"
+                                                      dropdownItems={
+                                                        Array [
+                                                          <DropdownItem
+                                                            component="button"
+                                                            isDisabled={true}
+                                                            onClick={[Function]}
+                                                          >
+                                                            Delete facts
+                                                          </DropdownItem>,
+                                                        ]
+                                                      }
+                                                      isGrouped={false}
+                                                      isOpen={false}
+                                                      isPlain={true}
+                                                      onSelect={[Function]}
+                                                      ouiaComponentType="Dropdown"
+                                                      ouiaContext={
+                                                        Object {
+                                                          "isOuia": false,
+                                                          "ouiaId": null,
+                                                        }
+                                                      }
+                                                      position="left"
+                                                      style={
+                                                        Object {
+                                                          "float": "left",
+                                                        }
+                                                      }
+                                                      toggle={
+                                                        <KebabToggle
+                                                          onToggle={[Function]}
+                                                        />
+                                                      }
+                                                    >
+                                                      <div
+                                                        className="pf-c-dropdown"
+                                                        style={
+                                                          Object {
+                                                            "float": "left",
+                                                          }
+                                                        }
+                                                      >
+                                                        <KebabToggle
+                                                          ariaHasPopup={true}
+                                                          id="pf-toggle-id-1"
+                                                          isOpen={false}
+                                                          isPlain={true}
+                                                          key=".0"
+                                                          onEnter={[Function]}
+                                                          onToggle={[Function]}
+                                                          parentRef={
+                                                            Object {
+                                                              "current": <div
+                                                                class="pf-c-dropdown"
+                                                                style="float: left;"
+                                                              >
+                                                                <button
+                                                                  aria-expanded="false"
+                                                                  aria-haspopup="true"
+                                                                  aria-label="Actions"
+                                                                  class="pf-c-dropdown__toggle pf-m-plain"
+                                                                  id="pf-toggle-id-1"
+                                                                  type="button"
+                                                                >
+                                                                  <svg
+                                                                    aria-hidden="true"
+                                                                    fill="currentColor"
+                                                                    height="1em"
+                                                                    role="img"
+                                                                    style="vertical-align: -0.125em;"
+                                                                    viewBox="0 0 192 512"
+                                                                    width="1em"
+                                                                  >
+                                                                    <path
+                                                                      d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                                                                      transform=""
+                                                                    />
+                                                                  </svg>
+                                                                </button>
+                                                              </div>,
+                                                            }
+                                                          }
+                                                        >
+                                                          <Toggle
+                                                            aria-label="Actions"
+                                                            ariaHasPopup={true}
+                                                            className=""
+                                                            id="pf-toggle-id-1"
+                                                            isActive={false}
+                                                            isDisabled={false}
+                                                            isFocused={false}
+                                                            isHovered={false}
+                                                            isOpen={false}
+                                                            isPlain={true}
+                                                            isPrimary={false}
+                                                            isSplitButton={false}
+                                                            onEnter={[Function]}
+                                                            onToggle={[Function]}
+                                                            parentRef={
+                                                              Object {
+                                                                "current": <div
+                                                                  class="pf-c-dropdown"
+                                                                  style="float: left;"
+                                                                >
+                                                                  <button
+                                                                    aria-expanded="false"
+                                                                    aria-haspopup="true"
+                                                                    aria-label="Actions"
+                                                                    class="pf-c-dropdown__toggle pf-m-plain"
+                                                                    id="pf-toggle-id-1"
+                                                                    type="button"
+                                                                  >
+                                                                    <svg
+                                                                      aria-hidden="true"
+                                                                      fill="currentColor"
+                                                                      height="1em"
+                                                                      role="img"
+                                                                      style="vertical-align: -0.125em;"
+                                                                      viewBox="0 0 192 512"
+                                                                      width="1em"
+                                                                    >
+                                                                      <path
+                                                                        d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                                                                        transform=""
+                                                                      />
+                                                                    </svg>
+                                                                  </button>
+                                                                </div>,
+                                                              }
+                                                            }
+                                                          >
+                                                            <button
+                                                              aria-expanded={false}
+                                                              aria-haspopup={true}
+                                                              aria-label="Actions"
+                                                              className="pf-c-dropdown__toggle pf-m-plain"
+                                                              disabled={false}
+                                                              id="pf-toggle-id-1"
+                                                              onClick={[Function]}
+                                                              onKeyDown={[Function]}
+                                                              type="button"
+                                                            >
+                                                              <EllipsisVIcon
+                                                                color="currentColor"
+                                                                noVerticalAlign={false}
+                                                                size="sm"
+                                                                title={null}
+                                                              >
+                                                                <svg
+                                                                  aria-hidden={true}
+                                                                  aria-labelledby={null}
+                                                                  fill="currentColor"
+                                                                  height="1em"
+                                                                  role="img"
+                                                                  style={
+                                                                    Object {
+                                                                      "verticalAlign": "-0.125em",
+                                                                    }
+                                                                  }
+                                                                  viewBox="0 0 192 512"
+                                                                  width="1em"
+                                                                >
+                                                                  <path
+                                                                    d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                                                                    transform=""
+                                                                  />
+                                                                </svg>
+                                                              </EllipsisVIcon>
+                                                            </button>
+                                                          </Toggle>
+                                                        </KebabToggle>
+                                                      </div>
+                                                    </DropdownWithContext>
+                                                  </ComponentWithOuia>
+                                                </Component>
+                                              </Dropdown>
+                                            </EditBaselineKebab>
+                                          </Connect(EditBaselineKebab)>
+                                        </div>
+                                      </ToolbarItem>
+                                    </div>
+                                  </ToolbarGroup>
+                                </div>
+                              </Toolbar>
+                            </EditBaselineToolbar>
+                          </Connect(EditBaselineToolbar)>
+                          <table
+                            className="pf-c-table ins-c-table pf-m-compact ins-entity-table drift-table"
+                          >
+                            <thead>
+                              <tr
+                                key="edit-baseline-table-header"
+                              >
+                                <td
+                                  className="pf-c-table__check"
+                                >
+                                  <Checkbox
+                                    className=""
+                                    id="select-all"
+                                    isChecked={false}
+                                    isDisabled={false}
+                                    isValid={true}
+                                    name="select-all"
+                                    onChange={[Function]}
+                                  >
+                                    <div
+                                      className="pf-c-check"
+                                    >
+                                      <input
+                                        aria-invalid={false}
+                                        checked={false}
+                                        className="pf-c-check__input"
+                                        disabled={false}
+                                        id="select-all"
+                                        name="select-all"
+                                        onChange={[Function]}
+                                        type="checkbox"
+                                      />
+                                    </div>
+                                  </Checkbox>
+                                </td>
+                                <th
+                                  className="edit-baseline-header"
+                                >
+                                  <div>
+                                    Fact
+                                  </div>
+                                </th>
+                                <th
+                                  className="edit-baseline-header"
+                                >
+                                  <div>
+                                    Value
+                                  </div>
+                                </th>
+                                <th />
+                              </tr>
+                            </thead>
+                            <tbody
+                              key="edit-baseline-table"
+                            >
+                              <tr>
+                                <td>
+                                  <Skeleton
+                                    isDark={false}
+                                    size="md"
+                                  >
+                                    <div
+                                      className="ins-c-skeleton ins-c-skeleton__md"
+                                    >
+                                       
+                                    </div>
+                                  </Skeleton>
+                                </td>
+                                <td>
+                                  <Skeleton
+                                    isDark={false}
+                                    size="md"
+                                  >
+                                    <div
+                                      className="ins-c-skeleton ins-c-skeleton__md"
+                                    >
+                                       
+                                    </div>
+                                  </Skeleton>
+                                </td>
+                                <td>
+                                  <Skeleton
+                                    isDark={false}
+                                    size="md"
+                                  >
+                                    <div
+                                      className="ins-c-skeleton ins-c-skeleton__md"
+                                    >
+                                       
+                                    </div>
+                                  </Skeleton>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <Skeleton
+                                    isDark={false}
+                                    size="md"
+                                  >
+                                    <div
+                                      className="ins-c-skeleton ins-c-skeleton__md"
+                                    >
+                                       
+                                    </div>
+                                  </Skeleton>
+                                </td>
+                                <td>
+                                  <Skeleton
+                                    isDark={false}
+                                    size="md"
+                                  >
+                                    <div
+                                      className="ins-c-skeleton ins-c-skeleton__md"
+                                    >
+                                       
+                                    </div>
+                                  </Skeleton>
+                                </td>
+                                <td>
+                                  <Skeleton
+                                    isDark={false}
+                                    size="md"
+                                  >
+                                    <div
+                                      className="ins-c-skeleton ins-c-skeleton__md"
+                                    >
+                                       
+                                    </div>
+                                  </Skeleton>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <Skeleton
+                                    isDark={false}
+                                    size="md"
+                                  >
+                                    <div
+                                      className="ins-c-skeleton ins-c-skeleton__md"
+                                    >
+                                       
+                                    </div>
+                                  </Skeleton>
+                                </td>
+                                <td>
+                                  <Skeleton
+                                    isDark={false}
+                                    size="md"
+                                  >
+                                    <div
+                                      className="ins-c-skeleton ins-c-skeleton__md"
+                                    >
+                                       
+                                    </div>
+                                  </Skeleton>
+                                </td>
+                                <td>
+                                  <Skeleton
+                                    isDark={false}
+                                    size="md"
+                                  >
+                                    <div
+                                      className="ins-c-skeleton ins-c-skeleton__md"
+                                    >
+                                       
+                                    </div>
+                                  </Skeleton>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <Skeleton
+                                    isDark={false}
+                                    size="md"
+                                  >
+                                    <div
+                                      className="ins-c-skeleton ins-c-skeleton__md"
+                                    >
+                                       
+                                    </div>
+                                  </Skeleton>
+                                </td>
+                                <td>
+                                  <Skeleton
+                                    isDark={false}
+                                    size="md"
+                                  >
+                                    <div
+                                      className="ins-c-skeleton ins-c-skeleton__md"
+                                    >
+                                       
+                                    </div>
+                                  </Skeleton>
+                                </td>
+                                <td>
+                                  <Skeleton
+                                    isDark={false}
+                                    size="md"
+                                  >
+                                    <div
+                                      className="ins-c-skeleton ins-c-skeleton__md"
+                                    >
+                                       
+                                    </div>
+                                  </Skeleton>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <Skeleton
+                                    isDark={false}
+                                    size="md"
+                                  >
+                                    <div
+                                      className="ins-c-skeleton ins-c-skeleton__md"
+                                    >
+                                       
+                                    </div>
+                                  </Skeleton>
+                                </td>
+                                <td>
+                                  <Skeleton
+                                    isDark={false}
+                                    size="md"
+                                  >
+                                    <div
+                                      className="ins-c-skeleton ins-c-skeleton__md"
+                                    >
+                                       
+                                    </div>
+                                  </Skeleton>
+                                </td>
+                                <td>
+                                  <Skeleton
+                                    isDark={false}
+                                    size="md"
+                                  >
+                                    <div
+                                      className="ins-c-skeleton ins-c-skeleton__md"
+                                    >
+                                       
+                                    </div>
+                                  </Skeleton>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <Skeleton
+                                    isDark={false}
+                                    size="md"
+                                  >
+                                    <div
+                                      className="ins-c-skeleton ins-c-skeleton__md"
+                                    >
+                                       
+                                    </div>
+                                  </Skeleton>
+                                </td>
+                                <td>
+                                  <Skeleton
+                                    isDark={false}
+                                    size="md"
+                                  >
+                                    <div
+                                      className="ins-c-skeleton ins-c-skeleton__md"
+                                    >
+                                       
+                                    </div>
+                                  </Skeleton>
+                                </td>
+                                <td>
+                                  <Skeleton
+                                    isDark={false}
+                                    size="md"
+                                  >
+                                    <div
+                                      className="ins-c-skeleton ins-c-skeleton__md"
+                                    >
+                                       
+                                    </div>
+                                  </Skeleton>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <Skeleton
+                                    isDark={false}
+                                    size="md"
+                                  >
+                                    <div
+                                      className="ins-c-skeleton ins-c-skeleton__md"
+                                    >
+                                       
+                                    </div>
+                                  </Skeleton>
+                                </td>
+                                <td>
+                                  <Skeleton
+                                    isDark={false}
+                                    size="md"
+                                  >
+                                    <div
+                                      className="ins-c-skeleton ins-c-skeleton__md"
+                                    >
+                                       
+                                    </div>
+                                  </Skeleton>
+                                </td>
+                                <td>
+                                  <Skeleton
+                                    isDark={false}
+                                    size="md"
+                                  >
+                                    <div
+                                      className="ins-c-skeleton ins-c-skeleton__md"
+                                    >
+                                       
+                                    </div>
+                                  </Skeleton>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <Skeleton
+                                    isDark={false}
+                                    size="md"
+                                  >
+                                    <div
+                                      className="ins-c-skeleton ins-c-skeleton__md"
+                                    >
+                                       
+                                    </div>
+                                  </Skeleton>
+                                </td>
+                                <td>
+                                  <Skeleton
+                                    isDark={false}
+                                    size="md"
+                                  >
+                                    <div
+                                      className="ins-c-skeleton ins-c-skeleton__md"
+                                    >
+                                       
+                                    </div>
+                                  </Skeleton>
+                                </td>
+                                <td>
+                                  <Skeleton
+                                    isDark={false}
+                                    size="md"
+                                  >
+                                    <div
+                                      className="ins-c-skeleton ins-c-skeleton__md"
+                                    >
+                                       
+                                    </div>
+                                  </Skeleton>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <Skeleton
+                                    isDark={false}
+                                    size="md"
+                                  >
+                                    <div
+                                      className="ins-c-skeleton ins-c-skeleton__md"
+                                    >
+                                       
+                                    </div>
+                                  </Skeleton>
+                                </td>
+                                <td>
+                                  <Skeleton
+                                    isDark={false}
+                                    size="md"
+                                  >
+                                    <div
+                                      className="ins-c-skeleton ins-c-skeleton__md"
+                                    >
+                                       
+                                    </div>
+                                  </Skeleton>
+                                </td>
+                                <td>
+                                  <Skeleton
+                                    isDark={false}
+                                    size="md"
+                                  >
+                                    <div
+                                      className="ins-c-skeleton ins-c-skeleton__md"
+                                    >
+                                       
+                                    </div>
+                                  </Skeleton>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <Skeleton
+                                    isDark={false}
+                                    size="md"
+                                  >
+                                    <div
+                                      className="ins-c-skeleton ins-c-skeleton__md"
+                                    >
+                                       
+                                    </div>
+                                  </Skeleton>
+                                </td>
+                                <td>
+                                  <Skeleton
+                                    isDark={false}
+                                    size="md"
+                                  >
+                                    <div
+                                      className="ins-c-skeleton ins-c-skeleton__md"
+                                    >
+                                       
+                                    </div>
+                                  </Skeleton>
+                                </td>
+                                <td>
+                                  <Skeleton
+                                    isDark={false}
+                                    size="md"
+                                  >
+                                    <div
+                                      className="ins-c-skeleton ins-c-skeleton__md"
+                                    >
+                                       
+                                    </div>
+                                  </Skeleton>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </CardBody>
+                    </article>
+                  </Card>
+                </section>
+              </Main>
+            </Connect(Main)>
+          </EditBaseline>
+        </Connect(EditBaseline)>
+      </withRouter(Connect(EditBaseline))>
+    </Provider>
+  </Router>
+</MemoryRouter>
+`;
+
 exports[`EditBaseline should render correctly 1`] = `
 <Fragment>
   <Connect(EditBaselineNameModal) />
@@ -899,6 +1874,1662 @@ exports[`EditBaseline should render correctly 1`] = `
           <tbody
             key="edit-baseline-table"
           />
+        </table>
+      </CardBody>
+    </Card>
+  </Connect(Main)>
+</Fragment>
+`;
+
+exports[`EditBaseline should render expandable rows closed 1`] = `
+<Fragment>
+  <Connect(EditBaselineNameModal) />
+  <PageHeader>
+    <Component>
+      <BreadcrumbItem>
+        <a
+          onClick={[Function]}
+        >
+          Baselines
+        </a>
+      </BreadcrumbItem>
+      <BreadcrumbItem
+        isActive={true}
+      >
+        lotr_baseline
+      </BreadcrumbItem>
+    </Component>
+    <PageHeaderTitle
+      title="lotr_baseline"
+    />
+    <EditAltIcon
+      className="pointer not-active edit-icon-margin"
+      color="currentColor"
+      noVerticalAlign={false}
+      onClick={[Function]}
+      size="sm"
+      title={null}
+    />
+  </PageHeader>
+  <Connect(Main)>
+    <Card
+      className="pf-t-light pf-m-opaque-100"
+    >
+      <CardBody>
+        <Connect(EditBaselineToolbar) />
+        <table
+          className="pf-c-table ins-c-table pf-m-compact ins-entity-table drift-table"
+        >
+          <thead>
+            <tr
+              key="edit-baseline-table-header"
+            >
+              <td
+                className="pf-c-table__check"
+              >
+                <Checkbox
+                  className=""
+                  id="select-all"
+                  isChecked={false}
+                  isDisabled={false}
+                  isValid={true}
+                  name="select-all"
+                  onChange={[Function]}
+                />
+              </td>
+              <th
+                className="edit-baseline-header"
+              >
+                <div>
+                  Fact
+                </div>
+              </th>
+              <th
+                className="edit-baseline-header"
+              >
+                <div>
+                  Value
+                </div>
+              </th>
+              <th />
+            </tr>
+          </thead>
+          <tbody
+            key="edit-baseline-table"
+          >
+            <tr
+              key="Sauron"
+            >
+              <td
+                className="pf-c-table__check"
+              >
+                <Checkbox
+                  className=""
+                  id="fact-0"
+                  isChecked={false}
+                  isDisabled={false}
+                  isValid={true}
+                  name={0}
+                  onChange={[Function]}
+                />
+              </td>
+              <td>
+                Sauron
+              </td>
+              <td>
+                the Dark Lord
+              </td>
+              <td>
+                <Connect(FactKebab)
+                  fact={
+                    Object {
+                      "name": "Sauron",
+                      "value": "the Dark Lord",
+                    }
+                  }
+                  factName="Sauron"
+                  factValue="the Dark Lord"
+                />
+              </td>
+            </tr>
+            <tr
+              key="Galadriel"
+            >
+              <td
+                className="pf-c-table__check"
+              >
+                <Checkbox
+                  className=""
+                  id="fact-1"
+                  isChecked={false}
+                  isDisabled={false}
+                  isValid={true}
+                  name={1}
+                  onChange={[Function]}
+                />
+              </td>
+              <td>
+                Galadriel
+              </td>
+              <td>
+                the Elven Queen
+              </td>
+              <td>
+                <Connect(FactKebab)
+                  fact={
+                    Object {
+                      "name": "Galadriel",
+                      "value": "the Elven Queen",
+                    }
+                  }
+                  factName="Galadriel"
+                  factValue="the Elven Queen"
+                />
+              </td>
+            </tr>
+            <tr
+              key="The Fellowship of the Ring"
+            >
+              <td
+                className="pf-c-table__check"
+              >
+                <Checkbox
+                  className=""
+                  id="category-2"
+                  isChecked={false}
+                  isDisabled={false}
+                  isValid={true}
+                  name={2}
+                  onChange={[Function]}
+                />
+              </td>
+              <td>
+                <AngleRightIcon
+                  className="pointer"
+                  color="currentColor"
+                  noVerticalAlign={false}
+                  onClick={[Function]}
+                  size="sm"
+                  title={null}
+                />
+                 
+                The Fellowship of the Ring
+              </td>
+              <td />
+              <td>
+                <Connect(FactKebab)
+                  fact={
+                    Object {
+                      "name": "The Fellowship of the Ring",
+                      "values": Array [
+                        Object {
+                          "name": "Frodo",
+                          "value": "Baggins",
+                        },
+                        Object {
+                          "name": "Samwise",
+                          "value": "Gamgee",
+                        },
+                        Object {
+                          "name": "Gandalf",
+                          "value": "the Grey",
+                        },
+                        Object {
+                          "name": "Meriadoc",
+                          "value": "Brandybuck",
+                        },
+                        Object {
+                          "name": "Peregrin",
+                          "value": "Took",
+                        },
+                        Object {
+                          "name": "Gimli",
+                          "value": "song of Gloin",
+                        },
+                        Object {
+                          "name": "Legolas",
+                          "value": "Greenleaf",
+                        },
+                        Object {
+                          "name": "Boromir",
+                          "value": "son of Denethor",
+                        },
+                        Object {
+                          "name": "Aragorn",
+                          "value": "son of Arathorn",
+                        },
+                      ],
+                    }
+                  }
+                  factName="The Fellowship of the Ring"
+                  isCategory={true}
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </CardBody>
+    </Card>
+  </Connect(Main)>
+</Fragment>
+`;
+
+exports[`EditBaseline should render expandable rows opened 1`] = `
+<Fragment>
+  <Connect(EditBaselineNameModal) />
+  <PageHeader>
+    <Component>
+      <BreadcrumbItem>
+        <a
+          onClick={[Function]}
+        >
+          Baselines
+        </a>
+      </BreadcrumbItem>
+      <BreadcrumbItem
+        isActive={true}
+      >
+        lotr_baseline
+      </BreadcrumbItem>
+    </Component>
+    <PageHeaderTitle
+      title="lotr_baseline"
+    />
+    <EditAltIcon
+      className="pointer not-active edit-icon-margin"
+      color="currentColor"
+      noVerticalAlign={false}
+      onClick={[Function]}
+      size="sm"
+      title={null}
+    />
+  </PageHeader>
+  <Connect(Main)>
+    <Card
+      className="pf-t-light pf-m-opaque-100"
+    >
+      <CardBody>
+        <Connect(EditBaselineToolbar) />
+        <table
+          className="pf-c-table ins-c-table pf-m-compact ins-entity-table drift-table"
+        >
+          <thead>
+            <tr
+              key="edit-baseline-table-header"
+            >
+              <td
+                className="pf-c-table__check"
+              >
+                <Checkbox
+                  className=""
+                  id="select-all"
+                  isChecked={false}
+                  isDisabled={false}
+                  isValid={true}
+                  name="select-all"
+                  onChange={[Function]}
+                />
+              </td>
+              <th
+                className="edit-baseline-header"
+              >
+                <div>
+                  Fact
+                </div>
+              </th>
+              <th
+                className="edit-baseline-header"
+              >
+                <div>
+                  Value
+                </div>
+              </th>
+              <th />
+            </tr>
+          </thead>
+          <tbody
+            key="edit-baseline-table"
+          >
+            <tr
+              key="Sauron"
+            >
+              <td
+                className="pf-c-table__check"
+              >
+                <Checkbox
+                  className=""
+                  id="fact-0"
+                  isChecked={false}
+                  isDisabled={false}
+                  isValid={true}
+                  name={0}
+                  onChange={[Function]}
+                />
+              </td>
+              <td>
+                Sauron
+              </td>
+              <td>
+                the Dark Lord
+              </td>
+              <td>
+                <Connect(FactKebab)
+                  fact={
+                    Object {
+                      "name": "Sauron",
+                      "value": "the Dark Lord",
+                    }
+                  }
+                  factName="Sauron"
+                  factValue="the Dark Lord"
+                />
+              </td>
+            </tr>
+            <tr
+              key="Galadriel"
+            >
+              <td
+                className="pf-c-table__check"
+              >
+                <Checkbox
+                  className=""
+                  id="fact-1"
+                  isChecked={false}
+                  isDisabled={false}
+                  isValid={true}
+                  name={1}
+                  onChange={[Function]}
+                />
+              </td>
+              <td>
+                Galadriel
+              </td>
+              <td>
+                the Elven Queen
+              </td>
+              <td>
+                <Connect(FactKebab)
+                  fact={
+                    Object {
+                      "name": "Galadriel",
+                      "value": "the Elven Queen",
+                    }
+                  }
+                  factName="Galadriel"
+                  factValue="the Elven Queen"
+                />
+              </td>
+            </tr>
+            <tr
+              key="The Fellowship of the Ring"
+            >
+              <td
+                className="pf-c-table__check nested-fact"
+              >
+                <Checkbox
+                  className=""
+                  id="category-2"
+                  isChecked={false}
+                  isDisabled={false}
+                  isValid={true}
+                  name={2}
+                  onChange={[Function]}
+                />
+              </td>
+              <td>
+                <AngleDownIcon
+                  className="pointer active-blue"
+                  color="currentColor"
+                  noVerticalAlign={false}
+                  onClick={[Function]}
+                  size="sm"
+                  title={null}
+                />
+                 
+                The Fellowship of the Ring
+              </td>
+              <td />
+              <td>
+                <Connect(FactKebab)
+                  fact={
+                    Object {
+                      "name": "The Fellowship of the Ring",
+                      "values": Array [
+                        Object {
+                          "name": "Frodo",
+                          "value": "Baggins",
+                        },
+                        Object {
+                          "name": "Samwise",
+                          "value": "Gamgee",
+                        },
+                        Object {
+                          "name": "Gandalf",
+                          "value": "the Grey",
+                        },
+                        Object {
+                          "name": "Meriadoc",
+                          "value": "Brandybuck",
+                        },
+                        Object {
+                          "name": "Peregrin",
+                          "value": "Took",
+                        },
+                        Object {
+                          "name": "Gimli",
+                          "value": "song of Gloin",
+                        },
+                        Object {
+                          "name": "Legolas",
+                          "value": "Greenleaf",
+                        },
+                        Object {
+                          "name": "Boromir",
+                          "value": "son of Denethor",
+                        },
+                        Object {
+                          "name": "Aragorn",
+                          "value": "son of Arathorn",
+                        },
+                      ],
+                    }
+                  }
+                  factName="The Fellowship of the Ring"
+                  isCategory={true}
+                />
+              </td>
+            </tr>
+            <tr
+              key="Frodo"
+            >
+              <td
+                className="pf-c-table__check nested-fact"
+              >
+                <Checkbox
+                  className=""
+                  id="fact-3"
+                  isChecked={false}
+                  isDisabled={false}
+                  isValid={true}
+                  name={3}
+                  onChange={[Function]}
+                />
+              </td>
+              <td>
+                <p
+                  className="child-row"
+                >
+                  Frodo
+                </p>
+              </td>
+              <td>
+                Baggins
+              </td>
+              <td>
+                <Connect(FactKebab)
+                  fact={
+                    Object {
+                      "name": "The Fellowship of the Ring",
+                      "values": Array [
+                        Object {
+                          "name": "Frodo",
+                          "value": "Baggins",
+                        },
+                        Object {
+                          "name": "Samwise",
+                          "value": "Gamgee",
+                        },
+                        Object {
+                          "name": "Gandalf",
+                          "value": "the Grey",
+                        },
+                        Object {
+                          "name": "Meriadoc",
+                          "value": "Brandybuck",
+                        },
+                        Object {
+                          "name": "Peregrin",
+                          "value": "Took",
+                        },
+                        Object {
+                          "name": "Gimli",
+                          "value": "song of Gloin",
+                        },
+                        Object {
+                          "name": "Legolas",
+                          "value": "Greenleaf",
+                        },
+                        Object {
+                          "name": "Boromir",
+                          "value": "son of Denethor",
+                        },
+                        Object {
+                          "name": "Aragorn",
+                          "value": "son of Arathorn",
+                        },
+                      ],
+                    }
+                  }
+                  factName="Frodo"
+                  factValue="Baggins"
+                  isSubFact={true}
+                />
+              </td>
+            </tr>
+            <tr
+              key="Samwise"
+            >
+              <td
+                className="pf-c-table__check nested-fact"
+              >
+                <Checkbox
+                  className=""
+                  id="fact-4"
+                  isChecked={false}
+                  isDisabled={false}
+                  isValid={true}
+                  name={4}
+                  onChange={[Function]}
+                />
+              </td>
+              <td>
+                <p
+                  className="child-row"
+                >
+                  Samwise
+                </p>
+              </td>
+              <td>
+                Gamgee
+              </td>
+              <td>
+                <Connect(FactKebab)
+                  fact={
+                    Object {
+                      "name": "The Fellowship of the Ring",
+                      "values": Array [
+                        Object {
+                          "name": "Frodo",
+                          "value": "Baggins",
+                        },
+                        Object {
+                          "name": "Samwise",
+                          "value": "Gamgee",
+                        },
+                        Object {
+                          "name": "Gandalf",
+                          "value": "the Grey",
+                        },
+                        Object {
+                          "name": "Meriadoc",
+                          "value": "Brandybuck",
+                        },
+                        Object {
+                          "name": "Peregrin",
+                          "value": "Took",
+                        },
+                        Object {
+                          "name": "Gimli",
+                          "value": "song of Gloin",
+                        },
+                        Object {
+                          "name": "Legolas",
+                          "value": "Greenleaf",
+                        },
+                        Object {
+                          "name": "Boromir",
+                          "value": "son of Denethor",
+                        },
+                        Object {
+                          "name": "Aragorn",
+                          "value": "son of Arathorn",
+                        },
+                      ],
+                    }
+                  }
+                  factName="Samwise"
+                  factValue="Gamgee"
+                  isSubFact={true}
+                />
+              </td>
+            </tr>
+            <tr
+              key="Gandalf"
+            >
+              <td
+                className="pf-c-table__check nested-fact"
+              >
+                <Checkbox
+                  className=""
+                  id="fact-5"
+                  isChecked={false}
+                  isDisabled={false}
+                  isValid={true}
+                  name={5}
+                  onChange={[Function]}
+                />
+              </td>
+              <td>
+                <p
+                  className="child-row"
+                >
+                  Gandalf
+                </p>
+              </td>
+              <td>
+                the Grey
+              </td>
+              <td>
+                <Connect(FactKebab)
+                  fact={
+                    Object {
+                      "name": "The Fellowship of the Ring",
+                      "values": Array [
+                        Object {
+                          "name": "Frodo",
+                          "value": "Baggins",
+                        },
+                        Object {
+                          "name": "Samwise",
+                          "value": "Gamgee",
+                        },
+                        Object {
+                          "name": "Gandalf",
+                          "value": "the Grey",
+                        },
+                        Object {
+                          "name": "Meriadoc",
+                          "value": "Brandybuck",
+                        },
+                        Object {
+                          "name": "Peregrin",
+                          "value": "Took",
+                        },
+                        Object {
+                          "name": "Gimli",
+                          "value": "song of Gloin",
+                        },
+                        Object {
+                          "name": "Legolas",
+                          "value": "Greenleaf",
+                        },
+                        Object {
+                          "name": "Boromir",
+                          "value": "son of Denethor",
+                        },
+                        Object {
+                          "name": "Aragorn",
+                          "value": "son of Arathorn",
+                        },
+                      ],
+                    }
+                  }
+                  factName="Gandalf"
+                  factValue="the Grey"
+                  isSubFact={true}
+                />
+              </td>
+            </tr>
+            <tr
+              key="Meriadoc"
+            >
+              <td
+                className="pf-c-table__check nested-fact"
+              >
+                <Checkbox
+                  className=""
+                  id="fact-6"
+                  isChecked={false}
+                  isDisabled={false}
+                  isValid={true}
+                  name={6}
+                  onChange={[Function]}
+                />
+              </td>
+              <td>
+                <p
+                  className="child-row"
+                >
+                  Meriadoc
+                </p>
+              </td>
+              <td>
+                Brandybuck
+              </td>
+              <td>
+                <Connect(FactKebab)
+                  fact={
+                    Object {
+                      "name": "The Fellowship of the Ring",
+                      "values": Array [
+                        Object {
+                          "name": "Frodo",
+                          "value": "Baggins",
+                        },
+                        Object {
+                          "name": "Samwise",
+                          "value": "Gamgee",
+                        },
+                        Object {
+                          "name": "Gandalf",
+                          "value": "the Grey",
+                        },
+                        Object {
+                          "name": "Meriadoc",
+                          "value": "Brandybuck",
+                        },
+                        Object {
+                          "name": "Peregrin",
+                          "value": "Took",
+                        },
+                        Object {
+                          "name": "Gimli",
+                          "value": "song of Gloin",
+                        },
+                        Object {
+                          "name": "Legolas",
+                          "value": "Greenleaf",
+                        },
+                        Object {
+                          "name": "Boromir",
+                          "value": "son of Denethor",
+                        },
+                        Object {
+                          "name": "Aragorn",
+                          "value": "son of Arathorn",
+                        },
+                      ],
+                    }
+                  }
+                  factName="Meriadoc"
+                  factValue="Brandybuck"
+                  isSubFact={true}
+                />
+              </td>
+            </tr>
+            <tr
+              key="Peregrin"
+            >
+              <td
+                className="pf-c-table__check nested-fact"
+              >
+                <Checkbox
+                  className=""
+                  id="fact-7"
+                  isChecked={false}
+                  isDisabled={false}
+                  isValid={true}
+                  name={7}
+                  onChange={[Function]}
+                />
+              </td>
+              <td>
+                <p
+                  className="child-row"
+                >
+                  Peregrin
+                </p>
+              </td>
+              <td>
+                Took
+              </td>
+              <td>
+                <Connect(FactKebab)
+                  fact={
+                    Object {
+                      "name": "The Fellowship of the Ring",
+                      "values": Array [
+                        Object {
+                          "name": "Frodo",
+                          "value": "Baggins",
+                        },
+                        Object {
+                          "name": "Samwise",
+                          "value": "Gamgee",
+                        },
+                        Object {
+                          "name": "Gandalf",
+                          "value": "the Grey",
+                        },
+                        Object {
+                          "name": "Meriadoc",
+                          "value": "Brandybuck",
+                        },
+                        Object {
+                          "name": "Peregrin",
+                          "value": "Took",
+                        },
+                        Object {
+                          "name": "Gimli",
+                          "value": "song of Gloin",
+                        },
+                        Object {
+                          "name": "Legolas",
+                          "value": "Greenleaf",
+                        },
+                        Object {
+                          "name": "Boromir",
+                          "value": "son of Denethor",
+                        },
+                        Object {
+                          "name": "Aragorn",
+                          "value": "son of Arathorn",
+                        },
+                      ],
+                    }
+                  }
+                  factName="Peregrin"
+                  factValue="Took"
+                  isSubFact={true}
+                />
+              </td>
+            </tr>
+            <tr
+              key="Gimli"
+            >
+              <td
+                className="pf-c-table__check nested-fact"
+              >
+                <Checkbox
+                  className=""
+                  id="fact-8"
+                  isChecked={false}
+                  isDisabled={false}
+                  isValid={true}
+                  name={8}
+                  onChange={[Function]}
+                />
+              </td>
+              <td>
+                <p
+                  className="child-row"
+                >
+                  Gimli
+                </p>
+              </td>
+              <td>
+                son of Gloin
+              </td>
+              <td>
+                <Connect(FactKebab)
+                  fact={
+                    Object {
+                      "name": "The Fellowship of the Ring",
+                      "values": Array [
+                        Object {
+                          "name": "Frodo",
+                          "value": "Baggins",
+                        },
+                        Object {
+                          "name": "Samwise",
+                          "value": "Gamgee",
+                        },
+                        Object {
+                          "name": "Gandalf",
+                          "value": "the Grey",
+                        },
+                        Object {
+                          "name": "Meriadoc",
+                          "value": "Brandybuck",
+                        },
+                        Object {
+                          "name": "Peregrin",
+                          "value": "Took",
+                        },
+                        Object {
+                          "name": "Gimli",
+                          "value": "song of Gloin",
+                        },
+                        Object {
+                          "name": "Legolas",
+                          "value": "Greenleaf",
+                        },
+                        Object {
+                          "name": "Boromir",
+                          "value": "son of Denethor",
+                        },
+                        Object {
+                          "name": "Aragorn",
+                          "value": "son of Arathorn",
+                        },
+                      ],
+                    }
+                  }
+                  factName="Gimli"
+                  factValue="son of Gloin"
+                  isSubFact={true}
+                />
+              </td>
+            </tr>
+            <tr
+              key="Legolas"
+            >
+              <td
+                className="pf-c-table__check nested-fact"
+              >
+                <Checkbox
+                  className=""
+                  id="fact-9"
+                  isChecked={false}
+                  isDisabled={false}
+                  isValid={true}
+                  name={9}
+                  onChange={[Function]}
+                />
+              </td>
+              <td>
+                <p
+                  className="child-row"
+                >
+                  Legolas
+                </p>
+              </td>
+              <td>
+                Greenleaf
+              </td>
+              <td>
+                <Connect(FactKebab)
+                  fact={
+                    Object {
+                      "name": "The Fellowship of the Ring",
+                      "values": Array [
+                        Object {
+                          "name": "Frodo",
+                          "value": "Baggins",
+                        },
+                        Object {
+                          "name": "Samwise",
+                          "value": "Gamgee",
+                        },
+                        Object {
+                          "name": "Gandalf",
+                          "value": "the Grey",
+                        },
+                        Object {
+                          "name": "Meriadoc",
+                          "value": "Brandybuck",
+                        },
+                        Object {
+                          "name": "Peregrin",
+                          "value": "Took",
+                        },
+                        Object {
+                          "name": "Gimli",
+                          "value": "song of Gloin",
+                        },
+                        Object {
+                          "name": "Legolas",
+                          "value": "Greenleaf",
+                        },
+                        Object {
+                          "name": "Boromir",
+                          "value": "son of Denethor",
+                        },
+                        Object {
+                          "name": "Aragorn",
+                          "value": "son of Arathorn",
+                        },
+                      ],
+                    }
+                  }
+                  factName="Legolas"
+                  factValue="Greenleaf"
+                  isSubFact={true}
+                />
+              </td>
+            </tr>
+            <tr
+              key="Boromir"
+            >
+              <td
+                className="pf-c-table__check nested-fact"
+              >
+                <Checkbox
+                  className=""
+                  id="fact-10"
+                  isChecked={false}
+                  isDisabled={false}
+                  isValid={true}
+                  name={10}
+                  onChange={[Function]}
+                />
+              </td>
+              <td>
+                <p
+                  className="child-row"
+                >
+                  Boromir
+                </p>
+              </td>
+              <td>
+                son of Denethor
+              </td>
+              <td>
+                <Connect(FactKebab)
+                  fact={
+                    Object {
+                      "name": "The Fellowship of the Ring",
+                      "values": Array [
+                        Object {
+                          "name": "Frodo",
+                          "value": "Baggins",
+                        },
+                        Object {
+                          "name": "Samwise",
+                          "value": "Gamgee",
+                        },
+                        Object {
+                          "name": "Gandalf",
+                          "value": "the Grey",
+                        },
+                        Object {
+                          "name": "Meriadoc",
+                          "value": "Brandybuck",
+                        },
+                        Object {
+                          "name": "Peregrin",
+                          "value": "Took",
+                        },
+                        Object {
+                          "name": "Gimli",
+                          "value": "song of Gloin",
+                        },
+                        Object {
+                          "name": "Legolas",
+                          "value": "Greenleaf",
+                        },
+                        Object {
+                          "name": "Boromir",
+                          "value": "son of Denethor",
+                        },
+                        Object {
+                          "name": "Aragorn",
+                          "value": "son of Arathorn",
+                        },
+                      ],
+                    }
+                  }
+                  factName="Boromir"
+                  factValue="son of Denethor"
+                  isSubFact={true}
+                />
+              </td>
+            </tr>
+            <tr
+              key="Aragorn"
+            >
+              <td
+                className="pf-c-table__check nested-fact"
+              >
+                <Checkbox
+                  className=""
+                  id="fact-11"
+                  isChecked={false}
+                  isDisabled={false}
+                  isValid={true}
+                  name={11}
+                  onChange={[Function]}
+                />
+              </td>
+              <td>
+                <p
+                  className="child-row"
+                >
+                  Aragorn
+                </p>
+              </td>
+              <td>
+                son of Arathorn
+              </td>
+              <td>
+                <Connect(FactKebab)
+                  fact={
+                    Object {
+                      "name": "The Fellowship of the Ring",
+                      "values": Array [
+                        Object {
+                          "name": "Frodo",
+                          "value": "Baggins",
+                        },
+                        Object {
+                          "name": "Samwise",
+                          "value": "Gamgee",
+                        },
+                        Object {
+                          "name": "Gandalf",
+                          "value": "the Grey",
+                        },
+                        Object {
+                          "name": "Meriadoc",
+                          "value": "Brandybuck",
+                        },
+                        Object {
+                          "name": "Peregrin",
+                          "value": "Took",
+                        },
+                        Object {
+                          "name": "Gimli",
+                          "value": "song of Gloin",
+                        },
+                        Object {
+                          "name": "Legolas",
+                          "value": "Greenleaf",
+                        },
+                        Object {
+                          "name": "Boromir",
+                          "value": "son of Denethor",
+                        },
+                        Object {
+                          "name": "Aragorn",
+                          "value": "son of Arathorn",
+                        },
+                      ],
+                    }
+                  }
+                  factName="Aragorn"
+                  factValue="son of Arathorn"
+                  isSubFact={true}
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </CardBody>
+    </Card>
+  </Connect(Main)>
+</Fragment>
+`;
+
+exports[`EditBaseline should render loading rows 1`] = `
+<Fragment>
+  <PageHeader>
+    <div>
+      <Skeleton
+        isDark={false}
+        size="lg"
+      />
+    </div>
+  </PageHeader>
+  <Connect(Main)>
+    <Card
+      className="pf-t-light pf-m-opaque-100"
+    >
+      <CardBody>
+        <Connect(EditBaselineToolbar) />
+        <table
+          className="pf-c-table ins-c-table pf-m-compact ins-entity-table drift-table"
+        >
+          <thead>
+            <tr
+              key="edit-baseline-table-header"
+            >
+              <td
+                className="pf-c-table__check"
+              >
+                <Checkbox
+                  className=""
+                  id="select-all"
+                  isChecked={false}
+                  isDisabled={false}
+                  isValid={true}
+                  name="select-all"
+                  onChange={[Function]}
+                />
+              </td>
+              <th
+                className="edit-baseline-header"
+              >
+                <div>
+                  Fact
+                </div>
+              </th>
+              <th
+                className="edit-baseline-header"
+              >
+                <div>
+                  Value
+                </div>
+              </th>
+              <th />
+            </tr>
+          </thead>
+          <tbody
+            key="edit-baseline-table"
+          >
+            <tr>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+              <td>
+                <Skeleton
+                  isDark={false}
+                  size="md"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </CardBody>
+    </Card>
+  </Connect(Main)>
+</Fragment>
+`;
+
+exports[`EditBaseline should render with baseline facts 1`] = `
+<Fragment>
+  <Connect(EditBaselineNameModal) />
+  <PageHeader>
+    <Component>
+      <BreadcrumbItem>
+        <a
+          onClick={[Function]}
+        >
+          Baselines
+        </a>
+      </BreadcrumbItem>
+      <BreadcrumbItem
+        isActive={true}
+      >
+        lotr-baseline
+      </BreadcrumbItem>
+    </Component>
+    <PageHeaderTitle
+      title="lotr-baseline"
+    />
+    <EditAltIcon
+      className="pointer not-active edit-icon-margin"
+      color="currentColor"
+      noVerticalAlign={false}
+      onClick={[Function]}
+      size="sm"
+      title={null}
+    />
+  </PageHeader>
+  <Connect(Main)>
+    <Card
+      className="pf-t-light pf-m-opaque-100"
+    >
+      <CardBody>
+        <Connect(EditBaselineToolbar) />
+        <table
+          className="pf-c-table ins-c-table pf-m-compact ins-entity-table drift-table"
+        >
+          <thead>
+            <tr
+              key="edit-baseline-table-header"
+            >
+              <td
+                className="pf-c-table__check"
+              >
+                <Checkbox
+                  className=""
+                  id="select-all"
+                  isChecked={false}
+                  isDisabled={false}
+                  isValid={true}
+                  name="select-all"
+                  onChange={[Function]}
+                />
+              </td>
+              <th
+                className="edit-baseline-header"
+              >
+                <div>
+                  Fact
+                </div>
+              </th>
+              <th
+                className="edit-baseline-header"
+              >
+                <div>
+                  Value
+                </div>
+              </th>
+              <th />
+            </tr>
+          </thead>
+          <tbody
+            key="edit-baseline-table"
+          >
+            <tr
+              key="Sauron"
+            >
+              <td
+                className="pf-c-table__check"
+              >
+                <Checkbox
+                  className=""
+                  id="fact-0"
+                  isChecked={false}
+                  isDisabled={false}
+                  isValid={true}
+                  name={0}
+                  onChange={[Function]}
+                />
+              </td>
+              <td>
+                Sauron
+              </td>
+              <td>
+                the Dark Lord
+              </td>
+              <td>
+                <Connect(FactKebab)
+                  fact={
+                    Object {
+                      "name": "Sauron",
+                      "value": "the Dark Lord",
+                    }
+                  }
+                  factName="Sauron"
+                  factValue="the Dark Lord"
+                />
+              </td>
+            </tr>
+            <tr
+              key="Galadriel"
+            >
+              <td
+                className="pf-c-table__check"
+              >
+                <Checkbox
+                  className=""
+                  id="fact-1"
+                  isChecked={false}
+                  isDisabled={false}
+                  isValid={true}
+                  name={1}
+                  onChange={[Function]}
+                />
+              </td>
+              <td>
+                Galadriel
+              </td>
+              <td>
+                the Elven Queen
+              </td>
+              <td>
+                <Connect(FactKebab)
+                  fact={
+                    Object {
+                      "name": "Galadriel",
+                      "value": "the Elven Queen",
+                    }
+                  }
+                  factName="Galadriel"
+                  factValue="the Elven Queen"
+                />
+              </td>
+            </tr>
+            <tr
+              key="The Fellowship of the Ring"
+            >
+              <td
+                className="pf-c-table__check"
+              >
+                <Checkbox
+                  className=""
+                  id="category-2"
+                  isChecked={false}
+                  isDisabled={false}
+                  isValid={true}
+                  name={2}
+                  onChange={[Function]}
+                />
+              </td>
+              <td>
+                <AngleRightIcon
+                  className="pointer"
+                  color="currentColor"
+                  noVerticalAlign={false}
+                  onClick={[Function]}
+                  size="sm"
+                  title={null}
+                />
+                 
+                The Fellowship of the Ring
+              </td>
+              <td />
+              <td>
+                <Connect(FactKebab)
+                  fact={
+                    Object {
+                      "name": "The Fellowship of the Ring",
+                      "values": Array [
+                        Object {
+                          "name": "Frodo",
+                          "value": "Baggins",
+                        },
+                        Object {
+                          "name": "Samwise",
+                          "value": "Gamgee",
+                        },
+                        Object {
+                          "name": "Gandalf",
+                          "value": "the Grey",
+                        },
+                        Object {
+                          "name": "Meriadoc",
+                          "value": "Brandybuck",
+                        },
+                        Object {
+                          "name": "Peregrin",
+                          "value": "Took",
+                        },
+                        Object {
+                          "name": "Gimli",
+                          "value": "son of Gloin",
+                        },
+                        Object {
+                          "name": "Legolas",
+                          "value": "Greenleaf",
+                        },
+                        Object {
+                          "name": "Boromir",
+                          "value": "son of Denethor",
+                        },
+                        Object {
+                          "name": "Aragorn",
+                          "value": "son of Arathorn",
+                        },
+                      ],
+                    }
+                  }
+                  factName="The Fellowship of the Ring"
+                  isCategory={true}
+                />
+              </td>
+            </tr>
+          </tbody>
         </table>
       </CardBody>
     </Card>
