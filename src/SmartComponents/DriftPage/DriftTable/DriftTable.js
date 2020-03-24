@@ -65,9 +65,6 @@ export class DriftTable extends Component {
 
         /*eslint-disable camelcase*/
         historicalProfiles.forEach(function(hsp) {
-            let system = systems.find(item => item.id === hsp.system_id);
-            hsp.system_last_updated = system.last_updated;
-
             if (historicalGroups.hasOwnProperty(hsp.system_id)) {
                 historicalGroups[hsp.system_id].push(hsp);
             } else {
