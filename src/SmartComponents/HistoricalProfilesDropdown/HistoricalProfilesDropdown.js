@@ -12,7 +12,6 @@ import { historicProfilesActions } from '../HistoricalProfilesDropdown/redux';
 import HistoricalProfilesCheckbox from './HistoricalProfilesCheckbox/HistoricalProfilesCheckbox';
 import api from '../../api';
 import FetchHistoricalProfilesButton from './FetchHistoricalProfilesButton/FetchHistoricalProfilesButton';
-import moment from 'moment';
 
 export class HistoricalProfilesDropdown extends Component {
     constructor(props) {
@@ -47,18 +46,11 @@ export class HistoricalProfilesDropdown extends Component {
 
     async fetchData(system) {
         let fetchedData = await api.fetchHistoricalData(system.system_id ? system.system_id : system.id);
-
-        /*eslint-disable camelcase*/
-        const filteredProfiles = fetchedData.profiles.filter(profile =>
-            moment.utc(profile.captured_date).format('DD MMM YYYY, HH:mm UTC') !==
-            moment.utc(system.system_last_updated ? system.system_last_updated : system.last_updated).format('DD MMM YYYY, HH:mm UTC')
-        );
-        fetchedData.profiles = filteredProfiles;
+        fetchedData.profiles.shift();
 
         this.setState({
             historicalData: fetchedData
         });
-        /*eslint-enable camelcase*/
 
         this.setState({
             dropDownArray: this.createDropdownArray(this.state.historicalData)

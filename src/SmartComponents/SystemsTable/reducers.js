@@ -20,39 +20,41 @@ function selectedReducer(INVENTORY_ACTIONS, createBaselineModal, historicalProfi
 
             let rows = mergeArraysByKey([ action.payload.results, state.rows ]);
 
-            /*eslint-disable camelcase*/
-            if (!newColumns.find(({ key }) => key === 'historical_profiles') && hasHistoricalDropdown) {
-                newColumns.push({
-                    key: 'historical_profiles',
-                    title: 'Historical profiles',
-                    props: {
-                        width: 10
-                    }
+            if (insights.chrome.isBeta()) {
+                /*eslint-disable camelcase*/
+                if (!newColumns.find(({ key }) => key === 'historical_profiles') && hasHistoricalDropdown) {
+                    newColumns.push({
+                        key: 'historical_profiles',
+                        title: 'Historical profiles',
+                        props: {
+                            width: 10
+                        }
+                    });
+                }
+
+                rows.forEach(function(row) {
+                    let badgeCount = 0;
+                    let systemInfo = {
+                        id: row.id,
+                        last_updated: row.updated
+                    };
+
+                    historicalProfiles.forEach(function(profile) {
+                        if (profile.system_id === row.id) {
+                            badgeCount += 1;
+                        }
+                    });
+
+                    row.historical_profiles = <React.Fragment>
+                        <HistoricalProfilesDropdown
+                            system={ systemInfo }
+                            hasBadge={ true }
+                            badgeCount={ badgeCount }
+                        />
+                    </React.Fragment>;
                 });
+                /*eslint-enable camelcase*/
             }
-
-            rows.forEach(function(row) {
-                let badgeCount = 0;
-                let systemInfo = {
-                    id: row.id,
-                    last_updated: row.updated
-                };
-
-                historicalProfiles.forEach(function(profile) {
-                    if (profile.system_id === row.id) {
-                        badgeCount += 1;
-                    }
-                });
-
-                row.historical_profiles = <React.Fragment>
-                    <HistoricalProfilesDropdown
-                        system={ systemInfo }
-                        hasBadge={ true }
-                        badgeCount={ badgeCount }
-                    />
-                </React.Fragment>;
-            });
-            /*eslint-enable camelcase*/
 
             return {
                 ...state,
