@@ -71,6 +71,11 @@
     }
   }
 
+  .reference-header {
+    border-top: 1px solid #CCC;
+    background: #DEF3FF;
+  }
+
   .baseline-header {
     border-top: 1px solid #CCC;
     background: #FFF;
@@ -101,8 +106,7 @@
     margin-left: 25px;
   }
 
-  .system-updated {
-    padding-left: 25px;
+  .system-updated-and-reference {
     font-size: 14px;
     font-weight: normal;
     position: absolute;
@@ -116,6 +120,14 @@
       margin-right: 5px;
       font-size: 14px;
     }
+  }
+
+  .reference-selector {
+    color: #737679;
+  }
+
+  .reference-selector:hover {
+    color: #151515;
   }
 
   .hsp-dropdown {
@@ -179,6 +191,10 @@
     .unexpected-row:hover .highlight {
       background: rgba(201, 25, 11, 0.28);
     }
+  }
+  .different-fact-cell {
+    border-left: 6px solid rgb(201, 25, 11);
+    border-left-width: medium;
   }
   .drift-table-wrapper {
     overflow: auto;
