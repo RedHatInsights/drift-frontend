@@ -61,7 +61,9 @@ describe('ConnectedAddSystemModal', () => {
             historicProfilesState: {
                 selectedHSPIds: []
             },
-            entities: {}
+            entities: {
+                selectedSystemIds: []
+            }
         };
     });
 

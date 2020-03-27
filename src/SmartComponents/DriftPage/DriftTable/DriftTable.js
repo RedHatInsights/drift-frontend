@@ -19,6 +19,7 @@ import HistoricalProfilesDropdown from '../../HistoricalProfilesDropdown/Histori
 import { compareActions } from '../../modules';
 import { baselinesTableActions } from '../../BaselinesTable/redux';
 import { historicProfilesActions } from '../../HistoricalProfilesDropdown/redux';
+import ReferenceSelector from './ReferenceSelector/ReferenceSelector';
 
 export class DriftTable extends Component {
     constructor(props) {
@@ -29,6 +30,7 @@ export class DriftTable extends Component {
         this.setSystemIds();
         this.setBaselineIds();
         this.setHSPIds();
+        this.setReferenceId();
         this.fetchCompare = this.fetchCompare.bind(this);
         this.removeSystem = this.removeSystem.bind(this);
         this.formatDate = this.formatDate.bind(this);
@@ -38,13 +40,28 @@ export class DriftTable extends Component {
         await window.insights.chrome.auth.getUser();
         const { fetchCompare } = this.props;
 
-        fetchCompare(this.systemIds, this.baselineIds, this.HSPIds);
+        fetchCompare(this.systemIds, this.baselineIds, this.HSPIds, this.referenceId);
+    }
+
+    shiftReferenceToFront = (masterList) => {
+        let index;
+        let systemToMove;
+
+        index = masterList.findIndex((item) => {
+            return item.id === this.referenceId;
+        });
+
+        systemToMove = masterList.splice(index, 1);
+        masterList.unshift(systemToMove[0]);
+
+        return masterList;
     }
 
     formatEntities(systems, baselines, historicalProfiles) {
         /*eslint-disable camelcase*/
         let fullHistoricalSystemList = [];
         let historicalGroups = {};
+        let masterList;
 
         if (systems.length === 0 && baselines.length === 0 && historicalProfiles.length === 0) {
             return [];
@@ -63,7 +80,6 @@ export class DriftTable extends Component {
             return hsp;
         });
 
-        /*eslint-disable camelcase*/
         historicalProfiles.forEach(function(hsp) {
             if (historicalGroups.hasOwnProperty(hsp.system_id)) {
                 historicalGroups[hsp.system_id].push(hsp);
@@ -91,7 +107,13 @@ export class DriftTable extends Component {
         }
         /*eslint-enable camelcase*/
 
-        return baselines.concat(fullHistoricalSystemList);
+        masterList = baselines.concat(fullHistoricalSystemList);
+
+        if (this.referenceId) {
+            masterList = this.shiftReferenceToFront(masterList);
+        }
+
+        return masterList;
     }
 
     setSystemIds() {
@@ -115,6 +137,15 @@ export class DriftTable extends Component {
         selectHistoricProfiles(this.HSPIds);
     }
 
+    setReferenceId() {
+        this.referenceId = queryString.parse(this.props.location.search).reference_id;
+    }
+
+    updateReferenceId = (id) => {
+        this.referenceId = id;
+        this.fetchCompare(this.systemIds, this.baselineIds, this.HSPIds, this.referenceId);
+    }
+
     formatDate(dateString) {
         return moment.utc(dateString).format('DD MMM YYYY, HH:mm UTC');
     }
@@ -134,17 +165,18 @@ export class DriftTable extends Component {
         }
 
         this.props.setSelectedHistoricProfiles(this.HSPIds);
-        this.fetchCompare(this.systemIds, this.baselineIds, this.HSPIds);
+        this.fetchCompare(this.systemIds, this.baselineIds, this.HSPIds, this.referenceId);
     }
 
-    fetchCompare(systemIds, baselineIds, HSPIds) {
+    fetchCompare(systemIds, baselineIds, HSPIds, referenceId) {
         this.systemIds = systemIds;
         this.baselineIds = baselineIds;
         this.HSPIds = HSPIds;
+        this.referenceId = referenceId;
 
-        setHistory(this.props.history, systemIds, baselineIds, HSPIds);
+        setHistory(this.props.history, systemIds, baselineIds, HSPIds, referenceId);
         this.props.setSelectedBaselines(this.baselineIds, 'CHECKBOX');
-        this.props.fetchCompare(systemIds, baselineIds, HSPIds);
+        this.props.fetchCompare(systemIds, baselineIds, HSPIds, referenceId);
     }
 
     renderRows(facts) {
@@ -177,17 +209,26 @@ export class DriftTable extends Component {
     findSystem(fact) {
         let row = [];
         let system = undefined;
+        let className;
 
         this.masterList.forEach(item => {
+            className = [ 'comparison-cell' ];
             system = fact.systems.find(function(sys) {
                 return sys.id === item.id;
             });
 
-            row.push(
-                <td className={ fact.state === 'DIFFERENT' ? 'highlight comparison-cell' : 'comparison-cell' }>
-                    { system.value === null ? 'No Data' : system.value }
-                </td>
-            );
+            if (this.referenceId) {
+                if (system.state === 'DIFFERENT') {
+                    className.push('highlight');
+                    className.push('different-fact-cell');
+                }
+            } else {
+                if (fact.state === 'DIFFERENT') {
+                    className.push('highlight');
+                }
+            }
+
+            row.push(<td className={ className.join(' ') }>{ system.value === null ? 'No Data' : system.value }</td>);
         });
 
         return row;
@@ -256,6 +297,8 @@ export class DriftTable extends Component {
     renderSystemHeaders() {
         let row = [];
         let typeIcon = '';
+        let referenceId = this.referenceId;
+        let updateReferenceId = this.updateReferenceId;
 
         this.masterList.forEach(item => {
             if (item.type === 'system') {
@@ -267,7 +310,15 @@ export class DriftTable extends Component {
             }
 
             row.push(
-                <th header-id={ item.id } key={ item.id } className={ `drift-header ${item.type}-header` }>
+                <th
+                    header-id={ item.id }
+                    key={ item.id }
+                    className={
+                        item.id === referenceId
+                            ? 'drift-header reference-header'
+                            : `drift-header ${item.type}-header`
+                    }
+                >
                     <div>
                         <a onClick={ () => this.removeSystem(item) } className="remove-system-icon">
                             <TimesIcon/>
@@ -278,7 +329,12 @@ export class DriftTable extends Component {
                             { typeIcon }
                         </div>
                         <div className="system-name">{ item.display_name }</div>
-                        <div className="system-updated">
+                        <div className="system-updated-and-reference">
+                            <ReferenceSelector
+                                updateReferenceId={ updateReferenceId }
+                                id={ item.id }
+                                isReference= { item.id === referenceId }
+                            />
                             { item.system_profile_exists === false ?
                                 <Tooltip
                                     position='top'
@@ -411,6 +467,7 @@ export class DriftTable extends Component {
                 <AddSystemModal
                     selectedSystemIds={ systems.map(system => system.id) }
                     confirmModal={ this.fetchCompare }
+                    referenceId={ this.referenceId }
                 />
                 { emptyState && !loading ? this.renderEmptyState() : this.renderTable(filteredCompareData, loading) }
             </React.Fragment>
@@ -436,8 +493,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        fetchCompare: ((systemIds, baselineIds, historicalProfiles) =>
-            dispatch(compareActions.fetchCompare(systemIds, baselineIds, historicalProfiles))
+        fetchCompare: ((systemIds, baselineIds, historicalProfiles, referenceId) =>
+            dispatch(compareActions.fetchCompare(systemIds, baselineIds, historicalProfiles, referenceId))
         ),
         toggleFactSort: (sortType) => dispatch(compareActions.toggleFactSort(sortType)),
         toggleStateSort: (sortType) => dispatch(compareActions.toggleStateSort(sortType)),
