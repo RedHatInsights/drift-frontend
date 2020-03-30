@@ -20,19 +20,25 @@ export class EditBaseline extends Component {
     constructor(props) {
         super(props);
 
+        this.state = {
+            modalOpened: false
+        };
+
         this.fetchBaselineId();
         this.renderBreadcrumb = this.renderBreadcrumb.bind(this);
         this.goToBaselinesList = this.goToBaselinesList.bind(this);
+
+        this.toggleEditNameModal = () => {
+            const { modalOpened } = this.state;
+            const { clearErrorData } = this.props;
+
+            this.setState({ modalOpened: !modalOpened });
+            clearErrorData();
+        };
     }
 
     async componentDidMount() {
         await window.insights.chrome.auth.getUser();
-    }
-
-    componentDidUpdate(prevProps) {
-        if (prevProps.expandedRows.length < this.props.expandedRows.length) {
-            this.setState({ expandedRows: this.props.expandedRows });
-        }
     }
 
     fetchBaselineId() {
@@ -259,17 +265,23 @@ export class EditBaseline extends Component {
     }
 
     render() {
-        const { baselineData, factModalOpened, toggleEditNameModal } = this.props;
+        const { modalOpened } = this.state;
+        const { baselineData, baselineDataLoading, factModalOpened, error } = this.props;
 
         return (
             <React.Fragment>
-                { baselineData !== undefined
+                { baselineData !== undefined && !baselineDataLoading
                     ? <React.Fragment>
-                        <EditBaselineNameModal />
+                        <EditBaselineNameModal
+                            baselineData={ baselineData }
+                            modalOpened={ modalOpened }
+                            toggleEditNameModal={ this.toggleEditNameModal }
+                            error={ error }
+                        />
                         <PageHeader>
                             { this.renderBreadcrumb() }
                             <PageHeaderTitle title={ baselineData ? baselineData.display_name : '' }/>
-                            <EditAltIcon className='pointer not-active edit-icon-margin' onClick={ () => toggleEditNameModal() } />
+                            <EditAltIcon className='pointer not-active edit-icon-margin' onClick={ () => this.toggleEditNameModal() } />
                         </PageHeader>
                     </React.Fragment>
                     : <PageHeader>
@@ -304,9 +316,10 @@ EditBaseline.propTypes = {
     editBaselineTableData: PropTypes.array,
     expandRow: PropTypes.func,
     expandedRows: PropTypes.array,
-    toggleEditNameModal: PropTypes.func,
     selectFact: PropTypes.func,
-    selectAll: PropTypes.bool
+    selectAll: PropTypes.bool,
+    clearErrorData: PropTypes.func,
+    error: PropTypes.object
 };
 
 function mapStateToProps(state) {
@@ -316,7 +329,8 @@ function mapStateToProps(state) {
         factModalOpened: state.editBaselineState.factModalOpened,
         editBaselineTableData: state.editBaselineState.editBaselineTableData,
         expandedRows: state.editBaselineState.expandedRows,
-        selectAll: state.editBaselineState.selectAll
+        selectAll: state.editBaselineState.selectAll,
+        error: state.editBaselineState.error
     };
 }
 
@@ -325,8 +339,8 @@ function mapDispatchToProps(dispatch) {
         clearBaselineData: (tableId) => dispatch(baselinesTableActions.clearBaselineData(tableId)),
         expandRow: (factName) => dispatch(editBaselineActions.expandRow(factName)),
         fetchBaselineData: (baselineUUID) => dispatch(editBaselineActions.fetchBaselineData(baselineUUID)),
-        toggleEditNameModal: () => dispatch(editBaselineActions.toggleEditNameModal()),
-        selectFact: (facts, isSelected) => dispatch(editBaselineActions.selectFact(facts, isSelected))
+        selectFact: (facts, isSelected) => dispatch(editBaselineActions.selectFact(facts, isSelected)),
+        clearErrorData: () => dispatch(editBaselineActions.clearErrorData())
     };
 }
 

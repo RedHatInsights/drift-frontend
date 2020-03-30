@@ -5,7 +5,7 @@ import { Button, Form, FormGroup, Modal, TextInput } from '@patternfly/react-cor
 
 import { editBaselineActions } from '../redux';
 
-class EditBaselineNameModal extends Component {
+export class EditBaselineNameModal extends Component {
     constructor(props) {
         super(props);
 
@@ -40,9 +40,7 @@ class EditBaselineNameModal extends Component {
     cancelModal = () => {
         const { toggleEditNameModal, baselineData } = this.props;
 
-        /*eslint-disable camelcase*/
         this.updateBaselineName(baselineData.display_name);
-        /*eslint-enable camelcase*/
         toggleEditNameModal();
     }
 
@@ -80,13 +78,13 @@ class EditBaselineNameModal extends Component {
     }
 
     render() {
-        const { editNameModalOpened } = this.props;
+        const { modalOpened } = this.props;
 
         return (
             <Modal
                 className='pf-c-modal-box'
                 title="Edit title"
-                isOpen={ editNameModalOpened }
+                isOpen={ modalOpened }
                 onClose={ this.cancelModal }
                 width="auto"
                 isFooterLeftAligned
@@ -112,28 +110,17 @@ class EditBaselineNameModal extends Component {
 }
 
 EditBaselineNameModal.propTypes = {
-    baselineId: PropTypes.string,
-    baselineName: PropTypes.string,
     baselineData: PropTypes.array,
-    editNameModalOpened: PropTypes.bool,
     toggleEditNameModal: PropTypes.func,
+    modalOpened: PropTypes.bool,
     patchBaseline: PropTypes.func,
     error: PropTypes.object
 };
 
-function mapStateToProps(state) {
-    return {
-        baselineData: state.editBaselineState.baselineData,
-        editNameModalOpened: state.editBaselineState.editNameModalOpened,
-        error: state.editBaselineState.error
-    };
-}
-
 function mapDispatchToProps(dispatch) {
     return {
-        toggleEditNameModal: () => dispatch(editBaselineActions.toggleEditNameModal()),
         patchBaseline: (baselineId, newBaselineBody) => dispatch(editBaselineActions.patchBaseline(baselineId, newBaselineBody))
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditBaselineNameModal);
+export default connect(null, mapDispatchToProps)(EditBaselineNameModal);

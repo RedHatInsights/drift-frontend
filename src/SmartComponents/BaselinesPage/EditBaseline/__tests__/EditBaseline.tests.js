@@ -277,17 +277,17 @@ describe('EditBaseline', () => {
 
         it('should render toggle edit name modal', () => {
             props.baselineData = editBaselineFixtures.mockBaselineData1;
-            const toggleEditNameModal = jest.fn();
+            const clearErrorData = jest.fn();
 
             const wrapper = shallow(
                 <EditBaseline
                     { ...props }
-                    toggleEditNameModal={ toggleEditNameModal }
+                    clearErrorData={ clearErrorData }
                 />
             );
 
             wrapper.find('[className="pointer not-active edit-icon-margin"]').simulate('click');
-            expect(toggleEditNameModal).toHaveBeenCalled();
+            expect(clearErrorData).toHaveBeenCalled();
         });
     });
 });
@@ -386,7 +386,7 @@ describe('ConnectedEditBaseline', () => {
         ]);
     });
 
-    it('should call toggleEditNameModal', () => {
+    it('should call clearErrorData', () => {
         initialState.editBaselineState.baselineData = editBaselineFixtures.mockBaselineData1;
         const store = mockStore(initialState);
 
@@ -402,7 +402,7 @@ describe('ConnectedEditBaseline', () => {
         wrapper.find('EditAltIcon').simulate('click');
         expect(actions).toEqual([
             { type: 'FETCH_BASELINE_DATA', payload: api.getBaselineData('blah') },
-            { type: 'TOGGLE_EDIT_NAME_MODAL' }
+            { type: 'CLEAR_ERROR_DATA' }
         ]);
     });
 
