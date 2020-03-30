@@ -6,7 +6,6 @@ const initialState = {
     baselineData: undefined,
     baselineDataLoading: false,
     editBaselineTableData: [],
-    editNameModalOpened: false,
     error: {},
     expandedRows: [],
     factModalOpened: false,
@@ -25,12 +24,6 @@ export function editBaselineReducer(state = initialState, action) {
     let response;
 
     switch (action.type) {
-        case `${types.TOGGLE_EDIT_NAME_MODAL}`:
-            return {
-                ...state,
-                editNameModalOpened: !state.editNameModalOpened,
-                error: {}
-            };
         case `${types.FETCH_BASELINE_DATA}_PENDING`:
             return {
                 ...state,
@@ -122,6 +115,12 @@ export function editBaselineReducer(state = initialState, action) {
                 selectAll: isAllSelected
             };
         }
+
+        case `${types.CLEAR_ERROR_DATA}`:
+            return {
+                ...state,
+                error: {}
+            };
 
         default:
             return state;

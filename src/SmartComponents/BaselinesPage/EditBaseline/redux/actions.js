@@ -22,12 +22,6 @@ function patchBaseline(baselineId, apiBody) {
     };
 }
 
-function toggleEditNameModal() {
-    return {
-        type: types.TOGGLE_EDIT_NAME_MODAL
-    };
-}
-
 function toggleFactModal() {
     return {
         type: types.TOGGLE_FACT_MODAL
@@ -48,12 +42,18 @@ function selectFact(ids, isSelected) {
     };
 }
 
+function clearErrorData() {
+    return {
+        type: types.CLEAR_ERROR_DATA
+    };
+}
+
 export default {
     expandRow,
     fetchBaselineData,
     patchBaseline,
     setFactData,
-    toggleEditNameModal,
     toggleFactModal,
-    selectFact
+    selectFact,
+    clearErrorData
 };
