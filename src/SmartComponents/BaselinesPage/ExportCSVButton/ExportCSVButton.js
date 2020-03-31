@@ -36,8 +36,8 @@ ExportCSVButton.propTypes = {
 
 function mapStateToProps(state) {
     return {
-        baselineTableData: state.baselinesTableState.baselineTableData,
-        baselineData: state.baselinesTableState.baselineData
+        baselineTableData: state.baselinesTableState.checkboxTable.baselineTableData,
+        baselineData: state.baselinesTableState.checkboxTable.baselineData
     };
 }
 
