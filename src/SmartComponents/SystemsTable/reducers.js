@@ -27,6 +27,7 @@ function selectedReducer(INVENTORY_ACTIONS, createBaselineModal, historicalProfi
                         key: 'historical_profiles',
                         title: 'Historical profiles',
                         props: {
+                            isStatic: true,
                             width: 10
                         }
                     });
