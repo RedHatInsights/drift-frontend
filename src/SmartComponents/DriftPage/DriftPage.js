@@ -39,7 +39,7 @@ export class DriftPage extends Component {
         return (
             <React.Fragment>
                 <PageHeader>
-                    <PageHeaderTitle title='System Comparison'/>
+                    <PageHeaderTitle title='Comparison'/>
                 </PageHeader>
                 <Main>
                     <ErrorAlert />
