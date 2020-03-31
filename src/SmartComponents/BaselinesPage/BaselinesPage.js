@@ -88,7 +88,7 @@ export class BaselinesPage extends Component {
                     <EmptyStateBody>
                         You currently have no baselines displayed.
                         <br/>
-                        Create a baseline to use in your System Comparison analysis.
+                        Create a baseline to use in your Comparison analysis.
                     </EmptyStateBody>
                     <CreateBaselineButton />
                 </EmptyState>
