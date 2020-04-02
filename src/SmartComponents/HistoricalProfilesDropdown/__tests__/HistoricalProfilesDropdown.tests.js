@@ -15,7 +15,8 @@ describe('HistoricalProfilesDropdown', () => {
         props = {
             selectedHSPIds: [],
             selectedBaselineIds: [],
-            dropdownDirection: DropdownDirection.down
+            dropdownDirection: DropdownDirection.down,
+            badgeCount: 0
         };
     });
 
@@ -40,6 +41,19 @@ describe('HistoricalProfilesDropdown', () => {
                 <HistoricalProfilesDropdown { ...props }/>
             );
             expect(wrapper.find('Dropdown').prop('direction')).toBe('up');
+        });
+
+        it('should set badgeCount to 0', () => {
+            props.selectedHSPIds = [ 'abcd1234' ];
+            props.badgeCount = 1;
+
+            const wrapper = shallow(
+                <HistoricalProfilesDropdown { ...props }/>
+            );
+
+            expect(wrapper.state('badgeCount')).toBe(1);
+            wrapper.setProps({ selectedHSPIds: []});
+            expect(wrapper.state('badgeCount')).toBe(0);
         });
     });
 });

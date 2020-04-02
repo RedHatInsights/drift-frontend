@@ -35,6 +35,12 @@ export class HistoricalProfilesDropdown extends Component {
         };
     }
 
+    componentDidUpdate(prevProps) {
+        if (prevProps.selectedHSPIds.length > 0 && this.props.selectedHSPIds.length === 0) {
+            this.setState({ badgeCount: 0 });
+        }
+    }
+
     fetchCompare = () => {
         const { systemIds, selectedBaselineIds, selectedHSPIds, referenceId, fetchCompare } = this.props;
 
