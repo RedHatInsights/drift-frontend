@@ -1,3 +1,4 @@
+/*eslint-disable camelcase*/
 import editBaselineHelpers from '../helpers';
 import editBaselineFixtures from './helpers.fixtures';
 
@@ -63,4 +64,70 @@ describe('edit baseline helpers', () => {
     it('isCategory returns true', () => {
         expect(editBaselineHelpers.isCategory(editBaselineFixtures.mockBaselineTableData1[2])).toEqual(true);
     });
+
+    it('makeAddFactPatch adds single fact', () => {
+        let newFactData = { name: 'Elrond', value: 'Half-Elven' };
+        let originalAPIBody = editBaselineFixtures.mockBaselineData1;
+        let newAPIBody = {
+            display_name: 'lotr-baseline',
+            facts_patch: [
+                { op: 'add', path: '/3', value:
+                    { name: 'Elrond', value: 'Half-Elven' }
+                }
+            ]
+        };
+
+        expect(editBaselineHelpers.makeAddFactPatch(newFactData, originalAPIBody)).toEqual(newAPIBody);
+    });
+
+    it('makeAddFactPatch adds category', () => {
+        let newFactData = { name: 'Sarumans Army', values: []};
+        let originalAPIBody = editBaselineFixtures.mockBaselineData1;
+        let newAPIBody = {
+            display_name: 'lotr-baseline',
+            facts_patch: [
+                { op: 'add', path: '/3', value:
+                    { name: 'Sarumans Army', values: []}
+                }
+            ]
+        };
+
+        expect(editBaselineHelpers.makeAddFactPatch(newFactData, originalAPIBody)).toEqual(newAPIBody);
+    });
+
+    it('makeAddFactPatch adds fact to category', () => {
+        let newFactData = { name: 'The Fellowship of the Ring', values: [
+            { name: 'Gollum', value: 'Smeagol' }
+        ]};
+        let originalAPIBody = editBaselineFixtures.mockBaselineData1;
+        let newAPIBody = {
+            display_name: 'lotr-baseline',
+            facts_patch: [
+                { op: 'add', path: '/2/values/0', value:
+                    { name: 'Gollum', value: 'Smeagol' }
+                }
+            ]
+        };
+
+        expect(editBaselineHelpers.makeAddFactPatch(newFactData, originalAPIBody)).toEqual(newAPIBody);
+    });
+
+    it('makeDeleteFactsPatch removes single fact', () => {
+        let factsToDelete = editBaselineFixtures.mockBaselineTableData1;
+        factsToDelete.forEach(fact => fact.selected = false);
+        factsToDelete[0].selected = true;
+        let originalAPIBody = editBaselineFixtures.mockBaselineData1;
+        let newAPIBody = {
+            display_name: 'lotr-baseline',
+            facts_patch: [
+                { op: 'test', path: '/0', value:
+                    { name: 'Sauron', value: 'the Dark Lord' }
+                },
+                { op: 'remove', path: '/0' }
+            ]
+        };
+
+        expect(editBaselineHelpers.makeDeleteFactsPatch(factsToDelete, originalAPIBody)).toEqual(newAPIBody);
+    });
 });
+/*eslint-enable camelcase*/
