@@ -5,9 +5,7 @@ import { Badge, Dropdown, DropdownItem, DropdownToggle, DropdownPosition } from 
 import { HistoryIcon } from '@patternfly/react-icons';
 import PropTypes from 'prop-types';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
-import { setHistory } from '../../Utilities/SetHistory';
 
-import { compareActions } from '../modules';
 import { historicProfilesActions } from '../HistoricalProfilesDropdown/redux';
 import HistoricalProfilesCheckbox from './HistoricalProfilesCheckbox/HistoricalProfilesCheckbox';
 import api from '../../api';
@@ -38,10 +36,9 @@ export class HistoricalProfilesDropdown extends Component {
     }
 
     fetchCompare = () => {
-        const { systemIds, selectedBaselineIds, selectedHSPIds, fetchCompare, history } = this.props;
+        const { systemIds, selectedBaselineIds, selectedHSPIds, referenceId, fetchCompare } = this.props;
 
-        setHistory(history, systemIds, selectedBaselineIds, selectedHSPIds);
-        fetchCompare(systemIds, selectedBaselineIds, selectedHSPIds);
+        fetchCompare(systemIds, selectedBaselineIds, selectedHSPIds, referenceId);
     }
 
     async fetchData(system) {
@@ -142,6 +139,7 @@ export class HistoricalProfilesDropdown extends Component {
                     isOpen={ isOpen }
                     isPlain
                     position={ DropdownPosition.right }
+                    direction={ this.props.dropdownDirection }
                     dropdownItems={ dropDownArray }
                 />
                 { hasBadge ? this.renderBadge() : null }
@@ -154,13 +152,14 @@ HistoricalProfilesDropdown.propTypes = {
     fetchHistoricalData: PropTypes.func,
     system: PropTypes.object,
     fetchCompare: PropTypes.func,
-    history: PropTypes.object,
     systemIds: PropTypes.array,
     selectedHSPIds: PropTypes.array,
     selectedBaselineIds: PropTypes.array,
     selectHistoricProfiles: PropTypes.func,
     hasBadge: PropTypes.bool,
-    badgeCount: PropTypes.number
+    badgeCount: PropTypes.number,
+    referenceId: PropTypes.string,
+    dropdownDirection: PropTypes.object
 };
 
 function mapStateToProps(state) {
@@ -172,9 +171,6 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        fetchCompare: ((systemIds, selectedBaselineIds, selectedHSPIds) =>
-            dispatch(compareActions.fetchCompare(systemIds, selectedBaselineIds, selectedHSPIds))
-        ),
         selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds))
     };
 }

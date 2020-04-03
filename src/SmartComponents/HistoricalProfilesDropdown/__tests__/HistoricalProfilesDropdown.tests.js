@@ -5,6 +5,7 @@ import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import toJson from 'enzyme-to-json';
 
+import { DropdownDirection } from '@patternfly/react-core';
 import ConnectedHistoricalProfilesDropdown, { HistoricalProfilesDropdown } from '../HistoricalProfilesDropdown';
 
 describe('HistoricalProfilesDropdown', () => {
@@ -13,7 +14,8 @@ describe('HistoricalProfilesDropdown', () => {
     beforeEach(() => {
         props = {
             selectedHSPIds: [],
-            selectedBaselineIds: []
+            selectedBaselineIds: [],
+            dropdownDirection: DropdownDirection.down
         };
     });
 
@@ -29,6 +31,16 @@ describe('HistoricalProfilesDropdown', () => {
             <HistoricalProfilesDropdown { ...props }/>
         );
         expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    describe('API', () => {
+        it('should render DropdownDirection.up', () => {
+            props.dropdownDirection = DropdownDirection.up;
+            const wrapper = shallow(
+                <HistoricalProfilesDropdown { ...props }/>
+            );
+            expect(wrapper.find('Dropdown').prop('direction')).toBe('up');
+        });
     });
 });
 

@@ -86,6 +86,10 @@
     background-color: rgb(237, 237, 237);
   }
 
+  .historical-system-profile-dropdown {
+    max-height: 21px;
+  }
+
   .historical-system-profile-header {
     border-top: 1px solid #CCC;
     background-color: #f9e0a2;
@@ -296,10 +300,6 @@
     }
   }
 
-  .historical-system-profile-dropdown {
-    max-height: 21px;
-  }
-
   .hsp-dropdown-icon {
     color: #0066CC;
   }
@@ -333,6 +333,13 @@
   min-width: 900px;
   max-width: 1200px;
   max-height: 600px;
+}
+
+.add-system-modal-dropdowns {
+  .pf-c-dropdown__menu {
+    max-height: 200px;
+    overflow-y: auto;
+  }
 }
 
 .drift-toolbar {

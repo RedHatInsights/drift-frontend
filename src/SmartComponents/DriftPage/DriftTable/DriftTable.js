@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { EmptyState, EmptyStateBody, EmptyStateIcon, Title, Tooltip } from '@patternfly/react-core';
+import { DropdownDirection, EmptyState, EmptyStateBody, EmptyStateIcon, Title, Tooltip } from '@patternfly/react-core';
 import queryString from 'query-string';
 import { ClockIcon, TimesIcon, ExclamationTriangleIcon, PlusCircleIcon, ServerIcon, BlueprintIcon } from '@patternfly/react-icons';
 import { AngleDownIcon, AngleRightIcon, LongArrowAltUpIcon, LongArrowAltDownIcon, ArrowsAltVIcon } from '@patternfly/react-icons';
@@ -162,6 +162,10 @@ export class DriftTable extends Component {
             this.baselineIds = this.baselineIds.filter(id => id !== item.id);
         } else if (item.type === 'historical-system-profile') {
             this.HSPIds = this.HSPIds.filter(id => id !== item.id);
+        }
+
+        if (item.id === this.referenceId) {
+            this.referenceId = undefined;
         }
 
         this.props.setSelectedHistoricProfiles(this.HSPIds);
@@ -354,6 +358,9 @@ export class DriftTable extends Component {
                                     ? <HistoricalProfilesDropdown
                                         system={ item }
                                         systemIds={ this.systemIds }
+                                        referenceId={ referenceId }
+                                        fetchCompare={ this.fetchCompare }
+                                        dropdownDirection={ DropdownDirection.down }
                                     />
                                     : null
                                 : null
