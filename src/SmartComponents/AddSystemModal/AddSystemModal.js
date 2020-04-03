@@ -56,9 +56,7 @@ export class AddSystemModal extends Component {
             entities.selectedSystemIds,
             selectedBaselineIds,
             selectedHSPIds,
-            entities.selectedSystemIds.includes(referenceId)
-                ? referenceId
-                : undefined
+            referenceId
         );
         toggleModal();
     }
@@ -88,6 +86,7 @@ export class AddSystemModal extends Component {
         return (
             <React.Fragment>
                 <Modal
+                    className="add-system-modal-dropdowns"
                     title="Choose systems"
                     isOpen={ addSystemModalOpened }
                     onClose={ this.cancelSelection }

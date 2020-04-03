@@ -1,4 +1,5 @@
 import React from 'react';
+import { DropdownDirection } from '@patternfly/react-core';
 import { mergeArraysByKey } from '@redhat-cloud-services/frontend-components-utilities/files/helpers';
 import { applyReducerHash } from '@redhat-cloud-services/frontend-components-utilities/files/ReducerRegistry';
 import HistoricalProfilesDropdown from '../HistoricalProfilesDropdown/HistoricalProfilesDropdown';
@@ -51,6 +52,7 @@ function selectedReducer(INVENTORY_ACTIONS, createBaselineModal, historicalProfi
                             system={ systemInfo }
                             hasBadge={ true }
                             badgeCount={ badgeCount }
+                            dropdownDirection={ DropdownDirection.up }
                         />
                     </React.Fragment>;
                 });

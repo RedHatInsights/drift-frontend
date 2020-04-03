@@ -98,7 +98,6 @@ exports[`ConnectedHistoricalProfilesDropdown should render correctly 1`] = `
           }
         >
           <HistoricalProfilesDropdown
-            fetchCompare={[Function]}
             history={
               Object {
                 "action": "POP",
@@ -235,6 +234,7 @@ exports[`ConnectedHistoricalProfilesDropdown should render correctly 1`] = `
                   component={[Function]}
                   componentProps={
                     Object {
+                      "direction": undefined,
                       "dropdownItems": Array [
                         <Skeleton
                           className="hsp-dropdown-loading hsp-button"
@@ -479,6 +479,7 @@ exports[`ConnectedHistoricalProfilesDropdown should render correctly 1`] = `
 exports[`HistoricalProfilesDropdown should render correctly 1`] = `
 <Fragment>
   <Dropdown
+    direction="down"
     dropdownItems={
       Array [
         <Skeleton
@@ -524,10 +525,12 @@ exports[`HistoricalProfilesDropdown should render correctly 1`] = `
 
 exports[`HistoricalProfilesDropdown should render mount correctly 1`] = `
 <HistoricalProfilesDropdown
+  dropdownDirection="down"
   selectedBaselineIds={Array []}
   selectedHSPIds={Array []}
 >
   <Dropdown
+    direction="down"
     dropdownItems={
       Array [
         <Skeleton
@@ -569,6 +572,7 @@ exports[`HistoricalProfilesDropdown should render mount correctly 1`] = `
     }
   >
     <Component
+      direction="down"
       dropdownItems={
         Array [
           <Skeleton
@@ -613,6 +617,7 @@ exports[`HistoricalProfilesDropdown should render mount correctly 1`] = `
         component={[Function]}
         componentProps={
           Object {
+            "direction": "down",
             "dropdownItems": Array [
               <Skeleton
                 className="hsp-dropdown-loading hsp-button"
