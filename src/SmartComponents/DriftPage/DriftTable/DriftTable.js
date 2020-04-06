@@ -421,9 +421,9 @@ export class DriftTable extends Component {
         let expandIcon;
 
         if (expandedRows.includes(factName)) {
-            expandIcon = <AngleDownIcon className="pointer active-blue" onClick={ () => this.props.expandRow(factName) } />;
+            expandIcon = <AngleDownIcon className="carat-margin pointer active-blue" onClick={ () => this.props.expandRow(factName) } />;
         } else {
-            expandIcon = <AngleRightIcon className="pointer" onClick={ () => this.props.expandRow(factName) } />;
+            expandIcon = <AngleRightIcon className="carat-margin pointer" onClick={ () => this.props.expandRow(factName) } />;
         }
 
         return expandIcon;

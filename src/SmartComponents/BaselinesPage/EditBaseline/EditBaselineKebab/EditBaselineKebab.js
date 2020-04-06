@@ -5,6 +5,7 @@ import { Dropdown, KebabToggle, DropdownItem } from '@patternfly/react-core';
 
 import DeleteFactModal from '../DeleteFactModal/DeleteFactModal';
 import editBaselineHelpers from '../helpers';
+import deleteFactModalHelpers from '../DeleteFactModal/helpers';
 
 class EditBaselineKebab extends Component {
     constructor(props) {
@@ -56,6 +57,17 @@ class EditBaselineKebab extends Component {
         const { kebabOpened, modalOpened } = this.state;
         const { editBaselineTableData } = this.props;
         let dropdownItems;
+        let categoryMessage;
+        let factMessage;
+        let { categories, facts } = deleteFactModalHelpers.countFacts(editBaselineTableData);
+
+        if (categories > 0) {
+            categoryMessage = categories === 1 ? '1 category' : categories + ' categories';
+        }
+
+        if (facts > 0) {
+            factMessage = facts === 1 ? '1 fact' : facts + ' facts';
+        }
 
         dropdownItems = [
             <DropdownItem
@@ -73,6 +85,8 @@ class EditBaselineKebab extends Component {
                 { modalOpened ? <DeleteFactModal
                     toggleModal={ this.toggleModalOpened.bind(this) }
                     modalOpened={ modalOpened }
+                    categoryMessage={ categoryMessage }
+                    factMessage={ factMessage }
                 /> : null }
                 <Dropdown
                     style={ { float: 'left' } }

@@ -5,7 +5,6 @@ import { Modal, Button } from '@patternfly/react-core';
 
 import { editBaselineActions } from '../redux';
 import editBaselineHelpers from '../helpers';
-import deleteFactModalHelpers from './helpers';
 
 class DeleteFactModal extends Component {
     constructor(props) {
@@ -29,74 +28,9 @@ class DeleteFactModal extends Component {
         this.props.toggleModal();
     }
 
-    buildMessage = (categoryMessage, factMessage) => {
-        let numFactsMessage;
-        let deleteCatMessage;
-        let message;
-
-        if (categoryMessage && factMessage) {
-            numFactsMessage = 'You have selected ' + categoryMessage + ' and ' + factMessage + ' to be deleted.';
-            deleteCatMessage = 'Deleting a category will delete all facts within the category.';
-            message = <div>
-                <span className='display-block'>{ numFactsMessage }</span>
-                <span className='display-block'>{ deleteCatMessage }</span>
-            </div>;
-        } else if (categoryMessage) {
-            numFactsMessage = 'You have selected ' + categoryMessage + ' to be deleted.';
-            deleteCatMessage = 'Deleting a category will delete all facts within the category.';
-            message = <div>
-                <span className='display-block'>{ numFactsMessage }</span>
-                <span className='display-block'>{ deleteCatMessage }</span>
-            </div>;
-        } else if (factMessage) {
-            numFactsMessage = 'You have selected ' + factMessage + ' to be deleted.';
-            message = <div>
-                <span className='display-block'>{ numFactsMessage }</span>
-            </div>;
-        }
-
-        return message;
-    }
-
-    factCountMessage = () => {
-        const { editBaselineTableData } = this.props;
-        let categoryMessage;
-        let factMessage;
-        let message;
-
-        let factCounts = deleteFactModalHelpers.countFacts(editBaselineTableData);
-
-        if (factCounts.categories === 1) {
-            categoryMessage = '1 category';
-        } else if (factCounts.categories > 1) {
-            categoryMessage = factCounts.categories + ' categories';
-        }
-
-        if (factCounts.facts === 1) {
-            factMessage = '1 fact';
-        } else if (factCounts.facts > 1) {
-            factMessage = factCounts.facts + ' facts';
-        }
-
-        message = this.buildMessage(categoryMessage, factMessage);
-
-        return message;
-    }
-
     render() {
         const { modalOpened } = this.state;
-        const { deleteFact, isCategory } = this.props;
-        let message;
-
-        if (deleteFact) {
-            if (isCategory) {
-                message = this.buildMessage('1 category', null);
-            } else {
-                message = this.buildMessage(null, '1 fact');
-            }
-        } else {
-            message = this.factCountMessage();
-        }
+        const { deleteFact, categoryMessage, factMessage } = this.props;
 
         return (
             <Modal
@@ -123,8 +57,15 @@ class DeleteFactModal extends Component {
                     </Button>
                 ] }
             >
-                { message }
-                { <br></br> }
+                You have selected { ' ' }
+                { categoryMessage ? <b>{ categoryMessage }</b> : null }
+                { categoryMessage && factMessage ? ' and ' : null }
+                { factMessage ? <b>{ factMessage }</b> : null }
+                { ' ' } to be deleted.
+                <br></br>
+                { categoryMessage ? 'Deleting a category will delete all facts within the category.' : null }
+                { categoryMessage ? <br></br> : null }
+                <br></br>
                 This cannot be undone.
             </Modal>
         );
@@ -139,7 +80,8 @@ DeleteFactModal.propTypes = {
     baselineData: PropTypes.object,
     toggleModal: PropTypes.func,
     deleteFact: PropTypes.func,
-    isCategory: PropTypes.bool
+    categoryMessage: PropTypes.string,
+    factMessage: PropTypes.string
 };
 
 function mapStateToProps(state) {
