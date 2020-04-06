@@ -213,7 +213,7 @@
     background-clip: padding-box;
     z-index: 1;
     border-right: 0;
-    vertical-align: bottom;
+    vertical-align: top;
   }
   .fixed-column-1 {
     left: 0;
@@ -237,7 +237,7 @@
     border-left: 3px solid #0066CC;
   }
   .child-row {
-    margin-left: 2em;
+    margin-left: 3em;
   }
   .drift-table-scroller {
     overflow-x: scroll;
@@ -344,4 +344,8 @@
 
 .drift-toolbar {
   padding: 16px 32px;
+}
+
+.carat-margin {
+  margin-right: 16px;
 }

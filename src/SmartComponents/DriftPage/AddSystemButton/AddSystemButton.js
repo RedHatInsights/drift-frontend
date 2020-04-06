@@ -20,7 +20,7 @@ export class AddSystemButton extends Component {
                 onClick={ toggleAddSystemModal }
                 isDisabled={ loading ? true : false }
             >
-                { isTable ? 'Add' : 'Add systems or baselines' }
+                { isTable ? 'Add' : 'Add to comparison' }
             </Button>
         );
     }
