@@ -59,6 +59,13 @@ function selectedReducer(INVENTORY_ACTIONS, createBaselineModal, historicalProfi
                 /*eslint-enable camelcase*/
             }
 
+            /* Hide link on systems table */
+            newColumns.forEach(function(column) {
+                if (column.composed) {
+                    delete column.composed;
+                }
+            });
+
             return {
                 ...state,
                 columns: newColumns,
