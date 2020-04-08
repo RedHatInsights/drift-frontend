@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { compareActions } from '../../modules';
 import { Pagination, DropdownDirection } from '@patternfly/react-core';
 
 const perPageOptions = [
@@ -12,7 +11,7 @@ const perPageOptions = [
     { title: '100', value: 100 }
 ];
 
-class TablePagination extends Component {
+export class TablePagination extends Component {
     constructor(props) {
         super(props);
 
@@ -21,19 +20,23 @@ class TablePagination extends Component {
     }
 
     onSetPage(event, page) {
+        const { updatePagination } = this.props;
+
         const { perPage } = this.props;
         const pagination = { page, perPage };
-        this.props.updatePagination(pagination);
+        updatePagination(pagination);
     }
 
     onPerPageSelect(event, perPage) {
+        const { updatePagination } = this.props;
+
         const page = 1;
         const pagination = { page, perPage };
-        this.props.updatePagination(pagination);
+        updatePagination(pagination);
     }
 
     render() {
-        const { totalFacts, page, perPage } = this.props;
+        const { totalFacts, page, perPage, isCompact } = this.props;
 
         return (
             <Pagination
@@ -44,7 +47,7 @@ class TablePagination extends Component {
                 dropDirection={ DropdownDirection.down }
                 onSetPage={ this.onSetPage }
                 onPerPageSelect={ this.onPerPageSelect }
-                isCompact={ true }
+                isCompact={ isCompact }
             />
         );
     }
@@ -54,7 +57,8 @@ TablePagination.propTypes = {
     perPage: PropTypes.number,
     page: PropTypes.number,
     updatePagination: PropTypes.func,
-    totalFacts: PropTypes.number
+    totalFacts: PropTypes.number,
+    isCompact: PropTypes.bool
 };
 
 function mapStateToProps(state) {
@@ -65,10 +69,4 @@ function mapStateToProps(state) {
     };
 }
 
-function mapDispatchToProps(dispatch) {
-    return {
-        updatePagination: ((pagination) => dispatch(compareActions.updatePagination(pagination)))
-    };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(TablePagination);
+export default connect(mapStateToProps, null)(TablePagination);
