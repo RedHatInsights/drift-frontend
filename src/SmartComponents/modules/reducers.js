@@ -24,7 +24,7 @@ const initialState = {
     loading: false,
     expandedRows: [],
     error: {},
-    emptyState: false
+    emptyState: true
 };
 
 export function compareReducer(state = initialState, action) {

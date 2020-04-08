@@ -40,7 +40,9 @@ export class DriftTable extends Component {
         await window.insights.chrome.auth.getUser();
         const { fetchCompare } = this.props;
 
-        fetchCompare(this.systemIds, this.baselineIds, this.HSPIds, this.referenceId);
+        if (this.systemIds.length > 0 || this.baselineIds.length > 0 || this.HSPIds.length > 0) {
+            fetchCompare(this.systemIds, this.baselineIds, this.HSPIds, this.referenceId);
+        }
     }
 
     shiftReferenceToFront = (masterList) => {
