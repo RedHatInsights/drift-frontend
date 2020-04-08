@@ -31,7 +31,7 @@ describe('compare reducer', () => {
                 loading: false,
                 expandedRows: [],
                 error: {},
-                emptyState: false
+                emptyState: true
             }
         );
     });
@@ -70,7 +70,7 @@ describe('compare reducer', () => {
             loading: false,
             expandedRows: [],
             error: {},
-            emptyState: false
+            emptyState: true
         });
     });
 
@@ -1059,7 +1059,7 @@ describe('compare reducer', () => {
                 loading: false,
                 expandedRows: [],
                 error: {},
-                emptyState: false
+                emptyState: true
             }
         );
     });
