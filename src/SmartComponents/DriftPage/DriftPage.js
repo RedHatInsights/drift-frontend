@@ -7,6 +7,7 @@ import { Main, PageHeader, PageHeaderTitle } from '@redhat-cloud-services/fronte
 import { Card, CardBody, Toolbar, ToolbarGroup, ToolbarItem } from '@patternfly/react-core';
 import { errorAlertActions } from '../ErrorAlert/redux';
 import { baselinesTableActions } from '../BaselinesTable/redux';
+import { compareActions } from '../modules';
 
 import DriftTable from './DriftTable/DriftTable';
 import FilterDropDown from './FilterDropDown/FilterDropDown';
@@ -30,7 +31,7 @@ export class DriftPage extends Component {
     }
 
     render() {
-        const { loading, emptyState } = this.props;
+        const { loading, emptyState, updatePagination } = this.props;
 
         if (this.props.error.detail) {
             this.props.toggleErrorAlert();
@@ -68,7 +69,10 @@ export class DriftPage extends Component {
                                             </ToolbarGroup>
                                             <ToolbarGroup className="pf-c-pagination">
                                                 <ToolbarItem>
-                                                    <TablePagination />
+                                                    <TablePagination
+                                                        isCompact={ true }
+                                                        updatePagination={ updatePagination }
+                                                    />
                                                 </ToolbarItem>
                                             </ToolbarGroup>
                                         </Toolbar>
@@ -87,7 +91,10 @@ export class DriftPage extends Component {
                                     <Toolbar className="drift-toolbar">
                                         <ToolbarGroup className="pf-c-pagination">
                                             <ToolbarItem>
-                                                <TablePagination />
+                                                <TablePagination
+                                                    isCompact={ false }
+                                                    updatePagination={ updatePagination }
+                                                />
                                             </ToolbarItem>
                                         </ToolbarGroup>
                                     </Toolbar>
@@ -107,13 +114,15 @@ DriftPage.propTypes = {
     loading: PropTypes.bool,
     toggleErrorAlert: PropTypes.func,
     clearSelectedBaselines: PropTypes.func,
-    emptyState: PropTypes.bool
+    emptyState: PropTypes.bool,
+    updatePagination: PropTypes.func
 };
 
 function mapDispatchToProps(dispatch) {
     return {
         toggleErrorAlert: () => dispatch(errorAlertActions.toggleErrorAlert()),
-        clearSelectedBaselines: (tableId) => dispatch(baselinesTableActions.clearSelectedBaselines(tableId))
+        clearSelectedBaselines: (tableId) => dispatch(baselinesTableActions.clearSelectedBaselines(tableId)),
+        updatePagination: (pagination) => dispatch(compareActions.updatePagination(pagination))
     };
 }
 
