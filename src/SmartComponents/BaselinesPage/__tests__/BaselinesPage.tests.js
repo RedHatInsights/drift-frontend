@@ -26,7 +26,8 @@ describe('BaselinesPage', () => {
         props = {
             loading: false,
             emptyState: false,
-            baselineError: {}
+            baselineError: {},
+            clearEditBaselineData: jest.fn()
         };
     });
 

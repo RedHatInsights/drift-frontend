@@ -62,7 +62,7 @@ exports[`ConnectedDeleteBaselinesModal should render correctly 1`] = `
                   onClick={[Function]}
                   variant="danger"
                 >
-                  Delete Baselines
+                  Delete baselines
                 </Unknown>,
                 <Unknown
                   onClick={[Function]}
@@ -131,7 +131,7 @@ exports[`ConnectedDeleteBaselinesModal should render correctly 1`] = `
                             class="pf-c-button pf-m-danger"
                             type="button"
                           >
-                            Delete Baselines
+                            Delete baselines
                           </button>
                           <button
                             class="pf-c-button pf-m-secondary"
@@ -199,7 +199,7 @@ exports[`ConnectedDeleteBaselinesModal should render correctly 1`] = `
                             class="pf-c-button pf-m-danger"
                             type="button"
                           >
-                            Delete Baselines
+                            Delete baselines
                           </button>
                           <button
                             class="pf-c-button pf-m-secondary"
@@ -240,7 +240,7 @@ exports[`ConnectedDeleteBaselinesModal should render correctly 1`] = `
                       onClick={[Function]}
                       variant="danger"
                     >
-                      Delete Baselines
+                      Delete baselines
                     </Unknown>,
                     <Unknown
                       onClick={[Function]}
@@ -272,6 +272,41 @@ exports[`ConnectedDeleteBaselinesModal should render correctly 1`] = `
 </MemoryRouter>
 `;
 
+exports[`DeleteBaselinesModal should render Delete baseline with baselineId 1`] = `
+<Modal
+  actions={
+    Array [
+      <Unknown
+        onClick={[Function]}
+        variant="danger"
+      >
+        Delete baseline
+      </Unknown>,
+      <Unknown
+        onClick={[Function]}
+        variant="secondary"
+      >
+        Cancel
+      </Unknown>,
+    ]
+  }
+  appendTo={<body />}
+  ariaDescribedById=""
+  className="small-modal-body"
+  hideTitle={false}
+  isFooterLeftAligned={true}
+  isLarge={false}
+  isOpen={true}
+  isSmall={false}
+  onClose={[Function]}
+  showClose={true}
+  title="Delete baseline"
+  width="auto"
+>
+  Deleting a baseline is permanent and cannot be undone.
+</Modal>
+`;
+
 exports[`DeleteBaselinesModal should render correctly 1`] = `
 <Modal
   actions={
@@ -280,7 +315,7 @@ exports[`DeleteBaselinesModal should render correctly 1`] = `
         onClick={[Function]}
         variant="danger"
       >
-        Delete Baselines
+        Delete baselines
       </Unknown>,
       <Unknown
         onClick={[Function]}
@@ -322,7 +357,7 @@ exports[`DeleteBaselinesModal should render mount correctly 1`] = `
           onClick={[Function]}
           variant="danger"
         >
-          Delete Baselines
+          Delete baselines
         </Unknown>,
         <Unknown
           onClick={[Function]}
@@ -391,7 +426,7 @@ exports[`DeleteBaselinesModal should render mount correctly 1`] = `
                     class="pf-c-button pf-m-danger"
                     type="button"
                   >
-                    Delete Baselines
+                    Delete baselines
                   </button>
                   <button
                     class="pf-c-button pf-m-secondary"
@@ -475,7 +510,7 @@ exports[`DeleteBaselinesModal should render mount correctly 1`] = `
                     class="pf-c-button pf-m-danger"
                     type="button"
                   >
-                    Delete Baselines
+                    Delete baselines
                   </button>
                   <button
                     class="pf-c-button pf-m-secondary"
@@ -497,7 +532,7 @@ exports[`DeleteBaselinesModal should render mount correctly 1`] = `
               onClick={[Function]}
               variant="danger"
             >
-              Delete Baselines
+              Delete baselines
             </Unknown>,
             <Unknown
               onClick={[Function]}
@@ -684,7 +719,7 @@ exports[`DeleteBaselinesModal should render mount correctly 1`] = `
                             component={[Function]}
                             componentProps={
                               Object {
-                                "children": "Delete Baselines",
+                                "children": "Delete baselines",
                                 "onClick": [Function],
                                 "variant": "danger",
                               }
@@ -710,7 +745,7 @@ exports[`DeleteBaselinesModal should render mount correctly 1`] = `
                                 tabIndex={null}
                                 type="button"
                               >
-                                Delete Baselines
+                                Delete baselines
                               </button>
                             </Button>
                           </ComponentWithOuia>

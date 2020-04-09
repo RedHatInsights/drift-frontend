@@ -43,6 +43,7 @@ describe('EditBaseline', () => {
             <EditBaseline { ...props } />
         );
 
+        expect(wrapper.find('Checkbox').prop('isDisabled')).toBe(true);
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 
