@@ -131,6 +131,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
               "changeListeners": Array [
                 [Function],
                 [Function],
+                [Function],
               ],
               "cookies": Object {},
             }
@@ -143,6 +144,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
               Cookies {
                 "HAS_DOCUMENT_COOKIE": true,
                 "changeListeners": Array [
+                  [Function],
                   [Function],
                   [Function],
                 ],
@@ -160,6 +162,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                 Cookies {
                   "HAS_DOCUMENT_COOKIE": true,
                   "changeListeners": Array [
+                    [Function],
                     [Function],
                     [Function],
                   ],
@@ -197,6 +200,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                 actions={
                   Array [
                     <Unknown
+                      isDisabled={true}
                       onClick={[Function]}
                       variant="primary"
                     >
@@ -482,6 +486,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                             >
                               <button
                                 class="pf-c-button pf-m-primary"
+                                disabled=""
                                 type="button"
                               >
                                 Submit
@@ -491,7 +496,9 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                         </div>
                       </div>
                     </div>
-                    <div>
+                    <div
+                      aria-hidden="true"
+                    >
                       <div
                         class="pf-c-backdrop"
                       >
@@ -536,6 +543,288 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                             <div
                               class="pf-c-modal-box__body"
                               id="pf-modal-1"
+                            >
+                              <div
+                                class="pf-c-tabs"
+                              >
+                                <button
+                                  aria-label="Scroll left"
+                                  class="pf-c-tabs__scroll-button"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    fill="currentColor"
+                                    height="1em"
+                                    role="img"
+                                    style="vertical-align: -0.125em;"
+                                    viewBox="0 0 256 512"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
+                                      transform=""
+                                    />
+                                  </svg>
+                                </button>
+                                <ul
+                                  class="pf-c-tabs__list"
+                                >
+                                  <li
+                                    class="pf-c-tabs__item pf-m-current"
+                                  >
+                                    <button
+                                      aria-controls="pf-tab-section-0-systems-tab"
+                                      class="pf-c-tabs__button"
+                                      id="pf-tab-0-systems-tab"
+                                    >
+                                      Systems
+                                    </button>
+                                  </li>
+                                  <li
+                                    class="pf-c-tabs__item"
+                                  >
+                                    <button
+                                      aria-controls="pf-tab-section-1-baselines-tab"
+                                      class="pf-c-tabs__button"
+                                      id="pf-tab-1-baselines-tab"
+                                    >
+                                      Baselines
+                                    </button>
+                                  </li>
+                                </ul>
+                                <button
+                                  aria-label="Scroll right"
+                                  class="pf-c-tabs__scroll-button"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    fill="currentColor"
+                                    height="1em"
+                                    role="img"
+                                    style="vertical-align: -0.125em;"
+                                    viewBox="0 0 256 512"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                                      transform=""
+                                    />
+                                  </svg>
+                                </button>
+                              </div>
+                              <section
+                                aria-labelledby="pf-tab-0-systems-tab"
+                                class="pf-c-tab-content"
+                                id="pf-tab-section-0-systems-tab"
+                                role="tabpanel"
+                                tabindex="0"
+                              >
+                                <div>
+                                  Loading...
+                                </div>
+                              </section>
+                              <section
+                                aria-labelledby="pf-tab-1-baselines-tab"
+                                class="pf-c-tab-content"
+                                hidden=""
+                                id="pf-tab-section-1-baselines-tab"
+                                role="tabpanel"
+                                tabindex="0"
+                              >
+                                <div
+                                  class="pf-l-toolbar drift-toolbar"
+                                >
+                                  <div
+                                    class="pf-l-toolbar__group"
+                                  >
+                                    <div
+                                      class="pf-l-toolbar__item"
+                                    >
+                                      <div
+                                        class="ins-c-conditional-filter"
+                                      >
+                                        <input
+                                          aria-invalid="false"
+                                          class="pf-c-form-control ins-c-conditional-filter "
+                                          id="default-input"
+                                          placeholder="Filter by name"
+                                          type="text"
+                                          value=""
+                                          widget-type="InsightsInput"
+                                        />
+                                        <svg
+                                          aria-hidden="true"
+                                          class="ins-c-search-icon"
+                                          fill="currentColor"
+                                          height="1em"
+                                          role="img"
+                                          style="vertical-align: -0.125em;"
+                                          viewBox="0 0 512 512"
+                                          width="1em"
+                                        >
+                                          <path
+                                            d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"
+                                            transform=""
+                                          />
+                                        </svg>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div
+                                    class="pf-l-toolbar__group"
+                                  />
+                                </div>
+                                <table
+                                  aria-label="Baselines Table"
+                                  class="pf-c-table pf-m-grid-md"
+                                  role="grid"
+                                >
+                                  <thead
+                                    class=""
+                                  >
+                                    <tr>
+                                      <td
+                                        class="pf-c-table__check"
+                                        data-key="0"
+                                        data-label=""
+                                      >
+                                        <input
+                                          aria-label="Select all rows"
+                                          name="check-all"
+                                          type="checkbox"
+                                        />
+                                        
+                                      </td>
+                                      <th
+                                        aria-sort="ascending"
+                                        class="pf-c-table__sort pf-m-selected"
+                                        data-key="1"
+                                        data-label="Name"
+                                        scope="col"
+                                      >
+                                        <button
+                                          class="pf-c-button pf-m-plain"
+                                        >
+                                          Name
+                                          <span
+                                            class="pf-c-table__sort-indicator"
+                                          >
+                                            <svg
+                                              aria-hidden="true"
+                                              fill="currentColor"
+                                              height="1em"
+                                              role="img"
+                                              style="vertical-align: -0.125em;"
+                                              viewBox="0 0 256 512"
+                                              width="1em"
+                                            >
+                                              <path
+                                                d="M88 166.059V468c0 6.627 5.373 12 12 12h56c6.627 0 12-5.373 12-12V166.059h46.059c21.382 0 32.09-25.851 16.971-40.971l-86.059-86.059c-9.373-9.373-24.569-9.373-33.941 0l-86.059 86.059c-15.119 15.119-4.411 40.971 16.971 40.971H88z"
+                                                transform=""
+                                              />
+                                            </svg>
+                                          </span>
+                                        </button>
+                                      </th>
+                                      <th
+                                        aria-sort="none"
+                                        class="pf-c-table__sort"
+                                        data-key="2"
+                                        data-label="Last updated"
+                                        scope="col"
+                                      >
+                                        <button
+                                          class="pf-c-button pf-m-plain"
+                                        >
+                                          Last updated
+                                          <span
+                                            class="pf-c-table__sort-indicator"
+                                          >
+                                            <svg
+                                              aria-hidden="true"
+                                              fill="currentColor"
+                                              height="1em"
+                                              role="img"
+                                              style="vertical-align: -0.125em;"
+                                              viewBox="0 0 256 512"
+                                              width="1em"
+                                            >
+                                              <path
+                                                d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                                                transform=""
+                                              />
+                                            </svg>
+                                          </span>
+                                        </button>
+                                      </th>
+                                    </tr>
+                                  </thead>
+                                  <tbody
+                                    class=""
+                                  />
+                                </table>
+                              </section>
+                            </div>
+                            <div
+                              class="pf-c-modal-box__footer pf-m-align-left"
+                            >
+                              <button
+                                class="pf-c-button pf-m-primary"
+                                disabled=""
+                                type="button"
+                              >
+                                Submit
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <div
+                        class="pf-c-backdrop"
+                      >
+                        <div
+                          class="pf-l-bullseye"
+                        >
+                          <div
+                            aria-describedby="pf-modal-2"
+                            aria-label="Choose systems"
+                            aria-modal="true"
+                            class="pf-c-modal-box add-system-modal-dropdowns"
+                            role="dialog"
+                            style="width: auto;"
+                          >
+                            <button
+                              aria-label="Close"
+                              class="pf-c-button pf-m-plain"
+                              type="button"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                fill="currentColor"
+                                height="1em"
+                                role="img"
+                                style="vertical-align: -0.125em;"
+                                viewBox="0 0 352 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                  transform=""
+                                />
+                              </svg>
+                            </button>
+                            <h1
+                              class="pf-c-title pf-m-2xl"
+                            >
+                               
+                              Choose systems
+                               
+                            </h1>
+                            <div
+                              class="pf-c-modal-box__body"
+                              id="pf-modal-2"
                             >
                               <div
                                 class="pf-c-tabs"
@@ -763,6 +1052,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                             >
                               <button
                                 class="pf-c-button pf-m-primary"
+                                disabled=""
                                 type="button"
                               >
                                 Submit
@@ -796,7 +1086,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                           class="pf-l-bullseye"
                         >
                           <div
-                            aria-describedby="pf-modal-1"
+                            aria-describedby="pf-modal-2"
                             aria-label="Choose systems"
                             aria-modal="true"
                             class="pf-c-modal-box add-system-modal-dropdowns"
@@ -832,7 +1122,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                             </h1>
                             <div
                               class="pf-c-modal-box__body"
-                              id="pf-modal-1"
+                              id="pf-modal-2"
                             >
                               <div
                                 class="pf-c-tabs"
@@ -1060,6 +1350,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                             >
                               <button
                                 class="pf-c-button pf-m-primary"
+                                disabled=""
                                 type="button"
                               >
                                 Submit
@@ -1075,6 +1366,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                     actions={
                       Array [
                         <Unknown
+                          isDisabled={true}
                           onClick={[Function]}
                           variant="primary"
                         >
@@ -1085,7 +1377,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                     ariaDescribedById=""
                     className="add-system-modal-dropdowns"
                     hideTitle={false}
-                    id="pf-modal-1"
+                    id="pf-modal-2"
                     isFooterLeftAligned={true}
                     isLarge={false}
                     isOpen={true}
@@ -1116,7 +1408,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                           >
                             <ModalBox
                               className="add-system-modal-dropdowns"
-                              id="pf-modal-1"
+                              id="pf-modal-2"
                               isLarge={false}
                               isSmall={false}
                               style={
@@ -1127,7 +1419,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                               title="Choose systems"
                             >
                               <div
-                                aria-describedby="pf-modal-1"
+                                aria-describedby="pf-modal-2"
                                 aria-label="Choose systems"
                                 aria-modal="true"
                                 className="pf-c-modal-box add-system-modal-dropdowns"
@@ -1235,11 +1527,11 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                   </Title>
                                 </ModalBoxHeader>
                                 <ModalBoxBody
-                                  id="pf-modal-1"
+                                  id="pf-modal-2"
                                 >
                                   <div
                                     className="pf-c-modal-box__body"
-                                    id="pf-modal-1"
+                                    id="pf-modal-2"
                                   >
                                     <Component
                                       activeKey={1}
@@ -2921,6 +3213,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                     className="pf-c-modal-box__footer pf-m-align-left"
                                   >
                                     <Component
+                                      isDisabled={true}
                                       key="confirm"
                                       onClick={[Function]}
                                       variant="primary"
@@ -2930,6 +3223,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                         componentProps={
                                           Object {
                                             "children": "Submit",
+                                            "isDisabled": true,
                                             "onClick": [Function],
                                             "variant": "primary",
                                           }
@@ -2937,6 +3231,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                         consumerContext={null}
                                       >
                                         <Button
+                                          isDisabled={true}
                                           onClick={[Function]}
                                           ouiaContext={
                                             Object {
@@ -2950,7 +3245,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                             aria-disabled={null}
                                             aria-label={null}
                                             className="pf-c-button pf-m-primary"
-                                            disabled={false}
+                                            disabled={true}
                                             onClick={[Function]}
                                             tabIndex={null}
                                             type="button"
@@ -3099,6 +3394,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                 actions={
                   Array [
                     <Unknown
+                      isDisabled={true}
                       onClick={[Function]}
                       variant="primary"
                     >
@@ -3382,6 +3678,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                             >
                               <button
                                 class="pf-c-button pf-m-primary"
+                                disabled=""
                                 type="button"
                               >
                                 Submit
@@ -3679,6 +3976,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                             >
                               <button
                                 class="pf-c-button pf-m-primary"
+                                disabled=""
                                 type="button"
                               >
                                 Submit
@@ -3694,6 +3992,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                     actions={
                       Array [
                         <Unknown
+                          isDisabled={true}
                           onClick={[Function]}
                           variant="primary"
                         >
@@ -5540,6 +5839,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                     className="pf-c-modal-box__footer pf-m-align-left"
                                   >
                                     <Component
+                                      isDisabled={true}
                                       key="confirm"
                                       onClick={[Function]}
                                       variant="primary"
@@ -5549,6 +5849,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                         componentProps={
                                           Object {
                                             "children": "Submit",
+                                            "isDisabled": true,
                                             "onClick": [Function],
                                             "variant": "primary",
                                           }
@@ -5556,6 +5857,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                         consumerContext={null}
                                       >
                                         <Button
+                                          isDisabled={true}
                                           onClick={[Function]}
                                           ouiaContext={
                                             Object {
@@ -5569,7 +5871,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                             aria-disabled={null}
                                             aria-label={null}
                                             className="pf-c-button pf-m-primary"
-                                            disabled={false}
+                                            disabled={true}
                                             onClick={[Function]}
                                             tabIndex={null}
                                             type="button"

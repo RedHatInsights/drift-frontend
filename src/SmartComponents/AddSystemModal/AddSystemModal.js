@@ -80,7 +80,8 @@ export class AddSystemModal extends Component {
     }
 
     render() {
-        const { activeTab, addSystemModalOpened, baselineTableData, historicalProfiles, loading } = this.props;
+        const { activeTab, addSystemModalOpened, baselineTableData, historicalProfiles, loading,
+            entities, selectedBaselineIds, selectedHSPIds } = this.props;
         const { columns } = this.state;
 
         return (
@@ -96,7 +97,13 @@ export class AddSystemModal extends Component {
                         <Button
                             key="confirm"
                             variant="primary"
-                            onClick={ this.confirmModal }>
+                            onClick={ this.confirmModal }
+                            isDisabled={
+                                (entities && entities.selectedSystemIds && entities.selectedSystemIds.length === 0) &&
+                                selectedBaselineIds.length === 0 &&
+                                selectedHSPIds.length === 0
+                            }
+                        >
                             Submit
                         </Button>
                     ] }

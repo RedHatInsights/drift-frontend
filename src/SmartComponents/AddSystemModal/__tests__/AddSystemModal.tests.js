@@ -81,6 +81,20 @@ describe('ConnectedAddSystemModal', () => {
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 
+    it('should render submit button disabled', () => {
+        const store = mockStore(initialState);
+
+        const wrapper = mount(
+            <MemoryRouter keyLength={ 0 }>
+                <Provider store={ store }>
+                    <ConnectedAddSystemModal />
+                </Provider>
+            </MemoryRouter>
+        );
+
+        expect(wrapper.find('.pf-c-button').at(5).prop('disabled')).toBe(true);
+    });
+
     it('should render baselines correctly', () => {
         initialState.addSystemModalState.activeTab = 1;
         const store = mockStore(initialState);
@@ -96,9 +110,52 @@ describe('ConnectedAddSystemModal', () => {
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 
-    it('should confirm modal', () => {
+    it('should confirm modal with one system selected', () => {
         const confirmModal = jest.fn();
         const toggleModal = jest.fn();
+        initialState.entities.selectedSystemIds = [ 'abcd1234' ];
+        const store = mockStore(initialState);
+
+        const wrapper = mount(
+            <MemoryRouter keyLength={ 0 }>
+                <Provider store={ store }>
+                    <ConnectedAddSystemModal
+                        confirmModal={ confirmModal }
+                        toggleModal={ toggleModal }
+                    />
+                </Provider>
+            </MemoryRouter>
+        );
+
+        wrapper.find('.pf-c-button').at(5).simulate('click');
+        expect(confirmModal).toHaveBeenCalledTimes(1);
+    });
+
+    it('should confirm modal with one baseline selected', () => {
+        const confirmModal = jest.fn();
+        const toggleModal = jest.fn();
+        initialState.baselinesTableState.checkboxTable.selectedBaselineIds = [ 'abcd1234' ];
+        const store = mockStore(initialState);
+
+        const wrapper = mount(
+            <MemoryRouter keyLength={ 0 }>
+                <Provider store={ store }>
+                    <ConnectedAddSystemModal
+                        confirmModal={ confirmModal }
+                        toggleModal={ toggleModal }
+                    />
+                </Provider>
+            </MemoryRouter>
+        );
+
+        wrapper.find('.pf-c-button').at(5).simulate('click');
+        expect(confirmModal).toHaveBeenCalledTimes(1);
+    });
+
+    it('should confirm modal with one HSP selected', () => {
+        const confirmModal = jest.fn();
+        const toggleModal = jest.fn();
+        initialState.historicProfilesState.selectedHSPIds = [ 'abcd1234' ];
         const store = mockStore(initialState);
 
         const wrapper = mount(
