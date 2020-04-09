@@ -154,7 +154,7 @@ export class EditBaseline extends Component {
     }
 
     renderCheckbox = (fact) => {
-        const { selectAll } = this.props;
+        const { selectAll, editBaselineTableData } = this.props;
         let id;
 
         if (editBaselineHelpers.isCategory(fact)) {
@@ -168,6 +168,7 @@ export class EditBaseline extends Component {
                     onChange={ this.onSelect }
                     id='select-all'
                     name='select-all'
+                    isDisabled={ editBaselineTableData.length === 0 ? true : false }
                 />
             );
         }

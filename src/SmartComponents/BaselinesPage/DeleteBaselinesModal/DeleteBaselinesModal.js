@@ -51,10 +51,12 @@ export class DeleteBaselinesModal extends Component {
 
     render() {
         const { modalOpened } = this.state;
+        const { baselineId, selectedBaselineIds } = this.props;
+        const deleteMessage = baselineId || selectedBaselineIds.length === 1 ? 'Delete baseline' : 'Delete baselines';
 
         return (
             <Modal
-                title="Delete baselines"
+                title={ deleteMessage }
                 className="small-modal-body"
                 isOpen={ modalOpened }
                 onClose={ this.toggleModal }
@@ -66,7 +68,7 @@ export class DeleteBaselinesModal extends Component {
                         variant="danger"
                         onClick={ this.deleteBaselines }
                     >
-                    Delete Baselines
+                        { deleteMessage }
                     </Button>,
                     <Button
                         key="cancel"

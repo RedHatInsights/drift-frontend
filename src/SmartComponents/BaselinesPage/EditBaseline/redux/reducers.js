@@ -38,6 +38,13 @@ export function editBaselineReducer(state = initialState, action) {
                 editBaselineTableData: newEditBaselineTableData,
                 selectAll: false
             };
+        case `${types.CLEAR_EDIT_BASELINE_DATA}`:
+            return {
+                ...state,
+                baselineData: undefined,
+                editBaselineTableData: [],
+                expandedRows: []
+            };
         case `${types.PATCH_BASELINE}_PENDING`:
             return {
                 ...state,

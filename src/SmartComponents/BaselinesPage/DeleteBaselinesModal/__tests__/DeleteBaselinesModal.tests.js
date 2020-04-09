@@ -27,6 +27,14 @@ describe('DeleteBaselinesModal', () => {
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 
+    it('should render Delete baseline with baselineId', () => {
+        props.baselineId = 'abcd1234';
+        const wrapper = shallow(
+            <DeleteBaselinesModal { ...props }/>
+        );
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
     it('should render mount correctly', () =>{
         const wrapper = mount(
             <DeleteBaselinesModal { ...props }/>

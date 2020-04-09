@@ -13,6 +13,7 @@ import BaselinesTable from '../BaselinesTable/BaselinesTable';
 import CreateBaselineButton from './CreateBaselineButton/CreateBaselineButton';
 import CreateBaselineModal from './CreateBaselineModal/CreateBaselineModal';
 import { baselinesTableActions } from '../BaselinesTable/redux';
+import { editBaselineActions } from './EditBaseline/redux';
 
 export class BaselinesPage extends Component {
     constructor(props) {
@@ -97,8 +98,10 @@ export class BaselinesPage extends Component {
     }
 
     renderTable() {
-        const { baselineTableData, loading, createBaselineModalOpened } = this.props;
+        const { baselineTableData, loading, createBaselineModalOpened, clearEditBaselineData } = this.props;
         const { columns } = this.state;
+
+        clearEditBaselineData();
 
         return (
             <CardBody>
@@ -160,7 +163,8 @@ BaselinesPage.propTypes = {
     selectBaseline: PropTypes.func,
     history: PropTypes.object,
     baselineError: PropTypes.object,
-    revertBaselineFetch: PropTypes.func
+    revertBaselineFetch: PropTypes.func,
+    clearEditBaselineData: PropTypes.func
 };
 
 function mapStateToProps(state) {
@@ -176,7 +180,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         selectBaseline: (id, isSelected, tableId) => dispatch(baselinesTableActions.selectBaseline(id, isSelected, tableId)),
-        revertBaselineFetch: (tableId) => dispatch(baselinesTableActions.revertBaselineFetch(tableId))
+        revertBaselineFetch: (tableId) => dispatch(baselinesTableActions.revertBaselineFetch(tableId)),
+        clearEditBaselineData: () => dispatch(editBaselineActions.clearEditBaselineData())
     };
 }
 

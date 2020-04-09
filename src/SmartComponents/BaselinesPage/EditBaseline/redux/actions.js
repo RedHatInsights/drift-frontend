@@ -15,6 +15,12 @@ function fetchBaselineData(baselineUUID) {
     };
 }
 
+function clearEditBaselineData() {
+    return {
+        type: types.CLEAR_EDIT_BASELINE_DATA
+    };
+}
+
 function patchBaseline(baselineId, apiBody) {
     return {
         type: types.PATCH_BASELINE,
@@ -51,6 +57,7 @@ function clearErrorData() {
 export default {
     expandRow,
     fetchBaselineData,
+    clearEditBaselineData,
     patchBaseline,
     setFactData,
     toggleFactModal,
