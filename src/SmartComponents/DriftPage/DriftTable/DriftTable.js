@@ -355,16 +355,14 @@ export class DriftTable extends Component {
                                 ? this.formatDate(item.last_updated)
                                 : this.formatDate(item.updated)
                             }
-                            { insights.chrome.isBeta()
-                                ? item.type === 'system' || item.type === 'historical-system-profile'
-                                    ? <HistoricalProfilesDropdown
-                                        system={ item }
-                                        systemIds={ this.systemIds }
-                                        referenceId={ referenceId }
-                                        fetchCompare={ this.fetchCompare }
-                                        dropdownDirection={ DropdownDirection.down }
-                                    />
-                                    : null
+                            { item.type === 'system' || item.type === 'historical-system-profile'
+                                ? <HistoricalProfilesDropdown
+                                    system={ item }
+                                    systemIds={ this.systemIds }
+                                    referenceId={ referenceId }
+                                    fetchCompare={ this.fetchCompare }
+                                    dropdownDirection={ DropdownDirection.down }
+                                />
                                 : null
                             }
                         </div>
