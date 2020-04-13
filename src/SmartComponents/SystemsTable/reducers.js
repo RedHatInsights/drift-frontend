@@ -21,7 +21,7 @@ function selectedReducer(INVENTORY_ACTIONS, createBaselineModal, historicalProfi
 
             let rows = mergeArraysByKey([ action.payload.results, state.rows ]);
 
-            if (insights.chrome.isBeta() && historicalProfiles !== undefined) {
+            if (historicalProfiles !== undefined) {
                 /*eslint-disable camelcase*/
                 if (!newColumns.find(({ key }) => key === 'historical_profiles') && hasHistoricalDropdown) {
                     newColumns.push({

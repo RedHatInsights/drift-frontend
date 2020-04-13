@@ -15,8 +15,7 @@ global.insights = {
                 setTimeout(resolve, 1);
             }),
             logout: jest.fn()
-        },
-        isBeta: jest.fn()
+        }
     }
 };
 
