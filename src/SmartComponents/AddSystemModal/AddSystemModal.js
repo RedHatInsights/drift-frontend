@@ -88,7 +88,7 @@ export class AddSystemModal extends Component {
             <React.Fragment>
                 <Modal
                     className="add-system-modal-dropdowns"
-                    title="Choose systems"
+                    title="Add to comparison"
                     isOpen={ addSystemModalOpened }
                     onClose={ this.cancelSelection }
                     width="auto"

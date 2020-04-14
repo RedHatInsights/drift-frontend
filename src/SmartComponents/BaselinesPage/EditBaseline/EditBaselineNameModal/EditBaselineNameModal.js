@@ -83,7 +83,7 @@ export class EditBaselineNameModal extends Component {
         return (
             <Modal
                 className='pf-c-modal-box'
-                title="Edit title"
+                title="Edit name"
                 isOpen={ modalOpened }
                 onClose={ this.cancelModal }
                 width="auto"
