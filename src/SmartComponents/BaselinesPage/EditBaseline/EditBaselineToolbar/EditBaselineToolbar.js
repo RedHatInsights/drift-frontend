@@ -28,7 +28,7 @@ class EditBaselineToolbar extends Component {
                         <Button
                             variant='primary'
                             onClick={ this.handleAddFact }>
-                            Add fact
+                            Add fact or category
                         </Button>
                     </ToolbarItem>
                     <ToolbarItem>
