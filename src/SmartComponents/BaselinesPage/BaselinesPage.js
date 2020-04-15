@@ -6,12 +6,12 @@ import { withRouter } from 'react-router-dom';
 import { Main, PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components';
 import { Card, CardBody } from '@patternfly/react-core';
 import { AddCircleOIcon, ExclamationCircleIcon, UndoIcon } from '@patternfly/react-icons';
-import { EmptyState, EmptyStateBody, EmptyStateIcon, Title } from '@patternfly/react-core';
 import { sortable } from '@patternfly/react-table';
 
 import BaselinesTable from '../BaselinesTable/BaselinesTable';
 import CreateBaselineButton from './CreateBaselineButton/CreateBaselineButton';
 import CreateBaselineModal from './CreateBaselineModal/CreateBaselineModal';
+import EmptyStateDisplay from '../EmptyStateDisplay/EmptyStateDisplay';
 import { baselinesTableActions } from '../BaselinesTable/redux';
 import { editBaselineActions } from './EditBaseline/redux';
 
@@ -24,6 +24,14 @@ export class BaselinesPage extends Component {
                 { title: 'Name', transforms: [ sortable ]},
                 { title: 'Last updated', transforms: [ sortable ]},
                 { title: '' }
+            ],
+            emptyStateMessage: [
+                'You currently have no baselines displayed.',
+                'Create a baseline to use in your Comparison analysis.'
+            ],
+            errorMessage: [ 'The list of baselines cannot be displayed at this time. Please retry and if',
+                'the problem persists contact your system administrator.',
+                ''
             ]
         };
     }
@@ -51,50 +59,6 @@ export class BaselinesPage extends Component {
         }
 
         selectBaseline(ids, isSelected, 'CHECKBOX');
-    }
-
-    renderDisplayError() {
-        const { revertBaselineFetch, baselineError } = this.props;
-
-        return (
-            <center>
-                <EmptyState>
-                    <EmptyStateIcon icon={ ExclamationCircleIcon } />
-                    <br></br>
-                    <Title size="lg">Baselines cannot be displayed</Title>
-                    <EmptyStateBody>
-                        The list of baselines cannot be displayed at this time. Please retry and if
-                        <br/>
-                        the problem persists contact your system administrator.
-                        <br></br>
-                        <br></br>
-                        <p><small>Error { baselineError.status }: { baselineError.detail }</small></p>
-                    </EmptyStateBody>
-                    <a onClick={ () => revertBaselineFetch('CHECKBOX') }>
-                        <UndoIcon />
-                        Retry
-                    </a>
-                </EmptyState>
-            </center>
-        );
-    }
-
-    renderEmptyState() {
-        return (
-            <center>
-                <EmptyState>
-                    <EmptyStateIcon icon={ AddCircleOIcon } />
-                    <br></br>
-                    <Title size="lg">No baselines</Title>
-                    <EmptyStateBody>
-                        You currently have no baselines displayed.
-                        <br/>
-                        Create a baseline to use in your Comparison analysis.
-                    </EmptyStateBody>
-                    <CreateBaselineButton />
-                </EmptyState>
-            </center>
-        );
     }
 
     renderTable() {
@@ -125,12 +89,32 @@ export class BaselinesPage extends Component {
     }
 
     renderCardBody = () => {
-        const { emptyState, loading, baselineError } = this.props;
+        const { emptyState, loading, baselineError, revertBaselineFetch } = this.props;
+        const { emptyStateMessage, errorMessage } = this.state;
 
         if (emptyState && !loading) {
-            return this.renderEmptyState();
+            return <EmptyStateDisplay
+                icon={ AddCircleOIcon }
+                title={ 'No baselines' }
+                text={ emptyStateMessage }
+                button={ <CreateBaselineButton /> }
+            />;
         } else if (loading && baselineError.status !== 200 && baselineError.status !== undefined) {
-            return this.renderDisplayError();
+            return <EmptyStateDisplay
+                icon={ ExclamationCircleIcon }
+                color='#c9190b'
+                title={ 'Baselines cannot be displayed' }
+                text={ errorMessage }
+                error={
+                    'Error ' + this.props.baselineError.status + ': ' + this.props.baselineError.detail
+                }
+                button={
+                    <a onClick={ () => revertBaselineFetch('CHECKBOX') }>
+                        <UndoIcon className='reload-baselines-button' />
+                        Retry
+                    </a>
+                }
+            />;
         } else {
             return this.renderTable();
         }

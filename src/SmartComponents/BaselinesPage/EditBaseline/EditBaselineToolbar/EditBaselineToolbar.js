@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Button, Toolbar, ToolbarGroup, ToolbarItem } from '@patternfly/react-core';
+import { /*Button, */Toolbar, ToolbarGroup, ToolbarItem } from '@patternfly/react-core';
 
 import EditBaselineKebab from '../EditBaselineKebab/EditBaselineKebab';
+import AddFactButton from '../AddFactButton/AddFactButton';
 import { editBaselineActions } from '../redux';
 
 class EditBaselineToolbar extends Component {
@@ -25,11 +26,7 @@ class EditBaselineToolbar extends Component {
             <Toolbar className='display-margin'>
                 <ToolbarGroup>
                     <ToolbarItem>
-                        <Button
-                            variant='primary'
-                            onClick={ this.handleAddFact }>
-                            Add fact or category
-                        </Button>
+                        <AddFactButton />
                     </ToolbarItem>
                     <ToolbarItem>
                         <EditBaselineKebab />

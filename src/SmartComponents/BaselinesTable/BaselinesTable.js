@@ -3,19 +3,13 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Table, TableBody, TableHeader } from '@patternfly/react-table';
 import { Skeleton, SkeletonSize, EmptyTable } from '@redhat-cloud-services/frontend-components';
-import {
-    Title,
-    EmptyStateBody,
-    Bullseye,
-    EmptyState,
-    EmptyStateVariant,
-    Radio
-} from '@patternfly/react-core';
+import { Radio } from '@patternfly/react-core';
 
 import BaselineTableKebab from './BaselineTableKebab/BaselineTableKebab';
 import { baselinesTableActions } from './redux';
 import baselinesReducerHelpers from './redux/helpers';
 import BaselinesToolbar from './BaselinesToolbar/BaselinesToolbar';
+import EmptyStateDisplay from '../EmptyStateDisplay/EmptyStateDisplay';
 
 class BaselinesTable extends Component {
     constructor(props) {
@@ -28,7 +22,11 @@ class BaselinesTable extends Component {
             },
             search: undefined,
             orderBy: 'display_name',
-            orderHow: 'ASC'
+            orderHow: 'ASC',
+            emptyStateMessage: [
+                'This filter criteria matches no baselines.',
+                'Try changing your filter settings.'
+            ]
         };
     }
 
@@ -152,24 +150,50 @@ class BaselinesTable extends Component {
 
     renderTable() {
         const { tableData, loading, columns, onSelect, hasMultiSelect } = this.props;
+        const { emptyStateMessage } = this.state;
         let loadingRows = [];
         let tableRows = [];
         let table;
 
         if (!loading) {
-            tableRows = this.renderRows();
+            if (tableData.length === 0) {
+                let emptyRow = <EmptyTable>
+                    <EmptyStateDisplay
+                        title={ 'No matching baselines found' }
+                        text={ emptyStateMessage }
+                    />
+                </EmptyTable>;
 
-            table = <Table
-                aria-label="Baselines Table"
-                onSort={ this.onSort }
-                onSelect={ hasMultiSelect ? onSelect : false }
-                sortBy={ this.state.sortBy }
-                cells={ columns }
-                rows={ tableRows }
-            >
-                <TableHeader />
-                <TableBody />
-            </Table>;
+                tableRows.push({
+                    cells: [{
+                        title: emptyRow,
+                        props: { colSpan: columns.length }
+                    }]
+                });
+
+                table = <Table
+                    aria-label="Baselines Table"
+                    cells={ columns }
+                    rows={ tableRows }
+                >
+                    <TableHeader />
+                    <TableBody />
+                </Table>;
+            } else {
+                tableRows = this.renderRows();
+
+                table = <Table
+                    aria-label="Baselines Table"
+                    onSort={ this.onSort }
+                    onSelect={ hasMultiSelect ? onSelect : false }
+                    sortBy={ this.state.sortBy }
+                    cells={ columns }
+                    rows={ tableRows }
+                >
+                    <TableHeader />
+                    <TableBody />
+                </Table>;
+            }
         } else if (loading) {
             loadingRows = this.renderLoadingRows();
 
@@ -178,35 +202,6 @@ class BaselinesTable extends Component {
                 onSelect={ hasMultiSelect ? true : false }
                 cells={ columns }
                 rows={ loadingRows }
-            >
-                <TableHeader />
-                <TableBody />
-            </Table>;
-        } else if (tableData.length === 0) {
-            let emptyRow = <EmptyTable>
-                <Bullseye>
-                    <EmptyState variant={ EmptyStateVariant.full }>
-                        <Title headingLevel="h5" size="lg">
-                            No matching baselines found
-                        </Title>
-                        <EmptyStateBody>
-                            This filter criteria matches no baselines. <br /> Try changing your filter settings.
-                        </EmptyStateBody>
-                    </EmptyState>
-                </Bullseye>
-            </EmptyTable>;
-
-            tableRows.push({
-                cells: [{
-                    title: emptyRow,
-                    props: { colSpan: columns.length }
-                }]
-            });
-
-            table = <Table
-                aria-label="Baselines Table"
-                cells={ columns }
-                rows={ tableRows }
             >
                 <TableHeader />
                 <TableBody />
