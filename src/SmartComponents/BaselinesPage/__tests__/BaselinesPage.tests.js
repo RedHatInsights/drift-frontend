@@ -46,22 +46,6 @@ describe('BaselinesPage', () => {
         );
         expect(toJson(wrapper)).toMatchSnapshot();
     });
-
-    describe('API', () => {
-        it('should call baselineListLoadingTrue', () => {
-            props.loading = true;
-            props.baselineError = { detail: 'error', status: 404 };
-            const revertBaselineFetch = jest.fn();
-            const wrapper = shallow(
-                <BaselinesPage { ...props }
-                    revertBaselineFetch={ revertBaselineFetch }
-                />
-            );
-
-            wrapper.find('a').simulate('click');
-            expect(revertBaselineFetch).toHaveBeenCalledTimes(1);
-        });
-    });
 });
 
 describe('ConnectedBaselinesPage', () => {

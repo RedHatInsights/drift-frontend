@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { DropdownDirection, EmptyState, EmptyStateBody, EmptyStateIcon, Title, Tooltip } from '@patternfly/react-core';
+import { DropdownDirection/*, EmptyState, EmptyStateBody, EmptyStateIcon, Title*/, Tooltip } from '@patternfly/react-core';
 import queryString from 'query-string';
 import { ClockIcon, TimesIcon, ExclamationTriangleIcon, PlusCircleIcon, ServerIcon, BlueprintIcon } from '@patternfly/react-icons';
 import { AngleDownIcon, AngleRightIcon, LongArrowAltUpIcon, LongArrowAltDownIcon, ArrowsAltVIcon } from '@patternfly/react-icons';
@@ -16,6 +16,7 @@ import { ASC, DESC } from '../../../constants';
 import { setHistory } from '../../../Utilities/SetHistory';
 
 import HistoricalProfilesDropdown from '../../HistoricalProfilesDropdown/HistoricalProfilesDropdown';
+import EmptyState from '../../EmptyStateDisplay/EmptyStateDisplay';
 import { compareActions } from '../../modules';
 import { baselinesTableActions } from '../../BaselinesTable/redux';
 import { historicProfilesActions } from '../../HistoricalProfilesDropdown/redux';
@@ -24,6 +25,13 @@ import ReferenceSelector from './ReferenceSelector/ReferenceSelector';
 export class DriftTable extends Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            emptyStateMessage: [
+                'You currently have no system or baselines displayed. Add at least two',
+                'systems or baselines to compare their facts.'
+            ]
+        };
 
         this.masterList = [];
 
@@ -429,24 +437,6 @@ export class DriftTable extends Component {
         return expandIcon;
     }
 
-    renderEmptyState() {
-        return (
-            <center>
-                <EmptyState>
-                    <EmptyStateIcon icon={ PlusCircleIcon } />
-                    <br></br>
-                    <Title size="lg">Add systems or baselines to compare</Title>
-                    <EmptyStateBody>
-                        You currently have no systems or baselines displayed. Add at least two
-                        <br></br>
-                        systems or baselines to compare their facts.
-                    </EmptyStateBody>
-                    <AddSystemButton isTable={ false }/>
-                </EmptyState>
-            </center>
-        );
-    }
-
     renderTable(compareData, loading) {
         return (
             <React.Fragment>
@@ -466,6 +456,7 @@ export class DriftTable extends Component {
 
     render() {
         const { emptyState, filteredCompareData, systems, baselines, historicalProfiles, loading } = this.props;
+        const { emptyStateMessage } = this.state;
 
         this.masterList = this.formatEntities(systems, baselines, historicalProfiles);
 
@@ -476,7 +467,15 @@ export class DriftTable extends Component {
                     confirmModal={ this.fetchCompare }
                     referenceId={ this.referenceId }
                 />
-                { emptyState && !loading ? this.renderEmptyState() : this.renderTable(filteredCompareData, loading) }
+                { emptyState && !loading
+                    ? <EmptyState
+                        icon={ PlusCircleIcon }
+                        title={ 'Add systems or baselines to compare' }
+                        text={ emptyStateMessage }
+                        button={ <AddSystemButton isTable={ false }/> }
+                    />
+                    : this.renderTable(filteredCompareData, loading)
+                }
             </React.Fragment>
         );
     }

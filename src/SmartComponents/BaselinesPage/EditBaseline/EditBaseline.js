@@ -11,10 +11,12 @@ import { AngleDownIcon, AngleRightIcon, EditAltIcon } from '@patternfly/react-ic
 import EditBaselineToolbar from './EditBaselineToolbar/EditBaselineToolbar';
 import FactModal from './FactModal/FactModal';
 import EditBaselineNameModal from './EditBaselineNameModal/EditBaselineNameModal';
+import AddFactButton from './AddFactButton/AddFactButton';
 import { baselinesTableActions } from '../../BaselinesTable/redux';
 import { editBaselineActions } from './redux';
 import editBaselineHelpers from './helpers';
 import { FACT_ID, FACT_NAME, FACT_VALUE } from '../../../constants';
+import EmptyStateDisplay from '../../EmptyStateDisplay/EmptyStateDisplay';
 
 export class EditBaseline extends Component {
     constructor(props) {
@@ -237,11 +239,20 @@ export class EditBaseline extends Component {
         let rows = [];
         let rowData = [];
 
-        if (facts !== undefined) {
+        if (facts.length !== 0) {
             for (let i = 0; i < facts.length; i += 1) {
                 rowData = this.renderRowData(facts[i]);
                 rows.push(rowData);
             }
+        } else {
+            rows =
+                <td colSpan='3'>
+                    <EmptyStateDisplay
+                        title={ 'No facts' }
+                        text={ [ 'No facts or categories have been added to this baseline yet.' ] }
+                        button={ <AddFactButton /> }
+                    />
+                </td>;
         }
 
         return rows;
