@@ -30,7 +30,7 @@ export function editBaselineReducer(state = initialState, action) {
                 baselineDataLoading: true
             };
         case `${types.FETCH_BASELINE_DATA}_FULFILLED`:
-            newEditBaselineTableData = editBaselineHelpers.buildBaselineTableData(action.payload);
+            newEditBaselineTableData = editBaselineHelpers.buildBaselineTableData(action.payload.baseline_facts);
             return {
                 ...state,
                 baselineDataLoading: false,

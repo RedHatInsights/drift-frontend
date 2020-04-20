@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { Main, PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, Checkbox } from '@patternfly/react-core';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
-import { AngleDownIcon, AngleRightIcon, EditAltIcon, ExclamationCircleIcon } from '@patternfly/react-icons';
+import { AngleDownIcon, AngleRightIcon, EditAltIcon } from '@patternfly/react-icons';
 
 import EditBaselineToolbar from './EditBaselineToolbar/EditBaselineToolbar';
 import FactModal from './FactModal/FactModal';
@@ -158,11 +158,8 @@ export class EditBaseline extends Component {
     renderCheckbox = (fact) => {
         const { selectAll, editBaselineTableData } = this.props;
         let id;
-        /*eslint-disable*/
-        console.log(fact);
-        /*eslint-enable*/
 
-        if (editBaselineHelpers && editBaselineHelpers.isCategory(fact)) {
+        if (editBaselineHelpers.isCategory(fact)) {
             id = 'category-' + fact[FACT_ID];
         } else if (typeof(fact[FACT_VALUE]) === 'string') {
             id = 'fact-' + fact[FACT_ID];
@@ -170,10 +167,10 @@ export class EditBaseline extends Component {
             return (
                 <Checkbox
                     isChecked={ selectAll }
-                    onChange={ fact.length > 0 ? this.onSelect : null }
+                    onChange={ this.onSelect }
                     id='select-all'
                     name='select-all'
-                    isDisabled={ editBaselineTableData && editBaselineTableData.length === 0 ? true : false }
+                    isDisabled={ editBaselineTableData.length === 0 ? true : false }
                 />
             );
         }
@@ -242,20 +239,7 @@ export class EditBaseline extends Component {
         let rows = [];
         let rowData = [];
 
-        /*eslint-disable*/
-        console.log(facts);
-        /*eslint-enable*/
-        if (facts === undefined) {
-            rows =
-                <td colSpan='3'>
-                    <EmptyStateDisplay
-                        icon={ ExclamationCircleIcon }
-                        color='#c9190b'
-                        title={ 'Baseline not found' }
-                        text={ [ 'Either this baseline does not exist, or you do not have access to it.' ] }
-                    />
-                </td>;
-        } else if (facts.length !== 0) {
+        if (facts.length !== 0) {
             for (let i = 0; i < facts.length; i += 1) {
                 rowData = this.renderRowData(facts[i]);
                 rows.push(rowData);
