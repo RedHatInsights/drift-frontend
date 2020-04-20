@@ -13,7 +13,12 @@ async function getBaselines(path, getParams = {}) {
 
 async function getBaseline(path) {
     const request = await axios.get(BASELINE_API_ROOT.concat(path));
-    return request.data.data[0];
+
+    if (request.data.data.length === 0) {
+        return request.data.data;
+    } else {
+        return request.data.data[0];
+    }
 }
 
 async function patchBaseline(path, body = {}) {
