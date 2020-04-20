@@ -1,6 +1,6 @@
 /*global module*/
 
-const SECTION = 'rhel';
+const SECTION = 'insights';
 const DRIFT_APP_ID = 'drift';
 const BASELINE_APP_ID = 'system-baseline';
 const FRONTEND_PORT = 8002;
