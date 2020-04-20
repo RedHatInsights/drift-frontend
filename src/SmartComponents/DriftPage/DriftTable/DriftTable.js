@@ -382,17 +382,17 @@ export class DriftTable extends Component {
         return row;
     }
 
-    renderSortButton(sortType, sort) {
+    renderSortButton(sort) {
         let sortIcon;
 
         if (sort === ASC) {
-            sortIcon = <LongArrowAltUpIcon className="pointer active-blue" onClick={ () => this.toggleSort(sortType, sort) }/>;
+            sortIcon = <LongArrowAltUpIcon className="active-blue" />;
         }
         else if (sort === DESC) {
-            sortIcon = <LongArrowAltDownIcon className="pointer active-blue" onClick={ () => this.toggleSort(sortType, sort) }/>;
+            sortIcon = <LongArrowAltDownIcon className="active-blue" />;
         }
         else {
-            sortIcon = <ArrowsAltVIcon className="pointer not-active" onClick={ () => this.toggleSort(sortType, sort) }/>;
+            sortIcon = <ArrowsAltVIcon className="not-active" />;
         }
 
         return sortIcon;
@@ -411,13 +411,21 @@ export class DriftTable extends Component {
 
         return (
             <tr className="sticky-column-header">
-                <th className="fact-header sticky-column fixed-column-1" key='fact-header'>
-                    <div className="active-blue">Fact { this.renderSortButton('fact', this.props.factSort) }</div>
+                <th
+                    className="fact-header sticky-column fixed-column-1 pointer"
+                    key='fact-header'
+                    onClick={ () => this.toggleSort('fact', this.props.factSort) }
+                >
+                    <div className="active-blue">Fact { this.renderSortButton(this.props.factSort) }</div>
                 </th>
-                <th className="state-header sticky-column fixed-column-2" key='state-header'>
+                <th
+                    className="state-header sticky-column fixed-column-2 pointer"
+                    key='state-header'
+                    onClick={ () => this.toggleSort('state', this.props.stateSort) }
+                >
                     { stateSort !== '' ?
-                        <div className="active-blue">State { this.renderSortButton('state', this.props.stateSort) }</div> :
-                        <div>State { this.renderSortButton('state', this.props.stateSort) }</div>
+                        <div className="active-blue">State { this.renderSortButton(this.props.stateSort) }</div> :
+                        <div>State { this.renderSortButton(this.props.stateSort) }</div>
                     }
                 </th>
                 { this.renderSystemHeaders() }

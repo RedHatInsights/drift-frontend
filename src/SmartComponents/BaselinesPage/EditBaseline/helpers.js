@@ -264,16 +264,12 @@ function makePatchBody(newAPIBody, originalAPIBody) {
     return jiff.diff(originalAPIBody, newAPIBody);
 }
 
-function buildBaselineTableData(baselineFacts) {
+function buildBaselineTableData(baselineData) {
     let rows = [];
     let row;
     let id = 0;
 
-    if (baselineFacts.length === 0) {
-        return undefined;
-    }
-
-    baselineFacts.baseline_facts.forEach(function(fact) {
+    baselineData.forEach(function(fact) {
         row = [];
         row.push(id);
         row.push(fact.name);
