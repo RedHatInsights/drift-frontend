@@ -8,6 +8,20 @@ exports[`BaselinesTable should render loading rows for multi-select 1`] = `
     fetchWithParams={[Function]}
     kebab={true}
     onSearch={[Function]}
+    tableData={
+      Array [
+        Array [
+          "1234",
+          "beavs baseline",
+          "a year ago",
+        ],
+        Array [
+          "abcd",
+          "micjohns baseline",
+          "a year ago",
+        ],
+      ]
+    }
     tableId="CHECKBOX"
   />
   <Component
@@ -121,6 +135,20 @@ exports[`BaselinesTable should render loading rows for single-select 1`] = `
     fetchWithParams={[Function]}
     kebab={true}
     onSearch={[Function]}
+    tableData={
+      Array [
+        Array [
+          "1234",
+          "beavs baseline",
+          "a year ago",
+        ],
+        Array [
+          "abcd",
+          "micjohns baseline",
+          "a year ago",
+        ],
+      ]
+    }
     tableId="CHECKBOX"
   />
   <Component
@@ -274,6 +302,20 @@ exports[`BaselinesTable should render multi-select table correctly 1`] = `
     fetchWithParams={[Function]}
     kebab={true}
     onSearch={[Function]}
+    tableData={
+      Array [
+        Array [
+          "1234",
+          "beavs baseline",
+          "a year ago",
+        ],
+        Array [
+          "abcd",
+          "micjohns baseline",
+          "a year ago",
+        ],
+      ]
+    }
     tableId="CHECKBOX"
   />
   <Component
@@ -355,6 +397,7 @@ exports[`BaselinesTable should render no matching baselines EmptyState 1`] = `
     fetchWithParams={[Function]}
     kebab={true}
     onSearch={[Function]}
+    tableData={Array []}
     tableId="CHECKBOX"
   />
   <Component
@@ -417,6 +460,20 @@ exports[`BaselinesTable should render single-select table correctly 1`] = `
     fetchWithParams={[Function]}
     kebab={true}
     onSearch={[Function]}
+    tableData={
+      Array [
+        Array [
+          "1234",
+          "beavs baseline",
+          "a year ago",
+        ],
+        Array [
+          "abcd",
+          "micjohns baseline",
+          "a year ago",
+        ],
+      ]
+    }
     tableId="RADIO"
   />
   <Component
@@ -658,6 +715,20 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
             fetchWithParams={[Function]}
             kebab={true}
             onSearch={[Function]}
+            tableData={
+              Array [
+                Array [
+                  "1234",
+                  "beavs baseline",
+                  "a year ago",
+                ],
+                Array [
+                  "abcd",
+                  "micjohns baseline",
+                  "a year ago",
+                ],
+              ]
+            }
             tableId="CHECKBOX"
           >
             <Toolbar
@@ -666,6 +737,502 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
               <div
                 className="pf-l-toolbar drift-toolbar"
               >
+                <ToolbarGroup>
+                  <div
+                    className="pf-l-toolbar__group"
+                  >
+                    <ToolbarItem>
+                      <div
+                        className="pf-l-toolbar__item"
+                      >
+                        <BulkSelect
+                          checked={true}
+                          className=""
+                          count={1}
+                          isDisabled={false}
+                          items={
+                            Array [
+                              Object {
+                                "key": "select-all",
+                                "onClick": [Function],
+                                "title": "Select all",
+                              },
+                              Object {
+                                "key": "select-none",
+                                "onClick": [Function],
+                                "title": "Select none",
+                              },
+                            ]
+                          }
+                          onSelect={[Function]}
+                        >
+                          <Dropdown
+                            className="ins-c-bulk-select"
+                            dropdownItems={
+                              Array [
+                                <DropdownItem
+                                  className="ins-c-bulk-select__selected"
+                                  isDisabled={true}
+                                >
+                                  1
+                                   Selected
+                                </DropdownItem>,
+                                <DropdownItem
+                                  component="button"
+                                  onClick={[Function]}
+                                >
+                                  Select all
+                                </DropdownItem>,
+                                <DropdownItem
+                                  component="button"
+                                  onClick={[Function]}
+                                >
+                                  Select none
+                                </DropdownItem>,
+                              ]
+                            }
+                            isDisabled={false}
+                            isOpen={false}
+                            onSelect={[Function]}
+                            toggle={
+                              <DropdownToggle
+                                onToggle={[Function]}
+                                splitButtonItems={
+                                  Array [
+                                    <React.Fragment>
+                                      <DropdownToggleCheckbox
+                                        aria-label="Select all"
+                                        checked={true}
+                                        className=""
+                                        id="toggle-checkbox"
+                                        isDisabled={false}
+                                        isValid={true}
+                                        onChange={[Function]}
+                                      >
+                                        1
+                                         selected
+                                      </DropdownToggleCheckbox>
+                                    </React.Fragment>,
+                                  ]
+                                }
+                              />
+                            }
+                          >
+                            <Component
+                              className="ins-c-bulk-select"
+                              dropdownItems={
+                                Array [
+                                  <DropdownItem
+                                    className="ins-c-bulk-select__selected"
+                                    isDisabled={true}
+                                  >
+                                    1
+                                     Selected
+                                  </DropdownItem>,
+                                  <DropdownItem
+                                    component="button"
+                                    onClick={[Function]}
+                                  >
+                                    Select all
+                                  </DropdownItem>,
+                                  <DropdownItem
+                                    component="button"
+                                    onClick={[Function]}
+                                  >
+                                    Select none
+                                  </DropdownItem>,
+                                ]
+                              }
+                              isDisabled={false}
+                              isOpen={false}
+                              toggle={
+                                <DropdownToggle
+                                  onToggle={[Function]}
+                                  splitButtonItems={
+                                    Array [
+                                      <React.Fragment>
+                                        <DropdownToggleCheckbox
+                                          aria-label="Select all"
+                                          checked={true}
+                                          className=""
+                                          id="toggle-checkbox"
+                                          isDisabled={false}
+                                          isValid={true}
+                                          onChange={[Function]}
+                                        >
+                                          1
+                                           selected
+                                        </DropdownToggleCheckbox>
+                                      </React.Fragment>,
+                                    ]
+                                  }
+                                />
+                              }
+                            >
+                              <ComponentWithOuia
+                                component={[Function]}
+                                componentProps={
+                                  Object {
+                                    "className": "ins-c-bulk-select",
+                                    "dropdownItems": Array [
+                                      <DropdownItem
+                                        className="ins-c-bulk-select__selected"
+                                        isDisabled={true}
+                                      >
+                                        1
+                                         Selected
+                                      </DropdownItem>,
+                                      <DropdownItem
+                                        component="button"
+                                        onClick={[Function]}
+                                      >
+                                        Select all
+                                      </DropdownItem>,
+                                      <DropdownItem
+                                        component="button"
+                                        onClick={[Function]}
+                                      >
+                                        Select none
+                                      </DropdownItem>,
+                                    ],
+                                    "isDisabled": false,
+                                    "isOpen": false,
+                                    "toggle": <DropdownToggle
+                                      onToggle={[Function]}
+                                      splitButtonItems={
+                                        Array [
+                                          <React.Fragment>
+                                            <DropdownToggleCheckbox
+                                              aria-label="Select all"
+                                              checked={true}
+                                              className=""
+                                              id="toggle-checkbox"
+                                              isDisabled={false}
+                                              isValid={true}
+                                              onChange={[Function]}
+                                            >
+                                              1
+                                               selected
+                                            </DropdownToggleCheckbox>
+                                          </React.Fragment>,
+                                        ]
+                                      }
+                                    />,
+                                  }
+                                }
+                                consumerContext={null}
+                              >
+                                <DropdownWithContext
+                                  autoFocus={true}
+                                  className="ins-c-bulk-select"
+                                  direction="down"
+                                  dropdownItems={
+                                    Array [
+                                      <DropdownItem
+                                        className="ins-c-bulk-select__selected"
+                                        isDisabled={true}
+                                      >
+                                        1
+                                         Selected
+                                      </DropdownItem>,
+                                      <DropdownItem
+                                        component="button"
+                                        onClick={[Function]}
+                                      >
+                                        Select all
+                                      </DropdownItem>,
+                                      <DropdownItem
+                                        component="button"
+                                        onClick={[Function]}
+                                      >
+                                        Select none
+                                      </DropdownItem>,
+                                    ]
+                                  }
+                                  isDisabled={false}
+                                  isGrouped={false}
+                                  isOpen={false}
+                                  isPlain={false}
+                                  onSelect={[Function]}
+                                  ouiaComponentType="Dropdown"
+                                  ouiaContext={
+                                    Object {
+                                      "isOuia": false,
+                                      "ouiaId": null,
+                                    }
+                                  }
+                                  position="left"
+                                  toggle={
+                                    <DropdownToggle
+                                      onToggle={[Function]}
+                                      splitButtonItems={
+                                        Array [
+                                          <React.Fragment>
+                                            <DropdownToggleCheckbox
+                                              aria-label="Select all"
+                                              checked={true}
+                                              className=""
+                                              id="toggle-checkbox"
+                                              isDisabled={false}
+                                              isValid={true}
+                                              onChange={[Function]}
+                                            >
+                                              1
+                                               selected
+                                            </DropdownToggleCheckbox>
+                                          </React.Fragment>,
+                                        ]
+                                      }
+                                    />
+                                  }
+                                >
+                                  <div
+                                    className="pf-c-dropdown ins-c-bulk-select"
+                                    isDisabled={false}
+                                  >
+                                    <DropdownToggle
+                                      ariaHasPopup={true}
+                                      id="pf-toggle-id-0"
+                                      isOpen={false}
+                                      isPlain={false}
+                                      key=".0"
+                                      onEnter={[Function]}
+                                      onToggle={[Function]}
+                                      parentRef={
+                                        Object {
+                                          "current": <div
+                                            class="pf-c-dropdown ins-c-bulk-select"
+                                          >
+                                            <div
+                                              class="pf-c-dropdown__toggle pf-m-split-button"
+                                            >
+                                              <label
+                                                class="pf-c-dropdown__toggle-check"
+                                                for="toggle-checkbox"
+                                              >
+                                                <input
+                                                  aria-invalid="false"
+                                                  aria-label="Select all"
+                                                  checked=""
+                                                  id="toggle-checkbox"
+                                                  type="checkbox"
+                                                />
+                                                <span
+                                                  aria-hidden="true"
+                                                  class="pf-c-dropdown__toggle-text"
+                                                  id="toggle-checkbox-text"
+                                                >
+                                                  1
+                                                   selected
+                                                </span>
+                                              </label>
+                                              <button
+                                                aria-expanded="false"
+                                                aria-haspopup="true"
+                                                aria-label="Select"
+                                                class="pf-c-dropdown__toggle-button"
+                                                id="pf-toggle-id-0"
+                                                type="button"
+                                              >
+                                                <svg
+                                                  aria-hidden="true"
+                                                  class=""
+                                                  fill="currentColor"
+                                                  height="1em"
+                                                  role="img"
+                                                  style="vertical-align: -0.125em;"
+                                                  viewBox="0 0 320 512"
+                                                  width="1em"
+                                                >
+                                                  <path
+                                                    d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                                                    transform=""
+                                                  />
+                                                </svg>
+                                              </button>
+                                            </div>
+                                          </div>,
+                                        }
+                                      }
+                                      splitButtonItems={
+                                        Array [
+                                          <React.Fragment>
+                                            <DropdownToggleCheckbox
+                                              aria-label="Select all"
+                                              checked={true}
+                                              className=""
+                                              id="toggle-checkbox"
+                                              isDisabled={false}
+                                              isValid={true}
+                                              onChange={[Function]}
+                                            >
+                                              1
+                                               selected
+                                            </DropdownToggleCheckbox>
+                                          </React.Fragment>,
+                                        ]
+                                      }
+                                    >
+                                      <div
+                                        className="pf-c-dropdown__toggle pf-m-split-button"
+                                      >
+                                        <DropdownToggleCheckbox
+                                          aria-label="Select all"
+                                          checked={true}
+                                          className=""
+                                          id="toggle-checkbox"
+                                          isDisabled={false}
+                                          isValid={true}
+                                          onChange={[Function]}
+                                        >
+                                          <label
+                                            className="pf-c-dropdown__toggle-check"
+                                            htmlFor="toggle-checkbox"
+                                          >
+                                            <input
+                                              aria-invalid={false}
+                                              aria-label="Select all"
+                                              checked={true}
+                                              disabled={false}
+                                              id="toggle-checkbox"
+                                              onChange={[Function]}
+                                              type="checkbox"
+                                            />
+                                            <span
+                                              aria-hidden="true"
+                                              className="pf-c-dropdown__toggle-text"
+                                              id="toggle-checkbox-text"
+                                            >
+                                              1
+                                               selected
+                                            </span>
+                                          </label>
+                                        </DropdownToggleCheckbox>
+                                        <Toggle
+                                          aria-label="Select"
+                                          ariaHasPopup={true}
+                                          className=""
+                                          id="pf-toggle-id-0"
+                                          isActive={false}
+                                          isDisabled={false}
+                                          isFocused={false}
+                                          isHovered={false}
+                                          isOpen={false}
+                                          isPlain={false}
+                                          isPrimary={false}
+                                          isSplitButton={true}
+                                          onEnter={[Function]}
+                                          onToggle={[Function]}
+                                          parentRef={
+                                            Object {
+                                              "current": <div
+                                                class="pf-c-dropdown ins-c-bulk-select"
+                                              >
+                                                <div
+                                                  class="pf-c-dropdown__toggle pf-m-split-button"
+                                                >
+                                                  <label
+                                                    class="pf-c-dropdown__toggle-check"
+                                                    for="toggle-checkbox"
+                                                  >
+                                                    <input
+                                                      aria-invalid="false"
+                                                      aria-label="Select all"
+                                                      checked=""
+                                                      id="toggle-checkbox"
+                                                      type="checkbox"
+                                                    />
+                                                    <span
+                                                      aria-hidden="true"
+                                                      class="pf-c-dropdown__toggle-text"
+                                                      id="toggle-checkbox-text"
+                                                    >
+                                                      1
+                                                       selected
+                                                    </span>
+                                                  </label>
+                                                  <button
+                                                    aria-expanded="false"
+                                                    aria-haspopup="true"
+                                                    aria-label="Select"
+                                                    class="pf-c-dropdown__toggle-button"
+                                                    id="pf-toggle-id-0"
+                                                    type="button"
+                                                  >
+                                                    <svg
+                                                      aria-hidden="true"
+                                                      class=""
+                                                      fill="currentColor"
+                                                      height="1em"
+                                                      role="img"
+                                                      style="vertical-align: -0.125em;"
+                                                      viewBox="0 0 320 512"
+                                                      width="1em"
+                                                    >
+                                                      <path
+                                                        d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                                                        transform=""
+                                                      />
+                                                    </svg>
+                                                  </button>
+                                                </div>
+                                              </div>,
+                                            }
+                                          }
+                                        >
+                                          <button
+                                            aria-expanded={false}
+                                            aria-haspopup={true}
+                                            aria-label="Select"
+                                            className="pf-c-dropdown__toggle-button"
+                                            disabled={false}
+                                            id="pf-toggle-id-0"
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
+                                            type="button"
+                                          >
+                                            <CaretDownIcon
+                                              className=""
+                                              color="currentColor"
+                                              noVerticalAlign={false}
+                                              size="sm"
+                                              title={null}
+                                            >
+                                              <svg
+                                                aria-hidden={true}
+                                                aria-labelledby={null}
+                                                className=""
+                                                fill="currentColor"
+                                                height="1em"
+                                                role="img"
+                                                style={
+                                                  Object {
+                                                    "verticalAlign": "-0.125em",
+                                                  }
+                                                }
+                                                viewBox="0 0 320 512"
+                                                width="1em"
+                                              >
+                                                <path
+                                                  d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                                                  transform=""
+                                                />
+                                              </svg>
+                                            </CaretDownIcon>
+                                          </button>
+                                        </Toggle>
+                                      </div>
+                                    </DropdownToggle>
+                                  </div>
+                                </DropdownWithContext>
+                              </ComponentWithOuia>
+                            </Component>
+                          </Dropdown>
+                        </BulkSelect>
+                      </div>
+                    </ToolbarItem>
+                  </div>
+                </ToolbarGroup>
                 <ToolbarGroup>
                   <div
                     className="pf-l-toolbar__group"
@@ -1127,7 +1694,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                     >
                                       <KebabToggle
                                         ariaHasPopup={true}
-                                        id="pf-toggle-id-0"
+                                        id="pf-toggle-id-1"
                                         isOpen={false}
                                         isPlain={true}
                                         key=".0"
@@ -1144,7 +1711,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                 aria-haspopup="true"
                                                 aria-label="Actions"
                                                 class="pf-c-dropdown__toggle pf-m-plain"
-                                                id="pf-toggle-id-0"
+                                                id="pf-toggle-id-1"
                                                 type="button"
                                               >
                                                 <svg
@@ -1170,7 +1737,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                           aria-label="Actions"
                                           ariaHasPopup={true}
                                           className=""
-                                          id="pf-toggle-id-0"
+                                          id="pf-toggle-id-1"
                                           isActive={false}
                                           isDisabled={false}
                                           isFocused={false}
@@ -1192,7 +1759,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                   aria-haspopup="true"
                                                   aria-label="Actions"
                                                   class="pf-c-dropdown__toggle pf-m-plain"
-                                                  id="pf-toggle-id-0"
+                                                  id="pf-toggle-id-1"
                                                   type="button"
                                                 >
                                                   <svg
@@ -1220,7 +1787,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                             aria-label="Actions"
                                             className="pf-c-dropdown__toggle pf-m-plain"
                                             disabled={false}
-                                            id="pf-toggle-id-0"
+                                            id="pf-toggle-id-1"
                                             onClick={[Function]}
                                             onKeyDown={[Function]}
                                             type="button"
@@ -3709,7 +4276,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                           >
                                                             <KebabToggle
                                                               ariaHasPopup={true}
-                                                              id="pf-toggle-id-1"
+                                                              id="pf-toggle-id-2"
                                                               isOpen={false}
                                                               isPlain={true}
                                                               key=".0"
@@ -3726,7 +4293,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                                       aria-haspopup="true"
                                                                       aria-label="Actions"
                                                                       class="pf-c-dropdown__toggle pf-m-plain"
-                                                                      id="pf-toggle-id-1"
+                                                                      id="pf-toggle-id-2"
                                                                       type="button"
                                                                     >
                                                                       <svg
@@ -3752,7 +4319,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                                 aria-label="Actions"
                                                                 ariaHasPopup={true}
                                                                 className=""
-                                                                id="pf-toggle-id-1"
+                                                                id="pf-toggle-id-2"
                                                                 isActive={false}
                                                                 isDisabled={false}
                                                                 isFocused={false}
@@ -3774,7 +4341,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                                         aria-haspopup="true"
                                                                         aria-label="Actions"
                                                                         class="pf-c-dropdown__toggle pf-m-plain"
-                                                                        id="pf-toggle-id-1"
+                                                                        id="pf-toggle-id-2"
                                                                         type="button"
                                                                       >
                                                                         <svg
@@ -3802,7 +4369,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                                   aria-label="Actions"
                                                                   className="pf-c-dropdown__toggle pf-m-plain"
                                                                   disabled={false}
-                                                                  id="pf-toggle-id-1"
+                                                                  id="pf-toggle-id-2"
                                                                   onClick={[Function]}
                                                                   onKeyDown={[Function]}
                                                                   type="button"
@@ -4549,7 +5116,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                           >
                                                             <KebabToggle
                                                               ariaHasPopup={true}
-                                                              id="pf-toggle-id-2"
+                                                              id="pf-toggle-id-3"
                                                               isOpen={false}
                                                               isPlain={true}
                                                               key=".0"
@@ -4566,7 +5133,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                                       aria-haspopup="true"
                                                                       aria-label="Actions"
                                                                       class="pf-c-dropdown__toggle pf-m-plain"
-                                                                      id="pf-toggle-id-2"
+                                                                      id="pf-toggle-id-3"
                                                                       type="button"
                                                                     >
                                                                       <svg
@@ -4592,7 +5159,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                                 aria-label="Actions"
                                                                 ariaHasPopup={true}
                                                                 className=""
-                                                                id="pf-toggle-id-2"
+                                                                id="pf-toggle-id-3"
                                                                 isActive={false}
                                                                 isDisabled={false}
                                                                 isFocused={false}
@@ -4614,7 +5181,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                                         aria-haspopup="true"
                                                                         aria-label="Actions"
                                                                         class="pf-c-dropdown__toggle pf-m-plain"
-                                                                        id="pf-toggle-id-2"
+                                                                        id="pf-toggle-id-3"
                                                                         type="button"
                                                                       >
                                                                         <svg
@@ -4642,7 +5209,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                                   aria-label="Actions"
                                                                   className="pf-c-dropdown__toggle pf-m-plain"
                                                                   disabled={false}
-                                                                  id="pf-toggle-id-2"
+                                                                  id="pf-toggle-id-3"
                                                                   onClick={[Function]}
                                                                   onKeyDown={[Function]}
                                                                   type="button"

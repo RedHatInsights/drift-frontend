@@ -61,6 +61,17 @@ export class BaselinesPage extends Component {
         selectBaseline(ids, isSelected, 'CHECKBOX');
     }
 
+    onBulkSelect = (isSelected) => {
+        const { baselineTableData, selectBaseline } = this.props;
+        let ids = [];
+
+        baselineTableData.forEach(function(baseline) {
+            ids.push(baseline[0]);
+        });
+
+        selectBaseline(ids, isSelected, 'CHECKBOX');
+    }
+
     renderTable() {
         const { baselineTableData, loading, createBaselineModalOpened, clearEditBaselineData } = this.props;
         const { columns } = this.state;
@@ -82,6 +93,7 @@ export class BaselinesPage extends Component {
                         loading={ loading }
                         createBaselineModalOpened={ createBaselineModalOpened }
                         columns={ columns }
+                        onBulkSelect= { this.onBulkSelect }
                     />
                 </div>
             </CardBody>

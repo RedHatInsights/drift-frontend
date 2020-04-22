@@ -221,7 +221,7 @@ export class BaselinesTable extends Component {
     }
 
     render() {
-        const { kebab, createButton, exportButton, tableId } = this.props;
+        const { kebab, createButton, exportButton, onBulkSelect, tableData, tableId } = this.props;
 
         return (
             <React.Fragment>
@@ -232,6 +232,8 @@ export class BaselinesTable extends Component {
                     onSearch={ this.onSearch }
                     tableId={ tableId }
                     fetchWithParams={ this.fetchWithParams }
+                    tableData={ tableData }
+                    onBulkSelect={ onBulkSelect }
                 />
                 { this.renderTable() }
             </React.Fragment>
@@ -250,7 +252,8 @@ BaselinesTable.propTypes = {
     createButton: PropTypes.bool,
     exportButton: PropTypes.bool,
     onSelect: PropTypes.func,
-    columns: PropTypes.array
+    columns: PropTypes.array,
+    onBulkSelect: PropTypes.func
 };
 
 function mapDispatchToProps(dispatch) {
