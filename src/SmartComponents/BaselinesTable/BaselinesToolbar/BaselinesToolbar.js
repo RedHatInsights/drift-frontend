@@ -3,18 +3,29 @@ import PropTypes from 'prop-types';
 import debounce from 'lodash/debounce';
 
 import { Toolbar, ToolbarGroup, ToolbarItem } from '@patternfly/react-core';
-import { ConditionalFilter } from '@redhat-cloud-services/frontend-components';
+import { BulkSelect, ConditionalFilter } from '@redhat-cloud-services/frontend-components';
 
 import CreateBaselineButton from '../../BaselinesPage/CreateBaselineButton/CreateBaselineButton';
 import ExportCSVButton from '../../BaselinesPage/ExportCSVButton/ExportCSVButton';
 import BaselinesKebab from '../../BaselinesPage/BaselinesKebab/BaselinesKebab';
 import BaselinesFilterChips from '../BaselinesFilterChips/BaselinesFilterChips';
 
-class BaselinesToolbar extends Component {
+export class BaselinesToolbar extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            nameSearch: ''
+            nameSearch: '',
+            bulkSelectItems: [
+                {
+                    title: 'Select all',
+                    key: 'select-all',
+                    onClick: () => this.props.onBulkSelect(true)
+                }, {
+                    title: 'Select none',
+                    key: 'select-none',
+                    onClick: () => this.props.onBulkSelect(false)
+                }
+            ]
         };
 
         this.handleSearch = this.handleSearch.bind(this);
@@ -35,12 +46,24 @@ class BaselinesToolbar extends Component {
     }, 250)
 
     render() {
-        const { createButton, exportButton, fetchWithParams, kebab, tableId } = this.props;
-        const { nameSearch } = this.state;
+        const { createButton, exportButton, fetchWithParams, kebab, tableData, tableId } = this.props;
+        const { bulkSelectItems, nameSearch } = this.state;
+        let selected = tableData.filter(baseline => baseline.selected === true).length;
 
         return (
             <React.Fragment>
                 <Toolbar className="drift-toolbar">
+                    <ToolbarGroup>
+                        <ToolbarItem>
+                            <BulkSelect
+                                count={ selected > 0 ? selected : null }
+                                items={ bulkSelectItems }
+                                checked={ selected > 0 ? true : false }
+                                onSelect={ () => this.props.onBulkSelect(!selected > 0) }
+                                isDisabled={ tableData.length === 0 }
+                            />
+                        </ToolbarItem>
+                    </ToolbarGroup>
                     <ToolbarGroup>
                         <ToolbarItem>
                             <ConditionalFilter
@@ -99,7 +122,9 @@ BaselinesToolbar.propTypes = {
     kebab: PropTypes.bool,
     fetchWithParams: PropTypes.func,
     onSearch: PropTypes.func,
-    tableId: PropTypes.string
+    tableId: PropTypes.string,
+    tableData: PropTypes.array,
+    onBulkSelect: PropTypes.func
 };
 
 export default BaselinesToolbar;
