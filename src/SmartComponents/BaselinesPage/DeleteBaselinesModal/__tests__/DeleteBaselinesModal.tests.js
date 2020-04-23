@@ -67,31 +67,41 @@ describe('DeleteBaselinesModal', () => {
             .mockReturnValue({
                 value: { data: 'OK' }
             });
+            const fetchWithParams = jest.fn();
 
             const wrapper = mount(
                 <DeleteBaselinesModal { ...props }
                     deleteSelectedBaselines={ deleteSelectedBaselines }
                     baselineId={ 'abcd' }
+                    fetchWithParams={ fetchWithParams }
                 />
             );
 
             wrapper.find('.pf-c-button').at(1).simulate('click');
             await expect(deleteSelectedBaselines).toHaveBeenCalledTimes(1);
+            await expect(fetchWithParams).toHaveBeenCalled();
         });
 
         it('should delete multiple baseline', async () => {
             const deleteSelectedBaselines = jest.fn();
+            deleteSelectedBaselines
+            .mockReturnValue({
+                value: { data: 'OK' }
+            });
             const selectedBaselineIds = [ 'abcd', 'efgh' ];
+            const fetchWithParams = jest.fn();
 
             const wrapper = mount(
                 <DeleteBaselinesModal { ...props }
                     deleteSelectedBaselines={ deleteSelectedBaselines }
                     selectedBaselineIds={ selectedBaselineIds }
+                    fetchWithParams={ fetchWithParams }
                 />
             );
 
             wrapper.find('.pf-c-button').at(1).simulate('click');
             await expect(deleteSelectedBaselines).toHaveBeenCalledTimes(1);
+            await expect(fetchWithParams).toHaveBeenCalled();
         });
     });
 });

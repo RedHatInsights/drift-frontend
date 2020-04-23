@@ -32,7 +32,7 @@ export class BaselinesKebab extends Component {
 
     render() {
         const { kebabOpened, modalOpened } = this.state;
-        const { selectedBaselineIds, tableId } = this.props;
+        const { fetchWithParams, selectedBaselineIds, tableId } = this.props;
         let dropdownItems;
 
         dropdownItems = [
@@ -48,7 +48,14 @@ export class BaselinesKebab extends Component {
 
         return (
             <React.Fragment>
-                { modalOpened ? <DeleteBaselinesModal modalOpened={ true } tableId={ tableId } /> : null }
+                { modalOpened
+                    ? <DeleteBaselinesModal
+                        modalOpened={ true }
+                        tableId={ tableId }
+                        fetchWithParams={ fetchWithParams }
+                    />
+                    : null
+                }
                 <Dropdown
                     style={ { float: 'left' } }
                     toggle={ <KebabToggle onToggle={ this.toggleKebab } /> }
@@ -62,6 +69,7 @@ export class BaselinesKebab extends Component {
 }
 
 BaselinesKebab.propTypes = {
+    fetchWithParams: PropTypes.func,
     selectedBaselineIds: PropTypes.array,
     tableId: PropTypes.string
 };

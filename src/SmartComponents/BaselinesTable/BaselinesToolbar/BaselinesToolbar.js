@@ -35,7 +35,7 @@ class BaselinesToolbar extends Component {
     }, 250)
 
     render() {
-        const { createButton, exportButton, kebab, tableId } = this.props;
+        const { createButton, exportButton, fetchWithParams, kebab, tableId } = this.props;
         const { nameSearch } = this.state;
 
         return (
@@ -65,7 +65,11 @@ class BaselinesToolbar extends Component {
                         }
                         { kebab ?
                             <ToolbarItem>
-                                <BaselinesKebab exportType='baseline list' tableId={ tableId }/>
+                                <BaselinesKebab
+                                    exportType='baseline list'
+                                    tableId={ tableId }
+                                    fetchWithParams={ fetchWithParams }
+                                />
                             </ToolbarItem>
                             : null
                         }
@@ -93,7 +97,7 @@ BaselinesToolbar.propTypes = {
     createButton: PropTypes.bool,
     exportButton: PropTypes.bool,
     kebab: PropTypes.bool,
-    fetchBaselines: PropTypes.func,
+    fetchWithParams: PropTypes.func,
     onSearch: PropTypes.func,
     tableId: PropTypes.string
 };

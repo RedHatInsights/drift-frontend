@@ -533,6 +533,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                 <BaselinesToolbar
                                   createButton={true}
                                   exportButton={true}
+                                  fetchWithParams={[Function]}
                                   kebab={true}
                                   onSearch={[Function]}
                                   tableId="CHECKBOX"
@@ -854,11 +855,13 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                             >
                                               <Connect(BaselinesKebab)
                                                 exportType="baseline list"
+                                                fetchWithParams={[Function]}
                                                 tableId="CHECKBOX"
                                               >
                                                 <BaselinesKebab
                                                   dispatch={[Function]}
                                                   exportType="baseline list"
+                                                  fetchWithParams={[Function]}
                                                   selectedBaselineIds={Array []}
                                                   tableId="CHECKBOX"
                                                 >
