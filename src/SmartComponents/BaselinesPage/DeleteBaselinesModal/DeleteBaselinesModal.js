@@ -26,7 +26,7 @@ export class DeleteBaselinesModal extends Component {
             clearSelectedBaselines,
             deleteSelectedBaselines,
             selectedBaselineIds,
-            fetchBaselines,
+            fetchWithParams,
             baselineId,
             tableId
         } = this.props;
@@ -45,7 +45,7 @@ export class DeleteBaselinesModal extends Component {
 
         if (results.value.data === 'OK') {
             clearSelectedBaselines(tableId);
-            fetchBaselines(tableId);
+            fetchWithParams();
         }
     }
 
@@ -90,7 +90,7 @@ DeleteBaselinesModal.propTypes = {
     clearSelectedBaselines: PropTypes.func,
     selectedBaselineIds: PropTypes.array,
     deleteSelectedBaselines: PropTypes.func,
-    fetchBaselines: PropTypes.func,
+    fetchWithParams: PropTypes.func,
     baselineId: PropTypes.string,
     tableId: PropTypes.string
 };
@@ -104,8 +104,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         deleteSelectedBaselines: (apiBody, tableId) => dispatch(baselinesTableActions.deleteSelectedBaselines(apiBody, tableId)),
-        clearSelectedBaselines: (tableId) => dispatch(baselinesTableActions.clearSelectedBaselines(tableId)),
-        fetchBaselines: (tableId) => dispatch(baselinesTableActions.fetchBaselines(tableId))
+        clearSelectedBaselines: (tableId) => dispatch(baselinesTableActions.clearSelectedBaselines(tableId))
     };
 }
 

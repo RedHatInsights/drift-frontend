@@ -11,7 +11,7 @@ import baselinesReducerHelpers from './redux/helpers';
 import BaselinesToolbar from './BaselinesToolbar/BaselinesToolbar';
 import EmptyStateDisplay from '../EmptyStateDisplay/EmptyStateDisplay';
 
-class BaselinesTable extends Component {
+export class BaselinesTable extends Component {
     constructor(props) {
         super(props);
 
@@ -37,17 +37,26 @@ class BaselinesTable extends Component {
         baselinesReducerHelpers.fetchBaselines(tableId, fetchBaselines);
     }
 
-    onSearch = (search) => {
+    fetchWithParams = (fetchParams) => {
         const { tableId, fetchBaselines } = this.props;
+        const { orderBy, orderHow, search } = this.state;
+
+        baselinesReducerHelpers.fetchBaselines(
+            tableId,
+            fetchBaselines,
+            fetchParams ? fetchParams : { orderBy, orderHow, search }
+        );
+    }
+
+    onSearch = (search) => {
         const { orderBy, orderHow } = this.state;
 
         let newSearch = search;
         this.setState({ search });
-        baselinesReducerHelpers.fetchBaselines(tableId, fetchBaselines, { orderBy, orderHow, search: newSearch });
+        this.fetchWithParams({ orderBy, orderHow, search: newSearch });
     }
 
     onSort = (_event, index, direction) => {
-        const { tableId, fetchBaselines } = this.props;
         const { search } = this.state;
         let orderBy = '';
 
@@ -66,7 +75,7 @@ class BaselinesTable extends Component {
             orderBy
         });
 
-        baselinesReducerHelpers.fetchBaselines(tableId, fetchBaselines, { orderBy, orderHow: direction.toUpperCase(), search });
+        this.fetchWithParams({ orderBy, orderHow: direction.toUpperCase(), search });
     }
 
     renderLoadingRows() {
@@ -222,6 +231,7 @@ class BaselinesTable extends Component {
                     kebab={ kebab }
                     onSearch={ this.onSearch }
                     tableId={ tableId }
+                    fetchWithParams={ this.fetchWithParams }
                 />
                 { this.renderTable() }
             </React.Fragment>
