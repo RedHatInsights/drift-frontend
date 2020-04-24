@@ -63,10 +63,11 @@ class DeleteFactModal extends Component {
                 { factMessage ? <b>{ factMessage }</b> : null }
                 { ' ' } to be deleted.
                 <br></br>
-                { categoryMessage ? 'Deleting a category will delete all facts within the category.' : null }
-                { categoryMessage ? <br></br> : null }
-                <br></br>
-                This cannot be undone.
+                { categoryMessage ?
+                    'Deleting a category will delete all facts within the category.'
+                    : null
+                }
+                { <div className="md-padding-top">This cannot be undone.</div> }
             </Modal>
         );
     }
