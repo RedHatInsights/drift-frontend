@@ -136,6 +136,7 @@ export class DriftTable extends Component {
         this.baselineIds = queryString.parse(this.props.location.search).baseline_ids;
         this.baselineIds = Array.isArray(this.baselineIds) ? this.baselineIds : [ this.baselineIds ];
         this.baselineIds = this.baselineIds.filter(item => item !== undefined);
+        this.props.setSelectedBaselines(this.baselineIds, 'CHECKBOX');
     }
 
     setHSPIds() {
