@@ -6,8 +6,11 @@ import HistoricalProfilesDropdown from '../HistoricalProfilesDropdown/Historical
 
 import types from '../modules/types';
 
-function selectedReducer(INVENTORY_ACTIONS, createBaselineModal, historicalProfiles, hasHistoricalDropdown) {
+function selectedReducer(
+    INVENTORY_ACTIONS, createBaselineModal, historicalProfiles, hasMultiSelect, hasHistoricalDropdown
+) {
     let newColumns;
+    let newRows;
 
     return applyReducerHash({
         [INVENTORY_ACTIONS.LOAD_ENTITIES_FULFILLED]: (state, action) => {
@@ -53,6 +56,7 @@ function selectedReducer(INVENTORY_ACTIONS, createBaselineModal, historicalProfi
                             hasBadge={ true }
                             badgeCount={ badgeCount }
                             dropdownDirection={ DropdownDirection.up }
+                            hasMultiSelect={ hasMultiSelect }
                         />
                     </React.Fragment>;
                 });
@@ -128,6 +132,43 @@ function selectedReducer(INVENTORY_ACTIONS, createBaselineModal, historicalProfi
             return {
                 ...state,
                 selectedSystemIds: action.payload.selectedSystemIds
+            };
+        },
+        [types.SELECT_SINGLE_HSP]: (state, action) => {
+            newRows = [ ...state.rows ];
+
+            /**/
+            newColumns = [ ...state.columns ];
+            newColumns.shift();
+            newColumns.unshift({
+                key: 'display_selected_hsp',
+                title: 'Name'
+            });
+
+            /**/
+
+            /*eslint-disable camelcase*/
+            newRows.forEach((row) => {
+                row.display_selected_hsp = row.display_name;
+                if (action.payload.system_id === row.id) {
+                    //row.display_name += '\n' + action.payload.captured_date;
+                    row.display_selected_hsp = <React.Fragment>
+                        <div>
+                            { row.display_name }
+                        </div>
+                        <div>
+                            { action.payload.captured_date }
+                        </div>
+                    </React.Fragment>;
+                }
+            });
+            /*eslint-enable camelcase*/
+
+            return {
+                ...state,
+                rows: newRows,
+                columns: newColumns,
+                selectedSystemIds: []
             };
         }
     });

@@ -7,9 +7,11 @@ import PropTypes from 'prop-types';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
 
 import { historicProfilesActions } from '../HistoricalProfilesDropdown/redux';
+import systemsTableActions from '../SystemsTable/actions';
 import HistoricalProfilesCheckbox from './HistoricalProfilesCheckbox/HistoricalProfilesCheckbox';
 import api from '../../api';
 import FetchHistoricalProfilesButton from './FetchHistoricalProfilesButton/FetchHistoricalProfilesButton';
+import HistoricalProfilesRadio from './HistoricalProfilesRadio/HistoricalProfilesRadio';
 
 export class HistoricalProfilesDropdown extends Component {
     constructor(props) {
@@ -33,12 +35,56 @@ export class HistoricalProfilesDropdown extends Component {
                 isOpen: !isOpen
             });
         };
+
+        this.onSelect = this.onSelect.bind(this);
+        this.onSingleSelect = this.onSingleSelect.bind(this);
     }
 
-    componentDidUpdate(prevProps) {
+    /*componentDidUpdate(prevProps) {
+        const { selectedHSPIds, selectedSystemIds, selectHistoricProfiles } = this.props;
+        const { historicalData } = this.state;
         if (prevProps.selectedHSPIds.length > 0 && this.props.selectedHSPIds.length === 0) {
             this.setState({ badgeCount: 0 });
         }
+        if (prevProps.selectedHSPIds !== selectedHSPIds && historicalData) {
+            this.updateBadgeCount();
+        }
+
+        if (prevProps.selectedHSPIds.length > 0 && selectedSystemIds.length > 0) {
+            selectHistoricProfiles([]);
+        }
+    }*/
+
+    async onSelect(checked, profile) {
+        const { selectHistoricProfiles, selectSystem, selectedHSPIds } = this.props;
+        let newSelectedHSPIds = [ ...selectedHSPIds ];
+
+        if (profile.captured_date === 'Latest') {
+            await selectSystem(profile.id, !checked);
+        } else {
+            if (newSelectedHSPIds.includes(profile.id)) {
+                newSelectedHSPIds = newSelectedHSPIds.filter(hsp => hsp !== profile.id);
+            } else {
+                newSelectedHSPIds.push(profile.id);
+            }
+            //selectHistoricProfiles([ profile.id ]);
+
+            await selectHistoricProfiles(newSelectedHSPIds);
+        }
+
+        this.updateBadgeCount(!checked);
+    }
+
+    async onSingleSelect(profile) {
+        const { selectHistoricProfiles, selectSystem, selectSingleHSP } = this.props;
+
+        if (profile.captured_date === 'Latest') {
+            await selectSystem(profile.id, true);
+        } else {
+            await selectHistoricProfiles([ profile.id ]);
+        }
+
+        selectSingleHSP(profile);
     }
 
     fetchCompare = () => {
@@ -61,19 +107,26 @@ export class HistoricalProfilesDropdown extends Component {
     }
 
     createDropdownArray = (historicalData) => {
-        const { hasBadge } = this.props;
+        const { hasBadge, hasMultiSelect } = this.props;
 
         let dropdownItems = [];
         let badgeCountFunc = this.updateBadgeCount;
 
         if (historicalData.profiles.length > 0) {
-            historicalData.profiles.forEach(function(profile) {
+            historicalData.profiles.forEach((profile) => {
                 dropdownItems.push(
                     <DropdownItem>
-                        <HistoricalProfilesCheckbox
-                            profile={ profile }
-                            updateBadgeCount={ badgeCountFunc }
-                        />
+                        { hasMultiSelect
+                            ? <HistoricalProfilesCheckbox
+                                profile={ profile }
+                                updateBadgeCount={ badgeCountFunc }
+                                onSelect={ this.onSelect }
+                            />
+                            : <HistoricalProfilesRadio
+                                profile={ profile }
+                                onSingleSelect={ this.onSingleSelect }
+                            />
+                        }
                     </DropdownItem>
                 );
             });
@@ -104,7 +157,11 @@ export class HistoricalProfilesDropdown extends Component {
 
         for (let i = 0; i < 3; i += 1) {
             rows.push(
-                <Skeleton className='hsp-dropdown-loading hsp-button' size={ SkeletonSize.sm } />
+                <Skeleton
+                    className='hsp-dropdown-loading hsp-button'
+                    size={ SkeletonSize.sm }
+                    key={ 'skeleton-row-' + i }
+                />
             );
             rows.push(<br></br>);
         }
@@ -112,11 +169,16 @@ export class HistoricalProfilesDropdown extends Component {
         return rows;
     }
 
-    updateBadgeCount = (checked) => {
-        let newBadgeCount = this.state.badgeCount;
+    updateBadgeCount = (/*checked*/) => {
+        this.setState({
+            badgeCount: this.state.historicalData.profiles.filter((hsp) => {
+                return this.props.selectedHSPIds.includes(hsp.id);
+            }).length
+        });
+        /*let newBadgeCount = this.state.badgeCount;
         newBadgeCount += checked ? 1 : -1;
 
-        this.setState({ badgeCount: newBadgeCount });
+        this.setState({ badgeCount: newBadgeCount });*/
     }
 
     renderBadge = () => {
@@ -136,8 +198,9 @@ export class HistoricalProfilesDropdown extends Component {
         return (
             <React.Fragment>
                 <Dropdown
+                    className='historical-system-profile-dropdown'
                     toggle={ <DropdownToggle
-                        className='historical-system-profile-dropdown hsp-dropdown-icon'
+                        className='hsp-dropdown-icon'
                         iconComponent={ null }
                         onToggle={ this.onToggle }>
                         <HistoryIcon />
@@ -155,6 +218,7 @@ export class HistoricalProfilesDropdown extends Component {
 }
 
 HistoricalProfilesDropdown.propTypes = {
+    entities: PropTypes.object,
     fetchHistoricalData: PropTypes.func,
     system: PropTypes.object,
     fetchCompare: PropTypes.func,
@@ -162,14 +226,19 @@ HistoricalProfilesDropdown.propTypes = {
     selectedHSPIds: PropTypes.array,
     selectedBaselineIds: PropTypes.array,
     selectHistoricProfiles: PropTypes.func,
+    selectSystem: PropTypes.func,
     hasBadge: PropTypes.bool,
     badgeCount: PropTypes.number,
     referenceId: PropTypes.string,
-    dropdownDirection: PropTypes.object
+    dropdownDirection: PropTypes.string,
+    hasMultiSelect: PropTypes.bool,
+    //selectedSystemIds: PropTypes.array,
+    selectSingleHSP: PropTypes.func
 };
 
 function mapStateToProps(state) {
     return {
+        //selectedSystemIds: state.entities.selectedSystemIds,
         selectedHSPIds: state.historicProfilesState.selectedHSPIds,
         selectedBaselineIds: state.baselinesTableState.checkboxTable.selectedBaselineIds
     };
@@ -177,7 +246,12 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds))
+        selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds)),
+        selectSystem: (id, selected) => dispatch({
+            type: 'SELECT_ENTITY',
+            payload: { id, selected }
+        }),
+        selectSingleHSP: (profile) => dispatch(systemsTableActions.selectSingleHSP(profile))
     };
 }
 

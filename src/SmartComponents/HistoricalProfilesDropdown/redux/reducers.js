@@ -5,13 +5,13 @@ const initialState = {
 };
 
 export function historicProfilesReducer(state = initialState, action) {
-    let newSelectedHSPIds = [];
+    //let newSelectedHSPIds = [];
     let id;
     let selected;
 
     switch (action.type) {
         case types.SELECT_HISTORIC_PROFILES:
-            newSelectedHSPIds = [ ...state.selectedHSPIds ];
+            /*newSelectedHSPIds = [ ...state.selectedHSPIds ];
 
             action.payload.forEach((hspId) => {
                 if (!newSelectedHSPIds.includes(hspId)) {
@@ -23,11 +23,12 @@ export function historicProfilesReducer(state = initialState, action) {
                         }
                     }
                 }
-            });
+            });*/
 
             return {
                 ...state,
-                selectedHSPIds: newSelectedHSPIds
+                //selectedHSPIds: newSelectedHSPIds
+                selectedHSPIds: action.payload
             };
         case types.SET_SELECTED_HISTORIC_PROFILES:
             return {

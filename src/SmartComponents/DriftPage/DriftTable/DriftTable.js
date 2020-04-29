@@ -370,6 +370,7 @@ export class DriftTable extends Component {
                                     referenceId={ referenceId }
                                     fetchCompare={ this.fetchCompare }
                                     dropdownDirection={ DropdownDirection.down }
+                                    hasMultiSelect={ true }
                                 />
                                 : null
                             }

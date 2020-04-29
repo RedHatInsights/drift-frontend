@@ -38,7 +38,7 @@ export class EmptyStateDisplay extends Component {
 }
 
 EmptyStateDisplay.propTypes = {
-    icon: PropTypes.object,
+    icon: PropTypes.any,
     text: PropTypes.array,
     title: PropTypes.string,
     button: PropTypes.object,

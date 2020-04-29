@@ -144,7 +144,13 @@ export class CreateBaselineModal extends Component {
     renderCopySystem() {
         return (<React.Fragment>
             <b>Select system to copy from</b>
-            <SystemsTable selectedSystemIds={ [] } createBaselineModal={ true } />
+            <SystemsTable
+                selectedSystemIds={ [] }
+                createBaselineModal={ true }
+                hasHistoricalDropdown={ true }
+                hasMultiSelect={ false }
+                historicalProfiles={ this.props.historicalProfiles }
+            />
         </React.Fragment>
         );
     }
@@ -272,7 +278,8 @@ CreateBaselineModal.propTypes = {
     selectedBaselineIds: PropTypes.array,
     error: PropTypes.object,
     baselineTableData: PropTypes.array,
-    loading: PropTypes.bool
+    loading: PropTypes.bool,
+    historicalProfiles: PropTypes.array
 };
 
 function mapStateToProps(state) {
@@ -284,7 +291,8 @@ function mapStateToProps(state) {
         error: state.createBaselineModalState.error,
         loading: state.baselinesTableState.radioTable.loading,
         emptyState: state.baselinesTableState.radioTable.emptyState,
-        baselineTableData: state.baselinesTableState.radioTable.baselineTableData
+        baselineTableData: state.baselinesTableState.radioTable.baselineTableData,
+        historicalProfiles: state.compareState.historicalProfiles
     };
 }
 

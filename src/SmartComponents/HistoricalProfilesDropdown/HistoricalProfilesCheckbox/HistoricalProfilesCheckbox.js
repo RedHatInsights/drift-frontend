@@ -4,7 +4,7 @@ import { Checkbox } from '@patternfly/react-core';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
-import { historicProfilesActions } from '../redux';
+//import { historicProfilesActions } from '../redux';
 
 class HistoricalProfilesCheckbox extends Component {
     constructor(props) {
@@ -31,19 +31,22 @@ class HistoricalProfilesCheckbox extends Component {
 
     handleChange = () => {
         const { checked } = this.state;
-        const { selectHistoricProfiles, selectSystem, profile, updateBadgeCount } = this.props;
+        const { onSelect, profile } = this.props;
+        //const { selectHistoricProfiles, selectSystem, profile, updateBadgeCount } = this.props;
 
         this.setState({
             checked: !checked
         });
 
-        updateBadgeCount(!checked);
+        /*updateBadgeCount(!checked);
 
         if (profile.captured_date === 'Latest') {
             selectSystem(profile.id, !checked);
         } else {
             selectHistoricProfiles([ profile.id ]);
-        }
+        }*/
+
+        onSelect(checked, profile);
     }
 
     render() {
@@ -76,7 +79,8 @@ HistoricalProfilesCheckbox.propTypes = {
     selectedHSPIds: PropTypes.array,
     updateBadgeCount: PropTypes.func,
     selectSystem: PropTypes.func,
-    entities: PropTypes.object
+    entities: PropTypes.object,
+    onSelect: PropTypes.func
 };
 
 function mapStateToProps(state) {
@@ -86,7 +90,7 @@ function mapStateToProps(state) {
     };
 }
 
-function mapDispatchToProps(dispatch) {
+/*function mapDispatchToProps(dispatch) {
     return {
         selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds)),
         selectSystem: (id, selected) => dispatch({
@@ -94,6 +98,6 @@ function mapDispatchToProps(dispatch) {
             payload: { id, selected }
         })
     };
-}
+}*/
 
-export default (connect(mapStateToProps, mapDispatchToProps)(HistoricalProfilesCheckbox));
+export default (connect(mapStateToProps, null/*mapDispatchToProps*/)(HistoricalProfilesCheckbox));

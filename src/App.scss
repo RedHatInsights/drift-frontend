@@ -92,6 +92,13 @@
 
   .historical-system-profile-dropdown {
     max-height: 21px;
+
+    .pf-c-dropdown__menu {
+      max-height: 200px;
+      //min-height: 21px;
+      min-width: 250px;
+      overflow-y: auto;
+    }
   }
 
   .historical-system-profile-header {

@@ -8,7 +8,9 @@ import { connect } from 'react-redux';
 import * as pfReactTable from '@patternfly/react-table';
 
 import selectedReducer from './reducers';
+import { addNewListener } from './';
 import { compareActions } from '../modules';
+import { historicProfilesActions } from '../HistoricalProfilesDropdown/redux';
 
 @registryDecorator()
 class SystemsTable extends Component {
@@ -19,6 +21,7 @@ class SystemsTable extends Component {
         };
 
         this.fetchInventory();
+
         this.selectedSystemIds = this.selectedSystemIds.bind(this);
     }
 
@@ -34,14 +37,23 @@ class SystemsTable extends Component {
             reactIcons,
             pfReactTable
         });
-        const { createBaselineModal, hasHistoricalDropdown, historicalProfiles } = this.props;
+        const { createBaselineModal, hasHistoricalDropdown, hasMultiSelect, historicalProfiles, selectHistoricProfiles } = this.props;
 
         this.props.driftClearFilters();
 
         this.getRegistry().register({
             ...mergeWithEntities(
-                selectedReducer(INVENTORY_ACTION_TYPES, createBaselineModal, historicalProfiles, hasHistoricalDropdown)
+                selectedReducer(
+                    INVENTORY_ACTION_TYPES, createBaselineModal, historicalProfiles, hasMultiSelect, hasHistoricalDropdown
+                )
             )
+        });
+
+        this.entityListener = addNewListener({
+            actionType: 'SELECT_ENTITY',
+            callback: () => {
+                !hasMultiSelect ? selectHistoricProfiles([]) : null;
+            }
         });
 
         this.setState({
@@ -54,13 +66,14 @@ class SystemsTable extends Component {
     render() {
         const { InventoryCmp } = this.state;
         return (
-            <InventoryCmp/>
+            <InventoryCmp />
         );
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
+        selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds)),
         setSelectedSystemIds: (systemIds) => dispatch(compareActions.setSelectedSystemIds(systemIds)),
         driftClearFilters: () => dispatch({ type: 'CLEAR_FILTERS' })
     };
@@ -69,10 +82,12 @@ function mapDispatchToProps(dispatch) {
 SystemsTable.propTypes = {
     setSelectedSystemIds: PropTypes.func,
     selectedSystemIds: PropTypes.array,
+    selectHistoricProfiles: PropTypes.func,
     createBaselineModal: PropTypes.bool,
     driftClearFilters: PropTypes.func,
     hasHistoricalDropdown: PropTypes.bool,
-    historicalProfiles: PropTypes.array
+    historicalProfiles: PropTypes.array,
+    hasMultiSelect: PropTypes.bool
 };
 
 SystemsTable.defaultProps = {
