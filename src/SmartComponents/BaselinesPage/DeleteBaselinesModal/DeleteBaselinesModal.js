@@ -41,11 +41,13 @@ export class DeleteBaselinesModal extends Component {
         /*eslint-enable camelcase*/
 
         this.toggleModal();
-        let results = await deleteSelectedBaselines(apiBody, tableId);
 
-        if (results.value.data === 'OK') {
+        try {
+            await deleteSelectedBaselines(apiBody, tableId);
             clearSelectedBaselines(tableId);
             fetchWithParams();
+        } catch (e) {
+            //do nothing and let redux handle
         }
     }
 

@@ -133,6 +133,9 @@ describe('ConnectedCreateBaselineModal', () => {
     beforeEach(() => {
         mockStore = configureStore();
         initialState = {
+            compareState: {
+                historicalProfiles: []
+            },
             createBaselineModalState: {
                 createBaselineModalOpened: true,
                 baselineData: [],
@@ -142,10 +145,13 @@ describe('ConnectedCreateBaselineModal', () => {
             baselinesTableState: {
                 radioTable: {
                     selectedBaselineIds: [],
-                    baselineListLoading: false,
+                    loading: false,
                     emptyState: {},
                     baselineTableData: []
                 }
+            },
+            historicProfilesState: {
+                selectedHSPIds: []
             },
             toggleCreateBaselineModal: jest.fn(),
             createBaseline: jest.fn(),

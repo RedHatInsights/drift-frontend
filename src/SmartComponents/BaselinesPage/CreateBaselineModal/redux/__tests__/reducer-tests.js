@@ -32,6 +32,7 @@ describe('compare reducer', () => {
         }, {
             type: `${types.CREATE_BASELINE}_PENDING`
         })).toEqual({
+            baselineData: {},
             baselineDataLoading: true,
             error: {}
         });

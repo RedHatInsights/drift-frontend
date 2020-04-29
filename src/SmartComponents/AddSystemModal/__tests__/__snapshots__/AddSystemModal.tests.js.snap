@@ -48,6 +48,7 @@ exports[`AddSystemModal should render correctly 1`] = `
       >
         <Connect(SystemsTable)
           hasHistoricalDropdown={true}
+          hasMultiSelect={true}
           historicalProfiles={Array []}
           selectedSystemIds={Array []}
         />
@@ -13056,6 +13057,7 @@ Try changing your filter settings.
                                       >
                                         <Memo(Connect(SystemsTable))
                                           hasHistoricalDropdown={true}
+                                          hasMultiSelect={true}
                                           historicalProfiles={Array []}
                                           selectedSystemIds={
                                             Array [
@@ -13079,6 +13081,7 @@ Try changing your filter settings.
                                         >
                                           <Memo(Connect(SystemsTable))
                                             hasHistoricalDropdown={true}
+                                            hasMultiSelect={true}
                                             historicalProfiles={Array []}
                                             selectedSystemIds={
                                               Array [
@@ -13102,6 +13105,7 @@ Try changing your filter settings.
                                       >
                                         <Connect(SystemsTable)
                                           hasHistoricalDropdown={true}
+                                          hasMultiSelect={true}
                                           historicalProfiles={Array []}
                                           selectedSystemIds={
                                             Array [
@@ -13113,7 +13117,9 @@ Try changing your filter settings.
                                           <SystemsTable
                                             driftClearFilters={[Function]}
                                             hasHistoricalDropdown={true}
+                                            hasMultiSelect={true}
                                             historicalProfiles={Array []}
+                                            selectHistoricProfiles={[Function]}
                                             selectedSystemIds={
                                               Array [
                                                 "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
@@ -13121,6 +13127,7 @@ Try changing your filter settings.
                                               ]
                                             }
                                             setSelectedSystemIds={[Function]}
+                                            updateColumns={[Function]}
                                           >
                                             <Spinner
                                               size="lg"
@@ -18880,6 +18887,7 @@ Try changing your filter settings.
                                       >
                                         <Memo(Connect(SystemsTable))
                                           hasHistoricalDropdown={true}
+                                          hasMultiSelect={true}
                                           historicalProfiles={Array []}
                                           selectedSystemIds={
                                             Array [
@@ -18903,6 +18911,7 @@ Try changing your filter settings.
                                         >
                                           <Memo(Connect(SystemsTable))
                                             hasHistoricalDropdown={true}
+                                            hasMultiSelect={true}
                                             historicalProfiles={Array []}
                                             selectedSystemIds={
                                               Array [
@@ -18926,6 +18935,7 @@ Try changing your filter settings.
                                       >
                                         <Connect(SystemsTable)
                                           hasHistoricalDropdown={true}
+                                          hasMultiSelect={true}
                                           historicalProfiles={Array []}
                                           selectedSystemIds={
                                             Array [
@@ -18937,7 +18947,9 @@ Try changing your filter settings.
                                           <SystemsTable
                                             driftClearFilters={[Function]}
                                             hasHistoricalDropdown={true}
+                                            hasMultiSelect={true}
                                             historicalProfiles={Array []}
+                                            selectHistoricProfiles={[Function]}
                                             selectedSystemIds={
                                               Array [
                                                 "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
@@ -18945,6 +18957,7 @@ Try changing your filter settings.
                                               ]
                                             }
                                             setSelectedSystemIds={[Function]}
+                                            updateColumns={[Function]}
                                           >
                                             <Spinner
                                               size="lg"

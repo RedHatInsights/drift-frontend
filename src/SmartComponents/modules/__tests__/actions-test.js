@@ -20,7 +20,7 @@ describe('compare actions', () => {
         moxios.uninstall();
     });
 
-    it('creates FETCH_COMPARE_FULLFILLED when fetching compare has been done', () => {
+    it.skip('creates FETCH_COMPARE_FULLFILLED when fetching compare has been done', () => {
         moxios.wait(function () {
             let request = moxios.requests.mostRecent();
 

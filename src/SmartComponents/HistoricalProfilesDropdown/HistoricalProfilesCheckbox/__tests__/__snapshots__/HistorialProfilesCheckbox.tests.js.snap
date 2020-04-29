@@ -1,0 +1,170 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConnectedHistoricalProfilesCheckbox should render correctly 1`] = `
+<MemoryRouter
+  keyLength={0}
+>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Provider
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+    >
+      <Connect(HistoricalProfilesCheckbox)
+        profile={
+          Object {
+            "captured_date": "03 May 2020, 18:20 UTC",
+            "id": "1234",
+          }
+        }
+      >
+        <HistoricalProfilesCheckbox
+          dispatch={[Function]}
+          entities={Object {}}
+          profile={
+            Object {
+              "captured_date": "03 May 2020, 18:20 UTC",
+              "id": "1234",
+            }
+          }
+          selectedHSPIds={Array []}
+        >
+          <Checkbox
+            aria-label="1234"
+            className=""
+            id="1234"
+            isChecked={false}
+            isDisabled={false}
+            isValid={true}
+            label="03 May 2020, 18:20 UTC"
+            name="1234"
+            onChange={[Function]}
+          >
+            <div
+              className="pf-c-check"
+            >
+              <input
+                aria-invalid={false}
+                aria-label="1234"
+                checked={false}
+                className="pf-c-check__input"
+                disabled={false}
+                id="1234"
+                name="1234"
+                onChange={[Function]}
+                type="checkbox"
+              />
+              <label
+                className="pf-c-check__label"
+                htmlFor="1234"
+              >
+                03 May 2020, 18:20 UTC
+              </label>
+            </div>
+          </Checkbox>
+        </HistoricalProfilesCheckbox>
+      </Connect(HistoricalProfilesCheckbox)>
+    </Provider>
+  </Router>
+</MemoryRouter>
+`;
+
+exports[`HistoricalProfilesCheckbox should render correctly 1`] = `
+<Fragment>
+  <Checkbox
+    aria-label="1234"
+    className=""
+    id="1234"
+    isChecked={false}
+    isDisabled={false}
+    isValid={true}
+    label="03 May 2020, 18:20 UTC"
+    name="1234"
+    onChange={[Function]}
+  />
+</Fragment>
+`;
+
+exports[`HistoricalProfilesCheckbox should render mount correctly 1`] = `
+<HistoricalProfilesCheckbox
+  profile={
+    Object {
+      "captured_date": "03 May 2020, 18:20 UTC",
+      "id": "1234",
+    }
+  }
+  selectedHSPIds={Array []}
+>
+  <Checkbox
+    aria-label="1234"
+    className=""
+    id="1234"
+    isChecked={false}
+    isDisabled={false}
+    isValid={true}
+    label="03 May 2020, 18:20 UTC"
+    name="1234"
+    onChange={[Function]}
+  >
+    <div
+      className="pf-c-check"
+    >
+      <input
+        aria-invalid={false}
+        aria-label="1234"
+        checked={false}
+        className="pf-c-check__input"
+        disabled={false}
+        id="1234"
+        name="1234"
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <label
+        className="pf-c-check__label"
+        htmlFor="1234"
+      >
+        03 May 2020, 18:20 UTC
+      </label>
+    </div>
+  </Checkbox>
+</HistoricalProfilesCheckbox>
+`;

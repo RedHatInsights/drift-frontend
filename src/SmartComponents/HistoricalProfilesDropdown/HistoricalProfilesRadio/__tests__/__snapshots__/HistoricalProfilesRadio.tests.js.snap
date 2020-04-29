@@ -1,0 +1,176 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConnectedHistoricalProfilesRadio should render correctly 1`] = `
+<MemoryRouter
+  keyLength={0}
+>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Provider
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+    >
+      <Connect(HistoricalProfilesRadio)
+        profile={
+          Object {
+            "captured_date": "03 May 2020, 18:20 UTC",
+            "id": "1234",
+          }
+        }
+      >
+        <HistoricalProfilesRadio
+          dispatch={[Function]}
+          entities={Object {}}
+          profile={
+            Object {
+              "captured_date": "03 May 2020, 18:20 UTC",
+              "id": "1234",
+            }
+          }
+          selectedHSPIds={Array []}
+        >
+          <Radio
+            className=""
+            id="03 May 2020, 18:20 UTC"
+            isChecked={false}
+            isDisabled={false}
+            isValid={true}
+            label="03 May 2020, 18:20 UTC"
+            name="03 May 2020, 18:20 UTC"
+            onChange={[Function]}
+            value="03 May 2020, 18:20 UTC"
+          >
+            <div
+              className="pf-c-radio"
+            >
+              <input
+                aria-invalid={false}
+                checked={false}
+                className="pf-c-radio__input"
+                data-ouia-component-id={1}
+                data-ouia-component-type="PF4/Radio"
+                data-ouia-safe={true}
+                disabled={false}
+                id="03 May 2020, 18:20 UTC"
+                name="03 May 2020, 18:20 UTC"
+                onChange={[Function]}
+                type="radio"
+                value="03 May 2020, 18:20 UTC"
+              />
+              <label
+                className="pf-c-radio__label"
+                htmlFor="03 May 2020, 18:20 UTC"
+              >
+                03 May 2020, 18:20 UTC
+              </label>
+            </div>
+          </Radio>
+        </HistoricalProfilesRadio>
+      </Connect(HistoricalProfilesRadio)>
+    </Provider>
+  </Router>
+</MemoryRouter>
+`;
+
+exports[`HistoricalProfilesRadio should render correctly 1`] = `
+<Fragment>
+  <Radio
+    className=""
+    id="03 May 2020, 18:20 UTC"
+    isChecked={false}
+    isDisabled={false}
+    isValid={true}
+    label="03 May 2020, 18:20 UTC"
+    name="03 May 2020, 18:20 UTC"
+    onChange={[Function]}
+    value="03 May 2020, 18:20 UTC"
+  />
+</Fragment>
+`;
+
+exports[`HistoricalProfilesRadio should render mount correctly 1`] = `
+<HistoricalProfilesRadio
+  profile={
+    Object {
+      "captured_date": "03 May 2020, 18:20 UTC",
+      "id": "1234",
+    }
+  }
+  selectedHSPIds={Array []}
+>
+  <Radio
+    className=""
+    id="03 May 2020, 18:20 UTC"
+    isChecked={false}
+    isDisabled={false}
+    isValid={true}
+    label="03 May 2020, 18:20 UTC"
+    name="03 May 2020, 18:20 UTC"
+    onChange={[Function]}
+    value="03 May 2020, 18:20 UTC"
+  >
+    <div
+      className="pf-c-radio"
+    >
+      <input
+        aria-invalid={false}
+        checked={false}
+        className="pf-c-radio__input"
+        data-ouia-component-id={0}
+        data-ouia-component-type="PF4/Radio"
+        data-ouia-safe={true}
+        disabled={false}
+        id="03 May 2020, 18:20 UTC"
+        name="03 May 2020, 18:20 UTC"
+        onChange={[Function]}
+        type="radio"
+        value="03 May 2020, 18:20 UTC"
+      />
+      <label
+        className="pf-c-radio__label"
+        htmlFor="03 May 2020, 18:20 UTC"
+      >
+        03 May 2020, 18:20 UTC
+      </label>
+    </div>
+  </Radio>
+</HistoricalProfilesRadio>
+`;

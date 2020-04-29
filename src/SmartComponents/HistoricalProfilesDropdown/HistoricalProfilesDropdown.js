@@ -7,10 +7,12 @@ import PropTypes from 'prop-types';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
 
 import { historicProfilesActions } from '../HistoricalProfilesDropdown/redux';
+import systemsTableActions from '../SystemsTable/actions';
 import HistoricalProfilesCheckbox from './HistoricalProfilesCheckbox/HistoricalProfilesCheckbox';
 import api from '../../api';
 import FetchHistoricalProfilesButton from './FetchHistoricalProfilesButton/FetchHistoricalProfilesButton';
 import EmptyStateDisplay from '../EmptyStateDisplay/EmptyStateDisplay';
+import HistoricalProfilesRadio from './HistoricalProfilesRadio/HistoricalProfilesRadio';
 
 export class HistoricalProfilesDropdown extends Component {
     constructor(props) {
@@ -35,12 +37,41 @@ export class HistoricalProfilesDropdown extends Component {
                 isOpen: !isOpen
             });
         };
+
+        this.onSelect = this.onSelect.bind(this);
+        this.onSingleSelect = this.onSingleSelect.bind(this);
     }
 
-    componentDidUpdate(prevProps) {
-        if (prevProps.selectedHSPIds.length > 0 && this.props.selectedHSPIds.length === 0) {
-            this.setState({ badgeCount: 0 });
+    async onSelect(checked, profile) {
+        const { selectHistoricProfiles, selectSystem, selectedHSPIds } = this.props;
+        let newSelectedHSPIds = [ ...selectedHSPIds ];
+
+        if (profile.captured_date === 'Latest') {
+            await selectSystem(profile.id, !checked);
+        } else {
+            if (newSelectedHSPIds.includes(profile.id)) {
+                newSelectedHSPIds = newSelectedHSPIds.filter(hsp => hsp !== profile.id);
+            } else {
+                newSelectedHSPIds.push(profile.id);
+            }
+
+            await selectHistoricProfiles(newSelectedHSPIds);
         }
+
+        this.updateBadgeCount(!checked);
+    }
+
+    async onSingleSelect(profile) {
+        const { selectHistoricProfiles, selectSystem, selectSingleHSP, updateColumns } = this.props;
+
+        if (profile.captured_date === 'Latest') {
+            await selectSystem(profile.id, true);
+        } else {
+            await selectHistoricProfiles([ profile.id ]);
+        }
+
+        updateColumns('display_selected_hsp');
+        selectSingleHSP(profile);
     }
 
     fetchCompare = () => {
@@ -78,20 +109,29 @@ export class HistoricalProfilesDropdown extends Component {
     }
 
     createDropdownArray = () => {
-        const { hasCompareButton } = this.props;
+        const { hasCompareButton, hasMultiSelect } = this.props;
         const { historicalData, error } = this.state;
 
         let dropdownItems = [];
         let badgeCountFunc = this.updateBadgeCount;
+        let onSelectFunc = this.onSelect;
+        let onSingleSelectFunc = this.onSingleSelect;
 
         if (historicalData && historicalData.profiles.length > 0) {
             historicalData.profiles.forEach(function(profile) {
                 dropdownItems.push(
                     <DropdownItem>
-                        <HistoricalProfilesCheckbox
-                            profile={ profile }
-                            updateBadgeCount={ badgeCountFunc }
-                        />
+                        { hasMultiSelect
+                            ? <HistoricalProfilesCheckbox
+                                profile={ profile }
+                                updateBadgeCount={ badgeCountFunc }
+                                onSelect={ onSelectFunc }
+                            />
+                            : <HistoricalProfilesRadio
+                                profile={ profile }
+                                onSingleSelect={ onSingleSelectFunc }
+                            />
+                        }
                     </DropdownItem>
                 );
             });
@@ -134,7 +174,11 @@ export class HistoricalProfilesDropdown extends Component {
 
         for (let i = 0; i < 3; i += 1) {
             rows.push(
-                <Skeleton className='hsp-dropdown-loading hsp-button' size={ SkeletonSize.sm } />
+                <Skeleton
+                    className='hsp-dropdown-loading hsp-button'
+                    size={ SkeletonSize.sm }
+                    key={ 'skeleton-row-' + i }
+                />
             );
             rows.push(<br></br>);
         }
@@ -142,11 +186,12 @@ export class HistoricalProfilesDropdown extends Component {
         return rows;
     }
 
-    updateBadgeCount = (checked) => {
-        let newBadgeCount = this.state.badgeCount;
-        newBadgeCount += checked ? 1 : -1;
-
-        this.setState({ badgeCount: newBadgeCount });
+    updateBadgeCount = () => {
+        this.setState({
+            badgeCount: this.state.historicalData.profiles.filter((hsp) => {
+                return this.props.selectedHSPIds.includes(hsp.id);
+            }).length
+        });
     }
 
     renderBadge = () => {
@@ -186,6 +231,7 @@ export class HistoricalProfilesDropdown extends Component {
 }
 
 HistoricalProfilesDropdown.propTypes = {
+    entities: PropTypes.object,
     fetchHistoricalData: PropTypes.func,
     system: PropTypes.object,
     fetchCompare: PropTypes.func,
@@ -193,11 +239,15 @@ HistoricalProfilesDropdown.propTypes = {
     selectedHSPIds: PropTypes.array,
     selectedBaselineIds: PropTypes.array,
     selectHistoricProfiles: PropTypes.func,
+    selectSystem: PropTypes.func,
     hasBadge: PropTypes.bool,
     hasCompareButton: PropTypes.bool,
     badgeCount: PropTypes.number,
     referenceId: PropTypes.string,
-    dropdownDirection: PropTypes.object
+    dropdownDirection: PropTypes.string,
+    hasMultiSelect: PropTypes.bool,
+    selectSingleHSP: PropTypes.func,
+    updateColumns: PropTypes.func
 };
 
 function mapStateToProps(state) {
@@ -209,7 +259,13 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds))
+        selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds)),
+        selectSystem: (id, selected) => dispatch({
+            type: 'SELECT_ENTITY',
+            payload: { id, selected }
+        }),
+        selectSingleHSP: (profile) => dispatch(systemsTableActions.selectSingleHSP(profile)),
+        updateColumns: (key) => dispatch(systemsTableActions.updateColumns(key))
     };
 }
 

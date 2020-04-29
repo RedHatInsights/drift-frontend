@@ -60,8 +60,18 @@ describe('HistoricalProfilesDropdown', () => {
                 <HistoricalProfilesDropdown { ...props }/>
             );
 
+            wrapper.setState({
+                historicalData: {
+                    profiles: [{
+                        captured_date: '2020-07-28T01:15:24.100078+00:00',
+                        id: 'abcd1234',
+                        system_id: '1234abcd'
+                    }]
+                }
+            });
             expect(wrapper.state('badgeCount')).toBe(1);
             wrapper.setProps({ selectedHSPIds: []});
+            wrapper.instance().updateBadgeCount();
             expect(wrapper.state('badgeCount')).toBe(0);
         });
     });

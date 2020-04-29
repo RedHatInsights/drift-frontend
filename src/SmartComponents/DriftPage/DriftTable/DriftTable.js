@@ -371,6 +371,7 @@ export class DriftTable extends Component {
                                     fetchCompare={ this.fetchCompare }
                                     dropdownDirection={ DropdownDirection.down }
                                     hasCompareButton={ true }
+                                    hasMultiSelect={ true }
                                 />
                                 : null
                             }
