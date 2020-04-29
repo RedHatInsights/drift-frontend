@@ -5,6 +5,7 @@ import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import toJson from 'enzyme-to-json';
 import baselinesTableFixtures from '../../BaselinesTable/redux/__tests__/baselinesTableReducer.fixtures';
+import _ from 'lodash';
 
 import ConnectedBaselinesPage, { BaselinesPage } from '../BaselinesPage';
 
@@ -46,6 +47,91 @@ describe('BaselinesPage', () => {
         );
         expect(toJson(wrapper)).toMatchSnapshot();
     });
+
+    it('should call onSelect with isSelected true', () => {
+        props.baselineTableData = [
+            [ '1234', 'baseline 1', '1 month ago' ],
+            [ '5678', 'baseline 2', '2 months ago' ]
+        ];
+        const selectBaseline = jest.fn();
+        const wrapper = shallow(
+            <BaselinesPage
+                { ...props }
+                selectBaseline={ selectBaseline }
+            />
+        );
+
+        wrapper.instance().onSelect(_, true, 0);
+        expect(selectBaseline).toHaveBeenCalledWith([ '1234' ], true, 'CHECKBOX');
+    });
+
+    it('should call onSelect with isSelected false', () => {
+        props.baselineTableData = [
+            [ '1234', 'baseline 1', '1 month ago' ],
+            [ '5678', 'baseline 2', '2 months ago' ]
+        ];
+        const selectBaseline = jest.fn();
+        const wrapper = shallow(
+            <BaselinesPage
+                { ...props }
+                selectBaseline={ selectBaseline }
+            />
+        );
+
+        wrapper.instance().onSelect(_, false, 0);
+        expect(selectBaseline).toHaveBeenCalledWith([ '1234' ], false, 'CHECKBOX');
+    });
+
+    it('should call onSelect and select all', () => {
+        props.baselineTableData = [
+            [ '1234', 'baseline 1', '1 month ago' ],
+            [ '5678', 'baseline 2', '2 months ago' ]
+        ];
+        const selectBaseline = jest.fn();
+        const wrapper = shallow(
+            <BaselinesPage
+                { ...props }
+                selectBaseline={ selectBaseline }
+            />
+        );
+
+        wrapper.instance().onSelect(_, true, -1);
+        expect(selectBaseline).toHaveBeenCalledWith([ '1234', '5678' ], true, 'CHECKBOX');
+    });
+
+    it('should call onBulkSelect with isSelected true', () => {
+        props.baselineTableData = [
+            [ '1234', 'baseline 1', '1 month ago' ],
+            [ '5678', 'baseline 2', '2 months ago' ]
+        ];
+        const selectBaseline = jest.fn();
+        const wrapper = shallow(
+            <BaselinesPage
+                { ...props }
+                selectBaseline={ selectBaseline }
+            />
+        );
+
+        wrapper.instance().onBulkSelect(true);
+        expect(selectBaseline).toHaveBeenCalledWith([ '1234', '5678' ], true, 'CHECKBOX');
+    });
+
+    it('should call onBulkSelect with isSelected false', () => {
+        props.baselineTableData = [
+            [ '1234', 'baseline 1', '1 month ago' ],
+            [ '5678', 'baseline 2', '2 months ago' ]
+        ];
+        const selectBaseline = jest.fn();
+        const wrapper = shallow(
+            <BaselinesPage
+                { ...props }
+                selectBaseline={ selectBaseline }
+            />
+        );
+
+        wrapper.instance().onBulkSelect(false);
+        expect(selectBaseline).toHaveBeenCalledWith([ '1234', '5678' ], false, 'CHECKBOX');
+    });
 });
 
 describe('ConnectedBaselinesPage', () => {
@@ -80,6 +166,9 @@ describe('ConnectedBaselinesPage', () => {
             },
             compareState: {
                 fullCompareData: []
+            },
+            historicProfilesState: {
+                selectedHSPIds: []
             }
         };
     });

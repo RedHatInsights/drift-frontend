@@ -269,34 +269,36 @@ function buildBaselineTableData(baselineData) {
     let row;
     let id = 0;
 
-    baselineData.forEach(function(fact) {
-        row = [];
-        row.push(id);
-        row.push(fact.name);
-        id += 1;
+    if (baselineData) {
+        baselineData.forEach(function(fact) {
+            row = [];
+            row.push(id);
+            row.push(fact.name);
+            id += 1;
 
-        if (fact.values) {
-            let subfacts = [];
-            if (fact.values.length > 0) {
-                fact.values.forEach(function(subFact) {
-                    let subfact = [];
-                    subfact.push(id);
-                    subfact.push(subFact.name);
-                    subfact.push(subFact.value);
-                    id += 1;
-                    subfacts.push(subfact);
-                });
+            if (fact.values) {
+                let subfacts = [];
+                if (fact.values.length > 0) {
+                    fact.values.forEach(function(subFact) {
+                        let subfact = [];
+                        subfact.push(id);
+                        subfact.push(subFact.name);
+                        subfact.push(subFact.value);
+                        id += 1;
+                        subfacts.push(subfact);
+                    });
 
-                row.push(subfacts);
+                    row.push(subfacts);
+                } else {
+                    row.push([]);
+                }
             } else {
-                row.push([]);
+                row.push(fact.value);
             }
-        } else {
-            row.push(fact.value);
-        }
 
-        rows.push(row);
-    });
+            rows.push(row);
+        });
+    }
 
     return rows;
 }

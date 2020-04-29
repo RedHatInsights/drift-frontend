@@ -1,5 +1,5 @@
 import selectedReducer from '../reducers';
-import types from '../../modules/types';
+import types from '../../SmartComponents/modules/types';
 
 describe('compare reducer', () => {
     let reducer;

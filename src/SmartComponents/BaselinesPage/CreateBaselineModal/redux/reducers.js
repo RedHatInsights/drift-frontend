@@ -22,6 +22,7 @@ export function createBaselineModalReducer(state = initialState, action) {
             return {
                 ...state,
                 baselineDataLoading: true,
+                baselineData: {},
                 error: {}
             };
         case `${types.CREATE_BASELINE}_FULFILLED`:

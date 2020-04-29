@@ -10,6 +10,8 @@ import BaselinesTable from '../../BaselinesTable/BaselinesTable';
 import { createBaselineModalActions } from './redux';
 import { baselinesTableActions } from '../../BaselinesTable/redux';
 
+import _ from 'lodash';
+
 export class CreateBaselineModal extends Component {
     constructor(props) {
         super(props);
@@ -48,7 +50,9 @@ export class CreateBaselineModal extends Component {
 
     async submitBaselineName() {
         const { baselineName, fromScratchChecked, copyBaselineChecked, copySystemChecked } = this.state;
-        const { createBaseline, toggleCreateBaselineModal, selectedBaselineIds, history, entities, clearSelectedBaselines } = this.props;
+        const { createBaseline, toggleCreateBaselineModal, selectedBaselineIds,
+            history, entities, clearSelectedBaselines, selectedHSPIds } = this.props;
+
         /*eslint-disable camelcase*/
         let newBaselineObject = { display_name: baselineName };
 
@@ -62,6 +66,9 @@ export class CreateBaselineModal extends Component {
                     await createBaseline(newBaselineObject, selectedBaselineIds[0]);
                 } else if (entities.selectedSystemIds.length === 1 && copySystemChecked) {
                     newBaselineObject.inventory_uuid = entities.selectedSystemIds[0];
+                    await createBaseline(newBaselineObject);
+                } else if (selectedHSPIds.length === 1 && copySystemChecked) {
+                    newBaselineObject.hsp_uuid = selectedHSPIds[0];
                     await createBaseline(newBaselineObject);
                 }
 
@@ -145,7 +152,13 @@ export class CreateBaselineModal extends Component {
     renderCopySystem() {
         return (<React.Fragment>
             <b>Select system to copy from</b>
-            <SystemsTable selectedSystemIds={ [] } createBaselineModal={ true } />
+            <SystemsTable
+                selectedSystemIds={ [] }
+                createBaselineModal={ true }
+                hasHistoricalDropdown={ true }
+                hasMultiSelect={ false }
+                historicalProfiles={ this.props.historicalProfiles }
+            />
         </React.Fragment>
         );
     }
@@ -200,13 +213,15 @@ export class CreateBaselineModal extends Component {
     }
 
     renderActions() {
-        const { selectedBaselineIds, entities } = this.props;
+        const { selectedBaselineIds, selectedHSPIds, entities } = this.props;
         const { baselineName, copyBaselineChecked, copySystemChecked } = this.state;
         let actions;
 
         if (baselineName === ''
             || (copyBaselineChecked && selectedBaselineIds.length === 0)
-            || (copySystemChecked && entities && entities.selectedSystemIds !== undefined && entities.selectedSystemIds.length === 0)
+            || (copySystemChecked &&
+                ((_.isEmpty(entities.selectedSystemIds)) && (selectedHSPIds.length === 0))
+            )
         ) {
             actions = [
                 <Button
@@ -264,7 +279,7 @@ CreateBaselineModal.propTypes = {
     createBaseline: PropTypes.func,
     selectBaseline: PropTypes.func,
     history: PropTypes.object,
-    baselineData: PropTypes.array,
+    baselineData: PropTypes.object,
     toggleCreateBaselineModal: PropTypes.func,
     clearSelectedBaselines: PropTypes.func,
     entities: PropTypes.object,
@@ -272,9 +287,10 @@ CreateBaselineModal.propTypes = {
     error: PropTypes.object,
     baselineTableData: PropTypes.array,
     loading: PropTypes.bool,
-    page: PropTypes.number,
-    perPage: PropTypes.number,
-    totalBaselines: PropTypes.number
+    totalBaselines: PropTypes.number,
+    updatePagination: PropTypes.func,
+    historicalProfiles: PropTypes.array,
+    selectedHSPIds: PropTypes.array
 };
 
 function mapStateToProps(state) {
@@ -287,9 +303,9 @@ function mapStateToProps(state) {
         loading: state.baselinesTableState.radioTable.loading,
         emptyState: state.baselinesTableState.radioTable.emptyState,
         baselineTableData: state.baselinesTableState.radioTable.baselineTableData,
-        page: state.baselinesTableState.radioTable.page,
-        perPage: state.baselinesTableState.radioTable.perPage,
-        totalBaselines: state.baselinesTableState.radioTable.totalBaselines
+        totalBaselines: state.baselinesTableState.radioTable.totalBaselines,
+        historicalProfiles: state.compareState.historicalProfiles,
+        selectedHSPIds: state.historicProfilesState.selectedHSPIds
     };
 }
 

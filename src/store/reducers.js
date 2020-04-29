@@ -2,11 +2,14 @@ import React from 'react';
 import { DropdownDirection } from '@patternfly/react-core';
 import { mergeArraysByKey } from '@redhat-cloud-services/frontend-components-utilities/files/helpers';
 import { applyReducerHash } from '@redhat-cloud-services/frontend-components-utilities/files/ReducerRegistry';
-import HistoricalProfilesDropdown from '../HistoricalProfilesDropdown/HistoricalProfilesDropdown';
+import HistoricalProfilesDropdown from '../SmartComponents/HistoricalProfilesDropdown/HistoricalProfilesDropdown';
 
-import types from '../modules/types';
+import types from '../SmartComponents/modules/types';
+import helpers from '../SmartComponents/helpers';
 
-function selectedReducer(INVENTORY_ACTIONS, createBaselineModal, historicalProfiles, hasHistoricalDropdown) {
+function selectedReducer(
+    INVENTORY_ACTIONS, createBaselineModal, historicalProfiles, hasMultiSelect, hasHistoricalDropdown, deselectHistoricalProfiles
+) {
     let newColumns;
 
     return applyReducerHash({
@@ -53,6 +56,7 @@ function selectedReducer(INVENTORY_ACTIONS, createBaselineModal, historicalProfi
                             hasBadge={ true }
                             badgeCount={ badgeCount }
                             dropdownDirection={ DropdownDirection.up }
+                            hasMultiSelect={ hasMultiSelect }
                         />
                     </React.Fragment>;
                 });
@@ -80,6 +84,21 @@ function selectedReducer(INVENTORY_ACTIONS, createBaselineModal, historicalProfi
                 ...state,
                 columns: newColumns,
                 rows
+            };
+        },
+        [types.UPDATE_COLUMNS]: (state, action) => {
+            let nameColumn = {
+                key: action.payload,
+                title: 'Name',
+                props: { width: 20 }
+            };
+            newColumns = [ ...state.columns ];
+            newColumns.shift();
+            newColumns.unshift(nameColumn);
+
+            return {
+                ...state,
+                columns: newColumns
             };
         },
         [types.SELECT_ENTITY]: (state, action) => {
@@ -131,13 +150,22 @@ function selectedReducer(INVENTORY_ACTIONS, createBaselineModal, historicalProfi
             return {
                 ...state,
                 selectedSystemIds,
-                rows: newRows.length > 0 ? newRows : state.rows
+                rows: newRows.length > 0 ? newRows : state.rows,
+                columns: newColumns
             };
         },
         [types.SET_SELECTED_SYSTEM_IDS]: (state, action) => {
             return {
                 ...state,
                 selectedSystemIds: action.payload.selectedSystemIds
+            };
+        },
+        [types.SELECT_SINGLE_HSP]: (state, action) => {
+            return {
+                ...state,
+                rows: helpers.buildSystemsTableWithSelectedHSP([ ...state.rows ], action.payload, deselectHistoricalProfiles),
+                columns: newColumns,
+                selectedSystemIds: []
             };
         }
     });

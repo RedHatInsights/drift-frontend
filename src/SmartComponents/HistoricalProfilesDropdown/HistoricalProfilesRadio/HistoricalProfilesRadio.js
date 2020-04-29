@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Checkbox } from '@patternfly/react-core';
+import { Radio } from '@patternfly/react-core';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
-export class HistoricalProfilesCheckbox extends Component {
+export class HistoricalProfilesRadio extends Component {
     constructor(props) {
         super(props);
 
@@ -13,13 +13,22 @@ export class HistoricalProfilesCheckbox extends Component {
         };
     }
 
+    componentDidUpdate(prevProps) {
+        const { profile, selectedHSPIds } = this.props;
+
+        if (prevProps.selectedHSPIds !== selectedHSPIds) {
+            this.setState({
+                checked: selectedHSPIds.includes(profile.id)
+            });
+        }
+    }
+
     findChecked = () => {
-        const { profile, selectedHSPIds, entities, updateBadgeCount } = this.props;
+        const { profile, selectedHSPIds, entities } = this.props;
         let checked;
 
         if (profile.captured_date === 'Latest') {
             checked = entities.selectedSystemIds.some(id => id === profile.id);
-            updateBadgeCount(checked);
         } else {
             checked = selectedHSPIds.some(id => id === profile.id);
         }
@@ -29,13 +38,15 @@ export class HistoricalProfilesCheckbox extends Component {
 
     handleChange = () => {
         const { checked } = this.state;
-        const { onSelect, profile } = this.props;
+        const { onSingleSelect, profile } = this.props;
 
-        this.setState({
-            checked: !checked
-        });
+        if (!checked) {
+            this.setState({
+                checked: true
+            });
+        }
 
-        onSelect(checked, profile);
+        onSingleSelect(profile);
     }
 
     render() {
@@ -45,16 +56,13 @@ export class HistoricalProfilesCheckbox extends Component {
         /*eslint-disable camelcase*/
         return (
             <React.Fragment>
-                <Checkbox
-                    label={ profile.captured_date === 'Latest'
-                        ? profile.captured_date
-                        : moment.utc(profile.captured_date).format('DD MMM YYYY, HH:mm UTC')
-                    }
+                <Radio
                     isChecked={ checked }
+                    id={ profile.captured_date }
+                    name={ profile.captured_date }
+                    label={ moment.utc(profile.captured_date).format('DD MMM YYYY, HH:mm UTC') }
+                    value={ profile.captured_date }
                     onChange={ this.handleChange }
-                    aria-label={ profile.id }
-                    id={ profile.id }
-                    name={ profile.id }
                 />
             </React.Fragment>
         );
@@ -62,14 +70,12 @@ export class HistoricalProfilesCheckbox extends Component {
     }
 }
 
-HistoricalProfilesCheckbox.propTypes = {
+HistoricalProfilesRadio.propTypes = {
     profile: PropTypes.object,
-    selectHistoricProfiles: PropTypes.func,
     selectedHSPIds: PropTypes.array,
-    updateBadgeCount: PropTypes.func,
-    selectSystem: PropTypes.func,
     entities: PropTypes.object,
-    onSelect: PropTypes.func
+    onSingleSelect: PropTypes.func,
+    checked: PropTypes.bool
 };
 
 function mapStateToProps(state) {
@@ -79,4 +85,4 @@ function mapStateToProps(state) {
     };
 }
 
-export default (connect(mapStateToProps, null)(HistoricalProfilesCheckbox));
+export default (connect(mapStateToProps, null)(HistoricalProfilesRadio));

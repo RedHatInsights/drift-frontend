@@ -8,8 +8,11 @@ import { getRegistry } from '@redhat-cloud-services/frontend-components-utilitie
 import { connect } from 'react-redux';
 import * as pfReactTable from '@patternfly/react-table';
 
-import selectedReducer from './reducers';
+import selectedReducer from '../../store/reducers';
+import { addNewListener } from '../../store';
 import { compareActions } from '../modules';
+import { historicProfilesActions } from '../HistoricalProfilesDropdown/redux';
+import systemsTableActions from './actions';
 
 const SystemsTable = ({
     selectedSystemIds,
@@ -17,10 +20,22 @@ const SystemsTable = ({
     driftClearFilters,
     createBaselineModal,
     hasHistoricalDropdown,
-    historicalProfiles
+    historicalProfiles,
+    hasMultiSelect,
+    selectHistoricProfiles,
+    updateColumns
 }) => {
     const [ InventoryCmp, setInventoryCmp ] = useState(null);
     const store = ReactRedux.useStore();
+
+    const deselectHistoricalProfiles = () => {
+
+        if (!hasMultiSelect) {
+            updateColumns('display_name');
+            selectHistoricProfiles([]);
+        }
+    };
+
     const fetchInventory = async () => {
         const { inventoryConnector, mergeWithEntities, INVENTORY_ACTION_TYPES } = await insights.loadInventory({
             ReactRedux,
@@ -35,7 +50,10 @@ const SystemsTable = ({
         driftClearFilters();
 
         getRegistry().register(mergeWithEntities(
-            selectedReducer(INVENTORY_ACTION_TYPES, createBaselineModal, historicalProfiles, hasHistoricalDropdown)
+            selectedReducer(
+                INVENTORY_ACTION_TYPES, createBaselineModal, historicalProfiles,
+                hasMultiSelect, hasHistoricalDropdown, deselectHistoricalProfiles
+            )
         ));
 
         setInventoryCmp(inventoryConnector(store).InventoryTable);
@@ -43,6 +61,13 @@ const SystemsTable = ({
     };
 
     useEffect(() => {
+        window.entityListener = addNewListener({
+            actionType: 'SELECT_ENTITY',
+            callback: () => {
+                !hasMultiSelect ? deselectHistoricalProfiles() : null;
+            }
+        });
+
         fetchInventory();
     }, []);
 
@@ -58,18 +83,23 @@ const SystemsTable = ({
 
 function mapDispatchToProps(dispatch) {
     return {
+        selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds)),
         setSelectedSystemIds: (systemIds) => dispatch(compareActions.setSelectedSystemIds(systemIds)),
-        driftClearFilters: () => dispatch({ type: 'CLEAR_FILTERS' })
+        driftClearFilters: () => dispatch({ type: 'CLEAR_FILTERS' }),
+        updateColumns: (key) => dispatch(systemsTableActions.updateColumns(key))
     };
 }
 
 SystemsTable.propTypes = {
     setSelectedSystemIds: PropTypes.func,
     selectedSystemIds: PropTypes.array,
+    selectHistoricProfiles: PropTypes.func,
     createBaselineModal: PropTypes.bool,
     driftClearFilters: PropTypes.func,
     hasHistoricalDropdown: PropTypes.bool,
-    historicalProfiles: PropTypes.array
+    historicalProfiles: PropTypes.array,
+    hasMultiSelect: PropTypes.bool,
+    updateColumns: PropTypes.func
 };
 
 SystemsTable.defaultProps = {

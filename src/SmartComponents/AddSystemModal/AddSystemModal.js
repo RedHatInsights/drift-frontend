@@ -124,6 +124,7 @@ export class AddSystemModal extends Component {
                                 selectedSystemIds={ this.selectedSystemIds() }
                                 hasHistoricalDropdown={ true }
                                 historicalProfiles={ historicalProfiles }
+                                hasMultiSelect={ true }
                             />
                         </Tab>
                         <Tab

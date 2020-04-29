@@ -29,11 +29,57 @@ describe('edit baseline helpers', () => {
         const isParent = undefined;
         const factName = 'virus';
         const factValue = 'SARS';
-        const factData = { name: 'viruses', values: []};
+        const factData = { name: 'viruses', values: [
+            { name: 'new-virus', value: 'COVID-19' }
+        ]};
 
         expect(editBaselineHelpers.buildNewFactData(isParent, factName, factValue, factData)).toEqual(
             { name: 'viruses', values: [
+                { name: 'new-virus', value: 'COVID-19' },
                 { name: 'virus', value: 'SARS' }
+            ]}
+        );
+    });
+
+    it('buildEditedFactData returns edited fact', () => {
+        const isParent = undefined;
+        const originalFactName = 'old-virus';
+        const factName = 'new-virus';
+        const originalValueName = 'SARS';
+        const factValue = 'COVID-19';
+        const factData = { name: 'old-virus', value: 'SARS' };
+
+        expect(editBaselineHelpers.buildEditedFactData(isParent, originalFactName, factName, originalValueName, factValue, factData)).toEqual(
+            { name: 'new-virus', value: 'COVID-19' }
+        );
+    });
+
+    it('buildEditedFactData returns edited category', () => {
+        const isParent = true;
+        const originalFactName = 'old-viruses';
+        const factName = 'new-viruses';
+        const originalValueName = undefined;
+        const factValue = undefined;
+        const factData = { name: 'old-virus', values: []};
+
+        expect(editBaselineHelpers.buildEditedFactData(isParent, originalFactName, factName, originalValueName, factValue, factData)).toEqual(
+            { name: 'new-viruses', values: []}
+        );
+    });
+
+    it('buildEditedFactData returns edited sub fact', () => {
+        const isParent = undefined;
+        const originalFactName = 'old-virus';
+        const factName = 'new-virus';
+        const originalValueName = 'SARS';
+        const factValue = 'COVID-19';
+        const factData = { name: 'viruses', values: [
+            { name: 'old-virus', value: 'SARS' }
+        ]};
+
+        expect(editBaselineHelpers.buildEditedFactData(isParent, originalFactName, factName, originalValueName, factValue, factData)).toEqual(
+            { name: 'viruses', values: [
+                { name: 'new-virus', value: 'COVID-19' }
             ]}
         );
     });

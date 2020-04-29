@@ -7,6 +7,10 @@ import toJson from 'enzyme-to-json';
 
 import ConnectedAddSystemModal, { AddSystemModal } from '../AddSystemModal';
 import { compareReducerPayload } from '../../modules/__tests__/reducer.fixtures';
+import { createMiddlewareListener } from '../../../store';
+
+const middlewareListener = createMiddlewareListener();
+middlewareListener.getMiddleware();
 
 describe('AddSystemModal', () => {
     let props;
