@@ -60,7 +60,6 @@ export class DeleteBaselinesModal extends Component {
                 className="small-modal-body"
                 isOpen={ modalOpened }
                 onClose={ this.toggleModal }
-                width="auto"
                 isFooterLeftAligned
                 actions = { [
                     <Button

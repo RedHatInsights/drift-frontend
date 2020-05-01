@@ -209,7 +209,6 @@ class FactModal extends Component {
                 title={ this.title() }
                 isOpen={ factModalOpened }
                 onClose={ this.cancelFact }
-                width="auto"
                 isFooterLeftAligned
                 actions={ [
                     <Button

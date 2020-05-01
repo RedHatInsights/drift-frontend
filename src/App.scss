@@ -259,7 +259,6 @@
     max-height: 600px;
   }
   .create-baseline-modal {
-    width: initial;
     max-width: 1200px;
     max-height: 700px;
   }
@@ -293,7 +292,7 @@
   }
 
   .fact-value {
-    width: 30%;
+    width: 270px;
     padding-top: 10px;
     padding-bottom: 10px;
   }
@@ -338,7 +337,9 @@
   max-height: 600px;
 }
 
-.add-system-modal-dropdowns {
+.add-system-modal {
+  max-width: 950px;
+
   .pf-c-dropdown__menu {
     max-height: 200px;
     overflow-y: auto;
