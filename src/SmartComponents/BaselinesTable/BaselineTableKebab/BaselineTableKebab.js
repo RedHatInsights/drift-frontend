@@ -37,7 +37,7 @@ class BaselineTableKebab extends Component {
 
     render() {
         const { isOpen, modalOpened } = this.state;
-        const { baselineRowData, tableId } = this.props;
+        const { baselineRowData, fetchWithParams, tableId } = this.props;
         const dropdownItems = [
             <DropdownItem
                 key="edit"
@@ -60,6 +60,7 @@ class BaselineTableKebab extends Component {
                         modalOpened={ true }
                         baselineId={ baselineRowData[0] }
                         tableId={ tableId }
+                        fetchWithParams={ fetchWithParams }
                     />
                     : null
                 }
@@ -79,7 +80,8 @@ class BaselineTableKebab extends Component {
 BaselineTableKebab.propTypes = {
     baselineRowData: PropTypes.array,
     history: PropTypes.object,
-    tableId: PropTypes.string
+    tableId: PropTypes.string,
+    fetchWithParams: PropTypes.func
 };
 
 export default withRouter(BaselineTableKebab);
