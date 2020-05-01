@@ -250,7 +250,6 @@ export class CreateBaselineModal extends Component {
                 title="Create baseline"
                 isOpen={ createBaselineModalOpened }
                 onClose={ this.cancelModal }
-                width="auto"
                 isFooterLeftAligned
                 actions={ this.renderActions() }
             >

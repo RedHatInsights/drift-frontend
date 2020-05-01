@@ -82,11 +82,10 @@ export class EditBaselineNameModal extends Component {
 
         return (
             <Modal
-                className='pf-c-modal-box'
+                className='small-modal-body'
                 title="Edit name"
                 isOpen={ modalOpened }
                 onClose={ this.cancelModal }
-                width="auto"
                 isFooterLeftAligned
                 actions={ [
                     <Button

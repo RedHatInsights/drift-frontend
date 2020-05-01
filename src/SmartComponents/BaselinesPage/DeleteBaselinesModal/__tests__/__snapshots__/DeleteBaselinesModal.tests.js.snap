@@ -88,7 +88,6 @@ exports[`ConnectedDeleteBaselinesModal should render correctly 1`] = `
                         aria-modal="true"
                         class="pf-c-modal-box small-modal-body"
                         role="dialog"
-                        style="width: auto;"
                       >
                         <button
                           aria-label="Close"
@@ -156,7 +155,6 @@ exports[`ConnectedDeleteBaselinesModal should render correctly 1`] = `
                         aria-modal="true"
                         class="pf-c-modal-box small-modal-body"
                         role="dialog"
-                        style="width: auto;"
                       >
                         <button
                           aria-label="Close"
@@ -227,7 +225,6 @@ exports[`ConnectedDeleteBaselinesModal should render correctly 1`] = `
             onClose={[Function]}
             showClose={true}
             title="Delete baselines"
-            width="auto"
           >
             <Portal
               containerInfo={<div />}
@@ -260,7 +257,6 @@ exports[`ConnectedDeleteBaselinesModal should render correctly 1`] = `
                 onClose={[Function]}
                 showClose={true}
                 title="Delete baselines"
-                width="auto"
               />
             </Portal>
           </Modal>
@@ -300,7 +296,6 @@ exports[`DeleteBaselinesModal should render Delete baseline with baselineId 1`] 
   onClose={[Function]}
   showClose={true}
   title="Delete baseline"
-  width="auto"
 >
   Deleting a baseline is permanent and cannot be undone.
 </Modal>
@@ -335,7 +330,6 @@ exports[`DeleteBaselinesModal should render correctly 1`] = `
   onClose={[Function]}
   showClose={true}
   title="Delete baselines"
-  width="auto"
 >
   Deleting a baseline is permanent and cannot be undone.
 </Modal>
@@ -383,7 +377,6 @@ exports[`DeleteBaselinesModal should render mount correctly 1`] = `
                 aria-modal="true"
                 class="pf-c-modal-box small-modal-body"
                 role="dialog"
-                style="width: auto;"
               >
                 <button
                   aria-label="Close"
@@ -450,7 +443,6 @@ exports[`DeleteBaselinesModal should render mount correctly 1`] = `
     onClose={[Function]}
     showClose={true}
     title="Delete baselines"
-    width="auto"
   >
     <Portal
       containerInfo={
@@ -467,7 +459,6 @@ exports[`DeleteBaselinesModal should render mount correctly 1`] = `
                 aria-modal="true"
                 class="pf-c-modal-box small-modal-body"
                 role="dialog"
-                style="width: auto;"
               >
                 <button
                   aria-label="Close"
@@ -552,7 +543,6 @@ exports[`DeleteBaselinesModal should render mount correctly 1`] = `
         onClose={[Function]}
         showClose={true}
         title="Delete baselines"
-        width="auto"
       >
         <Backdrop>
           <div
@@ -578,11 +568,7 @@ exports[`DeleteBaselinesModal should render mount correctly 1`] = `
                   id="pf-modal-0"
                   isLarge={false}
                   isSmall={false}
-                  style={
-                    Object {
-                      "width": "auto",
-                    }
-                  }
+                  style={Object {}}
                   title="Delete baselines"
                 >
                   <div
@@ -591,11 +577,7 @@ exports[`DeleteBaselinesModal should render mount correctly 1`] = `
                     aria-modal="true"
                     className="pf-c-modal-box small-modal-body"
                     role="dialog"
-                    style={
-                      Object {
-                        "width": "auto",
-                      }
-                    }
+                    style={Object {}}
                   >
                     <ModalBoxCloseButton
                       onClose={[Function]}

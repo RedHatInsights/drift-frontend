@@ -20,7 +20,7 @@ exports[`EditBaselineNameModal should render correctly 1`] = `
   }
   appendTo={<body />}
   ariaDescribedById=""
-  className="pf-c-modal-box"
+  className="small-modal-body"
   hideTitle={false}
   isFooterLeftAligned={true}
   isLarge={false}
@@ -29,7 +29,6 @@ exports[`EditBaselineNameModal should render correctly 1`] = `
   onClose={[Function]}
   showClose={true}
   title="Edit name"
-  width="auto"
 >
   <div
     className="fact-value"
@@ -154,9 +153,8 @@ exports[`EditBaselineNameModal should render mount correctly 1`] = `
                 aria-describedby="pf-modal-0"
                 aria-label="Edit name"
                 aria-modal="true"
-                class="pf-c-modal-box pf-c-modal-box"
+                class="pf-c-modal-box small-modal-body"
                 role="dialog"
-                style="width: auto;"
               >
                 <button
                   aria-label="Close"
@@ -250,7 +248,7 @@ exports[`EditBaselineNameModal should render mount correctly 1`] = `
       </body>
     }
     ariaDescribedById=""
-    className="pf-c-modal-box"
+    className="small-modal-body"
     hideTitle={false}
     isFooterLeftAligned={true}
     isLarge={false}
@@ -259,7 +257,6 @@ exports[`EditBaselineNameModal should render mount correctly 1`] = `
     onClose={[Function]}
     showClose={true}
     title="Edit name"
-    width="auto"
   >
     <Portal
       containerInfo={
@@ -274,9 +271,8 @@ exports[`EditBaselineNameModal should render mount correctly 1`] = `
                 aria-describedby="pf-modal-0"
                 aria-label="Edit name"
                 aria-modal="true"
-                class="pf-c-modal-box pf-c-modal-box"
+                class="pf-c-modal-box small-modal-body"
                 role="dialog"
-                style="width: auto;"
               >
                 <button
                   aria-label="Close"
@@ -387,7 +383,7 @@ exports[`EditBaselineNameModal should render mount correctly 1`] = `
           ]
         }
         ariaDescribedById=""
-        className="pf-c-modal-box"
+        className="small-modal-body"
         hideTitle={false}
         id="pf-modal-0"
         isFooterLeftAligned={true}
@@ -397,7 +393,6 @@ exports[`EditBaselineNameModal should render mount correctly 1`] = `
         onClose={[Function]}
         showClose={true}
         title="Edit name"
-        width="auto"
       >
         <Backdrop>
           <div
@@ -419,28 +414,20 @@ exports[`EditBaselineNameModal should render mount correctly 1`] = `
                 className="pf-l-bullseye"
               >
                 <ModalBox
-                  className="pf-c-modal-box"
+                  className="small-modal-body"
                   id="pf-modal-0"
                   isLarge={false}
                   isSmall={false}
-                  style={
-                    Object {
-                      "width": "auto",
-                    }
-                  }
+                  style={Object {}}
                   title="Edit name"
                 >
                   <div
                     aria-describedby="pf-modal-0"
                     aria-label="Edit name"
                     aria-modal="true"
-                    className="pf-c-modal-box pf-c-modal-box"
+                    className="pf-c-modal-box small-modal-body"
                     role="dialog"
-                    style={
-                      Object {
-                        "width": "auto",
-                      }
-                    }
+                    style={Object {}}
                   >
                     <ModalBoxCloseButton
                       onClose={[Function]}

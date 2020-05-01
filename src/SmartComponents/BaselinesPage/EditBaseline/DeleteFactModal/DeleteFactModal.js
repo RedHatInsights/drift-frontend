@@ -38,7 +38,6 @@ class DeleteFactModal extends Component {
                 className="small-modal-body"
                 isOpen={ modalOpened }
                 onClose={ this.props.toggleModal }
-                width="auto"
                 isFooterLeftAligned
                 actions = { [
                     <Button
