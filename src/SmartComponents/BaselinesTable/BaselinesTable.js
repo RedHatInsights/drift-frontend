@@ -143,7 +143,11 @@ export class BaselinesTable extends Component {
             row.push(baseline[2]);
 
             if (kebab) {
-                let kebab = <BaselineTableKebab tableId={ tableId } baselineRowData={ baseline } />;
+                let kebab = <BaselineTableKebab
+                    tableId={ tableId }
+                    baselineRowData={ baseline }
+                    fetchWithParams={ this.fetchWithParams }
+                />;
                 row.push(<div>{ kebab }</div>);
             }
 
