@@ -149,6 +149,7 @@ exports[`ConnectedHistoricalProfilesDropdown should render correctly 1`] = `
             selectedHSPIds={Array []}
           >
             <Dropdown
+              className="historical-system-profile-dropdown"
               dropdownItems={
                 Array [
                   <Skeleton
@@ -176,7 +177,7 @@ exports[`ConnectedHistoricalProfilesDropdown should render correctly 1`] = `
               position="right"
               toggle={
                 <DropdownToggle
-                  className="historical-system-profile-dropdown hsp-dropdown-icon"
+                  className="hsp-dropdown-icon"
                   iconComponent={null}
                   onToggle={[Function]}
                 >
@@ -190,6 +191,7 @@ exports[`ConnectedHistoricalProfilesDropdown should render correctly 1`] = `
               }
             >
               <Component
+                className="historical-system-profile-dropdown"
                 dropdownItems={
                   Array [
                     <Skeleton
@@ -217,7 +219,7 @@ exports[`ConnectedHistoricalProfilesDropdown should render correctly 1`] = `
                 position="right"
                 toggle={
                   <DropdownToggle
-                    className="historical-system-profile-dropdown hsp-dropdown-icon"
+                    className="hsp-dropdown-icon"
                     iconComponent={null}
                     onToggle={[Function]}
                   >
@@ -234,6 +236,7 @@ exports[`ConnectedHistoricalProfilesDropdown should render correctly 1`] = `
                   component={[Function]}
                   componentProps={
                     Object {
+                      "className": "historical-system-profile-dropdown",
                       "direction": undefined,
                       "dropdownItems": Array [
                         <Skeleton
@@ -259,7 +262,7 @@ exports[`ConnectedHistoricalProfilesDropdown should render correctly 1`] = `
                       "isPlain": true,
                       "position": "right",
                       "toggle": <DropdownToggle
-                        className="historical-system-profile-dropdown hsp-dropdown-icon"
+                        className="hsp-dropdown-icon"
                         iconComponent={null}
                         onToggle={[Function]}
                       >
@@ -276,7 +279,7 @@ exports[`ConnectedHistoricalProfilesDropdown should render correctly 1`] = `
                 >
                   <DropdownWithContext
                     autoFocus={true}
-                    className=""
+                    className="historical-system-profile-dropdown"
                     direction="down"
                     dropdownItems={
                       Array [
@@ -314,7 +317,7 @@ exports[`ConnectedHistoricalProfilesDropdown should render correctly 1`] = `
                     position="right"
                     toggle={
                       <DropdownToggle
-                        className="historical-system-profile-dropdown hsp-dropdown-icon"
+                        className="hsp-dropdown-icon"
                         iconComponent={null}
                         onToggle={[Function]}
                       >
@@ -328,11 +331,11 @@ exports[`ConnectedHistoricalProfilesDropdown should render correctly 1`] = `
                     }
                   >
                     <div
-                      className="pf-c-dropdown pf-m-align-right"
+                      className="pf-c-dropdown pf-m-align-right historical-system-profile-dropdown"
                     >
                       <DropdownToggle
                         ariaHasPopup={true}
-                        className="historical-system-profile-dropdown hsp-dropdown-icon"
+                        className="hsp-dropdown-icon"
                         iconComponent={null}
                         id="pf-toggle-id-1"
                         isOpen={false}
@@ -343,12 +346,12 @@ exports[`ConnectedHistoricalProfilesDropdown should render correctly 1`] = `
                         parentRef={
                           Object {
                             "current": <div
-                              class="pf-c-dropdown pf-m-align-right"
+                              class="pf-c-dropdown pf-m-align-right historical-system-profile-dropdown"
                             >
                               <button
                                 aria-expanded="false"
                                 aria-haspopup="true"
-                                class="pf-c-dropdown__toggle pf-m-plain historical-system-profile-dropdown hsp-dropdown-icon"
+                                class="pf-c-dropdown__toggle pf-m-plain hsp-dropdown-icon"
                                 id="pf-toggle-id-1"
                                 type="button"
                               >
@@ -375,7 +378,7 @@ exports[`ConnectedHistoricalProfilesDropdown should render correctly 1`] = `
                       >
                         <Toggle
                           ariaHasPopup={true}
-                          className="historical-system-profile-dropdown hsp-dropdown-icon"
+                          className="hsp-dropdown-icon"
                           id="pf-toggle-id-1"
                           isActive={false}
                           isDisabled={false}
@@ -390,12 +393,12 @@ exports[`ConnectedHistoricalProfilesDropdown should render correctly 1`] = `
                           parentRef={
                             Object {
                               "current": <div
-                                class="pf-c-dropdown pf-m-align-right"
+                                class="pf-c-dropdown pf-m-align-right historical-system-profile-dropdown"
                               >
                                 <button
                                   aria-expanded="false"
                                   aria-haspopup="true"
-                                  class="pf-c-dropdown__toggle pf-m-plain historical-system-profile-dropdown hsp-dropdown-icon"
+                                  class="pf-c-dropdown__toggle pf-m-plain hsp-dropdown-icon"
                                   id="pf-toggle-id-1"
                                   type="button"
                                 >
@@ -423,7 +426,7 @@ exports[`ConnectedHistoricalProfilesDropdown should render correctly 1`] = `
                           <button
                             aria-expanded={false}
                             aria-haspopup={true}
-                            className="pf-c-dropdown__toggle pf-m-plain historical-system-profile-dropdown hsp-dropdown-icon"
+                            className="pf-c-dropdown__toggle pf-m-plain hsp-dropdown-icon"
                             disabled={false}
                             id="pf-toggle-id-1"
                             onClick={[Function]}
@@ -479,6 +482,7 @@ exports[`ConnectedHistoricalProfilesDropdown should render correctly 1`] = `
 exports[`HistoricalProfilesDropdown should render correctly 1`] = `
 <Fragment>
   <Dropdown
+    className="historical-system-profile-dropdown"
     direction="down"
     dropdownItems={
       Array [
@@ -507,7 +511,7 @@ exports[`HistoricalProfilesDropdown should render correctly 1`] = `
     position="right"
     toggle={
       <DropdownToggle
-        className="historical-system-profile-dropdown hsp-dropdown-icon"
+        className="hsp-dropdown-icon"
         iconComponent={null}
         onToggle={[Function]}
       >
@@ -527,10 +531,19 @@ exports[`HistoricalProfilesDropdown should render mount correctly 1`] = `
 <HistoricalProfilesDropdown
   badgeCount={0}
   dropdownDirection="down"
+  hasBadge={true}
+  hasCompareButton={false}
   selectedBaselineIds={Array []}
   selectedHSPIds={Array []}
+  system={
+    Object {
+      "id": "4416c520-a339-4dde-b303-f317ea9efc5f",
+      "last_updated": "2020-05-04T18:33:12.249348+00:00",
+    }
+  }
 >
   <Dropdown
+    className="historical-system-profile-dropdown"
     direction="down"
     dropdownItems={
       Array [
@@ -559,7 +572,7 @@ exports[`HistoricalProfilesDropdown should render mount correctly 1`] = `
     position="right"
     toggle={
       <DropdownToggle
-        className="historical-system-profile-dropdown hsp-dropdown-icon"
+        className="hsp-dropdown-icon"
         iconComponent={null}
         onToggle={[Function]}
       >
@@ -573,6 +586,7 @@ exports[`HistoricalProfilesDropdown should render mount correctly 1`] = `
     }
   >
     <Component
+      className="historical-system-profile-dropdown"
       direction="down"
       dropdownItems={
         Array [
@@ -601,7 +615,7 @@ exports[`HistoricalProfilesDropdown should render mount correctly 1`] = `
       position="right"
       toggle={
         <DropdownToggle
-          className="historical-system-profile-dropdown hsp-dropdown-icon"
+          className="hsp-dropdown-icon"
           iconComponent={null}
           onToggle={[Function]}
         >
@@ -618,6 +632,7 @@ exports[`HistoricalProfilesDropdown should render mount correctly 1`] = `
         component={[Function]}
         componentProps={
           Object {
+            "className": "historical-system-profile-dropdown",
             "direction": "down",
             "dropdownItems": Array [
               <Skeleton
@@ -643,7 +658,7 @@ exports[`HistoricalProfilesDropdown should render mount correctly 1`] = `
             "isPlain": true,
             "position": "right",
             "toggle": <DropdownToggle
-              className="historical-system-profile-dropdown hsp-dropdown-icon"
+              className="hsp-dropdown-icon"
               iconComponent={null}
               onToggle={[Function]}
             >
@@ -660,7 +675,7 @@ exports[`HistoricalProfilesDropdown should render mount correctly 1`] = `
       >
         <DropdownWithContext
           autoFocus={true}
-          className=""
+          className="historical-system-profile-dropdown"
           direction="down"
           dropdownItems={
             Array [
@@ -698,7 +713,7 @@ exports[`HistoricalProfilesDropdown should render mount correctly 1`] = `
           position="right"
           toggle={
             <DropdownToggle
-              className="historical-system-profile-dropdown hsp-dropdown-icon"
+              className="hsp-dropdown-icon"
               iconComponent={null}
               onToggle={[Function]}
             >
@@ -712,11 +727,11 @@ exports[`HistoricalProfilesDropdown should render mount correctly 1`] = `
           }
         >
           <div
-            className="pf-c-dropdown pf-m-align-right"
+            className="pf-c-dropdown pf-m-align-right historical-system-profile-dropdown"
           >
             <DropdownToggle
               ariaHasPopup={true}
-              className="historical-system-profile-dropdown hsp-dropdown-icon"
+              className="hsp-dropdown-icon"
               iconComponent={null}
               id="pf-toggle-id-0"
               isOpen={false}
@@ -727,12 +742,12 @@ exports[`HistoricalProfilesDropdown should render mount correctly 1`] = `
               parentRef={
                 Object {
                   "current": <div
-                    class="pf-c-dropdown pf-m-align-right"
+                    class="pf-c-dropdown pf-m-align-right historical-system-profile-dropdown"
                   >
                     <button
                       aria-expanded="false"
                       aria-haspopup="true"
-                      class="pf-c-dropdown__toggle pf-m-plain historical-system-profile-dropdown hsp-dropdown-icon"
+                      class="pf-c-dropdown__toggle pf-m-plain hsp-dropdown-icon"
                       id="pf-toggle-id-0"
                       type="button"
                     >
@@ -759,7 +774,7 @@ exports[`HistoricalProfilesDropdown should render mount correctly 1`] = `
             >
               <Toggle
                 ariaHasPopup={true}
-                className="historical-system-profile-dropdown hsp-dropdown-icon"
+                className="hsp-dropdown-icon"
                 id="pf-toggle-id-0"
                 isActive={false}
                 isDisabled={false}
@@ -774,12 +789,12 @@ exports[`HistoricalProfilesDropdown should render mount correctly 1`] = `
                 parentRef={
                   Object {
                     "current": <div
-                      class="pf-c-dropdown pf-m-align-right"
+                      class="pf-c-dropdown pf-m-align-right historical-system-profile-dropdown"
                     >
                       <button
                         aria-expanded="false"
                         aria-haspopup="true"
-                        class="pf-c-dropdown__toggle pf-m-plain historical-system-profile-dropdown hsp-dropdown-icon"
+                        class="pf-c-dropdown__toggle pf-m-plain hsp-dropdown-icon"
                         id="pf-toggle-id-0"
                         type="button"
                       >
@@ -807,7 +822,7 @@ exports[`HistoricalProfilesDropdown should render mount correctly 1`] = `
                 <button
                   aria-expanded={false}
                   aria-haspopup={true}
-                  className="pf-c-dropdown__toggle pf-m-plain historical-system-profile-dropdown hsp-dropdown-icon"
+                  className="pf-c-dropdown__toggle pf-m-plain hsp-dropdown-icon"
                   disabled={false}
                   id="pf-toggle-id-0"
                   onClick={[Function]}

@@ -109,7 +109,7 @@ export class EditBaselineNameModal extends Component {
 }
 
 EditBaselineNameModal.propTypes = {
-    baselineData: PropTypes.array,
+    baselineData: PropTypes.object,
     toggleEditNameModal: PropTypes.func,
     modalOpened: PropTypes.bool,
     patchBaseline: PropTypes.func,

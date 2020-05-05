@@ -61,7 +61,7 @@ export class HistoricalProfilesDropdown extends Component {
     }
 
     createDropdownArray = (historicalData) => {
-        const { hasBadge } = this.props;
+        const { hasCompareButton } = this.props;
 
         let dropdownItems = [];
         let badgeCountFunc = this.updateBadgeCount;
@@ -78,16 +78,13 @@ export class HistoricalProfilesDropdown extends Component {
                 );
             });
 
-            dropdownItems.push(
-                <div className='hsp-button'>
-                    { !hasBadge
-                        ? <FetchHistoricalProfilesButton
-                            fetchCompare={ this.fetchCompare }
-                        />
-                        : null
-                    }
-                </div>
-            );
+            if (hasCompareButton) {
+                dropdownItems.push(
+                    <div className="sticky-compare">
+                        <FetchHistoricalProfilesButton fetchCompare={ this.fetchCompare } />
+                    </div>
+                );
+            }
         } else {
             dropdownItems.push(
                 <DropdownItem isDisabled>
@@ -136,8 +133,9 @@ export class HistoricalProfilesDropdown extends Component {
         return (
             <React.Fragment>
                 <Dropdown
+                    className="historical-system-profile-dropdown"
                     toggle={ <DropdownToggle
-                        className='historical-system-profile-dropdown hsp-dropdown-icon'
+                        className='hsp-dropdown-icon'
                         iconComponent={ null }
                         onToggle={ this.onToggle }>
                         <HistoryIcon />
@@ -163,6 +161,7 @@ HistoricalProfilesDropdown.propTypes = {
     selectedBaselineIds: PropTypes.array,
     selectHistoricProfiles: PropTypes.func,
     hasBadge: PropTypes.bool,
+    hasCompareButton: PropTypes.bool,
     badgeCount: PropTypes.number,
     referenceId: PropTypes.string,
     dropdownDirection: PropTypes.object

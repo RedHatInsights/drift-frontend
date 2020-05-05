@@ -2053,6 +2053,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                           <withRouter(Connect(HistoricalProfilesDropdown))
                             dropdownDirection="down"
                             fetchCompare={[Function]}
+                            hasCompareButton={true}
                             system={
                               Object {
                                 "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
@@ -2066,6 +2067,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                             <Connect(HistoricalProfilesDropdown)
                               dropdownDirection="down"
                               fetchCompare={[Function]}
+                              hasCompareButton={true}
                               history={
                                 Object {
                                   "action": "POP",
@@ -2125,6 +2127,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                               <HistoricalProfilesDropdown
                                 dropdownDirection="down"
                                 fetchCompare={[Function]}
+                                hasCompareButton={true}
                                 history={
                                   Object {
                                     "action": "POP",
@@ -2183,6 +2186,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                 systemIds={Array []}
                               >
                                 <Dropdown
+                                  className="historical-system-profile-dropdown"
                                   direction="down"
                                   dropdownItems={
                                     Array [
@@ -2211,7 +2215,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                   position="right"
                                   toggle={
                                     <DropdownToggle
-                                      className="historical-system-profile-dropdown hsp-dropdown-icon"
+                                      className="hsp-dropdown-icon"
                                       iconComponent={null}
                                       onToggle={[Function]}
                                     >
@@ -2225,6 +2229,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                   }
                                 >
                                   <Component
+                                    className="historical-system-profile-dropdown"
                                     direction="down"
                                     dropdownItems={
                                       Array [
@@ -2253,7 +2258,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                     position="right"
                                     toggle={
                                       <DropdownToggle
-                                        className="historical-system-profile-dropdown hsp-dropdown-icon"
+                                        className="hsp-dropdown-icon"
                                         iconComponent={null}
                                         onToggle={[Function]}
                                       >
@@ -2270,6 +2275,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                       component={[Function]}
                                       componentProps={
                                         Object {
+                                          "className": "historical-system-profile-dropdown",
                                           "direction": "down",
                                           "dropdownItems": Array [
                                             <Skeleton
@@ -2295,7 +2301,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                           "isPlain": true,
                                           "position": "right",
                                           "toggle": <DropdownToggle
-                                            className="historical-system-profile-dropdown hsp-dropdown-icon"
+                                            className="hsp-dropdown-icon"
                                             iconComponent={null}
                                             onToggle={[Function]}
                                           >
@@ -2312,7 +2318,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                     >
                                       <DropdownWithContext
                                         autoFocus={true}
-                                        className=""
+                                        className="historical-system-profile-dropdown"
                                         direction="down"
                                         dropdownItems={
                                           Array [
@@ -2350,7 +2356,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                         position="right"
                                         toggle={
                                           <DropdownToggle
-                                            className="historical-system-profile-dropdown hsp-dropdown-icon"
+                                            className="hsp-dropdown-icon"
                                             iconComponent={null}
                                             onToggle={[Function]}
                                           >
@@ -2364,11 +2370,11 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                         }
                                       >
                                         <div
-                                          className="pf-c-dropdown pf-m-align-right"
+                                          className="pf-c-dropdown pf-m-align-right historical-system-profile-dropdown"
                                         >
                                           <DropdownToggle
                                             ariaHasPopup={true}
-                                            className="historical-system-profile-dropdown hsp-dropdown-icon"
+                                            className="hsp-dropdown-icon"
                                             iconComponent={null}
                                             id="pf-toggle-id-0"
                                             isOpen={false}
@@ -2379,12 +2385,12 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                             parentRef={
                                               Object {
                                                 "current": <div
-                                                  class="pf-c-dropdown pf-m-align-right"
+                                                  class="pf-c-dropdown pf-m-align-right historical-system-profile-dropdown"
                                                 >
                                                   <button
                                                     aria-expanded="false"
                                                     aria-haspopup="true"
-                                                    class="pf-c-dropdown__toggle pf-m-plain historical-system-profile-dropdown hsp-dropdown-icon"
+                                                    class="pf-c-dropdown__toggle pf-m-plain hsp-dropdown-icon"
                                                     id="pf-toggle-id-0"
                                                     type="button"
                                                   >
@@ -2411,7 +2417,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                           >
                                             <Toggle
                                               ariaHasPopup={true}
-                                              className="historical-system-profile-dropdown hsp-dropdown-icon"
+                                              className="hsp-dropdown-icon"
                                               id="pf-toggle-id-0"
                                               isActive={false}
                                               isDisabled={false}
@@ -2426,12 +2432,12 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                               parentRef={
                                                 Object {
                                                   "current": <div
-                                                    class="pf-c-dropdown pf-m-align-right"
+                                                    class="pf-c-dropdown pf-m-align-right historical-system-profile-dropdown"
                                                   >
                                                     <button
                                                       aria-expanded="false"
                                                       aria-haspopup="true"
-                                                      class="pf-c-dropdown__toggle pf-m-plain historical-system-profile-dropdown hsp-dropdown-icon"
+                                                      class="pf-c-dropdown__toggle pf-m-plain hsp-dropdown-icon"
                                                       id="pf-toggle-id-0"
                                                       type="button"
                                                     >
@@ -2459,7 +2465,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                               <button
                                                 aria-expanded={false}
                                                 aria-haspopup={true}
-                                                className="pf-c-dropdown__toggle pf-m-plain historical-system-profile-dropdown hsp-dropdown-icon"
+                                                className="pf-c-dropdown__toggle pf-m-plain hsp-dropdown-icon"
                                                 disabled={false}
                                                 id="pf-toggle-id-0"
                                                 onClick={[Function]}
@@ -2629,6 +2635,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                           <withRouter(Connect(HistoricalProfilesDropdown))
                             dropdownDirection="down"
                             fetchCompare={[Function]}
+                            hasCompareButton={true}
                             system={
                               Object {
                                 "display_name": "system1",
@@ -2643,6 +2650,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                             <Connect(HistoricalProfilesDropdown)
                               dropdownDirection="down"
                               fetchCompare={[Function]}
+                              hasCompareButton={true}
                               history={
                                 Object {
                                   "action": "POP",
@@ -2703,6 +2711,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                               <HistoricalProfilesDropdown
                                 dropdownDirection="down"
                                 fetchCompare={[Function]}
+                                hasCompareButton={true}
                                 history={
                                   Object {
                                     "action": "POP",
@@ -2762,6 +2771,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                 systemIds={Array []}
                               >
                                 <Dropdown
+                                  className="historical-system-profile-dropdown"
                                   direction="down"
                                   dropdownItems={
                                     Array [
@@ -2790,7 +2800,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                   position="right"
                                   toggle={
                                     <DropdownToggle
-                                      className="historical-system-profile-dropdown hsp-dropdown-icon"
+                                      className="hsp-dropdown-icon"
                                       iconComponent={null}
                                       onToggle={[Function]}
                                     >
@@ -2804,6 +2814,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                   }
                                 >
                                   <Component
+                                    className="historical-system-profile-dropdown"
                                     direction="down"
                                     dropdownItems={
                                       Array [
@@ -2832,7 +2843,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                     position="right"
                                     toggle={
                                       <DropdownToggle
-                                        className="historical-system-profile-dropdown hsp-dropdown-icon"
+                                        className="hsp-dropdown-icon"
                                         iconComponent={null}
                                         onToggle={[Function]}
                                       >
@@ -2849,6 +2860,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                       component={[Function]}
                                       componentProps={
                                         Object {
+                                          "className": "historical-system-profile-dropdown",
                                           "direction": "down",
                                           "dropdownItems": Array [
                                             <Skeleton
@@ -2874,7 +2886,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                           "isPlain": true,
                                           "position": "right",
                                           "toggle": <DropdownToggle
-                                            className="historical-system-profile-dropdown hsp-dropdown-icon"
+                                            className="hsp-dropdown-icon"
                                             iconComponent={null}
                                             onToggle={[Function]}
                                           >
@@ -2891,7 +2903,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                     >
                                       <DropdownWithContext
                                         autoFocus={true}
-                                        className=""
+                                        className="historical-system-profile-dropdown"
                                         direction="down"
                                         dropdownItems={
                                           Array [
@@ -2929,7 +2941,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                         position="right"
                                         toggle={
                                           <DropdownToggle
-                                            className="historical-system-profile-dropdown hsp-dropdown-icon"
+                                            className="hsp-dropdown-icon"
                                             iconComponent={null}
                                             onToggle={[Function]}
                                           >
@@ -2943,11 +2955,11 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                         }
                                       >
                                         <div
-                                          className="pf-c-dropdown pf-m-align-right"
+                                          className="pf-c-dropdown pf-m-align-right historical-system-profile-dropdown"
                                         >
                                           <DropdownToggle
                                             ariaHasPopup={true}
-                                            className="historical-system-profile-dropdown hsp-dropdown-icon"
+                                            className="hsp-dropdown-icon"
                                             iconComponent={null}
                                             id="pf-toggle-id-1"
                                             isOpen={false}
@@ -2958,12 +2970,12 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                             parentRef={
                                               Object {
                                                 "current": <div
-                                                  class="pf-c-dropdown pf-m-align-right"
+                                                  class="pf-c-dropdown pf-m-align-right historical-system-profile-dropdown"
                                                 >
                                                   <button
                                                     aria-expanded="false"
                                                     aria-haspopup="true"
-                                                    class="pf-c-dropdown__toggle pf-m-plain historical-system-profile-dropdown hsp-dropdown-icon"
+                                                    class="pf-c-dropdown__toggle pf-m-plain hsp-dropdown-icon"
                                                     id="pf-toggle-id-1"
                                                     type="button"
                                                   >
@@ -2990,7 +3002,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                           >
                                             <Toggle
                                               ariaHasPopup={true}
-                                              className="historical-system-profile-dropdown hsp-dropdown-icon"
+                                              className="hsp-dropdown-icon"
                                               id="pf-toggle-id-1"
                                               isActive={false}
                                               isDisabled={false}
@@ -3005,12 +3017,12 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                               parentRef={
                                                 Object {
                                                   "current": <div
-                                                    class="pf-c-dropdown pf-m-align-right"
+                                                    class="pf-c-dropdown pf-m-align-right historical-system-profile-dropdown"
                                                   >
                                                     <button
                                                       aria-expanded="false"
                                                       aria-haspopup="true"
-                                                      class="pf-c-dropdown__toggle pf-m-plain historical-system-profile-dropdown hsp-dropdown-icon"
+                                                      class="pf-c-dropdown__toggle pf-m-plain hsp-dropdown-icon"
                                                       id="pf-toggle-id-1"
                                                       type="button"
                                                     >
@@ -3038,7 +3050,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                               <button
                                                 aria-expanded={false}
                                                 aria-haspopup={true}
-                                                className="pf-c-dropdown__toggle pf-m-plain historical-system-profile-dropdown hsp-dropdown-icon"
+                                                className="pf-c-dropdown__toggle pf-m-plain hsp-dropdown-icon"
                                                 disabled={false}
                                                 id="pf-toggle-id-1"
                                                 onClick={[Function]}
@@ -3208,6 +3220,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                           <withRouter(Connect(HistoricalProfilesDropdown))
                             dropdownDirection="down"
                             fetchCompare={[Function]}
+                            hasCompareButton={true}
                             system={
                               Object {
                                 "display_name": "system1",
@@ -3222,6 +3235,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                             <Connect(HistoricalProfilesDropdown)
                               dropdownDirection="down"
                               fetchCompare={[Function]}
+                              hasCompareButton={true}
                               history={
                                 Object {
                                   "action": "POP",
@@ -3282,6 +3296,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                               <HistoricalProfilesDropdown
                                 dropdownDirection="down"
                                 fetchCompare={[Function]}
+                                hasCompareButton={true}
                                 history={
                                   Object {
                                     "action": "POP",
@@ -3341,6 +3356,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                 systemIds={Array []}
                               >
                                 <Dropdown
+                                  className="historical-system-profile-dropdown"
                                   direction="down"
                                   dropdownItems={
                                     Array [
@@ -3369,7 +3385,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                   position="right"
                                   toggle={
                                     <DropdownToggle
-                                      className="historical-system-profile-dropdown hsp-dropdown-icon"
+                                      className="hsp-dropdown-icon"
                                       iconComponent={null}
                                       onToggle={[Function]}
                                     >
@@ -3383,6 +3399,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                   }
                                 >
                                   <Component
+                                    className="historical-system-profile-dropdown"
                                     direction="down"
                                     dropdownItems={
                                       Array [
@@ -3411,7 +3428,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                     position="right"
                                     toggle={
                                       <DropdownToggle
-                                        className="historical-system-profile-dropdown hsp-dropdown-icon"
+                                        className="hsp-dropdown-icon"
                                         iconComponent={null}
                                         onToggle={[Function]}
                                       >
@@ -3428,6 +3445,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                       component={[Function]}
                                       componentProps={
                                         Object {
+                                          "className": "historical-system-profile-dropdown",
                                           "direction": "down",
                                           "dropdownItems": Array [
                                             <Skeleton
@@ -3453,7 +3471,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                           "isPlain": true,
                                           "position": "right",
                                           "toggle": <DropdownToggle
-                                            className="historical-system-profile-dropdown hsp-dropdown-icon"
+                                            className="hsp-dropdown-icon"
                                             iconComponent={null}
                                             onToggle={[Function]}
                                           >
@@ -3470,7 +3488,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                     >
                                       <DropdownWithContext
                                         autoFocus={true}
-                                        className=""
+                                        className="historical-system-profile-dropdown"
                                         direction="down"
                                         dropdownItems={
                                           Array [
@@ -3508,7 +3526,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                         position="right"
                                         toggle={
                                           <DropdownToggle
-                                            className="historical-system-profile-dropdown hsp-dropdown-icon"
+                                            className="hsp-dropdown-icon"
                                             iconComponent={null}
                                             onToggle={[Function]}
                                           >
@@ -3522,11 +3540,11 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                         }
                                       >
                                         <div
-                                          className="pf-c-dropdown pf-m-align-right"
+                                          className="pf-c-dropdown pf-m-align-right historical-system-profile-dropdown"
                                         >
                                           <DropdownToggle
                                             ariaHasPopup={true}
-                                            className="historical-system-profile-dropdown hsp-dropdown-icon"
+                                            className="hsp-dropdown-icon"
                                             iconComponent={null}
                                             id="pf-toggle-id-2"
                                             isOpen={false}
@@ -3537,12 +3555,12 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                             parentRef={
                                               Object {
                                                 "current": <div
-                                                  class="pf-c-dropdown pf-m-align-right"
+                                                  class="pf-c-dropdown pf-m-align-right historical-system-profile-dropdown"
                                                 >
                                                   <button
                                                     aria-expanded="false"
                                                     aria-haspopup="true"
-                                                    class="pf-c-dropdown__toggle pf-m-plain historical-system-profile-dropdown hsp-dropdown-icon"
+                                                    class="pf-c-dropdown__toggle pf-m-plain hsp-dropdown-icon"
                                                     id="pf-toggle-id-2"
                                                     type="button"
                                                   >
@@ -3569,7 +3587,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                           >
                                             <Toggle
                                               ariaHasPopup={true}
-                                              className="historical-system-profile-dropdown hsp-dropdown-icon"
+                                              className="hsp-dropdown-icon"
                                               id="pf-toggle-id-2"
                                               isActive={false}
                                               isDisabled={false}
@@ -3584,12 +3602,12 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                               parentRef={
                                                 Object {
                                                   "current": <div
-                                                    class="pf-c-dropdown pf-m-align-right"
+                                                    class="pf-c-dropdown pf-m-align-right historical-system-profile-dropdown"
                                                   >
                                                     <button
                                                       aria-expanded="false"
                                                       aria-haspopup="true"
-                                                      class="pf-c-dropdown__toggle pf-m-plain historical-system-profile-dropdown hsp-dropdown-icon"
+                                                      class="pf-c-dropdown__toggle pf-m-plain hsp-dropdown-icon"
                                                       id="pf-toggle-id-2"
                                                       type="button"
                                                     >
@@ -3617,7 +3635,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                               <button
                                                 aria-expanded={false}
                                                 aria-haspopup={true}
-                                                className="pf-c-dropdown__toggle pf-m-plain historical-system-profile-dropdown hsp-dropdown-icon"
+                                                className="pf-c-dropdown__toggle pf-m-plain hsp-dropdown-icon"
                                                 disabled={false}
                                                 id="pf-toggle-id-2"
                                                 onClick={[Function]}
@@ -3787,6 +3805,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                           <withRouter(Connect(HistoricalProfilesDropdown))
                             dropdownDirection="down"
                             fetchCompare={[Function]}
+                            hasCompareButton={true}
                             system={
                               Object {
                                 "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
@@ -3800,6 +3819,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                             <Connect(HistoricalProfilesDropdown)
                               dropdownDirection="down"
                               fetchCompare={[Function]}
+                              hasCompareButton={true}
                               history={
                                 Object {
                                   "action": "POP",
@@ -3859,6 +3879,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                               <HistoricalProfilesDropdown
                                 dropdownDirection="down"
                                 fetchCompare={[Function]}
+                                hasCompareButton={true}
                                 history={
                                   Object {
                                     "action": "POP",
@@ -3917,6 +3938,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                 systemIds={Array []}
                               >
                                 <Dropdown
+                                  className="historical-system-profile-dropdown"
                                   direction="down"
                                   dropdownItems={
                                     Array [
@@ -3945,7 +3967,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                   position="right"
                                   toggle={
                                     <DropdownToggle
-                                      className="historical-system-profile-dropdown hsp-dropdown-icon"
+                                      className="hsp-dropdown-icon"
                                       iconComponent={null}
                                       onToggle={[Function]}
                                     >
@@ -3959,6 +3981,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                   }
                                 >
                                   <Component
+                                    className="historical-system-profile-dropdown"
                                     direction="down"
                                     dropdownItems={
                                       Array [
@@ -3987,7 +4010,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                     position="right"
                                     toggle={
                                       <DropdownToggle
-                                        className="historical-system-profile-dropdown hsp-dropdown-icon"
+                                        className="hsp-dropdown-icon"
                                         iconComponent={null}
                                         onToggle={[Function]}
                                       >
@@ -4004,6 +4027,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                       component={[Function]}
                                       componentProps={
                                         Object {
+                                          "className": "historical-system-profile-dropdown",
                                           "direction": "down",
                                           "dropdownItems": Array [
                                             <Skeleton
@@ -4029,7 +4053,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                           "isPlain": true,
                                           "position": "right",
                                           "toggle": <DropdownToggle
-                                            className="historical-system-profile-dropdown hsp-dropdown-icon"
+                                            className="hsp-dropdown-icon"
                                             iconComponent={null}
                                             onToggle={[Function]}
                                           >
@@ -4046,7 +4070,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                     >
                                       <DropdownWithContext
                                         autoFocus={true}
-                                        className=""
+                                        className="historical-system-profile-dropdown"
                                         direction="down"
                                         dropdownItems={
                                           Array [
@@ -4084,7 +4108,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                         position="right"
                                         toggle={
                                           <DropdownToggle
-                                            className="historical-system-profile-dropdown hsp-dropdown-icon"
+                                            className="hsp-dropdown-icon"
                                             iconComponent={null}
                                             onToggle={[Function]}
                                           >
@@ -4098,11 +4122,11 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                         }
                                       >
                                         <div
-                                          className="pf-c-dropdown pf-m-align-right"
+                                          className="pf-c-dropdown pf-m-align-right historical-system-profile-dropdown"
                                         >
                                           <DropdownToggle
                                             ariaHasPopup={true}
-                                            className="historical-system-profile-dropdown hsp-dropdown-icon"
+                                            className="hsp-dropdown-icon"
                                             iconComponent={null}
                                             id="pf-toggle-id-3"
                                             isOpen={false}
@@ -4113,12 +4137,12 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                             parentRef={
                                               Object {
                                                 "current": <div
-                                                  class="pf-c-dropdown pf-m-align-right"
+                                                  class="pf-c-dropdown pf-m-align-right historical-system-profile-dropdown"
                                                 >
                                                   <button
                                                     aria-expanded="false"
                                                     aria-haspopup="true"
-                                                    class="pf-c-dropdown__toggle pf-m-plain historical-system-profile-dropdown hsp-dropdown-icon"
+                                                    class="pf-c-dropdown__toggle pf-m-plain hsp-dropdown-icon"
                                                     id="pf-toggle-id-3"
                                                     type="button"
                                                   >
@@ -4145,7 +4169,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                           >
                                             <Toggle
                                               ariaHasPopup={true}
-                                              className="historical-system-profile-dropdown hsp-dropdown-icon"
+                                              className="hsp-dropdown-icon"
                                               id="pf-toggle-id-3"
                                               isActive={false}
                                               isDisabled={false}
@@ -4160,12 +4184,12 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                               parentRef={
                                                 Object {
                                                   "current": <div
-                                                    class="pf-c-dropdown pf-m-align-right"
+                                                    class="pf-c-dropdown pf-m-align-right historical-system-profile-dropdown"
                                                   >
                                                     <button
                                                       aria-expanded="false"
                                                       aria-haspopup="true"
-                                                      class="pf-c-dropdown__toggle pf-m-plain historical-system-profile-dropdown hsp-dropdown-icon"
+                                                      class="pf-c-dropdown__toggle pf-m-plain hsp-dropdown-icon"
                                                       id="pf-toggle-id-3"
                                                       type="button"
                                                     >
@@ -4193,7 +4217,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                               <button
                                                 aria-expanded={false}
                                                 aria-haspopup={true}
-                                                className="pf-c-dropdown__toggle pf-m-plain historical-system-profile-dropdown hsp-dropdown-icon"
+                                                className="pf-c-dropdown__toggle pf-m-plain hsp-dropdown-icon"
                                                 disabled={false}
                                                 id="pf-toggle-id-3"
                                                 onClick={[Function]}
