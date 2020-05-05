@@ -4,6 +4,16 @@
 @import '~@patternfly/patternfly/sass-utilities/colors';
 @import '~@patternfly/patternfly/sass-utilities/scss-variables';
 
+
+.add-system-modal {
+  max-width: 950px;
+
+  .pf-c-dropdown__menu {
+    max-height: 200px;
+    overflow-y: auto;
+  }
+}
+
 .drift {
 
   [data-label="Name"] {
@@ -91,7 +101,23 @@
   }
 
   .historical-system-profile-dropdown {
-    max-height: 21px;
+    .pf-c-dropdown__menu {
+      --pf-c-dropdown__menu--PaddingBottom: 0;
+
+      max-height: 250px;
+      overflow: auto;
+    }
+
+    .pf-c-dropdown__menu .sticky-compare {
+      position: sticky;
+      bottom: 0;
+      min-height: 56px;
+      padding: 10px;
+      padding-left: 16px;
+      background: var(--pf-global--BackgroundColor--100);
+      border-top: var(--pf-global--BorderWidth--sm) solid
+        var(--pf-global--BorderColor--100);
+    }
   }
 
   .historical-system-profile-header {
@@ -314,11 +340,6 @@
     margin-top: 20px;
   }
 
-  .hsp-button {
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-
   .hsp-dropdown-loading {
     min-width: 200px;
   }
@@ -335,15 +356,6 @@
 .pf-c-modal-box__body {
   max-width: 1200px;
   max-height: 600px;
-}
-
-.add-system-modal {
-  max-width: 950px;
-
-  .pf-c-dropdown__menu {
-    max-height: 200px;
-    overflow-y: auto;
-  }
 }
 
 .drift-toolbar {

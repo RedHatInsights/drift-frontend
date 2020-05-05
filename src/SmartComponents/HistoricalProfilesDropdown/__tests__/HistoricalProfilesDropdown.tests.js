@@ -5,9 +5,12 @@ import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import toJson from 'enzyme-to-json';
 
+import api from '../../../api';
+import fixtures from './fixtures';
 import { DropdownDirection } from '@patternfly/react-core';
 import ConnectedHistoricalProfilesDropdown, { HistoricalProfilesDropdown } from '../HistoricalProfilesDropdown';
 
+/*eslint-disable camelcase*/
 describe('HistoricalProfilesDropdown', () => {
     let props;
 
@@ -16,7 +19,13 @@ describe('HistoricalProfilesDropdown', () => {
             selectedHSPIds: [],
             selectedBaselineIds: [],
             dropdownDirection: DropdownDirection.down,
-            badgeCount: 0
+            hasBadge: true,
+            hasCompareButton: false,
+            badgeCount: 0,
+            system: {
+                id: '4416c520-a339-4dde-b303-f317ea9efc5f',
+                last_updated: '2020-05-04T18:33:12.249348+00:00'
+            }
         };
     });
 
@@ -60,6 +69,7 @@ describe('HistoricalProfilesDropdown', () => {
 
 describe('ConnectedHistoricalProfilesDropdown', () => {
     let initialState;
+    let props;
     let mockStore;
 
     beforeEach(() => {
@@ -72,6 +82,17 @@ describe('ConnectedHistoricalProfilesDropdown', () => {
                 checkboxTable: {
                     selectedBaselineIds: []
                 }
+            }
+        };
+
+        props = {
+            dropdownDirection: DropdownDirection.down,
+            hasBadge: true,
+            hasCompareButton: false,
+            badgeCount: 0,
+            system: {
+                id: '4416c520-a339-4dde-b303-f317ea9efc5f',
+                last_updated: '2020-05-04T18:33:12.249348+00:00'
             }
         };
     });
@@ -88,4 +109,40 @@ describe('ConnectedHistoricalProfilesDropdown', () => {
 
         expect(toJson(wrapper)).toMatchSnapshot();
     });
+
+    it('should toggle dropdown menu', () => {
+        const store = mockStore(initialState);
+        const wrapper = mount(
+            <MemoryRouter keyLength={ 0 }>
+                <Provider store={ store }>
+                    <ConnectedHistoricalProfilesDropdown { ...props } />
+                </Provider>
+            </MemoryRouter>
+        );
+
+        wrapper.find('.pf-c-dropdown__toggle').simulate('click');
+        expect(wrapper.find('DropdownToggle').prop('isOpen')).toBe(true);
+    });
+
+    it('should set historical data', () => {
+        const store = mockStore(initialState);
+        api.fetchHistoricalData = jest.fn();
+        api.fetchHistoricalData
+        .mockReturnValue(
+            fixtures.historicalData
+        );
+        const wrapper = mount(
+            <MemoryRouter keyLength={ 0 }>
+                <Provider store={ store }>
+                    <ConnectedHistoricalProfilesDropdown
+                        { ...props }
+                    />
+                </Provider>
+            </MemoryRouter>
+        );
+
+        wrapper.find('.pf-c-dropdown__toggle').simulate('click');
+        expect(api.fetchHistoricalData).toHaveBeenCalled();
+    });
 });
+/*eslint-enable camelcase*/
