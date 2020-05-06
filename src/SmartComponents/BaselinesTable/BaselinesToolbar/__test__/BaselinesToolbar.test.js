@@ -54,7 +54,8 @@ describe('jest-tests', () => {
                 exportButton: true,
                 kebab: true,
                 tableData: baselinesTableFixtures.baselineTableDataRows,
-                tableId: 'CHECKBOX'
+                tableId: 'CHECKBOX',
+                hasMultiSelect: true
             };
         });
 
@@ -90,7 +91,8 @@ describe('jest-tests', () => {
                 exportButton: true,
                 kebab: true,
                 tableData: baselinesTableFixtures.baselineTableDataRows,
-                tableId: 'CHECKBOX'
+                tableId: 'CHECKBOX',
+                hasMultiSelect: true
             };
         });
 

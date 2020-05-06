@@ -43,7 +43,6 @@ describe('EditBaseline', () => {
             <EditBaseline { ...props } />
         );
 
-        expect(wrapper.find('Checkbox').prop('isDisabled')).toBe(true);
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 
@@ -177,7 +176,7 @@ describe('EditBaseline', () => {
                 />
             );
 
-            wrapper.find('Checkbox').at(3).simulate('change', isSelected, event);
+            wrapper.find('Checkbox').at(2).simulate('change', isSelected, event);
             expect(selectFact).toBeCalledWith(facts, true);
         });
 
@@ -196,7 +195,7 @@ describe('EditBaseline', () => {
                 />
             );
 
-            wrapper.find('Checkbox').at(3).simulate('change', isSelected, event);
+            wrapper.find('Checkbox').at(2).simulate('change', isSelected, event);
             expect(selectFact).toBeCalledWith(facts, false);
         });
 
@@ -238,44 +237,6 @@ describe('EditBaseline', () => {
             expect(selectFact).toBeCalledWith([ 3 ], false);
         });
 
-        it('should select all facts', () => {
-            const event = { target: { name: 'select-all' }};
-            const isSelected = true;
-            props.baselineData = editBaselineFixtures.mockBaselineData1;
-            props.editBaselineTableData = editBaselineFixtures.mockBaselineTableData1;
-            const selectFact = jest.fn();
-            const facts = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ];
-
-            const wrapper = shallow(
-                <EditBaseline
-                    { ...props }
-                    selectFact={ selectFact }
-                />
-            );
-
-            wrapper.find('Checkbox').at(0).simulate('change', isSelected, event);
-            expect(selectFact).toBeCalledWith(facts, true);
-        });
-
-        it('should deselect all facts', () => {
-            const event = { target: { name: 'select-all' }};
-            const isSelected = false;
-            props.baselineData = editBaselineFixtures.mockBaselineData1;
-            props.editBaselineTableData = editBaselineFixtures.mockBaselineTableData1;
-            const selectFact = jest.fn();
-            const facts = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ];
-
-            const wrapper = shallow(
-                <EditBaseline
-                    { ...props }
-                    selectFact={ selectFact }
-                />
-            );
-
-            wrapper.find('Checkbox').at(0).simulate('change', isSelected, event);
-            expect(selectFact).toBeCalledWith(facts, false);
-        });
-
         it('should render toggle edit name modal', () => {
             props.baselineData = editBaselineFixtures.mockBaselineData1;
             const clearErrorData = jest.fn();
@@ -313,7 +274,8 @@ describe('ConnectedEditBaseline', () => {
             },
             match: { params: {}},
             clearBaselineData: jest.fn(),
-            selectFact: jest.fn()
+            selectFact: jest.fn(),
+            onBulkSelect: jest.fn()
         };
     });
 

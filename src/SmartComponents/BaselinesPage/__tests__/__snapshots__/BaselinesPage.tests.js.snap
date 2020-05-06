@@ -535,6 +535,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                   createButton={true}
                                   exportButton={true}
                                   fetchWithParams={[Function]}
+                                  hasMultiSelect={true}
                                   kebab={true}
                                   onBulkSelect={[Function]}
                                   onSearch={[Function]}
@@ -594,25 +595,25 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                       </DropdownItem>,
                                                     ]
                                                   }
-                                                  isDisabled={true}
                                                   isOpen={false}
                                                   onSelect={[Function]}
                                                   toggle={
                                                     <DropdownToggle
+                                                      isDisabled={true}
                                                       onToggle={[Function]}
                                                       splitButtonItems={
                                                         Array [
                                                           <React.Fragment>
                                                             <DropdownToggleCheckbox
                                                               aria-label="Select all"
-                                                              checked={false}
                                                               className=""
                                                               id="toggle-checkbox"
+                                                              isChecked={false}
                                                               isDisabled={false}
                                                               isValid={true}
                                                               onChange={[Function]}
                                                             >
-                                                               selected
+                                                              
                                                             </DropdownToggleCheckbox>
                                                           </React.Fragment>,
                                                         ]
@@ -638,24 +639,24 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                         </DropdownItem>,
                                                       ]
                                                     }
-                                                    isDisabled={true}
                                                     isOpen={false}
                                                     toggle={
                                                       <DropdownToggle
+                                                        isDisabled={true}
                                                         onToggle={[Function]}
                                                         splitButtonItems={
                                                           Array [
                                                             <React.Fragment>
                                                               <DropdownToggleCheckbox
                                                                 aria-label="Select all"
-                                                                checked={false}
                                                                 className=""
                                                                 id="toggle-checkbox"
+                                                                isChecked={false}
                                                                 isDisabled={false}
                                                                 isValid={true}
                                                                 onChange={[Function]}
                                                               >
-                                                                 selected
+                                                                
                                                               </DropdownToggleCheckbox>
                                                             </React.Fragment>,
                                                           ]
@@ -682,23 +683,23 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                               Select none
                                                             </DropdownItem>,
                                                           ],
-                                                          "isDisabled": true,
                                                           "isOpen": false,
                                                           "toggle": <DropdownToggle
+                                                            isDisabled={true}
                                                             onToggle={[Function]}
                                                             splitButtonItems={
                                                               Array [
                                                                 <React.Fragment>
                                                                   <DropdownToggleCheckbox
                                                                     aria-label="Select all"
-                                                                    checked={false}
                                                                     className=""
                                                                     id="toggle-checkbox"
+                                                                    isChecked={false}
                                                                     isDisabled={false}
                                                                     isValid={true}
                                                                     onChange={[Function]}
                                                                   >
-                                                                     selected
+                                                                    
                                                                   </DropdownToggleCheckbox>
                                                                 </React.Fragment>,
                                                               ]
@@ -728,7 +729,6 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                             </DropdownItem>,
                                                           ]
                                                         }
-                                                        isDisabled={true}
                                                         isGrouped={false}
                                                         isOpen={false}
                                                         isPlain={false}
@@ -743,20 +743,21 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                         position="left"
                                                         toggle={
                                                           <DropdownToggle
+                                                            isDisabled={true}
                                                             onToggle={[Function]}
                                                             splitButtonItems={
                                                               Array [
                                                                 <React.Fragment>
                                                                   <DropdownToggleCheckbox
                                                                     aria-label="Select all"
-                                                                    checked={false}
                                                                     className=""
                                                                     id="toggle-checkbox"
+                                                                    isChecked={false}
                                                                     isDisabled={false}
                                                                     isValid={true}
                                                                     onChange={[Function]}
                                                                   >
-                                                                     selected
+                                                                    
                                                                   </DropdownToggleCheckbox>
                                                                 </React.Fragment>,
                                                               ]
@@ -766,11 +767,11 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                       >
                                                         <div
                                                           className="pf-c-dropdown ins-c-bulk-select"
-                                                          isDisabled={true}
                                                         >
                                                           <DropdownToggle
                                                             ariaHasPopup={true}
                                                             id="pf-toggle-id-0"
+                                                            isDisabled={true}
                                                             isOpen={false}
                                                             isPlain={false}
                                                             key=".0"
@@ -782,7 +783,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                   class="pf-c-dropdown ins-c-bulk-select"
                                                                 >
                                                                   <div
-                                                                    class="pf-c-dropdown__toggle pf-m-split-button"
+                                                                    class="pf-c-dropdown__toggle pf-m-split-button pf-m-disabled"
                                                                   >
                                                                     <label
                                                                       class="pf-c-dropdown__toggle-check"
@@ -794,19 +795,14 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                         id="toggle-checkbox"
                                                                         type="checkbox"
                                                                       />
-                                                                      <span
-                                                                        aria-hidden="true"
-                                                                        class="pf-c-dropdown__toggle-text"
-                                                                        id="toggle-checkbox-text"
-                                                                      >
-                                                                         selected
-                                                                      </span>
+                                                                      
                                                                     </label>
                                                                     <button
                                                                       aria-expanded="false"
                                                                       aria-haspopup="true"
                                                                       aria-label="Select"
                                                                       class="pf-c-dropdown__toggle-button"
+                                                                      disabled=""
                                                                       id="pf-toggle-id-0"
                                                                       type="button"
                                                                     >
@@ -835,27 +831,27 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                 <React.Fragment>
                                                                   <DropdownToggleCheckbox
                                                                     aria-label="Select all"
-                                                                    checked={false}
                                                                     className=""
                                                                     id="toggle-checkbox"
+                                                                    isChecked={false}
                                                                     isDisabled={false}
                                                                     isValid={true}
                                                                     onChange={[Function]}
                                                                   >
-                                                                     selected
+                                                                    
                                                                   </DropdownToggleCheckbox>
                                                                 </React.Fragment>,
                                                               ]
                                                             }
                                                           >
                                                             <div
-                                                              className="pf-c-dropdown__toggle pf-m-split-button"
+                                                              className="pf-c-dropdown__toggle pf-m-split-button pf-m-disabled"
                                                             >
                                                               <DropdownToggleCheckbox
                                                                 aria-label="Select all"
-                                                                checked={false}
                                                                 className=""
                                                                 id="toggle-checkbox"
+                                                                isChecked={false}
                                                                 isDisabled={false}
                                                                 isValid={true}
                                                                 onChange={[Function]}
@@ -873,13 +869,6 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                     onChange={[Function]}
                                                                     type="checkbox"
                                                                   />
-                                                                  <span
-                                                                    aria-hidden="true"
-                                                                    className="pf-c-dropdown__toggle-text"
-                                                                    id="toggle-checkbox-text"
-                                                                  >
-                                                                     selected
-                                                                  </span>
                                                                 </label>
                                                               </DropdownToggleCheckbox>
                                                               <Toggle
@@ -888,7 +877,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                 className=""
                                                                 id="pf-toggle-id-0"
                                                                 isActive={false}
-                                                                isDisabled={false}
+                                                                isDisabled={true}
                                                                 isFocused={false}
                                                                 isHovered={false}
                                                                 isOpen={false}
@@ -903,7 +892,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                       class="pf-c-dropdown ins-c-bulk-select"
                                                                     >
                                                                       <div
-                                                                        class="pf-c-dropdown__toggle pf-m-split-button"
+                                                                        class="pf-c-dropdown__toggle pf-m-split-button pf-m-disabled"
                                                                       >
                                                                         <label
                                                                           class="pf-c-dropdown__toggle-check"
@@ -915,19 +904,14 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                             id="toggle-checkbox"
                                                                             type="checkbox"
                                                                           />
-                                                                          <span
-                                                                            aria-hidden="true"
-                                                                            class="pf-c-dropdown__toggle-text"
-                                                                            id="toggle-checkbox-text"
-                                                                          >
-                                                                             selected
-                                                                          </span>
+                                                                          
                                                                         </label>
                                                                         <button
                                                                           aria-expanded="false"
                                                                           aria-haspopup="true"
                                                                           aria-label="Select"
                                                                           class="pf-c-dropdown__toggle-button"
+                                                                          disabled=""
                                                                           id="pf-toggle-id-0"
                                                                           type="button"
                                                                         >
@@ -957,7 +941,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                   aria-haspopup={true}
                                                                   aria-label="Select"
                                                                   className="pf-c-dropdown__toggle-button"
-                                                                  disabled={false}
+                                                                  disabled={true}
                                                                   id="pf-toggle-id-0"
                                                                   onClick={[Function]}
                                                                   onKeyDown={[Function]}
@@ -1014,6 +998,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                               className="pf-l-toolbar__item"
                                             >
                                               <ConditionalFilter
+                                                hideLabel={false}
                                                 items={Array []}
                                                 onChange={[Function]}
                                                 placeholder="Filter by name"
@@ -1592,6 +1577,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                 </BaselinesToolbar>
                                 <Component
                                   aria-label="Baselines Table"
+                                  canSelectAll={false}
                                   cells={
                                     Array [
                                       Object {
@@ -1641,6 +1627,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                     componentProps={
                                       Object {
                                         "aria-label": "Baselines Table",
+                                        "canSelectAll": false,
                                         "cells": Array [
                                           Object {
                                             "title": "Name",
@@ -1691,7 +1678,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                     <Table
                                       aria-label="Baselines Table"
                                       borders={true}
-                                      canSelectAll={true}
+                                      canSelectAll={false}
                                       cells={
                                         Array [
                                           Object {
@@ -1771,7 +1758,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                 "actions": undefined,
                                                 "allRowsSelected": false,
                                                 "areActionsDisabled": undefined,
-                                                "canSelectAll": true,
+                                                "canSelectAll": false,
                                                 "contentId": "expanded-content",
                                                 "dropdownDirection": "down",
                                                 "dropdownPosition": "right",
@@ -1814,7 +1801,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                 "actions": undefined,
                                                 "allRowsSelected": false,
                                                 "areActionsDisabled": undefined,
-                                                "canSelectAll": true,
+                                                "canSelectAll": false,
                                                 "contentId": "expanded-content",
                                                 "dropdownDirection": "down",
                                                 "dropdownPosition": "right",
@@ -1857,7 +1844,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                 "actions": undefined,
                                                 "allRowsSelected": false,
                                                 "areActionsDisabled": undefined,
-                                                "canSelectAll": true,
+                                                "canSelectAll": false,
                                                 "contentId": "expanded-content",
                                                 "dropdownDirection": "down",
                                                 "dropdownPosition": "right",
@@ -1932,7 +1919,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                           "actions": undefined,
                                                           "allRowsSelected": false,
                                                           "areActionsDisabled": undefined,
-                                                          "canSelectAll": true,
+                                                          "canSelectAll": false,
                                                           "contentId": "expanded-content",
                                                           "dropdownDirection": "down",
                                                           "dropdownPosition": "right",
@@ -1975,7 +1962,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                           "actions": undefined,
                                                           "allRowsSelected": false,
                                                           "areActionsDisabled": undefined,
-                                                          "canSelectAll": true,
+                                                          "canSelectAll": false,
                                                           "contentId": "expanded-content",
                                                           "dropdownDirection": "down",
                                                           "dropdownPosition": "right",
@@ -2018,7 +2005,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                           "actions": undefined,
                                                           "allRowsSelected": false,
                                                           "areActionsDisabled": undefined,
-                                                          "canSelectAll": true,
+                                                          "canSelectAll": false,
                                                           "contentId": "expanded-content",
                                                           "dropdownDirection": "down",
                                                           "dropdownPosition": "right",
@@ -2093,7 +2080,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                               "actions": undefined,
                                                               "allRowsSelected": false,
                                                               "areActionsDisabled": undefined,
-                                                              "canSelectAll": true,
+                                                              "canSelectAll": false,
                                                               "contentId": "expanded-content",
                                                               "dropdownDirection": "down",
                                                               "dropdownPosition": "right",
@@ -2136,7 +2123,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                               "actions": undefined,
                                                               "allRowsSelected": false,
                                                               "areActionsDisabled": undefined,
-                                                              "canSelectAll": true,
+                                                              "canSelectAll": false,
                                                               "contentId": "expanded-content",
                                                               "dropdownDirection": "down",
                                                               "dropdownPosition": "right",
@@ -2179,7 +2166,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                               "actions": undefined,
                                                               "allRowsSelected": false,
                                                               "areActionsDisabled": undefined,
-                                                              "canSelectAll": true,
+                                                              "canSelectAll": false,
                                                               "contentId": "expanded-content",
                                                               "dropdownDirection": "down",
                                                               "dropdownPosition": "right",
@@ -2368,7 +2355,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                       "actions": undefined,
                                                       "allRowsSelected": false,
                                                       "areActionsDisabled": undefined,
-                                                      "canSelectAll": true,
+                                                      "canSelectAll": false,
                                                       "contentId": "expanded-content",
                                                       "dropdownDirection": "down",
                                                       "dropdownPosition": "right",
@@ -2411,7 +2398,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                       "actions": undefined,
                                                       "allRowsSelected": false,
                                                       "areActionsDisabled": undefined,
-                                                      "canSelectAll": true,
+                                                      "canSelectAll": false,
                                                       "contentId": "expanded-content",
                                                       "dropdownDirection": "down",
                                                       "dropdownPosition": "right",
@@ -2454,7 +2441,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                       "actions": undefined,
                                                       "allRowsSelected": false,
                                                       "areActionsDisabled": undefined,
-                                                      "canSelectAll": true,
+                                                      "canSelectAll": false,
                                                       "contentId": "expanded-content",
                                                       "dropdownDirection": "down",
                                                       "dropdownPosition": "right",
@@ -2633,7 +2620,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                           "actions": undefined,
                                                           "allRowsSelected": false,
                                                           "areActionsDisabled": undefined,
-                                                          "canSelectAll": true,
+                                                          "canSelectAll": false,
                                                           "contentId": "expanded-content",
                                                           "dropdownDirection": "down",
                                                           "dropdownPosition": "right",
@@ -2676,7 +2663,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                           "actions": undefined,
                                                           "allRowsSelected": false,
                                                           "areActionsDisabled": undefined,
-                                                          "canSelectAll": true,
+                                                          "canSelectAll": false,
                                                           "contentId": "expanded-content",
                                                           "dropdownDirection": "down",
                                                           "dropdownPosition": "right",
@@ -2719,7 +2706,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                           "actions": undefined,
                                                           "allRowsSelected": false,
                                                           "areActionsDisabled": undefined,
-                                                          "canSelectAll": true,
+                                                          "canSelectAll": false,
                                                           "contentId": "expanded-content",
                                                           "dropdownDirection": "down",
                                                           "dropdownPosition": "right",
@@ -2936,7 +2923,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                 "actions": undefined,
                                                                 "allRowsSelected": false,
                                                                 "areActionsDisabled": undefined,
-                                                                "canSelectAll": true,
+                                                                "canSelectAll": false,
                                                                 "contentId": "expanded-content",
                                                                 "dropdownDirection": "down",
                                                                 "dropdownPosition": "right",
@@ -2979,7 +2966,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                 "actions": undefined,
                                                                 "allRowsSelected": false,
                                                                 "areActionsDisabled": undefined,
-                                                                "canSelectAll": true,
+                                                                "canSelectAll": false,
                                                                 "contentId": "expanded-content",
                                                                 "dropdownDirection": "down",
                                                                 "dropdownPosition": "right",
@@ -3022,7 +3009,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                 "actions": undefined,
                                                                 "allRowsSelected": false,
                                                                 "areActionsDisabled": undefined,
-                                                                "canSelectAll": true,
+                                                                "canSelectAll": false,
                                                                 "contentId": "expanded-content",
                                                                 "dropdownDirection": "down",
                                                                 "dropdownPosition": "right",
