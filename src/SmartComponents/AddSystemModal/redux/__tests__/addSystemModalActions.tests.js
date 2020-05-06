@@ -1,5 +1,5 @@
 import types from '../types';
-import addSystemModalActions from '../actions';
+import { addSystemModalActions } from '../index';
 
 describe('add system modal actions', () => {
     it('toggleAddSystemModal', () => {

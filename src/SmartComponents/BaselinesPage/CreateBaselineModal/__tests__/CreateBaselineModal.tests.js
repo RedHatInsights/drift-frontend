@@ -4,6 +4,7 @@ import { MemoryRouter } from 'react-router-dom';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import toJson from 'enzyme-to-json';
+import _ from 'lodash';
 
 import ConnectedCreateBaselineModal, { CreateBaselineModal } from '../CreateBaselineModal';
 

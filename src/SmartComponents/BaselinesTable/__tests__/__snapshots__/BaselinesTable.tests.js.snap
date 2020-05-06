@@ -6,6 +6,7 @@ exports[`BaselinesTable should render loading rows for multi-select 1`] = `
     createButton={true}
     exportButton={true}
     fetchWithParams={[Function]}
+    hasMultiSelect={true}
     kebab={true}
     onSearch={[Function]}
     tableData={
@@ -26,6 +27,7 @@ exports[`BaselinesTable should render loading rows for multi-select 1`] = `
   />
   <Component
     aria-label="Loading Baselines Table"
+    canSelectAll={false}
     cells={
       Array [
         Object {
@@ -133,6 +135,7 @@ exports[`BaselinesTable should render loading rows for single-select 1`] = `
     createButton={true}
     exportButton={true}
     fetchWithParams={[Function]}
+    hasMultiSelect={false}
     kebab={true}
     onSearch={[Function]}
     tableData={
@@ -153,6 +156,7 @@ exports[`BaselinesTable should render loading rows for single-select 1`] = `
   />
   <Component
     aria-label="Loading Baselines Table"
+    canSelectAll={false}
     cells={
       Array [
         Object {
@@ -300,6 +304,7 @@ exports[`BaselinesTable should render multi-select table correctly 1`] = `
     createButton={true}
     exportButton={true}
     fetchWithParams={[Function]}
+    hasMultiSelect={true}
     kebab={true}
     onSearch={[Function]}
     tableData={
@@ -320,6 +325,7 @@ exports[`BaselinesTable should render multi-select table correctly 1`] = `
   />
   <Component
     aria-label="Baselines Table"
+    canSelectAll={false}
     cells={
       Array [
         Object {
@@ -397,6 +403,7 @@ exports[`BaselinesTable should render no matching baselines EmptyState 1`] = `
     createButton={true}
     exportButton={true}
     fetchWithParams={[Function]}
+    hasMultiSelect={true}
     kebab={true}
     onSearch={[Function]}
     tableData={Array []}
@@ -404,6 +411,7 @@ exports[`BaselinesTable should render no matching baselines EmptyState 1`] = `
   />
   <Component
     aria-label="Baselines Table"
+    canSelectAll={false}
     cells={
       Array [
         Object {
@@ -460,6 +468,7 @@ exports[`BaselinesTable should render single-select table correctly 1`] = `
     createButton={true}
     exportButton={true}
     fetchWithParams={[Function]}
+    hasMultiSelect={false}
     kebab={true}
     onSearch={[Function]}
     tableData={
@@ -480,6 +489,7 @@ exports[`BaselinesTable should render single-select table correctly 1`] = `
   />
   <Component
     aria-label="Baselines Table"
+    canSelectAll={false}
     cells={
       Array [
         Object {
@@ -717,6 +727,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
             createButton={true}
             exportButton={true}
             fetchWithParams={[Function]}
+            hasMultiSelect={true}
             kebab={true}
             onSearch={[Function]}
             tableData={
@@ -795,26 +806,25 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                 </DropdownItem>,
                               ]
                             }
-                            isDisabled={false}
                             isOpen={false}
                             onSelect={[Function]}
                             toggle={
                               <DropdownToggle
+                                isDisabled={false}
                                 onToggle={[Function]}
                                 splitButtonItems={
                                   Array [
                                     <React.Fragment>
                                       <DropdownToggleCheckbox
                                         aria-label="Select all"
-                                        checked={true}
                                         className=""
                                         id="toggle-checkbox"
+                                        isChecked={true}
                                         isDisabled={false}
                                         isValid={true}
                                         onChange={[Function]}
                                       >
-                                        1
-                                         selected
+                                        1 selected
                                       </DropdownToggleCheckbox>
                                     </React.Fragment>,
                                   ]
@@ -847,25 +857,24 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                   </DropdownItem>,
                                 ]
                               }
-                              isDisabled={false}
                               isOpen={false}
                               toggle={
                                 <DropdownToggle
+                                  isDisabled={false}
                                   onToggle={[Function]}
                                   splitButtonItems={
                                     Array [
                                       <React.Fragment>
                                         <DropdownToggleCheckbox
                                           aria-label="Select all"
-                                          checked={true}
                                           className=""
                                           id="toggle-checkbox"
+                                          isChecked={true}
                                           isDisabled={false}
                                           isValid={true}
                                           onChange={[Function]}
                                         >
-                                          1
-                                           selected
+                                          1 selected
                                         </DropdownToggleCheckbox>
                                       </React.Fragment>,
                                     ]
@@ -899,24 +908,23 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                         Select none
                                       </DropdownItem>,
                                     ],
-                                    "isDisabled": false,
                                     "isOpen": false,
                                     "toggle": <DropdownToggle
+                                      isDisabled={false}
                                       onToggle={[Function]}
                                       splitButtonItems={
                                         Array [
                                           <React.Fragment>
                                             <DropdownToggleCheckbox
                                               aria-label="Select all"
-                                              checked={true}
                                               className=""
                                               id="toggle-checkbox"
+                                              isChecked={true}
                                               isDisabled={false}
                                               isValid={true}
                                               onChange={[Function]}
                                             >
-                                              1
-                                               selected
+                                              1 selected
                                             </DropdownToggleCheckbox>
                                           </React.Fragment>,
                                         ]
@@ -953,7 +961,6 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                       </DropdownItem>,
                                     ]
                                   }
-                                  isDisabled={false}
                                   isGrouped={false}
                                   isOpen={false}
                                   isPlain={false}
@@ -968,21 +975,21 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                   position="left"
                                   toggle={
                                     <DropdownToggle
+                                      isDisabled={false}
                                       onToggle={[Function]}
                                       splitButtonItems={
                                         Array [
                                           <React.Fragment>
                                             <DropdownToggleCheckbox
                                               aria-label="Select all"
-                                              checked={true}
                                               className=""
                                               id="toggle-checkbox"
+                                              isChecked={true}
                                               isDisabled={false}
                                               isValid={true}
                                               onChange={[Function]}
                                             >
-                                              1
-                                               selected
+                                              1 selected
                                             </DropdownToggleCheckbox>
                                           </React.Fragment>,
                                         ]
@@ -992,11 +999,11 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                 >
                                   <div
                                     className="pf-c-dropdown ins-c-bulk-select"
-                                    isDisabled={false}
                                   >
                                     <DropdownToggle
                                       ariaHasPopup={true}
                                       id="pf-toggle-id-0"
+                                      isDisabled={false}
                                       isOpen={false}
                                       isPlain={false}
                                       key=".0"
@@ -1026,8 +1033,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                   class="pf-c-dropdown__toggle-text"
                                                   id="toggle-checkbox-text"
                                                 >
-                                                  1
-                                                   selected
+                                                  1 selected
                                                 </span>
                                               </label>
                                               <button
@@ -1063,15 +1069,14 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                           <React.Fragment>
                                             <DropdownToggleCheckbox
                                               aria-label="Select all"
-                                              checked={true}
                                               className=""
                                               id="toggle-checkbox"
+                                              isChecked={true}
                                               isDisabled={false}
                                               isValid={true}
                                               onChange={[Function]}
                                             >
-                                              1
-                                               selected
+                                              1 selected
                                             </DropdownToggleCheckbox>
                                           </React.Fragment>,
                                         ]
@@ -1082,9 +1087,9 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                       >
                                         <DropdownToggleCheckbox
                                           aria-label="Select all"
-                                          checked={true}
                                           className=""
                                           id="toggle-checkbox"
+                                          isChecked={true}
                                           isDisabled={false}
                                           isValid={true}
                                           onChange={[Function]}
@@ -1107,8 +1112,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                               className="pf-c-dropdown__toggle-text"
                                               id="toggle-checkbox-text"
                                             >
-                                              1
-                                               selected
+                                              1 selected
                                             </span>
                                           </label>
                                         </DropdownToggleCheckbox>
@@ -1151,8 +1155,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                       class="pf-c-dropdown__toggle-text"
                                                       id="toggle-checkbox-text"
                                                     >
-                                                      1
-                                                       selected
+                                                      1 selected
                                                     </span>
                                                   </label>
                                                   <button
@@ -1246,6 +1249,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                         className="pf-l-toolbar__item"
                       >
                         <ConditionalFilter
+                          hideLabel={false}
                           items={Array []}
                           onChange={[Function]}
                           placeholder="Filter by name"
@@ -1841,6 +1845,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
           </BaselinesToolbar>
           <Component
             aria-label="Baselines Table"
+            canSelectAll={false}
             cells={
               Array [
                 Object {
@@ -1911,6 +1916,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
               componentProps={
                 Object {
                   "aria-label": "Baselines Table",
+                  "canSelectAll": false,
                   "cells": Array [
                     Object {
                       "title": "Name",
@@ -1981,7 +1987,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
               <Table
                 aria-label="Baselines Table"
                 borders={true}
-                canSelectAll={true}
+                canSelectAll={false}
                 cells={
                   Array [
                     Object {
@@ -2082,7 +2088,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                           "actions": undefined,
                           "allRowsSelected": false,
                           "areActionsDisabled": undefined,
-                          "canSelectAll": true,
+                          "canSelectAll": false,
                           "contentId": "expanded-content",
                           "dropdownDirection": "down",
                           "dropdownPosition": "right",
@@ -2128,7 +2134,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                           "actions": undefined,
                           "allRowsSelected": false,
                           "areActionsDisabled": undefined,
-                          "canSelectAll": true,
+                          "canSelectAll": false,
                           "contentId": "expanded-content",
                           "dropdownDirection": "down",
                           "dropdownPosition": "right",
@@ -2174,7 +2180,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                           "actions": undefined,
                           "allRowsSelected": false,
                           "areActionsDisabled": undefined,
-                          "canSelectAll": true,
+                          "canSelectAll": false,
                           "contentId": "expanded-content",
                           "dropdownDirection": "down",
                           "dropdownPosition": "right",
@@ -2252,7 +2258,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                     "actions": undefined,
                                     "allRowsSelected": false,
                                     "areActionsDisabled": undefined,
-                                    "canSelectAll": true,
+                                    "canSelectAll": false,
                                     "contentId": "expanded-content",
                                     "dropdownDirection": "down",
                                     "dropdownPosition": "right",
@@ -2298,7 +2304,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                     "actions": undefined,
                                     "allRowsSelected": false,
                                     "areActionsDisabled": undefined,
-                                    "canSelectAll": true,
+                                    "canSelectAll": false,
                                     "contentId": "expanded-content",
                                     "dropdownDirection": "down",
                                     "dropdownPosition": "right",
@@ -2344,7 +2350,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                     "actions": undefined,
                                     "allRowsSelected": false,
                                     "areActionsDisabled": undefined,
-                                    "canSelectAll": true,
+                                    "canSelectAll": false,
                                     "contentId": "expanded-content",
                                     "dropdownDirection": "down",
                                     "dropdownPosition": "right",
@@ -2422,7 +2428,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                         "actions": undefined,
                                         "allRowsSelected": false,
                                         "areActionsDisabled": undefined,
-                                        "canSelectAll": true,
+                                        "canSelectAll": false,
                                         "contentId": "expanded-content",
                                         "dropdownDirection": "down",
                                         "dropdownPosition": "right",
@@ -2468,7 +2474,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                         "actions": undefined,
                                         "allRowsSelected": false,
                                         "areActionsDisabled": undefined,
-                                        "canSelectAll": true,
+                                        "canSelectAll": false,
                                         "contentId": "expanded-content",
                                         "dropdownDirection": "down",
                                         "dropdownPosition": "right",
@@ -2514,7 +2520,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                         "actions": undefined,
                                         "allRowsSelected": false,
                                         "areActionsDisabled": undefined,
-                                        "canSelectAll": true,
+                                        "canSelectAll": false,
                                         "contentId": "expanded-content",
                                         "dropdownDirection": "down",
                                         "dropdownPosition": "right",
@@ -2708,7 +2714,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                 "actions": undefined,
                                 "allRowsSelected": false,
                                 "areActionsDisabled": undefined,
-                                "canSelectAll": true,
+                                "canSelectAll": false,
                                 "contentId": "expanded-content",
                                 "dropdownDirection": "down",
                                 "dropdownPosition": "right",
@@ -2754,7 +2760,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                 "actions": undefined,
                                 "allRowsSelected": false,
                                 "areActionsDisabled": undefined,
-                                "canSelectAll": true,
+                                "canSelectAll": false,
                                 "contentId": "expanded-content",
                                 "dropdownDirection": "down",
                                 "dropdownPosition": "right",
@@ -2800,7 +2806,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                 "actions": undefined,
                                 "allRowsSelected": false,
                                 "areActionsDisabled": undefined,
-                                "canSelectAll": true,
+                                "canSelectAll": false,
                                 "contentId": "expanded-content",
                                 "dropdownDirection": "down",
                                 "dropdownPosition": "right",
@@ -3122,7 +3128,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                     "actions": undefined,
                                     "allRowsSelected": false,
                                     "areActionsDisabled": undefined,
-                                    "canSelectAll": true,
+                                    "canSelectAll": false,
                                     "contentId": "expanded-content",
                                     "dropdownDirection": "down",
                                     "dropdownPosition": "right",
@@ -3168,7 +3174,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                     "actions": undefined,
                                     "allRowsSelected": false,
                                     "areActionsDisabled": undefined,
-                                    "canSelectAll": true,
+                                    "canSelectAll": false,
                                     "contentId": "expanded-content",
                                     "dropdownDirection": "down",
                                     "dropdownPosition": "right",
@@ -3214,7 +3220,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                     "actions": undefined,
                                     "allRowsSelected": false,
                                     "areActionsDisabled": undefined,
-                                    "canSelectAll": true,
+                                    "canSelectAll": false,
                                     "contentId": "expanded-content",
                                     "dropdownDirection": "down",
                                     "dropdownPosition": "right",
@@ -3623,7 +3629,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                           "actions": undefined,
                                           "allRowsSelected": false,
                                           "areActionsDisabled": undefined,
-                                          "canSelectAll": true,
+                                          "canSelectAll": false,
                                           "contentId": "expanded-content",
                                           "dropdownDirection": "down",
                                           "dropdownPosition": "right",
@@ -3669,7 +3675,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                           "actions": undefined,
                                           "allRowsSelected": false,
                                           "areActionsDisabled": undefined,
-                                          "canSelectAll": true,
+                                          "canSelectAll": false,
                                           "contentId": "expanded-content",
                                           "dropdownDirection": "down",
                                           "dropdownPosition": "right",
@@ -3715,7 +3721,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                           "actions": undefined,
                                           "allRowsSelected": false,
                                           "areActionsDisabled": undefined,
-                                          "canSelectAll": true,
+                                          "canSelectAll": false,
                                           "contentId": "expanded-content",
                                           "dropdownDirection": "down",
                                           "dropdownPosition": "right",
@@ -4478,7 +4484,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                           "actions": undefined,
                                           "allRowsSelected": false,
                                           "areActionsDisabled": undefined,
-                                          "canSelectAll": true,
+                                          "canSelectAll": false,
                                           "contentId": "expanded-content",
                                           "dropdownDirection": "down",
                                           "dropdownPosition": "right",
@@ -4524,7 +4530,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                           "actions": undefined,
                                           "allRowsSelected": false,
                                           "areActionsDisabled": undefined,
-                                          "canSelectAll": true,
+                                          "canSelectAll": false,
                                           "contentId": "expanded-content",
                                           "dropdownDirection": "down",
                                           "dropdownPosition": "right",
@@ -4570,7 +4576,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                           "actions": undefined,
                                           "allRowsSelected": false,
                                           "areActionsDisabled": undefined,
-                                          "canSelectAll": true,
+                                          "canSelectAll": false,
                                           "contentId": "expanded-content",
                                           "dropdownDirection": "down",
                                           "dropdownPosition": "right",

@@ -358,7 +358,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                         class="pf-c-dropdown ins-c-bulk-select"
                                       >
                                         <div
-                                          class="pf-c-dropdown__toggle pf-m-split-button"
+                                          class="pf-c-dropdown__toggle pf-m-split-button pf-m-disabled"
                                         >
                                           <label
                                             class="pf-c-dropdown__toggle-check"
@@ -370,19 +370,14 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                               id="toggle-checkbox"
                                               type="checkbox"
                                             />
-                                            <span
-                                              aria-hidden="true"
-                                              class="pf-c-dropdown__toggle-text"
-                                              id="toggle-checkbox-text"
-                                            >
-                                               selected
-                                            </span>
+                                            
                                           </label>
                                           <button
                                             aria-expanded="false"
                                             aria-haspopup="true"
                                             aria-label="Select"
                                             class="pf-c-dropdown__toggle-button"
+                                            disabled=""
                                             id="pf-toggle-id-0"
                                             type="button"
                                           >
@@ -724,7 +719,7 @@ Try changing your filter settings.
                                         class="pf-c-dropdown ins-c-bulk-select"
                                       >
                                         <div
-                                          class="pf-c-dropdown__toggle pf-m-split-button"
+                                          class="pf-c-dropdown__toggle pf-m-split-button pf-m-disabled"
                                         >
                                           <label
                                             class="pf-c-dropdown__toggle-check"
@@ -736,19 +731,14 @@ Try changing your filter settings.
                                               id="toggle-checkbox"
                                               type="checkbox"
                                             />
-                                            <span
-                                              aria-hidden="true"
-                                              class="pf-c-dropdown__toggle-text"
-                                              id="toggle-checkbox-text"
-                                            >
-                                               selected
-                                            </span>
+                                            
                                           </label>
                                           <button
                                             aria-expanded="false"
                                             aria-haspopup="true"
                                             aria-label="Select"
                                             class="pf-c-dropdown__toggle-button"
+                                            disabled=""
                                             id="pf-toggle-id-1"
                                             type="button"
                                           >
@@ -1088,7 +1078,7 @@ Try changing your filter settings.
                                         class="pf-c-dropdown ins-c-bulk-select"
                                       >
                                         <div
-                                          class="pf-c-dropdown__toggle pf-m-split-button"
+                                          class="pf-c-dropdown__toggle pf-m-split-button pf-m-disabled"
                                         >
                                           <label
                                             class="pf-c-dropdown__toggle-check"
@@ -1100,19 +1090,14 @@ Try changing your filter settings.
                                               id="toggle-checkbox"
                                               type="checkbox"
                                             />
-                                            <span
-                                              aria-hidden="true"
-                                              class="pf-c-dropdown__toggle-text"
-                                              id="toggle-checkbox-text"
-                                            >
-                                               selected
-                                            </span>
+                                            
                                           </label>
                                           <button
                                             aria-expanded="false"
                                             aria-haspopup="true"
                                             aria-label="Select"
                                             class="pf-c-dropdown__toggle-button"
+                                            disabled=""
                                             id="pf-toggle-id-2"
                                             type="button"
                                           >
@@ -1467,7 +1452,7 @@ Try changing your filter settings.
                                         class="pf-c-dropdown ins-c-bulk-select"
                                       >
                                         <div
-                                          class="pf-c-dropdown__toggle pf-m-split-button"
+                                          class="pf-c-dropdown__toggle pf-m-split-button pf-m-disabled"
                                         >
                                           <label
                                             class="pf-c-dropdown__toggle-check"
@@ -1479,19 +1464,14 @@ Try changing your filter settings.
                                               id="toggle-checkbox"
                                               type="checkbox"
                                             />
-                                            <span
-                                              aria-hidden="true"
-                                              class="pf-c-dropdown__toggle-text"
-                                              id="toggle-checkbox-text"
-                                            >
-                                               selected
-                                            </span>
+                                            
                                           </label>
                                           <button
                                             aria-expanded="false"
                                             aria-haspopup="true"
                                             aria-label="Select"
                                             class="pf-c-dropdown__toggle-button"
+                                            disabled=""
                                             id="pf-toggle-id-2"
                                             type="button"
                                           >
@@ -2288,6 +2268,7 @@ Try changing your filter settings.
                                                   >
                                                     <BaselinesToolbar
                                                       fetchWithParams={[Function]}
+                                                      hasMultiSelect={true}
                                                       onSearch={[Function]}
                                                       tableData={Array []}
                                                       tableId="CHECKBOX"
@@ -2345,25 +2326,25 @@ Try changing your filter settings.
                                                                           </DropdownItem>,
                                                                         ]
                                                                       }
-                                                                      isDisabled={true}
                                                                       isOpen={false}
                                                                       onSelect={[Function]}
                                                                       toggle={
                                                                         <DropdownToggle
+                                                                          isDisabled={true}
                                                                           onToggle={[Function]}
                                                                           splitButtonItems={
                                                                             Array [
                                                                               <React.Fragment>
                                                                                 <DropdownToggleCheckbox
                                                                                   aria-label="Select all"
-                                                                                  checked={false}
                                                                                   className=""
                                                                                   id="toggle-checkbox"
+                                                                                  isChecked={false}
                                                                                   isDisabled={false}
                                                                                   isValid={true}
                                                                                   onChange={[Function]}
                                                                                 >
-                                                                                   selected
+                                                                                  
                                                                                 </DropdownToggleCheckbox>
                                                                               </React.Fragment>,
                                                                             ]
@@ -2389,24 +2370,24 @@ Try changing your filter settings.
                                                                             </DropdownItem>,
                                                                           ]
                                                                         }
-                                                                        isDisabled={true}
                                                                         isOpen={false}
                                                                         toggle={
                                                                           <DropdownToggle
+                                                                            isDisabled={true}
                                                                             onToggle={[Function]}
                                                                             splitButtonItems={
                                                                               Array [
                                                                                 <React.Fragment>
                                                                                   <DropdownToggleCheckbox
                                                                                     aria-label="Select all"
-                                                                                    checked={false}
                                                                                     className=""
                                                                                     id="toggle-checkbox"
+                                                                                    isChecked={false}
                                                                                     isDisabled={false}
                                                                                     isValid={true}
                                                                                     onChange={[Function]}
                                                                                   >
-                                                                                     selected
+                                                                                    
                                                                                   </DropdownToggleCheckbox>
                                                                                 </React.Fragment>,
                                                                               ]
@@ -2433,23 +2414,23 @@ Try changing your filter settings.
                                                                                   Select none
                                                                                 </DropdownItem>,
                                                                               ],
-                                                                              "isDisabled": true,
                                                                               "isOpen": false,
                                                                               "toggle": <DropdownToggle
+                                                                                isDisabled={true}
                                                                                 onToggle={[Function]}
                                                                                 splitButtonItems={
                                                                                   Array [
                                                                                     <React.Fragment>
                                                                                       <DropdownToggleCheckbox
                                                                                         aria-label="Select all"
-                                                                                        checked={false}
                                                                                         className=""
                                                                                         id="toggle-checkbox"
+                                                                                        isChecked={false}
                                                                                         isDisabled={false}
                                                                                         isValid={true}
                                                                                         onChange={[Function]}
                                                                                       >
-                                                                                         selected
+                                                                                        
                                                                                       </DropdownToggleCheckbox>
                                                                                     </React.Fragment>,
                                                                                   ]
@@ -2484,7 +2465,6 @@ Try changing your filter settings.
                                                                                 </DropdownItem>,
                                                                               ]
                                                                             }
-                                                                            isDisabled={true}
                                                                             isGrouped={false}
                                                                             isOpen={false}
                                                                             isPlain={false}
@@ -2499,20 +2479,21 @@ Try changing your filter settings.
                                                                             position="left"
                                                                             toggle={
                                                                               <DropdownToggle
+                                                                                isDisabled={true}
                                                                                 onToggle={[Function]}
                                                                                 splitButtonItems={
                                                                                   Array [
                                                                                     <React.Fragment>
                                                                                       <DropdownToggleCheckbox
                                                                                         aria-label="Select all"
-                                                                                        checked={false}
                                                                                         className=""
                                                                                         id="toggle-checkbox"
+                                                                                        isChecked={false}
                                                                                         isDisabled={false}
                                                                                         isValid={true}
                                                                                         onChange={[Function]}
                                                                                       >
-                                                                                         selected
+                                                                                        
                                                                                       </DropdownToggleCheckbox>
                                                                                     </React.Fragment>,
                                                                                   ]
@@ -2522,11 +2503,11 @@ Try changing your filter settings.
                                                                           >
                                                                             <div
                                                                               className="pf-c-dropdown ins-c-bulk-select"
-                                                                              isDisabled={true}
                                                                             >
                                                                               <DropdownToggle
                                                                                 ariaHasPopup={true}
                                                                                 id="pf-toggle-id-2"
+                                                                                isDisabled={true}
                                                                                 isOpen={false}
                                                                                 isPlain={false}
                                                                                 key=".0"
@@ -2538,7 +2519,7 @@ Try changing your filter settings.
                                                                                       class="pf-c-dropdown ins-c-bulk-select"
                                                                                     >
                                                                                       <div
-                                                                                        class="pf-c-dropdown__toggle pf-m-split-button"
+                                                                                        class="pf-c-dropdown__toggle pf-m-split-button pf-m-disabled"
                                                                                       >
                                                                                         <label
                                                                                           class="pf-c-dropdown__toggle-check"
@@ -2550,19 +2531,14 @@ Try changing your filter settings.
                                                                                             id="toggle-checkbox"
                                                                                             type="checkbox"
                                                                                           />
-                                                                                          <span
-                                                                                            aria-hidden="true"
-                                                                                            class="pf-c-dropdown__toggle-text"
-                                                                                            id="toggle-checkbox-text"
-                                                                                          >
-                                                                                             selected
-                                                                                          </span>
+                                                                                          
                                                                                         </label>
                                                                                         <button
                                                                                           aria-expanded="false"
                                                                                           aria-haspopup="true"
                                                                                           aria-label="Select"
                                                                                           class="pf-c-dropdown__toggle-button"
+                                                                                          disabled=""
                                                                                           id="pf-toggle-id-2"
                                                                                           type="button"
                                                                                         >
@@ -2591,27 +2567,27 @@ Try changing your filter settings.
                                                                                     <React.Fragment>
                                                                                       <DropdownToggleCheckbox
                                                                                         aria-label="Select all"
-                                                                                        checked={false}
                                                                                         className=""
                                                                                         id="toggle-checkbox"
+                                                                                        isChecked={false}
                                                                                         isDisabled={false}
                                                                                         isValid={true}
                                                                                         onChange={[Function]}
                                                                                       >
-                                                                                         selected
+                                                                                        
                                                                                       </DropdownToggleCheckbox>
                                                                                     </React.Fragment>,
                                                                                   ]
                                                                                 }
                                                                               >
                                                                                 <div
-                                                                                  className="pf-c-dropdown__toggle pf-m-split-button"
+                                                                                  className="pf-c-dropdown__toggle pf-m-split-button pf-m-disabled"
                                                                                 >
                                                                                   <DropdownToggleCheckbox
                                                                                     aria-label="Select all"
-                                                                                    checked={false}
                                                                                     className=""
                                                                                     id="toggle-checkbox"
+                                                                                    isChecked={false}
                                                                                     isDisabled={false}
                                                                                     isValid={true}
                                                                                     onChange={[Function]}
@@ -2629,13 +2605,6 @@ Try changing your filter settings.
                                                                                         onChange={[Function]}
                                                                                         type="checkbox"
                                                                                       />
-                                                                                      <span
-                                                                                        aria-hidden="true"
-                                                                                        className="pf-c-dropdown__toggle-text"
-                                                                                        id="toggle-checkbox-text"
-                                                                                      >
-                                                                                         selected
-                                                                                      </span>
                                                                                     </label>
                                                                                   </DropdownToggleCheckbox>
                                                                                   <Toggle
@@ -2644,7 +2613,7 @@ Try changing your filter settings.
                                                                                     className=""
                                                                                     id="pf-toggle-id-2"
                                                                                     isActive={false}
-                                                                                    isDisabled={false}
+                                                                                    isDisabled={true}
                                                                                     isFocused={false}
                                                                                     isHovered={false}
                                                                                     isOpen={false}
@@ -2659,7 +2628,7 @@ Try changing your filter settings.
                                                                                           class="pf-c-dropdown ins-c-bulk-select"
                                                                                         >
                                                                                           <div
-                                                                                            class="pf-c-dropdown__toggle pf-m-split-button"
+                                                                                            class="pf-c-dropdown__toggle pf-m-split-button pf-m-disabled"
                                                                                           >
                                                                                             <label
                                                                                               class="pf-c-dropdown__toggle-check"
@@ -2671,19 +2640,14 @@ Try changing your filter settings.
                                                                                                 id="toggle-checkbox"
                                                                                                 type="checkbox"
                                                                                               />
-                                                                                              <span
-                                                                                                aria-hidden="true"
-                                                                                                class="pf-c-dropdown__toggle-text"
-                                                                                                id="toggle-checkbox-text"
-                                                                                              >
-                                                                                                 selected
-                                                                                              </span>
+                                                                                              
                                                                                             </label>
                                                                                             <button
                                                                                               aria-expanded="false"
                                                                                               aria-haspopup="true"
                                                                                               aria-label="Select"
                                                                                               class="pf-c-dropdown__toggle-button"
+                                                                                              disabled=""
                                                                                               id="pf-toggle-id-2"
                                                                                               type="button"
                                                                                             >
@@ -2713,7 +2677,7 @@ Try changing your filter settings.
                                                                                       aria-haspopup={true}
                                                                                       aria-label="Select"
                                                                                       className="pf-c-dropdown__toggle-button"
-                                                                                      disabled={false}
+                                                                                      disabled={true}
                                                                                       id="pf-toggle-id-2"
                                                                                       onClick={[Function]}
                                                                                       onKeyDown={[Function]}
@@ -2770,6 +2734,7 @@ Try changing your filter settings.
                                                                   className="pf-l-toolbar__item"
                                                                 >
                                                                   <ConditionalFilter
+                                                                    hideLabel={false}
                                                                     items={Array []}
                                                                     onChange={[Function]}
                                                                     placeholder="Filter by name"
@@ -2874,6 +2839,7 @@ Try changing your filter settings.
                                                     </BaselinesToolbar>
                                                     <Component
                                                       aria-label="Baselines Table"
+                                                      canSelectAll={false}
                                                       cells={
                                                         Array [
                                                           Object {
@@ -2920,6 +2886,7 @@ Try changing your filter settings.
                                                         componentProps={
                                                           Object {
                                                             "aria-label": "Baselines Table",
+                                                            "canSelectAll": false,
                                                             "cells": Array [
                                                               Object {
                                                                 "title": "Name",
@@ -2972,7 +2939,7 @@ Try changing your filter settings.
                                                         <Table
                                                           aria-label="Baselines Table"
                                                           borders={true}
-                                                          canSelectAll={true}
+                                                          canSelectAll={false}
                                                           cells={
                                                             Array [
                                                               Object {
@@ -3049,7 +3016,7 @@ Try changing your filter settings.
                                                                     "actions": undefined,
                                                                     "allRowsSelected": false,
                                                                     "areActionsDisabled": undefined,
-                                                                    "canSelectAll": true,
+                                                                    "canSelectAll": false,
                                                                     "contentId": "expanded-content",
                                                                     "dropdownDirection": "down",
                                                                     "dropdownPosition": "right",
@@ -3092,7 +3059,7 @@ Try changing your filter settings.
                                                                     "actions": undefined,
                                                                     "allRowsSelected": false,
                                                                     "areActionsDisabled": undefined,
-                                                                    "canSelectAll": true,
+                                                                    "canSelectAll": false,
                                                                     "contentId": "expanded-content",
                                                                     "dropdownDirection": "down",
                                                                     "dropdownPosition": "right",
@@ -3168,7 +3135,7 @@ Try changing your filter settings.
                                                                               "actions": undefined,
                                                                               "allRowsSelected": false,
                                                                               "areActionsDisabled": undefined,
-                                                                              "canSelectAll": true,
+                                                                              "canSelectAll": false,
                                                                               "contentId": "expanded-content",
                                                                               "dropdownDirection": "down",
                                                                               "dropdownPosition": "right",
@@ -3211,7 +3178,7 @@ Try changing your filter settings.
                                                                               "actions": undefined,
                                                                               "allRowsSelected": false,
                                                                               "areActionsDisabled": undefined,
-                                                                              "canSelectAll": true,
+                                                                              "canSelectAll": false,
                                                                               "contentId": "expanded-content",
                                                                               "dropdownDirection": "down",
                                                                               "dropdownPosition": "right",
@@ -3287,7 +3254,7 @@ Try changing your filter settings.
                                                                                   "actions": undefined,
                                                                                   "allRowsSelected": false,
                                                                                   "areActionsDisabled": undefined,
-                                                                                  "canSelectAll": true,
+                                                                                  "canSelectAll": false,
                                                                                   "contentId": "expanded-content",
                                                                                   "dropdownDirection": "down",
                                                                                   "dropdownPosition": "right",
@@ -3330,7 +3297,7 @@ Try changing your filter settings.
                                                                                   "actions": undefined,
                                                                                   "allRowsSelected": false,
                                                                                   "areActionsDisabled": undefined,
-                                                                                  "canSelectAll": true,
+                                                                                  "canSelectAll": false,
                                                                                   "contentId": "expanded-content",
                                                                                   "dropdownDirection": "down",
                                                                                   "dropdownPosition": "right",
@@ -3508,7 +3475,7 @@ Try changing your filter settings.
                                                                           "actions": undefined,
                                                                           "allRowsSelected": false,
                                                                           "areActionsDisabled": undefined,
-                                                                          "canSelectAll": true,
+                                                                          "canSelectAll": false,
                                                                           "contentId": "expanded-content",
                                                                           "dropdownDirection": "down",
                                                                           "dropdownPosition": "right",
@@ -3551,7 +3518,7 @@ Try changing your filter settings.
                                                                           "actions": undefined,
                                                                           "allRowsSelected": false,
                                                                           "areActionsDisabled": undefined,
-                                                                          "canSelectAll": true,
+                                                                          "canSelectAll": false,
                                                                           "contentId": "expanded-content",
                                                                           "dropdownDirection": "down",
                                                                           "dropdownPosition": "right",
@@ -3731,7 +3698,7 @@ Try changing your filter settings.
                                                                               "actions": undefined,
                                                                               "allRowsSelected": false,
                                                                               "areActionsDisabled": undefined,
-                                                                              "canSelectAll": true,
+                                                                              "canSelectAll": false,
                                                                               "contentId": "expanded-content",
                                                                               "dropdownDirection": "down",
                                                                               "dropdownPosition": "right",
@@ -3774,7 +3741,7 @@ Try changing your filter settings.
                                                                               "actions": undefined,
                                                                               "allRowsSelected": false,
                                                                               "areActionsDisabled": undefined,
-                                                                              "canSelectAll": true,
+                                                                              "canSelectAll": false,
                                                                               "contentId": "expanded-content",
                                                                               "dropdownDirection": "down",
                                                                               "dropdownPosition": "right",
@@ -3992,7 +3959,7 @@ Try changing your filter settings.
                                                                                     "actions": undefined,
                                                                                     "allRowsSelected": false,
                                                                                     "areActionsDisabled": undefined,
-                                                                                    "canSelectAll": true,
+                                                                                    "canSelectAll": false,
                                                                                     "contentId": "expanded-content",
                                                                                     "dropdownDirection": "down",
                                                                                     "dropdownPosition": "right",
@@ -4035,7 +4002,7 @@ Try changing your filter settings.
                                                                                     "actions": undefined,
                                                                                     "allRowsSelected": false,
                                                                                     "areActionsDisabled": undefined,
-                                                                                    "canSelectAll": true,
+                                                                                    "canSelectAll": false,
                                                                                     "contentId": "expanded-content",
                                                                                     "dropdownDirection": "down",
                                                                                     "dropdownPosition": "right",
@@ -4769,7 +4736,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                         class="pf-c-dropdown ins-c-bulk-select"
                                       >
                                         <div
-                                          class="pf-c-dropdown__toggle pf-m-split-button"
+                                          class="pf-c-dropdown__toggle pf-m-split-button pf-m-disabled"
                                         >
                                           <label
                                             class="pf-c-dropdown__toggle-check"
@@ -4781,19 +4748,14 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                               id="toggle-checkbox"
                                               type="checkbox"
                                             />
-                                            <span
-                                              aria-hidden="true"
-                                              class="pf-c-dropdown__toggle-text"
-                                              id="toggle-checkbox-text"
-                                            >
-                                               selected
-                                            </span>
+                                            
                                           </label>
                                           <button
                                             aria-expanded="false"
                                             aria-haspopup="true"
                                             aria-label="Select"
                                             class="pf-c-dropdown__toggle-button"
+                                            disabled=""
                                             id="pf-toggle-id-0"
                                             type="button"
                                           >
@@ -5148,7 +5110,7 @@ Try changing your filter settings.
                                         class="pf-c-dropdown ins-c-bulk-select"
                                       >
                                         <div
-                                          class="pf-c-dropdown__toggle pf-m-split-button"
+                                          class="pf-c-dropdown__toggle pf-m-split-button pf-m-disabled"
                                         >
                                           <label
                                             class="pf-c-dropdown__toggle-check"
@@ -5160,19 +5122,14 @@ Try changing your filter settings.
                                               id="toggle-checkbox"
                                               type="checkbox"
                                             />
-                                            <span
-                                              aria-hidden="true"
-                                              class="pf-c-dropdown__toggle-text"
-                                              id="toggle-checkbox-text"
-                                            >
-                                               selected
-                                            </span>
+                                            
                                           </label>
                                           <button
                                             aria-expanded="false"
                                             aria-haspopup="true"
                                             aria-label="Select"
                                             class="pf-c-dropdown__toggle-button"
+                                            disabled=""
                                             id="pf-toggle-id-0"
                                             type="button"
                                           >
@@ -5969,6 +5926,7 @@ Try changing your filter settings.
                                                   >
                                                     <BaselinesToolbar
                                                       fetchWithParams={[Function]}
+                                                      hasMultiSelect={true}
                                                       onSearch={[Function]}
                                                       tableData={Array []}
                                                       tableId="CHECKBOX"
@@ -6026,25 +5984,25 @@ Try changing your filter settings.
                                                                           </DropdownItem>,
                                                                         ]
                                                                       }
-                                                                      isDisabled={true}
                                                                       isOpen={false}
                                                                       onSelect={[Function]}
                                                                       toggle={
                                                                         <DropdownToggle
+                                                                          isDisabled={true}
                                                                           onToggle={[Function]}
                                                                           splitButtonItems={
                                                                             Array [
                                                                               <React.Fragment>
                                                                                 <DropdownToggleCheckbox
                                                                                   aria-label="Select all"
-                                                                                  checked={false}
                                                                                   className=""
                                                                                   id="toggle-checkbox"
+                                                                                  isChecked={false}
                                                                                   isDisabled={false}
                                                                                   isValid={true}
                                                                                   onChange={[Function]}
                                                                                 >
-                                                                                   selected
+                                                                                  
                                                                                 </DropdownToggleCheckbox>
                                                                               </React.Fragment>,
                                                                             ]
@@ -6070,24 +6028,24 @@ Try changing your filter settings.
                                                                             </DropdownItem>,
                                                                           ]
                                                                         }
-                                                                        isDisabled={true}
                                                                         isOpen={false}
                                                                         toggle={
                                                                           <DropdownToggle
+                                                                            isDisabled={true}
                                                                             onToggle={[Function]}
                                                                             splitButtonItems={
                                                                               Array [
                                                                                 <React.Fragment>
                                                                                   <DropdownToggleCheckbox
                                                                                     aria-label="Select all"
-                                                                                    checked={false}
                                                                                     className=""
                                                                                     id="toggle-checkbox"
+                                                                                    isChecked={false}
                                                                                     isDisabled={false}
                                                                                     isValid={true}
                                                                                     onChange={[Function]}
                                                                                   >
-                                                                                     selected
+                                                                                    
                                                                                   </DropdownToggleCheckbox>
                                                                                 </React.Fragment>,
                                                                               ]
@@ -6114,23 +6072,23 @@ Try changing your filter settings.
                                                                                   Select none
                                                                                 </DropdownItem>,
                                                                               ],
-                                                                              "isDisabled": true,
                                                                               "isOpen": false,
                                                                               "toggle": <DropdownToggle
+                                                                                isDisabled={true}
                                                                                 onToggle={[Function]}
                                                                                 splitButtonItems={
                                                                                   Array [
                                                                                     <React.Fragment>
                                                                                       <DropdownToggleCheckbox
                                                                                         aria-label="Select all"
-                                                                                        checked={false}
                                                                                         className=""
                                                                                         id="toggle-checkbox"
+                                                                                        isChecked={false}
                                                                                         isDisabled={false}
                                                                                         isValid={true}
                                                                                         onChange={[Function]}
                                                                                       >
-                                                                                         selected
+                                                                                        
                                                                                       </DropdownToggleCheckbox>
                                                                                     </React.Fragment>,
                                                                                   ]
@@ -6165,7 +6123,6 @@ Try changing your filter settings.
                                                                                 </DropdownItem>,
                                                                               ]
                                                                             }
-                                                                            isDisabled={true}
                                                                             isGrouped={false}
                                                                             isOpen={false}
                                                                             isPlain={false}
@@ -6180,20 +6137,21 @@ Try changing your filter settings.
                                                                             position="left"
                                                                             toggle={
                                                                               <DropdownToggle
+                                                                                isDisabled={true}
                                                                                 onToggle={[Function]}
                                                                                 splitButtonItems={
                                                                                   Array [
                                                                                     <React.Fragment>
                                                                                       <DropdownToggleCheckbox
                                                                                         aria-label="Select all"
-                                                                                        checked={false}
                                                                                         className=""
                                                                                         id="toggle-checkbox"
+                                                                                        isChecked={false}
                                                                                         isDisabled={false}
                                                                                         isValid={true}
                                                                                         onChange={[Function]}
                                                                                       >
-                                                                                         selected
+                                                                                        
                                                                                       </DropdownToggleCheckbox>
                                                                                     </React.Fragment>,
                                                                                   ]
@@ -6203,11 +6161,11 @@ Try changing your filter settings.
                                                                           >
                                                                             <div
                                                                               className="pf-c-dropdown ins-c-bulk-select"
-                                                                              isDisabled={true}
                                                                             >
                                                                               <DropdownToggle
                                                                                 ariaHasPopup={true}
                                                                                 id="pf-toggle-id-0"
+                                                                                isDisabled={true}
                                                                                 isOpen={false}
                                                                                 isPlain={false}
                                                                                 key=".0"
@@ -6219,7 +6177,7 @@ Try changing your filter settings.
                                                                                       class="pf-c-dropdown ins-c-bulk-select"
                                                                                     >
                                                                                       <div
-                                                                                        class="pf-c-dropdown__toggle pf-m-split-button"
+                                                                                        class="pf-c-dropdown__toggle pf-m-split-button pf-m-disabled"
                                                                                       >
                                                                                         <label
                                                                                           class="pf-c-dropdown__toggle-check"
@@ -6231,19 +6189,14 @@ Try changing your filter settings.
                                                                                             id="toggle-checkbox"
                                                                                             type="checkbox"
                                                                                           />
-                                                                                          <span
-                                                                                            aria-hidden="true"
-                                                                                            class="pf-c-dropdown__toggle-text"
-                                                                                            id="toggle-checkbox-text"
-                                                                                          >
-                                                                                             selected
-                                                                                          </span>
+                                                                                          
                                                                                         </label>
                                                                                         <button
                                                                                           aria-expanded="false"
                                                                                           aria-haspopup="true"
                                                                                           aria-label="Select"
                                                                                           class="pf-c-dropdown__toggle-button"
+                                                                                          disabled=""
                                                                                           id="pf-toggle-id-0"
                                                                                           type="button"
                                                                                         >
@@ -6272,27 +6225,27 @@ Try changing your filter settings.
                                                                                     <React.Fragment>
                                                                                       <DropdownToggleCheckbox
                                                                                         aria-label="Select all"
-                                                                                        checked={false}
                                                                                         className=""
                                                                                         id="toggle-checkbox"
+                                                                                        isChecked={false}
                                                                                         isDisabled={false}
                                                                                         isValid={true}
                                                                                         onChange={[Function]}
                                                                                       >
-                                                                                         selected
+                                                                                        
                                                                                       </DropdownToggleCheckbox>
                                                                                     </React.Fragment>,
                                                                                   ]
                                                                                 }
                                                                               >
                                                                                 <div
-                                                                                  className="pf-c-dropdown__toggle pf-m-split-button"
+                                                                                  className="pf-c-dropdown__toggle pf-m-split-button pf-m-disabled"
                                                                                 >
                                                                                   <DropdownToggleCheckbox
                                                                                     aria-label="Select all"
-                                                                                    checked={false}
                                                                                     className=""
                                                                                     id="toggle-checkbox"
+                                                                                    isChecked={false}
                                                                                     isDisabled={false}
                                                                                     isValid={true}
                                                                                     onChange={[Function]}
@@ -6310,13 +6263,6 @@ Try changing your filter settings.
                                                                                         onChange={[Function]}
                                                                                         type="checkbox"
                                                                                       />
-                                                                                      <span
-                                                                                        aria-hidden="true"
-                                                                                        className="pf-c-dropdown__toggle-text"
-                                                                                        id="toggle-checkbox-text"
-                                                                                      >
-                                                                                         selected
-                                                                                      </span>
                                                                                     </label>
                                                                                   </DropdownToggleCheckbox>
                                                                                   <Toggle
@@ -6325,7 +6271,7 @@ Try changing your filter settings.
                                                                                     className=""
                                                                                     id="pf-toggle-id-0"
                                                                                     isActive={false}
-                                                                                    isDisabled={false}
+                                                                                    isDisabled={true}
                                                                                     isFocused={false}
                                                                                     isHovered={false}
                                                                                     isOpen={false}
@@ -6340,7 +6286,7 @@ Try changing your filter settings.
                                                                                           class="pf-c-dropdown ins-c-bulk-select"
                                                                                         >
                                                                                           <div
-                                                                                            class="pf-c-dropdown__toggle pf-m-split-button"
+                                                                                            class="pf-c-dropdown__toggle pf-m-split-button pf-m-disabled"
                                                                                           >
                                                                                             <label
                                                                                               class="pf-c-dropdown__toggle-check"
@@ -6352,19 +6298,14 @@ Try changing your filter settings.
                                                                                                 id="toggle-checkbox"
                                                                                                 type="checkbox"
                                                                                               />
-                                                                                              <span
-                                                                                                aria-hidden="true"
-                                                                                                class="pf-c-dropdown__toggle-text"
-                                                                                                id="toggle-checkbox-text"
-                                                                                              >
-                                                                                                 selected
-                                                                                              </span>
+                                                                                              
                                                                                             </label>
                                                                                             <button
                                                                                               aria-expanded="false"
                                                                                               aria-haspopup="true"
                                                                                               aria-label="Select"
                                                                                               class="pf-c-dropdown__toggle-button"
+                                                                                              disabled=""
                                                                                               id="pf-toggle-id-0"
                                                                                               type="button"
                                                                                             >
@@ -6394,7 +6335,7 @@ Try changing your filter settings.
                                                                                       aria-haspopup={true}
                                                                                       aria-label="Select"
                                                                                       className="pf-c-dropdown__toggle-button"
-                                                                                      disabled={false}
+                                                                                      disabled={true}
                                                                                       id="pf-toggle-id-0"
                                                                                       onClick={[Function]}
                                                                                       onKeyDown={[Function]}
@@ -6451,6 +6392,7 @@ Try changing your filter settings.
                                                                   className="pf-l-toolbar__item"
                                                                 >
                                                                   <ConditionalFilter
+                                                                    hideLabel={false}
                                                                     items={Array []}
                                                                     onChange={[Function]}
                                                                     placeholder="Filter by name"
@@ -6555,6 +6497,7 @@ Try changing your filter settings.
                                                     </BaselinesToolbar>
                                                     <Component
                                                       aria-label="Baselines Table"
+                                                      canSelectAll={false}
                                                       cells={
                                                         Array [
                                                           Object {
@@ -6601,6 +6544,7 @@ Try changing your filter settings.
                                                         componentProps={
                                                           Object {
                                                             "aria-label": "Baselines Table",
+                                                            "canSelectAll": false,
                                                             "cells": Array [
                                                               Object {
                                                                 "title": "Name",
@@ -6653,7 +6597,7 @@ Try changing your filter settings.
                                                         <Table
                                                           aria-label="Baselines Table"
                                                           borders={true}
-                                                          canSelectAll={true}
+                                                          canSelectAll={false}
                                                           cells={
                                                             Array [
                                                               Object {
@@ -6730,7 +6674,7 @@ Try changing your filter settings.
                                                                     "actions": undefined,
                                                                     "allRowsSelected": false,
                                                                     "areActionsDisabled": undefined,
-                                                                    "canSelectAll": true,
+                                                                    "canSelectAll": false,
                                                                     "contentId": "expanded-content",
                                                                     "dropdownDirection": "down",
                                                                     "dropdownPosition": "right",
@@ -6773,7 +6717,7 @@ Try changing your filter settings.
                                                                     "actions": undefined,
                                                                     "allRowsSelected": false,
                                                                     "areActionsDisabled": undefined,
-                                                                    "canSelectAll": true,
+                                                                    "canSelectAll": false,
                                                                     "contentId": "expanded-content",
                                                                     "dropdownDirection": "down",
                                                                     "dropdownPosition": "right",
@@ -6849,7 +6793,7 @@ Try changing your filter settings.
                                                                               "actions": undefined,
                                                                               "allRowsSelected": false,
                                                                               "areActionsDisabled": undefined,
-                                                                              "canSelectAll": true,
+                                                                              "canSelectAll": false,
                                                                               "contentId": "expanded-content",
                                                                               "dropdownDirection": "down",
                                                                               "dropdownPosition": "right",
@@ -6892,7 +6836,7 @@ Try changing your filter settings.
                                                                               "actions": undefined,
                                                                               "allRowsSelected": false,
                                                                               "areActionsDisabled": undefined,
-                                                                              "canSelectAll": true,
+                                                                              "canSelectAll": false,
                                                                               "contentId": "expanded-content",
                                                                               "dropdownDirection": "down",
                                                                               "dropdownPosition": "right",
@@ -6968,7 +6912,7 @@ Try changing your filter settings.
                                                                                   "actions": undefined,
                                                                                   "allRowsSelected": false,
                                                                                   "areActionsDisabled": undefined,
-                                                                                  "canSelectAll": true,
+                                                                                  "canSelectAll": false,
                                                                                   "contentId": "expanded-content",
                                                                                   "dropdownDirection": "down",
                                                                                   "dropdownPosition": "right",
@@ -7011,7 +6955,7 @@ Try changing your filter settings.
                                                                                   "actions": undefined,
                                                                                   "allRowsSelected": false,
                                                                                   "areActionsDisabled": undefined,
-                                                                                  "canSelectAll": true,
+                                                                                  "canSelectAll": false,
                                                                                   "contentId": "expanded-content",
                                                                                   "dropdownDirection": "down",
                                                                                   "dropdownPosition": "right",
@@ -7189,7 +7133,7 @@ Try changing your filter settings.
                                                                           "actions": undefined,
                                                                           "allRowsSelected": false,
                                                                           "areActionsDisabled": undefined,
-                                                                          "canSelectAll": true,
+                                                                          "canSelectAll": false,
                                                                           "contentId": "expanded-content",
                                                                           "dropdownDirection": "down",
                                                                           "dropdownPosition": "right",
@@ -7232,7 +7176,7 @@ Try changing your filter settings.
                                                                           "actions": undefined,
                                                                           "allRowsSelected": false,
                                                                           "areActionsDisabled": undefined,
-                                                                          "canSelectAll": true,
+                                                                          "canSelectAll": false,
                                                                           "contentId": "expanded-content",
                                                                           "dropdownDirection": "down",
                                                                           "dropdownPosition": "right",
@@ -7412,7 +7356,7 @@ Try changing your filter settings.
                                                                               "actions": undefined,
                                                                               "allRowsSelected": false,
                                                                               "areActionsDisabled": undefined,
-                                                                              "canSelectAll": true,
+                                                                              "canSelectAll": false,
                                                                               "contentId": "expanded-content",
                                                                               "dropdownDirection": "down",
                                                                               "dropdownPosition": "right",
@@ -7455,7 +7399,7 @@ Try changing your filter settings.
                                                                               "actions": undefined,
                                                                               "allRowsSelected": false,
                                                                               "areActionsDisabled": undefined,
-                                                                              "canSelectAll": true,
+                                                                              "canSelectAll": false,
                                                                               "contentId": "expanded-content",
                                                                               "dropdownDirection": "down",
                                                                               "dropdownPosition": "right",
@@ -7673,7 +7617,7 @@ Try changing your filter settings.
                                                                                     "actions": undefined,
                                                                                     "allRowsSelected": false,
                                                                                     "areActionsDisabled": undefined,
-                                                                                    "canSelectAll": true,
+                                                                                    "canSelectAll": false,
                                                                                     "contentId": "expanded-content",
                                                                                     "dropdownDirection": "down",
                                                                                     "dropdownPosition": "right",
@@ -7716,7 +7660,7 @@ Try changing your filter settings.
                                                                                     "actions": undefined,
                                                                                     "allRowsSelected": false,
                                                                                     "areActionsDisabled": undefined,
-                                                                                    "canSelectAll": true,
+                                                                                    "canSelectAll": false,
                                                                                     "contentId": "expanded-content",
                                                                                     "dropdownDirection": "down",
                                                                                     "dropdownPosition": "right",

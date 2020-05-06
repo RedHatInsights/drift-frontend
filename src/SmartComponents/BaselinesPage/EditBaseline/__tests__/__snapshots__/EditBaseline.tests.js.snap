@@ -184,7 +184,6 @@ exports[`ConnectedEditBaseline should render correctly 1`] = `
                 "url": "/",
               }
             }
-            selectAll={false}
             selectFact={[Function]}
           >
             <Connect(EditBaselineNameModal)
@@ -486,83 +485,549 @@ exports[`ConnectedEditBaseline should render correctly 1`] = `
                         <div
                           className="pf-c-card__body"
                         >
-                          <Connect(EditBaselineToolbar)>
-                            <EditBaselineToolbar
-                              setFactData={[Function]}
-                              toggleFactModal={[Function]}
+                          <EditBaselineToolbar
+                            isDisabled={true}
+                            onBulkSelect={[Function]}
+                            selected={0}
+                          >
+                            <Toolbar
+                              className="display-margin"
                             >
-                              <Toolbar
-                                className="display-margin"
+                              <div
+                                className="pf-l-toolbar display-margin"
                               >
-                                <div
-                                  className="pf-l-toolbar display-margin"
-                                >
-                                  <ToolbarGroup>
-                                    <div
-                                      className="pf-l-toolbar__group"
-                                    >
-                                      <ToolbarItem>
-                                        <div
-                                          className="pf-l-toolbar__item"
+                                <ToolbarGroup>
+                                  <div
+                                    className="pf-l-toolbar__group"
+                                  >
+                                    <ToolbarItem>
+                                      <div
+                                        className="pf-l-toolbar__item"
+                                      >
+                                        <BulkSelect
+                                          checked={false}
+                                          className=""
+                                          count={null}
+                                          isDisabled={true}
+                                          items={
+                                            Array [
+                                              Object {
+                                                "key": "select-all",
+                                                "onClick": [Function],
+                                                "title": "Select all",
+                                              },
+                                              Object {
+                                                "key": "select-none",
+                                                "onClick": [Function],
+                                                "title": "Select none",
+                                              },
+                                            ]
+                                          }
+                                          onSelect={[Function]}
                                         >
-                                          <Connect(AddFactButton)>
-                                            <AddFactButton
-                                              setFactData={[Function]}
-                                              toggleFactModal={[Function]}
+                                          <Dropdown
+                                            className="ins-c-bulk-select"
+                                            dropdownItems={
+                                              Array [
+                                                <DropdownItem
+                                                  component="button"
+                                                  onClick={[Function]}
+                                                >
+                                                  Select all
+                                                </DropdownItem>,
+                                                <DropdownItem
+                                                  component="button"
+                                                  onClick={[Function]}
+                                                >
+                                                  Select none
+                                                </DropdownItem>,
+                                              ]
+                                            }
+                                            isOpen={false}
+                                            onSelect={[Function]}
+                                            toggle={
+                                              <DropdownToggle
+                                                isDisabled={true}
+                                                onToggle={[Function]}
+                                                splitButtonItems={
+                                                  Array [
+                                                    <React.Fragment>
+                                                      <DropdownToggleCheckbox
+                                                        aria-label="Select all"
+                                                        className=""
+                                                        id="toggle-checkbox"
+                                                        isChecked={false}
+                                                        isDisabled={false}
+                                                        isValid={true}
+                                                        onChange={[Function]}
+                                                      >
+                                                        
+                                                      </DropdownToggleCheckbox>
+                                                    </React.Fragment>,
+                                                  ]
+                                                }
+                                              />
+                                            }
+                                          >
+                                            <Component
+                                              className="ins-c-bulk-select"
+                                              dropdownItems={
+                                                Array [
+                                                  <DropdownItem
+                                                    component="button"
+                                                    onClick={[Function]}
+                                                  >
+                                                    Select all
+                                                  </DropdownItem>,
+                                                  <DropdownItem
+                                                    component="button"
+                                                    onClick={[Function]}
+                                                  >
+                                                    Select none
+                                                  </DropdownItem>,
+                                                ]
+                                              }
+                                              isOpen={false}
+                                              toggle={
+                                                <DropdownToggle
+                                                  isDisabled={true}
+                                                  onToggle={[Function]}
+                                                  splitButtonItems={
+                                                    Array [
+                                                      <React.Fragment>
+                                                        <DropdownToggleCheckbox
+                                                          aria-label="Select all"
+                                                          className=""
+                                                          id="toggle-checkbox"
+                                                          isChecked={false}
+                                                          isDisabled={false}
+                                                          isValid={true}
+                                                          onChange={[Function]}
+                                                        >
+                                                          
+                                                        </DropdownToggleCheckbox>
+                                                      </React.Fragment>,
+                                                    ]
+                                                  }
+                                                />
+                                              }
                                             >
-                                              <Component
-                                                onClick={[Function]}
-                                                variant="primary"
+                                              <ComponentWithOuia
+                                                component={[Function]}
+                                                componentProps={
+                                                  Object {
+                                                    "className": "ins-c-bulk-select",
+                                                    "dropdownItems": Array [
+                                                      <DropdownItem
+                                                        component="button"
+                                                        onClick={[Function]}
+                                                      >
+                                                        Select all
+                                                      </DropdownItem>,
+                                                      <DropdownItem
+                                                        component="button"
+                                                        onClick={[Function]}
+                                                      >
+                                                        Select none
+                                                      </DropdownItem>,
+                                                    ],
+                                                    "isOpen": false,
+                                                    "toggle": <DropdownToggle
+                                                      isDisabled={true}
+                                                      onToggle={[Function]}
+                                                      splitButtonItems={
+                                                        Array [
+                                                          <React.Fragment>
+                                                            <DropdownToggleCheckbox
+                                                              aria-label="Select all"
+                                                              className=""
+                                                              id="toggle-checkbox"
+                                                              isChecked={false}
+                                                              isDisabled={false}
+                                                              isValid={true}
+                                                              onChange={[Function]}
+                                                            >
+                                                              
+                                                            </DropdownToggleCheckbox>
+                                                          </React.Fragment>,
+                                                        ]
+                                                      }
+                                                    />,
+                                                  }
+                                                }
+                                                consumerContext={null}
                                               >
-                                                <ComponentWithOuia
-                                                  component={[Function]}
-                                                  componentProps={
+                                                <DropdownWithContext
+                                                  autoFocus={true}
+                                                  className="ins-c-bulk-select"
+                                                  direction="down"
+                                                  dropdownItems={
+                                                    Array [
+                                                      <DropdownItem
+                                                        component="button"
+                                                        onClick={[Function]}
+                                                      >
+                                                        Select all
+                                                      </DropdownItem>,
+                                                      <DropdownItem
+                                                        component="button"
+                                                        onClick={[Function]}
+                                                      >
+                                                        Select none
+                                                      </DropdownItem>,
+                                                    ]
+                                                  }
+                                                  isGrouped={false}
+                                                  isOpen={false}
+                                                  isPlain={false}
+                                                  onSelect={[Function]}
+                                                  ouiaComponentType="Dropdown"
+                                                  ouiaContext={
                                                     Object {
-                                                      "children": "Add fact or category",
-                                                      "onClick": [Function],
-                                                      "variant": "primary",
+                                                      "isOuia": false,
+                                                      "ouiaId": null,
                                                     }
                                                   }
-                                                  consumerContext={null}
-                                                >
-                                                  <Button
-                                                    onClick={[Function]}
-                                                    ouiaContext={
-                                                      Object {
-                                                        "isOuia": false,
-                                                        "ouiaId": null,
+                                                  position="left"
+                                                  toggle={
+                                                    <DropdownToggle
+                                                      isDisabled={true}
+                                                      onToggle={[Function]}
+                                                      splitButtonItems={
+                                                        Array [
+                                                          <React.Fragment>
+                                                            <DropdownToggleCheckbox
+                                                              aria-label="Select all"
+                                                              className=""
+                                                              id="toggle-checkbox"
+                                                              isChecked={false}
+                                                              isDisabled={false}
+                                                              isValid={true}
+                                                              onChange={[Function]}
+                                                            >
+                                                              
+                                                            </DropdownToggleCheckbox>
+                                                          </React.Fragment>,
+                                                        ]
                                                       }
-                                                    }
-                                                    variant="primary"
+                                                    />
+                                                  }
+                                                >
+                                                  <div
+                                                    className="pf-c-dropdown ins-c-bulk-select"
                                                   >
-                                                    <button
-                                                      aria-disabled={null}
-                                                      aria-label={null}
-                                                      className="pf-c-button pf-m-primary"
-                                                      disabled={false}
-                                                      onClick={[Function]}
-                                                      tabIndex={null}
-                                                      type="button"
+                                                    <DropdownToggle
+                                                      ariaHasPopup={true}
+                                                      id="pf-toggle-id-0"
+                                                      isDisabled={true}
+                                                      isOpen={false}
+                                                      isPlain={false}
+                                                      key=".0"
+                                                      onEnter={[Function]}
+                                                      onToggle={[Function]}
+                                                      parentRef={
+                                                        Object {
+                                                          "current": <div
+                                                            class="pf-c-dropdown ins-c-bulk-select"
+                                                          >
+                                                            <div
+                                                              class="pf-c-dropdown__toggle pf-m-split-button pf-m-disabled"
+                                                            >
+                                                              <label
+                                                                class="pf-c-dropdown__toggle-check"
+                                                                for="toggle-checkbox"
+                                                              >
+                                                                <input
+                                                                  aria-invalid="false"
+                                                                  aria-label="Select all"
+                                                                  id="toggle-checkbox"
+                                                                  type="checkbox"
+                                                                />
+                                                                
+                                                              </label>
+                                                              <button
+                                                                aria-expanded="false"
+                                                                aria-haspopup="true"
+                                                                aria-label="Select"
+                                                                class="pf-c-dropdown__toggle-button"
+                                                                disabled=""
+                                                                id="pf-toggle-id-0"
+                                                                type="button"
+                                                              >
+                                                                <svg
+                                                                  aria-hidden="true"
+                                                                  class=""
+                                                                  fill="currentColor"
+                                                                  height="1em"
+                                                                  role="img"
+                                                                  style="vertical-align: -0.125em;"
+                                                                  viewBox="0 0 320 512"
+                                                                  width="1em"
+                                                                >
+                                                                  <path
+                                                                    d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                                                                    transform=""
+                                                                  />
+                                                                </svg>
+                                                              </button>
+                                                            </div>
+                                                          </div>,
+                                                        }
+                                                      }
+                                                      splitButtonItems={
+                                                        Array [
+                                                          <React.Fragment>
+                                                            <DropdownToggleCheckbox
+                                                              aria-label="Select all"
+                                                              className=""
+                                                              id="toggle-checkbox"
+                                                              isChecked={false}
+                                                              isDisabled={false}
+                                                              isValid={true}
+                                                              onChange={[Function]}
+                                                            >
+                                                              
+                                                            </DropdownToggleCheckbox>
+                                                          </React.Fragment>,
+                                                        ]
+                                                      }
                                                     >
-                                                      Add fact or category
-                                                    </button>
-                                                  </Button>
-                                                </ComponentWithOuia>
-                                              </Component>
-                                            </AddFactButton>
-                                          </Connect(AddFactButton)>
-                                        </div>
-                                      </ToolbarItem>
-                                      <ToolbarItem>
-                                        <div
-                                          className="pf-l-toolbar__item"
-                                        >
-                                          <Connect(EditBaselineKebab)>
-                                            <EditBaselineKebab
-                                              dispatch={[Function]}
-                                              editBaselineTableData={Array []}
+                                                      <div
+                                                        className="pf-c-dropdown__toggle pf-m-split-button pf-m-disabled"
+                                                      >
+                                                        <DropdownToggleCheckbox
+                                                          aria-label="Select all"
+                                                          className=""
+                                                          id="toggle-checkbox"
+                                                          isChecked={false}
+                                                          isDisabled={false}
+                                                          isValid={true}
+                                                          onChange={[Function]}
+                                                        >
+                                                          <label
+                                                            className="pf-c-dropdown__toggle-check"
+                                                            htmlFor="toggle-checkbox"
+                                                          >
+                                                            <input
+                                                              aria-invalid={false}
+                                                              aria-label="Select all"
+                                                              checked={false}
+                                                              disabled={false}
+                                                              id="toggle-checkbox"
+                                                              onChange={[Function]}
+                                                              type="checkbox"
+                                                            />
+                                                          </label>
+                                                        </DropdownToggleCheckbox>
+                                                        <Toggle
+                                                          aria-label="Select"
+                                                          ariaHasPopup={true}
+                                                          className=""
+                                                          id="pf-toggle-id-0"
+                                                          isActive={false}
+                                                          isDisabled={true}
+                                                          isFocused={false}
+                                                          isHovered={false}
+                                                          isOpen={false}
+                                                          isPlain={false}
+                                                          isPrimary={false}
+                                                          isSplitButton={true}
+                                                          onEnter={[Function]}
+                                                          onToggle={[Function]}
+                                                          parentRef={
+                                                            Object {
+                                                              "current": <div
+                                                                class="pf-c-dropdown ins-c-bulk-select"
+                                                              >
+                                                                <div
+                                                                  class="pf-c-dropdown__toggle pf-m-split-button pf-m-disabled"
+                                                                >
+                                                                  <label
+                                                                    class="pf-c-dropdown__toggle-check"
+                                                                    for="toggle-checkbox"
+                                                                  >
+                                                                    <input
+                                                                      aria-invalid="false"
+                                                                      aria-label="Select all"
+                                                                      id="toggle-checkbox"
+                                                                      type="checkbox"
+                                                                    />
+                                                                    
+                                                                  </label>
+                                                                  <button
+                                                                    aria-expanded="false"
+                                                                    aria-haspopup="true"
+                                                                    aria-label="Select"
+                                                                    class="pf-c-dropdown__toggle-button"
+                                                                    disabled=""
+                                                                    id="pf-toggle-id-0"
+                                                                    type="button"
+                                                                  >
+                                                                    <svg
+                                                                      aria-hidden="true"
+                                                                      class=""
+                                                                      fill="currentColor"
+                                                                      height="1em"
+                                                                      role="img"
+                                                                      style="vertical-align: -0.125em;"
+                                                                      viewBox="0 0 320 512"
+                                                                      width="1em"
+                                                                    >
+                                                                      <path
+                                                                        d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                                                                        transform=""
+                                                                      />
+                                                                    </svg>
+                                                                  </button>
+                                                                </div>
+                                                              </div>,
+                                                            }
+                                                          }
+                                                        >
+                                                          <button
+                                                            aria-expanded={false}
+                                                            aria-haspopup={true}
+                                                            aria-label="Select"
+                                                            className="pf-c-dropdown__toggle-button"
+                                                            disabled={true}
+                                                            id="pf-toggle-id-0"
+                                                            onClick={[Function]}
+                                                            onKeyDown={[Function]}
+                                                            type="button"
+                                                          >
+                                                            <CaretDownIcon
+                                                              className=""
+                                                              color="currentColor"
+                                                              noVerticalAlign={false}
+                                                              size="sm"
+                                                              title={null}
+                                                            >
+                                                              <svg
+                                                                aria-hidden={true}
+                                                                aria-labelledby={null}
+                                                                className=""
+                                                                fill="currentColor"
+                                                                height="1em"
+                                                                role="img"
+                                                                style={
+                                                                  Object {
+                                                                    "verticalAlign": "-0.125em",
+                                                                  }
+                                                                }
+                                                                viewBox="0 0 320 512"
+                                                                width="1em"
+                                                              >
+                                                                <path
+                                                                  d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                                                                  transform=""
+                                                                />
+                                                              </svg>
+                                                            </CaretDownIcon>
+                                                          </button>
+                                                        </Toggle>
+                                                      </div>
+                                                    </DropdownToggle>
+                                                  </div>
+                                                </DropdownWithContext>
+                                              </ComponentWithOuia>
+                                            </Component>
+                                          </Dropdown>
+                                        </BulkSelect>
+                                      </div>
+                                    </ToolbarItem>
+                                  </div>
+                                </ToolbarGroup>
+                                <ToolbarGroup>
+                                  <div
+                                    className="pf-l-toolbar__group"
+                                  >
+                                    <ToolbarItem>
+                                      <div
+                                        className="pf-l-toolbar__item"
+                                      >
+                                        <Connect(AddFactButton)>
+                                          <AddFactButton
+                                            setFactData={[Function]}
+                                            toggleFactModal={[Function]}
+                                          >
+                                            <Component
+                                              onClick={[Function]}
+                                              variant="primary"
                                             >
-                                              <Dropdown
+                                              <ComponentWithOuia
+                                                component={[Function]}
+                                                componentProps={
+                                                  Object {
+                                                    "children": "Add fact or category",
+                                                    "onClick": [Function],
+                                                    "variant": "primary",
+                                                  }
+                                                }
+                                                consumerContext={null}
+                                              >
+                                                <Button
+                                                  onClick={[Function]}
+                                                  ouiaContext={
+                                                    Object {
+                                                      "isOuia": false,
+                                                      "ouiaId": null,
+                                                    }
+                                                  }
+                                                  variant="primary"
+                                                >
+                                                  <button
+                                                    aria-disabled={null}
+                                                    aria-label={null}
+                                                    className="pf-c-button pf-m-primary"
+                                                    disabled={false}
+                                                    onClick={[Function]}
+                                                    tabIndex={null}
+                                                    type="button"
+                                                  >
+                                                    Add fact or category
+                                                  </button>
+                                                </Button>
+                                              </ComponentWithOuia>
+                                            </Component>
+                                          </AddFactButton>
+                                        </Connect(AddFactButton)>
+                                      </div>
+                                    </ToolbarItem>
+                                    <ToolbarItem>
+                                      <div
+                                        className="pf-l-toolbar__item"
+                                      >
+                                        <Connect(EditBaselineKebab)>
+                                          <EditBaselineKebab
+                                            dispatch={[Function]}
+                                            editBaselineTableData={Array []}
+                                          >
+                                            <Dropdown
+                                              dropdownItems={
+                                                Array [
+                                                  <DropdownItem
+                                                    component="button"
+                                                    isDisabled={true}
+                                                    onClick={[Function]}
+                                                  >
+                                                    Delete facts
+                                                  </DropdownItem>,
+                                                ]
+                                              }
+                                              isOpen={false}
+                                              isPlain={true}
+                                              style={
+                                                Object {
+                                                  "float": "left",
+                                                }
+                                              }
+                                              toggle={
+                                                <KebabToggle
+                                                  onToggle={[Function]}
+                                                />
+                                              }
+                                            >
+                                              <Component
                                                 dropdownItems={
                                                   Array [
                                                     <DropdownItem
@@ -587,108 +1052,131 @@ exports[`ConnectedEditBaseline should render correctly 1`] = `
                                                   />
                                                 }
                                               >
-                                                <Component
-                                                  dropdownItems={
-                                                    Array [
-                                                      <DropdownItem
-                                                        component="button"
-                                                        isDisabled={true}
-                                                        onClick={[Function]}
-                                                      >
-                                                        Delete facts
-                                                      </DropdownItem>,
-                                                    ]
-                                                  }
-                                                  isOpen={false}
-                                                  isPlain={true}
-                                                  style={
+                                                <ComponentWithOuia
+                                                  component={[Function]}
+                                                  componentProps={
                                                     Object {
-                                                      "float": "left",
+                                                      "dropdownItems": Array [
+                                                        <DropdownItem
+                                                          component="button"
+                                                          isDisabled={true}
+                                                          onClick={[Function]}
+                                                        >
+                                                          Delete facts
+                                                        </DropdownItem>,
+                                                      ],
+                                                      "isOpen": false,
+                                                      "isPlain": true,
+                                                      "style": Object {
+                                                        "float": "left",
+                                                      },
+                                                      "toggle": <KebabToggle
+                                                        onToggle={[Function]}
+                                                      />,
                                                     }
                                                   }
-                                                  toggle={
-                                                    <KebabToggle
-                                                      onToggle={[Function]}
-                                                    />
-                                                  }
+                                                  consumerContext={null}
                                                 >
-                                                  <ComponentWithOuia
-                                                    component={[Function]}
-                                                    componentProps={
+                                                  <DropdownWithContext
+                                                    autoFocus={true}
+                                                    className=""
+                                                    direction="down"
+                                                    dropdownItems={
+                                                      Array [
+                                                        <DropdownItem
+                                                          component="button"
+                                                          isDisabled={true}
+                                                          onClick={[Function]}
+                                                        >
+                                                          Delete facts
+                                                        </DropdownItem>,
+                                                      ]
+                                                    }
+                                                    isGrouped={false}
+                                                    isOpen={false}
+                                                    isPlain={true}
+                                                    onSelect={[Function]}
+                                                    ouiaComponentType="Dropdown"
+                                                    ouiaContext={
                                                       Object {
-                                                        "dropdownItems": Array [
-                                                          <DropdownItem
-                                                            component="button"
-                                                            isDisabled={true}
-                                                            onClick={[Function]}
-                                                          >
-                                                            Delete facts
-                                                          </DropdownItem>,
-                                                        ],
-                                                        "isOpen": false,
-                                                        "isPlain": true,
-                                                        "style": Object {
-                                                          "float": "left",
-                                                        },
-                                                        "toggle": <KebabToggle
-                                                          onToggle={[Function]}
-                                                        />,
+                                                        "isOuia": false,
+                                                        "ouiaId": null,
                                                       }
                                                     }
-                                                    consumerContext={null}
+                                                    position="left"
+                                                    style={
+                                                      Object {
+                                                        "float": "left",
+                                                      }
+                                                    }
+                                                    toggle={
+                                                      <KebabToggle
+                                                        onToggle={[Function]}
+                                                      />
+                                                    }
                                                   >
-                                                    <DropdownWithContext
-                                                      autoFocus={true}
-                                                      className=""
-                                                      direction="down"
-                                                      dropdownItems={
-                                                        Array [
-                                                          <DropdownItem
-                                                            component="button"
-                                                            isDisabled={true}
-                                                            onClick={[Function]}
-                                                          >
-                                                            Delete facts
-                                                          </DropdownItem>,
-                                                        ]
-                                                      }
-                                                      isGrouped={false}
-                                                      isOpen={false}
-                                                      isPlain={true}
-                                                      onSelect={[Function]}
-                                                      ouiaComponentType="Dropdown"
-                                                      ouiaContext={
-                                                        Object {
-                                                          "isOuia": false,
-                                                          "ouiaId": null,
-                                                        }
-                                                      }
-                                                      position="left"
+                                                    <div
+                                                      className="pf-c-dropdown"
                                                       style={
                                                         Object {
                                                           "float": "left",
                                                         }
                                                       }
-                                                      toggle={
-                                                        <KebabToggle
-                                                          onToggle={[Function]}
-                                                        />
-                                                      }
                                                     >
-                                                      <div
-                                                        className="pf-c-dropdown"
-                                                        style={
+                                                      <KebabToggle
+                                                        ariaHasPopup={true}
+                                                        id="pf-toggle-id-1"
+                                                        isOpen={false}
+                                                        isPlain={true}
+                                                        key=".0"
+                                                        onEnter={[Function]}
+                                                        onToggle={[Function]}
+                                                        parentRef={
                                                           Object {
-                                                            "float": "left",
+                                                            "current": <div
+                                                              class="pf-c-dropdown"
+                                                              style="float: left;"
+                                                            >
+                                                              <button
+                                                                aria-expanded="false"
+                                                                aria-haspopup="true"
+                                                                aria-label="Actions"
+                                                                class="pf-c-dropdown__toggle pf-m-plain"
+                                                                id="pf-toggle-id-1"
+                                                                type="button"
+                                                              >
+                                                                <svg
+                                                                  aria-hidden="true"
+                                                                  fill="currentColor"
+                                                                  height="1em"
+                                                                  role="img"
+                                                                  style="vertical-align: -0.125em;"
+                                                                  viewBox="0 0 192 512"
+                                                                  width="1em"
+                                                                >
+                                                                  <path
+                                                                    d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                                                                    transform=""
+                                                                  />
+                                                                </svg>
+                                                              </button>
+                                                            </div>,
                                                           }
                                                         }
                                                       >
-                                                        <KebabToggle
+                                                        <Toggle
+                                                          aria-label="Actions"
                                                           ariaHasPopup={true}
-                                                          id="pf-toggle-id-0"
+                                                          className=""
+                                                          id="pf-toggle-id-1"
+                                                          isActive={false}
+                                                          isDisabled={false}
+                                                          isFocused={false}
+                                                          isHovered={false}
                                                           isOpen={false}
                                                           isPlain={true}
-                                                          key=".0"
+                                                          isPrimary={false}
+                                                          isSplitButton={false}
                                                           onEnter={[Function]}
                                                           onToggle={[Function]}
                                                           parentRef={
@@ -702,7 +1190,7 @@ exports[`ConnectedEditBaseline should render correctly 1`] = `
                                                                   aria-haspopup="true"
                                                                   aria-label="Actions"
                                                                   class="pf-c-dropdown__toggle pf-m-plain"
-                                                                  id="pf-toggle-id-0"
+                                                                  id="pf-toggle-id-1"
                                                                   type="button"
                                                                 >
                                                                   <svg
@@ -724,109 +1212,60 @@ exports[`ConnectedEditBaseline should render correctly 1`] = `
                                                             }
                                                           }
                                                         >
-                                                          <Toggle
+                                                          <button
+                                                            aria-expanded={false}
+                                                            aria-haspopup={true}
                                                             aria-label="Actions"
-                                                            ariaHasPopup={true}
-                                                            className=""
-                                                            id="pf-toggle-id-0"
-                                                            isActive={false}
-                                                            isDisabled={false}
-                                                            isFocused={false}
-                                                            isHovered={false}
-                                                            isOpen={false}
-                                                            isPlain={true}
-                                                            isPrimary={false}
-                                                            isSplitButton={false}
-                                                            onEnter={[Function]}
-                                                            onToggle={[Function]}
-                                                            parentRef={
-                                                              Object {
-                                                                "current": <div
-                                                                  class="pf-c-dropdown"
-                                                                  style="float: left;"
-                                                                >
-                                                                  <button
-                                                                    aria-expanded="false"
-                                                                    aria-haspopup="true"
-                                                                    aria-label="Actions"
-                                                                    class="pf-c-dropdown__toggle pf-m-plain"
-                                                                    id="pf-toggle-id-0"
-                                                                    type="button"
-                                                                  >
-                                                                    <svg
-                                                                      aria-hidden="true"
-                                                                      fill="currentColor"
-                                                                      height="1em"
-                                                                      role="img"
-                                                                      style="vertical-align: -0.125em;"
-                                                                      viewBox="0 0 192 512"
-                                                                      width="1em"
-                                                                    >
-                                                                      <path
-                                                                        d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
-                                                                        transform=""
-                                                                      />
-                                                                    </svg>
-                                                                  </button>
-                                                                </div>,
-                                                              }
-                                                            }
+                                                            className="pf-c-dropdown__toggle pf-m-plain"
+                                                            disabled={false}
+                                                            id="pf-toggle-id-1"
+                                                            onClick={[Function]}
+                                                            onKeyDown={[Function]}
+                                                            type="button"
                                                           >
-                                                            <button
-                                                              aria-expanded={false}
-                                                              aria-haspopup={true}
-                                                              aria-label="Actions"
-                                                              className="pf-c-dropdown__toggle pf-m-plain"
-                                                              disabled={false}
-                                                              id="pf-toggle-id-0"
-                                                              onClick={[Function]}
-                                                              onKeyDown={[Function]}
-                                                              type="button"
+                                                            <EllipsisVIcon
+                                                              color="currentColor"
+                                                              noVerticalAlign={false}
+                                                              size="sm"
+                                                              title={null}
                                                             >
-                                                              <EllipsisVIcon
-                                                                color="currentColor"
-                                                                noVerticalAlign={false}
-                                                                size="sm"
-                                                                title={null}
-                                                              >
-                                                                <svg
-                                                                  aria-hidden={true}
-                                                                  aria-labelledby={null}
-                                                                  fill="currentColor"
-                                                                  height="1em"
-                                                                  role="img"
-                                                                  style={
-                                                                    Object {
-                                                                      "verticalAlign": "-0.125em",
-                                                                    }
+                                                              <svg
+                                                                aria-hidden={true}
+                                                                aria-labelledby={null}
+                                                                fill="currentColor"
+                                                                height="1em"
+                                                                role="img"
+                                                                style={
+                                                                  Object {
+                                                                    "verticalAlign": "-0.125em",
                                                                   }
-                                                                  viewBox="0 0 192 512"
-                                                                  width="1em"
-                                                                >
-                                                                  <path
-                                                                    d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
-                                                                    transform=""
-                                                                  />
-                                                                </svg>
-                                                              </EllipsisVIcon>
-                                                            </button>
-                                                          </Toggle>
-                                                        </KebabToggle>
-                                                      </div>
-                                                    </DropdownWithContext>
-                                                  </ComponentWithOuia>
-                                                </Component>
-                                              </Dropdown>
-                                            </EditBaselineKebab>
-                                          </Connect(EditBaselineKebab)>
-                                        </div>
-                                      </ToolbarItem>
-                                    </div>
-                                  </ToolbarGroup>
-                                </div>
-                              </Toolbar>
-                            </EditBaselineToolbar>
-                          </Connect(EditBaselineToolbar)>
+                                                                }
+                                                                viewBox="0 0 192 512"
+                                                                width="1em"
+                                                              >
+                                                                <path
+                                                                  d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                                                                  transform=""
+                                                                />
+                                                              </svg>
+                                                            </EllipsisVIcon>
+                                                          </button>
+                                                        </Toggle>
+                                                      </KebabToggle>
+                                                    </div>
+                                                  </DropdownWithContext>
+                                                </ComponentWithOuia>
+                                              </Component>
+                                            </Dropdown>
+                                          </EditBaselineKebab>
+                                        </Connect(EditBaselineKebab)>
+                                      </div>
+                                    </ToolbarItem>
+                                  </div>
+                                </ToolbarGroup>
+                              </div>
+                            </Toolbar>
+                          </EditBaselineToolbar>
                           <table
                             className="pf-c-table ins-c-table pf-m-compact ins-entity-table drift-table"
                           >
@@ -834,34 +1273,7 @@ exports[`ConnectedEditBaseline should render correctly 1`] = `
                               <tr
                                 key="edit-baseline-table-header"
                               >
-                                <td
-                                  className="pf-c-table__check"
-                                >
-                                  <Checkbox
-                                    className=""
-                                    id="select-all"
-                                    isChecked={false}
-                                    isDisabled={true}
-                                    isValid={true}
-                                    name="select-all"
-                                    onChange={[Function]}
-                                  >
-                                    <div
-                                      className="pf-c-check"
-                                    >
-                                      <input
-                                        aria-invalid={false}
-                                        checked={false}
-                                        className="pf-c-check__input"
-                                        disabled={true}
-                                        id="select-all"
-                                        name="select-all"
-                                        onChange={[Function]}
-                                        type="checkbox"
-                                      />
-                                    </div>
-                                  </Checkbox>
-                                </td>
+                                <th />
                                 <th
                                   className="edit-baseline-header"
                                 >
@@ -1145,7 +1557,6 @@ exports[`ConnectedEditBaseline should render loading rows 1`] = `
                 "url": "/",
               }
             }
-            selectAll={false}
             selectFact={[Function]}
           >
             <PageHeader>
@@ -1183,83 +1594,549 @@ exports[`ConnectedEditBaseline should render loading rows 1`] = `
                         <div
                           className="pf-c-card__body"
                         >
-                          <Connect(EditBaselineToolbar)>
-                            <EditBaselineToolbar
-                              setFactData={[Function]}
-                              toggleFactModal={[Function]}
+                          <EditBaselineToolbar
+                            isDisabled={true}
+                            onBulkSelect={[Function]}
+                            selected={0}
+                          >
+                            <Toolbar
+                              className="display-margin"
                             >
-                              <Toolbar
-                                className="display-margin"
+                              <div
+                                className="pf-l-toolbar display-margin"
                               >
-                                <div
-                                  className="pf-l-toolbar display-margin"
-                                >
-                                  <ToolbarGroup>
-                                    <div
-                                      className="pf-l-toolbar__group"
-                                    >
-                                      <ToolbarItem>
-                                        <div
-                                          className="pf-l-toolbar__item"
+                                <ToolbarGroup>
+                                  <div
+                                    className="pf-l-toolbar__group"
+                                  >
+                                    <ToolbarItem>
+                                      <div
+                                        className="pf-l-toolbar__item"
+                                      >
+                                        <BulkSelect
+                                          checked={false}
+                                          className=""
+                                          count={null}
+                                          isDisabled={true}
+                                          items={
+                                            Array [
+                                              Object {
+                                                "key": "select-all",
+                                                "onClick": [Function],
+                                                "title": "Select all",
+                                              },
+                                              Object {
+                                                "key": "select-none",
+                                                "onClick": [Function],
+                                                "title": "Select none",
+                                              },
+                                            ]
+                                          }
+                                          onSelect={[Function]}
                                         >
-                                          <Connect(AddFactButton)>
-                                            <AddFactButton
-                                              setFactData={[Function]}
-                                              toggleFactModal={[Function]}
+                                          <Dropdown
+                                            className="ins-c-bulk-select"
+                                            dropdownItems={
+                                              Array [
+                                                <DropdownItem
+                                                  component="button"
+                                                  onClick={[Function]}
+                                                >
+                                                  Select all
+                                                </DropdownItem>,
+                                                <DropdownItem
+                                                  component="button"
+                                                  onClick={[Function]}
+                                                >
+                                                  Select none
+                                                </DropdownItem>,
+                                              ]
+                                            }
+                                            isOpen={false}
+                                            onSelect={[Function]}
+                                            toggle={
+                                              <DropdownToggle
+                                                isDisabled={true}
+                                                onToggle={[Function]}
+                                                splitButtonItems={
+                                                  Array [
+                                                    <React.Fragment>
+                                                      <DropdownToggleCheckbox
+                                                        aria-label="Select all"
+                                                        className=""
+                                                        id="toggle-checkbox"
+                                                        isChecked={false}
+                                                        isDisabled={false}
+                                                        isValid={true}
+                                                        onChange={[Function]}
+                                                      >
+                                                        
+                                                      </DropdownToggleCheckbox>
+                                                    </React.Fragment>,
+                                                  ]
+                                                }
+                                              />
+                                            }
+                                          >
+                                            <Component
+                                              className="ins-c-bulk-select"
+                                              dropdownItems={
+                                                Array [
+                                                  <DropdownItem
+                                                    component="button"
+                                                    onClick={[Function]}
+                                                  >
+                                                    Select all
+                                                  </DropdownItem>,
+                                                  <DropdownItem
+                                                    component="button"
+                                                    onClick={[Function]}
+                                                  >
+                                                    Select none
+                                                  </DropdownItem>,
+                                                ]
+                                              }
+                                              isOpen={false}
+                                              toggle={
+                                                <DropdownToggle
+                                                  isDisabled={true}
+                                                  onToggle={[Function]}
+                                                  splitButtonItems={
+                                                    Array [
+                                                      <React.Fragment>
+                                                        <DropdownToggleCheckbox
+                                                          aria-label="Select all"
+                                                          className=""
+                                                          id="toggle-checkbox"
+                                                          isChecked={false}
+                                                          isDisabled={false}
+                                                          isValid={true}
+                                                          onChange={[Function]}
+                                                        >
+                                                          
+                                                        </DropdownToggleCheckbox>
+                                                      </React.Fragment>,
+                                                    ]
+                                                  }
+                                                />
+                                              }
                                             >
-                                              <Component
-                                                onClick={[Function]}
-                                                variant="primary"
+                                              <ComponentWithOuia
+                                                component={[Function]}
+                                                componentProps={
+                                                  Object {
+                                                    "className": "ins-c-bulk-select",
+                                                    "dropdownItems": Array [
+                                                      <DropdownItem
+                                                        component="button"
+                                                        onClick={[Function]}
+                                                      >
+                                                        Select all
+                                                      </DropdownItem>,
+                                                      <DropdownItem
+                                                        component="button"
+                                                        onClick={[Function]}
+                                                      >
+                                                        Select none
+                                                      </DropdownItem>,
+                                                    ],
+                                                    "isOpen": false,
+                                                    "toggle": <DropdownToggle
+                                                      isDisabled={true}
+                                                      onToggle={[Function]}
+                                                      splitButtonItems={
+                                                        Array [
+                                                          <React.Fragment>
+                                                            <DropdownToggleCheckbox
+                                                              aria-label="Select all"
+                                                              className=""
+                                                              id="toggle-checkbox"
+                                                              isChecked={false}
+                                                              isDisabled={false}
+                                                              isValid={true}
+                                                              onChange={[Function]}
+                                                            >
+                                                              
+                                                            </DropdownToggleCheckbox>
+                                                          </React.Fragment>,
+                                                        ]
+                                                      }
+                                                    />,
+                                                  }
+                                                }
+                                                consumerContext={null}
                                               >
-                                                <ComponentWithOuia
-                                                  component={[Function]}
-                                                  componentProps={
+                                                <DropdownWithContext
+                                                  autoFocus={true}
+                                                  className="ins-c-bulk-select"
+                                                  direction="down"
+                                                  dropdownItems={
+                                                    Array [
+                                                      <DropdownItem
+                                                        component="button"
+                                                        onClick={[Function]}
+                                                      >
+                                                        Select all
+                                                      </DropdownItem>,
+                                                      <DropdownItem
+                                                        component="button"
+                                                        onClick={[Function]}
+                                                      >
+                                                        Select none
+                                                      </DropdownItem>,
+                                                    ]
+                                                  }
+                                                  isGrouped={false}
+                                                  isOpen={false}
+                                                  isPlain={false}
+                                                  onSelect={[Function]}
+                                                  ouiaComponentType="Dropdown"
+                                                  ouiaContext={
                                                     Object {
-                                                      "children": "Add fact or category",
-                                                      "onClick": [Function],
-                                                      "variant": "primary",
+                                                      "isOuia": false,
+                                                      "ouiaId": null,
                                                     }
                                                   }
-                                                  consumerContext={null}
-                                                >
-                                                  <Button
-                                                    onClick={[Function]}
-                                                    ouiaContext={
-                                                      Object {
-                                                        "isOuia": false,
-                                                        "ouiaId": null,
+                                                  position="left"
+                                                  toggle={
+                                                    <DropdownToggle
+                                                      isDisabled={true}
+                                                      onToggle={[Function]}
+                                                      splitButtonItems={
+                                                        Array [
+                                                          <React.Fragment>
+                                                            <DropdownToggleCheckbox
+                                                              aria-label="Select all"
+                                                              className=""
+                                                              id="toggle-checkbox"
+                                                              isChecked={false}
+                                                              isDisabled={false}
+                                                              isValid={true}
+                                                              onChange={[Function]}
+                                                            >
+                                                              
+                                                            </DropdownToggleCheckbox>
+                                                          </React.Fragment>,
+                                                        ]
                                                       }
-                                                    }
-                                                    variant="primary"
+                                                    />
+                                                  }
+                                                >
+                                                  <div
+                                                    className="pf-c-dropdown ins-c-bulk-select"
                                                   >
-                                                    <button
-                                                      aria-disabled={null}
-                                                      aria-label={null}
-                                                      className="pf-c-button pf-m-primary"
-                                                      disabled={false}
-                                                      onClick={[Function]}
-                                                      tabIndex={null}
-                                                      type="button"
+                                                    <DropdownToggle
+                                                      ariaHasPopup={true}
+                                                      id="pf-toggle-id-2"
+                                                      isDisabled={true}
+                                                      isOpen={false}
+                                                      isPlain={false}
+                                                      key=".0"
+                                                      onEnter={[Function]}
+                                                      onToggle={[Function]}
+                                                      parentRef={
+                                                        Object {
+                                                          "current": <div
+                                                            class="pf-c-dropdown ins-c-bulk-select"
+                                                          >
+                                                            <div
+                                                              class="pf-c-dropdown__toggle pf-m-split-button pf-m-disabled"
+                                                            >
+                                                              <label
+                                                                class="pf-c-dropdown__toggle-check"
+                                                                for="toggle-checkbox"
+                                                              >
+                                                                <input
+                                                                  aria-invalid="false"
+                                                                  aria-label="Select all"
+                                                                  id="toggle-checkbox"
+                                                                  type="checkbox"
+                                                                />
+                                                                
+                                                              </label>
+                                                              <button
+                                                                aria-expanded="false"
+                                                                aria-haspopup="true"
+                                                                aria-label="Select"
+                                                                class="pf-c-dropdown__toggle-button"
+                                                                disabled=""
+                                                                id="pf-toggle-id-2"
+                                                                type="button"
+                                                              >
+                                                                <svg
+                                                                  aria-hidden="true"
+                                                                  class=""
+                                                                  fill="currentColor"
+                                                                  height="1em"
+                                                                  role="img"
+                                                                  style="vertical-align: -0.125em;"
+                                                                  viewBox="0 0 320 512"
+                                                                  width="1em"
+                                                                >
+                                                                  <path
+                                                                    d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                                                                    transform=""
+                                                                  />
+                                                                </svg>
+                                                              </button>
+                                                            </div>
+                                                          </div>,
+                                                        }
+                                                      }
+                                                      splitButtonItems={
+                                                        Array [
+                                                          <React.Fragment>
+                                                            <DropdownToggleCheckbox
+                                                              aria-label="Select all"
+                                                              className=""
+                                                              id="toggle-checkbox"
+                                                              isChecked={false}
+                                                              isDisabled={false}
+                                                              isValid={true}
+                                                              onChange={[Function]}
+                                                            >
+                                                              
+                                                            </DropdownToggleCheckbox>
+                                                          </React.Fragment>,
+                                                        ]
+                                                      }
                                                     >
-                                                      Add fact or category
-                                                    </button>
-                                                  </Button>
-                                                </ComponentWithOuia>
-                                              </Component>
-                                            </AddFactButton>
-                                          </Connect(AddFactButton)>
-                                        </div>
-                                      </ToolbarItem>
-                                      <ToolbarItem>
-                                        <div
-                                          className="pf-l-toolbar__item"
-                                        >
-                                          <Connect(EditBaselineKebab)>
-                                            <EditBaselineKebab
-                                              dispatch={[Function]}
-                                              editBaselineTableData={Array []}
+                                                      <div
+                                                        className="pf-c-dropdown__toggle pf-m-split-button pf-m-disabled"
+                                                      >
+                                                        <DropdownToggleCheckbox
+                                                          aria-label="Select all"
+                                                          className=""
+                                                          id="toggle-checkbox"
+                                                          isChecked={false}
+                                                          isDisabled={false}
+                                                          isValid={true}
+                                                          onChange={[Function]}
+                                                        >
+                                                          <label
+                                                            className="pf-c-dropdown__toggle-check"
+                                                            htmlFor="toggle-checkbox"
+                                                          >
+                                                            <input
+                                                              aria-invalid={false}
+                                                              aria-label="Select all"
+                                                              checked={false}
+                                                              disabled={false}
+                                                              id="toggle-checkbox"
+                                                              onChange={[Function]}
+                                                              type="checkbox"
+                                                            />
+                                                          </label>
+                                                        </DropdownToggleCheckbox>
+                                                        <Toggle
+                                                          aria-label="Select"
+                                                          ariaHasPopup={true}
+                                                          className=""
+                                                          id="pf-toggle-id-2"
+                                                          isActive={false}
+                                                          isDisabled={true}
+                                                          isFocused={false}
+                                                          isHovered={false}
+                                                          isOpen={false}
+                                                          isPlain={false}
+                                                          isPrimary={false}
+                                                          isSplitButton={true}
+                                                          onEnter={[Function]}
+                                                          onToggle={[Function]}
+                                                          parentRef={
+                                                            Object {
+                                                              "current": <div
+                                                                class="pf-c-dropdown ins-c-bulk-select"
+                                                              >
+                                                                <div
+                                                                  class="pf-c-dropdown__toggle pf-m-split-button pf-m-disabled"
+                                                                >
+                                                                  <label
+                                                                    class="pf-c-dropdown__toggle-check"
+                                                                    for="toggle-checkbox"
+                                                                  >
+                                                                    <input
+                                                                      aria-invalid="false"
+                                                                      aria-label="Select all"
+                                                                      id="toggle-checkbox"
+                                                                      type="checkbox"
+                                                                    />
+                                                                    
+                                                                  </label>
+                                                                  <button
+                                                                    aria-expanded="false"
+                                                                    aria-haspopup="true"
+                                                                    aria-label="Select"
+                                                                    class="pf-c-dropdown__toggle-button"
+                                                                    disabled=""
+                                                                    id="pf-toggle-id-2"
+                                                                    type="button"
+                                                                  >
+                                                                    <svg
+                                                                      aria-hidden="true"
+                                                                      class=""
+                                                                      fill="currentColor"
+                                                                      height="1em"
+                                                                      role="img"
+                                                                      style="vertical-align: -0.125em;"
+                                                                      viewBox="0 0 320 512"
+                                                                      width="1em"
+                                                                    >
+                                                                      <path
+                                                                        d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                                                                        transform=""
+                                                                      />
+                                                                    </svg>
+                                                                  </button>
+                                                                </div>
+                                                              </div>,
+                                                            }
+                                                          }
+                                                        >
+                                                          <button
+                                                            aria-expanded={false}
+                                                            aria-haspopup={true}
+                                                            aria-label="Select"
+                                                            className="pf-c-dropdown__toggle-button"
+                                                            disabled={true}
+                                                            id="pf-toggle-id-2"
+                                                            onClick={[Function]}
+                                                            onKeyDown={[Function]}
+                                                            type="button"
+                                                          >
+                                                            <CaretDownIcon
+                                                              className=""
+                                                              color="currentColor"
+                                                              noVerticalAlign={false}
+                                                              size="sm"
+                                                              title={null}
+                                                            >
+                                                              <svg
+                                                                aria-hidden={true}
+                                                                aria-labelledby={null}
+                                                                className=""
+                                                                fill="currentColor"
+                                                                height="1em"
+                                                                role="img"
+                                                                style={
+                                                                  Object {
+                                                                    "verticalAlign": "-0.125em",
+                                                                  }
+                                                                }
+                                                                viewBox="0 0 320 512"
+                                                                width="1em"
+                                                              >
+                                                                <path
+                                                                  d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                                                                  transform=""
+                                                                />
+                                                              </svg>
+                                                            </CaretDownIcon>
+                                                          </button>
+                                                        </Toggle>
+                                                      </div>
+                                                    </DropdownToggle>
+                                                  </div>
+                                                </DropdownWithContext>
+                                              </ComponentWithOuia>
+                                            </Component>
+                                          </Dropdown>
+                                        </BulkSelect>
+                                      </div>
+                                    </ToolbarItem>
+                                  </div>
+                                </ToolbarGroup>
+                                <ToolbarGroup>
+                                  <div
+                                    className="pf-l-toolbar__group"
+                                  >
+                                    <ToolbarItem>
+                                      <div
+                                        className="pf-l-toolbar__item"
+                                      >
+                                        <Connect(AddFactButton)>
+                                          <AddFactButton
+                                            setFactData={[Function]}
+                                            toggleFactModal={[Function]}
+                                          >
+                                            <Component
+                                              onClick={[Function]}
+                                              variant="primary"
                                             >
-                                              <Dropdown
+                                              <ComponentWithOuia
+                                                component={[Function]}
+                                                componentProps={
+                                                  Object {
+                                                    "children": "Add fact or category",
+                                                    "onClick": [Function],
+                                                    "variant": "primary",
+                                                  }
+                                                }
+                                                consumerContext={null}
+                                              >
+                                                <Button
+                                                  onClick={[Function]}
+                                                  ouiaContext={
+                                                    Object {
+                                                      "isOuia": false,
+                                                      "ouiaId": null,
+                                                    }
+                                                  }
+                                                  variant="primary"
+                                                >
+                                                  <button
+                                                    aria-disabled={null}
+                                                    aria-label={null}
+                                                    className="pf-c-button pf-m-primary"
+                                                    disabled={false}
+                                                    onClick={[Function]}
+                                                    tabIndex={null}
+                                                    type="button"
+                                                  >
+                                                    Add fact or category
+                                                  </button>
+                                                </Button>
+                                              </ComponentWithOuia>
+                                            </Component>
+                                          </AddFactButton>
+                                        </Connect(AddFactButton)>
+                                      </div>
+                                    </ToolbarItem>
+                                    <ToolbarItem>
+                                      <div
+                                        className="pf-l-toolbar__item"
+                                      >
+                                        <Connect(EditBaselineKebab)>
+                                          <EditBaselineKebab
+                                            dispatch={[Function]}
+                                            editBaselineTableData={Array []}
+                                          >
+                                            <Dropdown
+                                              dropdownItems={
+                                                Array [
+                                                  <DropdownItem
+                                                    component="button"
+                                                    isDisabled={true}
+                                                    onClick={[Function]}
+                                                  >
+                                                    Delete facts
+                                                  </DropdownItem>,
+                                                ]
+                                              }
+                                              isOpen={false}
+                                              isPlain={true}
+                                              style={
+                                                Object {
+                                                  "float": "left",
+                                                }
+                                              }
+                                              toggle={
+                                                <KebabToggle
+                                                  onToggle={[Function]}
+                                                />
+                                              }
+                                            >
+                                              <Component
                                                 dropdownItems={
                                                   Array [
                                                     <DropdownItem
@@ -1284,108 +2161,131 @@ exports[`ConnectedEditBaseline should render loading rows 1`] = `
                                                   />
                                                 }
                                               >
-                                                <Component
-                                                  dropdownItems={
-                                                    Array [
-                                                      <DropdownItem
-                                                        component="button"
-                                                        isDisabled={true}
-                                                        onClick={[Function]}
-                                                      >
-                                                        Delete facts
-                                                      </DropdownItem>,
-                                                    ]
-                                                  }
-                                                  isOpen={false}
-                                                  isPlain={true}
-                                                  style={
+                                                <ComponentWithOuia
+                                                  component={[Function]}
+                                                  componentProps={
                                                     Object {
-                                                      "float": "left",
+                                                      "dropdownItems": Array [
+                                                        <DropdownItem
+                                                          component="button"
+                                                          isDisabled={true}
+                                                          onClick={[Function]}
+                                                        >
+                                                          Delete facts
+                                                        </DropdownItem>,
+                                                      ],
+                                                      "isOpen": false,
+                                                      "isPlain": true,
+                                                      "style": Object {
+                                                        "float": "left",
+                                                      },
+                                                      "toggle": <KebabToggle
+                                                        onToggle={[Function]}
+                                                      />,
                                                     }
                                                   }
-                                                  toggle={
-                                                    <KebabToggle
-                                                      onToggle={[Function]}
-                                                    />
-                                                  }
+                                                  consumerContext={null}
                                                 >
-                                                  <ComponentWithOuia
-                                                    component={[Function]}
-                                                    componentProps={
+                                                  <DropdownWithContext
+                                                    autoFocus={true}
+                                                    className=""
+                                                    direction="down"
+                                                    dropdownItems={
+                                                      Array [
+                                                        <DropdownItem
+                                                          component="button"
+                                                          isDisabled={true}
+                                                          onClick={[Function]}
+                                                        >
+                                                          Delete facts
+                                                        </DropdownItem>,
+                                                      ]
+                                                    }
+                                                    isGrouped={false}
+                                                    isOpen={false}
+                                                    isPlain={true}
+                                                    onSelect={[Function]}
+                                                    ouiaComponentType="Dropdown"
+                                                    ouiaContext={
                                                       Object {
-                                                        "dropdownItems": Array [
-                                                          <DropdownItem
-                                                            component="button"
-                                                            isDisabled={true}
-                                                            onClick={[Function]}
-                                                          >
-                                                            Delete facts
-                                                          </DropdownItem>,
-                                                        ],
-                                                        "isOpen": false,
-                                                        "isPlain": true,
-                                                        "style": Object {
-                                                          "float": "left",
-                                                        },
-                                                        "toggle": <KebabToggle
-                                                          onToggle={[Function]}
-                                                        />,
+                                                        "isOuia": false,
+                                                        "ouiaId": null,
                                                       }
                                                     }
-                                                    consumerContext={null}
+                                                    position="left"
+                                                    style={
+                                                      Object {
+                                                        "float": "left",
+                                                      }
+                                                    }
+                                                    toggle={
+                                                      <KebabToggle
+                                                        onToggle={[Function]}
+                                                      />
+                                                    }
                                                   >
-                                                    <DropdownWithContext
-                                                      autoFocus={true}
-                                                      className=""
-                                                      direction="down"
-                                                      dropdownItems={
-                                                        Array [
-                                                          <DropdownItem
-                                                            component="button"
-                                                            isDisabled={true}
-                                                            onClick={[Function]}
-                                                          >
-                                                            Delete facts
-                                                          </DropdownItem>,
-                                                        ]
-                                                      }
-                                                      isGrouped={false}
-                                                      isOpen={false}
-                                                      isPlain={true}
-                                                      onSelect={[Function]}
-                                                      ouiaComponentType="Dropdown"
-                                                      ouiaContext={
-                                                        Object {
-                                                          "isOuia": false,
-                                                          "ouiaId": null,
-                                                        }
-                                                      }
-                                                      position="left"
+                                                    <div
+                                                      className="pf-c-dropdown"
                                                       style={
                                                         Object {
                                                           "float": "left",
                                                         }
                                                       }
-                                                      toggle={
-                                                        <KebabToggle
-                                                          onToggle={[Function]}
-                                                        />
-                                                      }
                                                     >
-                                                      <div
-                                                        className="pf-c-dropdown"
-                                                        style={
+                                                      <KebabToggle
+                                                        ariaHasPopup={true}
+                                                        id="pf-toggle-id-3"
+                                                        isOpen={false}
+                                                        isPlain={true}
+                                                        key=".0"
+                                                        onEnter={[Function]}
+                                                        onToggle={[Function]}
+                                                        parentRef={
                                                           Object {
-                                                            "float": "left",
+                                                            "current": <div
+                                                              class="pf-c-dropdown"
+                                                              style="float: left;"
+                                                            >
+                                                              <button
+                                                                aria-expanded="false"
+                                                                aria-haspopup="true"
+                                                                aria-label="Actions"
+                                                                class="pf-c-dropdown__toggle pf-m-plain"
+                                                                id="pf-toggle-id-3"
+                                                                type="button"
+                                                              >
+                                                                <svg
+                                                                  aria-hidden="true"
+                                                                  fill="currentColor"
+                                                                  height="1em"
+                                                                  role="img"
+                                                                  style="vertical-align: -0.125em;"
+                                                                  viewBox="0 0 192 512"
+                                                                  width="1em"
+                                                                >
+                                                                  <path
+                                                                    d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                                                                    transform=""
+                                                                  />
+                                                                </svg>
+                                                              </button>
+                                                            </div>,
                                                           }
                                                         }
                                                       >
-                                                        <KebabToggle
+                                                        <Toggle
+                                                          aria-label="Actions"
                                                           ariaHasPopup={true}
-                                                          id="pf-toggle-id-1"
+                                                          className=""
+                                                          id="pf-toggle-id-3"
+                                                          isActive={false}
+                                                          isDisabled={false}
+                                                          isFocused={false}
+                                                          isHovered={false}
                                                           isOpen={false}
                                                           isPlain={true}
-                                                          key=".0"
+                                                          isPrimary={false}
+                                                          isSplitButton={false}
                                                           onEnter={[Function]}
                                                           onToggle={[Function]}
                                                           parentRef={
@@ -1399,7 +2299,7 @@ exports[`ConnectedEditBaseline should render loading rows 1`] = `
                                                                   aria-haspopup="true"
                                                                   aria-label="Actions"
                                                                   class="pf-c-dropdown__toggle pf-m-plain"
-                                                                  id="pf-toggle-id-1"
+                                                                  id="pf-toggle-id-3"
                                                                   type="button"
                                                                 >
                                                                   <svg
@@ -1421,109 +2321,60 @@ exports[`ConnectedEditBaseline should render loading rows 1`] = `
                                                             }
                                                           }
                                                         >
-                                                          <Toggle
+                                                          <button
+                                                            aria-expanded={false}
+                                                            aria-haspopup={true}
                                                             aria-label="Actions"
-                                                            ariaHasPopup={true}
-                                                            className=""
-                                                            id="pf-toggle-id-1"
-                                                            isActive={false}
-                                                            isDisabled={false}
-                                                            isFocused={false}
-                                                            isHovered={false}
-                                                            isOpen={false}
-                                                            isPlain={true}
-                                                            isPrimary={false}
-                                                            isSplitButton={false}
-                                                            onEnter={[Function]}
-                                                            onToggle={[Function]}
-                                                            parentRef={
-                                                              Object {
-                                                                "current": <div
-                                                                  class="pf-c-dropdown"
-                                                                  style="float: left;"
-                                                                >
-                                                                  <button
-                                                                    aria-expanded="false"
-                                                                    aria-haspopup="true"
-                                                                    aria-label="Actions"
-                                                                    class="pf-c-dropdown__toggle pf-m-plain"
-                                                                    id="pf-toggle-id-1"
-                                                                    type="button"
-                                                                  >
-                                                                    <svg
-                                                                      aria-hidden="true"
-                                                                      fill="currentColor"
-                                                                      height="1em"
-                                                                      role="img"
-                                                                      style="vertical-align: -0.125em;"
-                                                                      viewBox="0 0 192 512"
-                                                                      width="1em"
-                                                                    >
-                                                                      <path
-                                                                        d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
-                                                                        transform=""
-                                                                      />
-                                                                    </svg>
-                                                                  </button>
-                                                                </div>,
-                                                              }
-                                                            }
+                                                            className="pf-c-dropdown__toggle pf-m-plain"
+                                                            disabled={false}
+                                                            id="pf-toggle-id-3"
+                                                            onClick={[Function]}
+                                                            onKeyDown={[Function]}
+                                                            type="button"
                                                           >
-                                                            <button
-                                                              aria-expanded={false}
-                                                              aria-haspopup={true}
-                                                              aria-label="Actions"
-                                                              className="pf-c-dropdown__toggle pf-m-plain"
-                                                              disabled={false}
-                                                              id="pf-toggle-id-1"
-                                                              onClick={[Function]}
-                                                              onKeyDown={[Function]}
-                                                              type="button"
+                                                            <EllipsisVIcon
+                                                              color="currentColor"
+                                                              noVerticalAlign={false}
+                                                              size="sm"
+                                                              title={null}
                                                             >
-                                                              <EllipsisVIcon
-                                                                color="currentColor"
-                                                                noVerticalAlign={false}
-                                                                size="sm"
-                                                                title={null}
-                                                              >
-                                                                <svg
-                                                                  aria-hidden={true}
-                                                                  aria-labelledby={null}
-                                                                  fill="currentColor"
-                                                                  height="1em"
-                                                                  role="img"
-                                                                  style={
-                                                                    Object {
-                                                                      "verticalAlign": "-0.125em",
-                                                                    }
+                                                              <svg
+                                                                aria-hidden={true}
+                                                                aria-labelledby={null}
+                                                                fill="currentColor"
+                                                                height="1em"
+                                                                role="img"
+                                                                style={
+                                                                  Object {
+                                                                    "verticalAlign": "-0.125em",
                                                                   }
-                                                                  viewBox="0 0 192 512"
-                                                                  width="1em"
-                                                                >
-                                                                  <path
-                                                                    d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
-                                                                    transform=""
-                                                                  />
-                                                                </svg>
-                                                              </EllipsisVIcon>
-                                                            </button>
-                                                          </Toggle>
-                                                        </KebabToggle>
-                                                      </div>
-                                                    </DropdownWithContext>
-                                                  </ComponentWithOuia>
-                                                </Component>
-                                              </Dropdown>
-                                            </EditBaselineKebab>
-                                          </Connect(EditBaselineKebab)>
-                                        </div>
-                                      </ToolbarItem>
-                                    </div>
-                                  </ToolbarGroup>
-                                </div>
-                              </Toolbar>
-                            </EditBaselineToolbar>
-                          </Connect(EditBaselineToolbar)>
+                                                                }
+                                                                viewBox="0 0 192 512"
+                                                                width="1em"
+                                                              >
+                                                                <path
+                                                                  d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                                                                  transform=""
+                                                                />
+                                                              </svg>
+                                                            </EllipsisVIcon>
+                                                          </button>
+                                                        </Toggle>
+                                                      </KebabToggle>
+                                                    </div>
+                                                  </DropdownWithContext>
+                                                </ComponentWithOuia>
+                                              </Component>
+                                            </Dropdown>
+                                          </EditBaselineKebab>
+                                        </Connect(EditBaselineKebab)>
+                                      </div>
+                                    </ToolbarItem>
+                                  </div>
+                                </ToolbarGroup>
+                              </div>
+                            </Toolbar>
+                          </EditBaselineToolbar>
                           <table
                             className="pf-c-table ins-c-table pf-m-compact ins-entity-table drift-table"
                           >
@@ -1531,34 +2382,7 @@ exports[`ConnectedEditBaseline should render loading rows 1`] = `
                               <tr
                                 key="edit-baseline-table-header"
                               >
-                                <td
-                                  className="pf-c-table__check"
-                                >
-                                  <Checkbox
-                                    className=""
-                                    id="select-all"
-                                    isChecked={false}
-                                    isDisabled={true}
-                                    isValid={true}
-                                    name="select-all"
-                                    onChange={[Function]}
-                                  >
-                                    <div
-                                      className="pf-c-check"
-                                    >
-                                      <input
-                                        aria-invalid={false}
-                                        checked={false}
-                                        className="pf-c-check__input"
-                                        disabled={true}
-                                        id="select-all"
-                                        name="select-all"
-                                        onChange={[Function]}
-                                        type="checkbox"
-                                      />
-                                    </div>
-                                  </Checkbox>
-                                </td>
+                                <th />
                                 <th
                                   className="edit-baseline-header"
                                 >
@@ -2011,7 +2835,11 @@ exports[`EditBaseline should render correctly 1`] = `
       className="pf-t-light pf-m-opaque-100"
     >
       <CardBody>
-        <Connect(EditBaselineToolbar) />
+        <EditBaselineToolbar
+          isDisabled={true}
+          onBulkSelect={[Function]}
+          selected={0}
+        />
         <table
           className="pf-c-table ins-c-table pf-m-compact ins-entity-table drift-table"
         >
@@ -2019,19 +2847,7 @@ exports[`EditBaseline should render correctly 1`] = `
             <tr
               key="edit-baseline-table-header"
             >
-              <td
-                className="pf-c-table__check"
-              >
-                <Checkbox
-                  className=""
-                  id="select-all"
-                  isChecked={false}
-                  isDisabled={true}
-                  isValid={true}
-                  name="select-all"
-                  onChange={[Function]}
-                />
-              </td>
+              <th />
               <th
                 className="edit-baseline-header"
               >
@@ -2168,7 +2984,11 @@ exports[`EditBaseline should render expandable rows closed 1`] = `
       className="pf-t-light pf-m-opaque-100"
     >
       <CardBody>
-        <Connect(EditBaselineToolbar) />
+        <EditBaselineToolbar
+          isDisabled={false}
+          onBulkSelect={[Function]}
+          selected={0}
+        />
         <table
           className="pf-c-table ins-c-table pf-m-compact ins-entity-table drift-table"
         >
@@ -2176,19 +2996,7 @@ exports[`EditBaseline should render expandable rows closed 1`] = `
             <tr
               key="edit-baseline-table-header"
             >
-              <td
-                className="pf-c-table__check"
-              >
-                <Checkbox
-                  className=""
-                  id="select-all"
-                  isChecked={false}
-                  isDisabled={false}
-                  isValid={true}
-                  name="select-all"
-                  onChange={[Function]}
-                />
-              </td>
+              <th />
               <th
                 className="edit-baseline-header"
               >
@@ -2461,7 +3269,11 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
       className="pf-t-light pf-m-opaque-100"
     >
       <CardBody>
-        <Connect(EditBaselineToolbar) />
+        <EditBaselineToolbar
+          isDisabled={false}
+          onBulkSelect={[Function]}
+          selected={0}
+        />
         <table
           className="pf-c-table ins-c-table pf-m-compact ins-entity-table drift-table"
         >
@@ -2469,19 +3281,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
             <tr
               key="edit-baseline-table-header"
             >
-              <td
-                className="pf-c-table__check"
-              >
-                <Checkbox
-                  className=""
-                  id="select-all"
-                  isChecked={false}
-                  isDisabled={false}
-                  isValid={true}
-                  name="select-all"
-                  onChange={[Function]}
-                />
-              </td>
+              <th />
               <th
                 className="edit-baseline-header"
               >
@@ -3367,7 +4167,11 @@ exports[`EditBaseline should render loading rows 1`] = `
       className="pf-t-light pf-m-opaque-100"
     >
       <CardBody>
-        <Connect(EditBaselineToolbar) />
+        <EditBaselineToolbar
+          isDisabled={true}
+          onBulkSelect={[Function]}
+          selected={0}
+        />
         <table
           className="pf-c-table ins-c-table pf-m-compact ins-entity-table drift-table"
         >
@@ -3375,19 +4179,7 @@ exports[`EditBaseline should render loading rows 1`] = `
             <tr
               key="edit-baseline-table-header"
             >
-              <td
-                className="pf-c-table__check"
-              >
-                <Checkbox
-                  className=""
-                  id="select-all"
-                  isChecked={false}
-                  isDisabled={true}
-                  isValid={true}
-                  name="select-all"
-                  onChange={[Function]}
-                />
-              </td>
+              <th />
               <th
                 className="edit-baseline-header"
               >
@@ -3715,7 +4507,11 @@ exports[`EditBaseline should render with baseline facts 1`] = `
       className="pf-t-light pf-m-opaque-100"
     >
       <CardBody>
-        <Connect(EditBaselineToolbar) />
+        <EditBaselineToolbar
+          isDisabled={false}
+          onBulkSelect={[Function]}
+          selected={0}
+        />
         <table
           className="pf-c-table ins-c-table pf-m-compact ins-entity-table drift-table"
         >
@@ -3723,19 +4519,7 @@ exports[`EditBaseline should render with baseline facts 1`] = `
             <tr
               key="edit-baseline-table-header"
             >
-              <td
-                className="pf-c-table__check"
-              >
-                <Checkbox
-                  className=""
-                  id="select-all"
-                  isChecked={false}
-                  isDisabled={false}
-                  isValid={true}
-                  name="select-all"
-                  onChange={[Function]}
-                />
-              </td>
+              <th />
               <th
                 className="edit-baseline-header"
               >

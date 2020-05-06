@@ -46,24 +46,27 @@ export class BaselinesToolbar extends Component {
     }, 250)
 
     render() {
-        const { createButton, exportButton, fetchWithParams, kebab, tableData, tableId } = this.props;
+        const { createButton, exportButton, fetchWithParams, hasMultiSelect, kebab, tableData, tableId } = this.props;
         const { bulkSelectItems, nameSearch } = this.state;
         let selected = tableData.filter(baseline => baseline.selected === true).length;
 
         return (
             <React.Fragment>
                 <Toolbar className="drift-toolbar">
-                    <ToolbarGroup>
-                        <ToolbarItem>
-                            <BulkSelect
-                                count={ selected > 0 ? selected : null }
-                                items={ bulkSelectItems }
-                                checked={ selected > 0 ? true : false }
-                                onSelect={ () => this.props.onBulkSelect(!selected > 0) }
-                                isDisabled={ tableData.length === 0 }
-                            />
-                        </ToolbarItem>
-                    </ToolbarGroup>
+                    { hasMultiSelect
+                        ? <ToolbarGroup>
+                            <ToolbarItem>
+                                <BulkSelect
+                                    count={ selected > 0 ? selected : null }
+                                    items={ bulkSelectItems }
+                                    checked={ selected > 0 ? true : false }
+                                    onSelect={ () => this.props.onBulkSelect(!selected > 0) }
+                                    isDisabled={ tableData.length === 0 }
+                                />
+                            </ToolbarItem>
+                        </ToolbarGroup>
+                        : null
+                    }
                     <ToolbarGroup>
                         <ToolbarItem>
                             <ConditionalFilter
@@ -124,7 +127,8 @@ BaselinesToolbar.propTypes = {
     onSearch: PropTypes.func,
     tableId: PropTypes.string,
     tableData: PropTypes.array,
-    onBulkSelect: PropTypes.func
+    onBulkSelect: PropTypes.func,
+    hasMultiSelect: PropTypes.bool
 };
 
 export default BaselinesToolbar;

@@ -13,8 +13,7 @@ const initialState = {
     factValue: '',
     factData: [],
     isCategory: false,
-    isSubFact: false,
-    selectAll: false
+    isSubFact: false
 };
 
 export function editBaselineReducer(state = initialState, action) {
@@ -35,8 +34,7 @@ export function editBaselineReducer(state = initialState, action) {
                 ...state,
                 baselineDataLoading: false,
                 baselineData: action.payload,
-                editBaselineTableData: newEditBaselineTableData,
-                selectAll: false
+                editBaselineTableData: newEditBaselineTableData
             };
         case `${types.CLEAR_EDIT_BASELINE_DATA}`:
             return {
@@ -114,12 +112,9 @@ export function editBaselineReducer(state = initialState, action) {
                 }
             });
 
-            let isAllSelected = editBaselineHelpers.isAllSelected(newEditBaselineTableData);
-
             return {
                 ...state,
-                editBaselineTableData: newEditBaselineTableData.slice(),
-                selectAll: isAllSelected
+                editBaselineTableData: newEditBaselineTableData.slice()
             };
         }
 

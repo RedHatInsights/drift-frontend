@@ -339,6 +339,26 @@ function baselineSubFacts(fact) {
     return fact[2];
 }
 
+function findSelected(editBaselineTableData) {
+    let selected = 0;
+
+    editBaselineTableData.forEach(function(fact) {
+        if (Array.isArray(fact[2])) {
+            fact[2].forEach(function(subFact) {
+                if (subFact.selected === true) {
+                    selected += 1;
+                }
+            });
+        } else {
+            if (fact.selected === true) {
+                selected += 1;
+            }
+        }
+    });
+
+    return selected;
+}
+
 export default {
     renderKebab,
     buildNewFactData,
@@ -354,5 +374,6 @@ export default {
     toggleExpandedRow,
     isAllSelected,
     isCategory,
-    baselineSubFacts
+    baselineSubFacts,
+    findSelected
 };

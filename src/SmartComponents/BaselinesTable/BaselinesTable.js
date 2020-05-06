@@ -188,6 +188,7 @@ export class BaselinesTable extends Component {
                     aria-label="Baselines Table"
                     cells={ columns }
                     rows={ tableRows }
+                    canSelectAll={ false }
                 >
                     <TableHeader />
                     <TableBody />
@@ -202,6 +203,7 @@ export class BaselinesTable extends Component {
                     sortBy={ this.state.sortBy }
                     cells={ columns }
                     rows={ tableRows }
+                    canSelectAll={ false }
                 >
                     <TableHeader />
                     <TableBody />
@@ -215,6 +217,7 @@ export class BaselinesTable extends Component {
                 onSelect={ hasMultiSelect ? true : false }
                 cells={ columns }
                 rows={ loadingRows }
+                canSelectAll={ false }
             >
                 <TableHeader />
                 <TableBody />
@@ -225,7 +228,7 @@ export class BaselinesTable extends Component {
     }
 
     render() {
-        const { kebab, createButton, exportButton, onBulkSelect, tableData, tableId } = this.props;
+        const { kebab, createButton, exportButton, hasMultiSelect, onBulkSelect, tableData, tableId } = this.props;
 
         return (
             <React.Fragment>
@@ -238,6 +241,7 @@ export class BaselinesTable extends Component {
                     fetchWithParams={ this.fetchWithParams }
                     tableData={ tableData }
                     onBulkSelect={ onBulkSelect }
+                    hasMultiSelect={ hasMultiSelect }
                 />
                 { this.renderTable() }
             </React.Fragment>

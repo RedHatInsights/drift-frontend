@@ -77,7 +77,7 @@ export class EditBaseline extends Component {
     renderHeaderRow() {
         return (
             <tr key='edit-baseline-table-header'>
-                <td className='pf-c-table__check'>{ this.renderCheckbox([]) }</td>
+                <th></th>
                 <th className="edit-baseline-header"><div>Fact</div></th>
                 <th className="edit-baseline-header"><div>Value</div></th>
                 <th></th>
@@ -116,63 +116,55 @@ export class EditBaseline extends Component {
     onSelect = (isSelected, event) => {
         const { editBaselineTableData, selectFact } = this.props;
         let facts = [];
+        let factData;
+        let id = Number(event.target.name);
 
-        if (event.target.name === 'select-all') {
-            this.setState({ selectAll: isSelected });
-            editBaselineTableData.forEach(function(fact) {
-                facts.push(fact[FACT_ID]);
-                if (editBaselineHelpers.isCategory(fact)) {
-                    editBaselineHelpers.baselineSubFacts(fact).forEach(function(subFact) {
-                        facts.push(subFact[FACT_ID]);
-                    });
-                }
-            });
-        } else {
-            let factData;
-            let id = Number(event.target.name);
-
-            editBaselineTableData.forEach(function(fact) {
-                if (fact[FACT_ID] === id) {
-                    factData = fact;
-                } else if (editBaselineHelpers.isCategory(fact)) {
-                    editBaselineHelpers.baselineSubFacts(fact).forEach(function(subFact) {
-                        if (subFact[FACT_ID] === id) {
-                            factData = subFact;
-                        }
-                    });
-                }
-            });
-
-            facts = [ factData[0] ];
-
-            if (editBaselineHelpers.isCategory(factData)) {
-                editBaselineHelpers.baselineSubFacts(factData).forEach(function(subFact) {
-                    facts.push(subFact[FACT_ID]);
+        editBaselineTableData.forEach(function(fact) {
+            if (fact[FACT_ID] === id) {
+                factData = fact;
+            } else if (editBaselineHelpers.isCategory(fact)) {
+                editBaselineHelpers.baselineSubFacts(fact).forEach(function(subFact) {
+                    if (subFact[FACT_ID] === id) {
+                        factData = subFact;
+                    }
                 });
             }
+        });
+
+        facts = [ factData[0] ];
+
+        if (editBaselineHelpers.isCategory(factData)) {
+            editBaselineHelpers.baselineSubFacts(factData).forEach(function(subFact) {
+                facts.push(subFact[FACT_ID]);
+            });
         }
 
         selectFact(facts, isSelected);
     }
 
+    onBulkSelect = (isSelected) => {
+        const { editBaselineTableData, selectFact } = this.props;
+        let facts = [];
+
+        editBaselineTableData.forEach(function(fact) {
+            facts.push(fact[FACT_ID]);
+            if (editBaselineHelpers.isCategory(fact)) {
+                editBaselineHelpers.baselineSubFacts(fact).forEach(function(subFact) {
+                    facts.push(subFact[FACT_ID]);
+                });
+            }
+        });
+
+        selectFact(facts, isSelected);
+    }
+
     renderCheckbox = (fact) => {
-        const { selectAll, editBaselineTableData } = this.props;
         let id;
 
         if (editBaselineHelpers.isCategory(fact)) {
             id = 'category-' + fact[FACT_ID];
         } else if (typeof(fact[FACT_VALUE]) === 'string') {
             id = 'fact-' + fact[FACT_ID];
-        } else {
-            return (
-                <Checkbox
-                    isChecked={ selectAll }
-                    onChange={ this.onSelect }
-                    id='select-all'
-                    name='select-all'
-                    isDisabled={ editBaselineTableData.length === 0 ? true : false }
-                />
-            );
         }
 
         return (
@@ -278,7 +270,8 @@ export class EditBaseline extends Component {
 
     render() {
         const { modalOpened } = this.state;
-        const { baselineData, baselineDataLoading, factModalOpened, error } = this.props;
+        const { baselineData, baselineDataLoading, editBaselineTableData, factModalOpened, error } = this.props;
+        let selected = editBaselineHelpers.findSelected(editBaselineTableData);
 
         return (
             <React.Fragment>
@@ -307,7 +300,11 @@ export class EditBaseline extends Component {
                                 ? <FactModal />
                                 : null
                             }
-                            <EditBaselineToolbar />
+                            <EditBaselineToolbar
+                                selected={ selected }
+                                onBulkSelect={ this.onBulkSelect }
+                                isDisabled={ editBaselineTableData.length === 0 }
+                            />
                             { this.renderTable() }
                         </CardBody>
                     </Card>
@@ -329,7 +326,6 @@ EditBaseline.propTypes = {
     expandRow: PropTypes.func,
     expandedRows: PropTypes.array,
     selectFact: PropTypes.func,
-    selectAll: PropTypes.bool,
     clearErrorData: PropTypes.func,
     error: PropTypes.object
 };
@@ -341,7 +337,6 @@ function mapStateToProps(state) {
         factModalOpened: state.editBaselineState.factModalOpened,
         editBaselineTableData: state.editBaselineState.editBaselineTableData,
         expandedRows: state.editBaselineState.expandedRows,
-        selectAll: state.editBaselineState.selectAll,
         error: state.editBaselineState.error
     };
 }

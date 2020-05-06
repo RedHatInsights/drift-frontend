@@ -1,29 +1,46 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { /*Button, */Toolbar, ToolbarGroup, ToolbarItem } from '@patternfly/react-core';
+import { Toolbar, ToolbarGroup, ToolbarItem } from '@patternfly/react-core';
+import { BulkSelect } from '@redhat-cloud-services/frontend-components';
 
 import EditBaselineKebab from '../EditBaselineKebab/EditBaselineKebab';
 import AddFactButton from '../AddFactButton/AddFactButton';
-import { editBaselineActions } from '../redux';
 
-class EditBaselineToolbar extends Component {
+export class EditBaselineToolbar extends Component {
     constructor(props) {
         super(props);
-
-        this.handleAddFact = this.handleAddFact.bind(this);
-    }
-
-    handleAddFact() {
-        const { setFactData, toggleFactModal } = this.props;
-
-        setFactData({ factName: '', factValue: '', fact: []});
-        toggleFactModal();
+        this.state = {
+            bulkSelectItems: [
+                {
+                    title: 'Select all',
+                    key: 'select-all',
+                    onClick: () => this.props.onBulkSelect(true)
+                }, {
+                    title: 'Select none',
+                    key: 'select-none',
+                    onClick: () => this.props.onBulkSelect(false)
+                }
+            ]
+        };
     }
 
     render() {
+        const { isDisabled, onBulkSelect, selected } = this.props;
+        const { bulkSelectItems } = this.state;
+
         return (
             <Toolbar className='display-margin'>
+                <ToolbarGroup>
+                    <ToolbarItem>
+                        <BulkSelect
+                            count={ selected > 0 ? selected : null }
+                            items={ bulkSelectItems }
+                            checked={ selected > 0 ? true : false }
+                            onSelect={ () => onBulkSelect(!selected > 0) }
+                            isDisabled={ isDisabled }
+                        />
+                    </ToolbarItem>
+                </ToolbarGroup>
                 <ToolbarGroup>
                     <ToolbarItem>
                         <AddFactButton />
@@ -38,15 +55,9 @@ class EditBaselineToolbar extends Component {
 }
 
 EditBaselineToolbar.propTypes = {
-    toggleFactModal: PropTypes.func,
-    setFactData: PropTypes.func
+    isDisabled: PropTypes.bool,
+    onBulkSelect: PropTypes.func,
+    selected: PropTypes.any
 };
 
-function mapDispatchToProps(dispatch) {
-    return {
-        toggleFactModal: () => dispatch(editBaselineActions.toggleFactModal()),
-        setFactData: (factData) => dispatch(editBaselineActions.setFactData(factData))
-    };
-}
-
-export default connect(null, mapDispatchToProps)(EditBaselineToolbar);
+export default EditBaselineToolbar;
