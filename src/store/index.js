@@ -12,7 +12,13 @@ import { createBaselineModalReducer } from '../SmartComponents/BaselinesPage/Cre
 import { editBaselineReducer } from '../SmartComponents/BaselinesPage/EditBaseline/redux/reducers';
 import { historicProfilesReducer } from '../SmartComponents/HistoricalProfilesDropdown/redux/reducers';
 
+import MiddlewareListener from '@redhat-cloud-services/frontend-components-utilities/files/MiddlewareListener';
+import { notificationsMiddleware } from '@redhat-cloud-services/frontend-components-notifications';
+import promise  from 'redux-promise-middleware';
+export { default as reducers } from './reducers';
+
 let registry;
+let middlewareListener;
 
 export function init (...middleware) {
     if (registry) {
@@ -37,7 +43,18 @@ export function init (...middleware) {
         historicProfilesState: historicProfilesReducer
     });
 
-    return registry;
+    middlewareListener = new MiddlewareListener();
+
+    return getRegistry(
+        {}, [
+            middlewareListener.getMiddleware(),
+            promise,
+            notificationsMiddleware({
+                errorDescriptionKey: [ 'detail', 'stack' ]
+            }),
+            ...middleware
+        ]
+    );
 }
 
 export function getStore () {
@@ -46,4 +63,11 @@ export function getStore () {
 
 export function register (...args) {
     return registry.register(...args);
+}
+
+export function addNewListener ({ actionType, callback }) {
+    return middlewareListener.addNew({
+        on: actionType,
+        callback
+    });
 }

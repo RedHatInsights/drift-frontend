@@ -2,9 +2,9 @@ import React from 'react';
 import { DropdownDirection } from '@patternfly/react-core';
 import { mergeArraysByKey } from '@redhat-cloud-services/frontend-components-utilities/files/helpers';
 import { applyReducerHash } from '@redhat-cloud-services/frontend-components-utilities/files/ReducerRegistry';
-import HistoricalProfilesDropdown from '../HistoricalProfilesDropdown/HistoricalProfilesDropdown';
+import HistoricalProfilesDropdown from '../SmartComponents/HistoricalProfilesDropdown/HistoricalProfilesDropdown';
 
-import types from '../modules/types';
+import types from '../SmartComponents/modules/types';
 
 function selectedReducer(
     INVENTORY_ACTIONS, createBaselineModal, historicalProfiles, hasMultiSelect, hasHistoricalDropdown

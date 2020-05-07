@@ -7,8 +7,8 @@ import registryDecorator from '@redhat-cloud-services/frontend-components-utilit
 import { connect } from 'react-redux';
 import * as pfReactTable from '@patternfly/react-table';
 
-import selectedReducer from './reducers';
-import { addNewListener } from './';
+import selectedReducer from '../../store/reducers';
+import { addNewListener } from '../../store';
 import { compareActions } from '../modules';
 import { historicProfilesActions } from '../HistoricalProfilesDropdown/redux';
 
