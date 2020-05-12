@@ -49,7 +49,7 @@ export class DriftTable extends Component {
         const { fetchCompare } = this.props;
 
         if (this.systemIds.length > 0 || this.baselineIds.length > 0 || this.HSPIds.length > 0) {
-            fetchCompare(this.systemIds, this.baselineIds, this.HSPIds, this.referenceId);
+            fetchCompare(this.systemIds, this.baselineIds, this.HSPIds, this.props.referenceId);
         }
     }
 
@@ -58,7 +58,7 @@ export class DriftTable extends Component {
         let systemToMove;
 
         index = masterList.findIndex((item) => {
-            return item.id === this.referenceId;
+            return item.id === this.props.referenceId;
         });
 
         systemToMove = masterList.splice(index, 1);
@@ -119,7 +119,7 @@ export class DriftTable extends Component {
 
         masterList = baselines.concat(fullHistoricalSystemList);
 
-        if (this.referenceId) {
+        if (this.props.referenceId) {
             masterList = this.shiftReferenceToFront(masterList);
         }
 
@@ -149,12 +149,11 @@ export class DriftTable extends Component {
     }
 
     setReferenceId() {
-        this.referenceId = queryString.parse(this.props.location.search).reference_id;
+        this.props.updateReferenceId(queryString.parse(this.props.location.search).reference_id);
     }
 
     updateReferenceId = (id) => {
-        this.referenceId = id;
-        this.fetchCompare(this.systemIds, this.baselineIds, this.HSPIds, this.referenceId);
+        this.fetchCompare(this.systemIds, this.baselineIds, this.HSPIds, id);
     }
 
     formatDate(dateString) {
@@ -175,22 +174,23 @@ export class DriftTable extends Component {
             this.HSPIds = this.HSPIds.filter(id => id !== item.id);
         }
 
-        if (item.id === this.referenceId) {
+        if (item.id === this.props.referenceId) {
             this.referenceId = undefined;
+            this.props.updateReferenceId();
         }
 
         this.props.setSelectedHistoricProfiles(this.HSPIds);
-        this.fetchCompare(this.systemIds, this.baselineIds, this.HSPIds, this.referenceId);
+        this.fetchCompare(this.systemIds, this.baselineIds, this.HSPIds, this.props.referenceId);
     }
 
     fetchCompare(systemIds, baselineIds, HSPIds, referenceId) {
         this.systemIds = systemIds;
         this.baselineIds = baselineIds;
         this.HSPIds = HSPIds;
-        this.referenceId = referenceId;
 
         setHistory(this.props.history, systemIds, baselineIds, HSPIds, referenceId);
         this.props.setSelectedBaselines(this.baselineIds, 'CHECKBOX');
+        this.props.updateReferenceId(referenceId);
         this.props.fetchCompare(systemIds, baselineIds, HSPIds, referenceId);
     }
 
@@ -232,7 +232,7 @@ export class DriftTable extends Component {
                 return sys.id === item.id;
             });
 
-            if (this.referenceId) {
+            if (this.props.referenceId) {
                 if (system.state === 'DIFFERENT') {
                     className.push('highlight');
                     className.push('different-fact-cell');
@@ -312,7 +312,7 @@ export class DriftTable extends Component {
     renderSystemHeaders() {
         let row = [];
         let typeIcon = '';
-        let referenceId = this.referenceId;
+        let referenceId = this.props.referenceId;
         let updateReferenceId = this.updateReferenceId;
 
         this.masterList.forEach(item => {
@@ -475,7 +475,7 @@ export class DriftTable extends Component {
                 <AddSystemModal
                     selectedSystemIds={ systems.map(system => system.id) }
                     confirmModal={ this.fetchCompare }
-                    referenceId={ this.referenceId }
+                    referenceId={ this.props.referenceId }
                 />
                 { emptyState && !loading
                     ? <EmptyState
@@ -503,7 +503,8 @@ function mapStateToProps(state) {
         factSort: state.compareState.factSort,
         stateSort: state.compareState.stateSort,
         expandedRows: state.compareState.expandedRows,
-        emptyState: state.compareState.emptyState
+        emptyState: state.compareState.emptyState,
+        referenceId: state.compareState.referenceId
     };
 }
 
@@ -543,7 +544,9 @@ DriftTable.propTypes = {
     setSelectedBaselines: PropTypes.func,
     setSelectedHistoricProfiles: PropTypes.func,
     selectHistoricProfiles: PropTypes.func,
-    emptyState: PropTypes.bool
+    emptyState: PropTypes.bool,
+    updateReferenceId: PropTypes.func,
+    referenceId: PropTypes.string
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DriftTable));

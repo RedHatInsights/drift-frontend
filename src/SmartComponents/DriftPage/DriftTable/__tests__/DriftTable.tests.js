@@ -10,6 +10,7 @@ import { Skeleton } from '@redhat-cloud-services/frontend-components';
 
 import ConnectedDriftTable, { DriftTable } from '../DriftTable';
 import { compareReducerPayload, baselinesPayload, historicalProfilesPayload } from '../../../modules/__tests__/reducer.fixtures';
+import ReferenceSelector from '../ReferenceSelector/ReferenceSelector';
 
 global.insights = {
     chrome: {
@@ -44,7 +45,8 @@ describe('DriftTable', () => {
             expandedRows: [],
             setSelectedBaselines: jest.fn(),
             setSelectedHistoricProfiles: jest.fn(),
-            selectHistoricProfiles: jest.fn()
+            selectHistoricProfiles: jest.fn(),
+            updateReferenceId: jest.fn()
         };
     });
 
@@ -52,7 +54,7 @@ describe('DriftTable', () => {
         jest.clearAllMocks();
     });
 
-    it('should render correctly', () =>{
+    it('should render correctly', () => {
         const wrapper = shallow(
             <DriftTable { ...props }/>
         );
@@ -63,6 +65,7 @@ describe('DriftTable', () => {
 describe('ConnectedDriftTable', () => {
     let initialState;
     let mockStore;
+    let updateReferenceId;
 
     beforeEach(() => {
         mockStore = configureStore();
@@ -83,8 +86,9 @@ describe('ConnectedDriftTable', () => {
             },
             addSystemModalState: { addSystemModalOpened: false },
             baselinesTableState: { checkboxTable: {}},
-            historicProfilesState: {}
+            historicProfilesState: { selectedHSPIds: []}
         };
+        updateReferenceId = jest.fn();
     });
 
     it('should render correctly', () => {
@@ -93,7 +97,7 @@ describe('ConnectedDriftTable', () => {
         const wrapper = mount(
             <MemoryRouter keyLength={ 0 }>
                 <Provider store={ store }>
-                    <ConnectedDriftTable />
+                    <ConnectedDriftTable updateReferenceId={ updateReferenceId } />
                 </Provider>
             </MemoryRouter>
         );
@@ -115,7 +119,7 @@ describe('ConnectedDriftTable', () => {
         const wrapper = mount(
             <MemoryRouter keyLength={ 0 }>
                 <Provider store={ store }>
-                    <ConnectedDriftTable />
+                    <ConnectedDriftTable updateReferenceId={ updateReferenceId } />
                 </Provider>
             </MemoryRouter>
         );
@@ -133,7 +137,7 @@ describe('ConnectedDriftTable', () => {
         const wrapper = mount(
             <MemoryRouter keyLength={ 0 }>
                 <Provider store={ store }>
-                    <ConnectedDriftTable />
+                    <ConnectedDriftTable updateReferenceId={ updateReferenceId } />
                 </Provider>
             </MemoryRouter>
         );
@@ -142,5 +146,32 @@ describe('ConnectedDriftTable', () => {
         expect(wrapper.find(Skeleton)).toHaveLength(30);
         expect(wrapper.find(EmptyState)).toHaveLength(0);
         expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('should call updateReferenceId with new reference id', () => {
+        initialState.compareState.fullCompareData = compareReducerPayload.facts;
+        initialState.compareState.systems = compareReducerPayload.systems;
+        initialState.compareState.baselines = baselinesPayload;
+        initialState.compareState.historicalProfiles = historicalProfilesPayload;
+        initialState.compareState.emptyState = false;
+        initialState.compareState.loading = false;
+        initialState.historicProfilesState.selectedHSPIds = [
+            '9bbbefcc-8f23-4d97-07f2-142asdl234e8', 'edmk59dj-fn42-dfjk-alv3-bmn2854mnn27'
+        ];
+
+        const store = mockStore(initialState);
+
+        const wrapper = mount(
+            <MemoryRouter keyLength={ 0 }>
+                <Provider store={ store }>
+                    <ConnectedDriftTable updateReferenceId={ updateReferenceId } />
+                </Provider>
+            </MemoryRouter>
+        );
+
+        wrapper.find(ReferenceSelector).first().simulate('click');
+        expect(updateReferenceId).toHaveBeenCalledWith('9bbbefcc-8f23-4d97-07f2-142asdl234e9');
+        wrapper.find(ReferenceSelector).first().simulate('click');
+        expect(updateReferenceId).toHaveBeenCalledWith(undefined);
     });
 });

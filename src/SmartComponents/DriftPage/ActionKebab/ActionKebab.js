@@ -19,12 +19,13 @@ class ActionKebab extends Component {
     }
 
     removeSystemsSelect() {
-        const { history, toggleKebab, removeSystems, clearSelectedBaselines, selectHistoricProfiles, selectedHSPIds } = this.props;
+        const { history, toggleKebab, removeSystems, clearSelectedBaselines, selectHistoricProfiles, selectedHSPIds, updateReferenceId } = this.props;
 
         toggleKebab();
         removeSystems();
         clearSelectedBaselines('CHECKBOX');
         selectHistoricProfiles(selectedHSPIds);
+        updateReferenceId();
         setHistory(history, []);
     }
 
@@ -53,7 +54,8 @@ ActionKebab.propTypes = {
     kebabOpened: PropTypes.bool,
     history: PropTypes.object,
     selectedHSPIds: PropTypes.array,
-    selectHistoricProfiles: PropTypes.func
+    selectHistoricProfiles: PropTypes.func,
+    updateReferenceId: PropTypes.func
 };
 
 function mapStateToProps(state) {

@@ -6,6 +6,7 @@ const initialState = {
     fullCompareData: [],
     filteredCompareData: [],
     sortedFilteredFacts: [],
+    referenceId: undefined,
     systems: [],
     baselines: [],
     historicalProfiles: [],
@@ -169,6 +170,11 @@ export function compareReducer(state = initialState, action) {
                 filteredCompareData: paginatedFacts,
                 sortedFilteredFacts: sortedFacts,
                 totalFacts: filteredFacts.length
+            };
+        case `${types.UPDATE_REFERENCE_ID}`:
+            return {
+                ...state,
+                referenceId: action.payload
             };
 
         default:

@@ -91,7 +91,7 @@ export class BaselinesTable extends Component {
             rowData.push(<div><Skeleton size={ SkeletonSize.md } /></div>);
         }
 
-        for (let i = 0; i < 5; i += 1) {
+        for (let i = 0; i < 10; i += 1) {
             rows.push(rowData);
         }
 
