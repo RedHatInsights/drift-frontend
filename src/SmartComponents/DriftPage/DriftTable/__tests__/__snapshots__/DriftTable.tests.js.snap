@@ -48,7 +48,23 @@ exports[`ConnectedDriftTable should render correctly 1`] = `
         }
       }
     >
-      <withRouter(Connect(DriftTable))>
+      <withRouter(Connect(DriftTable))
+        updateReferenceId={
+          [MockFunction] {
+            "calls": Array [
+              Array [
+                undefined,
+              ],
+            ],
+            "results": Array [
+              Object {
+                "type": "return",
+                "value": undefined,
+              },
+            ],
+          }
+        }
+      >
         <Connect(DriftTable)
           history={
             Object {
@@ -94,6 +110,21 @@ exports[`ConnectedDriftTable should render correctly 1`] = `
               "params": Object {},
               "path": "/",
               "url": "/",
+            }
+          }
+          updateReferenceId={
+            [MockFunction] {
+              "calls": Array [
+                Array [
+                  undefined,
+                ],
+              ],
+              "results": Array [
+                Object {
+                  "type": "return",
+                  "value": undefined,
+                },
+              ],
             }
           }
         >
@@ -158,6 +189,21 @@ exports[`ConnectedDriftTable should render correctly 1`] = `
             systems={Array []}
             toggleFactSort={[Function]}
             toggleStateSort={[Function]}
+            updateReferenceId={
+              [MockFunction] {
+                "calls": Array [
+                  Array [
+                    undefined,
+                  ],
+                ],
+                "results": Array [
+                  Object {
+                    "type": "return",
+                    "value": undefined,
+                  },
+                ],
+              }
+            }
           >
             <withCookies(Connect(AddSystemModal))
               confirmModal={[Function]}
@@ -208,6 +254,7 @@ exports[`ConnectedDriftTable should render correctly 1`] = `
                     historicalProfiles={Array []}
                     selectActiveTab={[Function]}
                     selectBaseline={[Function]}
+                    selectedHSPIds={Array []}
                     selectedSystemIds={Array []}
                     systems={Array []}
                     toggleModal={[Function]}
@@ -461,7 +508,23 @@ exports[`ConnectedDriftTable should render loading rows 1`] = `
         }
       }
     >
-      <withRouter(Connect(DriftTable))>
+      <withRouter(Connect(DriftTable))
+        updateReferenceId={
+          [MockFunction] {
+            "calls": Array [
+              Array [
+                undefined,
+              ],
+            ],
+            "results": Array [
+              Object {
+                "type": "return",
+                "value": undefined,
+              },
+            ],
+          }
+        }
+      >
         <Connect(DriftTable)
           history={
             Object {
@@ -507,6 +570,21 @@ exports[`ConnectedDriftTable should render loading rows 1`] = `
               "params": Object {},
               "path": "/",
               "url": "/",
+            }
+          }
+          updateReferenceId={
+            [MockFunction] {
+              "calls": Array [
+                Array [
+                  undefined,
+                ],
+              ],
+              "results": Array [
+                Object {
+                  "type": "return",
+                  "value": undefined,
+                },
+              ],
             }
           }
         >
@@ -571,6 +649,21 @@ exports[`ConnectedDriftTable should render loading rows 1`] = `
             systems={Array []}
             toggleFactSort={[Function]}
             toggleStateSort={[Function]}
+            updateReferenceId={
+              [MockFunction] {
+                "calls": Array [
+                  Array [
+                    undefined,
+                  ],
+                ],
+                "results": Array [
+                  Object {
+                    "type": "return",
+                    "value": undefined,
+                  },
+                ],
+              }
+            }
           >
             <withCookies(Connect(AddSystemModal))
               confirmModal={[Function]}
@@ -627,6 +720,7 @@ exports[`ConnectedDriftTable should render loading rows 1`] = `
                     historicalProfiles={Array []}
                     selectActiveTab={[Function]}
                     selectBaseline={[Function]}
+                    selectedHSPIds={Array []}
                     selectedSystemIds={Array []}
                     systems={Array []}
                     toggleModal={[Function]}
@@ -1222,7 +1316,23 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
         }
       }
     >
-      <withRouter(Connect(DriftTable))>
+      <withRouter(Connect(DriftTable))
+        updateReferenceId={
+          [MockFunction] {
+            "calls": Array [
+              Array [
+                undefined,
+              ],
+            ],
+            "results": Array [
+              Object {
+                "type": "return",
+                "value": undefined,
+              },
+            ],
+          }
+        }
+      >
         <Connect(DriftTable)
           history={
             Object {
@@ -1268,6 +1378,21 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
               "params": Object {},
               "path": "/",
               "url": "/",
+            }
+          }
+          updateReferenceId={
+            [MockFunction] {
+              "calls": Array [
+                Array [
+                  undefined,
+                ],
+              ],
+              "results": Array [
+                Object {
+                  "type": "return",
+                  "value": undefined,
+                },
+              ],
             }
           }
         >
@@ -1424,6 +1549,21 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
             }
             toggleFactSort={[Function]}
             toggleStateSort={[Function]}
+            updateReferenceId={
+              [MockFunction] {
+                "calls": Array [
+                  Array [
+                    undefined,
+                  ],
+                ],
+                "results": Array [
+                  Object {
+                    "type": "return",
+                    "value": undefined,
+                  },
+                ],
+              }
+            }
           >
             <withCookies(Connect(AddSystemModal))
               confirmModal={[Function]}
@@ -1524,6 +1664,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                     }
                     selectActiveTab={[Function]}
                     selectBaseline={[Function]}
+                    selectedHSPIds={Array []}
                     selectedSystemIds={
                       Array [
                         "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
@@ -2175,6 +2316,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                   }
                                 }
                                 selectHistoricProfiles={[Function]}
+                                selectedHSPIds={Array []}
                                 system={
                                   Object {
                                     "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
@@ -2759,6 +2901,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                   }
                                 }
                                 selectHistoricProfiles={[Function]}
+                                selectedHSPIds={Array []}
                                 system={
                                   Object {
                                     "display_name": "system1",
@@ -3344,6 +3487,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                   }
                                 }
                                 selectHistoricProfiles={[Function]}
+                                selectedHSPIds={Array []}
                                 system={
                                   Object {
                                     "display_name": "system1",
@@ -3927,6 +4071,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                   }
                                 }
                                 selectHistoricProfiles={[Function]}
+                                selectedHSPIds={Array []}
                                 system={
                                   Object {
                                     "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",

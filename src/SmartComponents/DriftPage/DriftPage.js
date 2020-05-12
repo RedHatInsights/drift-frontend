@@ -31,7 +31,7 @@ export class DriftPage extends Component {
     }
 
     render() {
-        const { loading, emptyState, updatePagination } = this.props;
+        const { loading, emptyState, updatePagination, updateReferenceId } = this.props;
 
         if (this.props.error.detail) {
             this.props.toggleErrorAlert();
@@ -64,7 +64,9 @@ export class DriftPage extends Component {
                                                     <ExportCSVButton />
                                                 </ToolbarItem>
                                                 <ToolbarItem>
-                                                    <ActionKebab />
+                                                    <ActionKebab
+                                                        updateReferenceId={ updateReferenceId }
+                                                    />
                                                 </ToolbarItem>
                                             </ToolbarGroup>
                                             <ToolbarGroup className="pf-c-pagination">
@@ -86,7 +88,9 @@ export class DriftPage extends Component {
                                     </React.Fragment>
                                     : null
                                 }
-                                <DriftTable />
+                                <DriftTable
+                                    updateReferenceId={ updateReferenceId }
+                                />
                                 { !emptyState && !loading ?
                                     <Toolbar className="drift-toolbar">
                                         <ToolbarGroup className="pf-c-pagination">
@@ -115,14 +119,16 @@ DriftPage.propTypes = {
     toggleErrorAlert: PropTypes.func,
     clearSelectedBaselines: PropTypes.func,
     emptyState: PropTypes.bool,
-    updatePagination: PropTypes.func
+    updatePagination: PropTypes.func,
+    updateReferenceId: PropTypes.func
 };
 
 function mapDispatchToProps(dispatch) {
     return {
         toggleErrorAlert: () => dispatch(errorAlertActions.toggleErrorAlert()),
         clearSelectedBaselines: (tableId) => dispatch(baselinesTableActions.clearSelectedBaselines(tableId)),
-        updatePagination: (pagination) => dispatch(compareActions.updatePagination(pagination))
+        updatePagination: (pagination) => dispatch(compareActions.updatePagination(pagination)),
+        updateReferenceId: (id) => dispatch(compareActions.updateReferenceId(id))
     };
 }
 

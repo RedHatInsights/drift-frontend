@@ -88,6 +88,13 @@ function expandRow(factName) {
     };
 }
 
+function updateReferenceId(id) {
+    return {
+        type: types.UPDATE_REFERENCE_ID,
+        payload: id
+    };
+}
+
 export default {
     fetchCompare,
     revertCompareData,
@@ -99,5 +106,6 @@ export default {
     filterByFact,
     updatePagination,
     exportToCSV,
-    expandRow
+    expandRow,
+    updateReferenceId
 };
