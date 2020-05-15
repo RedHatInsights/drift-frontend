@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import debounce from 'lodash/debounce';
 
-import { Toolbar, ToolbarGroup, ToolbarItem } from '@patternfly/react-core';
+import { DropdownItem, Toolbar, ToolbarGroup, ToolbarItem } from '@patternfly/react-core';
 import { BulkSelect, ConditionalFilter } from '@redhat-cloud-services/frontend-components';
 
 import CreateBaselineButton from '../../BaselinesPage/CreateBaselineButton/CreateBaselineButton';
 import ExportCSVButton from '../../BaselinesPage/ExportCSVButton/ExportCSVButton';
-import BaselinesKebab from '../../BaselinesPage/BaselinesKebab/BaselinesKebab';
+import ActionKebab from '../../DriftPage/ActionKebab/ActionKebab';
+import DeleteBaselinesModal from '../../BaselinesPage/DeleteBaselinesModal/DeleteBaselinesModal';
 import BaselinesFilterChips from '../BaselinesFilterChips/BaselinesFilterChips';
 
 export class BaselinesToolbar extends Component {
@@ -15,6 +16,7 @@ export class BaselinesToolbar extends Component {
         super(props);
         this.state = {
             nameSearch: '',
+            deleteModalOpened: false,
             bulkSelectItems: [
                 {
                     title: 'Select all',
@@ -33,14 +35,37 @@ export class BaselinesToolbar extends Component {
     }
 
     async clearFilters() {
-        const { clearSort, fetchWithParams } = this.props;
+        const { onSearch } = this.props;
 
         this.setState({
             nameSearch: ''
         });
 
-        await clearSort();
-        fetchWithParams();
+        onSearch('');
+    }
+
+    buildDropdownList = () => {
+        const { isDisabled } = this.props;
+        let actionKebabItems = [];
+
+        actionKebabItems.push(<DropdownItem
+            key="multi-delete"
+            component="button"
+            onClick={ this.toggleModal }
+            isDisabled={ isDisabled }
+        >
+            Delete baselines
+        </DropdownItem>);
+
+        return actionKebabItems;
+    }
+
+    toggleModal = () => {
+        const { deleteModalOpened } = this.state;
+
+        this.setState({
+            deleteModalOpened: !deleteModalOpened
+        });
     }
 
     setTextFilter = (value) => {
@@ -58,13 +83,21 @@ export class BaselinesToolbar extends Component {
     }, 250)
 
     render() {
-        const { clearSort, createButton, exportButton, fetchWithParams,
+        const { createButton, exportButton, fetchWithParams,
             hasMultiSelect, kebab, onBulkSelect, tableData, tableId } = this.props;
-        const { bulkSelectItems, nameSearch } = this.state;
+        const { bulkSelectItems, deleteModalOpened, nameSearch } = this.state;
         let selected = tableData.filter(baseline => baseline.selected === true).length;
 
         return (
             <React.Fragment>
+                { deleteModalOpened
+                    ? <DeleteBaselinesModal
+                        modalOpened={ true }
+                        tableId={ tableId }
+                        fetchWithParams={ fetchWithParams }
+                    />
+                    : null
+                }
                 <Toolbar className="drift-toolbar">
                     { hasMultiSelect
                         ? <ToolbarGroup>
@@ -104,12 +137,7 @@ export class BaselinesToolbar extends Component {
                         }
                         { kebab ?
                             <ToolbarItem>
-                                <BaselinesKebab
-                                    exportType='baseline list'
-                                    tableId={ tableId }
-                                    fetchWithParams={ fetchWithParams }
-                                    clearFilters={ clearSort || nameSearch !== '' ? this.clearFilters : false }
-                                />
+                                <ActionKebab dropdownItems={ this.buildDropdownList() } />
                             </ToolbarItem>
                             : null
                         }
@@ -123,6 +151,11 @@ export class BaselinesToolbar extends Component {
                                     nameSearch={ nameSearch }
                                     clearTextFilter={ this.clearTextFilter }
                                 />
+                            </ToolbarItem>
+                            <ToolbarItem>
+                                <a onClick={ () => this.clearFilters() } >
+                                    Clear filters
+                                </a>
                             </ToolbarItem>
                         </ToolbarGroup>
                     </Toolbar>
@@ -143,7 +176,9 @@ BaselinesToolbar.propTypes = {
     tableData: PropTypes.array,
     onBulkSelect: PropTypes.func,
     hasMultiSelect: PropTypes.bool,
-    clearSort: PropTypes.func
+    clearSort: PropTypes.func,
+    selectedBaselineIds: PropTypes.array,
+    isDisabled: PropTypes.bool
 };
 
 export default BaselinesToolbar;

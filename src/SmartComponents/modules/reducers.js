@@ -36,12 +36,31 @@ export function compareReducer(state = initialState, action) {
     let errorObject = {};
     let response;
     let updatedStateFilters = [];
+    let newStateFilters;
 
     switch (action.type) {
-        case types.CLEAR_STATE:
-            state.stateFilters.forEach(function(stateFilter) { stateFilter.selected = true; });
+        case types.CLEAR_COMPARISON:
             return {
-                ...initialState
+                ...initialState,
+                stateFilters: state.stateFilters,
+                factFilter: state.factFilter,
+                factSort: state.factSort,
+                stateSort: state.stateSort,
+                perPage: state.perPage
+            };
+        case types.CLEAR_COMPARISON_FILTERS:
+            newStateFilters = [ ...state.stateFilters ];
+            newStateFilters.forEach(function(stateFilter) { stateFilter.selected = false; });
+            filteredFacts = reducerHelpers.filterCompareData(state.fullCompareData, newStateFilters, initialState.factFilter);
+            sortedFacts = reducerHelpers.sortData(filteredFacts, state.factSort, state.stateSort);
+            return {
+                ...state,
+                filteredCompareData: filteredFacts,
+                sortedFilteredFacts: sortedFacts,
+                stateFilters: newStateFilters,
+                factFilter: '',
+                totalFacts: filteredFacts.length,
+                page: 1
             };
         case types.REVERT_COMPARE_DATA:
             return {

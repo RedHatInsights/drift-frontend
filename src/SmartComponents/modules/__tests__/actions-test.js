@@ -48,9 +48,15 @@ describe('compare actions', () => {
         });
     });
 
-    it('handles clearState', () => {
-        expect(compareActions.clearState()).toEqual({
-            type: types.CLEAR_STATE
+    it('handles clearComparison', () => {
+        expect(compareActions.clearComparison()).toEqual({
+            type: types.CLEAR_COMPARISON
+        });
+    });
+
+    it('handles clearComparisonFilters', () => {
+        expect(compareActions.clearComparisonFilters()).toEqual({
+            type: types.CLEAR_COMPARISON_FILTERS
         });
     });
 

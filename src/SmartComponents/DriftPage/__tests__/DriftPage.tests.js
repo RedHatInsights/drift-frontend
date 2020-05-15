@@ -29,7 +29,12 @@ describe('DriftPage', () => {
             systems: [],
             baselines: [],
             clearSelectedBaselines: jest.fn(),
-            toggleErrorAlert: jest.fn()
+            toggleErrorAlert: jest.fn(),
+            clearComparison: jest.fn(),
+            clearComparisonFilters: jest.fn(),
+            selectHistoricProfiles: jest.fn(),
+            updateReferenceId: jest.fn(),
+            history: { push: jest.fn() }
         };
     });
 
@@ -38,6 +43,22 @@ describe('DriftPage', () => {
             <DriftPage { ...props } />
         );
         expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('should call clearComparisonFilters', () => {
+        const wrapper = shallow(
+            <DriftPage { ...props } />
+        );
+        wrapper.instance().clearFilters();
+        expect(props.clearComparisonFilters).toHaveBeenCalled();
+    });
+
+    it('should call clearComparison', () => {
+        const wrapper = shallow(
+            <DriftPage { ...props } />
+        );
+        wrapper.instance().clearComparison();
+        expect(props.clearComparison).toHaveBeenCalled();
     });
 });
 
@@ -77,6 +98,9 @@ describe('ConnectedDriftPage', () => {
             },
             historicProfilesState: {
                 selectedHSPIds: []
+            },
+            compareActions: {
+                clearComparisonFilters: jest.fn()
             }
         };
     });
@@ -122,5 +146,21 @@ describe('ConnectedDriftPage', () => {
         );
 
         expect(wrapper.find('.drift-toolbar')).toHaveLength(6);
+    });
+
+    it('should toggle kebab', () => {
+        initialState.compareState.systems = compareReducerPayload.systems;
+        initialState.compareState.baselines = baselinesPayload;
+        const store = mockStore(initialState);
+        const wrapper = mount(
+            <MemoryRouter keyLength={ 0 }>
+                <Provider store={ store }>
+                    <ConnectedDriftPage />
+                </Provider>
+            </MemoryRouter>
+        );
+
+        wrapper.find('.pf-c-dropdown__toggle').at(1).simulate('click');
+        expect(wrapper.find('[id="action-kebab"]').first().prop('isOpen')).toBe(true);
     });
 });

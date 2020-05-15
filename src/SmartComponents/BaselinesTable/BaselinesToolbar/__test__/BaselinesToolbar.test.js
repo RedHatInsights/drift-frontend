@@ -55,7 +55,8 @@ describe('jest-tests', () => {
                 kebab: true,
                 tableData: baselinesTableFixtures.baselineTableDataRows,
                 tableId: 'CHECKBOX',
-                hasMultiSelect: true
+                hasMultiSelect: true,
+                onSearch: jest.fn()
             };
         });
 
@@ -65,6 +66,41 @@ describe('jest-tests', () => {
             );
 
             expect(toJson(wrapper)).toMatchSnapshot();
+        });
+
+        it('should call onSearch with clear filters', () => {
+            const wrapper = shallow(
+                <BaselinesToolbar
+                    { ...props }
+                />
+            );
+
+            wrapper.instance().clearFilters();
+            expect(props.onSearch).toHaveBeenCalled();
+        });
+
+        it('should toggle modal', () => {
+            const wrapper = shallow(
+                <BaselinesToolbar
+                    { ...props }
+                />
+            );
+
+            wrapper.setState({ deleteModalOpened: false });
+            wrapper.instance().toggleModal();
+            expect(wrapper.state().deleteModalOpened).toBe(true);
+        });
+
+        it('should clear text filter', () => {
+            const wrapper = shallow(
+                <BaselinesToolbar
+                    { ...props }
+                />
+            );
+
+            wrapper.setState({ nameSearch: 'something' });
+            wrapper.instance().clearTextFilter();
+            expect(wrapper.state().nameSearch).toBe('');
         });
     });
 
@@ -163,28 +199,6 @@ describe('jest-tests', () => {
             wrapper.setState({ nameSearch: 'something' });
             wrapper.find('input').at(1).simulate('change', 'something-else');
             expect(wrapper.state('nameSearch')).toBe('something');
-        });
-
-        it('should call clearFilters', () => {
-            const store = mockStore(initialState);
-            const clearSort = jest.fn();
-            const fetchWithParams = jest.fn();
-
-            wrapper = mount(
-                <MemoryRouter keyLength={ 0 }>
-                    <Provider store={ store }>
-                        <ConnectedBaselinesToolbar
-                            clearSort={ clearSort }
-                            fetchWithParms={ fetchWithParams }
-                            { ...props }
-                        />
-                    </Provider>
-                </MemoryRouter>
-            );
-
-            wrapper.find('.pf-c-dropdown__toggle').at(1).simulate('click');
-            wrapper.find('.pf-c-dropdown__menu-item').at(1).simulate('click');
-            expect(clearSort).toHaveBeenCalled();
         });
     });
 });

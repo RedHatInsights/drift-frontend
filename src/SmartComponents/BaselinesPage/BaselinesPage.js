@@ -73,7 +73,7 @@ export class BaselinesPage extends Component {
     }
 
     renderTable() {
-        const { baselineTableData, loading, createBaselineModalOpened, clearEditBaselineData } = this.props;
+        const { baselineTableData, loading, createBaselineModalOpened, clearEditBaselineData, selectedBaselineIds } = this.props;
         const { columns } = this.state;
 
         clearEditBaselineData();
@@ -94,6 +94,7 @@ export class BaselinesPage extends Component {
                         onClick={ this.fetchBaseline }
                         createBaselineModalOpened={ createBaselineModalOpened }
                         onBulkSelect={ this.onBulkSelect }
+                        selectedBaselineIds={ selectedBaselineIds }
                     />
                 </div>
             </CardBody>
@@ -160,7 +161,8 @@ BaselinesPage.propTypes = {
     history: PropTypes.object,
     baselineError: PropTypes.object,
     revertBaselineFetch: PropTypes.func,
-    clearEditBaselineData: PropTypes.func
+    clearEditBaselineData: PropTypes.func,
+    selectedBaselineIds: PropTypes.array
 };
 
 function mapStateToProps(state) {
@@ -169,7 +171,8 @@ function mapStateToProps(state) {
         emptyState: state.baselinesTableState.checkboxTable.emptyState,
         baselineTableData: state.baselinesTableState.checkboxTable.baselineTableData,
         createBaselineModalOpened: state.createBaselineModalState.createBaselineModalOpened,
-        baselineError: state.baselinesTableState.checkboxTable.baselineError
+        baselineError: state.baselinesTableState.checkboxTable.baselineError,
+        selectedBaselineIds: state.baselinesTableState.checkboxTable.selectedBaselineIds
     };
 }
 

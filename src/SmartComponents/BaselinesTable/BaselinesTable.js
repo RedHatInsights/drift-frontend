@@ -37,16 +37,10 @@ export class BaselinesTable extends Component {
         baselinesReducerHelpers.fetchBaselines(tableId, fetchBaselines);
     }
 
-    clearSort = () => {
-        this.setState({
-            sortBy: {
-                index: 1,
-                direction: 'asc'
-            },
-            search: undefined,
-            orderBy: 'display_name',
-            orderHow: 'ASC'
-        });
+    isDisabled = () => {
+        const { selectedBaselineIds } = this.props;
+
+        return selectedBaselineIds.length < 1;
     }
 
     fetchWithParams = (fetchParams) => {
@@ -240,8 +234,7 @@ export class BaselinesTable extends Component {
     }
 
     render() {
-        const { kebab, createButton, exportButton, hasMultiSelect, onBulkSelect, tableData, tableId } = this.props;
-        const { orderBy, orderHow } = this.state;
+        const { kebab, createButton, exportButton, hasMultiSelect, onBulkSelect, selectedBaselineIds, tableData, tableId } = this.props;
 
         return (
             <React.Fragment>
@@ -255,7 +248,8 @@ export class BaselinesTable extends Component {
                     tableData={ tableData }
                     onBulkSelect={ onBulkSelect }
                     hasMultiSelect={ hasMultiSelect }
-                    clearSort={ orderBy !== 'display_name' || orderHow !== 'ASC' ? this.clearSort : null }
+                    selectedBaselineIds={ selectedBaselineIds }
+                    isDisabled={ this.isDisabled() }
                 />
                 { this.renderTable() }
             </React.Fragment>
@@ -275,7 +269,8 @@ BaselinesTable.propTypes = {
     exportButton: PropTypes.bool,
     onSelect: PropTypes.func,
     columns: PropTypes.array,
-    onBulkSelect: PropTypes.func
+    onBulkSelect: PropTypes.func,
+    selectedBaselineIds: PropTypes.array
 };
 
 function mapDispatchToProps(dispatch) {

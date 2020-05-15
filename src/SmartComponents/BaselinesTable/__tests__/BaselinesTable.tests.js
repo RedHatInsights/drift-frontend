@@ -26,7 +26,8 @@ describe('BaselinesTable', () => {
                 { title: 'Name', transforms: [ sortable ]},
                 { title: 'Last updated', transforms: [ sortable ]},
                 { title: '' }
-            ]
+            ],
+            selectedBaselineIds: []
         };
     });
 
@@ -103,7 +104,8 @@ describe('ConnectedBaselinesTable', () => {
                 { title: 'Name', transforms: [ sortable ]},
                 { title: 'Last updated', transforms: [ sortable ]},
                 { title: '' }
-            ]
+            ],
+            selectedBaselineIds: [ '1234' ]
         };
     });
 

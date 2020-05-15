@@ -98,6 +98,8 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
           }
         >
           <DriftPage
+            clearComparison={[Function]}
+            clearComparisonFilters={[Function]}
             clearSelectedBaselines={[Function]}
             error={Object {}}
             history={
@@ -147,6 +149,8 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                 "url": "/",
               }
             }
+            selectHistoricProfiles={[Function]}
+            selectedHSPIds={Array []}
             toggleErrorAlert={[Function]}
             updatePagination={[Function]}
             updateReferenceId={[Function]}
@@ -830,139 +834,101 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                       <div
                                         className="pf-l-toolbar__item"
                                       >
-                                        <withRouter(Connect(ActionKebab))
-                                          updateReferenceId={[Function]}
+                                        <ActionKebab
+                                          dropdownItems={
+                                            Array [
+                                              <DropdownItem
+                                                component="button"
+                                                onClick={[Function]}
+                                              >
+                                                Clear all comparisons
+                                              </DropdownItem>,
+                                            ]
+                                          }
                                         >
-                                          <Connect(ActionKebab)
-                                            history={
+                                          <Dropdown
+                                            aria-label="action-kebab"
+                                            dropdownItems={
+                                              Array [
+                                                <DropdownItem
+                                                  component="button"
+                                                  onClick={[Function]}
+                                                >
+                                                  Clear all comparisons
+                                                </DropdownItem>,
+                                              ]
+                                            }
+                                            id="action-kebab"
+                                            isOpen={false}
+                                            isPlain={true}
+                                            style={
                                               Object {
-                                                "action": "POP",
-                                                "block": [Function],
-                                                "canGo": [Function],
-                                                "createHref": [Function],
-                                                "entries": Array [
-                                                  Object {
-                                                    "hash": "",
-                                                    "pathname": "/",
-                                                    "search": "",
-                                                    "state": undefined,
-                                                  },
-                                                ],
-                                                "go": [Function],
-                                                "goBack": [Function],
-                                                "goForward": [Function],
-                                                "index": 0,
-                                                "length": 1,
-                                                "listen": [Function],
-                                                "location": Object {
-                                                  "hash": "",
-                                                  "pathname": "/",
-                                                  "search": "",
-                                                  "state": undefined,
-                                                },
-                                                "push": [Function],
-                                                "replace": [Function],
+                                                "float": "left",
                                               }
                                             }
-                                            location={
-                                              Object {
-                                                "hash": "",
-                                                "pathname": "/",
-                                                "search": "",
-                                                "state": undefined,
-                                              }
+                                            toggle={
+                                              <KebabToggle
+                                                onToggle={[Function]}
+                                              />
                                             }
-                                            match={
-                                              Object {
-                                                "isExact": true,
-                                                "params": Object {},
-                                                "path": "/",
-                                                "url": "/",
-                                              }
-                                            }
-                                            updateReferenceId={[Function]}
                                           >
-                                            <ActionKebab
-                                              clearSelectedBaselines={[Function]}
-                                              history={
+                                            <Component
+                                              aria-label="action-kebab"
+                                              dropdownItems={
+                                                Array [
+                                                  <DropdownItem
+                                                    component="button"
+                                                    onClick={[Function]}
+                                                  >
+                                                    Clear all comparisons
+                                                  </DropdownItem>,
+                                                ]
+                                              }
+                                              id="action-kebab"
+                                              isOpen={false}
+                                              isPlain={true}
+                                              style={
                                                 Object {
-                                                  "action": "POP",
-                                                  "block": [Function],
-                                                  "canGo": [Function],
-                                                  "createHref": [Function],
-                                                  "entries": Array [
-                                                    Object {
-                                                      "hash": "",
-                                                      "pathname": "/",
-                                                      "search": "",
-                                                      "state": undefined,
-                                                    },
-                                                  ],
-                                                  "go": [Function],
-                                                  "goBack": [Function],
-                                                  "goForward": [Function],
-                                                  "index": 0,
-                                                  "length": 1,
-                                                  "listen": [Function],
-                                                  "location": Object {
-                                                    "hash": "",
-                                                    "pathname": "/",
-                                                    "search": "",
-                                                    "state": undefined,
-                                                  },
-                                                  "push": [Function],
-                                                  "replace": [Function],
+                                                  "float": "left",
                                                 }
                                               }
-                                              location={
-                                                Object {
-                                                  "hash": "",
-                                                  "pathname": "/",
-                                                  "search": "",
-                                                  "state": undefined,
-                                                }
+                                              toggle={
+                                                <KebabToggle
+                                                  onToggle={[Function]}
+                                                />
                                               }
-                                              match={
-                                                Object {
-                                                  "isExact": true,
-                                                  "params": Object {},
-                                                  "path": "/",
-                                                  "url": "/",
-                                                }
-                                              }
-                                              removeSystems={[Function]}
-                                              selectHistoricProfiles={[Function]}
-                                              selectedHSPIds={Array []}
-                                              toggleKebab={[Function]}
-                                              updateReferenceId={[Function]}
                                             >
-                                              <Dropdown
-                                                aria-label="action-kebab"
-                                                dropdownItems={
-                                                  Array [
-                                                    <DropdownItem
-                                                      component="button"
-                                                      onClick={[Function]}
-                                                    >
-                                                      Clear all comparisons
-                                                    </DropdownItem>,
-                                                  ]
-                                                }
-                                                id="action-kebab"
-                                                isPlain={true}
-                                                style={
+                                              <ComponentWithOuia
+                                                component={[Function]}
+                                                componentProps={
                                                   Object {
-                                                    "float": "left",
+                                                    "aria-label": "action-kebab",
+                                                    "dropdownItems": Array [
+                                                      <DropdownItem
+                                                        component="button"
+                                                        onClick={[Function]}
+                                                      >
+                                                        Clear all comparisons
+                                                      </DropdownItem>,
+                                                    ],
+                                                    "id": "action-kebab",
+                                                    "isOpen": false,
+                                                    "isPlain": true,
+                                                    "style": Object {
+                                                      "float": "left",
+                                                    },
+                                                    "toggle": <KebabToggle
+                                                      onToggle={[Function]}
+                                                    />,
                                                   }
                                                 }
-                                                toggle={
-                                                  <KebabToggle
-                                                    onToggle={[Function]}
-                                                  />
-                                                }
+                                                consumerContext={null}
                                               >
-                                                <Component
+                                                <DropdownWithContext
                                                   aria-label="action-kebab"
+                                                  autoFocus={true}
+                                                  className=""
+                                                  direction="down"
                                                   dropdownItems={
                                                     Array [
                                                       <DropdownItem
@@ -974,7 +940,18 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                     ]
                                                   }
                                                   id="action-kebab"
+                                                  isGrouped={false}
+                                                  isOpen={false}
                                                   isPlain={true}
+                                                  onSelect={[Function]}
+                                                  ouiaComponentType="Dropdown"
+                                                  ouiaContext={
+                                                    Object {
+                                                      "isOuia": false,
+                                                      "ouiaId": null,
+                                                    }
+                                                  }
+                                                  position="left"
                                                   style={
                                                     Object {
                                                       "float": "left",
@@ -986,202 +963,96 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                     />
                                                   }
                                                 >
-                                                  <ComponentWithOuia
-                                                    component={[Function]}
-                                                    componentProps={
+                                                  <div
+                                                    aria-label="action-kebab"
+                                                    className="pf-c-dropdown"
+                                                    id="action-kebab"
+                                                    style={
                                                       Object {
-                                                        "aria-label": "action-kebab",
-                                                        "dropdownItems": Array [
-                                                          <DropdownItem
-                                                            component="button"
-                                                            onClick={[Function]}
-                                                          >
-                                                            Clear all comparisons
-                                                          </DropdownItem>,
-                                                        ],
-                                                        "id": "action-kebab",
-                                                        "isOpen": undefined,
-                                                        "isPlain": true,
-                                                        "style": Object {
-                                                          "float": "left",
-                                                        },
-                                                        "toggle": <KebabToggle
-                                                          onToggle={[Function]}
-                                                        />,
+                                                        "float": "left",
                                                       }
                                                     }
-                                                    consumerContext={null}
                                                   >
-                                                    <DropdownWithContext
-                                                      aria-label="action-kebab"
-                                                      autoFocus={true}
-                                                      className=""
-                                                      direction="down"
-                                                      dropdownItems={
-                                                        Array [
-                                                          <DropdownItem
-                                                            component="button"
-                                                            onClick={[Function]}
-                                                          >
-                                                            Clear all comparisons
-                                                          </DropdownItem>,
-                                                        ]
-                                                      }
-                                                      id="action-kebab"
-                                                      isGrouped={false}
+                                                    <KebabToggle
+                                                      ariaHasPopup={true}
+                                                      id="pf-toggle-id-4"
                                                       isOpen={false}
                                                       isPlain={true}
-                                                      onSelect={[Function]}
-                                                      ouiaComponentType="Dropdown"
-                                                      ouiaContext={
+                                                      key=".0"
+                                                      onEnter={[Function]}
+                                                      onToggle={[Function]}
+                                                      parentRef={
                                                         Object {
-                                                          "isOuia": false,
-                                                          "ouiaId": null,
-                                                        }
-                                                      }
-                                                      position="left"
-                                                      style={
-                                                        Object {
-                                                          "float": "left",
-                                                        }
-                                                      }
-                                                      toggle={
-                                                        <KebabToggle
-                                                          onToggle={[Function]}
-                                                        />
-                                                      }
-                                                    >
-                                                      <div
-                                                        aria-label="action-kebab"
-                                                        className="pf-c-dropdown"
-                                                        id="action-kebab"
-                                                        style={
-                                                          Object {
-                                                            "float": "left",
-                                                          }
-                                                        }
-                                                      >
-                                                        <KebabToggle
-                                                          ariaHasPopup={true}
-                                                          id="pf-toggle-id-1"
-                                                          isOpen={false}
-                                                          isPlain={true}
-                                                          key=".0"
-                                                          onEnter={[Function]}
-                                                          onToggle={[Function]}
-                                                          parentRef={
-                                                            Object {
-                                                              "current": <div
-                                                                aria-label="action-kebab"
-                                                                class="pf-c-dropdown"
-                                                                id="action-kebab"
-                                                                style="float: left;"
-                                                              >
-                                                                <button
-                                                                  aria-expanded="false"
-                                                                  aria-haspopup="true"
-                                                                  aria-label="Actions"
-                                                                  class="pf-c-dropdown__toggle pf-m-plain"
-                                                                  id="pf-toggle-id-1"
-                                                                  type="button"
-                                                                >
-                                                                  <svg
-                                                                    aria-hidden="true"
-                                                                    fill="currentColor"
-                                                                    height="1em"
-                                                                    role="img"
-                                                                    style="vertical-align: -0.125em;"
-                                                                    viewBox="0 0 192 512"
-                                                                    width="1em"
-                                                                  >
-                                                                    <path
-                                                                      d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
-                                                                      transform=""
-                                                                    />
-                                                                  </svg>
-                                                                </button>
-                                                              </div>,
-                                                            }
-                                                          }
-                                                        >
-                                                          <Toggle
-                                                            aria-label="Actions"
-                                                            ariaHasPopup={true}
-                                                            className=""
-                                                            id="pf-toggle-id-1"
-                                                            isActive={false}
-                                                            isDisabled={false}
-                                                            isFocused={false}
-                                                            isHovered={false}
-                                                            isOpen={false}
-                                                            isPlain={true}
-                                                            isPrimary={false}
-                                                            isSplitButton={false}
-                                                            onEnter={[Function]}
-                                                            onToggle={[Function]}
-                                                            parentRef={
-                                                              Object {
-                                                                "current": <div
-                                                                  aria-label="action-kebab"
-                                                                  class="pf-c-dropdown"
-                                                                  id="action-kebab"
-                                                                  style="float: left;"
-                                                                >
-                                                                  <button
-                                                                    aria-expanded="false"
-                                                                    aria-haspopup="true"
-                                                                    aria-label="Actions"
-                                                                    class="pf-c-dropdown__toggle pf-m-plain"
-                                                                    id="pf-toggle-id-1"
-                                                                    type="button"
-                                                                  >
-                                                                    <svg
-                                                                      aria-hidden="true"
-                                                                      fill="currentColor"
-                                                                      height="1em"
-                                                                      role="img"
-                                                                      style="vertical-align: -0.125em;"
-                                                                      viewBox="0 0 192 512"
-                                                                      width="1em"
-                                                                    >
-                                                                      <path
-                                                                        d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
-                                                                        transform=""
-                                                                      />
-                                                                    </svg>
-                                                                  </button>
-                                                                </div>,
-                                                              }
-                                                            }
+                                                          "current": <div
+                                                            aria-label="action-kebab"
+                                                            class="pf-c-dropdown"
+                                                            id="action-kebab"
+                                                            style="float: left;"
                                                           >
                                                             <button
-                                                              aria-expanded={false}
-                                                              aria-haspopup={true}
+                                                              aria-expanded="false"
+                                                              aria-haspopup="true"
                                                               aria-label="Actions"
-                                                              className="pf-c-dropdown__toggle pf-m-plain"
-                                                              disabled={false}
-                                                              id="pf-toggle-id-1"
-                                                              onClick={[Function]}
-                                                              onKeyDown={[Function]}
+                                                              class="pf-c-dropdown__toggle pf-m-plain"
+                                                              id="pf-toggle-id-4"
                                                               type="button"
                                                             >
-                                                              <EllipsisVIcon
-                                                                color="currentColor"
-                                                                noVerticalAlign={false}
-                                                                size="sm"
-                                                                title={null}
+                                                              <svg
+                                                                aria-hidden="true"
+                                                                fill="currentColor"
+                                                                height="1em"
+                                                                role="img"
+                                                                style="vertical-align: -0.125em;"
+                                                                viewBox="0 0 192 512"
+                                                                width="1em"
+                                                              >
+                                                                <path
+                                                                  d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                                                                  transform=""
+                                                                />
+                                                              </svg>
+                                                            </button>
+                                                          </div>,
+                                                        }
+                                                      }
+                                                    >
+                                                      <Toggle
+                                                        aria-label="Actions"
+                                                        ariaHasPopup={true}
+                                                        className=""
+                                                        id="pf-toggle-id-4"
+                                                        isActive={false}
+                                                        isDisabled={false}
+                                                        isFocused={false}
+                                                        isHovered={false}
+                                                        isOpen={false}
+                                                        isPlain={true}
+                                                        isPrimary={false}
+                                                        isSplitButton={false}
+                                                        onEnter={[Function]}
+                                                        onToggle={[Function]}
+                                                        parentRef={
+                                                          Object {
+                                                            "current": <div
+                                                              aria-label="action-kebab"
+                                                              class="pf-c-dropdown"
+                                                              id="action-kebab"
+                                                              style="float: left;"
+                                                            >
+                                                              <button
+                                                                aria-expanded="false"
+                                                                aria-haspopup="true"
+                                                                aria-label="Actions"
+                                                                class="pf-c-dropdown__toggle pf-m-plain"
+                                                                id="pf-toggle-id-4"
+                                                                type="button"
                                                               >
                                                                 <svg
-                                                                  aria-hidden={true}
-                                                                  aria-labelledby={null}
+                                                                  aria-hidden="true"
                                                                   fill="currentColor"
                                                                   height="1em"
                                                                   role="img"
-                                                                  style={
-                                                                    Object {
-                                                                      "verticalAlign": "-0.125em",
-                                                                    }
-                                                                  }
+                                                                  style="vertical-align: -0.125em;"
                                                                   viewBox="0 0 192 512"
                                                                   width="1em"
                                                                 >
@@ -1190,18 +1061,57 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                     transform=""
                                                                   />
                                                                 </svg>
-                                                              </EllipsisVIcon>
-                                                            </button>
-                                                          </Toggle>
-                                                        </KebabToggle>
-                                                      </div>
-                                                    </DropdownWithContext>
-                                                  </ComponentWithOuia>
-                                                </Component>
-                                              </Dropdown>
-                                            </ActionKebab>
-                                          </Connect(ActionKebab)>
-                                        </withRouter(Connect(ActionKebab))>
+                                                              </button>
+                                                            </div>,
+                                                          }
+                                                        }
+                                                      >
+                                                        <button
+                                                          aria-expanded={false}
+                                                          aria-haspopup={true}
+                                                          aria-label="Actions"
+                                                          className="pf-c-dropdown__toggle pf-m-plain"
+                                                          disabled={false}
+                                                          id="pf-toggle-id-4"
+                                                          onClick={[Function]}
+                                                          onKeyDown={[Function]}
+                                                          type="button"
+                                                        >
+                                                          <EllipsisVIcon
+                                                            color="currentColor"
+                                                            noVerticalAlign={false}
+                                                            size="sm"
+                                                            title={null}
+                                                          >
+                                                            <svg
+                                                              aria-hidden={true}
+                                                              aria-labelledby={null}
+                                                              fill="currentColor"
+                                                              height="1em"
+                                                              role="img"
+                                                              style={
+                                                                Object {
+                                                                  "verticalAlign": "-0.125em",
+                                                                }
+                                                              }
+                                                              viewBox="0 0 192 512"
+                                                              width="1em"
+                                                            >
+                                                              <path
+                                                                d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                                                                transform=""
+                                                              />
+                                                            </svg>
+                                                          </EllipsisVIcon>
+                                                        </button>
+                                                      </Toggle>
+                                                    </KebabToggle>
+                                                  </div>
+                                                </DropdownWithContext>
+                                              </ComponentWithOuia>
+                                            </Component>
+                                          </Dropdown>
+                                        </ActionKebab>
                                       </div>
                                     </ToolbarItem>
                                   </div>
@@ -2163,10 +2073,13 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                       <div
                                         className="pf-l-toolbar__item"
                                       >
-                                        <Connect(DriftFilterChips)>
+                                        <Connect(DriftFilterChips)
+                                          setIsEmpty={[Function]}
+                                        >
                                           <DriftFilterChips
                                             addStateFilter={[Function]}
                                             filterByFact={[Function]}
+                                            setIsEmpty={[Function]}
                                             stateFilters={
                                               Array [
                                                 Object {
@@ -2837,6 +2750,17 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                             </ChipGroup>
                                           </DriftFilterChips>
                                         </Connect(DriftFilterChips)>
+                                      </div>
+                                    </ToolbarItem>
+                                    <ToolbarItem>
+                                      <div
+                                        className="pf-l-toolbar__item"
+                                      >
+                                        <a
+                                          onClick={[Function]}
+                                        >
+                                          Clear filters
+                                        </a>
                                       </div>
                                     </ToolbarItem>
                                   </div>
@@ -4419,6 +4343,8 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
           }
         >
           <DriftPage
+            clearComparison={[Function]}
+            clearComparisonFilters={[Function]}
             clearSelectedBaselines={[Function]}
             error={
               Object {
@@ -4472,6 +4398,8 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                 "url": "/",
               }
             }
+            selectHistoricProfiles={[Function]}
+            selectedHSPIds={Array []}
             toggleErrorAlert={[Function]}
             updatePagination={[Function]}
             updateReferenceId={[Function]}
@@ -4901,7 +4829,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                     >
                                                       <DropdownToggle
                                                         ariaHasPopup={true}
-                                                        id="pf-toggle-id-4"
+                                                        id="pf-toggle-id-5"
                                                         isOpen={false}
                                                         isPlain={false}
                                                         key=".0"
@@ -4916,7 +4844,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                 aria-expanded="false"
                                                                 aria-haspopup="true"
                                                                 class="pf-c-dropdown__toggle"
-                                                                id="pf-toggle-id-4"
+                                                                id="pf-toggle-id-5"
                                                                 type="button"
                                                               >
                                                                 <span
@@ -4948,7 +4876,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                         <Toggle
                                                           ariaHasPopup={true}
                                                           className=""
-                                                          id="pf-toggle-id-4"
+                                                          id="pf-toggle-id-5"
                                                           isActive={false}
                                                           isDisabled={false}
                                                           isFocused={false}
@@ -4968,7 +4896,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                   aria-expanded="false"
                                                                   aria-haspopup="true"
                                                                   class="pf-c-dropdown__toggle"
-                                                                  id="pf-toggle-id-4"
+                                                                  id="pf-toggle-id-5"
                                                                   type="button"
                                                                 >
                                                                   <span
@@ -5002,7 +4930,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                             aria-haspopup={true}
                                                             className="pf-c-dropdown__toggle"
                                                             disabled={false}
-                                                            id="pf-toggle-id-4"
+                                                            id="pf-toggle-id-5"
                                                             onClick={[Function]}
                                                             onKeyDown={[Function]}
                                                             type="button"
@@ -5159,139 +5087,101 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                       <div
                                         className="pf-l-toolbar__item"
                                       >
-                                        <withRouter(Connect(ActionKebab))
-                                          updateReferenceId={[Function]}
+                                        <ActionKebab
+                                          dropdownItems={
+                                            Array [
+                                              <DropdownItem
+                                                component="button"
+                                                onClick={[Function]}
+                                              >
+                                                Clear all comparisons
+                                              </DropdownItem>,
+                                            ]
+                                          }
                                         >
-                                          <Connect(ActionKebab)
-                                            history={
+                                          <Dropdown
+                                            aria-label="action-kebab"
+                                            dropdownItems={
+                                              Array [
+                                                <DropdownItem
+                                                  component="button"
+                                                  onClick={[Function]}
+                                                >
+                                                  Clear all comparisons
+                                                </DropdownItem>,
+                                              ]
+                                            }
+                                            id="action-kebab"
+                                            isOpen={false}
+                                            isPlain={true}
+                                            style={
                                               Object {
-                                                "action": "POP",
-                                                "block": [Function],
-                                                "canGo": [Function],
-                                                "createHref": [Function],
-                                                "entries": Array [
-                                                  Object {
-                                                    "hash": "",
-                                                    "pathname": "/",
-                                                    "search": "",
-                                                    "state": undefined,
-                                                  },
-                                                ],
-                                                "go": [Function],
-                                                "goBack": [Function],
-                                                "goForward": [Function],
-                                                "index": 0,
-                                                "length": 1,
-                                                "listen": [Function],
-                                                "location": Object {
-                                                  "hash": "",
-                                                  "pathname": "/",
-                                                  "search": "",
-                                                  "state": undefined,
-                                                },
-                                                "push": [Function],
-                                                "replace": [Function],
+                                                "float": "left",
                                               }
                                             }
-                                            location={
-                                              Object {
-                                                "hash": "",
-                                                "pathname": "/",
-                                                "search": "",
-                                                "state": undefined,
-                                              }
+                                            toggle={
+                                              <KebabToggle
+                                                onToggle={[Function]}
+                                              />
                                             }
-                                            match={
-                                              Object {
-                                                "isExact": true,
-                                                "params": Object {},
-                                                "path": "/",
-                                                "url": "/",
-                                              }
-                                            }
-                                            updateReferenceId={[Function]}
                                           >
-                                            <ActionKebab
-                                              clearSelectedBaselines={[Function]}
-                                              history={
+                                            <Component
+                                              aria-label="action-kebab"
+                                              dropdownItems={
+                                                Array [
+                                                  <DropdownItem
+                                                    component="button"
+                                                    onClick={[Function]}
+                                                  >
+                                                    Clear all comparisons
+                                                  </DropdownItem>,
+                                                ]
+                                              }
+                                              id="action-kebab"
+                                              isOpen={false}
+                                              isPlain={true}
+                                              style={
                                                 Object {
-                                                  "action": "POP",
-                                                  "block": [Function],
-                                                  "canGo": [Function],
-                                                  "createHref": [Function],
-                                                  "entries": Array [
-                                                    Object {
-                                                      "hash": "",
-                                                      "pathname": "/",
-                                                      "search": "",
-                                                      "state": undefined,
-                                                    },
-                                                  ],
-                                                  "go": [Function],
-                                                  "goBack": [Function],
-                                                  "goForward": [Function],
-                                                  "index": 0,
-                                                  "length": 1,
-                                                  "listen": [Function],
-                                                  "location": Object {
-                                                    "hash": "",
-                                                    "pathname": "/",
-                                                    "search": "",
-                                                    "state": undefined,
-                                                  },
-                                                  "push": [Function],
-                                                  "replace": [Function],
+                                                  "float": "left",
                                                 }
                                               }
-                                              location={
-                                                Object {
-                                                  "hash": "",
-                                                  "pathname": "/",
-                                                  "search": "",
-                                                  "state": undefined,
-                                                }
+                                              toggle={
+                                                <KebabToggle
+                                                  onToggle={[Function]}
+                                                />
                                               }
-                                              match={
-                                                Object {
-                                                  "isExact": true,
-                                                  "params": Object {},
-                                                  "path": "/",
-                                                  "url": "/",
-                                                }
-                                              }
-                                              removeSystems={[Function]}
-                                              selectHistoricProfiles={[Function]}
-                                              selectedHSPIds={Array []}
-                                              toggleKebab={[Function]}
-                                              updateReferenceId={[Function]}
                                             >
-                                              <Dropdown
-                                                aria-label="action-kebab"
-                                                dropdownItems={
-                                                  Array [
-                                                    <DropdownItem
-                                                      component="button"
-                                                      onClick={[Function]}
-                                                    >
-                                                      Clear all comparisons
-                                                    </DropdownItem>,
-                                                  ]
-                                                }
-                                                id="action-kebab"
-                                                isPlain={true}
-                                                style={
+                                              <ComponentWithOuia
+                                                component={[Function]}
+                                                componentProps={
                                                   Object {
-                                                    "float": "left",
+                                                    "aria-label": "action-kebab",
+                                                    "dropdownItems": Array [
+                                                      <DropdownItem
+                                                        component="button"
+                                                        onClick={[Function]}
+                                                      >
+                                                        Clear all comparisons
+                                                      </DropdownItem>,
+                                                    ],
+                                                    "id": "action-kebab",
+                                                    "isOpen": false,
+                                                    "isPlain": true,
+                                                    "style": Object {
+                                                      "float": "left",
+                                                    },
+                                                    "toggle": <KebabToggle
+                                                      onToggle={[Function]}
+                                                    />,
                                                   }
                                                 }
-                                                toggle={
-                                                  <KebabToggle
-                                                    onToggle={[Function]}
-                                                  />
-                                                }
+                                                consumerContext={null}
                                               >
-                                                <Component
+                                                <DropdownWithContext
                                                   aria-label="action-kebab"
+                                                  autoFocus={true}
+                                                  className=""
+                                                  direction="down"
                                                   dropdownItems={
                                                     Array [
                                                       <DropdownItem
@@ -5303,7 +5193,18 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                     ]
                                                   }
                                                   id="action-kebab"
+                                                  isGrouped={false}
+                                                  isOpen={false}
                                                   isPlain={true}
+                                                  onSelect={[Function]}
+                                                  ouiaComponentType="Dropdown"
+                                                  ouiaContext={
+                                                    Object {
+                                                      "isOuia": false,
+                                                      "ouiaId": null,
+                                                    }
+                                                  }
+                                                  position="left"
                                                   style={
                                                     Object {
                                                       "float": "left",
@@ -5315,202 +5216,96 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                     />
                                                   }
                                                 >
-                                                  <ComponentWithOuia
-                                                    component={[Function]}
-                                                    componentProps={
+                                                  <div
+                                                    aria-label="action-kebab"
+                                                    className="pf-c-dropdown"
+                                                    id="action-kebab"
+                                                    style={
                                                       Object {
-                                                        "aria-label": "action-kebab",
-                                                        "dropdownItems": Array [
-                                                          <DropdownItem
-                                                            component="button"
-                                                            onClick={[Function]}
-                                                          >
-                                                            Clear all comparisons
-                                                          </DropdownItem>,
-                                                        ],
-                                                        "id": "action-kebab",
-                                                        "isOpen": undefined,
-                                                        "isPlain": true,
-                                                        "style": Object {
-                                                          "float": "left",
-                                                        },
-                                                        "toggle": <KebabToggle
-                                                          onToggle={[Function]}
-                                                        />,
+                                                        "float": "left",
                                                       }
                                                     }
-                                                    consumerContext={null}
                                                   >
-                                                    <DropdownWithContext
-                                                      aria-label="action-kebab"
-                                                      autoFocus={true}
-                                                      className=""
-                                                      direction="down"
-                                                      dropdownItems={
-                                                        Array [
-                                                          <DropdownItem
-                                                            component="button"
-                                                            onClick={[Function]}
-                                                          >
-                                                            Clear all comparisons
-                                                          </DropdownItem>,
-                                                        ]
-                                                      }
-                                                      id="action-kebab"
-                                                      isGrouped={false}
+                                                    <KebabToggle
+                                                      ariaHasPopup={true}
+                                                      id="pf-toggle-id-9"
                                                       isOpen={false}
                                                       isPlain={true}
-                                                      onSelect={[Function]}
-                                                      ouiaComponentType="Dropdown"
-                                                      ouiaContext={
+                                                      key=".0"
+                                                      onEnter={[Function]}
+                                                      onToggle={[Function]}
+                                                      parentRef={
                                                         Object {
-                                                          "isOuia": false,
-                                                          "ouiaId": null,
-                                                        }
-                                                      }
-                                                      position="left"
-                                                      style={
-                                                        Object {
-                                                          "float": "left",
-                                                        }
-                                                      }
-                                                      toggle={
-                                                        <KebabToggle
-                                                          onToggle={[Function]}
-                                                        />
-                                                      }
-                                                    >
-                                                      <div
-                                                        aria-label="action-kebab"
-                                                        className="pf-c-dropdown"
-                                                        id="action-kebab"
-                                                        style={
-                                                          Object {
-                                                            "float": "left",
-                                                          }
-                                                        }
-                                                      >
-                                                        <KebabToggle
-                                                          ariaHasPopup={true}
-                                                          id="pf-toggle-id-5"
-                                                          isOpen={false}
-                                                          isPlain={true}
-                                                          key=".0"
-                                                          onEnter={[Function]}
-                                                          onToggle={[Function]}
-                                                          parentRef={
-                                                            Object {
-                                                              "current": <div
-                                                                aria-label="action-kebab"
-                                                                class="pf-c-dropdown"
-                                                                id="action-kebab"
-                                                                style="float: left;"
-                                                              >
-                                                                <button
-                                                                  aria-expanded="false"
-                                                                  aria-haspopup="true"
-                                                                  aria-label="Actions"
-                                                                  class="pf-c-dropdown__toggle pf-m-plain"
-                                                                  id="pf-toggle-id-5"
-                                                                  type="button"
-                                                                >
-                                                                  <svg
-                                                                    aria-hidden="true"
-                                                                    fill="currentColor"
-                                                                    height="1em"
-                                                                    role="img"
-                                                                    style="vertical-align: -0.125em;"
-                                                                    viewBox="0 0 192 512"
-                                                                    width="1em"
-                                                                  >
-                                                                    <path
-                                                                      d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
-                                                                      transform=""
-                                                                    />
-                                                                  </svg>
-                                                                </button>
-                                                              </div>,
-                                                            }
-                                                          }
-                                                        >
-                                                          <Toggle
-                                                            aria-label="Actions"
-                                                            ariaHasPopup={true}
-                                                            className=""
-                                                            id="pf-toggle-id-5"
-                                                            isActive={false}
-                                                            isDisabled={false}
-                                                            isFocused={false}
-                                                            isHovered={false}
-                                                            isOpen={false}
-                                                            isPlain={true}
-                                                            isPrimary={false}
-                                                            isSplitButton={false}
-                                                            onEnter={[Function]}
-                                                            onToggle={[Function]}
-                                                            parentRef={
-                                                              Object {
-                                                                "current": <div
-                                                                  aria-label="action-kebab"
-                                                                  class="pf-c-dropdown"
-                                                                  id="action-kebab"
-                                                                  style="float: left;"
-                                                                >
-                                                                  <button
-                                                                    aria-expanded="false"
-                                                                    aria-haspopup="true"
-                                                                    aria-label="Actions"
-                                                                    class="pf-c-dropdown__toggle pf-m-plain"
-                                                                    id="pf-toggle-id-5"
-                                                                    type="button"
-                                                                  >
-                                                                    <svg
-                                                                      aria-hidden="true"
-                                                                      fill="currentColor"
-                                                                      height="1em"
-                                                                      role="img"
-                                                                      style="vertical-align: -0.125em;"
-                                                                      viewBox="0 0 192 512"
-                                                                      width="1em"
-                                                                    >
-                                                                      <path
-                                                                        d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
-                                                                        transform=""
-                                                                      />
-                                                                    </svg>
-                                                                  </button>
-                                                                </div>,
-                                                              }
-                                                            }
+                                                          "current": <div
+                                                            aria-label="action-kebab"
+                                                            class="pf-c-dropdown"
+                                                            id="action-kebab"
+                                                            style="float: left;"
                                                           >
                                                             <button
-                                                              aria-expanded={false}
-                                                              aria-haspopup={true}
+                                                              aria-expanded="false"
+                                                              aria-haspopup="true"
                                                               aria-label="Actions"
-                                                              className="pf-c-dropdown__toggle pf-m-plain"
-                                                              disabled={false}
-                                                              id="pf-toggle-id-5"
-                                                              onClick={[Function]}
-                                                              onKeyDown={[Function]}
+                                                              class="pf-c-dropdown__toggle pf-m-plain"
+                                                              id="pf-toggle-id-9"
                                                               type="button"
                                                             >
-                                                              <EllipsisVIcon
-                                                                color="currentColor"
-                                                                noVerticalAlign={false}
-                                                                size="sm"
-                                                                title={null}
+                                                              <svg
+                                                                aria-hidden="true"
+                                                                fill="currentColor"
+                                                                height="1em"
+                                                                role="img"
+                                                                style="vertical-align: -0.125em;"
+                                                                viewBox="0 0 192 512"
+                                                                width="1em"
+                                                              >
+                                                                <path
+                                                                  d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                                                                  transform=""
+                                                                />
+                                                              </svg>
+                                                            </button>
+                                                          </div>,
+                                                        }
+                                                      }
+                                                    >
+                                                      <Toggle
+                                                        aria-label="Actions"
+                                                        ariaHasPopup={true}
+                                                        className=""
+                                                        id="pf-toggle-id-9"
+                                                        isActive={false}
+                                                        isDisabled={false}
+                                                        isFocused={false}
+                                                        isHovered={false}
+                                                        isOpen={false}
+                                                        isPlain={true}
+                                                        isPrimary={false}
+                                                        isSplitButton={false}
+                                                        onEnter={[Function]}
+                                                        onToggle={[Function]}
+                                                        parentRef={
+                                                          Object {
+                                                            "current": <div
+                                                              aria-label="action-kebab"
+                                                              class="pf-c-dropdown"
+                                                              id="action-kebab"
+                                                              style="float: left;"
+                                                            >
+                                                              <button
+                                                                aria-expanded="false"
+                                                                aria-haspopup="true"
+                                                                aria-label="Actions"
+                                                                class="pf-c-dropdown__toggle pf-m-plain"
+                                                                id="pf-toggle-id-9"
+                                                                type="button"
                                                               >
                                                                 <svg
-                                                                  aria-hidden={true}
-                                                                  aria-labelledby={null}
+                                                                  aria-hidden="true"
                                                                   fill="currentColor"
                                                                   height="1em"
                                                                   role="img"
-                                                                  style={
-                                                                    Object {
-                                                                      "verticalAlign": "-0.125em",
-                                                                    }
-                                                                  }
+                                                                  style="vertical-align: -0.125em;"
                                                                   viewBox="0 0 192 512"
                                                                   width="1em"
                                                                 >
@@ -5519,18 +5314,57 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                     transform=""
                                                                   />
                                                                 </svg>
-                                                              </EllipsisVIcon>
-                                                            </button>
-                                                          </Toggle>
-                                                        </KebabToggle>
-                                                      </div>
-                                                    </DropdownWithContext>
-                                                  </ComponentWithOuia>
-                                                </Component>
-                                              </Dropdown>
-                                            </ActionKebab>
-                                          </Connect(ActionKebab)>
-                                        </withRouter(Connect(ActionKebab))>
+                                                              </button>
+                                                            </div>,
+                                                          }
+                                                        }
+                                                      >
+                                                        <button
+                                                          aria-expanded={false}
+                                                          aria-haspopup={true}
+                                                          aria-label="Actions"
+                                                          className="pf-c-dropdown__toggle pf-m-plain"
+                                                          disabled={false}
+                                                          id="pf-toggle-id-9"
+                                                          onClick={[Function]}
+                                                          onKeyDown={[Function]}
+                                                          type="button"
+                                                        >
+                                                          <EllipsisVIcon
+                                                            color="currentColor"
+                                                            noVerticalAlign={false}
+                                                            size="sm"
+                                                            title={null}
+                                                          >
+                                                            <svg
+                                                              aria-hidden={true}
+                                                              aria-labelledby={null}
+                                                              fill="currentColor"
+                                                              height="1em"
+                                                              role="img"
+                                                              style={
+                                                                Object {
+                                                                  "verticalAlign": "-0.125em",
+                                                                }
+                                                              }
+                                                              viewBox="0 0 192 512"
+                                                              width="1em"
+                                                            >
+                                                              <path
+                                                                d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                                                                transform=""
+                                                              />
+                                                            </svg>
+                                                          </EllipsisVIcon>
+                                                        </button>
+                                                      </Toggle>
+                                                    </KebabToggle>
+                                                  </div>
+                                                </DropdownWithContext>
+                                              </ComponentWithOuia>
+                                            </Component>
+                                          </Dropdown>
+                                        </ActionKebab>
                                       </div>
                                     </ToolbarItem>
                                   </div>
@@ -6001,7 +5835,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                               <OptionsToggle
                                                                 ariaHasPopup={true}
                                                                 firstIndex={0}
-                                                                id="pf-toggle-id-6"
+                                                                id="pf-toggle-id-7"
                                                                 isDisabled={false}
                                                                 isOpen={false}
                                                                 isPlain={true}
@@ -6492,10 +6326,13 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                       <div
                                         className="pf-l-toolbar__item"
                                       >
-                                        <Connect(DriftFilterChips)>
+                                        <Connect(DriftFilterChips)
+                                          setIsEmpty={[Function]}
+                                        >
                                           <DriftFilterChips
                                             addStateFilter={[Function]}
                                             filterByFact={[Function]}
+                                            setIsEmpty={[Function]}
                                             stateFilters={
                                               Array [
                                                 Object {
@@ -7166,6 +7003,17 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                             </ChipGroup>
                                           </DriftFilterChips>
                                         </Connect(DriftFilterChips)>
+                                      </div>
+                                    </ToolbarItem>
+                                    <ToolbarItem>
+                                      <div
+                                        className="pf-l-toolbar__item"
+                                      >
+                                        <a
+                                          onClick={[Function]}
+                                        >
+                                          Clear filters
+                                        </a>
                                       </div>
                                     </ToolbarItem>
                                   </div>
@@ -7972,7 +7820,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                               <OptionsToggle
                                                                 ariaHasPopup={true}
                                                                 firstIndex={0}
-                                                                id="pf-toggle-id-7"
+                                                                id="pf-toggle-id-8"
                                                                 isDisabled={false}
                                                                 isOpen={false}
                                                                 isPlain={true}
@@ -8687,7 +8535,18 @@ exports[`DriftPage should render correctly 1`] = `
                 <Connect(ExportCSVButton) />
               </ToolbarItem>
               <ToolbarItem>
-                <withRouter(Connect(ActionKebab)) />
+                <ActionKebab
+                  dropdownItems={
+                    Array [
+                      <DropdownItem
+                        component="button"
+                        onClick={[Function]}
+                      >
+                        Clear all comparisons
+                      </DropdownItem>,
+                    ]
+                  }
+                />
               </ToolbarItem>
             </ToolbarGroup>
             <ToolbarGroup
@@ -8705,11 +8564,15 @@ exports[`DriftPage should render correctly 1`] = `
           >
             <ToolbarGroup>
               <ToolbarItem>
-                <Connect(DriftFilterChips) />
+                <Connect(DriftFilterChips)
+                  setIsEmpty={[Function]}
+                />
               </ToolbarItem>
             </ToolbarGroup>
           </Toolbar>
-          <withRouter(Connect(DriftTable)) />
+          <withRouter(Connect(DriftTable))
+            updateReferenceId={[MockFunction]}
+          />
           <Toolbar
             className="drift-toolbar"
           >
