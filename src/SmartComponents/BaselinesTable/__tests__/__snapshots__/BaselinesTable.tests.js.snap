@@ -3,13 +3,14 @@
 exports[`BaselinesTable should render loading rows for multi-select 1`] = `
 <Fragment>
   <BaselinesToolbar
-    clearSort={null}
     createButton={true}
     exportButton={true}
     fetchWithParams={[Function]}
     hasMultiSelect={true}
+    isDisabled={true}
     kebab={true}
     onSearch={[Function]}
+    selectedBaselineIds={Array []}
     tableData={
       Array [
         Array [
@@ -203,13 +204,14 @@ exports[`BaselinesTable should render loading rows for multi-select 1`] = `
 exports[`BaselinesTable should render loading rows for single-select 1`] = `
 <Fragment>
   <BaselinesToolbar
-    clearSort={null}
     createButton={true}
     exportButton={true}
     fetchWithParams={[Function]}
     hasMultiSelect={false}
+    isDisabled={true}
     kebab={true}
     onSearch={[Function]}
+    selectedBaselineIds={Array []}
     tableData={
       Array [
         Array [
@@ -483,13 +485,14 @@ exports[`BaselinesTable should render loading rows for single-select 1`] = `
 exports[`BaselinesTable should render multi-select table correctly 1`] = `
 <Fragment>
   <BaselinesToolbar
-    clearSort={null}
     createButton={true}
     exportButton={true}
     fetchWithParams={[Function]}
     hasMultiSelect={true}
+    isDisabled={true}
     kebab={true}
     onSearch={[Function]}
+    selectedBaselineIds={Array []}
     tableData={
       Array [
         Array [
@@ -583,13 +586,14 @@ exports[`BaselinesTable should render multi-select table correctly 1`] = `
 exports[`BaselinesTable should render no matching baselines EmptyState 1`] = `
 <Fragment>
   <BaselinesToolbar
-    clearSort={null}
     createButton={true}
     exportButton={true}
     fetchWithParams={[Function]}
     hasMultiSelect={true}
+    isDisabled={true}
     kebab={true}
     onSearch={[Function]}
+    selectedBaselineIds={Array []}
     tableData={Array []}
     tableId="CHECKBOX"
   />
@@ -649,13 +653,14 @@ exports[`BaselinesTable should render no matching baselines EmptyState 1`] = `
 exports[`BaselinesTable should render single-select table correctly 1`] = `
 <Fragment>
   <BaselinesToolbar
-    clearSort={null}
     createButton={true}
     exportButton={true}
     fetchWithParams={[Function]}
     hasMultiSelect={false}
+    isDisabled={true}
     kebab={true}
     onSearch={[Function]}
+    selectedBaselineIds={Array []}
     tableData={
       Array [
         Array [
@@ -5628,6 +5633,11 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
         hasMultiSelect={true}
         kebab={true}
         loading={false}
+        selectedBaselineIds={
+          Array [
+            "1234",
+          ]
+        }
         tableData={
           Array [
             Array [
@@ -5670,6 +5680,11 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
           hasMultiSelect={true}
           kebab={true}
           loading={false}
+          selectedBaselineIds={
+            Array [
+              "1234",
+            ]
+          }
           tableData={
             Array [
               Array [
@@ -5687,13 +5702,18 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
           tableId="CHECKBOX"
         >
           <BaselinesToolbar
-            clearSort={null}
             createButton={true}
             exportButton={true}
             fetchWithParams={[Function]}
             hasMultiSelect={true}
+            isDisabled={false}
             kebab={true}
             onSearch={[Function]}
+            selectedBaselineIds={
+              Array [
+                "1234",
+              ]
+            }
             tableData={
               Array [
                 Array [
@@ -6527,25 +6547,48 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                       <div
                         className="pf-l-toolbar__item"
                       >
-                        <Connect(BaselinesKebab)
-                          clearFilters={false}
-                          exportType="baseline list"
-                          fetchWithParams={[Function]}
-                          tableId="CHECKBOX"
+                        <ActionKebab
+                          dropdownItems={
+                            Array [
+                              <DropdownItem
+                                component="button"
+                                isDisabled={false}
+                                onClick={[Function]}
+                              >
+                                Delete baselines
+                              </DropdownItem>,
+                            ]
+                          }
                         >
-                          <BaselinesKebab
-                            clearFilters={false}
-                            dispatch={[Function]}
-                            exportType="baseline list"
-                            fetchWithParams={[Function]}
-                            selectedBaselineIds={
+                          <Dropdown
+                            aria-label="action-kebab"
+                            dropdownItems={
                               Array [
-                                "1234",
+                                <DropdownItem
+                                  component="button"
+                                  isDisabled={false}
+                                  onClick={[Function]}
+                                >
+                                  Delete baselines
+                                </DropdownItem>,
                               ]
                             }
-                            tableId="CHECKBOX"
+                            id="action-kebab"
+                            isOpen={false}
+                            isPlain={true}
+                            style={
+                              Object {
+                                "float": "left",
+                              }
+                            }
+                            toggle={
+                              <KebabToggle
+                                onToggle={[Function]}
+                              />
+                            }
                           >
-                            <Dropdown
+                            <Component
+                              aria-label="action-kebab"
                               dropdownItems={
                                 Array [
                                   <DropdownItem
@@ -6555,15 +6598,9 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                   >
                                     Delete baselines
                                   </DropdownItem>,
-                                  <DropdownItem
-                                    component="button"
-                                    isDisabled={true}
-                                    onClick={null}
-                                  >
-                                    Clear filters
-                                  </DropdownItem>,
                                 ]
                               }
+                              id="action-kebab"
                               isOpen={false}
                               isPlain={true}
                               style={
@@ -6577,135 +6614,147 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                 />
                               }
                             >
-                              <Component
-                                dropdownItems={
-                                  Array [
-                                    <DropdownItem
-                                      component="button"
-                                      isDisabled={false}
-                                      onClick={[Function]}
-                                    >
-                                      Delete baselines
-                                    </DropdownItem>,
-                                    <DropdownItem
-                                      component="button"
-                                      isDisabled={true}
-                                      onClick={null}
-                                    >
-                                      Clear filters
-                                    </DropdownItem>,
-                                  ]
-                                }
-                                isOpen={false}
-                                isPlain={true}
-                                style={
+                              <ComponentWithOuia
+                                component={[Function]}
+                                componentProps={
                                   Object {
-                                    "float": "left",
+                                    "aria-label": "action-kebab",
+                                    "dropdownItems": Array [
+                                      <DropdownItem
+                                        component="button"
+                                        isDisabled={false}
+                                        onClick={[Function]}
+                                      >
+                                        Delete baselines
+                                      </DropdownItem>,
+                                    ],
+                                    "id": "action-kebab",
+                                    "isOpen": false,
+                                    "isPlain": true,
+                                    "style": Object {
+                                      "float": "left",
+                                    },
+                                    "toggle": <KebabToggle
+                                      onToggle={[Function]}
+                                    />,
                                   }
                                 }
-                                toggle={
-                                  <KebabToggle
-                                    onToggle={[Function]}
-                                  />
-                                }
+                                consumerContext={null}
                               >
-                                <ComponentWithOuia
-                                  component={[Function]}
-                                  componentProps={
+                                <DropdownWithContext
+                                  aria-label="action-kebab"
+                                  autoFocus={true}
+                                  className=""
+                                  direction="down"
+                                  dropdownItems={
+                                    Array [
+                                      <DropdownItem
+                                        component="button"
+                                        isDisabled={false}
+                                        onClick={[Function]}
+                                      >
+                                        Delete baselines
+                                      </DropdownItem>,
+                                    ]
+                                  }
+                                  id="action-kebab"
+                                  isGrouped={false}
+                                  isOpen={false}
+                                  isPlain={true}
+                                  onSelect={[Function]}
+                                  ouiaComponentType="Dropdown"
+                                  ouiaContext={
                                     Object {
-                                      "dropdownItems": Array [
-                                        <DropdownItem
-                                          component="button"
-                                          isDisabled={false}
-                                          onClick={[Function]}
-                                        >
-                                          Delete baselines
-                                        </DropdownItem>,
-                                        <DropdownItem
-                                          component="button"
-                                          isDisabled={true}
-                                          onClick={null}
-                                        >
-                                          Clear filters
-                                        </DropdownItem>,
-                                      ],
-                                      "isOpen": false,
-                                      "isPlain": true,
-                                      "style": Object {
-                                        "float": "left",
-                                      },
-                                      "toggle": <KebabToggle
-                                        onToggle={[Function]}
-                                      />,
+                                      "isOuia": false,
+                                      "ouiaId": null,
                                     }
                                   }
-                                  consumerContext={null}
+                                  position="left"
+                                  style={
+                                    Object {
+                                      "float": "left",
+                                    }
+                                  }
+                                  toggle={
+                                    <KebabToggle
+                                      onToggle={[Function]}
+                                    />
+                                  }
                                 >
-                                  <DropdownWithContext
-                                    autoFocus={true}
-                                    className=""
-                                    direction="down"
-                                    dropdownItems={
-                                      Array [
-                                        <DropdownItem
-                                          component="button"
-                                          isDisabled={false}
-                                          onClick={[Function]}
-                                        >
-                                          Delete baselines
-                                        </DropdownItem>,
-                                        <DropdownItem
-                                          component="button"
-                                          isDisabled={true}
-                                          onClick={null}
-                                        >
-                                          Clear filters
-                                        </DropdownItem>,
-                                      ]
-                                    }
-                                    isGrouped={false}
-                                    isOpen={false}
-                                    isPlain={true}
-                                    onSelect={[Function]}
-                                    ouiaComponentType="Dropdown"
-                                    ouiaContext={
-                                      Object {
-                                        "isOuia": false,
-                                        "ouiaId": null,
-                                      }
-                                    }
-                                    position="left"
+                                  <div
+                                    aria-label="action-kebab"
+                                    className="pf-c-dropdown"
+                                    id="action-kebab"
                                     style={
                                       Object {
                                         "float": "left",
                                       }
                                     }
-                                    toggle={
-                                      <KebabToggle
-                                        onToggle={[Function]}
-                                      />
-                                    }
                                   >
-                                    <div
-                                      className="pf-c-dropdown"
-                                      style={
+                                    <KebabToggle
+                                      ariaHasPopup={true}
+                                      id="pf-toggle-id-1"
+                                      isOpen={false}
+                                      isPlain={true}
+                                      key=".0"
+                                      onEnter={[Function]}
+                                      onToggle={[Function]}
+                                      parentRef={
                                         Object {
-                                          "float": "left",
+                                          "current": <div
+                                            aria-label="action-kebab"
+                                            class="pf-c-dropdown"
+                                            id="action-kebab"
+                                            style="float: left;"
+                                          >
+                                            <button
+                                              aria-expanded="false"
+                                              aria-haspopup="true"
+                                              aria-label="Actions"
+                                              class="pf-c-dropdown__toggle pf-m-plain"
+                                              id="pf-toggle-id-1"
+                                              type="button"
+                                            >
+                                              <svg
+                                                aria-hidden="true"
+                                                fill="currentColor"
+                                                height="1em"
+                                                role="img"
+                                                style="vertical-align: -0.125em;"
+                                                viewBox="0 0 192 512"
+                                                width="1em"
+                                              >
+                                                <path
+                                                  d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                                                  transform=""
+                                                />
+                                              </svg>
+                                            </button>
+                                          </div>,
                                         }
                                       }
                                     >
-                                      <KebabToggle
+                                      <Toggle
+                                        aria-label="Actions"
                                         ariaHasPopup={true}
+                                        className=""
                                         id="pf-toggle-id-1"
+                                        isActive={false}
+                                        isDisabled={false}
+                                        isFocused={false}
+                                        isHovered={false}
                                         isOpen={false}
                                         isPlain={true}
-                                        key=".0"
+                                        isPrimary={false}
+                                        isSplitButton={false}
                                         onEnter={[Function]}
                                         onToggle={[Function]}
                                         parentRef={
                                           Object {
                                             "current": <div
+                                              aria-label="action-kebab"
                                               class="pf-c-dropdown"
+                                              id="action-kebab"
                                               style="float: left;"
                                             >
                                               <button
@@ -6735,101 +6784,52 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                           }
                                         }
                                       >
-                                        <Toggle
+                                        <button
+                                          aria-expanded={false}
+                                          aria-haspopup={true}
                                           aria-label="Actions"
-                                          ariaHasPopup={true}
-                                          className=""
+                                          className="pf-c-dropdown__toggle pf-m-plain"
+                                          disabled={false}
                                           id="pf-toggle-id-1"
-                                          isActive={false}
-                                          isDisabled={false}
-                                          isFocused={false}
-                                          isHovered={false}
-                                          isOpen={false}
-                                          isPlain={true}
-                                          isPrimary={false}
-                                          isSplitButton={false}
-                                          onEnter={[Function]}
-                                          onToggle={[Function]}
-                                          parentRef={
-                                            Object {
-                                              "current": <div
-                                                class="pf-c-dropdown"
-                                                style="float: left;"
-                                              >
-                                                <button
-                                                  aria-expanded="false"
-                                                  aria-haspopup="true"
-                                                  aria-label="Actions"
-                                                  class="pf-c-dropdown__toggle pf-m-plain"
-                                                  id="pf-toggle-id-1"
-                                                  type="button"
-                                                >
-                                                  <svg
-                                                    aria-hidden="true"
-                                                    fill="currentColor"
-                                                    height="1em"
-                                                    role="img"
-                                                    style="vertical-align: -0.125em;"
-                                                    viewBox="0 0 192 512"
-                                                    width="1em"
-                                                  >
-                                                    <path
-                                                      d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
-                                                      transform=""
-                                                    />
-                                                  </svg>
-                                                </button>
-                                              </div>,
-                                            }
-                                          }
+                                          onClick={[Function]}
+                                          onKeyDown={[Function]}
+                                          type="button"
                                         >
-                                          <button
-                                            aria-expanded={false}
-                                            aria-haspopup={true}
-                                            aria-label="Actions"
-                                            className="pf-c-dropdown__toggle pf-m-plain"
-                                            disabled={false}
-                                            id="pf-toggle-id-1"
-                                            onClick={[Function]}
-                                            onKeyDown={[Function]}
-                                            type="button"
+                                          <EllipsisVIcon
+                                            color="currentColor"
+                                            noVerticalAlign={false}
+                                            size="sm"
+                                            title={null}
                                           >
-                                            <EllipsisVIcon
-                                              color="currentColor"
-                                              noVerticalAlign={false}
-                                              size="sm"
-                                              title={null}
-                                            >
-                                              <svg
-                                                aria-hidden={true}
-                                                aria-labelledby={null}
-                                                fill="currentColor"
-                                                height="1em"
-                                                role="img"
-                                                style={
-                                                  Object {
-                                                    "verticalAlign": "-0.125em",
-                                                  }
+                                            <svg
+                                              aria-hidden={true}
+                                              aria-labelledby={null}
+                                              fill="currentColor"
+                                              height="1em"
+                                              role="img"
+                                              style={
+                                                Object {
+                                                  "verticalAlign": "-0.125em",
                                                 }
-                                                viewBox="0 0 192 512"
-                                                width="1em"
-                                              >
-                                                <path
-                                                  d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
-                                                  transform=""
-                                                />
-                                              </svg>
-                                            </EllipsisVIcon>
-                                          </button>
-                                        </Toggle>
-                                      </KebabToggle>
-                                    </div>
-                                  </DropdownWithContext>
-                                </ComponentWithOuia>
-                              </Component>
-                            </Dropdown>
-                          </BaselinesKebab>
-                        </Connect(BaselinesKebab)>
+                                              }
+                                              viewBox="0 0 192 512"
+                                              width="1em"
+                                            >
+                                              <path
+                                                d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                                                transform=""
+                                              />
+                                            </svg>
+                                          </EllipsisVIcon>
+                                        </button>
+                                      </Toggle>
+                                    </KebabToggle>
+                                  </div>
+                                </DropdownWithContext>
+                              </ComponentWithOuia>
+                            </Component>
+                          </Dropdown>
+                        </ActionKebab>
                       </div>
                     </ToolbarItem>
                   </div>

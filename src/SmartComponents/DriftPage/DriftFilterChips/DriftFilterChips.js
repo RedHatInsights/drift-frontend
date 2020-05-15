@@ -23,33 +23,33 @@ export class DriftFilterChips extends Component {
 
     componentDidUpdate(prevProps) {
         const { stateFilters, factFilter } = this.props;
-        let newStateChips;
-        let newFactFilter;
+        const { chipGroup } = this.state;
+        let newStateChips = chipGroup[0];
+        let newFactChips = chipGroup[1];
         let newChipGroup;
 
-        if (stateFilters !== prevProps.stateFilters) {
-            let filteredChips = [];
+        if (prevProps !== this.props) {
+            if (stateFilters !== prevProps.stateFilters) {
+                let filteredChips = [];
 
-            stateFilters.forEach(function(filter) {
-                if (filter.selected) {
-                    filteredChips.push(filter.display);
-                }
-            });
+                stateFilters.forEach(function(filter) {
+                    if (filter.selected) {
+                        filteredChips.push(filter.display);
+                    }
+                });
 
-            newStateChips = { category: 'State', chips: filteredChips };
+                newStateChips = { category: 'State', chips: filteredChips };
+            }
 
-            newChipGroup = [ newStateChips, this.state.chipGroup[1] ];
-            this.setState({ chipGroup: newChipGroup });
-        }
+            if (factFilter !== prevProps.factFilter) {
+                newFactChips = { category: 'Name', chips:
+                    factFilter !== ''
+                        ? [ factFilter ]
+                        : []
+                };
+            }
 
-        if (factFilter !== prevProps.factFilter) {
-            newFactFilter = { category: 'Fact name', chips:
-                factFilter !== ''
-                    ? [ factFilter ]
-                    : []
-            };
-
-            newChipGroup = [ this.state.chipGroup[0], newFactFilter ];
+            newChipGroup = [ newStateChips, newFactChips ];
             this.setState({ chipGroup: newChipGroup });
         }
     }
@@ -80,9 +80,25 @@ export class DriftFilterChips extends Component {
         }
     }
 
+    checkChips = () => {
+        const { chipGroup } = this.state;
+        const { setIsEmpty } = this.props;
+        let isEmpty = true;
+
+        chipGroup.forEach(function(group) {
+            if (group.chips.length > 0) {
+                isEmpty = false;
+            }
+        });
+
+        setIsEmpty(isEmpty);
+    }
+
     render() {
         const { chipGroup } = this.state;
         let chipKeyCount = 0;
+
+        this.checkChips();
 
         return (
             <ChipGroup withToolbar>
@@ -104,7 +120,8 @@ DriftFilterChips.propTypes = {
     factFilter: PropTypes.string,
     stateFilters: PropTypes.array,
     filterByFact: PropTypes.func,
-    addStateFilter: PropTypes.func
+    addStateFilter: PropTypes.func,
+    setIsEmpty: PropTypes.func
 };
 
 function mapStateToProps(state) {

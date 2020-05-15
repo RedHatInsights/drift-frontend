@@ -11,7 +11,9 @@ describe('DriftFilterChips', () => {
     it('should render correctly', () =>{
         const props = {
             stateFilters: [],
-            factFilter: '' };
+            factFilter: '',
+            setIsEmpty: jest.fn()
+        };
         const wrapper = shallow(
             <DriftFilterChips { ...props }/>
         );
@@ -22,6 +24,7 @@ describe('DriftFilterChips', () => {
 describe('ConnectedDriftFilterChips', () => {
     let initialState;
     let mockStore;
+    let props;
 
     beforeEach(() => {
         mockStore = configureStore();
@@ -31,13 +34,16 @@ describe('ConnectedDriftFilterChips', () => {
                 factFilter: ''
             }
         };
+        props = {
+            setIsEmpty: jest.fn()
+        };
     });
 
     it('should render correctly', () => {
         const store = mockStore(initialState);
         const wrapper = mount(
             <Provider store={ store }>
-                <ConnectedDriftFilterChips />
+                <ConnectedDriftFilterChips { ...props } />
             </Provider>
         );
 
@@ -50,7 +56,7 @@ describe('ConnectedDriftFilterChips', () => {
         const store = mockStore(initialState);
         const wrapper = mount(
             <Provider store={ store }>
-                <ConnectedDriftFilterChips />
+                <ConnectedDriftFilterChips { ...props } />
             </Provider>
         );
 
@@ -62,7 +68,7 @@ describe('ConnectedDriftFilterChips', () => {
         const store = mockStore(initialState);
         const wrapper = mount(
             <Provider store={ store }>
-                <ConnectedDriftFilterChips />
+                <ConnectedDriftFilterChips { ...props } />
             </Provider>
         );
         wrapper.find('.pf-c-button').first().simulate('click');

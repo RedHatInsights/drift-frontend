@@ -4,10 +4,12 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { Main, PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components';
-import { Card, CardBody, Toolbar, ToolbarGroup, ToolbarItem } from '@patternfly/react-core';
+import { Card, CardBody, DropdownItem, Toolbar, ToolbarGroup, ToolbarItem } from '@patternfly/react-core';
 import { errorAlertActions } from '../ErrorAlert/redux';
 import { baselinesTableActions } from '../BaselinesTable/redux';
 import { compareActions } from '../modules';
+import { historicProfilesActions } from '../HistoricalProfilesDropdown/redux';
+import { setHistory } from '../../Utilities/SetHistory';
 
 import DriftTable from './DriftTable/DriftTable';
 import FilterDropDown from './FilterDropDown/FilterDropDown';
@@ -22,6 +24,12 @@ import AddSystemButton from './AddSystemButton/AddSystemButton';
 export class DriftPage extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            actionKebabItems: [
+                <DropdownItem key="remove-systems" component="button" onClick={ this.clearComparison }>Clear all comparisons</DropdownItem>
+            ],
+            isEmpty: true
+        };
 
         this.props.clearSelectedBaselines('CHECKBOX');
     }
@@ -30,8 +38,32 @@ export class DriftPage extends Component {
         await window.insights.chrome.auth.getUser();
     }
 
+    setIsEmpty = (isEmpty) => {
+        this.setState({ isEmpty });
+    }
+
+    clearFilters = () => {
+        const { clearComparisonFilters } = this.props;
+
+        clearComparisonFilters();
+    }
+
+    clearComparison = () => {
+        const { history, clearComparison, clearSelectedBaselines, selectHistoricProfiles, selectedHSPIds, updateReferenceId } = this.props;
+
+        clearComparison();
+        clearSelectedBaselines('CHECKBOX');
+        selectHistoricProfiles(selectedHSPIds);
+        updateReferenceId();
+        setHistory(history, []);
+    }
+
     render() {
         const { loading, emptyState, updatePagination, updateReferenceId } = this.props;
+        const { actionKebabItems, isEmpty } = this.state;
+        /*eslint-disable*/
+        console.log(isEmpty);
+        /*eslint-enable*/
 
         if (this.props.error.detail) {
             this.props.toggleErrorAlert();
@@ -64,9 +96,7 @@ export class DriftPage extends Component {
                                                     <ExportCSVButton />
                                                 </ToolbarItem>
                                                 <ToolbarItem>
-                                                    <ActionKebab
-                                                        updateReferenceId={ updateReferenceId }
-                                                    />
+                                                    <ActionKebab dropdownItems={ actionKebabItems } />
                                                 </ToolbarItem>
                                             </ToolbarGroup>
                                             <ToolbarGroup className="pf-c-pagination">
@@ -81,8 +111,16 @@ export class DriftPage extends Component {
                                         <Toolbar className="drift-toolbar">
                                             <ToolbarGroup>
                                                 <ToolbarItem>
-                                                    <DriftFilterChips />
+                                                    <DriftFilterChips setIsEmpty={ this.setIsEmpty } />
                                                 </ToolbarItem>
+                                                { !isEmpty
+                                                    ? <ToolbarItem>
+                                                        <a onClick={ () => this.clearFilters() } >
+                                                            Clear filters
+                                                        </a>
+                                                    </ToolbarItem>
+                                                    : null
+                                                }
                                             </ToolbarGroup>
                                         </Toolbar>
                                     </React.Fragment>
@@ -120,7 +158,12 @@ DriftPage.propTypes = {
     clearSelectedBaselines: PropTypes.func,
     emptyState: PropTypes.bool,
     updatePagination: PropTypes.func,
-    updateReferenceId: PropTypes.func
+    updateReferenceId: PropTypes.func,
+    clearComparison: PropTypes.func,
+    clearComparisonFilters: PropTypes.func,
+    history: PropTypes.object,
+    selectHistoricProfiles: PropTypes.func,
+    selectedHSPIds: PropTypes.array
 };
 
 function mapDispatchToProps(dispatch) {
@@ -128,7 +171,10 @@ function mapDispatchToProps(dispatch) {
         toggleErrorAlert: () => dispatch(errorAlertActions.toggleErrorAlert()),
         clearSelectedBaselines: (tableId) => dispatch(baselinesTableActions.clearSelectedBaselines(tableId)),
         updatePagination: (pagination) => dispatch(compareActions.updatePagination(pagination)),
-        updateReferenceId: (id) => dispatch(compareActions.updateReferenceId(id))
+        updateReferenceId: (id) => dispatch(compareActions.updateReferenceId(id)),
+        clearComparison: () => dispatch(compareActions.clearComparison()),
+        clearComparisonFilters: () => dispatch(compareActions.clearComparisonFilters()),
+        selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds))
     };
 }
 
@@ -136,7 +182,8 @@ function mapStateToProps(state) {
     return {
         error: state.compareState.error,
         loading: state.compareState.loading,
-        emptyState: state.compareState.emptyState
+        emptyState: state.compareState.emptyState,
+        selectedHSPIds: state.historicProfilesState.selectedHSPIds
     };
 }
 

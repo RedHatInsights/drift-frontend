@@ -15,9 +15,15 @@ function revertCompareData() {
     };
 }
 
-function clearState() {
+function clearComparison() {
     return {
-        type: types.CLEAR_STATE
+        type: types.CLEAR_COMPARISON
+    };
+}
+
+function clearComparisonFilters() {
+    return {
+        type: types.CLEAR_COMPARISON_FILTERS
     };
 }
 
@@ -98,7 +104,8 @@ function updateReferenceId(id) {
 export default {
     fetchCompare,
     revertCompareData,
-    clearState,
+    clearComparison,
+    clearComparisonFilters,
     setSelectedSystemIds,
     toggleFactSort,
     addStateFilter,

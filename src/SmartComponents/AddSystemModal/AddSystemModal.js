@@ -146,6 +146,7 @@ export class AddSystemModal extends Component {
                                 loading={ loading }
                                 columns={ columns }
                                 onBulkSelect={ this.onBulkSelect }
+                                selectedBaselineIds={ selectedBaselineIds }
                             />
                         </Tab>
                     </Tabs>

@@ -6,7 +6,6 @@ import { addSystemModalReducer } from '../SmartComponents/AddSystemModal/redux/a
 import { baselinesTableRootReducer } from '../SmartComponents/BaselinesTable/redux';
 import { errorAlertReducer } from '../SmartComponents/ErrorAlert/redux/errorAlertReducer';
 import { filterDropdownReducer } from '../SmartComponents/DriftPage/FilterDropDown/redux/filterDropdownReducer';
-import { actionKebabReducer } from '../SmartComponents/DriftPage/ActionKebab/redux/actionKebabReducer';
 import { exportCSVButtonReducer } from '../SmartComponents/BaselinesPage/ExportCSVButton/redux/exportCSVButtonReducer';
 import { createBaselineModalReducer } from '../SmartComponents/BaselinesPage/CreateBaselineModal/redux/reducers';
 import { editBaselineReducer } from '../SmartComponents/BaselinesPage/EditBaseline/redux/reducers';
@@ -30,7 +29,6 @@ export function init (...middleware) {
         baselinesTableState: baselinesTableRootReducer,
         errorAlertOpened: errorAlertReducer,
         filterDropdownOpened: filterDropdownReducer,
-        kebabOpened: actionKebabReducer,
         exportCSVButtonState: exportCSVButtonReducer,
         createBaselineModalState: createBaselineModalReducer,
         editBaselineState: editBaselineReducer,

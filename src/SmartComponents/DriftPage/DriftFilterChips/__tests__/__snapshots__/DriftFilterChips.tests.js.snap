@@ -13,11 +13,42 @@ exports[`ConnectedDriftFilterChips should render all states true 1`] = `
     }
   }
 >
-  <Connect(DriftFilterChips)>
+  <Connect(DriftFilterChips)
+    setIsEmpty={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            false,
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
+  >
     <DriftFilterChips
       addStateFilter={[Function]}
       factFilter="something"
       filterByFact={[Function]}
+      setIsEmpty={
+        [MockFunction] {
+          "calls": Array [
+            Array [
+              false,
+            ],
+          ],
+          "results": Array [
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
+        }
+      }
       stateFilters={
         Array [
           Object {
@@ -706,11 +737,42 @@ exports[`ConnectedDriftFilterChips should render correctly 1`] = `
     }
   }
 >
-  <Connect(DriftFilterChips)>
+  <Connect(DriftFilterChips)
+    setIsEmpty={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            true,
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
+  >
     <DriftFilterChips
       addStateFilter={[Function]}
       factFilter=""
       filterByFact={[Function]}
+      setIsEmpty={
+        [MockFunction] {
+          "calls": Array [
+            Array [
+              true,
+            ],
+          ],
+          "results": Array [
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
+        }
+      }
       stateFilters={Array []}
     >
       <ChipGroup

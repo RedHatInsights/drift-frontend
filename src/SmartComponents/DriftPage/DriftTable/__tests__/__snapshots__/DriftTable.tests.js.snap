@@ -1420,6 +1420,20 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
             fullCompareData={
               Array [
                 Object {
+                  "name": "cpus",
+                  "state": "DIFFERENT",
+                  "systems": Array [
+                    Object {
+                      "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                      "value": "4",
+                    },
+                    Object {
+                      "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                      "value": "3",
+                    },
+                  ],
+                },
+                Object {
                   "name": "bios_uuid",
                   "state": "SAME",
                   "systems": Array [
@@ -1444,20 +1458,6 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                     Object {
                       "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                       "value": "PC-NAME",
-                    },
-                  ],
-                },
-                Object {
-                  "name": "cpus",
-                  "state": "DIFFERENT",
-                  "systems": Array [
-                    Object {
-                      "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
-                      "value": "4",
-                    },
-                    Object {
-                      "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
-                      "value": "3",
                     },
                   ],
                 },
