@@ -82,18 +82,18 @@ export class BaselinesPage extends Component {
             <CardBody>
                 <div>
                     <BaselinesTable
+                        tableId='CHECKBOX'
+                        hasMultiSelect={ true }
+                        onSelect={ this.onSelect }
+                        tableData={ baselineTableData }
+                        loading={ loading }
+                        columns={ columns }
                         kebab={ true }
                         createButton={ true }
                         exportButton={ true }
                         onClick={ this.fetchBaseline }
-                        hasMultiSelect={ true }
-                        tableId='CHECKBOX'
-                        onSelect={ this.onSelect }
-                        tableData={ baselineTableData }
-                        loading={ loading }
                         createBaselineModalOpened={ createBaselineModalOpened }
-                        columns={ columns }
-                        onBulkSelect= { this.onBulkSelect }
+                        onBulkSelect={ this.onBulkSelect }
                     />
                 </div>
             </CardBody>
