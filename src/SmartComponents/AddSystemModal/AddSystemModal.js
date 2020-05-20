@@ -79,6 +79,17 @@ export class AddSystemModal extends Component {
         selectActiveTab(tabIndex);
     }
 
+    onBulkSelect = (isSelected) => {
+        const { baselineTableData, selectBaseline } = this.props;
+        let ids = [];
+
+        baselineTableData.forEach(function(baseline) {
+            ids.push(baseline[0]);
+        });
+
+        selectBaseline(ids, isSelected, 'CHECKBOX');
+    }
+
     render() {
         const { activeTab, addSystemModalOpened, baselineTableData, historicalProfiles, loading,
             entities, selectedBaselineIds, selectedHSPIds } = this.props;
@@ -133,7 +144,9 @@ export class AddSystemModal extends Component {
                                 onSelect={ this.onSelect }
                                 tableData={ baselineTableData }
                                 loading={ loading }
-                                columns={ columns }/>
+                                columns={ columns }
+                                onBulkSelect={ this.onBulkSelect }
+                            />
                         </Tab>
                     </Tabs>
                 </Modal>
