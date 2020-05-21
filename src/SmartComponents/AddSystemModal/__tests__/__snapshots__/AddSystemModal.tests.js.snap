@@ -1699,7 +1699,6 @@ Try changing your filter settings.
                         className="pf-c-backdrop"
                       >
                         <FocusTrap
-                          _createFocusTrap={[Function]}
                           active={true}
                           className="pf-l-bullseye"
                           focusTrapOptions={
@@ -1708,7 +1707,6 @@ Try changing your filter settings.
                             }
                           }
                           paused={false}
-                          tag="div"
                         >
                           <div
                             className="pf-l-bullseye"
@@ -1955,73 +1953,45 @@ Try changing your filter settings.
                                             >
                                               <li
                                                 className="pf-c-tabs__item"
-                                                key="0/.0"
+                                                hidden={false}
+                                                key="0"
                                               >
-                                                <ForwardRef
+                                                <TabButton
                                                   aria-controls="pf-tab-section-0-systems-tab"
                                                   className="pf-c-tabs__button"
                                                   id="pf-tab-0-systems-tab"
                                                   onClick={[Function]}
                                                 >
-                                                  <TabContainer
+                                                  <button
                                                     aria-controls="pf-tab-section-0-systems-tab"
                                                     className="pf-c-tabs__button"
-                                                    forwardRef={null}
                                                     id="pf-tab-0-systems-tab"
                                                     onClick={[Function]}
                                                   >
-                                                    <TabButtonWithRef
-                                                      aria-controls="pf-tab-section-0-systems-tab"
-                                                      className="pf-c-tabs__button"
-                                                      id="pf-tab-0-systems-tab"
-                                                      onClick={[Function]}
-                                                    >
-                                                      <button
-                                                        aria-controls="pf-tab-section-0-systems-tab"
-                                                        className="pf-c-tabs__button"
-                                                        id="pf-tab-0-systems-tab"
-                                                        onClick={[Function]}
-                                                      >
-                                                        Systems
-                                                      </button>
-                                                    </TabButtonWithRef>
-                                                  </TabContainer>
-                                                </ForwardRef>
+                                                    Systems
+                                                  </button>
+                                                </TabButton>
                                               </li>
                                               <li
                                                 className="pf-c-tabs__item pf-m-current"
-                                                key="1/.1"
+                                                hidden={false}
+                                                key="1"
                                               >
-                                                <ForwardRef
+                                                <TabButton
                                                   aria-controls="pf-tab-section-1-baselines-tab"
                                                   className="pf-c-tabs__button"
                                                   id="pf-tab-1-baselines-tab"
                                                   onClick={[Function]}
                                                 >
-                                                  <TabContainer
+                                                  <button
                                                     aria-controls="pf-tab-section-1-baselines-tab"
                                                     className="pf-c-tabs__button"
-                                                    forwardRef={null}
                                                     id="pf-tab-1-baselines-tab"
                                                     onClick={[Function]}
                                                   >
-                                                    <TabButtonWithRef
-                                                      aria-controls="pf-tab-section-1-baselines-tab"
-                                                      className="pf-c-tabs__button"
-                                                      id="pf-tab-1-baselines-tab"
-                                                      onClick={[Function]}
-                                                    >
-                                                      <button
-                                                        aria-controls="pf-tab-section-1-baselines-tab"
-                                                        className="pf-c-tabs__button"
-                                                        id="pf-tab-1-baselines-tab"
-                                                        onClick={[Function]}
-                                                      >
-                                                        Baselines
-                                                      </button>
-                                                    </TabButtonWithRef>
-                                                  </TabContainer>
-                                                </ForwardRef>
+                                                    Baselines
+                                                  </button>
+                                                </TabButton>
                                               </li>
                                             </ul>
                                             <button
@@ -2078,9 +2048,9 @@ Try changing your filter settings.
                                               </Tab>
                                             }
                                             id="systems-tab"
-                                            key="0/.0"
+                                            key="0"
                                           >
-                                            <TabContent0
+                                            <TabContentBase
                                               activeKey={1}
                                               child={
                                                 <Tab
@@ -2141,7 +2111,7 @@ Try changing your filter settings.
                                                   </SystemsTable>
                                                 </Connect(SystemsTable)>
                                               </section>
-                                            </TabContent0>
+                                            </TabContentBase>
                                           </ForwardRef>
                                           <ForwardRef
                                             activeKey={1}
@@ -2179,9 +2149,9 @@ Try changing your filter settings.
                                               </Tab>
                                             }
                                             id="baselines-tab"
-                                            key="1/.1"
+                                            key="1"
                                           >
-                                            <TabContent0
+                                            <TabContentBase
                                               activeKey={1}
                                               child={
                                                 <Tab
@@ -2625,6 +2595,7 @@ Try changing your filter settings.
                                                                                   <Toggle
                                                                                     aria-label="Select"
                                                                                     ariaHasPopup={true}
+                                                                                    bubbleEvent={false}
                                                                                     className=""
                                                                                     id="pf-toggle-id-2"
                                                                                     isActive={false}
@@ -4399,7 +4370,7 @@ Try changing your filter settings.
                                                   </BaselinesTable>
                                                 </Connect(BaselinesTable)>
                                               </section>
-                                            </TabContent0>
+                                            </TabContentBase>
                                           </ForwardRef>
                                         </Tabs>
                                       </ComponentWithOuia>
@@ -5370,7 +5341,6 @@ Try changing your filter settings.
                         className="pf-c-backdrop"
                       >
                         <FocusTrap
-                          _createFocusTrap={[Function]}
                           active={true}
                           className="pf-l-bullseye"
                           focusTrapOptions={
@@ -5379,7 +5349,6 @@ Try changing your filter settings.
                             }
                           }
                           paused={false}
-                          tag="div"
                         >
                           <div
                             className="pf-l-bullseye"
@@ -5626,73 +5595,45 @@ Try changing your filter settings.
                                             >
                                               <li
                                                 className="pf-c-tabs__item pf-m-current"
-                                                key="0/.0"
+                                                hidden={false}
+                                                key="0"
                                               >
-                                                <ForwardRef
+                                                <TabButton
                                                   aria-controls="pf-tab-section-0-systems-tab"
                                                   className="pf-c-tabs__button"
                                                   id="pf-tab-0-systems-tab"
                                                   onClick={[Function]}
                                                 >
-                                                  <TabContainer
+                                                  <button
                                                     aria-controls="pf-tab-section-0-systems-tab"
                                                     className="pf-c-tabs__button"
-                                                    forwardRef={null}
                                                     id="pf-tab-0-systems-tab"
                                                     onClick={[Function]}
                                                   >
-                                                    <TabButtonWithRef
-                                                      aria-controls="pf-tab-section-0-systems-tab"
-                                                      className="pf-c-tabs__button"
-                                                      id="pf-tab-0-systems-tab"
-                                                      onClick={[Function]}
-                                                    >
-                                                      <button
-                                                        aria-controls="pf-tab-section-0-systems-tab"
-                                                        className="pf-c-tabs__button"
-                                                        id="pf-tab-0-systems-tab"
-                                                        onClick={[Function]}
-                                                      >
-                                                        Systems
-                                                      </button>
-                                                    </TabButtonWithRef>
-                                                  </TabContainer>
-                                                </ForwardRef>
+                                                    Systems
+                                                  </button>
+                                                </TabButton>
                                               </li>
                                               <li
                                                 className="pf-c-tabs__item"
-                                                key="1/.1"
+                                                hidden={false}
+                                                key="1"
                                               >
-                                                <ForwardRef
+                                                <TabButton
                                                   aria-controls="pf-tab-section-1-baselines-tab"
                                                   className="pf-c-tabs__button"
                                                   id="pf-tab-1-baselines-tab"
                                                   onClick={[Function]}
                                                 >
-                                                  <TabContainer
+                                                  <button
                                                     aria-controls="pf-tab-section-1-baselines-tab"
                                                     className="pf-c-tabs__button"
-                                                    forwardRef={null}
                                                     id="pf-tab-1-baselines-tab"
                                                     onClick={[Function]}
                                                   >
-                                                    <TabButtonWithRef
-                                                      aria-controls="pf-tab-section-1-baselines-tab"
-                                                      className="pf-c-tabs__button"
-                                                      id="pf-tab-1-baselines-tab"
-                                                      onClick={[Function]}
-                                                    >
-                                                      <button
-                                                        aria-controls="pf-tab-section-1-baselines-tab"
-                                                        className="pf-c-tabs__button"
-                                                        id="pf-tab-1-baselines-tab"
-                                                        onClick={[Function]}
-                                                      >
-                                                        Baselines
-                                                      </button>
-                                                    </TabButtonWithRef>
-                                                  </TabContainer>
-                                                </ForwardRef>
+                                                    Baselines
+                                                  </button>
+                                                </TabButton>
                                               </li>
                                             </ul>
                                             <button
@@ -5749,9 +5690,9 @@ Try changing your filter settings.
                                               </Tab>
                                             }
                                             id="systems-tab"
-                                            key="0/.0"
+                                            key="0"
                                           >
-                                            <TabContent0
+                                            <TabContentBase
                                               activeKey={0}
                                               child={
                                                 <Tab
@@ -5812,7 +5753,7 @@ Try changing your filter settings.
                                                   </SystemsTable>
                                                 </Connect(SystemsTable)>
                                               </section>
-                                            </TabContent0>
+                                            </TabContentBase>
                                           </ForwardRef>
                                           <ForwardRef
                                             activeKey={0}
@@ -5850,9 +5791,9 @@ Try changing your filter settings.
                                               </Tab>
                                             }
                                             id="baselines-tab"
-                                            key="1/.1"
+                                            key="1"
                                           >
-                                            <TabContent0
+                                            <TabContentBase
                                               activeKey={0}
                                               child={
                                                 <Tab
@@ -6296,6 +6237,7 @@ Try changing your filter settings.
                                                                                   <Toggle
                                                                                     aria-label="Select"
                                                                                     ariaHasPopup={true}
+                                                                                    bubbleEvent={false}
                                                                                     className=""
                                                                                     id="pf-toggle-id-0"
                                                                                     isActive={false}
@@ -8070,7 +8012,7 @@ Try changing your filter settings.
                                                   </BaselinesTable>
                                                 </Connect(BaselinesTable)>
                                               </section>
-                                            </TabContent0>
+                                            </TabContentBase>
                                           </ForwardRef>
                                         </Tabs>
                                       </ComponentWithOuia>

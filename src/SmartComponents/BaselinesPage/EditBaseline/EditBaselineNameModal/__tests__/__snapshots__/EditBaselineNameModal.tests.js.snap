@@ -238,7 +238,11 @@ exports[`EditBaselineNameModal should render mount correctly 1`] = `
                     class="pf-c-button pf-m-link"
                     type="button"
                   >
-                    Cancel
+                    <span
+                      class="pf-c-button__text"
+                    >
+                      Cancel
+                    </span>
                   </button>
                 </div>
               </div>
@@ -356,7 +360,11 @@ exports[`EditBaselineNameModal should render mount correctly 1`] = `
                     class="pf-c-button pf-m-link"
                     type="button"
                   >
-                    Cancel
+                    <span
+                      class="pf-c-button__text"
+                    >
+                      Cancel
+                    </span>
                   </button>
                 </div>
               </div>
@@ -399,7 +407,6 @@ exports[`EditBaselineNameModal should render mount correctly 1`] = `
             className="pf-c-backdrop"
           >
             <FocusTrap
-              _createFocusTrap={[Function]}
               active={true}
               className="pf-l-bullseye"
               focusTrapOptions={
@@ -408,7 +415,6 @@ exports[`EditBaselineNameModal should render mount correctly 1`] = `
                 }
               }
               paused={false}
-              tag="div"
             >
               <div
                 className="pf-l-bullseye"
@@ -689,7 +695,11 @@ exports[`EditBaselineNameModal should render mount correctly 1`] = `
                                 tabIndex={null}
                                 type="button"
                               >
-                                Cancel
+                                <span
+                                  className="pf-c-button__text"
+                                >
+                                  Cancel
+                                </span>
                               </button>
                             </Button>
                           </ComponentWithOuia>

@@ -5,6 +5,7 @@ import { BulkSelect } from '@redhat-cloud-services/frontend-components';
 
 import EditBaselineKebab from '../EditBaselineKebab/EditBaselineKebab';
 import AddFactButton from '../AddFactButton/AddFactButton';
+import helpers from '../../../helpers';
 
 export class EditBaselineToolbar extends Component {
     constructor(props) {
@@ -25,7 +26,7 @@ export class EditBaselineToolbar extends Component {
     }
 
     render() {
-        const { isDisabled, onBulkSelect, selected } = this.props;
+        const { isDisabled, onBulkSelect, selected, totalFacts } = this.props;
         const { bulkSelectItems } = this.state;
 
         return (
@@ -35,7 +36,7 @@ export class EditBaselineToolbar extends Component {
                         <BulkSelect
                             count={ selected > 0 ? selected : null }
                             items={ bulkSelectItems }
-                            checked={ selected > 0 ? true : false }
+                            checked={ helpers.findCheckedValue(totalFacts, selected) }
                             onSelect={ () => onBulkSelect(!selected > 0) }
                             isDisabled={ isDisabled }
                         />
@@ -57,7 +58,8 @@ export class EditBaselineToolbar extends Component {
 EditBaselineToolbar.propTypes = {
     isDisabled: PropTypes.bool,
     onBulkSelect: PropTypes.func,
-    selected: PropTypes.any
+    selected: PropTypes.any,
+    totalFacts: PropTypes.number
 };
 
 export default EditBaselineToolbar;

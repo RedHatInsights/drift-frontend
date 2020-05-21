@@ -89,7 +89,12 @@ exports[`ConnectedDriftFilterChips should render all states true 1`] = `
         >
           <ChipGroupToolbarItem
             categoryName="State"
+            className=""
+            closeBtnAriaLabel="Close chip group"
+            isClosable={false}
             key=".$State"
+            onClick={[Function]}
+            tooltipPosition="top"
           >
             <GenerateId
               prefix="pf-random-id-"
@@ -549,7 +554,12 @@ exports[`ConnectedDriftFilterChips should render all states true 1`] = `
           </ChipGroupToolbarItem>
           <ChipGroupToolbarItem
             categoryName="Fact name"
+            className=""
+            closeBtnAriaLabel="Close chip group"
+            isClosable={false}
             key=".$Fact name"
+            onClick={[Function]}
+            tooltipPosition="top"
           >
             <GenerateId
               prefix="pf-random-id-"
@@ -795,11 +805,21 @@ exports[`ConnectedDriftFilterChips should render correctly 1`] = `
         >
           <ChipGroupToolbarItem
             categoryName="State"
+            className=""
+            closeBtnAriaLabel="Close chip group"
+            isClosable={false}
             key=".$State"
+            onClick={[Function]}
+            tooltipPosition="top"
           />
           <ChipGroupToolbarItem
             categoryName="Fact name"
+            className=""
+            closeBtnAriaLabel="Close chip group"
+            isClosable={false}
             key=".$Fact name"
+            onClick={[Function]}
+            tooltipPosition="top"
           />
         </InnerChipGroup>
       </ChipGroup>
@@ -819,11 +839,21 @@ exports[`DriftFilterChips should render correctly 1`] = `
 >
   <ChipGroupToolbarItem
     categoryName="State"
+    className=""
+    closeBtnAriaLabel="Close chip group"
+    isClosable={false}
     key="State"
+    onClick={[Function]}
+    tooltipPosition="top"
   />
   <ChipGroupToolbarItem
     categoryName="Fact name"
+    className=""
+    closeBtnAriaLabel="Close chip group"
+    isClosable={false}
     key="Fact name"
+    onClick={[Function]}
+    tooltipPosition="top"
   />
 </ChipGroup>
 `;

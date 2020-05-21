@@ -378,6 +378,7 @@ exports[`ConnectedHistoricalProfilesDropdown should render correctly 1`] = `
                       >
                         <Toggle
                           ariaHasPopup={true}
+                          bubbleEvent={false}
                           className="hsp-dropdown-icon"
                           id="pf-toggle-id-1"
                           isActive={false}
@@ -774,6 +775,7 @@ exports[`HistoricalProfilesDropdown should render mount correctly 1`] = `
             >
               <Toggle
                 ariaHasPopup={true}
+                bubbleEvent={false}
                 className="hsp-dropdown-icon"
                 id="pf-toggle-id-0"
                 isActive={false}

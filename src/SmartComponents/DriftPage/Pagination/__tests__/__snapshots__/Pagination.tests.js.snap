@@ -121,10 +121,22 @@ exports[`ConnectedTablePagination should render correctly 1`] = `
               consumerContext={null}
             >
               <Pagination
+                className=""
+                defaultToFullPage={false}
                 dropDirection="down"
+                firstPage={1}
                 isCompact={false}
+                isDisabled={false}
                 itemCount={0}
+                itemsEnd={null}
+                itemsStart={null}
+                offset={0}
+                onFirstClick={[Function]}
+                onLastClick={[Function]}
+                onNextClick={[Function]}
+                onPageInput={[Function]}
                 onPerPageSelect={[Function]}
+                onPreviousClick={[Function]}
                 onSetPage={[Function]}
                 ouiaContext={
                   Object {
@@ -132,6 +144,7 @@ exports[`ConnectedTablePagination should render correctly 1`] = `
                     "ouiaId": null,
                   }
                 }
+                ouiaId={null}
                 page={0}
                 perPage={50}
                 perPageOptions={
@@ -154,6 +167,24 @@ exports[`ConnectedTablePagination should render correctly 1`] = `
                     },
                   ]
                 }
+                titles={
+                  Object {
+                    "currPage": "Current page",
+                    "items": "",
+                    "itemsPerPage": "Items per page",
+                    "optionsToggle": "Items per page",
+                    "page": "",
+                    "paginationTitle": "Pagination",
+                    "perPageSuffix": "per page",
+                    "toFirstPage": "Go to first page",
+                    "toLastPage": "Go to last page",
+                    "toNextPage": "Go to next page",
+                    "toPreviousPage": "Go to previous page",
+                  }
+                }
+                toggleTemplate={[Function]}
+                variant="top"
+                widgetId="pagination-options-menu"
               >
                 <div
                   className="pf-c-pagination"
@@ -665,6 +696,7 @@ exports[`ConnectedTablePagination should render correctly 1`] = `
                                 >
                                   <Toggle
                                     aria-label="Items per page"
+                                    bubbleEvent={false}
                                     className="pf-c-options-menu__toggle-button"
                                     id="pagination-options-menu-toggle-0"
                                     isActive={false}
