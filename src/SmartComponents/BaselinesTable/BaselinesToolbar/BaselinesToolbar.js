@@ -10,6 +10,7 @@ import ExportCSVButton from '../../BaselinesPage/ExportCSVButton/ExportCSVButton
 import ActionKebab from '../../DriftPage/ActionKebab/ActionKebab';
 import DeleteBaselinesModal from '../../BaselinesPage/DeleteBaselinesModal/DeleteBaselinesModal';
 import BaselinesFilterChips from '../BaselinesFilterChips/BaselinesFilterChips';
+import helpers from '../../helpers';
 
 export class BaselinesToolbar extends Component {
     constructor(props) {
@@ -105,7 +106,7 @@ export class BaselinesToolbar extends Component {
                                 <BulkSelect
                                     count={ selected > 0 ? selected : null }
                                     items={ bulkSelectItems }
-                                    checked={ selected > 0 ? true : false }
+                                    checked={ helpers.findCheckedValue(tableData.length, selected) }
                                     onSelect={ () => onBulkSelect(!selected > 0) }
                                     isDisabled={ tableData.length === 0 }
                                 />

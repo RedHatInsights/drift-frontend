@@ -339,6 +339,20 @@ function baselineSubFacts(fact) {
     return fact[2];
 }
 
+function findFactCount(editBaselineTableData) {
+    let totalFacts = 0;
+
+    editBaselineTableData.forEach(function(fact) {
+        if (Array.isArray(fact[2])) {
+            totalFacts += fact[2].length;
+        } else {
+            totalFacts += 1;
+        }
+    });
+
+    return totalFacts;
+}
+
 function findSelected(editBaselineTableData) {
     let selected = 0;
 
@@ -375,5 +389,6 @@ export default {
     isAllSelected,
     isCategory,
     baselineSubFacts,
+    findFactCount,
     findSelected
 };

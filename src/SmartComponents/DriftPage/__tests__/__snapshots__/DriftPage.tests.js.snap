@@ -622,6 +622,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                       >
                                                         <Toggle
                                                           ariaHasPopup={true}
+                                                          bubbleEvent={false}
                                                           className=""
                                                           id="pf-toggle-id-0"
                                                           isActive={false}
@@ -1019,6 +1020,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                       <Toggle
                                                         aria-label="Actions"
                                                         ariaHasPopup={true}
+                                                        bubbleEvent={false}
                                                         className=""
                                                         id="pf-toggle-id-4"
                                                         isActive={false}
@@ -1196,10 +1198,22 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                 consumerContext={null}
                                               >
                                                 <Pagination
+                                                  className=""
+                                                  defaultToFullPage={false}
                                                   dropDirection="down"
+                                                  firstPage={1}
                                                   isCompact={true}
+                                                  isDisabled={false}
                                                   itemCount={0}
+                                                  itemsEnd={null}
+                                                  itemsStart={null}
+                                                  offset={0}
+                                                  onFirstClick={[Function]}
+                                                  onLastClick={[Function]}
+                                                  onNextClick={[Function]}
+                                                  onPageInput={[Function]}
                                                   onPerPageSelect={[Function]}
+                                                  onPreviousClick={[Function]}
                                                   onSetPage={[Function]}
                                                   ouiaContext={
                                                     Object {
@@ -1207,6 +1221,9 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                       "ouiaId": null,
                                                     }
                                                   }
+                                                  ouiaId={null}
+                                                  page={0}
+                                                  perPage={10}
                                                   perPageOptions={
                                                     Array [
                                                       Object {
@@ -1227,6 +1244,24 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                       },
                                                     ]
                                                   }
+                                                  titles={
+                                                    Object {
+                                                      "currPage": "Current page",
+                                                      "items": "",
+                                                      "itemsPerPage": "Items per page",
+                                                      "optionsToggle": "Items per page",
+                                                      "page": "",
+                                                      "paginationTitle": "Pagination",
+                                                      "perPageSuffix": "per page",
+                                                      "toFirstPage": "Go to first page",
+                                                      "toLastPage": "Go to last page",
+                                                      "toNextPage": "Go to next page",
+                                                      "toPreviousPage": "Go to previous page",
+                                                    }
+                                                  }
+                                                  toggleTemplate={[Function]}
+                                                  variant="top"
+                                                  widgetId="pagination-options-menu"
                                                 >
                                                   <div
                                                     className="pf-c-pagination pf-m-compact"
@@ -1738,6 +1773,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                   >
                                                                     <Toggle
                                                                       aria-label="Items per page"
+                                                                      bubbleEvent={false}
                                                                       className="pf-c-options-menu__toggle-button"
                                                                       id="pagination-options-menu-toggle-0"
                                                                       isActive={false}
@@ -2120,7 +2156,12 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                               >
                                                 <ChipGroupToolbarItem
                                                   categoryName="State"
+                                                  className=""
+                                                  closeBtnAriaLabel="Close chip group"
+                                                  isClosable={false}
                                                   key=".$State"
+                                                  onClick={[Function]}
+                                                  tooltipPosition="top"
                                                 >
                                                   <GenerateId
                                                     prefix="pf-random-id-"
@@ -2580,7 +2621,12 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                 </ChipGroupToolbarItem>
                                                 <ChipGroupToolbarItem
                                                   categoryName="Fact name"
+                                                  className=""
+                                                  closeBtnAriaLabel="Close chip group"
+                                                  isClosable={false}
                                                   key=".$Fact name"
+                                                  onClick={[Function]}
+                                                  tooltipPosition="top"
                                                 >
                                                   <GenerateId
                                                     prefix="pf-random-id-"
@@ -3177,10 +3223,22 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                 consumerContext={null}
                                               >
                                                 <Pagination
+                                                  className=""
+                                                  defaultToFullPage={false}
                                                   dropDirection="down"
+                                                  firstPage={1}
                                                   isCompact={false}
+                                                  isDisabled={false}
                                                   itemCount={0}
+                                                  itemsEnd={null}
+                                                  itemsStart={null}
+                                                  offset={0}
+                                                  onFirstClick={[Function]}
+                                                  onLastClick={[Function]}
+                                                  onNextClick={[Function]}
+                                                  onPageInput={[Function]}
                                                   onPerPageSelect={[Function]}
+                                                  onPreviousClick={[Function]}
                                                   onSetPage={[Function]}
                                                   ouiaContext={
                                                     Object {
@@ -3188,6 +3246,9 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                       "ouiaId": null,
                                                     }
                                                   }
+                                                  ouiaId={null}
+                                                  page={0}
+                                                  perPage={10}
                                                   perPageOptions={
                                                     Array [
                                                       Object {
@@ -3208,6 +3269,24 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                       },
                                                     ]
                                                   }
+                                                  titles={
+                                                    Object {
+                                                      "currPage": "Current page",
+                                                      "items": "",
+                                                      "itemsPerPage": "Items per page",
+                                                      "optionsToggle": "Items per page",
+                                                      "page": "",
+                                                      "paginationTitle": "Pagination",
+                                                      "perPageSuffix": "per page",
+                                                      "toFirstPage": "Go to first page",
+                                                      "toLastPage": "Go to last page",
+                                                      "toNextPage": "Go to next page",
+                                                      "toPreviousPage": "Go to previous page",
+                                                    }
+                                                  }
+                                                  toggleTemplate={[Function]}
+                                                  variant="top"
+                                                  widgetId="pagination-options-menu"
                                                 >
                                                   <div
                                                     className="pf-c-pagination"
@@ -3719,6 +3798,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                   >
                                                                     <Toggle
                                                                       aria-label="Items per page"
+                                                                      bubbleEvent={false}
                                                                       className="pf-c-options-menu__toggle-button"
                                                                       id="pagination-options-menu-toggle-1"
                                                                       isActive={false}
@@ -4875,6 +4955,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                       >
                                                         <Toggle
                                                           ariaHasPopup={true}
+                                                          bubbleEvent={false}
                                                           className=""
                                                           id="pf-toggle-id-5"
                                                           isActive={false}
@@ -5272,6 +5353,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                       <Toggle
                                                         aria-label="Actions"
                                                         ariaHasPopup={true}
+                                                        bubbleEvent={false}
                                                         className=""
                                                         id="pf-toggle-id-9"
                                                         isActive={false}
@@ -5449,10 +5531,22 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                 consumerContext={null}
                                               >
                                                 <Pagination
+                                                  className=""
+                                                  defaultToFullPage={false}
                                                   dropDirection="down"
+                                                  firstPage={1}
                                                   isCompact={true}
+                                                  isDisabled={false}
                                                   itemCount={0}
+                                                  itemsEnd={null}
+                                                  itemsStart={null}
+                                                  offset={0}
+                                                  onFirstClick={[Function]}
+                                                  onLastClick={[Function]}
+                                                  onNextClick={[Function]}
+                                                  onPageInput={[Function]}
                                                   onPerPageSelect={[Function]}
+                                                  onPreviousClick={[Function]}
                                                   onSetPage={[Function]}
                                                   ouiaContext={
                                                     Object {
@@ -5460,6 +5554,9 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                       "ouiaId": null,
                                                     }
                                                   }
+                                                  ouiaId={null}
+                                                  page={0}
+                                                  perPage={10}
                                                   perPageOptions={
                                                     Array [
                                                       Object {
@@ -5480,6 +5577,24 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                       },
                                                     ]
                                                   }
+                                                  titles={
+                                                    Object {
+                                                      "currPage": "Current page",
+                                                      "items": "",
+                                                      "itemsPerPage": "Items per page",
+                                                      "optionsToggle": "Items per page",
+                                                      "page": "",
+                                                      "paginationTitle": "Pagination",
+                                                      "perPageSuffix": "per page",
+                                                      "toFirstPage": "Go to first page",
+                                                      "toLastPage": "Go to last page",
+                                                      "toNextPage": "Go to next page",
+                                                      "toPreviousPage": "Go to previous page",
+                                                    }
+                                                  }
+                                                  toggleTemplate={[Function]}
+                                                  variant="top"
+                                                  widgetId="pagination-options-menu"
                                                 >
                                                   <div
                                                     className="pf-c-pagination pf-m-compact"
@@ -5991,6 +6106,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                   >
                                                                     <Toggle
                                                                       aria-label="Items per page"
+                                                                      bubbleEvent={false}
                                                                       className="pf-c-options-menu__toggle-button"
                                                                       id="pagination-options-menu-toggle-2"
                                                                       isActive={false}
@@ -6373,7 +6489,12 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                               >
                                                 <ChipGroupToolbarItem
                                                   categoryName="State"
+                                                  className=""
+                                                  closeBtnAriaLabel="Close chip group"
+                                                  isClosable={false}
                                                   key=".$State"
+                                                  onClick={[Function]}
+                                                  tooltipPosition="top"
                                                 >
                                                   <GenerateId
                                                     prefix="pf-random-id-"
@@ -6833,7 +6954,12 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                 </ChipGroupToolbarItem>
                                                 <ChipGroupToolbarItem
                                                   categoryName="Fact name"
+                                                  className=""
+                                                  closeBtnAriaLabel="Close chip group"
+                                                  isClosable={false}
                                                   key=".$Fact name"
+                                                  onClick={[Function]}
+                                                  tooltipPosition="top"
                                                 >
                                                   <GenerateId
                                                     prefix="pf-random-id-"
@@ -7434,10 +7560,22 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                 consumerContext={null}
                                               >
                                                 <Pagination
+                                                  className=""
+                                                  defaultToFullPage={false}
                                                   dropDirection="down"
+                                                  firstPage={1}
                                                   isCompact={false}
+                                                  isDisabled={false}
                                                   itemCount={0}
+                                                  itemsEnd={null}
+                                                  itemsStart={null}
+                                                  offset={0}
+                                                  onFirstClick={[Function]}
+                                                  onLastClick={[Function]}
+                                                  onNextClick={[Function]}
+                                                  onPageInput={[Function]}
                                                   onPerPageSelect={[Function]}
+                                                  onPreviousClick={[Function]}
                                                   onSetPage={[Function]}
                                                   ouiaContext={
                                                     Object {
@@ -7445,6 +7583,9 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                       "ouiaId": null,
                                                     }
                                                   }
+                                                  ouiaId={null}
+                                                  page={0}
+                                                  perPage={10}
                                                   perPageOptions={
                                                     Array [
                                                       Object {
@@ -7465,6 +7606,24 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                       },
                                                     ]
                                                   }
+                                                  titles={
+                                                    Object {
+                                                      "currPage": "Current page",
+                                                      "items": "",
+                                                      "itemsPerPage": "Items per page",
+                                                      "optionsToggle": "Items per page",
+                                                      "page": "",
+                                                      "paginationTitle": "Pagination",
+                                                      "perPageSuffix": "per page",
+                                                      "toFirstPage": "Go to first page",
+                                                      "toLastPage": "Go to last page",
+                                                      "toNextPage": "Go to next page",
+                                                      "toPreviousPage": "Go to previous page",
+                                                    }
+                                                  }
+                                                  toggleTemplate={[Function]}
+                                                  variant="top"
+                                                  widgetId="pagination-options-menu"
                                                 >
                                                   <div
                                                     className="pf-c-pagination"
@@ -7976,6 +8135,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                   >
                                                                     <Toggle
                                                                       aria-label="Items per page"
+                                                                      bubbleEvent={false}
                                                                       className="pf-c-options-menu__toggle-button"
                                                                       id="pagination-options-menu-toggle-3"
                                                                       isActive={false}

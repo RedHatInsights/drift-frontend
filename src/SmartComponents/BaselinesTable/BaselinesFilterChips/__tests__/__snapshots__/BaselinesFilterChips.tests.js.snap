@@ -11,7 +11,12 @@ exports[`BaselinesFilterChips should render chip correctly 1`] = `
 >
   <ChipGroupToolbarItem
     categoryName="Baseline name"
+    className=""
+    closeBtnAriaLabel="Close chip group"
+    isClosable={false}
     key="Baseline name"
+    onClick={[Function]}
+    tooltipPosition="top"
   >
     <Component
       key="something"
@@ -33,7 +38,12 @@ exports[`BaselinesFilterChips should render chip update correctly 1`] = `
 >
   <ChipGroupToolbarItem
     categoryName="Baseline name"
+    className=""
+    closeBtnAriaLabel="Close chip group"
+    isClosable={false}
     key="Baseline name"
+    onClick={[Function]}
+    tooltipPosition="top"
   >
     <Component
       key="something else"
@@ -66,7 +76,12 @@ exports[`BaselinesFilterChips should render mount correctly 1`] = `
     >
       <ChipGroupToolbarItem
         categoryName="Baseline name"
+        className=""
+        closeBtnAriaLabel="Close chip group"
+        isClosable={false}
         key=".$Baseline name"
+        onClick={[Function]}
+        tooltipPosition="top"
       >
         <GenerateId
           prefix="pf-random-id-"
@@ -247,7 +262,12 @@ exports[`BaselinesFilterChips should render shallow correctly 1`] = `
 >
   <ChipGroupToolbarItem
     categoryName="Baseline name"
+    className=""
+    closeBtnAriaLabel="Close chip group"
+    isClosable={false}
     key="Baseline name"
+    onClick={[Function]}
+    tooltipPosition="top"
   >
     <Component />
   </ChipGroupToolbarItem>

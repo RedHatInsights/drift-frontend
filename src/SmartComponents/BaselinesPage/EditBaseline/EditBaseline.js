@@ -304,6 +304,7 @@ export class EditBaseline extends Component {
                                 selected={ selected }
                                 onBulkSelect={ this.onBulkSelect }
                                 isDisabled={ editBaselineTableData.length === 0 }
+                                totalFacts={ editBaselineHelpers.findFactCount(editBaselineTableData) }
                             />
                             { this.renderTable() }
                         </CardBody>

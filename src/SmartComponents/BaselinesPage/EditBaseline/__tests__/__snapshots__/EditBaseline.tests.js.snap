@@ -489,6 +489,7 @@ exports[`ConnectedEditBaseline should render correctly 1`] = `
                             isDisabled={true}
                             onBulkSelect={[Function]}
                             selected={0}
+                            totalFacts={0}
                           >
                             <Toolbar
                               className="display-margin"
@@ -822,6 +823,7 @@ exports[`ConnectedEditBaseline should render correctly 1`] = `
                                                         <Toggle
                                                           aria-label="Select"
                                                           ariaHasPopup={true}
+                                                          bubbleEvent={false}
                                                           className=""
                                                           id="pf-toggle-id-0"
                                                           isActive={false}
@@ -1167,6 +1169,7 @@ exports[`ConnectedEditBaseline should render correctly 1`] = `
                                                         <Toggle
                                                           aria-label="Actions"
                                                           ariaHasPopup={true}
+                                                          bubbleEvent={false}
                                                           className=""
                                                           id="pf-toggle-id-1"
                                                           isActive={false}
@@ -1598,6 +1601,7 @@ exports[`ConnectedEditBaseline should render loading rows 1`] = `
                             isDisabled={true}
                             onBulkSelect={[Function]}
                             selected={0}
+                            totalFacts={0}
                           >
                             <Toolbar
                               className="display-margin"
@@ -1931,6 +1935,7 @@ exports[`ConnectedEditBaseline should render loading rows 1`] = `
                                                         <Toggle
                                                           aria-label="Select"
                                                           ariaHasPopup={true}
+                                                          bubbleEvent={false}
                                                           className=""
                                                           id="pf-toggle-id-2"
                                                           isActive={false}
@@ -2276,6 +2281,7 @@ exports[`ConnectedEditBaseline should render loading rows 1`] = `
                                                         <Toggle
                                                           aria-label="Actions"
                                                           ariaHasPopup={true}
+                                                          bubbleEvent={false}
                                                           className=""
                                                           id="pf-toggle-id-3"
                                                           isActive={false}
@@ -2839,6 +2845,7 @@ exports[`EditBaseline should render correctly 1`] = `
           isDisabled={true}
           onBulkSelect={[Function]}
           selected={0}
+          totalFacts={0}
         />
         <table
           className="pf-c-table ins-c-table pf-m-compact ins-entity-table drift-table"
@@ -2988,6 +2995,7 @@ exports[`EditBaseline should render expandable rows closed 1`] = `
           isDisabled={false}
           onBulkSelect={[Function]}
           selected={0}
+          totalFacts={11}
         />
         <table
           className="pf-c-table ins-c-table pf-m-compact ins-entity-table drift-table"
@@ -3273,6 +3281,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
           isDisabled={false}
           onBulkSelect={[Function]}
           selected={0}
+          totalFacts={11}
         />
         <table
           className="pf-c-table ins-c-table pf-m-compact ins-entity-table drift-table"
@@ -4171,6 +4180,7 @@ exports[`EditBaseline should render loading rows 1`] = `
           isDisabled={true}
           onBulkSelect={[Function]}
           selected={0}
+          totalFacts={0}
         />
         <table
           className="pf-c-table ins-c-table pf-m-compact ins-entity-table drift-table"
@@ -4511,6 +4521,7 @@ exports[`EditBaseline should render with baseline facts 1`] = `
           isDisabled={false}
           onBulkSelect={[Function]}
           selected={0}
+          totalFacts={11}
         />
         <table
           className="pf-c-table ins-c-table pf-m-compact ins-entity-table drift-table"

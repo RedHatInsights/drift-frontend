@@ -184,6 +184,57 @@ describe('jest-tests', () => {
             expect(onBulkSelect).toHaveBeenCalledWith(false);
         });
 
+        it('should set checked false in BulkSelect', () => {
+            const store = mockStore(initialState);
+            const wrapper = mount(
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedBaselinesToolbar
+                            { ...props }
+                        />
+                    </Provider>
+                </MemoryRouter>
+            );
+
+            expect(wrapper.find('BulkSelect').prop('checked')).toBe(false);
+        });
+
+        it('should set checked null in BulkSelect', () => {
+            props.tableData[1].selected = true;
+
+            const store = mockStore(initialState);
+            const wrapper = mount(
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedBaselinesToolbar
+                            { ...props }
+                        />
+                    </Provider>
+                </MemoryRouter>
+            );
+
+            expect(wrapper.find('BulkSelect').prop('checked')).toBe(null);
+        });
+
+        it('should set checked true in BulkSelect', () => {
+            props.tableData.forEach(function(baseline) {
+                baseline.selected = true;
+            });
+
+            const store = mockStore(initialState);
+            const wrapper = mount(
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedBaselinesToolbar
+                            { ...props }
+                        />
+                    </Provider>
+                </MemoryRouter>
+            );
+
+            expect(wrapper.find('BulkSelect').prop('checked')).toBe(true);
+        });
+
         it('should call setTextFilter', () => {
             const store = mockStore(initialState);
             wrapper = mount(
