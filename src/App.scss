@@ -57,15 +57,6 @@
     border-bottom: 3px solid #0066CC;
   }
 
-  .fact-header {
-    min-width: 200px;
-    width: 100%;
-  }
-
-  .state-header {
-    font-weight: bold;
-  }
-
   .state-filter-dropdown {
     min-width: 160px;
   }
@@ -244,6 +235,15 @@
     z-index: 1;
     border-right: 0;
     vertical-align: top;
+  }
+  .fact-header {
+    min-width: 200px;
+    width: 100%;
+    vertical-align: bottom;
+  }
+  .state-header {
+    font-weight: bold;
+    vertical-align: bottom;
   }
   .fixed-column-1 {
     left: 0;
