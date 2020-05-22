@@ -160,7 +160,7 @@ export class DriftTable extends Component {
         return moment.utc(dateString).format('DD MMM YYYY, HH:mm UTC');
     }
 
-    removeSystem = (item) => {
+    async removeSystem(item) {
         if (item.type === 'system') {
             this.systemIds = this.systemIds.filter(id => id !== item.id);
 
@@ -175,8 +175,7 @@ export class DriftTable extends Component {
         }
 
         if (item.id === this.props.referenceId) {
-            this.referenceId = undefined;
-            this.props.updateReferenceId();
+            await this.props.updateReferenceId();
         }
 
         this.props.setSelectedHistoricProfiles(this.HSPIds);
