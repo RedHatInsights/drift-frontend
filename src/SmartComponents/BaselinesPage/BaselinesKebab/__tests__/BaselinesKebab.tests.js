@@ -16,14 +16,14 @@ describe('BaselinesKebab', () => {
         };
     });
 
-    it('should render correctly', () =>{
+    it('should render correctly', () => {
         const wrapper = shallow(
             <BaselinesKebab { ...props }/>
         );
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 
-    it('should render kebabOpened', () =>{
+    it('should render kebabOpened', () => {
         const wrapper = shallow(
             <BaselinesKebab { ...props }/>
         );
@@ -31,7 +31,7 @@ describe('BaselinesKebab', () => {
         expect(wrapper.state('kebabOpened')).toEqual(true);
     });
 
-    it('should render modalOpened', () =>{
+    it('should render modalOpened', () => {
         const wrapper = shallow(
             <BaselinesKebab { ...props }/>
         );
@@ -66,5 +66,38 @@ describe('ConnectedBaselinesKebab', () => {
         );
 
         expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('should render clear filters enabled', () => {
+        const store = mockStore(initialState);
+        const clearFilters = jest.fn();
+
+        const wrapper = mount(
+            <MemoryRouter keyLength={ 0 }>
+                <Provider store={ store }>
+                    <ConnectedBaselinesKebab clearFilters={ clearFilters } />
+                </Provider>
+            </MemoryRouter>
+        );
+
+        wrapper.find('.pf-c-dropdown__toggle').simulate('click');
+        expect(wrapper.find('.pf-c-dropdown__menu-item').at(1).prop('disabled')).toBe(false);
+    });
+
+    it('should call clear filters', () => {
+        const store = mockStore(initialState);
+        const clearFilters = jest.fn();
+
+        const wrapper = mount(
+            <MemoryRouter keyLength={ 0 }>
+                <Provider store={ store }>
+                    <ConnectedBaselinesKebab clearFilters={ clearFilters } />
+                </Provider>
+            </MemoryRouter>
+        );
+
+        wrapper.find('.pf-c-dropdown__toggle').simulate('click');
+        wrapper.find('.pf-c-dropdown__menu-item').at(1).simulate('click');
+        expect(clearFilters).toHaveBeenCalled();
     });
 });

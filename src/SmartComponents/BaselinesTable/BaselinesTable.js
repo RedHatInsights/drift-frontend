@@ -37,6 +37,18 @@ export class BaselinesTable extends Component {
         baselinesReducerHelpers.fetchBaselines(tableId, fetchBaselines);
     }
 
+    clearSort = () => {
+        this.setState({
+            sortBy: {
+                index: 1,
+                direction: 'asc'
+            },
+            search: undefined,
+            orderBy: 'display_name',
+            orderHow: 'ASC'
+        });
+    }
+
     fetchWithParams = (fetchParams) => {
         const { tableId, fetchBaselines } = this.props;
         const { orderBy, orderHow, search } = this.state;
@@ -229,6 +241,7 @@ export class BaselinesTable extends Component {
 
     render() {
         const { kebab, createButton, exportButton, hasMultiSelect, onBulkSelect, tableData, tableId } = this.props;
+        const { orderBy, orderHow } = this.state;
 
         return (
             <React.Fragment>
@@ -242,6 +255,7 @@ export class BaselinesTable extends Component {
                     tableData={ tableData }
                     onBulkSelect={ onBulkSelect }
                     hasMultiSelect={ hasMultiSelect }
+                    clearSort={ orderBy !== 'display_name' || orderHow !== 'ASC' ? this.clearSort : null }
                 />
                 { this.renderTable() }
             </React.Fragment>

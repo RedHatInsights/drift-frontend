@@ -29,6 +29,18 @@ export class BaselinesToolbar extends Component {
         };
 
         this.handleSearch = this.handleSearch.bind(this);
+        this.clearFilters = this.clearFilters.bind(this);
+    }
+
+    async clearFilters() {
+        const { clearSort, fetchWithParams } = this.props;
+
+        this.setState({
+            nameSearch: ''
+        });
+
+        await clearSort();
+        fetchWithParams();
     }
 
     setTextFilter = (value) => {
@@ -46,7 +58,8 @@ export class BaselinesToolbar extends Component {
     }, 250)
 
     render() {
-        const { createButton, exportButton, fetchWithParams, hasMultiSelect, kebab, tableData, tableId } = this.props;
+        const { clearSort, createButton, exportButton, fetchWithParams,
+            hasMultiSelect, kebab, onBulkSelect, tableData, tableId } = this.props;
         const { bulkSelectItems, nameSearch } = this.state;
         let selected = tableData.filter(baseline => baseline.selected === true).length;
 
@@ -60,7 +73,7 @@ export class BaselinesToolbar extends Component {
                                     count={ selected > 0 ? selected : null }
                                     items={ bulkSelectItems }
                                     checked={ selected > 0 ? true : false }
-                                    onSelect={ () => this.props.onBulkSelect(!selected > 0) }
+                                    onSelect={ () => onBulkSelect(!selected > 0) }
                                     isDisabled={ tableData.length === 0 }
                                 />
                             </ToolbarItem>
@@ -95,6 +108,7 @@ export class BaselinesToolbar extends Component {
                                     exportType='baseline list'
                                     tableId={ tableId }
                                     fetchWithParams={ fetchWithParams }
+                                    clearFilters={ clearSort || nameSearch !== '' ? this.clearFilters : false }
                                 />
                             </ToolbarItem>
                             : null
@@ -128,7 +142,8 @@ BaselinesToolbar.propTypes = {
     tableId: PropTypes.string,
     tableData: PropTypes.array,
     onBulkSelect: PropTypes.func,
-    hasMultiSelect: PropTypes.bool
+    hasMultiSelect: PropTypes.bool,
+    clearSort: PropTypes.func
 };
 
 export default BaselinesToolbar;

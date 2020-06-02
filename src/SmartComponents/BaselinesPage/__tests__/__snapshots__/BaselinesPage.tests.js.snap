@@ -532,6 +532,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                 tableId="CHECKBOX"
                               >
                                 <BaselinesToolbar
+                                  clearSort={null}
                                   createButton={true}
                                   exportButton={true}
                                   fetchWithParams={[Function]}
@@ -1300,11 +1301,13 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                               className="pf-l-toolbar__item"
                                             >
                                               <Connect(BaselinesKebab)
+                                                clearFilters={false}
                                                 exportType="baseline list"
                                                 fetchWithParams={[Function]}
                                                 tableId="CHECKBOX"
                                               >
                                                 <BaselinesKebab
+                                                  clearFilters={false}
                                                   dispatch={[Function]}
                                                   exportType="baseline list"
                                                   fetchWithParams={[Function]}
@@ -1320,6 +1323,13 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                           onClick={[Function]}
                                                         >
                                                           Delete baselines
+                                                        </DropdownItem>,
+                                                        <DropdownItem
+                                                          component="button"
+                                                          isDisabled={true}
+                                                          onClick={null}
+                                                        >
+                                                          Clear filters
                                                         </DropdownItem>,
                                                       ]
                                                     }
@@ -1345,6 +1355,13 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                             onClick={[Function]}
                                                           >
                                                             Delete baselines
+                                                          </DropdownItem>,
+                                                          <DropdownItem
+                                                            component="button"
+                                                            isDisabled={true}
+                                                            onClick={null}
+                                                          >
+                                                            Clear filters
                                                           </DropdownItem>,
                                                         ]
                                                       }
@@ -1373,6 +1390,13 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                               >
                                                                 Delete baselines
                                                               </DropdownItem>,
+                                                              <DropdownItem
+                                                                component="button"
+                                                                isDisabled={true}
+                                                                onClick={null}
+                                                              >
+                                                                Clear filters
+                                                              </DropdownItem>,
                                                             ],
                                                             "isOpen": false,
                                                             "isPlain": true,
@@ -1398,6 +1422,13 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                 onClick={[Function]}
                                                               >
                                                                 Delete baselines
+                                                              </DropdownItem>,
+                                                              <DropdownItem
+                                                                component="button"
+                                                                isDisabled={true}
+                                                                onClick={null}
+                                                              >
+                                                                Clear filters
                                                               </DropdownItem>,
                                                             ]
                                                           }

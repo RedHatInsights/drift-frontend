@@ -52,6 +52,7 @@ exports[`jest-tests BaselinesToolbar should render correctly 1`] = `
       </ToolbarItem>
       <ToolbarItem>
         <Connect(BaselinesKebab)
+          clearFilters={false}
           exportType="baseline list"
           tableId="CHECKBOX"
         />
@@ -899,10 +900,12 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                     className="pf-l-toolbar__item"
                   >
                     <Connect(BaselinesKebab)
+                      clearFilters={false}
                       exportType="baseline list"
                       tableId="CHECKBOX"
                     >
                       <BaselinesKebab
+                        clearFilters={false}
                         dispatch={[Function]}
                         exportType="baseline list"
                         selectedBaselineIds={Array []}
@@ -917,6 +920,13 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                 onClick={[Function]}
                               >
                                 Delete baselines
+                              </DropdownItem>,
+                              <DropdownItem
+                                component="button"
+                                isDisabled={true}
+                                onClick={null}
+                              >
+                                Clear filters
                               </DropdownItem>,
                             ]
                           }
@@ -942,6 +952,13 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                   onClick={[Function]}
                                 >
                                   Delete baselines
+                                </DropdownItem>,
+                                <DropdownItem
+                                  component="button"
+                                  isDisabled={true}
+                                  onClick={null}
+                                >
+                                  Clear filters
                                 </DropdownItem>,
                               ]
                             }
@@ -970,6 +987,13 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                     >
                                       Delete baselines
                                     </DropdownItem>,
+                                    <DropdownItem
+                                      component="button"
+                                      isDisabled={true}
+                                      onClick={null}
+                                    >
+                                      Clear filters
+                                    </DropdownItem>,
                                   ],
                                   "isOpen": false,
                                   "isPlain": true,
@@ -995,6 +1019,13 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                       onClick={[Function]}
                                     >
                                       Delete baselines
+                                    </DropdownItem>,
+                                    <DropdownItem
+                                      component="button"
+                                      isDisabled={true}
+                                      onClick={null}
+                                    >
+                                      Clear filters
                                     </DropdownItem>,
                                   ]
                                 }

@@ -12,6 +12,13 @@ exports[`BaselinesKebab should render correctly 1`] = `
         >
           Delete baselines
         </DropdownItem>,
+        <DropdownItem
+          component="button"
+          isDisabled={true}
+          onClick={null}
+        >
+          Clear filters
+        </DropdownItem>,
       ]
     }
     isOpen={false}
@@ -93,6 +100,13 @@ exports[`ConnectedBaselinesKebab should render correctly 1`] = `
                 >
                   Delete baselines
                 </DropdownItem>,
+                <DropdownItem
+                  component="button"
+                  isDisabled={true}
+                  onClick={null}
+                >
+                  Clear filters
+                </DropdownItem>,
               ]
             }
             isOpen={false}
@@ -117,6 +131,13 @@ exports[`ConnectedBaselinesKebab should render correctly 1`] = `
                     onClick={[Function]}
                   >
                     Delete baselines
+                  </DropdownItem>,
+                  <DropdownItem
+                    component="button"
+                    isDisabled={true}
+                    onClick={null}
+                  >
+                    Clear filters
                   </DropdownItem>,
                 ]
               }
@@ -145,6 +166,13 @@ exports[`ConnectedBaselinesKebab should render correctly 1`] = `
                       >
                         Delete baselines
                       </DropdownItem>,
+                      <DropdownItem
+                        component="button"
+                        isDisabled={true}
+                        onClick={null}
+                      >
+                        Clear filters
+                      </DropdownItem>,
                     ],
                     "isOpen": false,
                     "isPlain": true,
@@ -170,6 +198,13 @@ exports[`ConnectedBaselinesKebab should render correctly 1`] = `
                         onClick={[Function]}
                       >
                         Delete baselines
+                      </DropdownItem>,
+                      <DropdownItem
+                        component="button"
+                        isDisabled={true}
+                        onClick={null}
+                      >
+                        Clear filters
                       </DropdownItem>,
                     ]
                   }
