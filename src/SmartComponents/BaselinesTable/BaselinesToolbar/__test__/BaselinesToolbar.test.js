@@ -72,6 +72,7 @@ describe('jest-tests', () => {
         let initialState;
         let mockStore;
         let props;
+        let wrapper;
 
         beforeEach(() => {
             mockStore = configureStore();
@@ -98,7 +99,7 @@ describe('jest-tests', () => {
 
         it('should render correctly', () => {
             const store = mockStore(initialState);
-            const wrapper = mount(
+            wrapper = mount(
                 <MemoryRouter keyLength={ 0 }>
                     <Provider store={ store }>
                         <ConnectedBaselinesToolbar { ...props } />
@@ -112,7 +113,7 @@ describe('jest-tests', () => {
         it('should call onBulkSelect with true', () => {
             const store = mockStore(initialState);
             const onBulkSelect = jest.fn();
-            const wrapper = mount(
+            wrapper = mount(
                 <MemoryRouter keyLength={ 0 }>
                     <Provider store={ store }>
                         <ConnectedBaselinesToolbar
@@ -131,7 +132,7 @@ describe('jest-tests', () => {
         it('should call onBulkSelect with false', () => {
             const store = mockStore(initialState);
             const onBulkSelect = jest.fn();
-            const wrapper = mount(
+            wrapper = mount(
                 <MemoryRouter keyLength={ 0 }>
                     <Provider store={ store }>
                         <ConnectedBaselinesToolbar
@@ -149,7 +150,7 @@ describe('jest-tests', () => {
 
         it('should call setTextFilter', () => {
             const store = mockStore(initialState);
-            const wrapper = mount(
+            wrapper = mount(
                 <MemoryRouter keyLength={ 0 }>
                     <Provider store={ store }>
                         <ConnectedBaselinesToolbar
@@ -162,6 +163,28 @@ describe('jest-tests', () => {
             wrapper.setState({ nameSearch: 'something' });
             wrapper.find('input').at(1).simulate('change', 'something-else');
             expect(wrapper.state('nameSearch')).toBe('something');
+        });
+
+        it('should call clearFilters', () => {
+            const store = mockStore(initialState);
+            const clearSort = jest.fn();
+            const fetchWithParams = jest.fn();
+
+            wrapper = mount(
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedBaselinesToolbar
+                            clearSort={ clearSort }
+                            fetchWithParms={ fetchWithParams }
+                            { ...props }
+                        />
+                    </Provider>
+                </MemoryRouter>
+            );
+
+            wrapper.find('.pf-c-dropdown__toggle').at(1).simulate('click');
+            wrapper.find('.pf-c-dropdown__menu-item').at(1).simulate('click');
+            expect(clearSort).toHaveBeenCalled();
         });
     });
 });

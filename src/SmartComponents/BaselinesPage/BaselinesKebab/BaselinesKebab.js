@@ -28,11 +28,19 @@ export class BaselinesKebab extends Component {
                 kebabOpened: false
             });
         };
+
+        this.clearFilters = () => {
+            const { clearFilters } = this.props;
+            this.setState({
+                kebabOpened: false
+            });
+            clearFilters();
+        };
     }
 
     render() {
         const { kebabOpened, modalOpened } = this.state;
-        const { fetchWithParams, selectedBaselineIds, tableId } = this.props;
+        const { clearFilters, fetchWithParams, selectedBaselineIds, tableId } = this.props;
         let dropdownItems;
 
         dropdownItems = [
@@ -43,6 +51,14 @@ export class BaselinesKebab extends Component {
                 isDisabled={ selectedBaselineIds.length < 1 }
             >
                 Delete baselines
+            </DropdownItem>,
+            <DropdownItem
+                key="clear-filters"
+                component="button"
+                onClick={ clearFilters ? this.clearFilters : null }
+                isDisabled={ clearFilters ? false : true }
+            >
+                Clear filters
             </DropdownItem>
         ];
 
@@ -71,7 +87,8 @@ export class BaselinesKebab extends Component {
 BaselinesKebab.propTypes = {
     fetchWithParams: PropTypes.func,
     selectedBaselineIds: PropTypes.array,
-    tableId: PropTypes.string
+    tableId: PropTypes.string,
+    clearFilters: PropTypes.func
 };
 
 function mapStateToProps(state) {

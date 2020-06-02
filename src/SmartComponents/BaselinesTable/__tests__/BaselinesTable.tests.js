@@ -156,4 +156,24 @@ describe('ConnectedBaselinesTable', () => {
             }
         );
     });
+
+    it.skip('should call clearSort', () => {
+        const store = mockStore(initialState);
+
+        const wrapper = mount(
+            <MemoryRouter keyLength={ 0 }>
+                <Provider store={ store }>
+                    <ConnectedBaselinesTable
+                        { ...props }
+                    />
+                </Provider>
+            </MemoryRouter>
+        );
+
+        wrapper.find('.pf-c-button').at(3).simulate('click');
+        wrapper.find('.pf-c-dropdown__toggle').at(1).simulate('click');
+        wrapper.find('.pf-c-dropdown__menu-item').at(1).simulate('click');
+
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
 });
