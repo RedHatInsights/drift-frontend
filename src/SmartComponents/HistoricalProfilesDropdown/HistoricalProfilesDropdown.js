@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Badge, Dropdown, DropdownItem, DropdownToggle, DropdownPosition } from '@patternfly/react-core';
-import { HistoryIcon } from '@patternfly/react-icons';
+import { ExclamationCircleIcon, HistoryIcon, UndoIcon } from '@patternfly/react-icons';
 import PropTypes from 'prop-types';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
 
@@ -10,6 +10,7 @@ import { historicProfilesActions } from '../HistoricalProfilesDropdown/redux';
 import HistoricalProfilesCheckbox from './HistoricalProfilesCheckbox/HistoricalProfilesCheckbox';
 import api from '../../api';
 import FetchHistoricalProfilesButton from './FetchHistoricalProfilesButton/FetchHistoricalProfilesButton';
+import EmptyStateDisplay from '../EmptyStateDisplay/EmptyStateDisplay';
 
 export class HistoricalProfilesDropdown extends Component {
     constructor(props) {
@@ -19,7 +20,8 @@ export class HistoricalProfilesDropdown extends Component {
             isOpen: false,
             historicalData: undefined,
             dropDownArray: this.renderLoadingRows(),
-            badgeCount: this.props.badgeCount ? this.props.badgeCount : 0
+            badgeCount: this.props.badgeCount ? this.props.badgeCount : 0,
+            error: undefined
         };
 
         this.onToggle = () => {
@@ -47,26 +49,42 @@ export class HistoricalProfilesDropdown extends Component {
         fetchCompare(systemIds, selectedBaselineIds, selectedHSPIds, referenceId);
     }
 
+    async retryFetch() {
+        const { system } = this.props;
+        await this.setState({
+            dropDownArray: this.renderLoadingRows()
+        });
+        this.fetchData(system);
+    }
+
     async fetchData(system) {
         let fetchedData = await api.fetchHistoricalData(system.system_id ? system.system_id : system.id);
-        fetchedData.profiles.shift();
+
+        if (fetchedData.status) {
+            this.setState({
+                error: { status: fetchedData.status, message: fetchedData.data.message }
+            });
+        } else {
+            fetchedData.profiles.shift();
+
+            this.setState({
+                historicalData: fetchedData
+            });
+        }
 
         this.setState({
-            historicalData: fetchedData
-        });
-
-        this.setState({
-            dropDownArray: this.createDropdownArray(this.state.historicalData)
+            dropDownArray: this.createDropdownArray()
         });
     }
 
-    createDropdownArray = (historicalData) => {
+    createDropdownArray = () => {
         const { hasCompareButton } = this.props;
+        const { historicalData, error } = this.state;
 
         let dropdownItems = [];
         let badgeCountFunc = this.updateBadgeCount;
 
-        if (historicalData.profiles.length > 0) {
+        if (historicalData && historicalData.profiles.length > 0) {
             historicalData.profiles.forEach(function(profile) {
                 dropdownItems.push(
                     <DropdownItem>
@@ -85,6 +103,21 @@ export class HistoricalProfilesDropdown extends Component {
                     </div>
                 );
             }
+        } else if (error) {
+            dropdownItems.push(
+                <EmptyStateDisplay
+                    icon={ ExclamationCircleIcon }
+                    color='#c9190b'
+                    title={ 'Cannot get historical check-ins' }
+                    error={ error.status + ': ' + error.message }
+                    button={
+                        <a onClick={ () => this.retryFetch() }>
+                            <UndoIcon className='reload-button' />
+                            Retry
+                        </a>
+                    }
+                />
+            );
         } else {
             dropdownItems.push(
                 <DropdownItem isDisabled>

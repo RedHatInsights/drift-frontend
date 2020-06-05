@@ -31,8 +31,19 @@ async function deleteBaselines(path, body = {}) {
 }
 
 async function getHistoricalData(path) {
-    const request = await axios.get(HISTORICAL_PROFILES_API_ROOT.concat(path));
-    return request.data.data[0];
+    let response;
+    const request = await axios.get(HISTORICAL_PROFILES_API_ROOT.concat(path))
+    .catch(function (error) {
+        return error.response;
+    });
+
+    if (request.status === 200) {
+        response = request.data.data[0];
+    } else {
+        response = request;
+    }
+
+    return response;
 }
 
 function getCompare(systemIds = [], baselineIds = [], historicalSystemProfileIds = [], referenceId = '') {
