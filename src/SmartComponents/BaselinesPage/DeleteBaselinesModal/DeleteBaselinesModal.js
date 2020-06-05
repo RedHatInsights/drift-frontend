@@ -71,7 +71,7 @@ export class DeleteBaselinesModal extends Component {
                     </Button>,
                     <Button
                         key="cancel"
-                        variant="secondary"
+                        variant="link"
                         onClick={ this.toggleModal }
                     >
                     Cancel

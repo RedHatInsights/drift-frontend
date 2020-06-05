@@ -12,7 +12,7 @@ export class DriftFilterChips extends Component {
         this.state = {
             chipGroup: [
                 { category: 'State', chips: this.setStateChips(this.props.stateFilters) },
-                { category: 'Name', chips:
+                { category: 'Fact name', chips:
                     this.props.factFilter !== ''
                         ? [ this.props.factFilter ]
                         : []
@@ -43,7 +43,7 @@ export class DriftFilterChips extends Component {
         }
 
         if (factFilter !== prevProps.factFilter) {
-            newFactFilter = { category: 'Name', chips:
+            newFactFilter = { category: 'Fact name', chips:
                 factFilter !== ''
                     ? [ factFilter ]
                     : []

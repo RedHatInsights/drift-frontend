@@ -517,8 +517,8 @@ exports[`ConnectedDriftFilterChips should render all states true 1`] = `
             </GenerateId>
           </ChipGroupToolbarItem>
           <ChipGroupToolbarItem
-            categoryName="Name"
-            key=".$Name"
+            categoryName="Fact name"
+            key=".$Fact name"
           >
             <GenerateId
               prefix="pf-random-id-"
@@ -531,14 +531,14 @@ exports[`ConnectedDriftFilterChips should render all states true 1`] = `
                     className="pf-c-chip-group__label"
                     id="pf-random-id-4"
                   >
-                    Name
+                    Fact name
                   </h4>
                   <ul
                     className="pf-c-chip-group"
                   >
                     <Component
                       component="li"
-                      key=".$Name3"
+                      key=".$Fact name3"
                       onClick={[Function]}
                     >
                       <ComponentWithOuia
@@ -736,8 +736,8 @@ exports[`ConnectedDriftFilterChips should render correctly 1`] = `
             key=".$State"
           />
           <ChipGroupToolbarItem
-            categoryName="Name"
-            key=".$Name"
+            categoryName="Fact name"
+            key=".$Fact name"
           />
         </InnerChipGroup>
       </ChipGroup>
@@ -760,8 +760,8 @@ exports[`DriftFilterChips should render correctly 1`] = `
     key="State"
   />
   <ChipGroupToolbarItem
-    categoryName="Name"
-    key="Name"
+    categoryName="Fact name"
+    key="Fact name"
   />
 </ChipGroup>
 `;

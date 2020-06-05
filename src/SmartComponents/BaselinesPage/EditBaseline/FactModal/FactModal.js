@@ -219,7 +219,7 @@ class FactModal extends Component {
                     </Button>,
                     <Button
                         key="cancel"
-                        variant="secondary"
+                        variant="link"
                         onClick={ this.cancelFact }>
                         Cancel
                     </Button>

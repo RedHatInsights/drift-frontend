@@ -216,7 +216,7 @@ export class CreateBaselineModal extends Component {
                 </Button>,
                 <Button
                     key="cancel"
-                    variant="secondary"
+                    variant="link"
                     onClick={ this.cancelModal }>
                     Cancel
                 </Button>
@@ -231,7 +231,7 @@ export class CreateBaselineModal extends Component {
                 </Button>,
                 <Button
                     key="cancel"
-                    variant="secondary"
+                    variant="link"
                     onClick={ this.cancelModal }>
                     Cancel
                 </Button>
