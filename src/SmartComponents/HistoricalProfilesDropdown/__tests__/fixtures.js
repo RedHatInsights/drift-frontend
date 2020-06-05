@@ -20,6 +20,14 @@ const historicalData = ({
 });
 /*eslint-enable camelcase*/
 
+const hspReturnedError = ({
+    status: 400,
+    data: {
+        message: 'This is an error message'
+    }
+});
+
 export default {
-    historicalData
+    historicalData,
+    hspReturnedError
 };

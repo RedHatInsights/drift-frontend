@@ -144,5 +144,77 @@ describe('ConnectedHistoricalProfilesDropdown', () => {
         wrapper.find('.pf-c-dropdown__toggle').simulate('click');
         expect(api.fetchHistoricalData).toHaveBeenCalled();
     });
+
+    it('should set error', async () => {
+        const store = mockStore(initialState);
+        api.fetchHistoricalData = jest.fn();
+        api.fetchHistoricalData
+        .mockReturnValue(
+            fixtures.hspReturnedError
+        );
+        const wrapper = mount(
+            <MemoryRouter keyLength={ 0 }>
+                <Provider store={ store }>
+                    <ConnectedHistoricalProfilesDropdown
+                        { ...props }
+                    />
+                </Provider>
+            </MemoryRouter>
+        );
+
+        wrapper.find('.pf-c-dropdown__toggle').simulate('click');
+        wrapper.update();
+        expect(api.fetchHistoricalData.mock.results[0].value.status).toBe(400);
+        expect(api.fetchHistoricalData.mock.results[0].value.data.message).toBe('This is an error message');
+    });
+
+    it('should call fetchCompare', async () => {
+        const store = mockStore(initialState);
+        props.hasCompareButton = true;
+        const fetchCompare = jest.fn();
+        api.fetchHistoricalData = jest.fn();
+        api.fetchHistoricalData
+        .mockReturnValue(
+            fixtures.historicalData
+        );
+        const wrapper = mount(
+            <MemoryRouter keyLength={ 0 }>
+                <Provider store={ store }>
+                    <ConnectedHistoricalProfilesDropdown
+                        { ...props }
+                        fetchCompare={ fetchCompare }
+                    />
+                </Provider>
+            </MemoryRouter>
+        );
+
+        await wrapper.find('.pf-c-dropdown__toggle').simulate('click');
+        wrapper.update();
+        wrapper.find('.pf-c-button').simulate('click');
+        expect(fetchCompare).toHaveBeenCalled();
+    });
+
+    it('should retry fetch', async () => {
+        const store = mockStore(initialState);
+        api.fetchHistoricalData = jest.fn();
+        api.fetchHistoricalData
+        .mockReturnValue(
+            fixtures.hspReturnedError
+        );
+        const wrapper = mount(
+            <MemoryRouter keyLength={ 0 }>
+                <Provider store={ store }>
+                    <ConnectedHistoricalProfilesDropdown
+                        { ...props }
+                    />
+                </Provider>
+            </MemoryRouter>
+        );
+
+        await wrapper.find('.pf-c-dropdown__toggle').simulate('click');
+        wrapper.update();
+        await wrapper.find('a').simulate('click');
+        expect(api.fetchHistoricalData).toHaveBeenCalledTimes(2);
+    });
 });
 /*eslint-enable camelcase*/

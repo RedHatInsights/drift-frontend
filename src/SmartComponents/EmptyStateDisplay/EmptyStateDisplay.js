@@ -18,11 +18,11 @@ export class EmptyStateDisplay extends Component {
                     <br></br>
                     <Title size="lg">{ title }</Title>
                     <EmptyStateBody>
-                        { text.join('\n') }
+                        { text ? text.join('\n') : null }
                         { error
                             ? <div>
                                 <br></br>
-                                <p><small>
+                                <p id='empty-state-error'><small>
                                     { error }
                                 </small></p>
                                 <br></br>

@@ -123,7 +123,7 @@ export class BaselinesPage extends Component {
                 }
                 button={
                     <a onClick={ () => revertBaselineFetch('CHECKBOX') }>
-                        <UndoIcon className='reload-baselines-button' />
+                        <UndoIcon className='reload-button' />
                         Retry
                     </a>
                 }
