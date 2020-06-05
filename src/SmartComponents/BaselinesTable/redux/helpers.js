@@ -73,31 +73,6 @@ function getDateTimeStamp(dateTime) {
     return moment(dateTime).fromNow();
 }
 
-function buildNewTableData(fullBaselineListData, IdToDelete) {
-    let newBaselineTableData = [];
-
-    fullBaselineListData.forEach(function(baseline) {
-        if (baseline.id !== IdToDelete) {
-            let dateTimeStamp = getDateTimeStamp(baseline.updated);
-            newBaselineTableData.push([ baseline.id, baseline.display_name, dateTimeStamp ]);
-        }
-    });
-
-    return newBaselineTableData;
-}
-
-function buildNewBaselineList(fullBaselineListData, IdToDelete) {
-    let newBaselineList = [];
-
-    fullBaselineListData.forEach(function(baseline) {
-        if (baseline.id !== IdToDelete) {
-            newBaselineList.push(baseline);
-        }
-    });
-
-    return newBaselineList;
-}
-
 function toggleExpandedRow(expandedRows, factName) {
     if (expandedRows.includes(factName)) {
         expandedRows = expandedRows.filter(fact => fact !== factName);
@@ -112,8 +87,6 @@ export default {
     fetchBaselines,
     buildBaselinesTable,
     setBaselineArray,
-    buildNewTableData,
-    buildNewBaselineList,
     toggleExpandedRow,
     setSelected
 };

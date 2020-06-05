@@ -21,6 +21,7 @@ describe('EditBaseline', () => {
             editBaselineTableData: [],
             expandedRows: [],
             selectAll: false,
+            editBaselineError: {},
             match: { params: {}},
             history: { push: jest.fn() },
             fetchBaselineData: jest.fn()
@@ -28,6 +29,15 @@ describe('EditBaseline', () => {
     });
 
     it('should render correctly', () => {
+        const wrapper = shallow(
+            <EditBaseline { ...props } />
+        );
+
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('should render error correctly', () => {
+        props.editBaselineError = { status: 404 };
         const wrapper = shallow(
             <EditBaseline { ...props } />
         );
@@ -257,9 +267,9 @@ describe('ConnectedEditBaseline', () => {
                 editBaselineTableData: [],
                 expandedRows: [],
                 selectAll: false,
-                error: {
-                    hasOwnProperty: jest.fn()
-                }
+                editBaselineEmptyState: false,
+                editBaselineError: {},
+                inlineError: {}
             },
             match: { params: {}},
             clearBaselineData: jest.fn(),

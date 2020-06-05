@@ -12,6 +12,7 @@ import BaselinesTable from '../BaselinesTable/BaselinesTable';
 import CreateBaselineButton from './CreateBaselineButton/CreateBaselineButton';
 import CreateBaselineModal from './CreateBaselineModal/CreateBaselineModal';
 import EmptyStateDisplay from '../EmptyStateDisplay/EmptyStateDisplay';
+import ErrorAlert from '../ErrorAlert/ErrorAlert';
 import { baselinesTableActions } from '../BaselinesTable/redux';
 import { editBaselineActions } from './EditBaseline/redux';
 
@@ -103,25 +104,25 @@ export class BaselinesPage extends Component {
         );
     }
 
-    renderCardBody = () => {
-        const { emptyState, loading, baselineError, revertBaselineFetch } = this.props;
+    renderEmptyState = () => {
+        const { baselineError, revertBaselineFetch } = this.props;
         const { emptyStateMessage, errorMessage } = this.state;
 
-        if (emptyState && !loading) {
+        if (!baselineError.status) {
             return <EmptyStateDisplay
                 icon={ AddCircleOIcon }
                 title={ 'No baselines' }
                 text={ emptyStateMessage }
                 button={ <CreateBaselineButton /> }
             />;
-        } else if (loading && baselineError.status !== 200 && baselineError.status !== undefined) {
+        } else if (baselineError.status !== 200 && baselineError.status !== undefined) {
             return <EmptyStateDisplay
                 icon={ ExclamationCircleIcon }
                 color='#c9190b'
                 title={ 'Baselines cannot be displayed' }
                 text={ errorMessage }
                 error={
-                    'Error ' + this.props.baselineError.status + ': ' + this.props.baselineError.detail
+                    'Error ' + baselineError.status + ': ' + baselineError.detail
                 }
                 button={
                     <a onClick={ () => revertBaselineFetch('CHECKBOX') }>
@@ -130,12 +131,12 @@ export class BaselinesPage extends Component {
                     </a>
                 }
             />;
-        } else {
-            return this.renderTable();
         }
     }
 
     render() {
+        const { baselineError, emptyState, loading, revertBaselineFetch } = this.props;
+
         return (
             <React.Fragment>
                 <CreateBaselineModal />
@@ -143,11 +144,21 @@ export class BaselinesPage extends Component {
                     <PageHeaderTitle title='Baselines'/>
                 </PageHeader>
                 <Main>
-                    <Card className='pf-t-light pf-m-opaque-100'>
-                        {
-                            this.renderCardBody()
-                        }
-                    </Card>
+                    { emptyState && !loading
+                        ? this.renderEmptyState()
+                        : <React.Fragment>
+                            <ErrorAlert
+                                error={ !emptyState && baselineError ? baselineError : {} }
+                                onClose={ revertBaselineFetch }
+                                tableId={ 'CHECKBOX' }
+                            />
+                            <Card className='pf-t-light pf-m-opaque-100'>
+                                {
+                                    this.renderTable()
+                                }
+                            </Card>
+                        </React.Fragment>
+                    }
                 </Main>
             </React.Fragment>
         );

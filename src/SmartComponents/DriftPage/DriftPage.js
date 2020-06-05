@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 import { Main, PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components';
 import { Card, CardBody, DropdownItem, Toolbar, ToolbarGroup, ToolbarItem, ToolbarContent, PaginationVariant } from '@patternfly/react-core';
-import { errorAlertActions } from '../ErrorAlert/redux';
+import { ExclamationCircleIcon, PlusCircleIcon } from '@patternfly/react-icons';
 import { baselinesTableActions } from '../BaselinesTable/redux';
 import { compareActions } from '../modules';
 import { historicProfilesActions } from '../HistoricalProfilesDropdown/redux';
@@ -20,6 +20,7 @@ import TablePagination from '../Pagination/Pagination';
 import ExportCSVButton from './ExportCSVButton/ExportCSVButton';
 import DriftFilterChips from './DriftFilterChips/DriftFilterChips';
 import AddSystemButton from './AddSystemButton/AddSystemButton';
+import EmptyStateDisplay from '../EmptyStateDisplay/EmptyStateDisplay';
 
 export class DriftPage extends Component {
     constructor(props) {
@@ -28,7 +29,11 @@ export class DriftPage extends Component {
             actionKebabItems: [
                 <DropdownItem key="remove-systems" component="button" onClick={ this.clearComparison }>Clear all comparisons</DropdownItem>
             ],
-            isEmpty: true
+            isEmpty: true,
+            emptyStateMessage: [
+                'You currently have no system or baselines displayed. Add at least two',
+                'systems or baselines to compare their facts.'
+            ]
         };
 
         this.props.clearSelectedBaselines('CHECKBOX');
@@ -58,13 +63,42 @@ export class DriftPage extends Component {
         setHistory(history, []);
     }
 
-    render() {
-        const { loading, emptyState, updatePagination, updateReferenceId, page, perPage, totalFacts } = this.props;
-        const { actionKebabItems, isEmpty } = this.state;
+    onClose = () => {
+        const { revertCompareData, history, previousStateSystems } = this.props;
 
-        if (this.props.error.detail) {
-            this.props.toggleErrorAlert();
+        revertCompareData();
+        setHistory(history, previousStateSystems.map(system => system.id));
+    }
+
+    renderEmptyState = () => {
+        const { emptyStateMessage } = this.state;
+        const { error } = this.props;
+
+        if (error.status) {
+            return <EmptyStateDisplay
+                icon={ ExclamationCircleIcon }
+                color='#c9190b'
+                title={ 'Comparison cannot be displayed' }
+                text={ emptyStateMessage }
+                error={
+                    'Error ' + error.status + ': ' + error.detail
+                }
+                button={ <AddSystemButton isTable={ false }/> }
+            />;
+        } else {
+            return <EmptyStateDisplay
+                icon={ PlusCircleIcon }
+                color='#6a6e73'
+                title={ 'Add systems or baselines to compare' }
+                text={ emptyStateMessage }
+                button={ <AddSystemButton isTable={ false }/> }
+            />;
         }
+    }
+
+    render() {
+        const { emptyState, error, loading, page, perPage, totalFacts, updatePagination, updateReferenceId } = this.props;
+        const { actionKebabItems, isEmpty } = this.state;
 
         return (
             <React.Fragment>
@@ -72,7 +106,14 @@ export class DriftPage extends Component {
                     <PageHeaderTitle title='Comparison'/>
                 </PageHeader>
                 <Main>
-                    <ErrorAlert />
+                    <ErrorAlert
+                        error={ error }
+                        onClose={ this.onClose }
+                    />
+                    { emptyState && !loading
+                        ? this.renderEmptyState()
+                        : <div></div>
+                    }
                     <Card className='pf-t-light pf-m-opaque-100'>
                         <CardBody>
                             <div>
@@ -136,6 +177,7 @@ export class DriftPage extends Component {
                                 }
                                 <DriftTable
                                     updateReferenceId={ updateReferenceId }
+                                    error={ error }
                                 />
                                 { !emptyState && !loading ?
                                     <Toolbar className="drift-toolbar">
@@ -170,7 +212,6 @@ DriftPage.propTypes = {
     totalFacts: PropTypes.number,
     error: PropTypes.object,
     loading: PropTypes.bool,
-    toggleErrorAlert: PropTypes.func,
     clearSelectedBaselines: PropTypes.func,
     emptyState: PropTypes.bool,
     updatePagination: PropTypes.func,
@@ -179,18 +220,20 @@ DriftPage.propTypes = {
     clearComparisonFilters: PropTypes.func,
     history: PropTypes.object,
     selectHistoricProfiles: PropTypes.func,
-    selectedHSPIds: PropTypes.array
+    selectedHSPIds: PropTypes.array,
+    revertCompareData: PropTypes.func,
+    previousStateSystems: PropTypes.array
 };
 
 function mapDispatchToProps(dispatch) {
     return {
-        toggleErrorAlert: () => dispatch(errorAlertActions.toggleErrorAlert()),
         clearSelectedBaselines: (tableId) => dispatch(baselinesTableActions.clearSelectedBaselines(tableId)),
         updatePagination: (pagination) => dispatch(compareActions.updatePagination(pagination)),
         updateReferenceId: (id) => dispatch(compareActions.updateReferenceId(id)),
         clearComparison: () => dispatch(compareActions.clearComparison()),
         clearComparisonFilters: () => dispatch(compareActions.clearComparisonFilters()),
-        selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds))
+        selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds)),
+        revertCompareData: () => dispatch(compareActions.revertCompareData())
     };
 }
 
@@ -202,7 +245,8 @@ function mapStateToProps(state) {
         error: state.compareState.error,
         loading: state.compareState.loading,
         emptyState: state.compareState.emptyState,
-        selectedHSPIds: state.historicProfilesState.selectedHSPIds
+        selectedHSPIds: state.historicProfilesState.selectedHSPIds,
+        previousStateSystems: state.compareState.previousStateSystems
     };
 }
 

@@ -9,6 +9,10 @@ exports[`BaselinesPage should render correctly 1`] = `
     />
   </PageHeader>
   <Connect(Main)>
+    <Connect(ErrorAlert)
+      error={Object {}}
+      tableId="CHECKBOX"
+    />
     <Card
       className="pf-t-light pf-m-opaque-100"
     >
@@ -60,35 +64,52 @@ exports[`BaselinesPage should render error 1`] = `
     />
   </PageHeader>
   <Connect(Main)>
+    <Connect(ErrorAlert)
+      error={
+        Object {
+          "detail": "error",
+          "status": 404,
+        }
+      }
+      tableId="CHECKBOX"
+    />
     <Card
       className="pf-t-light pf-m-opaque-100"
     >
-      <EmptyStateDisplay
-        button={
-          <a
+      <CardBody>
+        <div>
+          <Connect(BaselinesTable)
+            columns={
+              Array [
+                Object {
+                  "title": "Name",
+                  "transforms": Array [
+                    [Function],
+                  ],
+                },
+                Object {
+                  "title": "Last updated",
+                  "transforms": Array [
+                    [Function],
+                  ],
+                },
+                Object {
+                  "title": "",
+                },
+              ]
+            }
+            createButton={true}
+            exportButton={true}
+            hasMultiSelect={true}
+            kebab={true}
+            loading={true}
+            onBulkSelect={[Function]}
             onClick={[Function]}
-          >
-            <UndoIcon
-              className="reload-button"
-              color="currentColor"
-              noVerticalAlign={false}
-              size="sm"
-            />
-            Retry
-          </a>
-        }
-        color="#c9190b"
-        error="Error 404: error"
-        icon={[Function]}
-        text={
-          Array [
-            "The list of baselines cannot be displayed at this time. Please retry and if",
-            "the problem persists contact your system administrator.",
-            "",
-          ]
-        }
-        title="Baselines cannot be displayed"
-      />
+            onSelect={[Function]}
+            tableId="CHECKBOX"
+          />
+        </div>
+      </CardBody>
     </Card>
   </Connect(Main)>
 </Fragment>
@@ -300,9 +321,9 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                 <CreateBaselineModal
                   clearSelectedBaselines={[Function]}
                   createBaseline={[Function]}
+                  createBaselineError={Object {}}
                   createBaselineModalOpened={false}
                   emptyState={false}
-                  error={Object {}}
                   history={
                     Object {
                       "action": "POP",
@@ -374,6 +395,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                     }
                     appendTo={
                       <body>
+                        <div />
                         <div />
                       </body>
                     }
@@ -463,6 +485,18 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                   className="pf-l-page__main-section pf-c-page__main-section"
                   page-type=""
                 >
+                  <Connect(ErrorAlert)
+                    error={Object {}}
+                    onClose={[Function]}
+                    tableId="CHECKBOX"
+                  >
+                    <ErrorAlert
+                      addNotification={[Function]}
+                      error={Object {}}
+                      onClose={[Function]}
+                      tableId="CHECKBOX"
+                    />
+                  </Connect(ErrorAlert)>
                   <Card
                     className="pf-t-light pf-m-opaque-100"
                   >
@@ -560,12 +594,104 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                   tableId="CHECKBOX"
                                   updatePagination={[Function]}
                                 >
-                                  <Toolbar>
+                                  <Connect(DeleteBaselinesModal)
+                                    fetchWithParams={[Function]}
+                                    modalOpened={false}
+                                    tableId="CHECKBOX"
+                                    toggleModal={[Function]}
+                                  >
+                                    <DeleteBaselinesModal
+                                      clearSelectedBaselines={[Function]}
+                                      deleteSelectedBaselines={[Function]}
+                                      fetchWithParams={[Function]}
+                                      modalOpened={false}
+                                      revertBaselineFetch={[Function]}
+                                      selectedBaselineIds={Array []}
+                                      tableId="CHECKBOX"
+                                      toggleModal={[Function]}
+                                    >
+                                      <Modal
+                                        actions={
+                                          Array [
+                                            <Button
+                                              onClick={[Function]}
+                                              variant="danger"
+                                            >
+                                              Delete baselines
+                                            </Button>,
+                                            <Button
+                                              onClick={[Function]}
+                                              variant="link"
+                                            >
+                                              Cancel
+                                            </Button>,
+                                          ]
+                                        }
+                                        appendTo={
+                                          <body>
+                                            <div />
+                                            <div />
+                                          </body>
+                                        }
+                                        aria-describedby=""
+                                        aria-label=""
+                                        aria-labelledby=""
+                                        className=""
+                                        hasNoBodyWrapper={false}
+                                        isOpen={false}
+                                        onClose={[Function]}
+                                        ouiaSafe={true}
+                                        showClose={true}
+                                        title="Delete baselines"
+                                        variant="small"
+                                      >
+                                        <Portal
+                                          containerInfo={<div />}
+                                        >
+                                          <ModalContent
+                                            actions={
+                                              Array [
+                                                <Button
+                                                  onClick={[Function]}
+                                                  variant="danger"
+                                                >
+                                                  Delete baselines
+                                                </Button>,
+                                                <Button
+                                                  onClick={[Function]}
+                                                  variant="link"
+                                                >
+                                                  Cancel
+                                                </Button>,
+                                              ]
+                                            }
+                                            aria-describedby=""
+                                            aria-label=""
+                                            aria-labelledby=""
+                                            boxId="pf-modal-part-1"
+                                            className=""
+                                            descriptorId="pf-modal-part-3"
+                                            hasNoBodyWrapper={false}
+                                            isOpen={false}
+                                            labelId="pf-modal-part-2"
+                                            onClose={[Function]}
+                                            ouiaSafe={true}
+                                            showClose={true}
+                                            title="Delete baselines"
+                                            variant="small"
+                                          />
+                                        </Portal>
+                                      </Modal>
+                                    </DeleteBaselinesModal>
+                                  </Connect(DeleteBaselinesModal)>
+                                  <Toolbar
+                                    className="drift-toolbar"
+                                  >
                                     <GenerateId
                                       prefix="pf-random-id-"
                                     >
                                       <div
-                                        className="pf-c-toolbar"
+                                        className="pf-c-toolbar drift-toolbar"
                                         id="pf-random-id-0"
                                       >
                                         <ToolbarContent
@@ -3781,43 +3907,37 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                   }
                                                                   title="No matching baselines found"
                                                                 >
-                                                                  <Bullseye>
+                                                                  <EmptyState
+                                                                    variant="large"
+                                                                  >
                                                                     <div
-                                                                      className="pf-l-bullseye"
+                                                                      className="pf-c-empty-state pf-m-lg"
                                                                     >
-                                                                      <EmptyState
-                                                                        variant="large"
+                                                                      <div
+                                                                        className="pf-c-empty-state__content"
                                                                       >
-                                                                        <div
-                                                                          className="pf-c-empty-state pf-m-lg"
+                                                                        <br />
+                                                                        <Title
+                                                                          headingLevel="h1"
+                                                                          size="lg"
                                                                         >
-                                                                          <div
-                                                                            className="pf-c-empty-state__content"
+                                                                          <h1
+                                                                            className="pf-c-title pf-m-lg"
                                                                           >
-                                                                            <br />
-                                                                            <Title
-                                                                              headingLevel="h1"
-                                                                              size="lg"
-                                                                            >
-                                                                              <h1
-                                                                                className="pf-c-title pf-m-lg"
-                                                                              >
-                                                                                No matching baselines found
-                                                                              </h1>
-                                                                            </Title>
-                                                                            <EmptyStateBody>
-                                                                              <div
-                                                                                className="pf-c-empty-state__body"
-                                                                              >
-                                                                                This filter criteria matches no baselines.
+                                                                            No matching baselines found
+                                                                          </h1>
+                                                                        </Title>
+                                                                        <EmptyStateBody>
+                                                                          <div
+                                                                            className="pf-c-empty-state__body"
+                                                                          >
+                                                                            This filter criteria matches no baselines.
 Try changing your filter settings.
-                                                                              </div>
-                                                                            </EmptyStateBody>
                                                                           </div>
-                                                                        </div>
-                                                                      </EmptyState>
+                                                                        </EmptyStateBody>
+                                                                      </div>
                                                                     </div>
-                                                                  </Bullseye>
+                                                                  </EmptyState>
                                                                 </EmptyStateDisplay>
                                                               </div>
                                                             </EmptyTable>
@@ -4899,9 +5019,9 @@ exports[`ConnectedBaselinesPage should render empty state 1`] = `
                 <CreateBaselineModal
                   clearSelectedBaselines={[Function]}
                   createBaseline={[Function]}
+                  createBaselineError={Object {}}
                   createBaselineModalOpened={false}
                   emptyState={false}
-                  error={Object {}}
                   history={
                     Object {
                       "action": "POP",
@@ -4975,6 +5095,7 @@ exports[`ConnectedBaselinesPage should render empty state 1`] = `
                       <body>
                         <div />
                         <div />
+                        <div />
                       </body>
                     }
                     aria-describedby=""
@@ -5013,12 +5134,12 @@ exports[`ConnectedBaselinesPage should render empty state 1`] = `
                         aria-describedby=""
                         aria-label=""
                         aria-labelledby=""
-                        boxId="pf-modal-part-1"
+                        boxId="pf-modal-part-2"
                         className=""
-                        descriptorId="pf-modal-part-3"
+                        descriptorId="pf-modal-part-4"
                         hasNoBodyWrapper={false}
                         isOpen={false}
-                        labelId="pf-modal-part-2"
+                        labelId="pf-modal-part-3"
                         onClose={[Function]}
                         ouiaSafe={true}
                         showClose={true}
@@ -5063,222 +5184,206 @@ exports[`ConnectedBaselinesPage should render empty state 1`] = `
                   className="pf-l-page__main-section pf-c-page__main-section"
                   page-type=""
                 >
-                  <Card
-                    className="pf-t-light pf-m-opaque-100"
+                  <EmptyStateDisplay
+                    button={<withRouter(Connect(CreateBaselineButton)) />}
+                    icon={[Function]}
+                    text={
+                      Array [
+                        "You currently have no baselines displayed.",
+                        "Create a baseline to use in your Comparison analysis.",
+                      ]
+                    }
+                    title="No baselines"
                   >
-                    <article
-                      className="pf-c-card pf-t-light pf-m-opaque-100"
-                      data-ouia-component-id={16}
-                      data-ouia-component-type="PF4/Card"
-                      data-ouia-safe={true}
+                    <EmptyState
+                      variant="large"
                     >
-                      <EmptyStateDisplay
-                        button={<withRouter(Connect(CreateBaselineButton)) />}
-                        icon={[Function]}
-                        text={
-                          Array [
-                            "You currently have no baselines displayed.",
-                            "Create a baseline to use in your Comparison analysis.",
-                          ]
-                        }
-                        title="No baselines"
+                      <div
+                        className="pf-c-empty-state pf-m-lg"
                       >
-                        <Bullseye>
-                          <div
-                            className="pf-l-bullseye"
+                        <div
+                          className="pf-c-empty-state__content"
+                        >
+                          <EmptyStateIcon
+                            className={null}
+                            color={null}
+                            icon={[Function]}
                           >
-                            <EmptyState
-                              variant="large"
+                            <AddCircleOIcon
+                              aria-hidden="true"
+                              className="pf-c-empty-state__icon"
+                              color={null}
+                              noVerticalAlign={false}
+                              size="sm"
                             >
-                              <div
-                                className="pf-c-empty-state pf-m-lg"
+                              <svg
+                                aria-hidden="true"
+                                aria-labelledby={null}
+                                className="pf-c-empty-state__icon"
+                                fill={null}
+                                height="1em"
+                                role="img"
+                                style={
+                                  Object {
+                                    "verticalAlign": "-0.125em",
+                                  }
+                                }
+                                viewBox="0 64 1024 1024"
+                                width="1em"
                               >
-                                <div
-                                  className="pf-c-empty-state__content"
-                                >
-                                  <EmptyStateIcon
-                                    color={null}
-                                    icon={[Function]}
-                                  >
-                                    <AddCircleOIcon
-                                      aria-hidden="true"
-                                      className="pf-c-empty-state__icon"
-                                      color={null}
-                                      noVerticalAlign={false}
-                                      size="sm"
-                                    >
-                                      <svg
-                                        aria-hidden="true"
-                                        aria-labelledby={null}
-                                        className="pf-c-empty-state__icon"
-                                        fill={null}
-                                        height="1em"
-                                        role="img"
-                                        style={
-                                          Object {
-                                            "verticalAlign": "-0.125em",
-                                          }
-                                        }
-                                        viewBox="0 64 1024 1024"
-                                        width="1em"
-                                      >
-                                        <path
-                                          d="M512.059-73.143c-282.338 0-512.059 229.673-512.059 512.025 0 282.238 229.721 511.975 512.059 511.975 282.283 0 511.941-229.735 511.941-511.975 0.005-282.352-229.659-512.025-511.941-512.025zM512.059 826.523c-213.826 0-387.728-173.856-387.728-387.643 0-213.888 173.904-387.691 387.728-387.691 213.717 0 387.671 173.803 387.671 387.691 0.005 213.785-173.957 387.643-387.671 387.643zM726.283 506.777c-3.429 3.477-7.803 5.223-13.138 5.223h-128.005v128.007c0 5.333-1.739 9.71-5.218 13.138s-7.936 5.141-13.351 5.141h-109.143c-5.417 0-9.863-1.714-13.351-5.141-3.481-3.429-5.221-7.808-5.221-13.141v-128.005l-128.007-0.002c-5.333 0-9.71-1.737-13.138-5.218-3.426-3.477-5.141-7.934-5.141-13.351v-109.143c0-5.417 1.714-9.856 5.141-13.351 3.429-3.481 7.808-5.221 13.141-5.221l128.005 0.002v-128.009c0-5.335 1.744-9.707 5.225-13.134 3.477-3.429 7.927-5.145 13.344-5.145h109.143c5.417 0 9.858 1.717 13.351 5.145 3.477 3.429 5.223 7.803 5.223 13.138v128.002h128.007c5.335 0 9.707 1.742 13.134 5.225 3.429 3.477 5.145 7.927 5.145 13.344v109.143c0 5.417-1.717 9.863-5.145 13.351z"
-                                          transform="rotate(180 0 512) scale(-1 1)"
-                                        />
-                                      </svg>
-                                    </AddCircleOIcon>
-                                  </EmptyStateIcon>
-                                  <br />
-                                  <Title
-                                    headingLevel="h1"
-                                    size="lg"
-                                  >
-                                    <h1
-                                      className="pf-c-title pf-m-lg"
-                                    >
-                                      No baselines
-                                    </h1>
-                                  </Title>
-                                  <EmptyStateBody>
-                                    <div
-                                      className="pf-c-empty-state__body"
-                                    >
-                                      You currently have no baselines displayed.
+                                <path
+                                  d="M512.059-73.143c-282.338 0-512.059 229.673-512.059 512.025 0 282.238 229.721 511.975 512.059 511.975 282.283 0 511.941-229.735 511.941-511.975 0.005-282.352-229.659-512.025-511.941-512.025zM512.059 826.523c-213.826 0-387.728-173.856-387.728-387.643 0-213.888 173.904-387.691 387.728-387.691 213.717 0 387.671 173.803 387.671 387.691 0.005 213.785-173.957 387.643-387.671 387.643zM726.283 506.777c-3.429 3.477-7.803 5.223-13.138 5.223h-128.005v128.007c0 5.333-1.739 9.71-5.218 13.138s-7.936 5.141-13.351 5.141h-109.143c-5.417 0-9.863-1.714-13.351-5.141-3.481-3.429-5.221-7.808-5.221-13.141v-128.005l-128.007-0.002c-5.333 0-9.71-1.737-13.138-5.218-3.426-3.477-5.141-7.934-5.141-13.351v-109.143c0-5.417 1.714-9.856 5.141-13.351 3.429-3.481 7.808-5.221 13.141-5.221l128.005 0.002v-128.009c0-5.335 1.744-9.707 5.225-13.134 3.477-3.429 7.927-5.145 13.344-5.145h109.143c5.417 0 9.858 1.717 13.351 5.145 3.477 3.429 5.223 7.803 5.223 13.138v128.002h128.007c5.335 0 9.707 1.742 13.134 5.225 3.429 3.477 5.145 7.927 5.145 13.344v109.143c0 5.417-1.717 9.863-5.145 13.351z"
+                                  transform="rotate(180 0 512) scale(-1 1)"
+                                />
+                              </svg>
+                            </AddCircleOIcon>
+                          </EmptyStateIcon>
+                          <br />
+                          <Title
+                            headingLevel="h1"
+                            size="lg"
+                          >
+                            <h1
+                              className="pf-c-title pf-m-lg"
+                            >
+                              No baselines
+                            </h1>
+                          </Title>
+                          <EmptyStateBody>
+                            <div
+                              className="pf-c-empty-state__body"
+                            >
+                              You currently have no baselines displayed.
 Create a baseline to use in your Comparison analysis.
-                                    </div>
-                                  </EmptyStateBody>
-                                  <withRouter(Connect(CreateBaselineButton))>
-                                    <Connect(CreateBaselineButton)
-                                      history={
-                                        Object {
-                                          "action": "POP",
-                                          "block": [Function],
-                                          "canGo": [Function],
-                                          "createHref": [Function],
-                                          "entries": Array [
-                                            Object {
-                                              "hash": "",
-                                              "pathname": "/",
-                                              "search": "",
-                                              "state": undefined,
-                                            },
-                                          ],
-                                          "go": [Function],
-                                          "goBack": [Function],
-                                          "goForward": [Function],
-                                          "index": 0,
-                                          "length": 1,
-                                          "listen": [Function],
-                                          "location": Object {
-                                            "hash": "",
-                                            "pathname": "/",
-                                            "search": "",
-                                            "state": undefined,
-                                          },
-                                          "push": [Function],
-                                          "replace": [Function],
-                                        }
-                                      }
-                                      location={
-                                        Object {
-                                          "hash": "",
-                                          "pathname": "/",
-                                          "search": "",
-                                          "state": undefined,
-                                        }
-                                      }
-                                      match={
-                                        Object {
-                                          "isExact": true,
-                                          "params": Object {},
-                                          "path": "/",
-                                          "url": "/",
-                                        }
-                                      }
-                                    >
-                                      <CreateBaselineButton
-                                        addSystemModalOpened={false}
-                                        history={
-                                          Object {
-                                            "action": "POP",
-                                            "block": [Function],
-                                            "canGo": [Function],
-                                            "createHref": [Function],
-                                            "entries": Array [
-                                              Object {
-                                                "hash": "",
-                                                "pathname": "/",
-                                                "search": "",
-                                                "state": undefined,
-                                              },
-                                            ],
-                                            "go": [Function],
-                                            "goBack": [Function],
-                                            "goForward": [Function],
-                                            "index": 0,
-                                            "length": 1,
-                                            "listen": [Function],
-                                            "location": Object {
-                                              "hash": "",
-                                              "pathname": "/",
-                                              "search": "",
-                                              "state": undefined,
-                                            },
-                                            "push": [Function],
-                                            "replace": [Function],
-                                          }
-                                        }
-                                        location={
-                                          Object {
-                                            "hash": "",
-                                            "pathname": "/",
-                                            "search": "",
-                                            "state": undefined,
-                                          }
-                                        }
-                                        match={
-                                          Object {
-                                            "isExact": true,
-                                            "params": Object {},
-                                            "path": "/",
-                                            "url": "/",
-                                          }
-                                        }
-                                        toggleAddSystemModal={[Function]}
-                                        toggleCreateBaselineModal={[Function]}
-                                      >
-                                        <Button
-                                          id="create-baseline-button"
-                                          onClick={[Function]}
-                                          variant="primary"
-                                        >
-                                          <button
-                                            aria-disabled={false}
-                                            aria-label={null}
-                                            className="pf-c-button pf-m-primary"
-                                            data-ouia-component-id={17}
-                                            data-ouia-component-type="PF4/Button"
-                                            data-ouia-safe={true}
-                                            disabled={false}
-                                            id="create-baseline-button"
-                                            onClick={[Function]}
-                                            type="button"
-                                          >
-                                            Create baseline
-                                          </button>
-                                        </Button>
-                                      </CreateBaselineButton>
-                                    </Connect(CreateBaselineButton)>
-                                  </withRouter(Connect(CreateBaselineButton))>
-                                </div>
-                              </div>
-                            </EmptyState>
-                          </div>
-                        </Bullseye>
-                      </EmptyStateDisplay>
-                    </article>
-                  </Card>
+                            </div>
+                          </EmptyStateBody>
+                          <withRouter(Connect(CreateBaselineButton))>
+                            <Connect(CreateBaselineButton)
+                              history={
+                                Object {
+                                  "action": "POP",
+                                  "block": [Function],
+                                  "canGo": [Function],
+                                  "createHref": [Function],
+                                  "entries": Array [
+                                    Object {
+                                      "hash": "",
+                                      "pathname": "/",
+                                      "search": "",
+                                      "state": undefined,
+                                    },
+                                  ],
+                                  "go": [Function],
+                                  "goBack": [Function],
+                                  "goForward": [Function],
+                                  "index": 0,
+                                  "length": 1,
+                                  "listen": [Function],
+                                  "location": Object {
+                                    "hash": "",
+                                    "pathname": "/",
+                                    "search": "",
+                                    "state": undefined,
+                                  },
+                                  "push": [Function],
+                                  "replace": [Function],
+                                }
+                              }
+                              location={
+                                Object {
+                                  "hash": "",
+                                  "pathname": "/",
+                                  "search": "",
+                                  "state": undefined,
+                                }
+                              }
+                              match={
+                                Object {
+                                  "isExact": true,
+                                  "params": Object {},
+                                  "path": "/",
+                                  "url": "/",
+                                }
+                              }
+                            >
+                              <CreateBaselineButton
+                                addSystemModalOpened={false}
+                                history={
+                                  Object {
+                                    "action": "POP",
+                                    "block": [Function],
+                                    "canGo": [Function],
+                                    "createHref": [Function],
+                                    "entries": Array [
+                                      Object {
+                                        "hash": "",
+                                        "pathname": "/",
+                                        "search": "",
+                                        "state": undefined,
+                                      },
+                                    ],
+                                    "go": [Function],
+                                    "goBack": [Function],
+                                    "goForward": [Function],
+                                    "index": 0,
+                                    "length": 1,
+                                    "listen": [Function],
+                                    "location": Object {
+                                      "hash": "",
+                                      "pathname": "/",
+                                      "search": "",
+                                      "state": undefined,
+                                    },
+                                    "push": [Function],
+                                    "replace": [Function],
+                                  }
+                                }
+                                location={
+                                  Object {
+                                    "hash": "",
+                                    "pathname": "/",
+                                    "search": "",
+                                    "state": undefined,
+                                  }
+                                }
+                                match={
+                                  Object {
+                                    "isExact": true,
+                                    "params": Object {},
+                                    "path": "/",
+                                    "url": "/",
+                                  }
+                                }
+                                toggleAddSystemModal={[Function]}
+                                toggleCreateBaselineModal={[Function]}
+                              >
+                                <Button
+                                  id="create-baseline-button"
+                                  onClick={[Function]}
+                                  variant="primary"
+                                >
+                                  <button
+                                    aria-disabled={false}
+                                    aria-label={null}
+                                    className="pf-c-button pf-m-primary"
+                                    data-ouia-component-id={16}
+                                    data-ouia-component-type="PF4/Button"
+                                    data-ouia-safe={true}
+                                    disabled={false}
+                                    id="create-baseline-button"
+                                    onClick={[Function]}
+                                    type="button"
+                                  >
+                                    Create baseline
+                                  </button>
+                                </Button>
+                              </CreateBaselineButton>
+                            </Connect(CreateBaselineButton)>
+                          </withRouter(Connect(CreateBaselineButton))>
+                        </div>
+                      </div>
+                    </EmptyState>
+                  </EmptyStateDisplay>
                 </section>
               </Main>
             </Connect(Main)>

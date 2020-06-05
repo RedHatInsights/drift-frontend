@@ -28,6 +28,13 @@ function patchBaseline(baselineId, apiBody) {
     };
 }
 
+function deleteBaselineData(baselineId, apiBody) {
+    return {
+        type: types.DELETE_BASELINE_DATA,
+        payload: api.patchBaselineData(baselineId, apiBody)
+    };
+}
+
 function toggleFactModal() {
     return {
         type: types.TOGGLE_FACT_MODAL
@@ -59,6 +66,7 @@ export default {
     fetchBaselineData,
     clearEditBaselineData,
     patchBaseline,
+    deleteBaselineData,
     setFactData,
     toggleFactModal,
     selectFact,

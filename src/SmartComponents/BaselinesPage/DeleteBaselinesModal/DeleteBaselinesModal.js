@@ -9,16 +9,6 @@ export class DeleteBaselinesModal extends Component {
     constructor(props) {
         super(props);
         this.deleteBaselines = this.deleteBaselines.bind(this);
-
-        this.state = {
-            modalOpened: this.props.modalOpened
-        };
-
-        this.toggleModal = () => {
-            const { modalOpened } = this.state;
-
-            this.setState({ modalOpened: !modalOpened });
-        };
     }
 
     async deleteBaselines() {
@@ -28,7 +18,8 @@ export class DeleteBaselinesModal extends Component {
             selectedBaselineIds,
             fetchWithParams,
             baselineId,
-            tableId
+            tableId,
+            toggleModal
         } = this.props;
         let apiBody;
 
@@ -40,20 +31,19 @@ export class DeleteBaselinesModal extends Component {
         }
         /*eslint-enable camelcase*/
 
-        this.toggleModal();
+        toggleModal();
 
         try {
             await deleteSelectedBaselines(apiBody, tableId);
             clearSelectedBaselines(tableId);
             fetchWithParams();
         } catch (e) {
-            //do nothing and let redux handle
+            // do nothing and let redux handle
         }
     }
 
     render() {
-        const { modalOpened } = this.state;
-        const { baselineId, selectedBaselineIds } = this.props;
+        const { baselineId, modalOpened, selectedBaselineIds, toggleModal } = this.props;
         const deleteMessage = baselineId || selectedBaselineIds.length === 1 ? 'Delete baseline' : 'Delete baselines';
 
         return (
@@ -61,7 +51,7 @@ export class DeleteBaselinesModal extends Component {
                 variant={ ModalVariant.small }
                 title={ deleteMessage }
                 isOpen={ modalOpened }
-                onClose={ this.toggleModal }
+                onClose={ toggleModal }
                 actions = { [
                     <Button
                         key="confirm"
@@ -73,7 +63,7 @@ export class DeleteBaselinesModal extends Component {
                     <Button
                         key="cancel"
                         variant="link"
-                        onClick={ this.toggleModal }
+                        onClick={ toggleModal }
                     >
                     Cancel
                     </Button>
@@ -92,7 +82,9 @@ DeleteBaselinesModal.propTypes = {
     deleteSelectedBaselines: PropTypes.func,
     fetchWithParams: PropTypes.func,
     baselineId: PropTypes.string,
-    tableId: PropTypes.string
+    tableId: PropTypes.string,
+    toggleModal: PropTypes.func,
+    revertBaselineFetch: PropTypes.func
 };
 
 function mapStateToProps(state) {
@@ -104,7 +96,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         deleteSelectedBaselines: (apiBody, tableId) => dispatch(baselinesTableActions.deleteSelectedBaselines(apiBody, tableId)),
-        clearSelectedBaselines: (tableId) => dispatch(baselinesTableActions.clearSelectedBaselines(tableId))
+        clearSelectedBaselines: (tableId) => dispatch(baselinesTableActions.clearSelectedBaselines(tableId)),
+        revertBaselineFetch: (tableId) => dispatch(baselinesTableActions.revertBaselineFetch(tableId))
     };
 }
 

@@ -18,7 +18,7 @@ export class BaselinesToolbar extends Component {
         super(props);
         this.state = {
             nameSearch: '',
-            deleteModalOpened: false,
+            modalOpened: false,
             bulkSelectItems: [
                 {
                     title: 'Select all',
@@ -63,10 +63,10 @@ export class BaselinesToolbar extends Component {
     }
 
     toggleModal = () => {
-        const { deleteModalOpened } = this.state;
+        const { modalOpened } = this.state;
 
         this.setState({
-            deleteModalOpened: !deleteModalOpened
+            modalOpened: !modalOpened
         });
     }
 
@@ -88,20 +88,18 @@ export class BaselinesToolbar extends Component {
         const { createButton, exportButton, fetchWithParams,
             hasMultiSelect, kebab, onBulkSelect, tableData, tableId,
             page, perPage, totalBaselines, updatePagination } = this.props;
-        const { bulkSelectItems, deleteModalOpened, nameSearch } = this.state;
+        const { bulkSelectItems, modalOpened, nameSearch } = this.state;
         let selected = tableData.filter(baseline => baseline.selected === true).length;
 
         return (
             <React.Fragment>
-                { deleteModalOpened
-                    ? <DeleteBaselinesModal
-                        modalOpened={ true }
-                        tableId={ tableId }
-                        fetchWithParams={ fetchWithParams }
-                    />
-                    : null
-                }
-                <Toolbar>
+                <DeleteBaselinesModal
+                    modalOpened={ modalOpened }
+                    tableId={ tableId }
+                    fetchWithParams={ fetchWithParams }
+                    toggleModal={ this.toggleModal }
+                />
+                <Toolbar className="drift-toolbar">
                     <ToolbarContent>
                         { hasMultiSelect
                             ? <ToolbarGroup variant='filter-group'>

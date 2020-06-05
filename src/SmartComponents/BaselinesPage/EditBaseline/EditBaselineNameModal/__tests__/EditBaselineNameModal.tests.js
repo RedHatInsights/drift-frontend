@@ -1,9 +1,14 @@
 import React from 'react';
+
 import { shallow, mount } from 'enzyme';
+import { MemoryRouter } from 'react-router-dom';
+import configureStore from 'redux-mock-store';
+import { Provider } from 'react-redux';
 import toJson from 'enzyme-to-json';
 
-import { EditBaselineNameModal } from '../EditBaselineNameModal';
+import ConnectedEditBaselineNameModal, { EditBaselineNameModal } from '../EditBaselineNameModal';
 import editBaselineFixtures from '../../__tests__/helpers.fixtures';
+import api from '../../../../../api';
 
 describe('EditBaselineNameModal', () => {
     let props;
@@ -91,6 +96,42 @@ describe('EditBaselineNameModal', () => {
 
             wrapper.find('FormGroup').simulate('keypress', { key: 'Enter', preventDefault: jest.fn() });
             expect(patchBaseline).toHaveBeenCalled();
+        });
+    });
+
+    describe('ConnectedEditBaselineNameModal', () => {
+        let initialState;
+        let mockStore;
+        let props;
+
+        beforeEach(() => {
+            mockStore = configureStore();
+            initialState = {};
+            props = {
+                baselineData: editBaselineFixtures.mockBaselineData1,
+                modalOpened: true,
+                error: {}
+            };
+        });
+
+        it('should render correctly', () => {
+            const store = mockStore(initialState);
+            const patchBaseline = jest.fn();
+
+            const wrapper = mount(
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedEditBaselineNameModal
+                            { ...props }
+                            patchBaseline={ patchBaseline }
+                        />
+                    </Provider>
+                </MemoryRouter>
+            );
+
+            const actions = store.getActions();
+            wrapper.find('.pf-c-button').at(1).simulate('click');
+            expect(actions).toEqual([{ type: 'PATCH_BASELINE', payload: api.patchBaselineData('blah') }]);
         });
     });
 });

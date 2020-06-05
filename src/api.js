@@ -17,8 +17,9 @@ async function getBaseline(path) {
 }
 
 async function patchBaseline(path, body = {}) {
-    const request = await axios.patch(BASELINE_API_ROOT.concat(path), body);
-    return request.data[0];
+    let request = await axios.patch(BASELINE_API_ROOT.concat(path), body);
+
+    return request;
 }
 
 async function postBaseline(path, body = {}) {
@@ -27,11 +28,14 @@ async function postBaseline(path, body = {}) {
 }
 
 async function deleteBaselines(path, body = {}) {
-    return await axios.post(BASELINE_API_ROOT.concat(path), body);
+    let response = await axios.post(BASELINE_API_ROOT.concat(path), body);
+
+    return response;
 }
 
 async function getHistoricalData(path) {
     let response;
+
     const request = await axios.get(HISTORICAL_PROFILES_API_ROOT.concat(path))
     .catch(function (error) {
         return error.response;

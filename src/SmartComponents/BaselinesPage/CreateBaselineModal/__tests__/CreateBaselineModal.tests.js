@@ -17,7 +17,7 @@ describe('CreateBaselineModal', () => {
             baselineData: [],
             entities: {},
             selectedBaselineIds: [],
-            error: {},
+            createBaselineError: {},
             clearSelectedBaselines: jest.fn(),
             handleChecked: jest.fn()
         };
@@ -139,7 +139,7 @@ describe('ConnectedCreateBaselineModal', () => {
             createBaselineModalState: {
                 createBaselineModalOpened: true,
                 baselineData: [],
-                error: {}
+                createBaselineError: {}
             },
             entities: {},
             baselinesTableState: {

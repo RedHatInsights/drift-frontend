@@ -4,7 +4,7 @@ const initialState = {
     createBaselineModalOpened: false,
     baselineDataLoading: false,
     baselineData: undefined,
-    error: {}
+    createBaselineError: {}
 };
 
 export function createBaselineModalReducer(state = initialState, action) {
@@ -16,14 +16,14 @@ export function createBaselineModalReducer(state = initialState, action) {
             return {
                 ...state,
                 createBaselineModalOpened: !state.createBaselineModalOpened,
-                error: {}
+                createBaselineError: {}
             };
         case `${types.CREATE_BASELINE}_PENDING`:
             return {
                 ...state,
                 baselineDataLoading: true,
                 baselineData: {},
-                error: {}
+                createBaselineError: {}
             };
         case `${types.CREATE_BASELINE}_FULFILLED`:
             return {
@@ -45,7 +45,7 @@ export function createBaselineModalReducer(state = initialState, action) {
             return {
                 ...state,
                 baselineDataLoading: false,
-                error: errorObject
+                createBaselineError: errorObject
             };
 
         default:

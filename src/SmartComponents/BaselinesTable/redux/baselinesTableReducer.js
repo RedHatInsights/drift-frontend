@@ -26,7 +26,7 @@ const baselinesTableReducer = (tableId = '') => {
                     loading: true
                 };
             case `FETCH_BASELINE_LIST_${tableId}_FULFILLED`:
-                rows = baselinesReducerHelpers.buildBaselinesTable(action.payload.data, state.selectedBaselineIds);
+                rows = baselinesReducerHelpers.buildBaselinesTable(action.payload.data, state.selectedBaselineIds, tableId);
 
                 return {
                     ...state,
@@ -37,21 +37,25 @@ const baselinesTableReducer = (tableId = '') => {
                 };
             case `FETCH_BASELINE_LIST_${tableId}_REJECTED`:
                 response = action.payload.response;
+                errorObject = { status: response.status };
                 if (response.data === '') {
-                    errorObject = { detail: response.statusText, status: response.status };
+                    errorObject.detail = response.statusText;
                 } else if (response.data.message) {
-                    errorObject = { detail: response.data.message, status: response.status };
+                    errorObject.detail = response.data.message;
                 } else {
-                    errorObject = { detail: response.data.detail, status: response.status };
+                    errorObject.detail = response.data.detail;
                 }
 
                 return {
                     ...state,
+                    loading: false,
+                    emptyState: true,
                     baselineError: errorObject
                 };
             case `REVERT_BASELINE_FETCH_${tableId}`:
                 return {
                     ...state,
+                    emptyState: false,
                     baselineError: {},
                     loading: false
                 };
@@ -107,27 +111,31 @@ const baselinesTableReducer = (tableId = '') => {
                     ...state,
                     baselineData: undefined
                 };
-            case `DELETE_BASELINE_${tableId}_PENDING`:
+            case `DELETE_SELECTED_BASELINES_${tableId}_PENDING`:
                 return {
                     ...state,
                     loading: true
                 };
-            case `DELETE_BASELINE_${tableId}_FULFILLED`:
-                rows = baselinesReducerHelpers.buildBaselinesTable(action.payload.data, state.selectedBaselineIds);
+            case `DELETE_SELECTED_BASELINES_${tableId}_FULFILLED`:
+                return {
+                    ...state,
+                    loading: false
+                };
+            case `DELETE_SELECTED_BASELINES_${tableId}_REJECTED`:
+                response = action.payload.response;
+                errorObject = { status: response.status };
+                if (response.data === '') {
+                    errorObject.detail = response.statusText;
+                } else if (response.data.message) {
+                    errorObject.detail = response.data.message;
+                } else {
+                    errorObject.detail = response.data.detail;
+                }
 
                 return {
                     ...state,
                     loading: false,
-                    baselineTableData: rows,
-                    emptyState: action.payload.meta.total_available === 0,
-                    IdToDelete: '',
-                    totalBaselines: action.payload.meta.count
-                };
-            case `DELETE_BASELINE_${tableId}_REJECTED`:
-                return {
-                    ...state,
-                    loading: false,
-                    IdToDelete: ''
+                    baselineError: errorObject
                 };
             default:
                 return state;

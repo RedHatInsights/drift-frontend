@@ -16,7 +16,8 @@ describe('DeleteBaselinesModal', () => {
             modalOpened: true,
             clearSelectedBaselines: jest.fn(),
             deleteSelectedBaselines: jest.fn(),
-            fetchBaselines: jest.fn()
+            fetchWithParams: jest.fn(),
+            toggleModal: jest.fn()
         };
     });
 
@@ -58,50 +59,41 @@ describe('DeleteBaselinesModal', () => {
             );
 
             wrapper.find('.pf-c-button').at(2).simulate('click');
-            expect(wrapper.state('modalOpened')).toEqual(false);
+            expect(props.toggleModal).toHaveBeenCalled();
         });
 
         it('should delete baseline', async () => {
-            const deleteSelectedBaselines = jest.fn();
-            deleteSelectedBaselines
+            props.deleteSelectedBaselines
             .mockReturnValue({
                 value: { data: 'OK' }
             });
-            const fetchWithParams = jest.fn();
 
             const wrapper = mount(
                 <DeleteBaselinesModal { ...props }
-                    deleteSelectedBaselines={ deleteSelectedBaselines }
                     baselineId={ 'abcd' }
-                    fetchWithParams={ fetchWithParams }
                 />
             );
 
             wrapper.find('.pf-c-button').at(1).simulate('click');
-            await expect(deleteSelectedBaselines).toHaveBeenCalledTimes(1);
-            await expect(fetchWithParams).toHaveBeenCalled();
+            await expect(props.deleteSelectedBaselines).toHaveBeenCalledTimes(1);
+            await expect(props.fetchWithParams).toHaveBeenCalled();
+
         });
 
         it('should delete multiple baseline', async () => {
-            const deleteSelectedBaselines = jest.fn();
-            deleteSelectedBaselines
+            props.deleteSelectedBaselines
             .mockReturnValue({
                 value: { data: 'OK' }
             });
-            const selectedBaselineIds = [ 'abcd', 'efgh' ];
-            const fetchWithParams = jest.fn();
+            props.selectedBaselineIds = [ 'abcd', 'efgh' ];
 
             const wrapper = mount(
-                <DeleteBaselinesModal { ...props }
-                    deleteSelectedBaselines={ deleteSelectedBaselines }
-                    selectedBaselineIds={ selectedBaselineIds }
-                    fetchWithParams={ fetchWithParams }
-                />
+                <DeleteBaselinesModal { ...props } />
             );
 
             wrapper.find('.pf-c-button').at(1).simulate('click');
-            await expect(deleteSelectedBaselines).toHaveBeenCalledTimes(1);
-            await expect(fetchWithParams).toHaveBeenCalled();
+            await expect(props.deleteSelectedBaselines).toHaveBeenCalledTimes(1);
+            await expect(props.fetchWithParams).toHaveBeenCalled();
         });
     });
 });
@@ -109,6 +101,7 @@ describe('DeleteBaselinesModal', () => {
 describe('ConnectedDeleteBaselinesModal', () => {
     let initialState;
     let mockStore;
+    let props;
 
     beforeEach(() => {
         mockStore = configureStore();
@@ -117,8 +110,14 @@ describe('ConnectedDeleteBaselinesModal', () => {
                 checkboxTable: {
                     selectedBaselineIds: []
                 }
-            },
-            modalOpened: true
+            }
+        };
+        props = {
+            modalOpened: true,
+            tableId: 'CHECKBOX',
+            clearSelectedBaselines: jest.fn(),
+            deleteSelectedBaselines: jest.fn(),
+            fetchWithParams: jest.fn()
         };
     });
 
@@ -127,7 +126,7 @@ describe('ConnectedDeleteBaselinesModal', () => {
         const wrapper = mount(
             <MemoryRouter keyLength={ 0 }>
                 <Provider store={ store }>
-                    <ConnectedDeleteBaselinesModal />
+                    <ConnectedDeleteBaselinesModal { ...props } />
                 </Provider>
             </MemoryRouter>
         );
@@ -135,23 +134,25 @@ describe('ConnectedDeleteBaselinesModal', () => {
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 
-    it.skip('should dispatch actions', () => {
+    it.skip('should dispatch actions', async () => {
         initialState.baselinesTableState.checkboxTable.selectedBaselineIds = [ 'abcd', 'efgh' ];
         const store = mockStore(initialState);
+        props.deleteSelectedBaselines
+        .mockReturnValue({
+            value: { data: 'OK' }
+        });
 
         const wrapper = mount(
             <MemoryRouter keyLength={ 0 }>
                 <Provider store={ store }>
-                    <ConnectedDeleteBaselinesModal />
+                    <ConnectedDeleteBaselinesModal { ...props } />
                 </Provider>
             </MemoryRouter>
         );
 
-        expect(toJson(wrapper)).toMatchSnapshot();
-
         const actions = store.getActions();
-        wrapper.find('.pf-c-button').simulate('click');
-        expect(actions).toEqual([
+        wrapper.find('.pf-c-button').at(1).simulate('click');
+        await expect(actions).toEqual([
             { type: 'DELETE_SELECTED_BASELINES_CHECKBOX' }
         ]);
     });

@@ -86,7 +86,7 @@ export class AddSystemModal extends Component {
 
     render() {
         const { activeTab, addSystemModalOpened, baselineTableData, historicalProfiles, loading,
-            entities, selectedBaselineIds, selectedHSPIds, page, perPage, totalBaselines, updatePagination } = this.props;
+            entities, selectedBaselineIds, selectedHSPIds, totalBaselines } = this.props;
         const { columns } = this.state;
 
         return (
@@ -141,10 +141,7 @@ export class AddSystemModal extends Component {
                                 columns={ columns }
                                 onBulkSelect={ this.onBulkSelect }
                                 selectedBaselineIds={ selectedBaselineIds }
-                                page={ page }
-                                perPage={ perPage }
                                 totalBaselines={ totalBaselines }
-                                updatePagination={ updatePagination }
                             />
                         </Tab>
                     </Tabs>
@@ -172,10 +169,7 @@ AddSystemModal.propTypes = {
     selectBaseline: PropTypes.func,
     historicalProfiles: PropTypes.array,
     referenceId: PropTypes.string,
-    page: PropTypes.number,
-    perPage: PropTypes.number,
-    totalBaselines: PropTypes.number,
-    updatePagination: PropTypes.func
+    totalBaselines: PropTypes.number
 };
 
 function mapStateToProps(state) {
@@ -190,8 +184,6 @@ function mapStateToProps(state) {
         loading: state.baselinesTableState.checkboxTable.loading,
         baselineTableData: state.baselinesTableState.checkboxTable.baselineTableData,
         historicalProfiles: state.compareState.historicalProfiles,
-        page: state.baselinesTableState.checkboxTable.page,
-        perPage: state.baselinesTableState.checkboxTable.perPage,
         totalBaselines: state.baselinesTableState.checkboxTable.totalBaselines
     };
 }
@@ -200,8 +192,7 @@ function mapDispatchToProps(dispatch) {
     return {
         toggleModal: () => dispatch(addSystemModalActions.toggleAddSystemModal()),
         selectActiveTab: (newActiveTab) => dispatch(addSystemModalActions.selectActiveTab(newActiveTab)),
-        selectBaseline: (id, isSelected, tableId) => dispatch(baselinesTableActions.selectBaseline(id, isSelected, tableId)),
-        updatePagination: (pagination, tableId) => dispatch(baselinesTableActions.updatePagination(pagination, tableId))
+        selectBaseline: (id, isSelected, tableId) => dispatch(baselinesTableActions.selectBaseline(id, isSelected, tableId))
     };
 }
 
