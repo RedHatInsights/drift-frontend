@@ -42,7 +42,7 @@ export class DriftFilterChips extends Component {
             }
 
             if (factFilter !== prevProps.factFilter) {
-                newFactChips = { category: 'Name', chips:
+                newFactChips = { category: 'Fact name', chips:
                     factFilter !== ''
                         ? [ factFilter ]
                         : []
