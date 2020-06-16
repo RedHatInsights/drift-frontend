@@ -40,7 +40,7 @@ export class BaselinesTable extends Component {
     isDisabled = () => {
         const { selectedBaselineIds } = this.props;
 
-        return selectedBaselineIds.length < 1;
+        return selectedBaselineIds && selectedBaselineIds.length < 1;
     }
 
     fetchWithParams = (fetchParams) => {

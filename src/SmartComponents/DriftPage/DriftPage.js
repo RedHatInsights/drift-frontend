@@ -61,9 +61,6 @@ export class DriftPage extends Component {
     render() {
         const { loading, emptyState, updatePagination, updateReferenceId } = this.props;
         const { actionKebabItems, isEmpty } = this.state;
-        /*eslint-disable*/
-        console.log(isEmpty);
-        /*eslint-enable*/
 
         if (this.props.error.detail) {
             this.props.toggleErrorAlert();

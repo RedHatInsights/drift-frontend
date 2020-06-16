@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { DropdownDirection/*, EmptyState, EmptyStateBody, EmptyStateIcon, Title*/, Tooltip } from '@patternfly/react-core';
+import { DropdownDirection, Tooltip } from '@patternfly/react-core';
 import queryString from 'query-string';
 import { ClockIcon, TimesIcon, ExclamationTriangleIcon, PlusCircleIcon, ServerIcon, BlueprintIcon } from '@patternfly/react-icons';
 import { AngleDownIcon, AngleRightIcon, LongArrowAltUpIcon, LongArrowAltDownIcon, ArrowsAltVIcon } from '@patternfly/react-icons';
@@ -16,7 +16,7 @@ import { ASC, DESC } from '../../../constants';
 import { setHistory } from '../../../Utilities/SetHistory';
 
 import HistoricalProfilesDropdown from '../../HistoricalProfilesDropdown/HistoricalProfilesDropdown';
-import EmptyState from '../../EmptyStateDisplay/EmptyStateDisplay';
+import EmptyStateDisplay from '../../EmptyStateDisplay/EmptyStateDisplay';
 import { compareActions } from '../../modules';
 import { baselinesTableActions } from '../../BaselinesTable/redux';
 import { historicProfilesActions } from '../../HistoricalProfilesDropdown/redux';
@@ -477,7 +477,7 @@ export class DriftTable extends Component {
                     referenceId={ this.props.referenceId }
                 />
                 { emptyState && !loading
-                    ? <EmptyState
+                    ? <EmptyStateDisplay
                         icon={ PlusCircleIcon }
                         title={ 'Add systems or baselines to compare' }
                         text={ emptyStateMessage }
