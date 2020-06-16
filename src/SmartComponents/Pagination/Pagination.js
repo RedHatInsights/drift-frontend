@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { Pagination, DropdownDirection } from '@patternfly/react-core';
-
-const perPageOptions = [
-    { title: '10', value: 10 },
-    { title: '25', value: 25 },
-    { title: '50', value: 50 },
-    { title: '100', value: 100 }
-];
+import { Pagination } from '@patternfly/react-core';
 
 export class TablePagination extends Component {
     constructor(props) {
@@ -39,15 +32,15 @@ export class TablePagination extends Component {
     }
 
     render() {
-        const { total, page, perPage, isCompact } = this.props;
+        const { total, page, perPage, isCompact, widgetId, variant } = this.props;
 
         return (
             <Pagination
                 itemCount={ total ? total : 0 }
-                perPageOptions={ perPageOptions }
+                widgetId={ widgetId }
                 page={ total === 0 ? 0 : page }
                 perPage={ perPage }
-                dropDirection={ DropdownDirection.down }
+                variant={ variant }
                 onSetPage={ this.onSetPage }
                 onPerPageSelect={ this.onPerPageSelect }
                 isCompact={ isCompact }
@@ -62,7 +55,9 @@ TablePagination.propTypes = {
     updatePagination: PropTypes.func,
     total: PropTypes.number,
     isCompact: PropTypes.bool,
-    tableId: PropTypes.string
+    tableId: PropTypes.string,
+    widgetId: PropTypes.string,
+    variant: PropTypes.any
 };
 
 export default TablePagination;

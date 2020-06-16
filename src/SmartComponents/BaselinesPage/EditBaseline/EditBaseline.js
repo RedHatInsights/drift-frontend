@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { Main, PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components';
-import { Breadcrumb, BreadcrumbItem, Card, CardBody, Checkbox } from '@patternfly/react-core';
+import { Breadcrumb, BreadcrumbItem, Card, CardBody, Checkbox, BreadcrumbHeading } from '@patternfly/react-core';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
 import { AngleDownIcon, AngleRightIcon, EditAltIcon } from '@patternfly/react-icons';
 
@@ -67,7 +67,7 @@ export class EditBaseline extends Component {
                     Baselines
                 </a>
             </BreadcrumbItem>
-            <BreadcrumbItem isActive>{ baselineData.display_name }</BreadcrumbItem>
+            <BreadcrumbHeading>{ baselineData.display_name }</BreadcrumbHeading>
         </Breadcrumb>;
         /*eslint-enable camelcase*/
 
@@ -254,7 +254,7 @@ export class EditBaseline extends Component {
         const { baselineData } = this.props;
 
         return (
-            <table className="pf-c-table ins-c-table pf-m-compact ins-entity-table drift-table">
+            <table className="pf-c-table ins-c-table pf-m-grid-md ins-entity-table drift-table">
                 <thead>
                     { this.renderHeaderRow() }
                 </thead>

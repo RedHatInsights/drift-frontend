@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FetchHistoricalProfilesButton should render correctly 1`] = `
-<Component
+<Button
   onClick={[Function]}
   style={
     Object {
@@ -11,12 +11,12 @@ exports[`FetchHistoricalProfilesButton should render correctly 1`] = `
   variant="primary"
 >
   Compare
-</Component>
+</Button>
 `;
 
 exports[`FetchHistoricalProfilesButton should render mount correctly 1`] = `
 <FetchHistoricalProfilesButton>
-  <Component
+  <Button
     onClick={[Function]}
     style={
       Object {
@@ -25,53 +25,24 @@ exports[`FetchHistoricalProfilesButton should render mount correctly 1`] = `
     }
     variant="primary"
   >
-    <ComponentWithOuia
-      component={[Function]}
-      componentProps={
+    <button
+      aria-disabled={false}
+      aria-label={null}
+      className="pf-c-button pf-m-primary"
+      data-ouia-component-id={0}
+      data-ouia-component-type="PF4/Button"
+      data-ouia-safe={true}
+      disabled={false}
+      onClick={[Function]}
+      style={
         Object {
-          "children": "Compare",
-          "onClick": [Function],
-          "style": Object {
-            "float": "left",
-          },
-          "variant": "primary",
+          "float": "left",
         }
       }
-      consumerContext={null}
+      type="button"
     >
-      <Button
-        onClick={[Function]}
-        ouiaContext={
-          Object {
-            "isOuia": false,
-            "ouiaId": null,
-          }
-        }
-        style={
-          Object {
-            "float": "left",
-          }
-        }
-        variant="primary"
-      >
-        <button
-          aria-disabled={null}
-          aria-label={null}
-          className="pf-c-button pf-m-primary"
-          disabled={false}
-          onClick={[Function]}
-          style={
-            Object {
-              "float": "left",
-            }
-          }
-          tabIndex={null}
-          type="button"
-        >
-          Compare
-        </button>
-      </Button>
-    </ComponentWithOuia>
-  </Component>
+      Compare
+    </button>
+  </Button>
 </FetchHistoricalProfilesButton>
 `;

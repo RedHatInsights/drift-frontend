@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Modal, Button } from '@patternfly/react-core';
+import { Modal, ModalVariant, Button } from '@patternfly/react-core';
 
 import { baselinesTableActions } from '../../BaselinesTable/redux/index';
 
@@ -56,11 +56,10 @@ export class DeleteBaselinesModal extends Component {
 
         return (
             <Modal
+                variant={ ModalVariant.small }
                 title={ deleteMessage }
-                className="small-modal-body"
                 isOpen={ modalOpened }
                 onClose={ this.toggleModal }
-                isFooterLeftAligned
                 actions = { [
                     <Button
                         key="confirm"

@@ -70,664 +70,398 @@ exports[`ConnectedDriftFilterChips should render all states true 1`] = `
       }
     >
       <ChipGroup
-        className=""
+        aria-label="Chip group category"
+        categoryName="State"
+        closeBtnAriaLabel="Close chip group"
         collapsedText="\${remaining} more"
         defaultIsOpen={false}
         expandedText="Show Less"
+        isClosable={false}
+        key="State"
         numChips={3}
-        withToolbar={true}
+        onClick={[Function]}
+        tooltipPosition="top"
       >
-        <InnerChipGroup
-          className=""
-          collapsedText="\${remaining} more"
-          defaultIsOpen={false}
-          expandedText="Show Less"
-          isOpen={false}
-          numChips={3}
-          onToggleCollapse={[Function]}
-          withToolbar={true}
+        <GenerateId
+          prefix="pf-random-id-"
         >
-          <ChipGroupToolbarItem
-            categoryName="State"
-            className=""
-            closeBtnAriaLabel="Close chip group"
-            isClosable={false}
-            key=".$State"
-            onClick={[Function]}
-            tooltipPosition="top"
+          <div
+            className="pf-c-chip-group pf-m-category"
           >
-            <GenerateId
-              prefix="pf-random-id-"
+            <span
+              aria-hidden="true"
+              className="pf-c-chip-group__label"
+              id="pf-random-id-0"
             >
-              <ul
-                className="pf-c-chip-group pf-m-toolbar"
+              State
+            </span>
+            <ul
+              aria-labelledby="pf-random-id-0"
+              className="pf-c-chip-group__list"
+              role="list"
+            >
+              <li
+                className="pf-c-chip-group__list-item"
+                key="0"
               >
-                <li>
-                  <h4
-                    className="pf-c-chip-group__label"
-                    id="pf-random-id-0"
+                <Chip
+                  className=""
+                  closeBtnAriaLabel="close"
+                  component="div"
+                  isOverflowChip={false}
+                  isReadOnly={false}
+                  key=".$State0"
+                  onClick={[Function]}
+                  tooltipPosition="top"
+                >
+                  <GenerateId
+                    prefix="pf-random-id-"
                   >
-                    State
-                  </h4>
-                  <ul
-                    className="pf-c-chip-group"
+                    <div
+                      className="pf-c-chip"
+                      data-ouia-component-id={8}
+                      data-ouia-component-type="PF4/Chip"
+                      data-ouia-safe={true}
+                    >
+                      <span
+                        className="pf-c-chip__text"
+                        id="pf-random-id-1"
+                      >
+                        Same
+                      </span>
+                      <Button
+                        aria-label="close"
+                        aria-labelledby="remove_pf-random-id-1 pf-random-id-1"
+                        id="remove_pf-random-id-1"
+                        onClick={[Function]}
+                        variant="plain"
+                      >
+                        <button
+                          aria-disabled={false}
+                          aria-label="close"
+                          aria-labelledby="remove_pf-random-id-1 pf-random-id-1"
+                          className="pf-c-button pf-m-plain"
+                          data-ouia-component-id={9}
+                          data-ouia-component-type="PF4/Button"
+                          data-ouia-safe={true}
+                          disabled={false}
+                          id="remove_pf-random-id-1"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          <TimesIcon
+                            aria-hidden="true"
+                            color="currentColor"
+                            noVerticalAlign={false}
+                            size="sm"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              aria-labelledby={null}
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              style={
+                                Object {
+                                  "verticalAlign": "-0.125em",
+                                }
+                              }
+                              viewBox="0 0 352 512"
+                              width="1em"
+                            >
+                              <path
+                                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                transform=""
+                              />
+                            </svg>
+                          </TimesIcon>
+                        </button>
+                      </Button>
+                    </div>
+                  </GenerateId>
+                </Chip>
+              </li>
+              <li
+                className="pf-c-chip-group__list-item"
+                key="1"
+              >
+                <Chip
+                  className=""
+                  closeBtnAriaLabel="close"
+                  component="div"
+                  isOverflowChip={false}
+                  isReadOnly={false}
+                  key=".$State1"
+                  onClick={[Function]}
+                  tooltipPosition="top"
+                >
+                  <GenerateId
+                    prefix="pf-random-id-"
                   >
-                    <Component
-                      component="li"
-                      key=".$State0"
-                      onClick={[Function]}
+                    <div
+                      className="pf-c-chip"
+                      data-ouia-component-id={10}
+                      data-ouia-component-type="PF4/Chip"
+                      data-ouia-safe={true}
                     >
-                      <ComponentWithOuia
-                        component={[Function]}
-                        componentProps={
-                          Object {
-                            "children": "Same",
-                            "component": "li",
-                            "onClick": [Function],
-                          }
-                        }
-                        consumerContext={null}
+                      <span
+                        className="pf-c-chip__text"
+                        id="pf-random-id-2"
                       >
-                        <Chip
-                          className=""
-                          closeBtnAriaLabel="close"
-                          component="li"
-                          isOverflowChip={false}
-                          isReadOnly={false}
+                        Different
+                      </span>
+                      <Button
+                        aria-label="close"
+                        aria-labelledby="remove_pf-random-id-2 pf-random-id-2"
+                        id="remove_pf-random-id-2"
+                        onClick={[Function]}
+                        variant="plain"
+                      >
+                        <button
+                          aria-disabled={false}
+                          aria-label="close"
+                          aria-labelledby="remove_pf-random-id-2 pf-random-id-2"
+                          className="pf-c-button pf-m-plain"
+                          data-ouia-component-id={11}
+                          data-ouia-component-type="PF4/Button"
+                          data-ouia-safe={true}
+                          disabled={false}
+                          id="remove_pf-random-id-2"
                           onClick={[Function]}
-                          ouiaContext={
-                            Object {
-                              "isOuia": false,
-                              "ouiaId": null,
-                            }
-                          }
-                          tooltipPosition="top"
+                          type="button"
                         >
-                          <GenerateId
-                            prefix="pf-random-id-"
+                          <TimesIcon
+                            aria-hidden="true"
+                            color="currentColor"
+                            noVerticalAlign={false}
+                            size="sm"
                           >
-                            <li
-                              className="pf-c-chip"
+                            <svg
+                              aria-hidden="true"
+                              aria-labelledby={null}
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              style={
+                                Object {
+                                  "verticalAlign": "-0.125em",
+                                }
+                              }
+                              viewBox="0 0 352 512"
+                              width="1em"
                             >
-                              <span
-                                className="pf-c-chip__text"
-                                id="pf-random-id-1"
-                              >
-                                Same
-                              </span>
-                              <ChipButton
-                                aria-labelledby="remove_pf-random-id-1 pf-random-id-1"
-                                ariaLabel="close"
-                                id="remove_pf-random-id-1"
-                                onClick={[Function]}
-                              >
-                                <Component
-                                  aria-label="close"
-                                  aria-labelledby="remove_pf-random-id-1 pf-random-id-1"
-                                  className=""
-                                  id="remove_pf-random-id-1"
-                                  onClick={[Function]}
-                                  variant="plain"
-                                >
-                                  <ComponentWithOuia
-                                    component={[Function]}
-                                    componentProps={
-                                      Object {
-                                        "aria-label": "close",
-                                        "aria-labelledby": "remove_pf-random-id-1 pf-random-id-1",
-                                        "children": <TimesCircleIcon
-                                          aria-hidden="true"
-                                          color="currentColor"
-                                          noVerticalAlign={false}
-                                          size="sm"
-                                          title={null}
-                                        />,
-                                        "className": "",
-                                        "id": "remove_pf-random-id-1",
-                                        "onClick": [Function],
-                                        "variant": "plain",
-                                      }
-                                    }
-                                    consumerContext={
-                                      Object {
-                                        "isOuia": false,
-                                        "ouiaId": null,
-                                      }
-                                    }
-                                  >
-                                    <Button
-                                      aria-label="close"
-                                      aria-labelledby="remove_pf-random-id-1 pf-random-id-1"
-                                      className=""
-                                      id="remove_pf-random-id-1"
-                                      onClick={[Function]}
-                                      ouiaContext={
-                                        Object {
-                                          "isOuia": false,
-                                          "ouiaId": null,
-                                        }
-                                      }
-                                      variant="plain"
-                                    >
-                                      <button
-                                        aria-disabled={null}
-                                        aria-label="close"
-                                        aria-labelledby="remove_pf-random-id-1 pf-random-id-1"
-                                        className="pf-c-button pf-m-plain"
-                                        disabled={false}
-                                        id="remove_pf-random-id-1"
-                                        onClick={[Function]}
-                                        tabIndex={null}
-                                        type="button"
-                                      >
-                                        <TimesCircleIcon
-                                          aria-hidden="true"
-                                          color="currentColor"
-                                          noVerticalAlign={false}
-                                          size="sm"
-                                          title={null}
-                                        >
-                                          <svg
-                                            aria-hidden="true"
-                                            aria-labelledby={null}
-                                            fill="currentColor"
-                                            height="1em"
-                                            role="img"
-                                            style={
-                                              Object {
-                                                "verticalAlign": "-0.125em",
-                                              }
-                                            }
-                                            viewBox="0 0 512 512"
-                                            width="1em"
-                                          >
-                                            <path
-                                              d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"
-                                              transform=""
-                                            />
-                                          </svg>
-                                        </TimesCircleIcon>
-                                      </button>
-                                    </Button>
-                                  </ComponentWithOuia>
-                                </Component>
-                              </ChipButton>
-                            </li>
-                          </GenerateId>
-                        </Chip>
-                      </ComponentWithOuia>
-                    </Component>
-                    <Component
-                      component="li"
-                      key=".$State1"
-                      onClick={[Function]}
+                              <path
+                                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                transform=""
+                              />
+                            </svg>
+                          </TimesIcon>
+                        </button>
+                      </Button>
+                    </div>
+                  </GenerateId>
+                </Chip>
+              </li>
+              <li
+                className="pf-c-chip-group__list-item"
+                key="2"
+              >
+                <Chip
+                  className=""
+                  closeBtnAriaLabel="close"
+                  component="div"
+                  isOverflowChip={false}
+                  isReadOnly={false}
+                  key=".$State2"
+                  onClick={[Function]}
+                  tooltipPosition="top"
+                >
+                  <GenerateId
+                    prefix="pf-random-id-"
+                  >
+                    <div
+                      className="pf-c-chip"
+                      data-ouia-component-id={12}
+                      data-ouia-component-type="PF4/Chip"
+                      data-ouia-safe={true}
                     >
-                      <ComponentWithOuia
-                        component={[Function]}
-                        componentProps={
-                          Object {
-                            "children": "Different",
-                            "component": "li",
-                            "onClick": [Function],
-                          }
-                        }
-                        consumerContext={null}
+                      <span
+                        className="pf-c-chip__text"
+                        id="pf-random-id-3"
                       >
-                        <Chip
-                          className=""
-                          closeBtnAriaLabel="close"
-                          component="li"
-                          isOverflowChip={false}
-                          isReadOnly={false}
-                          onClick={[Function]}
-                          ouiaContext={
-                            Object {
-                              "isOuia": false,
-                              "ouiaId": null,
-                            }
-                          }
-                          tooltipPosition="top"
-                        >
-                          <GenerateId
-                            prefix="pf-random-id-"
-                          >
-                            <li
-                              className="pf-c-chip"
-                            >
-                              <span
-                                className="pf-c-chip__text"
-                                id="pf-random-id-2"
-                              >
-                                Different
-                              </span>
-                              <ChipButton
-                                aria-labelledby="remove_pf-random-id-2 pf-random-id-2"
-                                ariaLabel="close"
-                                id="remove_pf-random-id-2"
-                                onClick={[Function]}
-                              >
-                                <Component
-                                  aria-label="close"
-                                  aria-labelledby="remove_pf-random-id-2 pf-random-id-2"
-                                  className=""
-                                  id="remove_pf-random-id-2"
-                                  onClick={[Function]}
-                                  variant="plain"
-                                >
-                                  <ComponentWithOuia
-                                    component={[Function]}
-                                    componentProps={
-                                      Object {
-                                        "aria-label": "close",
-                                        "aria-labelledby": "remove_pf-random-id-2 pf-random-id-2",
-                                        "children": <TimesCircleIcon
-                                          aria-hidden="true"
-                                          color="currentColor"
-                                          noVerticalAlign={false}
-                                          size="sm"
-                                          title={null}
-                                        />,
-                                        "className": "",
-                                        "id": "remove_pf-random-id-2",
-                                        "onClick": [Function],
-                                        "variant": "plain",
-                                      }
-                                    }
-                                    consumerContext={
-                                      Object {
-                                        "isOuia": false,
-                                        "ouiaId": null,
-                                      }
-                                    }
-                                  >
-                                    <Button
-                                      aria-label="close"
-                                      aria-labelledby="remove_pf-random-id-2 pf-random-id-2"
-                                      className=""
-                                      id="remove_pf-random-id-2"
-                                      onClick={[Function]}
-                                      ouiaContext={
-                                        Object {
-                                          "isOuia": false,
-                                          "ouiaId": null,
-                                        }
-                                      }
-                                      variant="plain"
-                                    >
-                                      <button
-                                        aria-disabled={null}
-                                        aria-label="close"
-                                        aria-labelledby="remove_pf-random-id-2 pf-random-id-2"
-                                        className="pf-c-button pf-m-plain"
-                                        disabled={false}
-                                        id="remove_pf-random-id-2"
-                                        onClick={[Function]}
-                                        tabIndex={null}
-                                        type="button"
-                                      >
-                                        <TimesCircleIcon
-                                          aria-hidden="true"
-                                          color="currentColor"
-                                          noVerticalAlign={false}
-                                          size="sm"
-                                          title={null}
-                                        >
-                                          <svg
-                                            aria-hidden="true"
-                                            aria-labelledby={null}
-                                            fill="currentColor"
-                                            height="1em"
-                                            role="img"
-                                            style={
-                                              Object {
-                                                "verticalAlign": "-0.125em",
-                                              }
-                                            }
-                                            viewBox="0 0 512 512"
-                                            width="1em"
-                                          >
-                                            <path
-                                              d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"
-                                              transform=""
-                                            />
-                                          </svg>
-                                        </TimesCircleIcon>
-                                      </button>
-                                    </Button>
-                                  </ComponentWithOuia>
-                                </Component>
-                              </ChipButton>
-                            </li>
-                          </GenerateId>
-                        </Chip>
-                      </ComponentWithOuia>
-                    </Component>
-                    <Component
-                      component="li"
-                      key=".$State2"
-                      onClick={[Function]}
-                    >
-                      <ComponentWithOuia
-                        component={[Function]}
-                        componentProps={
-                          Object {
-                            "children": "Incomplete data",
-                            "component": "li",
-                            "onClick": [Function],
-                          }
-                        }
-                        consumerContext={null}
+                        Incomplete data
+                      </span>
+                      <Button
+                        aria-label="close"
+                        aria-labelledby="remove_pf-random-id-3 pf-random-id-3"
+                        id="remove_pf-random-id-3"
+                        onClick={[Function]}
+                        variant="plain"
                       >
-                        <Chip
-                          className=""
-                          closeBtnAriaLabel="close"
-                          component="li"
-                          isOverflowChip={false}
-                          isReadOnly={false}
+                        <button
+                          aria-disabled={false}
+                          aria-label="close"
+                          aria-labelledby="remove_pf-random-id-3 pf-random-id-3"
+                          className="pf-c-button pf-m-plain"
+                          data-ouia-component-id={13}
+                          data-ouia-component-type="PF4/Button"
+                          data-ouia-safe={true}
+                          disabled={false}
+                          id="remove_pf-random-id-3"
                           onClick={[Function]}
-                          ouiaContext={
-                            Object {
-                              "isOuia": false,
-                              "ouiaId": null,
-                            }
-                          }
-                          tooltipPosition="top"
+                          type="button"
                         >
-                          <GenerateId
-                            prefix="pf-random-id-"
+                          <TimesIcon
+                            aria-hidden="true"
+                            color="currentColor"
+                            noVerticalAlign={false}
+                            size="sm"
                           >
-                            <li
-                              className="pf-c-chip"
+                            <svg
+                              aria-hidden="true"
+                              aria-labelledby={null}
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              style={
+                                Object {
+                                  "verticalAlign": "-0.125em",
+                                }
+                              }
+                              viewBox="0 0 352 512"
+                              width="1em"
                             >
-                              <span
-                                className="pf-c-chip__text"
-                                id="pf-random-id-3"
-                              >
-                                Incomplete data
-                              </span>
-                              <ChipButton
-                                aria-labelledby="remove_pf-random-id-3 pf-random-id-3"
-                                ariaLabel="close"
-                                id="remove_pf-random-id-3"
-                                onClick={[Function]}
-                              >
-                                <Component
-                                  aria-label="close"
-                                  aria-labelledby="remove_pf-random-id-3 pf-random-id-3"
-                                  className=""
-                                  id="remove_pf-random-id-3"
-                                  onClick={[Function]}
-                                  variant="plain"
-                                >
-                                  <ComponentWithOuia
-                                    component={[Function]}
-                                    componentProps={
-                                      Object {
-                                        "aria-label": "close",
-                                        "aria-labelledby": "remove_pf-random-id-3 pf-random-id-3",
-                                        "children": <TimesCircleIcon
-                                          aria-hidden="true"
-                                          color="currentColor"
-                                          noVerticalAlign={false}
-                                          size="sm"
-                                          title={null}
-                                        />,
-                                        "className": "",
-                                        "id": "remove_pf-random-id-3",
-                                        "onClick": [Function],
-                                        "variant": "plain",
-                                      }
-                                    }
-                                    consumerContext={
-                                      Object {
-                                        "isOuia": false,
-                                        "ouiaId": null,
-                                      }
-                                    }
-                                  >
-                                    <Button
-                                      aria-label="close"
-                                      aria-labelledby="remove_pf-random-id-3 pf-random-id-3"
-                                      className=""
-                                      id="remove_pf-random-id-3"
-                                      onClick={[Function]}
-                                      ouiaContext={
-                                        Object {
-                                          "isOuia": false,
-                                          "ouiaId": null,
-                                        }
-                                      }
-                                      variant="plain"
-                                    >
-                                      <button
-                                        aria-disabled={null}
-                                        aria-label="close"
-                                        aria-labelledby="remove_pf-random-id-3 pf-random-id-3"
-                                        className="pf-c-button pf-m-plain"
-                                        disabled={false}
-                                        id="remove_pf-random-id-3"
-                                        onClick={[Function]}
-                                        tabIndex={null}
-                                        type="button"
-                                      >
-                                        <TimesCircleIcon
-                                          aria-hidden="true"
-                                          color="currentColor"
-                                          noVerticalAlign={false}
-                                          size="sm"
-                                          title={null}
-                                        >
-                                          <svg
-                                            aria-hidden="true"
-                                            aria-labelledby={null}
-                                            fill="currentColor"
-                                            height="1em"
-                                            role="img"
-                                            style={
-                                              Object {
-                                                "verticalAlign": "-0.125em",
-                                              }
-                                            }
-                                            viewBox="0 0 512 512"
-                                            width="1em"
-                                          >
-                                            <path
-                                              d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"
-                                              transform=""
-                                            />
-                                          </svg>
-                                        </TimesCircleIcon>
-                                      </button>
-                                    </Button>
-                                  </ComponentWithOuia>
-                                </Component>
-                              </ChipButton>
-                            </li>
-                          </GenerateId>
-                        </Chip>
-                      </ComponentWithOuia>
-                    </Component>
-                  </ul>
-                </li>
-              </ul>
-            </GenerateId>
-          </ChipGroupToolbarItem>
-          <ChipGroupToolbarItem
-            categoryName="Fact name"
-            className=""
-            closeBtnAriaLabel="Close chip group"
-            isClosable={false}
-            key=".$Fact name"
-            onClick={[Function]}
-            tooltipPosition="top"
+                              <path
+                                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                transform=""
+                              />
+                            </svg>
+                          </TimesIcon>
+                        </button>
+                      </Button>
+                    </div>
+                  </GenerateId>
+                </Chip>
+              </li>
+            </ul>
+          </div>
+        </GenerateId>
+      </ChipGroup>
+      <ChipGroup
+        aria-label="Chip group category"
+        categoryName="Fact name"
+        closeBtnAriaLabel="Close chip group"
+        collapsedText="\${remaining} more"
+        defaultIsOpen={false}
+        expandedText="Show Less"
+        isClosable={false}
+        key="Fact name"
+        numChips={3}
+        onClick={[Function]}
+        tooltipPosition="top"
+      >
+        <GenerateId
+          prefix="pf-random-id-"
+        >
+          <div
+            className="pf-c-chip-group pf-m-category"
           >
-            <GenerateId
-              prefix="pf-random-id-"
+            <span
+              aria-hidden="true"
+              className="pf-c-chip-group__label"
+              id="pf-random-id-4"
             >
-              <ul
-                className="pf-c-chip-group pf-m-toolbar"
+              Fact name
+            </span>
+            <ul
+              aria-labelledby="pf-random-id-4"
+              className="pf-c-chip-group__list"
+              role="list"
+            >
+              <li
+                className="pf-c-chip-group__list-item"
+                key="0"
               >
-                <li>
-                  <h4
-                    className="pf-c-chip-group__label"
-                    id="pf-random-id-4"
+                <Chip
+                  className=""
+                  closeBtnAriaLabel="close"
+                  component="div"
+                  isOverflowChip={false}
+                  isReadOnly={false}
+                  key=".$Fact name3"
+                  onClick={[Function]}
+                  tooltipPosition="top"
+                >
+                  <GenerateId
+                    prefix="pf-random-id-"
                   >
-                    Fact name
-                  </h4>
-                  <ul
-                    className="pf-c-chip-group"
-                  >
-                    <Component
-                      component="li"
-                      key=".$Fact name3"
-                      onClick={[Function]}
+                    <div
+                      className="pf-c-chip"
+                      data-ouia-component-id={14}
+                      data-ouia-component-type="PF4/Chip"
+                      data-ouia-safe={true}
                     >
-                      <ComponentWithOuia
-                        component={[Function]}
-                        componentProps={
-                          Object {
-                            "children": "something",
-                            "component": "li",
-                            "onClick": [Function],
-                          }
-                        }
-                        consumerContext={null}
+                      <span
+                        className="pf-c-chip__text"
+                        id="pf-random-id-5"
                       >
-                        <Chip
-                          className=""
-                          closeBtnAriaLabel="close"
-                          component="li"
-                          isOverflowChip={false}
-                          isReadOnly={false}
+                        something
+                      </span>
+                      <Button
+                        aria-label="close"
+                        aria-labelledby="remove_pf-random-id-5 pf-random-id-5"
+                        id="remove_pf-random-id-5"
+                        onClick={[Function]}
+                        variant="plain"
+                      >
+                        <button
+                          aria-disabled={false}
+                          aria-label="close"
+                          aria-labelledby="remove_pf-random-id-5 pf-random-id-5"
+                          className="pf-c-button pf-m-plain"
+                          data-ouia-component-id={15}
+                          data-ouia-component-type="PF4/Button"
+                          data-ouia-safe={true}
+                          disabled={false}
+                          id="remove_pf-random-id-5"
                           onClick={[Function]}
-                          ouiaContext={
-                            Object {
-                              "isOuia": false,
-                              "ouiaId": null,
-                            }
-                          }
-                          tooltipPosition="top"
+                          type="button"
                         >
-                          <GenerateId
-                            prefix="pf-random-id-"
+                          <TimesIcon
+                            aria-hidden="true"
+                            color="currentColor"
+                            noVerticalAlign={false}
+                            size="sm"
                           >
-                            <li
-                              className="pf-c-chip"
+                            <svg
+                              aria-hidden="true"
+                              aria-labelledby={null}
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              style={
+                                Object {
+                                  "verticalAlign": "-0.125em",
+                                }
+                              }
+                              viewBox="0 0 352 512"
+                              width="1em"
                             >
-                              <span
-                                className="pf-c-chip__text"
-                                id="pf-random-id-5"
-                              >
-                                something
-                              </span>
-                              <ChipButton
-                                aria-labelledby="remove_pf-random-id-5 pf-random-id-5"
-                                ariaLabel="close"
-                                id="remove_pf-random-id-5"
-                                onClick={[Function]}
-                              >
-                                <Component
-                                  aria-label="close"
-                                  aria-labelledby="remove_pf-random-id-5 pf-random-id-5"
-                                  className=""
-                                  id="remove_pf-random-id-5"
-                                  onClick={[Function]}
-                                  variant="plain"
-                                >
-                                  <ComponentWithOuia
-                                    component={[Function]}
-                                    componentProps={
-                                      Object {
-                                        "aria-label": "close",
-                                        "aria-labelledby": "remove_pf-random-id-5 pf-random-id-5",
-                                        "children": <TimesCircleIcon
-                                          aria-hidden="true"
-                                          color="currentColor"
-                                          noVerticalAlign={false}
-                                          size="sm"
-                                          title={null}
-                                        />,
-                                        "className": "",
-                                        "id": "remove_pf-random-id-5",
-                                        "onClick": [Function],
-                                        "variant": "plain",
-                                      }
-                                    }
-                                    consumerContext={
-                                      Object {
-                                        "isOuia": false,
-                                        "ouiaId": null,
-                                      }
-                                    }
-                                  >
-                                    <Button
-                                      aria-label="close"
-                                      aria-labelledby="remove_pf-random-id-5 pf-random-id-5"
-                                      className=""
-                                      id="remove_pf-random-id-5"
-                                      onClick={[Function]}
-                                      ouiaContext={
-                                        Object {
-                                          "isOuia": false,
-                                          "ouiaId": null,
-                                        }
-                                      }
-                                      variant="plain"
-                                    >
-                                      <button
-                                        aria-disabled={null}
-                                        aria-label="close"
-                                        aria-labelledby="remove_pf-random-id-5 pf-random-id-5"
-                                        className="pf-c-button pf-m-plain"
-                                        disabled={false}
-                                        id="remove_pf-random-id-5"
-                                        onClick={[Function]}
-                                        tabIndex={null}
-                                        type="button"
-                                      >
-                                        <TimesCircleIcon
-                                          aria-hidden="true"
-                                          color="currentColor"
-                                          noVerticalAlign={false}
-                                          size="sm"
-                                          title={null}
-                                        >
-                                          <svg
-                                            aria-hidden="true"
-                                            aria-labelledby={null}
-                                            fill="currentColor"
-                                            height="1em"
-                                            role="img"
-                                            style={
-                                              Object {
-                                                "verticalAlign": "-0.125em",
-                                              }
-                                            }
-                                            viewBox="0 0 512 512"
-                                            width="1em"
-                                          >
-                                            <path
-                                              d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"
-                                              transform=""
-                                            />
-                                          </svg>
-                                        </TimesCircleIcon>
-                                      </button>
-                                    </Button>
-                                  </ComponentWithOuia>
-                                </Component>
-                              </ChipButton>
-                            </li>
-                          </GenerateId>
-                        </Chip>
-                      </ComponentWithOuia>
-                    </Component>
-                  </ul>
-                </li>
-              </ul>
-            </GenerateId>
-          </ChipGroupToolbarItem>
-        </InnerChipGroup>
+                              <path
+                                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                transform=""
+                              />
+                            </svg>
+                          </TimesIcon>
+                        </button>
+                      </Button>
+                    </div>
+                  </GenerateId>
+                </Chip>
+              </li>
+            </ul>
+          </div>
+        </GenerateId>
       </ChipGroup>
     </DriftFilterChips>
   </Connect(DriftFilterChips)>
@@ -786,74 +520,63 @@ exports[`ConnectedDriftFilterChips should render correctly 1`] = `
       stateFilters={Array []}
     >
       <ChipGroup
-        className=""
+        aria-label="Chip group category"
+        categoryName="State"
+        closeBtnAriaLabel="Close chip group"
         collapsedText="\${remaining} more"
         defaultIsOpen={false}
         expandedText="Show Less"
+        isClosable={false}
+        key="State"
         numChips={3}
-        withToolbar={true}
-      >
-        <InnerChipGroup
-          className=""
-          collapsedText="\${remaining} more"
-          defaultIsOpen={false}
-          expandedText="Show Less"
-          isOpen={false}
-          numChips={3}
-          onToggleCollapse={[Function]}
-          withToolbar={true}
-        >
-          <ChipGroupToolbarItem
-            categoryName="State"
-            className=""
-            closeBtnAriaLabel="Close chip group"
-            isClosable={false}
-            key=".$State"
-            onClick={[Function]}
-            tooltipPosition="top"
-          />
-          <ChipGroupToolbarItem
-            categoryName="Fact name"
-            className=""
-            closeBtnAriaLabel="Close chip group"
-            isClosable={false}
-            key=".$Fact name"
-            onClick={[Function]}
-            tooltipPosition="top"
-          />
-        </InnerChipGroup>
-      </ChipGroup>
+        onClick={[Function]}
+        tooltipPosition="top"
+      />
+      <ChipGroup
+        aria-label="Chip group category"
+        categoryName="Fact name"
+        closeBtnAriaLabel="Close chip group"
+        collapsedText="\${remaining} more"
+        defaultIsOpen={false}
+        expandedText="Show Less"
+        isClosable={false}
+        key="Fact name"
+        numChips={3}
+        onClick={[Function]}
+        tooltipPosition="top"
+      />
     </DriftFilterChips>
   </Connect(DriftFilterChips)>
 </Provider>
 `;
 
 exports[`DriftFilterChips should render correctly 1`] = `
-<ChipGroup
-  className=""
-  collapsedText="\${remaining} more"
-  defaultIsOpen={false}
-  expandedText="Show Less"
-  numChips={3}
-  withToolbar={true}
->
-  <ChipGroupToolbarItem
+Array [
+  <ChipGroup
+    aria-label="Chip group category"
     categoryName="State"
-    className=""
     closeBtnAriaLabel="Close chip group"
+    collapsedText="\${remaining} more"
+    defaultIsOpen={false}
+    expandedText="Show Less"
     isClosable={false}
     key="State"
+    numChips={3}
     onClick={[Function]}
     tooltipPosition="top"
-  />
-  <ChipGroupToolbarItem
+  />,
+  <ChipGroup
+    aria-label="Chip group category"
     categoryName="Fact name"
-    className=""
     closeBtnAriaLabel="Close chip group"
+    collapsedText="\${remaining} more"
+    defaultIsOpen={false}
+    expandedText="Show Less"
     isClosable={false}
     key="Fact name"
+    numChips={3}
     onClick={[Function]}
     tooltipPosition="top"
-  />
-</ChipGroup>
+  />,
+]
 `;

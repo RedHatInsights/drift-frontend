@@ -4,16 +4,6 @@
 @import '~@patternfly/patternfly/sass-utilities/colors';
 @import '~@patternfly/patternfly/sass-utilities/scss-variables';
 
-
-.add-system-modal {
-  max-width: 950px;
-
-  .pf-c-dropdown__menu {
-    max-height: 200px;
-    overflow-y: auto;
-  }
-}
-
 .drift {
 
   [data-label="Name"] {
@@ -77,18 +67,27 @@
   }
 
   .reference-header {
+    overflow: visible;
     border-top: 1px solid #CCC;
     background: #DEF3FF;
   }
 
   .baseline-header {
+    overflow: visible;
     border-top: 1px solid #CCC;
     background: #FFF;
   }
 
   .system-header {
+    overflow: visible;
     border-top: 1px solid #CCC;
     background-color: rgb(237, 237, 237);
+  }
+
+  .dropdown-empty-state-width {
+    .pf-c-dropdown__menu {
+      width: 300px;
+    }
   }
 
   .historical-system-profile-dropdown {
@@ -96,6 +95,7 @@
       --pf-c-dropdown__menu--PaddingBottom: 0;
 
       padding: 10px;
+      padding-bottom: 0px;
       max-height: 250px;
       overflow: auto;
     }
@@ -104,6 +104,8 @@
       position: sticky;
       bottom: 0;
       min-height: 56px;
+      margin: -10px;
+      margin-bottom: -15px;
       padding: 10px;
       padding-left: 16px;
       background: var(--pf-global--BackgroundColor--100);
@@ -113,6 +115,7 @@
   }
 
   .historical-system-profile-header {
+    overflow: visible;
     border-top: 1px solid #CCC;
     background-color: #f9e0a2;
   }
@@ -281,15 +284,6 @@
     margin-bottom: 20px;
   }
 
-  .small-modal-body {
-    max-width: 500px;
-    max-height: 600px;
-  }
-  .create-baseline-modal {
-    max-width: 1200px;
-    max-height: 700px;
-  }
-
   .pf-c-alert {
     margin-bottom: 30px;
   }
@@ -297,12 +291,6 @@
   .button-margin {
     margin-top: 10px;
     margin-bottom: 10px;
-  }
-
-  .display-margin {
-    padding-top: 20px;
-    margin-left: 30px;
-    margin-right: 60%;
   }
 
   .export-button-margin {
@@ -360,7 +348,7 @@
 }
 
 .drift-toolbar {
-  padding: 16px 32px;
+  padding: 16px;
 }
 
 .carat-margin {

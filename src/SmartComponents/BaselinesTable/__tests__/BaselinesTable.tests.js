@@ -140,7 +140,7 @@ describe('ConnectedBaselinesTable', () => {
             </MemoryRouter>
         );
 
-        wrapper.find('.pf-c-button').at(3).simulate('click');
+        wrapper.find('.pf-c-table__button').at(0).simulate('click');
         expect(baselinesReducerHelpers.fetchBaselines).toHaveBeenCalledWith(
             'CHECKBOX',
             expect.any(Function),
@@ -150,7 +150,7 @@ describe('ConnectedBaselinesTable', () => {
             }
         );
 
-        wrapper.find('.pf-c-button').at(3).simulate('click');
+        wrapper.find('.pf-c-table__button').at(0).simulate('click');
         expect(baselinesReducerHelpers.fetchBaselines).toHaveBeenCalledWith(
             'CHECKBOX',
             expect.any(Function),

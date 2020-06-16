@@ -155,22 +155,23 @@ exports[`ConnectedCreateBaselineModal should render correctly 1`] = `
             selectBaseline={[Function]}
             selectedBaselineIds={Array []}
             toggleCreateBaselineModal={[Function]}
+            updatePagination={[Function]}
           >
             <Modal
               actions={
                 Array [
-                  <Unknown
+                  <Button
                     isDisabled={true}
                     variant="primary"
                   >
                     Create baseline
-                  </Unknown>,
-                  <Unknown
+                  </Button>,
+                  <Button
                     onClick={[Function]}
                     variant="link"
                   >
                     Cancel
-                  </Unknown>,
+                  </Button>,
                 ]
               }
               appendTo={
@@ -190,15 +191,24 @@ exports[`ConnectedCreateBaselineModal should render correctly 1`] = `
                         class="pf-l-bullseye"
                       >
                         <div
-                          aria-describedby="pf-modal-1"
-                          aria-label="Create baseline"
+                          aria-describedby="pf-modal-part-3"
+                          aria-labelledby="pf-modal-part-2"
                           aria-modal="true"
-                          class="pf-c-modal-box create-baseline-modal"
+                          class="pf-c-modal-box"
+                          data-ouia-component-id="0"
+                          data-ouia-component-type="PF4/ModalContent"
+                          data-ouia-safe="true"
+                          id="pf-modal-part-1"
                           role="dialog"
+                          style="width: 1200px;"
                         >
                           <button
+                            aria-disabled="false"
                             aria-label="Close"
                             class="pf-c-button pf-m-plain"
+                            data-ouia-component-id="1"
+                            data-ouia-component-type="PF4/Button"
+                            data-ouia-safe="true"
                             type="button"
                           >
                             <svg
@@ -216,16 +226,19 @@ exports[`ConnectedCreateBaselineModal should render correctly 1`] = `
                               />
                             </svg>
                           </button>
-                          <h1
-                            class="pf-c-title pf-m-2xl"
+                          <header
+                            class="pf-c-modal-box__header"
                           >
-                             
-                            Create baseline
-                             
-                          </h1>
+                            <h1
+                              class="pf-c-modal-box__title pf-c-modal-box__title"
+                              id="pf-modal-part-2"
+                            >
+                              Create baseline
+                            </h1>
+                          </header>
                           <div
                             class="pf-c-modal-box__body"
-                            id="pf-modal-1"
+                            id="pf-modal-part-3"
                           >
                             <div
                               class="pf-c-radio"
@@ -295,41 +308,49 @@ exports[`ConnectedCreateBaselineModal should render correctly 1`] = `
                                 class="pf-c-form__group"
                                 type="text"
                               >
-                                <input
-                                  aria-invalid="false"
-                                  aria-label="baseline name"
-                                  class="pf-c-form-control fact-value"
-                                  placeholder="Baseline name"
-                                  type="text"
-                                  value=""
-                                />
-                                
+                                <div
+                                  class="pf-c-form__group-control"
+                                >
+                                  <input
+                                    aria-invalid="false"
+                                    aria-label="baseline name"
+                                    class="pf-c-form-control fact-value"
+                                    placeholder="Baseline name"
+                                    type="text"
+                                    value=""
+                                  />
+                                  
+                                </div>
                               </div>
                             </form>
                             <br />
                             <br />
                           </div>
-                          <div
-                            class="pf-c-modal-box__footer pf-m-align-left"
+                          <footer
+                            class="pf-c-modal-box__footer"
                           >
                             <button
-                              class="pf-c-button pf-m-primary"
+                              aria-disabled="true"
+                              class="pf-c-button pf-m-primary pf-m-disabled"
+                              data-ouia-component-id="2"
+                              data-ouia-component-type="PF4/Button"
+                              data-ouia-safe="true"
                               disabled=""
                               type="button"
                             >
                               Create baseline
                             </button>
                             <button
+                              aria-disabled="false"
                               class="pf-c-button pf-m-link"
+                              data-ouia-component-id="3"
+                              data-ouia-component-type="PF4/Button"
+                              data-ouia-safe="true"
                               type="button"
                             >
-                              <span
-                                class="pf-c-button__text"
-                              >
-                                Cancel
-                              </span>
+                              Cancel
                             </button>
-                          </div>
+                          </footer>
                         </div>
                       </div>
                     </div>
@@ -344,15 +365,24 @@ exports[`ConnectedCreateBaselineModal should render correctly 1`] = `
                         class="pf-l-bullseye"
                       >
                         <div
-                          aria-describedby="pf-modal-2"
-                          aria-label="Create baseline"
+                          aria-describedby="pf-modal-part-4"
+                          aria-labelledby="pf-modal-part-3"
                           aria-modal="true"
-                          class="pf-c-modal-box create-baseline-modal"
+                          class="pf-c-modal-box"
+                          data-ouia-component-id="8"
+                          data-ouia-component-type="PF4/ModalContent"
+                          data-ouia-safe="true"
+                          id="pf-modal-part-2"
                           role="dialog"
+                          style="width: 1200px;"
                         >
                           <button
+                            aria-disabled="false"
                             aria-label="Close"
                             class="pf-c-button pf-m-plain"
+                            data-ouia-component-id="9"
+                            data-ouia-component-type="PF4/Button"
+                            data-ouia-safe="true"
                             type="button"
                           >
                             <svg
@@ -370,16 +400,19 @@ exports[`ConnectedCreateBaselineModal should render correctly 1`] = `
                               />
                             </svg>
                           </button>
-                          <h1
-                            class="pf-c-title pf-m-2xl"
+                          <header
+                            class="pf-c-modal-box__header"
                           >
-                             
-                            Create baseline
-                             
-                          </h1>
+                            <h1
+                              class="pf-c-modal-box__title pf-c-modal-box__title"
+                              id="pf-modal-part-3"
+                            >
+                              Create baseline
+                            </h1>
+                          </header>
                           <div
                             class="pf-c-modal-box__body"
-                            id="pf-modal-2"
+                            id="pf-modal-part-4"
                           >
                             <div
                               class="pf-c-radio"
@@ -449,40 +482,48 @@ exports[`ConnectedCreateBaselineModal should render correctly 1`] = `
                                 class="pf-c-form__group"
                                 type="text"
                               >
-                                <input
-                                  aria-invalid="false"
-                                  aria-label="baseline name"
-                                  class="pf-c-form-control fact-value"
-                                  placeholder="Baseline name"
-                                  type="text"
-                                  value="baseline"
-                                />
-                                
+                                <div
+                                  class="pf-c-form__group-control"
+                                >
+                                  <input
+                                    aria-invalid="false"
+                                    aria-label="baseline name"
+                                    class="pf-c-form-control fact-value"
+                                    placeholder="Baseline name"
+                                    type="text"
+                                    value="baseline"
+                                  />
+                                  
+                                </div>
                               </div>
                             </form>
                             <br />
                             <br />
                           </div>
-                          <div
-                            class="pf-c-modal-box__footer pf-m-align-left"
+                          <footer
+                            class="pf-c-modal-box__footer"
                           >
                             <button
+                              aria-disabled="false"
                               class="pf-c-button pf-m-primary"
+                              data-ouia-component-id="10"
+                              data-ouia-component-type="PF4/Button"
+                              data-ouia-safe="true"
                               type="button"
                             >
                               Create baseline
                             </button>
                             <button
+                              aria-disabled="false"
                               class="pf-c-button pf-m-link"
+                              data-ouia-component-id="11"
+                              data-ouia-component-type="PF4/Button"
+                              data-ouia-safe="true"
                               type="button"
                             >
-                              <span
-                                class="pf-c-button__text"
-                              >
-                                Cancel
-                              </span>
+                              Cancel
                             </button>
-                          </div>
+                          </footer>
                         </div>
                       </div>
                     </div>
@@ -497,15 +538,24 @@ exports[`ConnectedCreateBaselineModal should render correctly 1`] = `
                         class="pf-l-bullseye"
                       >
                         <div
-                          aria-describedby="pf-modal-3"
-                          aria-label="Create baseline"
+                          aria-describedby="pf-modal-part-5"
+                          aria-labelledby="pf-modal-part-4"
                           aria-modal="true"
-                          class="pf-c-modal-box create-baseline-modal"
+                          class="pf-c-modal-box"
+                          data-ouia-component-id="16"
+                          data-ouia-component-type="PF4/ModalContent"
+                          data-ouia-safe="true"
+                          id="pf-modal-part-3"
                           role="dialog"
+                          style="width: 1200px;"
                         >
                           <button
+                            aria-disabled="false"
                             aria-label="Close"
                             class="pf-c-button pf-m-plain"
+                            data-ouia-component-id="17"
+                            data-ouia-component-type="PF4/Button"
+                            data-ouia-safe="true"
                             type="button"
                           >
                             <svg
@@ -523,16 +573,19 @@ exports[`ConnectedCreateBaselineModal should render correctly 1`] = `
                               />
                             </svg>
                           </button>
-                          <h1
-                            class="pf-c-title pf-m-2xl"
+                          <header
+                            class="pf-c-modal-box__header"
                           >
-                             
-                            Create baseline
-                             
-                          </h1>
+                            <h1
+                              class="pf-c-modal-box__title pf-c-modal-box__title"
+                              id="pf-modal-part-4"
+                            >
+                              Create baseline
+                            </h1>
+                          </header>
                           <div
                             class="pf-c-modal-box__body"
-                            id="pf-modal-3"
+                            id="pf-modal-part-5"
                           >
                             <div
                               class="pf-c-radio"
@@ -602,41 +655,49 @@ exports[`ConnectedCreateBaselineModal should render correctly 1`] = `
                                 class="pf-c-form__group"
                                 type="text"
                               >
-                                <input
-                                  aria-invalid="false"
-                                  aria-label="baseline name"
-                                  class="pf-c-form-control fact-value"
-                                  placeholder="Baseline name"
-                                  type="text"
-                                  value=""
-                                />
-                                
+                                <div
+                                  class="pf-c-form__group-control"
+                                >
+                                  <input
+                                    aria-invalid="false"
+                                    aria-label="baseline name"
+                                    class="pf-c-form-control fact-value"
+                                    placeholder="Baseline name"
+                                    type="text"
+                                    value=""
+                                  />
+                                  
+                                </div>
                               </div>
                             </form>
                             <br />
                             <br />
                           </div>
-                          <div
-                            class="pf-c-modal-box__footer pf-m-align-left"
+                          <footer
+                            class="pf-c-modal-box__footer"
                           >
                             <button
-                              class="pf-c-button pf-m-primary"
+                              aria-disabled="true"
+                              class="pf-c-button pf-m-primary pf-m-disabled"
+                              data-ouia-component-id="18"
+                              data-ouia-component-type="PF4/Button"
+                              data-ouia-safe="true"
                               disabled=""
                               type="button"
                             >
                               Create baseline
                             </button>
                             <button
+                              aria-disabled="false"
                               class="pf-c-button pf-m-link"
+                              data-ouia-component-id="19"
+                              data-ouia-component-type="PF4/Button"
+                              data-ouia-safe="true"
                               type="button"
                             >
-                              <span
-                                class="pf-c-button__text"
-                              >
-                                Cancel
-                              </span>
+                              Cancel
                             </button>
-                          </div>
+                          </footer>
                         </div>
                       </div>
                     </div>
@@ -651,15 +712,24 @@ exports[`ConnectedCreateBaselineModal should render correctly 1`] = `
                         class="pf-l-bullseye"
                       >
                         <div
-                          aria-describedby="pf-modal-4"
-                          aria-label="Create baseline"
+                          aria-describedby="pf-modal-part-6"
+                          aria-labelledby="pf-modal-part-5"
                           aria-modal="true"
-                          class="pf-c-modal-box create-baseline-modal"
+                          class="pf-c-modal-box"
+                          data-ouia-component-id="24"
+                          data-ouia-component-type="PF4/ModalContent"
+                          data-ouia-safe="true"
+                          id="pf-modal-part-4"
                           role="dialog"
+                          style="width: 1200px;"
                         >
                           <button
+                            aria-disabled="false"
                             aria-label="Close"
                             class="pf-c-button pf-m-plain"
+                            data-ouia-component-id="25"
+                            data-ouia-component-type="PF4/Button"
+                            data-ouia-safe="true"
                             type="button"
                           >
                             <svg
@@ -677,16 +747,19 @@ exports[`ConnectedCreateBaselineModal should render correctly 1`] = `
                               />
                             </svg>
                           </button>
-                          <h1
-                            class="pf-c-title pf-m-2xl"
+                          <header
+                            class="pf-c-modal-box__header"
                           >
-                             
-                            Create baseline
-                             
-                          </h1>
+                            <h1
+                              class="pf-c-modal-box__title pf-c-modal-box__title"
+                              id="pf-modal-part-5"
+                            >
+                              Create baseline
+                            </h1>
+                          </header>
                           <div
                             class="pf-c-modal-box__body"
-                            id="pf-modal-4"
+                            id="pf-modal-part-6"
                           >
                             <div
                               class="pf-c-radio"
@@ -756,40 +829,48 @@ exports[`ConnectedCreateBaselineModal should render correctly 1`] = `
                                 class="pf-c-form__group"
                                 type="text"
                               >
-                                <input
-                                  aria-invalid="false"
-                                  aria-label="baseline name"
-                                  class="pf-c-form-control fact-value"
-                                  placeholder="Baseline name"
-                                  type="text"
-                                  value="baseline"
-                                />
-                                
+                                <div
+                                  class="pf-c-form__group-control"
+                                >
+                                  <input
+                                    aria-invalid="false"
+                                    aria-label="baseline name"
+                                    class="pf-c-form-control fact-value"
+                                    placeholder="Baseline name"
+                                    type="text"
+                                    value="baseline"
+                                  />
+                                  
+                                </div>
                               </div>
                             </form>
                             <br />
                             <br />
                           </div>
-                          <div
-                            class="pf-c-modal-box__footer pf-m-align-left"
+                          <footer
+                            class="pf-c-modal-box__footer"
                           >
                             <button
+                              aria-disabled="false"
                               class="pf-c-button pf-m-primary"
+                              data-ouia-component-id="26"
+                              data-ouia-component-type="PF4/Button"
+                              data-ouia-safe="true"
                               type="button"
                             >
                               Create baseline
                             </button>
                             <button
+                              aria-disabled="false"
                               class="pf-c-button pf-m-link"
+                              data-ouia-component-id="27"
+                              data-ouia-component-type="PF4/Button"
+                              data-ouia-safe="true"
                               type="button"
                             >
-                              <span
-                                class="pf-c-button__text"
-                              >
-                                Cancel
-                              </span>
+                              Cancel
                             </button>
-                          </div>
+                          </footer>
                         </div>
                       </div>
                     </div>
@@ -802,15 +883,24 @@ exports[`ConnectedCreateBaselineModal should render correctly 1`] = `
                         class="pf-l-bullseye"
                       >
                         <div
-                          aria-describedby="pf-modal-5"
-                          aria-label="Create baseline"
+                          aria-describedby="pf-modal-part-7"
+                          aria-labelledby="pf-modal-part-6"
                           aria-modal="true"
-                          class="pf-c-modal-box create-baseline-modal"
+                          class="pf-c-modal-box"
+                          data-ouia-component-id="28"
+                          data-ouia-component-type="PF4/ModalContent"
+                          data-ouia-safe="true"
+                          id="pf-modal-part-5"
                           role="dialog"
+                          style="width: 1200px;"
                         >
                           <button
+                            aria-disabled="false"
                             aria-label="Close"
                             class="pf-c-button pf-m-plain"
+                            data-ouia-component-id="29"
+                            data-ouia-component-type="PF4/Button"
+                            data-ouia-safe="true"
                             type="button"
                           >
                             <svg
@@ -828,16 +918,19 @@ exports[`ConnectedCreateBaselineModal should render correctly 1`] = `
                               />
                             </svg>
                           </button>
-                          <h1
-                            class="pf-c-title pf-m-2xl"
+                          <header
+                            class="pf-c-modal-box__header"
                           >
-                             
-                            Create baseline
-                             
-                          </h1>
+                            <h1
+                              class="pf-c-modal-box__title pf-c-modal-box__title"
+                              id="pf-modal-part-6"
+                            >
+                              Create baseline
+                            </h1>
+                          </header>
                           <div
                             class="pf-c-modal-box__body"
-                            id="pf-modal-5"
+                            id="pf-modal-part-7"
                           >
                             <div
                               class="pf-c-radio"
@@ -907,57 +1000,67 @@ exports[`ConnectedCreateBaselineModal should render correctly 1`] = `
                                 class="pf-c-form__group"
                                 type="text"
                               >
-                                <input
-                                  aria-invalid="false"
-                                  aria-label="baseline name"
-                                  class="pf-c-form-control fact-value"
-                                  placeholder="Baseline name"
-                                  type="text"
-                                  value=""
-                                />
-                                
+                                <div
+                                  class="pf-c-form__group-control"
+                                >
+                                  <input
+                                    aria-invalid="false"
+                                    aria-label="baseline name"
+                                    class="pf-c-form-control fact-value"
+                                    placeholder="Baseline name"
+                                    type="text"
+                                    value=""
+                                  />
+                                  
+                                </div>
                               </div>
                             </form>
                             <br />
                             <br />
                           </div>
-                          <div
-                            class="pf-c-modal-box__footer pf-m-align-left"
+                          <footer
+                            class="pf-c-modal-box__footer"
                           >
                             <button
-                              class="pf-c-button pf-m-primary"
+                              aria-disabled="true"
+                              class="pf-c-button pf-m-primary pf-m-disabled"
+                              data-ouia-component-id="30"
+                              data-ouia-component-type="PF4/Button"
+                              data-ouia-safe="true"
                               disabled=""
                               type="button"
                             >
                               Create baseline
                             </button>
                             <button
+                              aria-disabled="false"
                               class="pf-c-button pf-m-link"
+                              data-ouia-component-id="31"
+                              data-ouia-component-type="PF4/Button"
+                              data-ouia-safe="true"
                               type="button"
                             >
-                              <span
-                                class="pf-c-button__text"
-                              >
-                                Cancel
-                              </span>
+                              Cancel
                             </button>
-                          </div>
+                          </footer>
                         </div>
                       </div>
                     </div>
                   </div>
                 </body>
               }
-              ariaDescribedById=""
-              className="create-baseline-modal"
-              hideTitle={false}
-              isFooterLeftAligned={true}
-              isLarge={false}
+              aria-describedby=""
+              aria-label=""
+              aria-labelledby=""
+              className=""
+              hasNoBodyWrapper={false}
               isOpen={true}
-              isSmall={false}
               onClose={[Function]}
+              ouiaSafe={true}
               showClose={true}
               title="Create baseline"
+              variant="default"
+              width="1200px"
             >
               <Portal
                 containerInfo={
@@ -969,15 +1072,24 @@ exports[`ConnectedCreateBaselineModal should render correctly 1`] = `
                         class="pf-l-bullseye"
                       >
                         <div
-                          aria-describedby="pf-modal-5"
-                          aria-label="Create baseline"
+                          aria-describedby="pf-modal-part-7"
+                          aria-labelledby="pf-modal-part-6"
                           aria-modal="true"
-                          class="pf-c-modal-box create-baseline-modal"
+                          class="pf-c-modal-box"
+                          data-ouia-component-id="28"
+                          data-ouia-component-type="PF4/ModalContent"
+                          data-ouia-safe="true"
+                          id="pf-modal-part-5"
                           role="dialog"
+                          style="width: 1200px;"
                         >
                           <button
+                            aria-disabled="false"
                             aria-label="Close"
                             class="pf-c-button pf-m-plain"
+                            data-ouia-component-id="29"
+                            data-ouia-component-type="PF4/Button"
+                            data-ouia-safe="true"
                             type="button"
                           >
                             <svg
@@ -995,16 +1107,19 @@ exports[`ConnectedCreateBaselineModal should render correctly 1`] = `
                               />
                             </svg>
                           </button>
-                          <h1
-                            class="pf-c-title pf-m-2xl"
+                          <header
+                            class="pf-c-modal-box__header"
                           >
-                             
-                            Create baseline
-                             
-                          </h1>
+                            <h1
+                              class="pf-c-modal-box__title pf-c-modal-box__title"
+                              id="pf-modal-part-6"
+                            >
+                              Create baseline
+                            </h1>
+                          </header>
                           <div
                             class="pf-c-modal-box__body"
-                            id="pf-modal-5"
+                            id="pf-modal-part-7"
                           >
                             <div
                               class="pf-c-radio"
@@ -1074,41 +1189,49 @@ exports[`ConnectedCreateBaselineModal should render correctly 1`] = `
                                 class="pf-c-form__group"
                                 type="text"
                               >
-                                <input
-                                  aria-invalid="false"
-                                  aria-label="baseline name"
-                                  class="pf-c-form-control fact-value"
-                                  placeholder="Baseline name"
-                                  type="text"
-                                  value=""
-                                />
-                                
+                                <div
+                                  class="pf-c-form__group-control"
+                                >
+                                  <input
+                                    aria-invalid="false"
+                                    aria-label="baseline name"
+                                    class="pf-c-form-control fact-value"
+                                    placeholder="Baseline name"
+                                    type="text"
+                                    value=""
+                                  />
+                                  
+                                </div>
                               </div>
                             </form>
                             <br />
                             <br />
                           </div>
-                          <div
-                            class="pf-c-modal-box__footer pf-m-align-left"
+                          <footer
+                            class="pf-c-modal-box__footer"
                           >
                             <button
-                              class="pf-c-button pf-m-primary"
+                              aria-disabled="true"
+                              class="pf-c-button pf-m-primary pf-m-disabled"
+                              data-ouia-component-id="30"
+                              data-ouia-component-type="PF4/Button"
+                              data-ouia-safe="true"
                               disabled=""
                               type="button"
                             >
                               Create baseline
                             </button>
                             <button
+                              aria-disabled="false"
                               class="pf-c-button pf-m-link"
+                              data-ouia-component-id="31"
+                              data-ouia-component-type="PF4/Button"
+                              data-ouia-safe="true"
                               type="button"
                             >
-                              <span
-                                class="pf-c-button__text"
-                              >
-                                Cancel
-                              </span>
+                              Cancel
                             </button>
-                          </div>
+                          </footer>
                         </div>
                       </div>
                     </div>
@@ -1118,31 +1241,35 @@ exports[`ConnectedCreateBaselineModal should render correctly 1`] = `
                 <ModalContent
                   actions={
                     Array [
-                      <Unknown
+                      <Button
                         isDisabled={true}
                         variant="primary"
                       >
                         Create baseline
-                      </Unknown>,
-                      <Unknown
+                      </Button>,
+                      <Button
                         onClick={[Function]}
                         variant="link"
                       >
                         Cancel
-                      </Unknown>,
+                      </Button>,
                     ]
                   }
-                  ariaDescribedById=""
-                  className="create-baseline-modal"
-                  hideTitle={false}
-                  id="pf-modal-5"
-                  isFooterLeftAligned={true}
-                  isLarge={false}
+                  aria-describedby=""
+                  aria-label=""
+                  aria-labelledby=""
+                  boxId="pf-modal-part-5"
+                  className=""
+                  descriptorId="pf-modal-part-7"
+                  hasNoBodyWrapper={false}
                   isOpen={true}
-                  isSmall={false}
+                  labelId="pf-modal-part-6"
                   onClose={[Function]}
+                  ouiaSafe={true}
                   showClose={true}
                   title="Create baseline"
+                  variant="default"
+                  width="1200px"
                 >
                   <Backdrop>
                     <div
@@ -1162,123 +1289,110 @@ exports[`ConnectedCreateBaselineModal should render correctly 1`] = `
                           className="pf-l-bullseye"
                         >
                           <ModalBox
-                            className="create-baseline-modal"
-                            id="pf-modal-5"
-                            isLarge={false}
-                            isSmall={false}
-                            style={Object {}}
-                            title="Create baseline"
+                            aria-describedby="pf-modal-part-7"
+                            aria-label=""
+                            aria-labelledby="pf-modal-part-6"
+                            className=""
+                            data-ouia-component-id={28}
+                            data-ouia-component-type="PF4/ModalContent"
+                            data-ouia-safe={true}
+                            id="pf-modal-part-5"
+                            style={
+                              Object {
+                                "width": "1200px",
+                              }
+                            }
+                            variant="default"
                           >
                             <div
-                              aria-describedby="pf-modal-5"
-                              aria-label="Create baseline"
+                              aria-describedby="pf-modal-part-7"
+                              aria-label={null}
+                              aria-labelledby="pf-modal-part-6"
                               aria-modal="true"
-                              className="pf-c-modal-box create-baseline-modal"
+                              className="pf-c-modal-box"
+                              data-ouia-component-id={28}
+                              data-ouia-component-type="PF4/ModalContent"
+                              data-ouia-safe={true}
+                              id="pf-modal-part-5"
                               role="dialog"
-                              style={Object {}}
+                              style={
+                                Object {
+                                  "width": "1200px",
+                                }
+                              }
                             >
                               <ModalBoxCloseButton
                                 onClose={[Function]}
                               >
-                                <Component
+                                <Button
                                   aria-label="Close"
                                   className=""
                                   onClick={[Function]}
                                   variant="plain"
                                 >
-                                  <ComponentWithOuia
-                                    component={[Function]}
-                                    componentProps={
-                                      Object {
-                                        "aria-label": "Close",
-                                        "children": <TimesIcon
-                                          color="currentColor"
-                                          noVerticalAlign={false}
-                                          size="sm"
-                                          title={null}
-                                        />,
-                                        "className": "",
-                                        "onClick": [Function],
-                                        "variant": "plain",
-                                      }
-                                    }
-                                    consumerContext={null}
+                                  <button
+                                    aria-disabled={false}
+                                    aria-label="Close"
+                                    className="pf-c-button pf-m-plain"
+                                    data-ouia-component-id={29}
+                                    data-ouia-component-type="PF4/Button"
+                                    data-ouia-safe={true}
+                                    disabled={false}
+                                    onClick={[Function]}
+                                    type="button"
                                   >
-                                    <Button
-                                      aria-label="Close"
-                                      className=""
-                                      onClick={[Function]}
-                                      ouiaContext={
-                                        Object {
-                                          "isOuia": false,
-                                          "ouiaId": null,
-                                        }
-                                      }
-                                      variant="plain"
+                                    <TimesIcon
+                                      color="currentColor"
+                                      noVerticalAlign={false}
+                                      size="sm"
                                     >
-                                      <button
-                                        aria-disabled={null}
-                                        aria-label="Close"
-                                        className="pf-c-button pf-m-plain"
-                                        disabled={false}
-                                        onClick={[Function]}
-                                        tabIndex={null}
-                                        type="button"
+                                      <svg
+                                        aria-hidden={true}
+                                        aria-labelledby={null}
+                                        fill="currentColor"
+                                        height="1em"
+                                        role="img"
+                                        style={
+                                          Object {
+                                            "verticalAlign": "-0.125em",
+                                          }
+                                        }
+                                        viewBox="0 0 352 512"
+                                        width="1em"
                                       >
-                                        <TimesIcon
-                                          color="currentColor"
-                                          noVerticalAlign={false}
-                                          size="sm"
-                                          title={null}
-                                        >
-                                          <svg
-                                            aria-hidden={true}
-                                            aria-labelledby={null}
-                                            fill="currentColor"
-                                            height="1em"
-                                            role="img"
-                                            style={
-                                              Object {
-                                                "verticalAlign": "-0.125em",
-                                              }
-                                            }
-                                            viewBox="0 0 352 512"
-                                            width="1em"
-                                          >
-                                            <path
-                                              d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
-                                              transform=""
-                                            />
-                                          </svg>
-                                        </TimesIcon>
-                                      </button>
-                                    </Button>
-                                  </ComponentWithOuia>
-                                </Component>
+                                        <path
+                                          d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                          transform=""
+                                        />
+                                      </svg>
+                                    </TimesIcon>
+                                  </button>
+                                </Button>
                               </ModalBoxCloseButton>
-                              <ModalBoxHeader
-                                hideTitle={false}
-                              >
-                                <Title
-                                  className=""
-                                  headingLevel="h1"
-                                  size="2xl"
+                              <ModalBoxHeader>
+                                <header
+                                  className="pf-c-modal-box__header"
                                 >
-                                  <h1
-                                    className="pf-c-title pf-m-2xl"
+                                  <ModalBoxTitle
+                                    className="pf-c-modal-box__title"
+                                    id="pf-modal-part-6"
+                                    title="Create baseline"
                                   >
-                                     
-                                    Create baseline
-                                     
-                                  </h1>
-                                </Title>
+                                    <h1
+                                      className="pf-c-modal-box__title pf-c-modal-box__title"
+                                      id="pf-modal-part-6"
+                                    >
+                                      Create baseline
+                                    </h1>
+                                  </ModalBoxTitle>
+                                </header>
                               </ModalBoxHeader>
                               <ModalBoxBody
-                                id="pf-modal-5"
+                                id="pf-modal-part-7"
                               >
                                 <div
                                   className="pf-c-modal-box__body"
-                                  id="pf-modal-5"
+                                  id="pf-modal-part-7"
                                 >
                                   <Radio
                                     className=""
@@ -1398,46 +1512,52 @@ exports[`ConnectedCreateBaselineModal should render correctly 1`] = `
                                       >
                                         <div
                                           className="pf-c-form__group"
+                                          isValid={true}
                                           onKeyPress={[Function]}
                                           type="text"
                                         >
-                                          <ForwardRef
-                                            aria-label="baseline name"
-                                            className="fact-value"
-                                            isValid={true}
-                                            onChange={[Function]}
-                                            placeholder="Baseline name"
-                                            type="text"
-                                            value=""
+                                          <div
+                                            className="pf-c-form__group-control"
                                           >
-                                            <TextInputBase
+                                            <ForwardRef
                                               aria-label="baseline name"
                                               className="fact-value"
-                                              innerRef={null}
-                                              isDisabled={false}
-                                              isReadOnly={false}
-                                              isRequired={false}
                                               isValid={true}
                                               onChange={[Function]}
                                               placeholder="Baseline name"
                                               type="text"
-                                              validated="default"
                                               value=""
                                             >
-                                              <input
-                                                aria-invalid={false}
+                                              <TextInputBase
                                                 aria-label="baseline name"
-                                                className="pf-c-form-control fact-value"
-                                                disabled={false}
+                                                className="fact-value"
+                                                innerRef={null}
+                                                isDisabled={false}
+                                                isReadOnly={false}
+                                                isRequired={false}
+                                                isValid={true}
                                                 onChange={[Function]}
                                                 placeholder="Baseline name"
-                                                readOnly={false}
-                                                required={false}
                                                 type="text"
+                                                validated="default"
                                                 value=""
-                                              />
-                                            </TextInputBase>
-                                          </ForwardRef>
+                                              >
+                                                <input
+                                                  aria-invalid={false}
+                                                  aria-label="baseline name"
+                                                  className="pf-c-form-control fact-value"
+                                                  disabled={false}
+                                                  isValid={true}
+                                                  onChange={[Function]}
+                                                  placeholder="Baseline name"
+                                                  readOnly={false}
+                                                  required={false}
+                                                  type="text"
+                                                  value=""
+                                                />
+                                              </TextInputBase>
+                                            </ForwardRef>
+                                          </div>
                                         </div>
                                       </FormGroup>
                                     </form>
@@ -1446,96 +1566,49 @@ exports[`ConnectedCreateBaselineModal should render correctly 1`] = `
                                   <br />
                                 </div>
                               </ModalBoxBody>
-                              <ModalBoxFooter
-                                isLeftAligned={true}
-                              >
-                                <div
-                                  className="pf-c-modal-box__footer pf-m-align-left"
+                              <ModalBoxFooter>
+                                <footer
+                                  className="pf-c-modal-box__footer"
                                 >
-                                  <Component
+                                  <Button
                                     isDisabled={true}
                                     key="confirm"
                                     variant="primary"
                                   >
-                                    <ComponentWithOuia
-                                      component={[Function]}
-                                      componentProps={
-                                        Object {
-                                          "children": "Create baseline",
-                                          "isDisabled": true,
-                                          "variant": "primary",
-                                        }
-                                      }
-                                      consumerContext={null}
+                                    <button
+                                      aria-disabled={true}
+                                      aria-label={null}
+                                      className="pf-c-button pf-m-primary pf-m-disabled"
+                                      data-ouia-component-id={30}
+                                      data-ouia-component-type="PF4/Button"
+                                      data-ouia-safe={true}
+                                      disabled={true}
+                                      tabIndex={null}
+                                      type="button"
                                     >
-                                      <Button
-                                        isDisabled={true}
-                                        ouiaContext={
-                                          Object {
-                                            "isOuia": false,
-                                            "ouiaId": null,
-                                          }
-                                        }
-                                        variant="primary"
-                                      >
-                                        <button
-                                          aria-disabled={null}
-                                          aria-label={null}
-                                          className="pf-c-button pf-m-primary"
-                                          disabled={true}
-                                          tabIndex={null}
-                                          type="button"
-                                        >
-                                          Create baseline
-                                        </button>
-                                      </Button>
-                                    </ComponentWithOuia>
-                                  </Component>
-                                  <Component
+                                      Create baseline
+                                    </button>
+                                  </Button>
+                                  <Button
                                     key="cancel"
                                     onClick={[Function]}
                                     variant="link"
                                   >
-                                    <ComponentWithOuia
-                                      component={[Function]}
-                                      componentProps={
-                                        Object {
-                                          "children": "Cancel",
-                                          "onClick": [Function],
-                                          "variant": "link",
-                                        }
-                                      }
-                                      consumerContext={null}
+                                    <button
+                                      aria-disabled={false}
+                                      aria-label={null}
+                                      className="pf-c-button pf-m-link"
+                                      data-ouia-component-id={31}
+                                      data-ouia-component-type="PF4/Button"
+                                      data-ouia-safe={true}
+                                      disabled={false}
+                                      onClick={[Function]}
+                                      type="button"
                                     >
-                                      <Button
-                                        onClick={[Function]}
-                                        ouiaContext={
-                                          Object {
-                                            "isOuia": false,
-                                            "ouiaId": null,
-                                          }
-                                        }
-                                        variant="link"
-                                      >
-                                        <button
-                                          aria-disabled={null}
-                                          aria-label={null}
-                                          className="pf-c-button pf-m-link"
-                                          disabled={false}
-                                          onClick={[Function]}
-                                          tabIndex={null}
-                                          type="button"
-                                        >
-                                          <span
-                                            className="pf-c-button__text"
-                                          >
-                                            Cancel
-                                          </span>
-                                        </button>
-                                      </Button>
-                                    </ComponentWithOuia>
-                                  </Component>
-                                </div>
+                                      Cancel
+                                    </button>
+                                  </Button>
+                                </footer>
                               </ModalBoxFooter>
                             </div>
                           </ModalBox>
@@ -1558,31 +1631,33 @@ exports[`CreateBaselineModal should render correctly 1`] = `
 <Modal
   actions={
     Array [
-      <Unknown
+      <Button
         isDisabled={true}
         variant="primary"
       >
         Create baseline
-      </Unknown>,
-      <Unknown
+      </Button>,
+      <Button
         onClick={[Function]}
         variant="link"
       >
         Cancel
-      </Unknown>,
+      </Button>,
     ]
   }
   appendTo={<body />}
-  ariaDescribedById=""
-  className="create-baseline-modal"
-  hideTitle={false}
-  isFooterLeftAligned={true}
-  isLarge={false}
+  aria-describedby=""
+  aria-label=""
+  aria-labelledby=""
+  className=""
+  hasNoBodyWrapper={false}
   isOpen={false}
-  isSmall={false}
   onClose={[Function]}
+  ouiaSafe={true}
   showClose={true}
   title="Create baseline"
+  variant="default"
+  width="1200px"
 >
   <Radio
     className=""
@@ -1659,18 +1734,18 @@ exports[`CreateBaselineModal should render mount correctly 1`] = `
   <Modal
     actions={
       Array [
-        <Unknown
+        <Button
           isDisabled={true}
           variant="primary"
         >
           Create baseline
-        </Unknown>,
-        <Unknown
+        </Button>,
+        <Button
           onClick={[Function]}
           variant="link"
         >
           Cancel
-        </Unknown>,
+        </Button>,
       ]
     }
     appendTo={
@@ -1678,16 +1753,18 @@ exports[`CreateBaselineModal should render mount correctly 1`] = `
         <div />
       </body>
     }
-    ariaDescribedById=""
-    className="create-baseline-modal"
-    hideTitle={false}
-    isFooterLeftAligned={true}
-    isLarge={false}
+    aria-describedby=""
+    aria-label=""
+    aria-labelledby=""
+    className=""
+    hasNoBodyWrapper={false}
     isOpen={false}
-    isSmall={false}
     onClose={[Function]}
+    ouiaSafe={true}
     showClose={true}
     title="Create baseline"
+    variant="default"
+    width="1200px"
   >
     <Portal
       containerInfo={<div />}
@@ -1695,31 +1772,35 @@ exports[`CreateBaselineModal should render mount correctly 1`] = `
       <ModalContent
         actions={
           Array [
-            <Unknown
+            <Button
               isDisabled={true}
               variant="primary"
             >
               Create baseline
-            </Unknown>,
-            <Unknown
+            </Button>,
+            <Button
               onClick={[Function]}
               variant="link"
             >
               Cancel
-            </Unknown>,
+            </Button>,
           ]
         }
-        ariaDescribedById=""
-        className="create-baseline-modal"
-        hideTitle={false}
-        id="pf-modal-0"
-        isFooterLeftAligned={true}
-        isLarge={false}
+        aria-describedby=""
+        aria-label=""
+        aria-labelledby=""
+        boxId="pf-modal-part-0"
+        className=""
+        descriptorId="pf-modal-part-2"
+        hasNoBodyWrapper={false}
         isOpen={false}
-        isSmall={false}
+        labelId="pf-modal-part-1"
         onClose={[Function]}
+        ouiaSafe={true}
         showClose={true}
         title="Create baseline"
+        variant="default"
+        width="1200px"
       />
     </Portal>
   </Modal>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Button, Form, FormGroup, Modal, TextInput } from '@patternfly/react-core';
+import { Button, Form, FormGroup, Modal, ModalVariant, TextInput } from '@patternfly/react-core';
 
 import { editBaselineActions } from '../redux';
 
@@ -82,11 +82,10 @@ export class EditBaselineNameModal extends Component {
 
         return (
             <Modal
-                className='small-modal-body'
+                variant={ ModalVariant.small }
                 title="Edit name"
                 isOpen={ modalOpened }
                 onClose={ this.cancelModal }
-                isFooterLeftAligned
                 actions={ [
                     <Button
                         key="confirm"

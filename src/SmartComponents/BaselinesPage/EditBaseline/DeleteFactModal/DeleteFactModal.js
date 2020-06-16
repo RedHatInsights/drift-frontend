@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Modal, Button } from '@patternfly/react-core';
+import { Modal, ModalVariant, Button } from '@patternfly/react-core';
 
 import { editBaselineActions } from '../redux';
 import editBaselineHelpers from '../helpers';
@@ -34,11 +34,10 @@ class DeleteFactModal extends Component {
 
         return (
             <Modal
+                variant={ ModalVariant.small }
                 title="Delete facts"
-                className="small-modal-body"
                 isOpen={ modalOpened }
                 onClose={ this.props.toggleModal }
-                isFooterLeftAligned
                 actions = { [
                     <Button
                         key="confirm"

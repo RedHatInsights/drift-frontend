@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Chip, ChipGroup, ChipGroupToolbarItem } from '@patternfly/react-core';
+import { Chip, ChipGroup } from '@patternfly/react-core';
 
 class BaselinesFilterChips extends Component {
     constructor(props) {
@@ -27,17 +27,15 @@ class BaselinesFilterChips extends Component {
         const { clearTextFilter } = this.props;
 
         return (
-            <ChipGroup withToolbar>
-                { chipGroup.map(currentGroup => (
-                    <ChipGroupToolbarItem key={ currentGroup.category } categoryName={ currentGroup.category }>
-                        { currentGroup.chips.map(chip => (
-                            <Chip key={ chip } onClick={ clearTextFilter }>
-                                { chip }
-                            </Chip>
-                        )) }
-                    </ChipGroupToolbarItem>
-                )) }
-            </ChipGroup>
+            chipGroup.map(group => (
+                <ChipGroup categoryName={ group.category } key={ group.category }>
+                    { group.chips.map(chip => (
+                        <Chip key={ chip } onClick={ clearTextFilter }>
+                            { chip }
+                        </Chip>
+                    )) }
+                </ChipGroup>
+            ))
         );
     }
 }
