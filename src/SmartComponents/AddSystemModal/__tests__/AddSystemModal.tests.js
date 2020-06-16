@@ -92,7 +92,7 @@ describe('ConnectedAddSystemModal', () => {
             </MemoryRouter>
         );
 
-        expect(wrapper.find('.pf-c-button').at(9).prop('disabled')).toBe(true);
+        expect(wrapper.find('.pf-c-button').at(1).prop('disabled')).toBe(true);
     });
 
     it('should render baselines correctly', () => {
@@ -127,7 +127,7 @@ describe('ConnectedAddSystemModal', () => {
             </MemoryRouter>
         );
 
-        wrapper.find('.pf-c-button').at(9).simulate('click');
+        wrapper.find('.pf-c-button').at(1).simulate('click');
         expect(confirmModal).toHaveBeenCalledTimes(1);
     });
 
@@ -148,7 +148,7 @@ describe('ConnectedAddSystemModal', () => {
             </MemoryRouter>
         );
 
-        wrapper.find('.pf-c-button').at(9).simulate('click');
+        wrapper.find('.pf-c-button').at(1).simulate('click');
         expect(confirmModal).toHaveBeenCalledTimes(1);
     });
 
@@ -169,7 +169,7 @@ describe('ConnectedAddSystemModal', () => {
             </MemoryRouter>
         );
 
-        wrapper.find('.pf-c-button').at(9).simulate('click');
+        wrapper.find('.pf-c-button').at(1).simulate('click');
         expect(confirmModal).toHaveBeenCalledTimes(1);
     });
 

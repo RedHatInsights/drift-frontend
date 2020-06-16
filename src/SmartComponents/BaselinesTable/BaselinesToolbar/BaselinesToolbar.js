@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import debounce from 'lodash/debounce';
 
-import { DropdownItem, Toolbar, ToolbarGroup, ToolbarItem } from '@patternfly/react-core';
+import { DropdownItem, Toolbar, ToolbarGroup, ToolbarItem, ToolbarContent } from '@patternfly/react-core';
 import { BulkSelect, ConditionalFilter } from '@redhat-cloud-services/frontend-components';
 
 import CreateBaselineButton from '../../BaselinesPage/CreateBaselineButton/CreateBaselineButton';
@@ -102,77 +102,83 @@ export class BaselinesToolbar extends Component {
                     : null
                 }
                 <Toolbar className="drift-toolbar">
-                    { hasMultiSelect
-                        ? <ToolbarGroup>
+                    <ToolbarContent>
+                        { hasMultiSelect
+                            ? <ToolbarGroup variant='filter-group'>
+                                <ToolbarItem>
+                                    <BulkSelect
+                                        count={ selected > 0 ? selected : null }
+                                        items={ bulkSelectItems }
+                                        checked={ helpers.findCheckedValue(tableData.length, selected) }
+                                        onSelect={ () => onBulkSelect(!selected > 0) }
+                                        isDisabled={ tableData.length === 0 }
+                                    />
+                                </ToolbarItem>
+                            </ToolbarGroup>
+                            : null
+                        }
+                        <ToolbarGroup variant='filter-group'>
                             <ToolbarItem>
-                                <BulkSelect
-                                    count={ selected > 0 ? selected : null }
-                                    items={ bulkSelectItems }
-                                    checked={ helpers.findCheckedValue(tableData.length, selected) }
-                                    onSelect={ () => onBulkSelect(!selected > 0) }
-                                    isDisabled={ tableData.length === 0 }
+                                <ConditionalFilter
+                                    placeholder="Filter by name"
+                                    value={ nameSearch }
+                                    onChange={ (event, value) => this.setTextFilter(value) }
                                 />
                             </ToolbarItem>
                         </ToolbarGroup>
-                        : null
-                    }
-                    <ToolbarGroup>
-                        <ToolbarItem>
-                            <ConditionalFilter
-                                placeholder="Filter by name"
-                                value={ nameSearch }
-                                onChange={ (event, value) => this.setTextFilter(value) }
-                            />
-                        </ToolbarItem>
-                    </ToolbarGroup>
-                    <ToolbarGroup>
-                        { createButton ?
+                        <ToolbarGroup variant='button-group'>
+                            { createButton ?
+                                <ToolbarItem>
+                                    <CreateBaselineButton />
+                                </ToolbarItem>
+                                : null
+                            }
+                        </ToolbarGroup>
+                        <ToolbarGroup variant='icon-button-group'>
+                            { exportButton ?
+                                <ToolbarItem>
+                                    <ExportCSVButton exportType='baseline list'/>
+                                </ToolbarItem>
+                                : null
+                            }
+                            { kebab ?
+                                <ToolbarItem>
+                                    <ActionKebab dropdownItems={ this.buildDropdownList() } />
+                                </ToolbarItem>
+                                : null
+                            }
+                        </ToolbarGroup>
+                        <ToolbarGroup className='pf-c-pagination'>
                             <ToolbarItem>
-                                <CreateBaselineButton />
+                                <TablePagination
+                                    page={ page }
+                                    perPage={ perPage }
+                                    total={ totalBaselines }
+                                    isCompact={ true }
+                                    updatePagination={ updatePagination }
+                                    tableId={ tableId }
+                                />
                             </ToolbarItem>
-                            : null
-                        }
-                        { exportButton ?
-                            <ToolbarItem>
-                                <ExportCSVButton exportType='baseline list'/>
-                            </ToolbarItem>
-                            : null
-                        }
-                        { kebab ?
-                            <ToolbarItem>
-                                <ActionKebab dropdownItems={ this.buildDropdownList() } />
-                            </ToolbarItem>
-                            : null
-                        }
-                    </ToolbarGroup>
-                    <ToolbarGroup className='pf-c-pagination'>
-                        <ToolbarItem>
-                            <TablePagination
-                                page={ page }
-                                perPage={ perPage }
-                                total={ totalBaselines }
-                                isCompact={ true }
-                                updatePagination={ updatePagination }
-                                tableId={ tableId }
-                            />
-                        </ToolbarItem>
-                    </ToolbarGroup>
+                        </ToolbarGroup>
+                    </ToolbarContent>
                 </Toolbar>
                 { nameSearch.length > 0 ?
                     <Toolbar className="drift-toolbar">
-                        <ToolbarGroup>
-                            <ToolbarItem>
-                                <BaselinesFilterChips
-                                    nameSearch={ nameSearch }
-                                    clearTextFilter={ this.clearTextFilter }
-                                />
-                            </ToolbarItem>
-                            <ToolbarItem>
-                                <a onClick={ () => this.clearFilters() } >
-                                    Clear filters
-                                </a>
-                            </ToolbarItem>
-                        </ToolbarGroup>
+                        <ToolbarContent>
+                            <ToolbarGroup>
+                                <ToolbarItem>
+                                    <BaselinesFilterChips
+                                        nameSearch={ nameSearch }
+                                        clearTextFilter={ this.clearTextFilter }
+                                    />
+                                </ToolbarItem>
+                                <ToolbarItem>
+                                    <a onClick={ () => this.clearFilters() } >
+                                        Clear filters
+                                    </a>
+                                </ToolbarItem>
+                            </ToolbarGroup>
+                        </ToolbarContent>
                     </Toolbar>
                     : null
                 }

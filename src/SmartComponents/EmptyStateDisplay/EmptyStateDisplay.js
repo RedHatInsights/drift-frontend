@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { Bullseye, EmptyState, EmptyStateBody, EmptyStateIcon, Title } from '@patternfly/react-core';
+import { Bullseye, EmptyState, EmptyStateBody, EmptyStateIcon, EmptyStateVariant, Title } from '@patternfly/react-core';
 
 export class EmptyStateDisplay extends Component {
     constructor(props) {
@@ -13,10 +13,10 @@ export class EmptyStateDisplay extends Component {
 
         return (
             <Bullseye>
-                <EmptyState>
+                <EmptyState variant={ EmptyStateVariant.large }>
                     { icon ? <EmptyStateIcon icon={ icon } color={ color ? color : null } /> : null }
                     <br></br>
-                    <Title size="lg">{ title }</Title>
+                    <Title headingLevel='h1' size="lg">{ title }</Title>
                     <EmptyStateBody>
                         { text ? text.join('\n') : null }
                         { error

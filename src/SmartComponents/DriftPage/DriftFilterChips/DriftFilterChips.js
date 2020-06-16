@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Chip, ChipGroup, ChipGroupToolbarItem } from '@patternfly/react-core';
+import { Chip, ChipGroup } from '@patternfly/react-core';
 
 import { compareActions } from '../../modules';
 
@@ -101,17 +101,15 @@ export class DriftFilterChips extends Component {
         this.checkChips();
 
         return (
-            <ChipGroup withToolbar>
-                { chipGroup.map(currentGroup => (
-                    <ChipGroupToolbarItem key={ currentGroup.category } categoryName={ currentGroup.category }>
-                        { currentGroup.chips.map(chip => (
-                            <Chip key={ currentGroup.category + chipKeyCount++ } onClick={ () => this.removeChip(chip) }>
-                                { chip }
-                            </Chip>
-                        )) }
-                    </ChipGroupToolbarItem>
-                )) }
-            </ChipGroup>
+            chipGroup.map(group => (
+                <ChipGroup categoryName={ group.category } key={ group.category }>
+                    { group.chips.map(chip => (
+                        <Chip key={ group.category + chipKeyCount++ } onClick={ () => this.removeChip(chip) }>
+                            { chip }
+                        </Chip>
+                    )) }
+                </ChipGroup>
+            ))
         );
     }
 }

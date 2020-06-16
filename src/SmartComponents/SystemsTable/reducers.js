@@ -61,6 +61,16 @@ function selectedReducer(INVENTORY_ACTIONS, createBaselineModal, historicalProfi
 
             /* Hide link on systems table */
             newColumns.forEach(function(column) {
+                if (!column.props) {
+                    column.props = {};
+                }
+
+                if (column.key === 'display_name') {
+                    column.props.width = 20;
+                } else {
+                    column.props.width = 10;
+                }
+
                 if (column.composed) {
                     delete column.composed;
                 }

@@ -122,7 +122,10 @@ exports[`ConnectedBaselinesKebab should render correctly 1`] = `
               />
             }
           >
-            <Component
+            <DropdownWithContext
+              autoFocus={true}
+              className=""
+              direction="down"
               dropdownItems={
                 Array [
                   <DropdownItem
@@ -141,8 +144,12 @@ exports[`ConnectedBaselinesKebab should render correctly 1`] = `
                   </DropdownItem>,
                 ]
               }
+              isGrouped={false}
               isOpen={false}
               isPlain={true}
+              menuAppendTo="inline"
+              onSelect={[Function]}
+              position="left"
               style={
                 Object {
                   "float": "left",
@@ -154,209 +161,100 @@ exports[`ConnectedBaselinesKebab should render correctly 1`] = `
                 />
               }
             >
-              <ComponentWithOuia
-                component={[Function]}
-                componentProps={
+              <div
+                className="pf-c-dropdown"
+                data-ouia-component-id={0}
+                data-ouia-component-type="PF4/Dropdown"
+                data-ouia-safe={true}
+                style={
                   Object {
-                    "dropdownItems": Array [
-                      <DropdownItem
-                        component="button"
-                        isDisabled={true}
-                        onClick={[Function]}
-                      >
-                        Delete baselines
-                      </DropdownItem>,
-                      <DropdownItem
-                        component="button"
-                        isDisabled={true}
-                        onClick={null}
-                      >
-                        Clear filters
-                      </DropdownItem>,
-                    ],
-                    "isOpen": false,
-                    "isPlain": true,
-                    "style": Object {
-                      "float": "left",
-                    },
-                    "toggle": <KebabToggle
-                      onToggle={[Function]}
-                    />,
+                    "float": "left",
                   }
                 }
-                consumerContext={null}
               >
-                <DropdownWithContext
-                  autoFocus={true}
-                  className=""
-                  direction="down"
-                  dropdownItems={
-                    Array [
-                      <DropdownItem
-                        component="button"
-                        isDisabled={true}
-                        onClick={[Function]}
-                      >
-                        Delete baselines
-                      </DropdownItem>,
-                      <DropdownItem
-                        component="button"
-                        isDisabled={true}
-                        onClick={null}
-                      >
-                        Clear filters
-                      </DropdownItem>,
-                    ]
-                  }
-                  isGrouped={false}
+                <KebabToggle
+                  aria-haspopup={true}
+                  getMenuRef={[Function]}
+                  id="pf-toggle-id-0"
                   isOpen={false}
                   isPlain={true}
-                  onSelect={[Function]}
-                  ouiaComponentType="Dropdown"
-                  ouiaContext={
+                  key=".0"
+                  onEnter={[Function]}
+                  onToggle={[Function]}
+                  parentRef={
                     Object {
-                      "isOuia": false,
-                      "ouiaId": null,
-                    }
-                  }
-                  position="left"
-                  style={
-                    Object {
-                      "float": "left",
-                    }
-                  }
-                  toggle={
-                    <KebabToggle
-                      onToggle={[Function]}
-                    />
-                  }
-                >
-                  <div
-                    className="pf-c-dropdown"
-                    style={
-                      Object {
-                        "float": "left",
-                      }
-                    }
-                  >
-                    <KebabToggle
-                      ariaHasPopup={true}
-                      id="pf-toggle-id-0"
-                      isOpen={false}
-                      isPlain={true}
-                      key=".0"
-                      onEnter={[Function]}
-                      onToggle={[Function]}
-                      parentRef={
-                        Object {
-                          "current": <div
-                            class="pf-c-dropdown"
-                            style="float: left;"
-                          >
-                            <button
-                              aria-expanded="false"
-                              aria-haspopup="true"
-                              aria-label="Actions"
-                              class="pf-c-dropdown__toggle pf-m-plain"
-                              id="pf-toggle-id-0"
-                              type="button"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                fill="currentColor"
-                                height="1em"
-                                role="img"
-                                style="vertical-align: -0.125em;"
-                                viewBox="0 0 192 512"
-                                width="1em"
-                              >
-                                <path
-                                  d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
-                                  transform=""
-                                />
-                              </svg>
-                            </button>
-                          </div>,
-                        }
-                      }
-                    >
-                      <Toggle
-                        aria-label="Actions"
-                        ariaHasPopup={true}
-                        bubbleEvent={false}
-                        className=""
-                        id="pf-toggle-id-0"
-                        isActive={false}
-                        isDisabled={false}
-                        isFocused={false}
-                        isHovered={false}
-                        isOpen={false}
-                        isPlain={true}
-                        isPrimary={false}
-                        isSplitButton={false}
-                        onEnter={[Function]}
-                        onToggle={[Function]}
-                        parentRef={
-                          Object {
-                            "current": <div
-                              class="pf-c-dropdown"
-                              style="float: left;"
-                            >
-                              <button
-                                aria-expanded="false"
-                                aria-haspopup="true"
-                                aria-label="Actions"
-                                class="pf-c-dropdown__toggle pf-m-plain"
-                                id="pf-toggle-id-0"
-                                type="button"
-                              >
-                                <svg
-                                  aria-hidden="true"
-                                  fill="currentColor"
-                                  height="1em"
-                                  role="img"
-                                  style="vertical-align: -0.125em;"
-                                  viewBox="0 0 192 512"
-                                  width="1em"
-                                >
-                                  <path
-                                    d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
-                                    transform=""
-                                  />
-                                </svg>
-                              </button>
-                            </div>,
-                          }
-                        }
+                      "current": <div
+                        class="pf-c-dropdown"
+                        data-ouia-component-id="0"
+                        data-ouia-component-type="PF4/Dropdown"
+                        data-ouia-safe="true"
+                        style="float: left;"
                       >
                         <button
-                          aria-expanded={false}
-                          aria-haspopup={true}
+                          aria-expanded="false"
+                          aria-haspopup="true"
                           aria-label="Actions"
-                          className="pf-c-dropdown__toggle pf-m-plain"
-                          disabled={false}
+                          class="pf-c-dropdown__toggle pf-m-plain"
                           id="pf-toggle-id-0"
-                          onClick={[Function]}
-                          onKeyDown={[Function]}
                           type="button"
                         >
-                          <EllipsisVIcon
-                            color="currentColor"
-                            noVerticalAlign={false}
-                            size="sm"
-                            title={null}
+                          <svg
+                            aria-hidden="true"
+                            fill="currentColor"
+                            height="1em"
+                            role="img"
+                            style="vertical-align: -0.125em;"
+                            viewBox="0 0 192 512"
+                            width="1em"
+                          >
+                            <path
+                              d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                              transform=""
+                            />
+                          </svg>
+                        </button>
+                      </div>,
+                    }
+                  }
+                >
+                  <Toggle
+                    aria-haspopup={true}
+                    aria-label="Actions"
+                    bubbleEvent={false}
+                    className=""
+                    getMenuRef={[Function]}
+                    id="pf-toggle-id-0"
+                    isActive={false}
+                    isDisabled={false}
+                    isOpen={false}
+                    isPlain={true}
+                    isPrimary={false}
+                    isSplitButton={false}
+                    onEnter={[Function]}
+                    onToggle={[Function]}
+                    parentRef={
+                      Object {
+                        "current": <div
+                          class="pf-c-dropdown"
+                          data-ouia-component-id="0"
+                          data-ouia-component-type="PF4/Dropdown"
+                          data-ouia-safe="true"
+                          style="float: left;"
+                        >
+                          <button
+                            aria-expanded="false"
+                            aria-haspopup="true"
+                            aria-label="Actions"
+                            class="pf-c-dropdown__toggle pf-m-plain"
+                            id="pf-toggle-id-0"
+                            type="button"
                           >
                             <svg
-                              aria-hidden={true}
-                              aria-labelledby={null}
+                              aria-hidden="true"
                               fill="currentColor"
                               height="1em"
                               role="img"
-                              style={
-                                Object {
-                                  "verticalAlign": "-0.125em",
-                                }
-                              }
+                              style="vertical-align: -0.125em;"
                               viewBox="0 0 192 512"
                               width="1em"
                             >
@@ -365,14 +263,52 @@ exports[`ConnectedBaselinesKebab should render correctly 1`] = `
                                 transform=""
                               />
                             </svg>
-                          </EllipsisVIcon>
-                        </button>
-                      </Toggle>
-                    </KebabToggle>
-                  </div>
-                </DropdownWithContext>
-              </ComponentWithOuia>
-            </Component>
+                          </button>
+                        </div>,
+                      }
+                    }
+                  >
+                    <button
+                      aria-expanded={false}
+                      aria-haspopup={true}
+                      aria-label="Actions"
+                      className="pf-c-dropdown__toggle pf-m-plain"
+                      disabled={false}
+                      id="pf-toggle-id-0"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      type="button"
+                    >
+                      <EllipsisVIcon
+                        color="currentColor"
+                        noVerticalAlign={false}
+                        size="sm"
+                      >
+                        <svg
+                          aria-hidden={true}
+                          aria-labelledby={null}
+                          fill="currentColor"
+                          height="1em"
+                          role="img"
+                          style={
+                            Object {
+                              "verticalAlign": "-0.125em",
+                            }
+                          }
+                          viewBox="0 0 192 512"
+                          width="1em"
+                        >
+                          <path
+                            d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                            transform=""
+                          />
+                        </svg>
+                      </EllipsisVIcon>
+                    </button>
+                  </Toggle>
+                </KebabToggle>
+              </div>
+            </DropdownWithContext>
           </Dropdown>
         </BaselinesKebab>
       </Connect(BaselinesKebab)>

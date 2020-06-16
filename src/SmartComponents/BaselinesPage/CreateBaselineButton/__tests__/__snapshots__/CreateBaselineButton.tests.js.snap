@@ -148,49 +148,26 @@ exports[`ConnectedCreateBaselineButton should render correctly 1`] = `
             toggleAddSystemModal={[Function]}
             toggleCreateBaselineModal={[Function]}
           >
-            <Component
+            <Button
               id="create-baseline-button"
               onClick={[Function]}
               variant="primary"
             >
-              <ComponentWithOuia
-                component={[Function]}
-                componentProps={
-                  Object {
-                    "children": "Create baseline",
-                    "id": "create-baseline-button",
-                    "onClick": [Function],
-                    "variant": "primary",
-                  }
-                }
-                consumerContext={null}
+              <button
+                aria-disabled={false}
+                aria-label={null}
+                className="pf-c-button pf-m-primary"
+                data-ouia-component-id={3}
+                data-ouia-component-type="PF4/Button"
+                data-ouia-safe={true}
+                disabled={false}
+                id="create-baseline-button"
+                onClick={[Function]}
+                type="button"
               >
-                <Button
-                  id="create-baseline-button"
-                  onClick={[Function]}
-                  ouiaContext={
-                    Object {
-                      "isOuia": false,
-                      "ouiaId": null,
-                    }
-                  }
-                  variant="primary"
-                >
-                  <button
-                    aria-disabled={null}
-                    aria-label={null}
-                    className="pf-c-button pf-m-primary"
-                    disabled={false}
-                    id="create-baseline-button"
-                    onClick={[Function]}
-                    tabIndex={null}
-                    type="button"
-                  >
-                    Create baseline
-                  </button>
-                </Button>
-              </ComponentWithOuia>
-            </Component>
+                Create baseline
+              </button>
+            </Button>
           </CreateBaselineButton>
         </Connect(CreateBaselineButton)>
       </withRouter(Connect(CreateBaselineButton))>
@@ -200,61 +177,38 @@ exports[`ConnectedCreateBaselineButton should render correctly 1`] = `
 `;
 
 exports[`CreateBaselineButton should render correctly 1`] = `
-<Component
+<Button
   id="create-baseline-button"
   onClick={[Function]}
   variant="primary"
 >
   Create baseline
-</Component>
+</Button>
 `;
 
 exports[`CreateBaselineButton should render mount correctly 1`] = `
 <CreateBaselineButton
   addSystemModalOpened={false}
 >
-  <Component
+  <Button
     id="create-baseline-button"
     onClick={[Function]}
     variant="primary"
   >
-    <ComponentWithOuia
-      component={[Function]}
-      componentProps={
-        Object {
-          "children": "Create baseline",
-          "id": "create-baseline-button",
-          "onClick": [Function],
-          "variant": "primary",
-        }
-      }
-      consumerContext={null}
+    <button
+      aria-disabled={false}
+      aria-label={null}
+      className="pf-c-button pf-m-primary"
+      data-ouia-component-id={0}
+      data-ouia-component-type="PF4/Button"
+      data-ouia-safe={true}
+      disabled={false}
+      id="create-baseline-button"
+      onClick={[Function]}
+      type="button"
     >
-      <Button
-        id="create-baseline-button"
-        onClick={[Function]}
-        ouiaContext={
-          Object {
-            "isOuia": false,
-            "ouiaId": null,
-          }
-        }
-        variant="primary"
-      >
-        <button
-          aria-disabled={null}
-          aria-label={null}
-          className="pf-c-button pf-m-primary"
-          disabled={false}
-          id="create-baseline-button"
-          onClick={[Function]}
-          tabIndex={null}
-          type="button"
-        >
-          Create baseline
-        </button>
-      </Button>
-    </ComponentWithOuia>
-  </Component>
+      Create baseline
+    </button>
+  </Button>
 </CreateBaselineButton>
 `;

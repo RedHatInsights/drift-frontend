@@ -1,12 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`table pagination should render correctly 1`] = `
-<Component
-  dropDirection="down"
+<Pagination
+  className=""
+  defaultToFullPage={false}
+  firstPage={1}
   isCompact={false}
+  isDisabled={false}
   itemCount={0}
+  itemsEnd={null}
+  itemsStart={null}
+  offset={0}
+  onFirstClick={[Function]}
+  onLastClick={[Function]}
+  onNextClick={[Function]}
+  onPageInput={[Function]}
   onPerPageSelect={[Function]}
+  onPreviousClick={[Function]}
   onSetPage={[Function]}
+  ouiaSafe={true}
   page={0}
   perPage={50}
   perPageOptions={
@@ -16,8 +28,8 @@ exports[`table pagination should render correctly 1`] = `
         "value": 10,
       },
       Object {
-        "title": "25",
-        "value": 25,
+        "title": "20",
+        "value": 20,
       },
       Object {
         "title": "50",
@@ -29,5 +41,23 @@ exports[`table pagination should render correctly 1`] = `
       },
     ]
   }
+  titles={
+    Object {
+      "currPage": "Current page",
+      "items": "",
+      "itemsPerPage": "Items per page",
+      "optionsToggle": "Items per page",
+      "page": "",
+      "paginationTitle": "Pagination",
+      "perPageSuffix": "per page",
+      "toFirstPage": "Go to first page",
+      "toLastPage": "Go to last page",
+      "toNextPage": "Go to next page",
+      "toPreviousPage": "Go to previous page",
+    }
+  }
+  toggleTemplate={[Function]}
+  variant="top"
+  widgetId="pagination-options-menu"
 />
 `;

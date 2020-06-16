@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Button, Checkbox, Form, FormGroup, Modal, TextInput } from '@patternfly/react-core';
+import { Button, Checkbox, Form, FormGroup, Modal, ModalVariant, TextInput } from '@patternfly/react-core';
 
 import { editBaselineActions } from '../redux';
 import editBaselineHelpers from '../helpers';
@@ -205,11 +205,10 @@ class FactModal extends Component {
 
         return (
             <Modal
-                className="small-modal-body"
+                variant={ ModalVariant.small }
                 title={ this.title() }
                 isOpen={ factModalOpened }
                 onClose={ this.cancelFact }
-                isFooterLeftAligned
                 actions={ [
                     <Button
                         key="confirm"

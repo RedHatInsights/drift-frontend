@@ -124,7 +124,8 @@ export class CreateBaselineModal extends Component {
     }
 
     renderCopyBaseline() {
-        const { baselineTableData, loading, createBaselineModalOpened } = this.props;
+        const { baselineTableData, loading, createBaselineModalOpened,
+            page, perPage, totalBaselines, updatePagination } = this.props;
         const { columns } = this.state;
 
         return (<React.Fragment>
@@ -136,6 +137,10 @@ export class CreateBaselineModal extends Component {
                 loading={ loading }
                 createBaselineModalOpened={ createBaselineModalOpened }
                 columns={ columns }
+                page={ page }
+                perPage={ perPage }
+                totalBaselines={ totalBaselines }
+                updatePagination={ updatePagination }
             />
         </React.Fragment>
         );
@@ -246,11 +251,10 @@ export class CreateBaselineModal extends Component {
 
         return (
             <Modal
-                className="create-baseline-modal"
+                width={ '1200px' }
                 title="Create baseline"
                 isOpen={ createBaselineModalOpened }
                 onClose={ this.cancelModal }
-                isFooterLeftAligned
                 actions={ this.renderActions() }
             >
                 { this.renderModalBody() }
@@ -271,7 +275,11 @@ CreateBaselineModal.propTypes = {
     selectedBaselineIds: PropTypes.array,
     error: PropTypes.object,
     baselineTableData: PropTypes.array,
-    loading: PropTypes.bool
+    loading: PropTypes.bool,
+    page: PropTypes.number,
+    perPage: PropTypes.number,
+    totalBaselines: PropTypes.number,
+    updatePagination: PropTypes.func
 };
 
 function mapStateToProps(state) {
@@ -283,7 +291,10 @@ function mapStateToProps(state) {
         error: state.createBaselineModalState.error,
         loading: state.baselinesTableState.radioTable.loading,
         emptyState: state.baselinesTableState.radioTable.emptyState,
-        baselineTableData: state.baselinesTableState.radioTable.baselineTableData
+        baselineTableData: state.baselinesTableState.radioTable.baselineTableData,
+        page: state.baselinesTableState.radioTable.page,
+        perPage: state.baselinesTableState.radioTable.perPage,
+        totalBaselines: state.baselinesTableState.radioTable.totalBaselines
     };
 }
 
@@ -292,7 +303,8 @@ function mapDispatchToProps(dispatch) {
         toggleCreateBaselineModal: () => dispatch(createBaselineModalActions.toggleCreateBaselineModal()),
         createBaseline: (newBaselineObject, uuid) => dispatch(createBaselineModalActions.createBaseline(newBaselineObject, uuid)),
         selectBaseline: (id, isSelected, tableId) => dispatch(baselinesTableActions.selectBaseline(id, isSelected, tableId)),
-        clearSelectedBaselines: (tableId) => dispatch(baselinesTableActions.clearSelectedBaselines(tableId))
+        clearSelectedBaselines: (tableId) => dispatch(baselinesTableActions.clearSelectedBaselines(tableId)),
+        updatePagination: (pagination, tableId) => dispatch(baselinesTableActions.updatePagination(pagination, tableId))
     };
 }
 

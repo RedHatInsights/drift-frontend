@@ -160,16 +160,16 @@ export class HistoricalProfilesDropdown extends Component {
     }
 
     render() {
-        const { isOpen, dropDownArray } = this.state;
+        const { dropDownArray, error, isOpen } = this.state;
         const { hasBadge } = this.props;
 
         return (
             <React.Fragment>
                 <Dropdown
-                    className="historical-system-profile-dropdown"
+                    className={ !error ? 'historical-system-profile-dropdown' : 'historical-system-profile-dropdown dropdown-empty-state-width' }
                     toggle={ <DropdownToggle
                         className='hsp-dropdown-icon'
-                        iconComponent={ null }
+                        toggleIndicator={ null }
                         onToggle={ this.onToggle }>
                         <HistoryIcon />
                     </DropdownToggle> }

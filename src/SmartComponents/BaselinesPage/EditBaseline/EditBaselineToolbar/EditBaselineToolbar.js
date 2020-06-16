@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Toolbar, ToolbarGroup, ToolbarItem } from '@patternfly/react-core';
+import { Toolbar, ToolbarItem, ToolbarContent } from '@patternfly/react-core';
 import { BulkSelect } from '@redhat-cloud-services/frontend-components';
 
 import EditBaselineKebab from '../EditBaselineKebab/EditBaselineKebab';
@@ -30,8 +30,8 @@ export class EditBaselineToolbar extends Component {
         const { bulkSelectItems } = this.state;
 
         return (
-            <Toolbar className='display-margin'>
-                <ToolbarGroup>
+            <Toolbar className='drift-toolbar'>
+                <ToolbarContent>
                     <ToolbarItem>
                         <BulkSelect
                             count={ selected > 0 ? selected : null }
@@ -41,15 +41,13 @@ export class EditBaselineToolbar extends Component {
                             isDisabled={ isDisabled }
                         />
                     </ToolbarItem>
-                </ToolbarGroup>
-                <ToolbarGroup>
                     <ToolbarItem>
                         <AddFactButton />
                     </ToolbarItem>
                     <ToolbarItem>
                         <EditBaselineKebab />
                     </ToolbarItem>
-                </ToolbarGroup>
+                </ToolbarContent>
             </Toolbar>
         );
     };
