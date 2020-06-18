@@ -1,4 +1,5 @@
 import baselinesReducerHelpers from './helpers';
+import helpers from '../../helpers';
 import union from 'lodash/union';
 
 const initialState = {
@@ -8,7 +9,10 @@ const initialState = {
     selectedBaselineIds: [],
     IdToDelete: '',
     emptyState: false,
-    baselineError: {}
+    baselineError: {},
+    page: 1,
+    perPage: 50,
+    totalBaselines: 0
 };
 
 const baselinesTableReducer = (tableId = '') => {
@@ -19,6 +23,7 @@ const baselinesTableReducer = (tableId = '') => {
         let newFullBaselineList;
         let response;
         let errorObject;
+        let paginatedRows = [];
 
         switch (action.type) {
             case `FETCH_BASELINE_LIST_${tableId}_PENDING`:
@@ -28,12 +33,14 @@ const baselinesTableReducer = (tableId = '') => {
                 };
             case `FETCH_BASELINE_LIST_${tableId}_FULFILLED`:
                 rows = baselinesReducerHelpers.buildBaselinesTable(action.payload.data, state.selectedBaselineIds, tableId);
+                paginatedRows = helpers.paginateData(rows, 1, state.perPage);
                 return {
                     ...state,
                     loading: false,
                     fullBaselineListData: action.payload.data,
                     emptyState: action.payload.meta.total_available === 0,
-                    baselineTableData: rows
+                    baselineTableData: paginatedRows,
+                    totalBaselines: rows.length
                 };
             case `FETCH_BASELINE_LIST_${tableId}_REJECTED`:
                 response = action.payload.response;
@@ -90,10 +97,12 @@ const baselinesTableReducer = (tableId = '') => {
                 };
             case `SET_SELECTED_BASELINES_${tableId}`:
                 rows = baselinesReducerHelpers.buildBaselinesTable(state.fullBaselineListData, action.payload);
+                paginatedRows = helpers.paginateData(rows, state.page, state.perPage);
                 return {
                     ...state,
-                    baselineTableData: rows,
-                    selectedBaselineIds: action.payload
+                    baselineTableData: paginatedRows,
+                    selectedBaselineIds: action.payload,
+                    totalBaselines: rows.length
                 };
             case `CLEAR_SELECTED_BASELINES_${tableId}`:
                 return {
@@ -112,20 +121,32 @@ const baselinesTableReducer = (tableId = '') => {
                 };
             case `DELETE_BASELINE_${tableId}_FULFILLED`:
                 newBaselineTableData = baselinesReducerHelpers.buildNewTableData(state.fullBaselineListData, state.IdToDelete);
+                paginatedRows = helpers.paginateData(newBaselineTableData, state.page, state.perPage);
                 newFullBaselineList = baselinesReducerHelpers.buildNewBaselineList(state.fullBaselineListData, state.IdToDelete);
                 return {
                     ...state,
                     loading: false,
-                    baselineTableData: newBaselineTableData,
+                    baselineTableData: paginatedRows,
                     fullBaselineListData: newFullBaselineList,
                     emptyState: newBaselineTableData.length === 0,
-                    IdToDelete: ''
+                    IdToDelete: '',
+                    totalBaselines: newBaselineTableData.length
                 };
             case `DELETE_BASELINE_${tableId}_REJECTED`:
                 return {
                     ...state,
                     loading: false,
                     IdToDelete: ''
+                };
+            case `UPDATE_BASELINES_PAGINATION_${tableId}`:
+                rows = baselinesReducerHelpers.buildBaselinesTable(state.fullBaselineListData, state.selectedBaselineIds);
+                paginatedRows = helpers.paginateData(rows, action.payload.page, action.payload.perPage);
+                return {
+                    ...state,
+                    baselineTableData: paginatedRows,
+                    page: action.payload.page,
+                    perPage: action.payload.perPage,
+                    totalBaselines: rows.length
                 };
             default:
                 return state;

@@ -76,7 +76,7 @@ function filterByFact(filter) {
 
 function updatePagination(pagination) {
     return {
-        type: types.UPDATE_PAGINATION,
+        type: types.UPDATE_DRIFT_PAGINATION,
         payload: pagination
     };
 }

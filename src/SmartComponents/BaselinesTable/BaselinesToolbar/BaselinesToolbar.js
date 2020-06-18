@@ -11,6 +11,7 @@ import ActionKebab from '../../DriftPage/ActionKebab/ActionKebab';
 import DeleteBaselinesModal from '../../BaselinesPage/DeleteBaselinesModal/DeleteBaselinesModal';
 import BaselinesFilterChips from '../BaselinesFilterChips/BaselinesFilterChips';
 import helpers from '../../helpers';
+import { TablePagination } from '../../Pagination/Pagination';
 
 export class BaselinesToolbar extends Component {
     constructor(props) {
@@ -85,7 +86,8 @@ export class BaselinesToolbar extends Component {
 
     render() {
         const { createButton, exportButton, fetchWithParams,
-            hasMultiSelect, kebab, onBulkSelect, tableData, tableId } = this.props;
+            hasMultiSelect, kebab, onBulkSelect, tableData, tableId,
+            page, perPage, totalBaselines, updatePagination } = this.props;
         const { bulkSelectItems, deleteModalOpened, nameSearch } = this.state;
         let selected = tableData.filter(baseline => baseline.selected === true).length;
 
@@ -143,6 +145,18 @@ export class BaselinesToolbar extends Component {
                             : null
                         }
                     </ToolbarGroup>
+                    <ToolbarGroup className='pf-c-pagination'>
+                        <ToolbarItem>
+                            <TablePagination
+                                page={ page }
+                                perPage={ perPage }
+                                total={ totalBaselines }
+                                isCompact={ true }
+                                updatePagination={ updatePagination }
+                                tableId={ tableId }
+                            />
+                        </ToolbarItem>
+                    </ToolbarGroup>
                 </Toolbar>
                 { nameSearch.length > 0 ?
                     <Toolbar className="drift-toolbar">
@@ -179,7 +193,11 @@ BaselinesToolbar.propTypes = {
     hasMultiSelect: PropTypes.bool,
     clearSort: PropTypes.func,
     selectedBaselineIds: PropTypes.array,
-    isDisabled: PropTypes.bool
+    isDisabled: PropTypes.bool,
+    page: PropTypes.number,
+    perPage: PropTypes.number,
+    totalBaselines: PropTypes.number,
+    updatePagination: PropTypes.func
 };
 
 export default BaselinesToolbar;

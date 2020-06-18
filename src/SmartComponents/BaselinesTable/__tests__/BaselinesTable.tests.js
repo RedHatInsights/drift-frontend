@@ -128,11 +128,13 @@ describe('ConnectedBaselinesTable', () => {
     it('should sort by display_name', () => {
         const store = mockStore(initialState);
         baselinesReducerHelpers.fetchBaselines = jest.fn();
+        const onSelect = jest.fn();
         const wrapper = mount(
             <MemoryRouter keyLength={ 0 }>
                 <Provider store={ store }>
                     <ConnectedBaselinesTable
                         { ...props }
+                        onSelect={ onSelect }
                     />
                 </Provider>
             </MemoryRouter>

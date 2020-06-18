@@ -16,7 +16,7 @@ import FilterDropDown from './FilterDropDown/FilterDropDown';
 import SearchBar from './SearchBar/SearchBar';
 import ActionKebab from './ActionKebab/ActionKebab';
 import ErrorAlert from '../ErrorAlert/ErrorAlert';
-import TablePagination from './Pagination/Pagination';
+import TablePagination from '../Pagination/Pagination';
 import ExportCSVButton from './ExportCSVButton/ExportCSVButton';
 import DriftFilterChips from './DriftFilterChips/DriftFilterChips';
 import AddSystemButton from './AddSystemButton/AddSystemButton';
@@ -59,7 +59,7 @@ export class DriftPage extends Component {
     }
 
     render() {
-        const { loading, emptyState, updatePagination, updateReferenceId } = this.props;
+        const { loading, emptyState, updatePagination, updateReferenceId, page, perPage, totalFacts } = this.props;
         const { actionKebabItems, isEmpty } = this.state;
 
         if (this.props.error.detail) {
@@ -99,6 +99,9 @@ export class DriftPage extends Component {
                                             <ToolbarGroup className="pf-c-pagination">
                                                 <ToolbarItem>
                                                     <TablePagination
+                                                        page={ page }
+                                                        perPage={ perPage }
+                                                        total={ totalFacts }
                                                         isCompact={ true }
                                                         updatePagination={ updatePagination }
                                                     />
@@ -131,6 +134,9 @@ export class DriftPage extends Component {
                                         <ToolbarGroup className="pf-c-pagination">
                                             <ToolbarItem>
                                                 <TablePagination
+                                                    page={ page }
+                                                    perPage={ perPage }
+                                                    total={ totalFacts }
                                                     isCompact={ false }
                                                     updatePagination={ updatePagination }
                                                 />
@@ -149,6 +155,9 @@ export class DriftPage extends Component {
 }
 
 DriftPage.propTypes = {
+    perPage: PropTypes.number,
+    page: PropTypes.number,
+    totalFacts: PropTypes.number,
     error: PropTypes.object,
     loading: PropTypes.bool,
     toggleErrorAlert: PropTypes.func,
@@ -177,6 +186,9 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
     return {
+        page: state.compareState.page,
+        perPage: state.compareState.perPage,
+        totalFacts: state.compareState.totalFacts,
         error: state.compareState.error,
         loading: state.compareState.loading,
         emptyState: state.compareState.emptyState,

@@ -112,7 +112,7 @@ export function compareReducer(state = initialState, action) {
                 error: errorObject,
                 emptyState: false
             };
-        case `${types.UPDATE_PAGINATION}`:
+        case `${types.UPDATE_DRIFT_PAGINATION}`:
             filteredFacts = reducerHelpers.filterCompareData(state.fullCompareData, state.stateFilters, state.factFilter);
             sortedFacts = reducerHelpers.sortData(filteredFacts, state.factSort, state.stateSort);
             paginatedFacts = reducerHelpers.paginateData(sortedFacts, action.payload.page, action.payload.perPage);
