@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Table, TableBody, TableHeader } from '@patternfly/react-table';
 import { Skeleton, SkeletonSize, EmptyTable } from '@redhat-cloud-services/frontend-components';
-import { Radio } from '@patternfly/react-core';
+import { Radio, Toolbar, ToolbarGroup, ToolbarItem } from '@patternfly/react-core';
 
 import BaselineTableKebab from './BaselineTableKebab/BaselineTableKebab';
 import { baselinesTableActions } from './redux';
 import baselinesReducerHelpers from './redux/helpers';
 import BaselinesToolbar from './BaselinesToolbar/BaselinesToolbar';
 import EmptyStateDisplay from '../EmptyStateDisplay/EmptyStateDisplay';
+import TablePagination from '../Pagination/Pagination';
 
 export class BaselinesTable extends Component {
     constructor(props) {
@@ -234,7 +235,8 @@ export class BaselinesTable extends Component {
     }
 
     render() {
-        const { kebab, createButton, exportButton, hasMultiSelect, onBulkSelect, selectedBaselineIds, tableData, tableId } = this.props;
+        const { kebab, createButton, exportButton, hasMultiSelect, onBulkSelect, selectedBaselineIds,
+            tableData, tableId, page, perPage, totalBaselines, updatePagination } = this.props;
 
         return (
             <React.Fragment>
@@ -250,8 +252,26 @@ export class BaselinesTable extends Component {
                     hasMultiSelect={ hasMultiSelect }
                     selectedBaselineIds={ selectedBaselineIds }
                     isDisabled={ this.isDisabled() }
+                    page={ page }
+                    perPage={ perPage }
+                    totalBaselines={ totalBaselines }
+                    updatePagination={ updatePagination }
                 />
                 { this.renderTable() }
+                <Toolbar>
+                    <ToolbarGroup className='pf-c-pagination'>
+                        <ToolbarItem>
+                            <TablePagination
+                                page={ page }
+                                perPage={ perPage }
+                                total={ totalBaselines }
+                                isCompact={ false }
+                                updatePagination={ updatePagination }
+                                tableId={ tableId }
+                            />
+                        </ToolbarItem>
+                    </ToolbarGroup>
+                </Toolbar>
             </React.Fragment>
         );
     }
@@ -270,7 +290,11 @@ BaselinesTable.propTypes = {
     onSelect: PropTypes.func,
     columns: PropTypes.array,
     onBulkSelect: PropTypes.func,
-    selectedBaselineIds: PropTypes.array
+    selectedBaselineIds: PropTypes.array,
+    page: PropTypes.number,
+    perPage: PropTypes.number,
+    totalBaselines: PropTypes.number,
+    updatePagination: PropTypes.func
 };
 
 function mapDispatchToProps(dispatch) {

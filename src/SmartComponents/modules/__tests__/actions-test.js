@@ -162,7 +162,7 @@ describe('compare actions', () => {
         };
 
         expect(compareActions.updatePagination(pagination)).toEqual({
-            type: types.UPDATE_PAGINATION,
+            type: types.UPDATE_DRIFT_PAGINATION,
             payload: pagination
         });
     });

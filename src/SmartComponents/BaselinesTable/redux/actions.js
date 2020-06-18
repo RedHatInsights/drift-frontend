@@ -46,6 +46,13 @@ function deleteSelectedBaselines(deleteBaselinesAPIBody, tableId) {
     };
 }
 
+function updatePagination(pagination, tableId) {
+    return {
+        type: `UPDATE_BASELINES_PAGINATION_${tableId}`,
+        payload: pagination
+    };
+}
+
 export default {
     fetchBaselines,
     revertBaselineFetch,
@@ -53,5 +60,6 @@ export default {
     setSelectedBaselines,
     clearSelectedBaselines,
     clearBaselineData,
-    deleteSelectedBaselines
+    deleteSelectedBaselines,
+    updatePagination
 };

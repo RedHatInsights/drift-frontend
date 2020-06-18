@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import { instanceOf } from 'prop-types';
 import PropTypes from 'prop-types';
 import { Button, Modal, Tab, Tabs } from '@patternfly/react-core';
 import { connect } from 'react-redux';
-import { withCookies, Cookies } from 'react-cookie';
 import { sortable } from '@patternfly/react-table';
 
 import SystemsTable from '../SystemsTable/SystemsTable';
@@ -12,10 +10,6 @@ import { addSystemModalActions } from './redux';
 import { baselinesTableActions } from '../BaselinesTable/redux';
 
 export class AddSystemModal extends Component {
-    static propTypes = {
-        cookies: instanceOf(Cookies).isRequired
-    };
-
     constructor(props) {
         super(props);
         this.confirmModal = this.confirmModal.bind(this);
@@ -199,4 +193,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default withCookies(connect(mapStateToProps, mapDispatchToProps)(AddSystemModal));
+export default connect(mapStateToProps, mapDispatchToProps)(AddSystemModal);

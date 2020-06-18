@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { Pagination, DropdownDirection } from '@patternfly/react-core';
@@ -20,29 +19,33 @@ export class TablePagination extends Component {
     }
 
     onSetPage(event, page) {
-        const { updatePagination } = this.props;
+        const { tableId, updatePagination } = this.props;
 
         const { perPage } = this.props;
         const pagination = { page, perPage };
-        updatePagination(pagination);
+        tableId
+            ? updatePagination(pagination, tableId)
+            : updatePagination(pagination);
     }
 
     onPerPageSelect(event, perPage) {
-        const { updatePagination } = this.props;
+        const { tableId, updatePagination } = this.props;
 
         const page = 1;
         const pagination = { page, perPage };
-        updatePagination(pagination);
+        tableId
+            ? updatePagination(pagination, tableId)
+            : updatePagination(pagination);
     }
 
     render() {
-        const { totalFacts, page, perPage, isCompact } = this.props;
+        const { total, page, perPage, isCompact } = this.props;
 
         return (
             <Pagination
-                itemCount={ totalFacts ? totalFacts : 0 }
+                itemCount={ total ? total : 0 }
                 perPageOptions={ perPageOptions }
-                page={ totalFacts === 0 ? 0 : page }
+                page={ total === 0 ? 0 : page }
                 perPage={ perPage }
                 dropDirection={ DropdownDirection.down }
                 onSetPage={ this.onSetPage }
@@ -57,16 +60,9 @@ TablePagination.propTypes = {
     perPage: PropTypes.number,
     page: PropTypes.number,
     updatePagination: PropTypes.func,
-    totalFacts: PropTypes.number,
-    isCompact: PropTypes.bool
+    total: PropTypes.number,
+    isCompact: PropTypes.bool,
+    tableId: PropTypes.string
 };
 
-function mapStateToProps(state) {
-    return {
-        page: state.compareState.page,
-        perPage: state.compareState.perPage,
-        totalFacts: state.compareState.totalFacts
-    };
-}
-
-export default connect(mapStateToProps, null)(TablePagination);
+export default TablePagination;

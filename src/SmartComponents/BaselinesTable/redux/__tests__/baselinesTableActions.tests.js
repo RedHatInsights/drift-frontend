@@ -33,4 +33,11 @@ describe('baselines table actions', () => {
             payload: [ 'abc', '123' ]
         });
     });
+
+    it('handles pdates pagination', () => {
+        expect(baselinesTableActions.updatePagination({ page: 1, perPage: 50 }, 'CHECKBOX')).toEqual({
+            type: `UPDATE_BASELINES_PAGINATION_CHECKBOX`,
+            payload: { page: 1, perPage: 50 }
+        });
+    });
 });

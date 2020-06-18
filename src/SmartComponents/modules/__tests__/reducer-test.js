@@ -301,7 +301,7 @@ describe('compare reducer', () => {
         });
     });
 
-    it('should handle UPDATE_PAGINATION no data', () => {
+    it('should handle UPDATE_DRIFT_PAGINATION no data', () => {
         expect(
             compareReducer({
                 perPage: 50,
@@ -312,7 +312,7 @@ describe('compare reducer', () => {
                 stateFilter: 'all' },
             {
                 payload: { perPage: 2, page: 1 },
-                type: `${types.UPDATE_PAGINATION}`
+                type: `${types.UPDATE_DRIFT_PAGINATION}`
             })
         ).toEqual({
             fullCompareData: [],
@@ -327,7 +327,7 @@ describe('compare reducer', () => {
         });
     });
 
-    it('should handle UPDATE_PAGINATION page one', () => {
+    it('should handle UPDATE_DRIFT_PAGINATION page one', () => {
         expect(
             compareReducer({
                 perPage: 50,
@@ -342,7 +342,7 @@ describe('compare reducer', () => {
                 ]},
             {
                 payload: { perPage: 2, page: 1 },
-                type: `${types.UPDATE_PAGINATION}`
+                type: `${types.UPDATE_DRIFT_PAGINATION}`
             })
         ).toEqual({
             fullCompareData: compareReducerState.facts,
@@ -376,7 +376,7 @@ describe('compare reducer', () => {
                 ]},
             {
                 payload: { perPage: 2, page: 2 },
-                type: `${types.UPDATE_PAGINATION}`
+                type: `${types.UPDATE_DRIFT_PAGINATION}`
             })
         ).toEqual({
             fullCompareData: compareReducerState.facts,
@@ -410,7 +410,7 @@ describe('compare reducer', () => {
                 ]},
             {
                 payload: { perPage: 2, page: 3 },
-                type: `${types.UPDATE_PAGINATION}`
+                type: `${types.UPDATE_DRIFT_PAGINATION}`
             })
         ).toEqual({
             fullCompareData: compareReducerState.facts,

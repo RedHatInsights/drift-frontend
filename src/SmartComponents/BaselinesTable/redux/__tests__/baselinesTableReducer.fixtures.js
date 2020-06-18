@@ -55,6 +55,14 @@ const baselineTableDataRows = ([
     [ 'abcd', 'micjohns baseline', moment('19 May 2019, 15:00 UTC').fromNow() ]
 ]);
 
+const baselineTableDataRow1 = ([
+    [ '1234', 'beavs baseline', moment('18 May 2019, 15:00 UTC').fromNow() ]
+]);
+
+const baselineTableDataRow2 = ([
+    [ 'abcd', 'micjohns baseline', moment('19 May 2019, 15:00 UTC').fromNow() ]
+]);
+
 function baselineTableDataTwoSelected() {
     let baselineTableDataTwoSelected = [];
 
@@ -84,6 +92,8 @@ export default {
     baselinesListPayload,
     baselinesListPayloadResults,
     baselineTableDataRows,
+    baselineTableDataRow1,
+    baselineTableDataRow2,
     baselineTableDataTwoSelected,
     baselineTableDataOneSelected,
     baselinesListEmptyPayload
