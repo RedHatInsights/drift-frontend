@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as reactRouterDom from 'react-router-dom';
+import * as ReactRedux from 'react-redux';
 import PropTypes from 'prop-types';
 import * as reactCore from '@patternfly/react-core';
 import * as reactIcons from '@patternfly/react-icons';
@@ -28,6 +29,7 @@ class SystemsTable extends Component {
 
     async fetchInventory() {
         const { inventoryConnector, mergeWithEntities, INVENTORY_ACTION_TYPES } = await insights.loadInventory({
+            ReactRedux,
             react: React,
             reactRouterDom,
             reactCore,
