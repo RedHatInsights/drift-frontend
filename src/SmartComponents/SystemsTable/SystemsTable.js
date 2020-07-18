@@ -54,7 +54,7 @@ class SystemsTable extends Component {
     render() {
         const { InventoryCmp } = this.state;
         return (
-            <InventoryCmp/>
+            <InventoryCmp showTags="true"/>
         );
     }
 }
