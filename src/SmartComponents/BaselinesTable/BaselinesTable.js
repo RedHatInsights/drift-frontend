@@ -24,6 +24,8 @@ export class BaselinesTable extends Component {
             search: undefined,
             orderBy: 'display_name',
             orderHow: 'ASC',
+            page: 1,
+            perPage: 20,
             emptyStateMessage: [
                 'This filter criteria matches no baselines.',
                 'Try changing your filter settings.'
@@ -32,10 +34,8 @@ export class BaselinesTable extends Component {
     }
 
     async componentDidMount() {
-        const { tableId, fetchBaselines } = this.props;
-
         await window.insights.chrome.auth.getUser();
-        baselinesReducerHelpers.fetchBaselines(tableId, fetchBaselines);
+        this.fetchWithParams();
     }
 
     isDisabled = () => {
@@ -46,13 +46,13 @@ export class BaselinesTable extends Component {
 
     fetchWithParams = (fetchParams) => {
         const { tableId, fetchBaselines } = this.props;
-        const { orderBy, orderHow, search } = this.state;
 
-        baselinesReducerHelpers.fetchBaselines(
-            tableId,
-            fetchBaselines,
-            fetchParams ? fetchParams : { orderBy, orderHow, search }
-        );
+        fetchParams = {
+            ...this.state,
+            ...fetchParams
+        };
+
+        baselinesReducerHelpers.fetchBaselines(tableId, fetchBaselines, fetchParams);
     }
 
     onSearch = (search) => {
@@ -83,6 +83,11 @@ export class BaselinesTable extends Component {
         });
 
         this.fetchWithParams({ orderBy, orderHow: direction.toUpperCase(), search });
+    }
+
+    updatePagination = (pagination) => {
+        this.setState({ page: pagination.page, perPage: pagination.perPage });
+        this.fetchWithParams({ page: pagination.page, perPage: pagination.perPage });
     }
 
     renderLoadingRows() {
@@ -236,7 +241,8 @@ export class BaselinesTable extends Component {
 
     render() {
         const { kebab, createButton, exportButton, hasMultiSelect, onBulkSelect, selectedBaselineIds,
-            tableData, tableId, page, perPage, totalBaselines, updatePagination } = this.props;
+            tableData, tableId, totalBaselines } = this.props;
+        const { page, perPage } = this.state;
 
         return (
             <React.Fragment>
@@ -255,7 +261,7 @@ export class BaselinesTable extends Component {
                     page={ page }
                     perPage={ perPage }
                     totalBaselines={ totalBaselines }
-                    updatePagination={ updatePagination }
+                    updatePagination={ this.updatePagination }
                 />
                 { this.renderTable() }
                 <Toolbar>
@@ -266,7 +272,7 @@ export class BaselinesTable extends Component {
                                 perPage={ perPage }
                                 total={ totalBaselines }
                                 isCompact={ false }
-                                updatePagination={ updatePagination }
+                                updatePagination={ this.updatePagination }
                                 tableId={ tableId }
                             />
                         </ToolbarItem>
@@ -291,10 +297,7 @@ BaselinesTable.propTypes = {
     columns: PropTypes.array,
     onBulkSelect: PropTypes.func,
     selectedBaselineIds: PropTypes.array,
-    page: PropTypes.number,
-    perPage: PropTypes.number,
-    totalBaselines: PropTypes.number,
-    updatePagination: PropTypes.func
+    totalBaselines: PropTypes.number
 };
 
 function mapDispatchToProps(dispatch) {

@@ -124,8 +124,7 @@ export class CreateBaselineModal extends Component {
     }
 
     renderCopyBaseline() {
-        const { baselineTableData, loading, createBaselineModalOpened,
-            page, perPage, totalBaselines, updatePagination } = this.props;
+        const { baselineTableData, loading, createBaselineModalOpened, totalBaselines } = this.props;
         const { columns } = this.state;
 
         return (<React.Fragment>
@@ -137,10 +136,7 @@ export class CreateBaselineModal extends Component {
                 loading={ loading }
                 createBaselineModalOpened={ createBaselineModalOpened }
                 columns={ columns }
-                page={ page }
-                perPage={ perPage }
                 totalBaselines={ totalBaselines }
-                updatePagination={ updatePagination }
             />
         </React.Fragment>
         );
@@ -278,8 +274,7 @@ CreateBaselineModal.propTypes = {
     loading: PropTypes.bool,
     page: PropTypes.number,
     perPage: PropTypes.number,
-    totalBaselines: PropTypes.number,
-    updatePagination: PropTypes.func
+    totalBaselines: PropTypes.number
 };
 
 function mapStateToProps(state) {
@@ -303,8 +298,7 @@ function mapDispatchToProps(dispatch) {
         toggleCreateBaselineModal: () => dispatch(createBaselineModalActions.toggleCreateBaselineModal()),
         createBaseline: (newBaselineObject, uuid) => dispatch(createBaselineModalActions.createBaseline(newBaselineObject, uuid)),
         selectBaseline: (id, isSelected, tableId) => dispatch(baselinesTableActions.selectBaseline(id, isSelected, tableId)),
-        clearSelectedBaselines: (tableId) => dispatch(baselinesTableActions.clearSelectedBaselines(tableId)),
-        updatePagination: (pagination, tableId) => dispatch(baselinesTableActions.updatePagination(pagination, tableId))
+        clearSelectedBaselines: (tableId) => dispatch(baselinesTableActions.clearSelectedBaselines(tableId))
     };
 }
 

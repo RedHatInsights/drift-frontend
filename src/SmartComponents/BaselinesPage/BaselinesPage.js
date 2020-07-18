@@ -74,7 +74,7 @@ export class BaselinesPage extends Component {
 
     renderTable() {
         const { baselineTableData, loading, createBaselineModalOpened, clearEditBaselineData, selectedBaselineIds,
-            page, perPage, totalBaselines, updatePagination } = this.props;
+            totalBaselines } = this.props;
         const { columns } = this.state;
 
         clearEditBaselineData();
@@ -96,10 +96,7 @@ export class BaselinesPage extends Component {
                         createBaselineModalOpened={ createBaselineModalOpened }
                         onBulkSelect={ this.onBulkSelect }
                         selectedBaselineIds={ selectedBaselineIds }
-                        page={ page }
-                        perPage={ perPage }
                         totalBaselines={ totalBaselines }
-                        updatePagination={ updatePagination }
                     />
                 </div>
             </CardBody>
@@ -168,10 +165,7 @@ BaselinesPage.propTypes = {
     revertBaselineFetch: PropTypes.func,
     clearEditBaselineData: PropTypes.func,
     selectedBaselineIds: PropTypes.array,
-    page: PropTypes.number,
-    perPage: PropTypes.number,
-    totalBaselines: PropTypes.number,
-    updatePagination: PropTypes.func
+    totalBaselines: PropTypes.number
 };
 
 function mapStateToProps(state) {
@@ -182,8 +176,6 @@ function mapStateToProps(state) {
         createBaselineModalOpened: state.createBaselineModalState.createBaselineModalOpened,
         baselineError: state.baselinesTableState.checkboxTable.baselineError,
         selectedBaselineIds: state.baselinesTableState.checkboxTable.selectedBaselineIds,
-        page: state.baselinesTableState.checkboxTable.page,
-        perPage: state.baselinesTableState.checkboxTable.perPage,
         totalBaselines: state.baselinesTableState.checkboxTable.totalBaselines
     };
 }
@@ -192,8 +184,7 @@ function mapDispatchToProps(dispatch) {
     return {
         selectBaseline: (id, isSelected, tableId) => dispatch(baselinesTableActions.selectBaseline(id, isSelected, tableId)),
         revertBaselineFetch: (tableId) => dispatch(baselinesTableActions.revertBaselineFetch(tableId)),
-        clearEditBaselineData: () => dispatch(editBaselineActions.clearEditBaselineData()),
-        updatePagination: (pagination, tableId) => dispatch(baselinesTableActions.updatePagination(pagination, tableId))
+        clearEditBaselineData: () => dispatch(editBaselineActions.clearEditBaselineData())
     };
 }
 

@@ -8,14 +8,11 @@ describe('baselines table reducer', () => {
     it('should return initial state', () => {
         expect(checkboxTableReducer(undefined, {})).toEqual({
             loading: false,
-            fullBaselineListData: [],
             baselineTableData: [],
             selectedBaselineIds: [],
             IdToDelete: '',
             emptyState: false,
             baselineError: {},
-            page: 1,
-            perPage: 50,
             totalBaselines: 0
         });
     });
@@ -34,8 +31,6 @@ describe('baselines table reducer', () => {
         expect(
             checkboxTableReducer({
                 loading: true,
-                page: 1,
-                perPage: 50,
                 totalBaselines: 0
             }, {
                 type: `${types.FETCH_BASELINE_LIST}_CHECKBOX_FULFILLED`,
@@ -43,11 +38,8 @@ describe('baselines table reducer', () => {
             })
         ).toEqual({
             loading: false,
-            fullBaselineListData: baselinesFixtures.baselinesListPayloadResults,
             baselineTableData: baselinesFixtures.baselineTableDataRows,
             emptyState: false,
-            page: 1,
-            perPage: 50,
             totalBaselines: 2
         });
     });
@@ -60,7 +52,6 @@ describe('baselines table reducer', () => {
             })
         ).toEqual({
             loading: false,
-            fullBaselineListData: [],
             baselineTableData: [],
             emptyState: true,
             totalBaselines: 0
@@ -68,27 +59,22 @@ describe('baselines table reducer', () => {
     });
 
     it('should handle FETCH_BASELINE_LIST_FULFILLED with selected baselines', () => {
-        let newRowsWithOneSelected = baselinesFixtures.baselineTableDataRows;
+        let newRowsWithOneSelected = [ ...baselinesFixtures.baselineTableDataRows ];
         newRowsWithOneSelected[0].selected = true;
 
-        expect(
-            checkboxTableReducer({
-                loading: true,
-                selectedBaselineIds: [ '1234' ],
-                page: 1,
-                perPage: 50
-            }, {
-                type: `${types.FETCH_BASELINE_LIST}_CHECKBOX_FULFILLED`,
-                payload: baselinesFixtures.baselinesListPayload
-            })
-        ).toEqual({
-            loading: false,
-            fullBaselineListData: baselinesFixtures.baselinesListPayloadResults,
+        let output = checkboxTableReducer({
+            loading: true,
+            selectedBaselineIds: [ '1234' ]
+        }, {
+            type: `${types.FETCH_BASELINE_LIST}_CHECKBOX_FULFILLED`,
+            payload: baselinesFixtures.baselinesListPayload
+        });
+
+        expect(output).toMatchObject({
             baselineTableData: newRowsWithOneSelected,
-            selectedBaselineIds: [ '1234' ],
             emptyState: false,
-            page: 1,
-            perPage: 50,
+            loading: false,
+            selectedBaselineIds: [ '1234' ],
             totalBaselines: 2
         });
     });
@@ -103,7 +89,6 @@ describe('baselines table reducer', () => {
         expect(
             checkboxTableReducer({
                 baselineTableData: baselinesFixtures.baselineTableDataRows,
-                fullBaselineListData: baselinesFixtures.baselinesListPayloadResults,
                 selectedBaselineIds: []
             }, {
                 type: `${types.SELECT_BASELINE}_CHECKBOX`,
@@ -113,7 +98,6 @@ describe('baselines table reducer', () => {
                 }
             })
         ).toEqual({
-            fullBaselineListData: baselinesFixtures.baselinesListPayloadResults,
             baselineTableData: newRowsWithOneSelected,
             selectedBaselineIds: oneSelectedBaseline
         });
@@ -133,7 +117,6 @@ describe('baselines table reducer', () => {
         expect(
             checkboxTableReducer({
                 baselineTableData: newRowsWithOneSelected,
-                fullBaselineListData: baselinesFixtures.baselinesListPayloadResults,
                 selectedBaselineIds: oneSelectedBaseline
             }, {
                 type: `${types.SELECT_BASELINE}_CHECKBOX`,
@@ -143,7 +126,6 @@ describe('baselines table reducer', () => {
                 }
             })
         ).toEqual({
-            fullBaselineListData: baselinesFixtures.baselinesListPayloadResults,
             baselineTableData: newRowsWithTwoSelected,
             selectedBaselineIds: twoSelectedBaselines
         });
@@ -166,7 +148,6 @@ describe('baselines table reducer', () => {
         expect(
             checkboxTableReducer({
                 baselineTableData: newRowsWithTwoSelected,
-                fullBaselineListData: baselinesFixtures.baselinesListPayloadResults,
                 selectedBaselineIds: twoSelectedBaselines
             }, {
                 type: `${types.SELECT_BASELINE}_CHECKBOX`,
@@ -176,7 +157,6 @@ describe('baselines table reducer', () => {
                 }
             })
         ).toEqual({
-            fullBaselineListData: baselinesFixtures.baselinesListPayloadResults,
             baselineTableData: newRowsWithOneDeselected,
             selectedBaselineIds: oneSelectedBaseline
         });
@@ -185,58 +165,16 @@ describe('baselines table reducer', () => {
     it('should handle SET_SELECTED_BASELINES', () => {
         expect(
             checkboxTableReducer({
-                fullBaselineListData: baselinesFixtures.baselinesListPayloadResults,
                 selectedBaselineIds: [],
-                page: 1,
-                perPage: 50
+                baselineTableData: baselinesFixtures.baselineTableDataRows,
+                totalBaselines: 2
             }, {
                 type: `${types.SET_SELECTED_BASELINES}_CHECKBOX`,
                 payload: [ '1234', 'abcd' ]
             })
         ).toEqual({
-            fullBaselineListData: baselinesFixtures.baselinesListPayloadResults,
             baselineTableData: baselinesFixtures.baselineTableDataTwoSelected(),
             selectedBaselineIds: [ '1234', 'abcd' ],
-            page: 1,
-            perPage: 50,
-            totalBaselines: 2
-        });
-    });
-
-    it('should handle UPDATE_BASELINES_PAGINATION page', () => {
-        expect(
-            checkboxTableReducer({
-                fullBaselineListData: baselinesFixtures.baselinesListPayloadResults,
-                page: 1,
-                perPage: 1
-            }, {
-                type: `${types.UPDATE_BASELINES_PAGINATION}_CHECKBOX`,
-                payload: { page: 2, perPage: 1 }
-            })
-        ).toEqual({
-            fullBaselineListData: baselinesFixtures.baselinesListPayloadResults,
-            baselineTableData: baselinesFixtures.baselineTableDataRow2,
-            page: 2,
-            perPage: 1,
-            totalBaselines: 2
-        });
-    });
-
-    it.skip('should handle UPDATE_BASELINES_PAGINATION per page', () => {
-        expect(
-            checkboxTableReducer({
-                fullBaselineListData: baselinesFixtures.baselinesListPayloadResults,
-                page: 1,
-                perPage: 1
-            }, {
-                type: `${types.UPDATE_BASELINES_PAGINATION}_CHECKBOX`,
-                payload: { page: 1, perPage: 2 }
-            })
-        ).toStrictEqual({
-            fullBaselineListData: baselinesFixtures.baselinesListPayloadResults,
-            baselineTableData: baselinesFixtures.baselineTableDataRows,
-            page: 1,
-            perPage: 2,
             totalBaselines: 2
         });
     });

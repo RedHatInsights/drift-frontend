@@ -146,7 +146,18 @@ describe('ConnectedBaselinesTable', () => {
             expect.any(Function),
             {
                 orderBy: 'display_name',
-                orderHow: 'DESC'
+                orderHow: 'DESC',
+                emptyStateMessage: [
+                    'This filter criteria matches no baselines.',
+                    'Try changing your filter settings.'
+                ],
+                page: 1,
+                perPage: 20,
+                search: undefined,
+                sortBy: {
+                    direction: 'asc',
+                    index: 1
+                }
             }
         );
 
@@ -156,7 +167,18 @@ describe('ConnectedBaselinesTable', () => {
             expect.any(Function),
             {
                 orderBy: 'display_name',
-                orderHow: 'ASC'
+                orderHow: 'ASC',
+                emptyStateMessage: [
+                    'This filter criteria matches no baselines.',
+                    'Try changing your filter settings.'
+                ],
+                page: 1,
+                perPage: 20,
+                search: undefined,
+                sortBy: {
+                    direction: 'desc',
+                    index: 1
+                }
             }
         );
     });

@@ -6,6 +6,8 @@ function fetchBaselines (tableId, fetchBaselines, fetchParams = {}) {
     /*eslint-disable camelcase*/
     params.order_by = fetchParams.orderBy;
     params.order_how = fetchParams.orderHow;
+    params.limit = fetchParams.perPage;
+    params.offset = (fetchParams.page - 1) * fetchParams.perPage;
 
     if (fetchParams.search) {
         params.display_name = fetchParams.search;
@@ -27,18 +29,32 @@ function buildBaselinesTable(data, selectedBaselineIds) {
         row.push(baseline.display_name);
         row.push(dateTimeStamp);
 
-        if (selectedBaselineIds) {
-            if (selectedBaselineIds.find(function(id) {
-                return baseline.id === id;
-            })) {
-                row.selected = true;
-            }
-        }
-
         rows.push(row);
     });
 
+    if (selectedBaselineIds) {
+        rows = setSelected(rows, selectedBaselineIds);
+    }
+
     return rows;
+}
+
+function setSelected(baselineRows, selectedBaselineIds) {
+    if (selectedBaselineIds === undefined) {
+        selectedBaselineIds = [];
+    }
+
+    baselineRows.forEach(function(baseline) {
+        let found = selectedBaselineIds.find(function(id) {
+            return baseline[0] === id;
+        });
+
+        if (found !== undefined) {
+            baseline.selected = true;
+        }
+    });
+
+    return baselineRows;
 }
 
 function setBaselineArray(baselines) {
@@ -98,5 +114,6 @@ export default {
     setBaselineArray,
     buildNewTableData,
     buildNewBaselineList,
-    toggleExpandedRow
+    toggleExpandedRow,
+    setSelected
 };
