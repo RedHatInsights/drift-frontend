@@ -10,6 +10,8 @@ exports[`BaselinesTable should render loading rows for multi-select 1`] = `
     isDisabled={true}
     kebab={true}
     onSearch={[Function]}
+    page={1}
+    perPage={20}
     selectedBaselineIds={Array []}
     tableData={
       Array [
@@ -26,6 +28,7 @@ exports[`BaselinesTable should render loading rows for multi-select 1`] = `
       ]
     }
     tableId="CHECKBOX"
+    updatePagination={[Function]}
   />
   <Table
     aria-label="Loading Baselines Table"
@@ -217,7 +220,10 @@ exports[`BaselinesTable should render loading rows for multi-select 1`] = `
       <ToolbarItem>
         <TablePagination
           isCompact={false}
+          page={1}
+          perPage={20}
           tableId="CHECKBOX"
+          updatePagination={[Function]}
         />
       </ToolbarItem>
     </ForwardRef>
@@ -235,6 +241,8 @@ exports[`BaselinesTable should render loading rows for single-select 1`] = `
     isDisabled={true}
     kebab={true}
     onSearch={[Function]}
+    page={1}
+    perPage={20}
     selectedBaselineIds={Array []}
     tableData={
       Array [
@@ -251,6 +259,7 @@ exports[`BaselinesTable should render loading rows for single-select 1`] = `
       ]
     }
     tableId="CHECKBOX"
+    updatePagination={[Function]}
   />
   <Table
     aria-label="Loading Baselines Table"
@@ -522,7 +531,10 @@ exports[`BaselinesTable should render loading rows for single-select 1`] = `
       <ToolbarItem>
         <TablePagination
           isCompact={false}
+          page={1}
+          perPage={20}
           tableId="CHECKBOX"
+          updatePagination={[Function]}
         />
       </ToolbarItem>
     </ForwardRef>
@@ -540,6 +552,8 @@ exports[`BaselinesTable should render multi-select table correctly 1`] = `
     isDisabled={true}
     kebab={true}
     onSearch={[Function]}
+    page={1}
+    perPage={20}
     selectedBaselineIds={Array []}
     tableData={
       Array [
@@ -556,6 +570,7 @@ exports[`BaselinesTable should render multi-select table correctly 1`] = `
       ]
     }
     tableId="CHECKBOX"
+    updatePagination={[Function]}
   />
   <Table
     aria-label="Baselines Table"
@@ -647,7 +662,10 @@ exports[`BaselinesTable should render multi-select table correctly 1`] = `
       <ToolbarItem>
         <TablePagination
           isCompact={false}
+          page={1}
+          perPage={20}
           tableId="CHECKBOX"
+          updatePagination={[Function]}
         />
       </ToolbarItem>
     </ForwardRef>
@@ -665,9 +683,12 @@ exports[`BaselinesTable should render no matching baselines EmptyState 1`] = `
     isDisabled={true}
     kebab={true}
     onSearch={[Function]}
+    page={1}
+    perPage={20}
     selectedBaselineIds={Array []}
     tableData={Array []}
     tableId="CHECKBOX"
+    updatePagination={[Function]}
   />
   <Table
     aria-label="Baselines Table"
@@ -738,7 +759,10 @@ exports[`BaselinesTable should render no matching baselines EmptyState 1`] = `
       <ToolbarItem>
         <TablePagination
           isCompact={false}
+          page={1}
+          perPage={20}
           tableId="CHECKBOX"
+          updatePagination={[Function]}
         />
       </ToolbarItem>
     </ForwardRef>
@@ -756,6 +780,8 @@ exports[`BaselinesTable should render single-select table correctly 1`] = `
     isDisabled={true}
     kebab={true}
     onSearch={[Function]}
+    page={1}
+    perPage={20}
     selectedBaselineIds={Array []}
     tableData={
       Array [
@@ -772,6 +798,7 @@ exports[`BaselinesTable should render single-select table correctly 1`] = `
       ]
     }
     tableId="RADIO"
+    updatePagination={[Function]}
   />
   <Table
     aria-label="Baselines Table"
@@ -894,7 +921,10 @@ exports[`BaselinesTable should render single-select table correctly 1`] = `
       <ToolbarItem>
         <TablePagination
           isCompact={false}
+          page={1}
+          perPage={20}
           tableId="RADIO"
+          updatePagination={[Function]}
         />
       </ToolbarItem>
     </ForwardRef>
@@ -5829,6 +5859,8 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
             isDisabled={false}
             kebab={true}
             onSearch={[Function]}
+            page={1}
+            perPage={20}
             selectedBaselineIds={
               Array [
                 "1234",
@@ -5849,6 +5881,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
               ]
             }
             tableId="CHECKBOX"
+            updatePagination={[Function]}
           >
             <Toolbar
               className="drift-toolbar"
@@ -6847,7 +6880,10 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                 >
                                   <TablePagination
                                     isCompact={true}
+                                    page={1}
+                                    perPage={20}
                                     tableId="CHECKBOX"
+                                    updatePagination={[Function]}
                                   >
                                     <Pagination
                                       className=""
@@ -6867,8 +6903,8 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                       onPreviousClick={[Function]}
                                       onSetPage={[Function]}
                                       ouiaSafe={true}
-                                      page={0}
-                                      perPage={10}
+                                      page={1}
+                                      perPage={20}
                                       perPageOptions={
                                         Array [
                                           Object {
@@ -6951,7 +6987,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                           onPerPageSelect={[Function]}
                                           optionsToggle="Items per page"
                                           page={0}
-                                          perPage={10}
+                                          perPage={20}
                                           perPageOptions={
                                             Array [
                                               Object {
@@ -6983,12 +7019,21 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                             dropdownItems={
                                               Array [
                                                 <DropdownItem
-                                                  className="pf-m-selected"
+                                                  className=""
                                                   component="button"
                                                   data-action="per-page-10"
                                                   onClick={[Function]}
                                                 >
                                                   10
+                                                   per page
+                                                </DropdownItem>,
+                                                <DropdownItem
+                                                  className="pf-m-selected"
+                                                  component="button"
+                                                  data-action="per-page-20"
+                                                  onClick={[Function]}
+                                                >
+                                                  20
                                                    per page
                                                   <div
                                                     className="pf-c-options-menu__menu-item-icon"
@@ -6999,15 +7044,6 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                       size="sm"
                                                     />
                                                   </div>
-                                                </DropdownItem>,
-                                                <DropdownItem
-                                                  className=""
-                                                  component="button"
-                                                  data-action="per-page-20"
-                                                  onClick={[Function]}
-                                                >
-                                                  20
-                                                   per page
                                                 </DropdownItem>,
                                                 <DropdownItem
                                                   className=""
@@ -7365,7 +7401,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                           page={0}
                                           pagesTitle=""
                                           paginationTitle="Pagination"
-                                          perPage={10}
+                                          perPage={20}
                                           toFirstPage="Go to first page"
                                           toLastPage="Go to last page"
                                           toNextPage="Go to next page"
@@ -10507,7 +10543,10 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                         >
                           <TablePagination
                             isCompact={false}
+                            page={1}
+                            perPage={20}
                             tableId="CHECKBOX"
+                            updatePagination={[Function]}
                           >
                             <Pagination
                               className=""
@@ -10527,8 +10566,8 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                               onPreviousClick={[Function]}
                               onSetPage={[Function]}
                               ouiaSafe={true}
-                              page={0}
-                              perPage={10}
+                              page={1}
+                              perPage={20}
                               perPageOptions={
                                 Array [
                                   Object {
@@ -10611,7 +10650,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                   onPerPageSelect={[Function]}
                                   optionsToggle="Items per page"
                                   page={0}
-                                  perPage={10}
+                                  perPage={20}
                                   perPageOptions={
                                     Array [
                                       Object {
@@ -10643,12 +10682,21 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                     dropdownItems={
                                       Array [
                                         <DropdownItem
-                                          className="pf-m-selected"
+                                          className=""
                                           component="button"
                                           data-action="per-page-10"
                                           onClick={[Function]}
                                         >
                                           10
+                                           per page
+                                        </DropdownItem>,
+                                        <DropdownItem
+                                          className="pf-m-selected"
+                                          component="button"
+                                          data-action="per-page-20"
+                                          onClick={[Function]}
+                                        >
+                                          20
                                            per page
                                           <div
                                             className="pf-c-options-menu__menu-item-icon"
@@ -10659,15 +10707,6 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                               size="sm"
                                             />
                                           </div>
-                                        </DropdownItem>,
-                                        <DropdownItem
-                                          className=""
-                                          component="button"
-                                          data-action="per-page-20"
-                                          onClick={[Function]}
-                                        >
-                                          20
-                                           per page
                                         </DropdownItem>,
                                         <DropdownItem
                                           className=""
@@ -11025,7 +11064,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                   page={0}
                                   pagesTitle=""
                                   paginationTitle="Pagination"
-                                  perPage={10}
+                                  perPage={20}
                                   toFirstPage="Go to first page"
                                   toLastPage="Go to last page"
                                   toNextPage="Go to next page"

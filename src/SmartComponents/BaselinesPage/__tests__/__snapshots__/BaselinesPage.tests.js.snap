@@ -247,7 +247,6 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
             revertBaselineFetch={[Function]}
             selectBaseline={[Function]}
             selectedBaselineIds={Array []}
-            updatePagination={[Function]}
           >
             <withRouter(Connect(CreateBaselineModal))>
               <Connect(CreateBaselineModal)
@@ -354,7 +353,6 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                   selectBaseline={[Function]}
                   selectedBaselineIds={Array []}
                   toggleCreateBaselineModal={[Function]}
-                  updatePagination={[Function]}
                 >
                   <Modal
                     actions={
@@ -510,7 +508,6 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                               selectedBaselineIds={Array []}
                               tableData={Array []}
                               tableId="CHECKBOX"
-                              updatePagination={[Function]}
                             >
                               <BaselinesTable
                                 columns={
@@ -545,7 +542,6 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                 selectedBaselineIds={Array []}
                                 tableData={Array []}
                                 tableId="CHECKBOX"
-                                updatePagination={[Function]}
                               >
                                 <BaselinesToolbar
                                   createButton={true}
@@ -556,6 +552,8 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                   kebab={true}
                                   onBulkSelect={[Function]}
                                   onSearch={[Function]}
+                                  page={1}
+                                  perPage={20}
                                   selectedBaselineIds={Array []}
                                   tableData={Array []}
                                   tableId="CHECKBOX"
@@ -1514,6 +1512,8 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                       >
                                                         <TablePagination
                                                           isCompact={true}
+                                                          page={1}
+                                                          perPage={20}
                                                           tableId="CHECKBOX"
                                                           updatePagination={[Function]}
                                                         >
@@ -1535,8 +1535,8 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                             onPreviousClick={[Function]}
                                                             onSetPage={[Function]}
                                                             ouiaSafe={true}
-                                                            page={0}
-                                                            perPage={10}
+                                                            page={1}
+                                                            perPage={20}
                                                             perPageOptions={
                                                               Array [
                                                                 Object {
@@ -1619,7 +1619,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                 onPerPageSelect={[Function]}
                                                                 optionsToggle="Items per page"
                                                                 page={0}
-                                                                perPage={10}
+                                                                perPage={20}
                                                                 perPageOptions={
                                                                   Array [
                                                                     Object {
@@ -1651,12 +1651,21 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                   dropdownItems={
                                                                     Array [
                                                                       <DropdownItem
-                                                                        className="pf-m-selected"
+                                                                        className=""
                                                                         component="button"
                                                                         data-action="per-page-10"
                                                                         onClick={[Function]}
                                                                       >
                                                                         10
+                                                                         per page
+                                                                      </DropdownItem>,
+                                                                      <DropdownItem
+                                                                        className="pf-m-selected"
+                                                                        component="button"
+                                                                        data-action="per-page-20"
+                                                                        onClick={[Function]}
+                                                                      >
+                                                                        20
                                                                          per page
                                                                         <div
                                                                           className="pf-c-options-menu__menu-item-icon"
@@ -1667,15 +1676,6 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                             size="sm"
                                                                           />
                                                                         </div>
-                                                                      </DropdownItem>,
-                                                                      <DropdownItem
-                                                                        className=""
-                                                                        component="button"
-                                                                        data-action="per-page-20"
-                                                                        onClick={[Function]}
-                                                                      >
-                                                                        20
-                                                                         per page
                                                                       </DropdownItem>,
                                                                       <DropdownItem
                                                                         className=""
@@ -2033,7 +2033,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                 page={0}
                                                                 pagesTitle=""
                                                                 paginationTitle="Pagination"
-                                                                perPage={10}
+                                                                perPage={20}
                                                                 toFirstPage="Go to first page"
                                                                 toLastPage="Go to last page"
                                                                 toNextPage="Go to next page"
@@ -3881,6 +3881,8 @@ Try changing your filter settings.
                                               >
                                                 <TablePagination
                                                   isCompact={false}
+                                                  page={1}
+                                                  perPage={20}
                                                   tableId="CHECKBOX"
                                                   updatePagination={[Function]}
                                                 >
@@ -3902,8 +3904,8 @@ Try changing your filter settings.
                                                     onPreviousClick={[Function]}
                                                     onSetPage={[Function]}
                                                     ouiaSafe={true}
-                                                    page={0}
-                                                    perPage={10}
+                                                    page={1}
+                                                    perPage={20}
                                                     perPageOptions={
                                                       Array [
                                                         Object {
@@ -3986,7 +3988,7 @@ Try changing your filter settings.
                                                         onPerPageSelect={[Function]}
                                                         optionsToggle="Items per page"
                                                         page={0}
-                                                        perPage={10}
+                                                        perPage={20}
                                                         perPageOptions={
                                                           Array [
                                                             Object {
@@ -4018,12 +4020,21 @@ Try changing your filter settings.
                                                           dropdownItems={
                                                             Array [
                                                               <DropdownItem
-                                                                className="pf-m-selected"
+                                                                className=""
                                                                 component="button"
                                                                 data-action="per-page-10"
                                                                 onClick={[Function]}
                                                               >
                                                                 10
+                                                                 per page
+                                                              </DropdownItem>,
+                                                              <DropdownItem
+                                                                className="pf-m-selected"
+                                                                component="button"
+                                                                data-action="per-page-20"
+                                                                onClick={[Function]}
+                                                              >
+                                                                20
                                                                  per page
                                                                 <div
                                                                   className="pf-c-options-menu__menu-item-icon"
@@ -4034,15 +4045,6 @@ Try changing your filter settings.
                                                                     size="sm"
                                                                   />
                                                                 </div>
-                                                              </DropdownItem>,
-                                                              <DropdownItem
-                                                                className=""
-                                                                component="button"
-                                                                data-action="per-page-20"
-                                                                onClick={[Function]}
-                                                              >
-                                                                20
-                                                                 per page
                                                               </DropdownItem>,
                                                               <DropdownItem
                                                                 className=""
@@ -4400,7 +4402,7 @@ Try changing your filter settings.
                                                         page={0}
                                                         pagesTitle=""
                                                         paginationTitle="Pagination"
-                                                        perPage={10}
+                                                        perPage={20}
                                                         toFirstPage="Go to first page"
                                                         toLastPage="Go to last page"
                                                         toNextPage="Go to next page"
@@ -4856,7 +4858,6 @@ exports[`ConnectedBaselinesPage should render empty state 1`] = `
             revertBaselineFetch={[Function]}
             selectBaseline={[Function]}
             selectedBaselineIds={Array []}
-            updatePagination={[Function]}
           >
             <withRouter(Connect(CreateBaselineModal))>
               <Connect(CreateBaselineModal)
@@ -4963,7 +4964,6 @@ exports[`ConnectedBaselinesPage should render empty state 1`] = `
                   selectBaseline={[Function]}
                   selectedBaselineIds={Array []}
                   toggleCreateBaselineModal={[Function]}
-                  updatePagination={[Function]}
                 >
                   <Modal
                     actions={

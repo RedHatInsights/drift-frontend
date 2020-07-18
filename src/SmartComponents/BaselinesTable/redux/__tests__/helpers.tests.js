@@ -19,7 +19,9 @@ describe('baselines table helpers', () => {
         const params = {
             order_by: 'display_name',
             order_how: 'ASC',
-            display_name: 'something'
+            display_name: 'something',
+            limit: undefined,
+            offset: NaN
         };
 
         baselinesReducerHelpers.fetchBaselines('CHECKBOX', fetchBaselines, fetchParams);

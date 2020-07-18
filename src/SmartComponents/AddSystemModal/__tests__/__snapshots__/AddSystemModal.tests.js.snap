@@ -13307,6 +13307,8 @@ Try changing your filter settings.
                                               isDisabled={true}
                                               onBulkSelect={[Function]}
                                               onSearch={[Function]}
+                                              page={1}
+                                              perPage={20}
                                               selectedBaselineIds={Array []}
                                               tableData={Array []}
                                               tableId="CHECKBOX"
@@ -13853,6 +13855,8 @@ Try changing your filter settings.
                                                                   >
                                                                     <TablePagination
                                                                       isCompact={true}
+                                                                      page={1}
+                                                                      perPage={20}
                                                                       tableId="CHECKBOX"
                                                                       updatePagination={[Function]}
                                                                     >
@@ -13874,8 +13878,8 @@ Try changing your filter settings.
                                                                         onPreviousClick={[Function]}
                                                                         onSetPage={[Function]}
                                                                         ouiaSafe={true}
-                                                                        page={0}
-                                                                        perPage={10}
+                                                                        page={1}
+                                                                        perPage={20}
                                                                         perPageOptions={
                                                                           Array [
                                                                             Object {
@@ -13958,7 +13962,7 @@ Try changing your filter settings.
                                                                             onPerPageSelect={[Function]}
                                                                             optionsToggle="Items per page"
                                                                             page={0}
-                                                                            perPage={10}
+                                                                            perPage={20}
                                                                             perPageOptions={
                                                                               Array [
                                                                                 Object {
@@ -13990,12 +13994,21 @@ Try changing your filter settings.
                                                                               dropdownItems={
                                                                                 Array [
                                                                                   <DropdownItem
-                                                                                    className="pf-m-selected"
+                                                                                    className=""
                                                                                     component="button"
                                                                                     data-action="per-page-10"
                                                                                     onClick={[Function]}
                                                                                   >
                                                                                     10
+                                                                                     per page
+                                                                                  </DropdownItem>,
+                                                                                  <DropdownItem
+                                                                                    className="pf-m-selected"
+                                                                                    component="button"
+                                                                                    data-action="per-page-20"
+                                                                                    onClick={[Function]}
+                                                                                  >
+                                                                                    20
                                                                                      per page
                                                                                     <div
                                                                                       className="pf-c-options-menu__menu-item-icon"
@@ -14006,15 +14019,6 @@ Try changing your filter settings.
                                                                                         size="sm"
                                                                                       />
                                                                                     </div>
-                                                                                  </DropdownItem>,
-                                                                                  <DropdownItem
-                                                                                    className=""
-                                                                                    component="button"
-                                                                                    data-action="per-page-20"
-                                                                                    onClick={[Function]}
-                                                                                  >
-                                                                                    20
-                                                                                     per page
                                                                                   </DropdownItem>,
                                                                                   <DropdownItem
                                                                                     className=""
@@ -14372,7 +14376,7 @@ Try changing your filter settings.
                                                                             page={0}
                                                                             pagesTitle=""
                                                                             paginationTitle="Pagination"
-                                                                            perPage={10}
+                                                                            perPage={20}
                                                                             toFirstPage="Go to first page"
                                                                             toLastPage="Go to last page"
                                                                             toNextPage="Go to next page"
@@ -15941,6 +15945,8 @@ Try changing your filter settings.
                                                           >
                                                             <TablePagination
                                                               isCompact={false}
+                                                              page={1}
+                                                              perPage={20}
                                                               tableId="CHECKBOX"
                                                               updatePagination={[Function]}
                                                             >
@@ -15962,8 +15968,8 @@ Try changing your filter settings.
                                                                 onPreviousClick={[Function]}
                                                                 onSetPage={[Function]}
                                                                 ouiaSafe={true}
-                                                                page={0}
-                                                                perPage={10}
+                                                                page={1}
+                                                                perPage={20}
                                                                 perPageOptions={
                                                                   Array [
                                                                     Object {
@@ -16046,7 +16052,7 @@ Try changing your filter settings.
                                                                     onPerPageSelect={[Function]}
                                                                     optionsToggle="Items per page"
                                                                     page={0}
-                                                                    perPage={10}
+                                                                    perPage={20}
                                                                     perPageOptions={
                                                                       Array [
                                                                         Object {
@@ -16078,12 +16084,21 @@ Try changing your filter settings.
                                                                       dropdownItems={
                                                                         Array [
                                                                           <DropdownItem
-                                                                            className="pf-m-selected"
+                                                                            className=""
                                                                             component="button"
                                                                             data-action="per-page-10"
                                                                             onClick={[Function]}
                                                                           >
                                                                             10
+                                                                             per page
+                                                                          </DropdownItem>,
+                                                                          <DropdownItem
+                                                                            className="pf-m-selected"
+                                                                            component="button"
+                                                                            data-action="per-page-20"
+                                                                            onClick={[Function]}
+                                                                          >
+                                                                            20
                                                                              per page
                                                                             <div
                                                                               className="pf-c-options-menu__menu-item-icon"
@@ -16094,15 +16109,6 @@ Try changing your filter settings.
                                                                                 size="sm"
                                                                               />
                                                                             </div>
-                                                                          </DropdownItem>,
-                                                                          <DropdownItem
-                                                                            className=""
-                                                                            component="button"
-                                                                            data-action="per-page-20"
-                                                                            onClick={[Function]}
-                                                                          >
-                                                                            20
-                                                                             per page
                                                                           </DropdownItem>,
                                                                           <DropdownItem
                                                                             className=""
@@ -16460,7 +16466,7 @@ Try changing your filter settings.
                                                                     page={0}
                                                                     pagesTitle=""
                                                                     paginationTitle="Pagination"
-                                                                    perPage={10}
+                                                                    perPage={20}
                                                                     toFirstPage="Go to first page"
                                                                     toLastPage="Go to last page"
                                                                     toNextPage="Go to next page"
@@ -19146,6 +19152,8 @@ Try changing your filter settings.
                                               isDisabled={true}
                                               onBulkSelect={[Function]}
                                               onSearch={[Function]}
+                                              page={1}
+                                              perPage={20}
                                               selectedBaselineIds={Array []}
                                               tableData={Array []}
                                               tableId="CHECKBOX"
@@ -19692,6 +19700,8 @@ Try changing your filter settings.
                                                                   >
                                                                     <TablePagination
                                                                       isCompact={true}
+                                                                      page={1}
+                                                                      perPage={20}
                                                                       tableId="CHECKBOX"
                                                                       updatePagination={[Function]}
                                                                     >
@@ -19713,8 +19723,8 @@ Try changing your filter settings.
                                                                         onPreviousClick={[Function]}
                                                                         onSetPage={[Function]}
                                                                         ouiaSafe={true}
-                                                                        page={0}
-                                                                        perPage={10}
+                                                                        page={1}
+                                                                        perPage={20}
                                                                         perPageOptions={
                                                                           Array [
                                                                             Object {
@@ -19797,7 +19807,7 @@ Try changing your filter settings.
                                                                             onPerPageSelect={[Function]}
                                                                             optionsToggle="Items per page"
                                                                             page={0}
-                                                                            perPage={10}
+                                                                            perPage={20}
                                                                             perPageOptions={
                                                                               Array [
                                                                                 Object {
@@ -19829,12 +19839,21 @@ Try changing your filter settings.
                                                                               dropdownItems={
                                                                                 Array [
                                                                                   <DropdownItem
-                                                                                    className="pf-m-selected"
+                                                                                    className=""
                                                                                     component="button"
                                                                                     data-action="per-page-10"
                                                                                     onClick={[Function]}
                                                                                   >
                                                                                     10
+                                                                                     per page
+                                                                                  </DropdownItem>,
+                                                                                  <DropdownItem
+                                                                                    className="pf-m-selected"
+                                                                                    component="button"
+                                                                                    data-action="per-page-20"
+                                                                                    onClick={[Function]}
+                                                                                  >
+                                                                                    20
                                                                                      per page
                                                                                     <div
                                                                                       className="pf-c-options-menu__menu-item-icon"
@@ -19845,15 +19864,6 @@ Try changing your filter settings.
                                                                                         size="sm"
                                                                                       />
                                                                                     </div>
-                                                                                  </DropdownItem>,
-                                                                                  <DropdownItem
-                                                                                    className=""
-                                                                                    component="button"
-                                                                                    data-action="per-page-20"
-                                                                                    onClick={[Function]}
-                                                                                  >
-                                                                                    20
-                                                                                     per page
                                                                                   </DropdownItem>,
                                                                                   <DropdownItem
                                                                                     className=""
@@ -20211,7 +20221,7 @@ Try changing your filter settings.
                                                                             page={0}
                                                                             pagesTitle=""
                                                                             paginationTitle="Pagination"
-                                                                            perPage={10}
+                                                                            perPage={20}
                                                                             toFirstPage="Go to first page"
                                                                             toLastPage="Go to last page"
                                                                             toNextPage="Go to next page"
@@ -21780,6 +21790,8 @@ Try changing your filter settings.
                                                           >
                                                             <TablePagination
                                                               isCompact={false}
+                                                              page={1}
+                                                              perPage={20}
                                                               tableId="CHECKBOX"
                                                               updatePagination={[Function]}
                                                             >
@@ -21801,8 +21813,8 @@ Try changing your filter settings.
                                                                 onPreviousClick={[Function]}
                                                                 onSetPage={[Function]}
                                                                 ouiaSafe={true}
-                                                                page={0}
-                                                                perPage={10}
+                                                                page={1}
+                                                                perPage={20}
                                                                 perPageOptions={
                                                                   Array [
                                                                     Object {
@@ -21885,7 +21897,7 @@ Try changing your filter settings.
                                                                     onPerPageSelect={[Function]}
                                                                     optionsToggle="Items per page"
                                                                     page={0}
-                                                                    perPage={10}
+                                                                    perPage={20}
                                                                     perPageOptions={
                                                                       Array [
                                                                         Object {
@@ -21917,12 +21929,21 @@ Try changing your filter settings.
                                                                       dropdownItems={
                                                                         Array [
                                                                           <DropdownItem
-                                                                            className="pf-m-selected"
+                                                                            className=""
                                                                             component="button"
                                                                             data-action="per-page-10"
                                                                             onClick={[Function]}
                                                                           >
                                                                             10
+                                                                             per page
+                                                                          </DropdownItem>,
+                                                                          <DropdownItem
+                                                                            className="pf-m-selected"
+                                                                            component="button"
+                                                                            data-action="per-page-20"
+                                                                            onClick={[Function]}
+                                                                          >
+                                                                            20
                                                                              per page
                                                                             <div
                                                                               className="pf-c-options-menu__menu-item-icon"
@@ -21933,15 +21954,6 @@ Try changing your filter settings.
                                                                                 size="sm"
                                                                               />
                                                                             </div>
-                                                                          </DropdownItem>,
-                                                                          <DropdownItem
-                                                                            className=""
-                                                                            component="button"
-                                                                            data-action="per-page-20"
-                                                                            onClick={[Function]}
-                                                                          >
-                                                                            20
-                                                                             per page
                                                                           </DropdownItem>,
                                                                           <DropdownItem
                                                                             className=""
@@ -22299,7 +22311,7 @@ Try changing your filter settings.
                                                                     page={0}
                                                                     pagesTitle=""
                                                                     paginationTitle="Pagination"
-                                                                    perPage={10}
+                                                                    perPage={20}
                                                                     toFirstPage="Go to first page"
                                                                     toLastPage="Go to last page"
                                                                     toNextPage="Go to next page"
