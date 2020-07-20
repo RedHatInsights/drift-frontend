@@ -9488,9 +9488,21 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                             role="tabpanel"
                             tabindex="0"
                           >
-                            <div>
-                              Loading...
-                            </div>
+                            <span
+                              aria-valuetext="Loading..."
+                              class="pf-c-spinner pf-m-lg"
+                              role="progressbar"
+                            >
+                              <span
+                                class="pf-c-spinner__clipper"
+                              />
+                              <span
+                                class="pf-c-spinner__lead-ball"
+                              />
+                              <span
+                                class="pf-c-spinner__tail-ball"
+                              />
+                            </span>
                           </section>
                           <section
                             aria-labelledby="pf-tab-1-baselines-tab"
@@ -10328,9 +10340,21 @@ Try changing your filter settings.
                             role="tabpanel"
                             tabindex="0"
                           >
-                            <div>
-                              Loading...
-                            </div>
+                            <span
+                              aria-valuetext="Loading..."
+                              class="pf-c-spinner pf-m-lg"
+                              role="progressbar"
+                            >
+                              <span
+                                class="pf-c-spinner__clipper"
+                              />
+                              <span
+                                class="pf-c-spinner__lead-ball"
+                              />
+                              <span
+                                class="pf-c-spinner__tail-ball"
+                              />
+                            </span>
                           </section>
                           <section
                             aria-labelledby="pf-tab-1-baselines-tab"
@@ -11167,9 +11191,21 @@ Try changing your filter settings.
                             role="tabpanel"
                             tabindex="0"
                           >
-                            <div>
-                              Loading...
-                            </div>
+                            <span
+                              aria-valuetext="Loading..."
+                              class="pf-c-spinner pf-m-lg"
+                              role="progressbar"
+                            >
+                              <span
+                                class="pf-c-spinner__clipper"
+                              />
+                              <span
+                                class="pf-c-spinner__lead-ball"
+                              />
+                              <span
+                                class="pf-c-spinner__tail-ball"
+                              />
+                            </span>
                           </section>
                           <section
                             aria-labelledby="pf-tab-1-baselines-tab"
@@ -12022,9 +12058,21 @@ Try changing your filter settings.
                             role="tabpanel"
                             tabindex="0"
                           >
-                            <div>
-                              Loading...
-                            </div>
+                            <span
+                              aria-valuetext="Loading..."
+                              class="pf-c-spinner pf-m-lg"
+                              role="progressbar"
+                            >
+                              <span
+                                class="pf-c-spinner__clipper"
+                              />
+                              <span
+                                class="pf-c-spinner__lead-ball"
+                              />
+                              <span
+                                class="pf-c-spinner__tail-ball"
+                              />
+                            </span>
                           </section>
                           <section
                             aria-labelledby="pf-tab-1-baselines-tab"
@@ -13014,7 +13062,7 @@ Try changing your filter settings.
                                         id="systems-tab"
                                         title="Systems"
                                       >
-                                        <Connect(SystemsTable)
+                                        <Memo(Connect(SystemsTable))
                                           hasHistoricalDropdown={true}
                                           historicalProfiles={Array []}
                                           selectedSystemIds={
@@ -13037,7 +13085,7 @@ Try changing your filter settings.
                                           id="systems-tab"
                                           title="Systems"
                                         >
-                                          <Connect(SystemsTable)
+                                          <Memo(Connect(SystemsTable))
                                             hasHistoricalDropdown={true}
                                             historicalProfiles={Array []}
                                             selectedSystemIds={
@@ -13082,11 +13130,25 @@ Try changing your filter settings.
                                             }
                                             setSelectedSystemIds={[Function]}
                                           >
-                                            <InventoryCmp>
-                                              <div>
-                                                Loading...
-                                              </div>
-                                            </InventoryCmp>
+                                            <Spinner
+                                              size="lg"
+                                            >
+                                              <span
+                                                aria-valuetext="Loading..."
+                                                className="pf-c-spinner pf-m-lg"
+                                                role="progressbar"
+                                              >
+                                                <span
+                                                  className="pf-c-spinner__clipper"
+                                                />
+                                                <span
+                                                  className="pf-c-spinner__lead-ball"
+                                                />
+                                                <span
+                                                  className="pf-c-spinner__tail-ball"
+                                                />
+                                              </span>
+                                            </Spinner>
                                           </SystemsTable>
                                         </Connect(SystemsTable)>
                                       </section>
@@ -13100,7 +13162,7 @@ Try changing your filter settings.
                                         id="baselines-tab"
                                         title="Baselines"
                                       >
-                                        <Connect(BaselinesTable)
+                                        <Memo(Connect(BaselinesTable))
                                           columns={
                                             Array [
                                               Object {
@@ -13139,7 +13201,7 @@ Try changing your filter settings.
                                           id="baselines-tab"
                                           title="Baselines"
                                         >
-                                          <Connect(BaselinesTable)
+                                          <Memo(Connect(BaselinesTable))
                                             columns={
                                               Array [
                                                 Object {
@@ -16959,9 +17021,21 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                             role="tabpanel"
                             tabindex="0"
                           >
-                            <div>
-                              Loading...
-                            </div>
+                            <span
+                              aria-valuetext="Loading..."
+                              class="pf-c-spinner pf-m-lg"
+                              role="progressbar"
+                            >
+                              <span
+                                class="pf-c-spinner__clipper"
+                              />
+                              <span
+                                class="pf-c-spinner__lead-ball"
+                              />
+                              <span
+                                class="pf-c-spinner__tail-ball"
+                              />
+                            </span>
                           </section>
                           <section
                             aria-labelledby="pf-tab-1-baselines-tab"
@@ -17814,9 +17888,21 @@ Try changing your filter settings.
                             role="tabpanel"
                             tabindex="0"
                           >
-                            <div>
-                              Loading...
-                            </div>
+                            <span
+                              aria-valuetext="Loading..."
+                              class="pf-c-spinner pf-m-lg"
+                              role="progressbar"
+                            >
+                              <span
+                                class="pf-c-spinner__clipper"
+                              />
+                              <span
+                                class="pf-c-spinner__lead-ball"
+                              />
+                              <span
+                                class="pf-c-spinner__tail-ball"
+                              />
+                            </span>
                           </section>
                           <section
                             aria-labelledby="pf-tab-1-baselines-tab"
@@ -18807,7 +18893,7 @@ Try changing your filter settings.
                                         id="systems-tab"
                                         title="Systems"
                                       >
-                                        <Connect(SystemsTable)
+                                        <Memo(Connect(SystemsTable))
                                           hasHistoricalDropdown={true}
                                           historicalProfiles={Array []}
                                           selectedSystemIds={
@@ -18830,7 +18916,7 @@ Try changing your filter settings.
                                           id="systems-tab"
                                           title="Systems"
                                         >
-                                          <Connect(SystemsTable)
+                                          <Memo(Connect(SystemsTable))
                                             hasHistoricalDropdown={true}
                                             historicalProfiles={Array []}
                                             selectedSystemIds={
@@ -18875,11 +18961,25 @@ Try changing your filter settings.
                                             }
                                             setSelectedSystemIds={[Function]}
                                           >
-                                            <InventoryCmp>
-                                              <div>
-                                                Loading...
-                                              </div>
-                                            </InventoryCmp>
+                                            <Spinner
+                                              size="lg"
+                                            >
+                                              <span
+                                                aria-valuetext="Loading..."
+                                                className="pf-c-spinner pf-m-lg"
+                                                role="progressbar"
+                                              >
+                                                <span
+                                                  className="pf-c-spinner__clipper"
+                                                />
+                                                <span
+                                                  className="pf-c-spinner__lead-ball"
+                                                />
+                                                <span
+                                                  className="pf-c-spinner__tail-ball"
+                                                />
+                                              </span>
+                                            </Spinner>
                                           </SystemsTable>
                                         </Connect(SystemsTable)>
                                       </section>
@@ -18893,7 +18993,7 @@ Try changing your filter settings.
                                         id="baselines-tab"
                                         title="Baselines"
                                       >
-                                        <Connect(BaselinesTable)
+                                        <Memo(Connect(BaselinesTable))
                                           columns={
                                             Array [
                                               Object {
@@ -18932,7 +19032,7 @@ Try changing your filter settings.
                                           id="baselines-tab"
                                           title="Baselines"
                                         >
-                                          <Connect(BaselinesTable)
+                                          <Memo(Connect(BaselinesTable))
                                             columns={
                                               Array [
                                                 Object {

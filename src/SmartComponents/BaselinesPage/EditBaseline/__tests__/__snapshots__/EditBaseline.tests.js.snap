@@ -1216,7 +1216,7 @@ exports[`ConnectedEditBaseline should render correctly 1`] = `
                                 colSpan="3"
                               >
                                 <EmptyStateDisplay
-                                  button={<Connect(AddFactButton) />}
+                                  button={<Memo(Connect(AddFactButton)) />}
                                   text={
                                     Array [
                                       "No facts or categories have been added to this baseline yet.",
@@ -2707,7 +2707,7 @@ exports[`EditBaseline should render correctly 1`] = `
               colSpan="3"
             >
               <EmptyStateDisplay
-                button={<Connect(AddFactButton) />}
+                button={<Memo(Connect(AddFactButton)) />}
                 text={
                   Array [
                     "No facts or categories have been added to this baseline yet.",

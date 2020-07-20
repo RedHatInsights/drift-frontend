@@ -287,7 +287,7 @@ exports[`ConnectedDriftTable should render correctly 1`] = `
             </Connect(AddSystemModal)>
             <EmptyStateDisplay
               button={
-                <Connect(AddSystemButton)
+                <Memo(Connect(AddSystemButton))
                   isTable={false}
                 />
               }
