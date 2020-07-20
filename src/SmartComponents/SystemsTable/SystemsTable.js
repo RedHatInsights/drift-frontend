@@ -1,33 +1,27 @@
-import React, { Component } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import * as reactRouterDom from 'react-router-dom';
 import * as ReactRedux from 'react-redux';
 import PropTypes from 'prop-types';
 import * as reactCore from '@patternfly/react-core';
 import * as reactIcons from '@patternfly/react-icons';
-import registryDecorator from '@redhat-cloud-services/frontend-components-utilities/files/Registry';
+import { getRegistry } from '@redhat-cloud-services/frontend-components-utilities/files/Registry';
 import { connect } from 'react-redux';
 import * as pfReactTable from '@patternfly/react-table';
 
 import selectedReducer from './reducers';
 import { compareActions } from '../modules';
 
-@registryDecorator()
-class SystemsTable extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            InventoryCmp: () => <div>Loading...</div>
-        };
-
-        this.fetchInventory();
-        this.selectedSystemIds = this.selectedSystemIds.bind(this);
-    }
-
-    selectedSystemIds() {
-        return this.props.selectedSystemIds;
-    }
-
-    async fetchInventory() {
+const SystemsTable = ({
+    selectedSystemIds,
+    setSelectedSystemIds,
+    driftClearFilters,
+    createBaselineModal,
+    hasHistoricalDropdown,
+    historicalProfiles
+}) => {
+    const [ InventoryCmp, setInventoryCmp ] = useState(null);
+    const store = ReactRedux.useStore();
+    const fetchInventory = async () => {
         const { inventoryConnector, mergeWithEntities, INVENTORY_ACTION_TYPES } = await insights.loadInventory({
             ReactRedux,
             react: React,
@@ -36,30 +30,30 @@ class SystemsTable extends Component {
             reactIcons,
             pfReactTable
         });
-        const { createBaselineModal, hasHistoricalDropdown, historicalProfiles } = this.props;
 
-        this.props.driftClearFilters();
+        driftClearFilters();
 
-        this.getRegistry().register({
-            ...mergeWithEntities(
-                selectedReducer(INVENTORY_ACTION_TYPES, createBaselineModal, historicalProfiles, hasHistoricalDropdown)
-            )
-        });
+        getRegistry().register(mergeWithEntities(
+            selectedReducer(INVENTORY_ACTION_TYPES, createBaselineModal, historicalProfiles, hasHistoricalDropdown)
+        ));
 
-        this.setState({
-            InventoryCmp: inventoryConnector().InventoryTable
-        });
+        setInventoryCmp(inventoryConnector(store).InventoryTable);
+        setSelectedSystemIds(selectedSystemIds);
+    };
 
-        this.props.setSelectedSystemIds(this.selectedSystemIds());
-    }
+    useEffect(() => {
+        fetchInventory();
+    }, []);
 
-    render() {
-        const { InventoryCmp } = this.state;
-        return (
-            <InventoryCmp/>
-        );
-    }
-}
+    return (
+        <Fragment>
+            { InventoryCmp ?
+                <InventoryCmp showTags />
+                : <reactCore.Spinner size="lg" />
+            }
+        </Fragment>
+    );
+};
 
 function mapDispatchToProps(dispatch) {
     return {
