@@ -56,7 +56,9 @@ exports[`BaselinesTable should render loading rows for multi-select 1`] = `
     dropdownPosition="right"
     expandId="expandable-toggle"
     gridBreakPoint="grid-md"
+    isStickyHeader={false}
     onSelect={true}
+    ouiaSafe={true}
     role="grid"
     rowLabeledBy="simple-node"
     rows={
@@ -205,7 +207,7 @@ exports[`BaselinesTable should render loading rows for multi-select 1`] = `
     }
     variant={null}
   >
-    <Component />
+    <TableHeader />
     <Component />
   </Table>
   <Toolbar>
@@ -279,7 +281,9 @@ exports[`BaselinesTable should render loading rows for single-select 1`] = `
     dropdownPosition="right"
     expandId="expandable-toggle"
     gridBreakPoint="grid-md"
+    isStickyHeader={false}
     onSelect={false}
+    ouiaSafe={true}
     role="grid"
     rowLabeledBy="simple-node"
     rows={
@@ -508,7 +512,7 @@ exports[`BaselinesTable should render loading rows for single-select 1`] = `
     }
     variant={null}
   >
-    <Component />
+    <TableHeader />
     <Component />
   </Table>
   <Toolbar>
@@ -582,7 +586,9 @@ exports[`BaselinesTable should render multi-select table correctly 1`] = `
     dropdownPosition="right"
     expandId="expandable-toggle"
     gridBreakPoint="grid-md"
+    isStickyHeader={false}
     onSort={[Function]}
+    ouiaSafe={true}
     role="grid"
     rowLabeledBy="simple-node"
     rows={
@@ -631,7 +637,7 @@ exports[`BaselinesTable should render multi-select table correctly 1`] = `
     }
     variant={null}
   >
-    <Component />
+    <TableHeader />
     <Component />
   </Table>
   <Toolbar>
@@ -692,6 +698,8 @@ exports[`BaselinesTable should render no matching baselines EmptyState 1`] = `
     dropdownPosition="right"
     expandId="expandable-toggle"
     gridBreakPoint="grid-md"
+    isStickyHeader={false}
+    ouiaSafe={true}
     role="grid"
     rowLabeledBy="simple-node"
     rows={
@@ -720,7 +728,7 @@ exports[`BaselinesTable should render no matching baselines EmptyState 1`] = `
     }
     variant={null}
   >
-    <Component />
+    <TableHeader />
     <Component />
   </Table>
   <Toolbar>
@@ -794,8 +802,10 @@ exports[`BaselinesTable should render single-select table correctly 1`] = `
     dropdownPosition="right"
     expandId="expandable-toggle"
     gridBreakPoint="grid-md"
+    isStickyHeader={false}
     onSelect={false}
     onSort={[Function]}
+    ouiaSafe={true}
     role="grid"
     rowLabeledBy="simple-node"
     rows={
@@ -874,7 +884,7 @@ exports[`BaselinesTable should render single-select table correctly 1`] = `
     }
     variant={null}
   >
-    <Component />
+    <TableHeader />
     <Component />
   </Table>
   <Toolbar>
@@ -6012,7 +6022,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                           <DropdownToggle
                                             aria-haspopup={true}
                                             getMenuRef={[Function]}
-                                            id="pf-toggle-id-0"
+                                            id="pf-dropdown-toggle-id-0"
                                             isDisabled={false}
                                             isOpen={false}
                                             isPlain={false}
@@ -6053,7 +6063,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                       aria-haspopup="true"
                                                       aria-label="Select"
                                                       class="pf-c-dropdown__toggle-button"
-                                                      id="pf-toggle-id-0"
+                                                      id="pf-dropdown-toggle-id-0"
                                                       type="button"
                                                     >
                                                       <span
@@ -6137,7 +6147,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                 bubbleEvent={false}
                                                 className=""
                                                 getMenuRef={[Function]}
-                                                id="pf-toggle-id-0"
+                                                id="pf-dropdown-toggle-id-0"
                                                 isActive={false}
                                                 isDisabled={false}
                                                 isOpen={false}
@@ -6180,7 +6190,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                           aria-haspopup="true"
                                                           aria-label="Select"
                                                           class="pf-c-dropdown__toggle-button"
-                                                          id="pf-toggle-id-0"
+                                                          id="pf-dropdown-toggle-id-0"
                                                           type="button"
                                                         >
                                                           <span
@@ -6213,7 +6223,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                   aria-label="Select"
                                                   className="pf-c-dropdown__toggle-button"
                                                   disabled={false}
-                                                  id="pf-toggle-id-0"
+                                                  id="pf-dropdown-toggle-id-0"
                                                   onClick={[Function]}
                                                   onKeyDown={[Function]}
                                                   type="button"
@@ -6676,7 +6686,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                           <KebabToggle
                                             aria-haspopup={true}
                                             getMenuRef={[Function]}
-                                            id="pf-toggle-id-1"
+                                            id="pf-dropdown-toggle-id-1"
                                             isOpen={false}
                                             isPlain={true}
                                             key=".0"
@@ -6698,7 +6708,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                     aria-haspopup="true"
                                                     aria-label="Actions"
                                                     class="pf-c-dropdown__toggle pf-m-plain"
-                                                    id="pf-toggle-id-1"
+                                                    id="pf-dropdown-toggle-id-1"
                                                     type="button"
                                                   >
                                                     <svg
@@ -6726,7 +6736,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                               bubbleEvent={false}
                                               className=""
                                               getMenuRef={[Function]}
-                                              id="pf-toggle-id-1"
+                                              id="pf-dropdown-toggle-id-1"
                                               isActive={false}
                                               isDisabled={false}
                                               isOpen={false}
@@ -6751,7 +6761,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                       aria-haspopup="true"
                                                       aria-label="Actions"
                                                       class="pf-c-dropdown__toggle pf-m-plain"
-                                                      id="pf-toggle-id-1"
+                                                      id="pf-dropdown-toggle-id-1"
                                                       type="button"
                                                     >
                                                       <svg
@@ -6779,7 +6789,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                 aria-label="Actions"
                                                 className="pf-c-dropdown__toggle pf-m-plain"
                                                 disabled={false}
-                                                id="pf-toggle-id-1"
+                                                id="pf-dropdown-toggle-id-1"
                                                 onClick={[Function]}
                                                 onKeyDown={[Function]}
                                                 type="button"
@@ -7053,7 +7063,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                 aria-haspopup={true}
                                                 firstIndex={0}
                                                 getMenuRef={[Function]}
-                                                id="pf-toggle-id-2"
+                                                id="pf-dropdown-toggle-id-2"
                                                 isDisabled={false}
                                                 isOpen={false}
                                                 isPlain={true}
@@ -7588,7 +7598,9 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
             dropdownPosition="right"
             expandId="expandable-toggle"
             gridBreakPoint="grid-md"
+            isStickyHeader={false}
             onSort={[Function]}
+            ouiaSafe={true}
             role="grid"
             rowLabeledBy="simple-node"
             rows={
@@ -7809,7 +7821,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                 data-ouia-safe={true}
                 role="grid"
               >
-                <Component>
+                <TableHeader>
                   <ContextHeader
                     headerRows={null}
                   >
@@ -7983,7 +7995,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                         <thead
                           className=""
                         >
-                          <Component
+                          <HeaderRow
                             key="0-header-row"
                             renderers={
                               Object {
@@ -8139,7 +8151,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                             rowIndex={0}
                           >
                             <tr>
-                              <Component
+                              <HeaderCell
                                 aria-sort="none"
                                 className="pf-c-table__sort"
                                 data-key={0}
@@ -8155,7 +8167,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                   onMouseEnter={[Function]}
                                   scope="col"
                                 >
-                                  <Component
+                                  <SortColumn
                                     isSortedBy={false}
                                     onSort={[Function]}
                                     sortDirection=""
@@ -8163,18 +8175,19 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                     <button
                                       className="pf-c-table__button"
                                       onClick={[Function]}
+                                      type="button"
                                     >
                                       <div
                                         className="pf-c-table__button-content"
                                       >
-                                        <Component>
+                                        <TableText>
                                           <span
                                             className="pf-c-table__text"
                                             onMouseEnter={[Function]}
                                           >
                                             Name
                                           </span>
-                                        </Component>
+                                        </TableText>
                                         <span
                                           className="pf-c-table__sort-indicator"
                                         >
@@ -8206,10 +8219,10 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                         </span>
                                       </div>
                                     </button>
-                                  </Component>
+                                  </SortColumn>
                                 </th>
-                              </Component>
-                              <Component
+                              </HeaderCell>
+                              <HeaderCell
                                 aria-sort="ascending"
                                 className="pf-c-table__sort pf-m-selected"
                                 data-key={1}
@@ -8225,7 +8238,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                   onMouseEnter={[Function]}
                                   scope="col"
                                 >
-                                  <Component
+                                  <SortColumn
                                     isSortedBy={true}
                                     onSort={[Function]}
                                     sortDirection="asc"
@@ -8233,18 +8246,19 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                     <button
                                       className="pf-c-table__button"
                                       onClick={[Function]}
+                                      type="button"
                                     >
                                       <div
                                         className="pf-c-table__button-content"
                                       >
-                                        <Component>
+                                        <TableText>
                                           <span
                                             className="pf-c-table__text"
                                             onMouseEnter={[Function]}
                                           >
                                             Last updated
                                           </span>
-                                        </Component>
+                                        </TableText>
                                         <span
                                           className="pf-c-table__sort-indicator"
                                         >
@@ -8276,10 +8290,10 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                         </span>
                                       </div>
                                     </button>
-                                  </Component>
+                                  </SortColumn>
                                 </th>
-                              </Component>
-                              <Component
+                              </HeaderCell>
+                              <HeaderCell
                                 data-key={2}
                                 data-label=""
                                 key="2-header"
@@ -8291,14 +8305,14 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                   data-label=""
                                   onMouseEnter={[Function]}
                                 />
-                              </Component>
+                              </HeaderCell>
                             </tr>
-                          </Component>
+                          </HeaderRow>
                         </thead>
                       </BaseHeader>
                     </Component>
                   </ContextHeader>
-                </Component>
+                </TableHeader>
                 <Component>
                   <ContextBody
                     className=""
@@ -9104,7 +9118,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                           ]
                         }
                       >
-                        <Component
+                        <BodyWrapper
                           className=""
                           headerRows={null}
                           mappedRows={
@@ -9509,7 +9523,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                   hidden={false}
                                   onMouseDown={[Function]}
                                 >
-                                  <Component
+                                  <BodyCell
                                     data-key={0}
                                     data-label="Name"
                                     isVisible={true}
@@ -9523,8 +9537,8 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                     >
                                       beavs baseline
                                     </td>
-                                  </Component>
-                                  <Component
+                                  </BodyCell>
+                                  <BodyCell
                                     data-key={1}
                                     data-label="Last updated"
                                     isVisible={true}
@@ -9538,8 +9552,8 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                     >
                                       a year ago
                                     </td>
-                                  </Component>
-                                  <Component
+                                  </BodyCell>
+                                  <BodyCell
                                     data-key={2}
                                     data-label=""
                                     isVisible={true}
@@ -9700,7 +9714,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                 <KebabToggle
                                                   aria-haspopup={true}
                                                   getMenuRef={[Function]}
-                                                  id="pf-toggle-id-3"
+                                                  id="pf-dropdown-toggle-id-3"
                                                   isOpen={false}
                                                   isPlain={true}
                                                   key=".0"
@@ -9720,7 +9734,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                           aria-haspopup="true"
                                                           aria-label="Actions"
                                                           class="pf-c-dropdown__toggle pf-m-plain"
-                                                          id="pf-toggle-id-3"
+                                                          id="pf-dropdown-toggle-id-3"
                                                           type="button"
                                                         >
                                                           <svg
@@ -9748,7 +9762,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                     bubbleEvent={false}
                                                     className=""
                                                     getMenuRef={[Function]}
-                                                    id="pf-toggle-id-3"
+                                                    id="pf-dropdown-toggle-id-3"
                                                     isActive={false}
                                                     isDisabled={false}
                                                     isOpen={false}
@@ -9771,7 +9785,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                             aria-haspopup="true"
                                                             aria-label="Actions"
                                                             class="pf-c-dropdown__toggle pf-m-plain"
-                                                            id="pf-toggle-id-3"
+                                                            id="pf-dropdown-toggle-id-3"
                                                             type="button"
                                                           >
                                                             <svg
@@ -9799,7 +9813,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                       aria-label="Actions"
                                                       className="pf-c-dropdown__toggle pf-m-plain"
                                                       disabled={false}
-                                                      id="pf-toggle-id-3"
+                                                      id="pf-dropdown-toggle-id-3"
                                                       onClick={[Function]}
                                                       onKeyDown={[Function]}
                                                       type="button"
@@ -9838,7 +9852,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                         </BaselineTableKebab>
                                       </withRouter(BaselineTableKebab)>
                                     </td>
-                                  </Component>
+                                  </BodyCell>
                                 </tr>
                               </RowWrapper>
                             </BodyRow>
@@ -10127,7 +10141,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                   hidden={false}
                                   onMouseDown={[Function]}
                                 >
-                                  <Component
+                                  <BodyCell
                                     data-key={0}
                                     data-label="Name"
                                     isVisible={true}
@@ -10141,8 +10155,8 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                     >
                                       micjohns baseline
                                     </td>
-                                  </Component>
-                                  <Component
+                                  </BodyCell>
+                                  <BodyCell
                                     data-key={1}
                                     data-label="Last updated"
                                     isVisible={true}
@@ -10156,8 +10170,8 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                     >
                                       a year ago
                                     </td>
-                                  </Component>
-                                  <Component
+                                  </BodyCell>
+                                  <BodyCell
                                     data-key={2}
                                     data-label=""
                                     isVisible={true}
@@ -10318,7 +10332,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                 <KebabToggle
                                                   aria-haspopup={true}
                                                   getMenuRef={[Function]}
-                                                  id="pf-toggle-id-4"
+                                                  id="pf-dropdown-toggle-id-4"
                                                   isOpen={false}
                                                   isPlain={true}
                                                   key=".0"
@@ -10338,7 +10352,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                           aria-haspopup="true"
                                                           aria-label="Actions"
                                                           class="pf-c-dropdown__toggle pf-m-plain"
-                                                          id="pf-toggle-id-4"
+                                                          id="pf-dropdown-toggle-id-4"
                                                           type="button"
                                                         >
                                                           <svg
@@ -10366,7 +10380,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                     bubbleEvent={false}
                                                     className=""
                                                     getMenuRef={[Function]}
-                                                    id="pf-toggle-id-4"
+                                                    id="pf-dropdown-toggle-id-4"
                                                     isActive={false}
                                                     isDisabled={false}
                                                     isOpen={false}
@@ -10389,7 +10403,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                             aria-haspopup="true"
                                                             aria-label="Actions"
                                                             class="pf-c-dropdown__toggle pf-m-plain"
-                                                            id="pf-toggle-id-4"
+                                                            id="pf-dropdown-toggle-id-4"
                                                             type="button"
                                                           >
                                                             <svg
@@ -10417,7 +10431,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                       aria-label="Actions"
                                                       className="pf-c-dropdown__toggle pf-m-plain"
                                                       disabled={false}
-                                                      id="pf-toggle-id-4"
+                                                      id="pf-dropdown-toggle-id-4"
                                                       onClick={[Function]}
                                                       onKeyDown={[Function]}
                                                       type="button"
@@ -10456,12 +10470,12 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                         </BaselineTableKebab>
                                       </withRouter(BaselineTableKebab)>
                                     </td>
-                                  </Component>
+                                  </BodyCell>
                                 </tr>
                               </RowWrapper>
                             </BodyRow>
                           </tbody>
-                        </Component>
+                        </BodyWrapper>
                       </BaseBody>
                     </Component>
                   </ContextBody>
@@ -10709,7 +10723,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                         aria-haspopup={true}
                                         firstIndex={0}
                                         getMenuRef={[Function]}
-                                        id="pf-toggle-id-5"
+                                        id="pf-dropdown-toggle-id-5"
                                         isDisabled={false}
                                         isOpen={false}
                                         isPlain={true}
