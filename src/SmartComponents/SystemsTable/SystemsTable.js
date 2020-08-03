@@ -48,7 +48,7 @@ const SystemsTable = ({
     return (
         <Fragment>
             { InventoryCmp ?
-                <InventoryCmp showTags />
+                <InventoryCmp showTags noDetail />
                 : <reactCore.Spinner size="lg" />
             }
         </Fragment>
