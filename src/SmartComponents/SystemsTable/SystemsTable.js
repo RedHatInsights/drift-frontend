@@ -2,8 +2,8 @@ import React, { Fragment, useState, useEffect } from 'react';
 import * as reactRouterDom from 'react-router-dom';
 import * as ReactRedux from 'react-redux';
 import PropTypes from 'prop-types';
-import * as reactCore from '@patternfly/react-core';
 import * as reactIcons from '@patternfly/react-icons';
+import * as reactCore from '@patternfly/react-core';
 import { getRegistry } from '@redhat-cloud-services/frontend-components-utilities/files/Registry';
 import { connect } from 'react-redux';
 import * as pfReactTable from '@patternfly/react-table';
@@ -28,7 +28,8 @@ const SystemsTable = ({
             reactRouterDom,
             reactCore,
             reactIcons,
-            pfReactTable
+            pfReactTable,
+            pfReact: reactCore
         });
 
         driftClearFilters();
