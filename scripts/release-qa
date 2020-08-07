@@ -1,0 +1,12 @@
+#!/bin/bash -e
+
+read -p "Releasing master(CI) to QA environment. Do you wish to continue? (Y/n) " decision
+
+if [ $decision == 'Y' ];then
+  git fetch origin
+  git checkout master
+  git reset origin/master --hard
+  git push origin master:qa
+else
+  echo 'Aborting release to qa'
+fi
