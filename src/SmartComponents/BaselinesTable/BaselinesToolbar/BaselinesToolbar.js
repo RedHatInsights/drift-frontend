@@ -101,7 +101,7 @@ export class BaselinesToolbar extends Component {
                     />
                     : null
                 }
-                <Toolbar className="drift-toolbar">
+                <Toolbar>
                     <ToolbarContent>
                         { hasMultiSelect
                             ? <ToolbarGroup variant='filter-group'>
@@ -148,22 +148,20 @@ export class BaselinesToolbar extends Component {
                                 : null
                             }
                         </ToolbarGroup>
-                        <ToolbarGroup className='pf-c-pagination'>
-                            <ToolbarItem>
-                                <TablePagination
-                                    page={ page }
-                                    perPage={ perPage }
-                                    total={ totalBaselines }
-                                    isCompact={ true }
-                                    updatePagination={ updatePagination }
-                                    tableId={ tableId }
-                                />
-                            </ToolbarItem>
-                        </ToolbarGroup>
+                        <ToolbarItem variant="pagination">
+                            <TablePagination
+                                page={ page }
+                                perPage={ perPage }
+                                total={ totalBaselines }
+                                isCompact={ true }
+                                updatePagination={ updatePagination }
+                                tableId={ tableId }
+                            />
+                        </ToolbarItem>
                     </ToolbarContent>
                 </Toolbar>
                 { nameSearch.length > 0 ?
-                    <Toolbar className="drift-toolbar">
+                    <Toolbar>
                         <ToolbarContent>
                             <ToolbarGroup>
                                 <ToolbarItem>
