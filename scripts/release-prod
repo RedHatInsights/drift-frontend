@@ -1,0 +1,12 @@
+#!/bin/bash -e
+
+read -p "Releasing QA to Prod (stable and beta)  environment. Do you wish to continue? (Y/n) " decision
+
+if [ $decision == 'Y' ];then
+  git fetch origin
+  git checkout qa
+  git reset origin/qa --hard
+  git push origin qa:prod
+else
+  echo 'Aborting release to prod'
+fi
