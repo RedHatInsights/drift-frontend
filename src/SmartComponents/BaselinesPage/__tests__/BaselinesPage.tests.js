@@ -9,17 +9,6 @@ import _ from 'lodash';
 
 import ConnectedBaselinesPage, { BaselinesPage } from '../BaselinesPage';
 
-global.insights = {
-    chrome: {
-        auth: {
-            getUser: () => new Promise((resolve) => {
-                setTimeout(resolve, 1);
-            }),
-            logout: jest.fn()
-        }
-    }
-};
-
 describe('BaselinesPage', () => {
     let props;
 

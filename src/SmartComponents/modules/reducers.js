@@ -28,6 +28,18 @@ const initialState = {
     emptyState: true
 };
 
+if (insights.chrome.isBeta()) {
+
+    initialState.stateFilters = [
+        { filter: 'SAME', display: 'Expected', selected: true },
+        { filter: 'DIFFERENT', display: 'Unexpected', selected: true },
+        { filter: 'INCOMPLETE_DATA', display: 'Uncertain', selected: true }
+    ];
+
+}
+
+;
+
 export function compareReducer(state = initialState, action) {
     let filteredFacts;
     let sortedFacts;
