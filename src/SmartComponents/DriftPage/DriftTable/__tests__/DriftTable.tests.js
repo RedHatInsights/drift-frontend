@@ -12,17 +12,6 @@ import ConnectedDriftTable, { DriftTable } from '../DriftTable';
 import { compareReducerPayload, baselinesPayload, historicalProfilesPayload } from '../../../modules/__tests__/reducer.fixtures';
 import ReferenceSelector from '../ReferenceSelector/ReferenceSelector';
 
-global.insights = {
-    chrome: {
-        auth: {
-            getUser: () => new Promise((resolve) => {
-                setTimeout(resolve, 1);
-            }),
-            logout: jest.fn()
-        }
-    }
-};
-
 describe('DriftTable', () => {
     let props;
 

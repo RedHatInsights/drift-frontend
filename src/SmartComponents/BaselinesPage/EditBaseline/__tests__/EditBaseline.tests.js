@@ -10,17 +10,6 @@ import editBaselineFixtures from './helpers.fixtures';
 import ConnectedEditBaseline, { EditBaseline } from '../EditBaseline';
 import api from '../../../../api';
 
-global.insights = {
-    chrome: {
-        auth: {
-            getUser: () => new Promise((resolve) => {
-                setTimeout(resolve, 1);
-            }),
-            logout: jest.fn()
-        }
-    }
-};
-
 describe('EditBaseline', () => {
     let props;
 

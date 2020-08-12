@@ -8,17 +8,6 @@ import toJson from 'enzyme-to-json';
 import ConnectedDriftPage, { DriftPage } from '../DriftPage';
 import { compareReducerPayload, baselinesPayload } from '../../modules/__tests__/reducer.fixtures';
 
-global.insights = {
-    chrome: {
-        auth: {
-            getUser: () => new Promise((resolve) => {
-                setTimeout(resolve, 1);
-            }),
-            logout: jest.fn()
-        }
-    }
-};
-
 describe('DriftPage', () => {
     let props;
 
