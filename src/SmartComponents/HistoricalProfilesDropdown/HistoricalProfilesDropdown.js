@@ -118,6 +118,11 @@ export class HistoricalProfilesDropdown extends Component {
         let onSingleSelectFunc = this.onSingleSelect;
 
         if (historicalData && historicalData.profiles.length > 0) {
+            dropdownItems.push(
+                <div className="sticky-header">
+                    <b>Historical profiles for this system</b>
+                </div>
+            );
             historicalData.profiles.forEach(function(profile) {
                 dropdownItems.push(
                     <DropdownItem>
@@ -175,12 +180,11 @@ export class HistoricalProfilesDropdown extends Component {
         for (let i = 0; i < 3; i += 1) {
             rows.push(
                 <Skeleton
-                    className='hsp-dropdown-loading hsp-button'
+                    className='hsp-dropdown-loading'
                     size={ SkeletonSize.sm }
                     key={ 'skeleton-row-' + i }
                 />
             );
-            rows.push(<br></br>);
         }
 
         return rows;
