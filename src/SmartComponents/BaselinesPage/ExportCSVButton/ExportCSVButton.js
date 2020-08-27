@@ -21,7 +21,7 @@ class ExportCSVButton extends Component {
 
     render() {
         return (
-            <ExportIcon className='pointer not-active export-button-margin' onClick={ this.exportSelect } />
+            <ExportIcon className='pointer not-active' onClick={ this.exportSelect } />
         );
     }
 }

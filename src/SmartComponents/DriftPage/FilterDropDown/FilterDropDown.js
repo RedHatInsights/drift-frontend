@@ -73,7 +73,6 @@ class FilterDropDown extends Component {
         return (
             <React.Fragment>
                 <Dropdown
-                    className="state-filter-dropdown"
                     onSelect={ this.onToggle }
                     toggle={ <DropdownToggle onToggle={ this.onToggle }>
                         View: { selectedViews }
