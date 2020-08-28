@@ -5,7 +5,6 @@ import { compareReducer } from '../SmartComponents/modules/reducers';
 import { addSystemModalReducer } from '../SmartComponents/AddSystemModal/redux/addSystemModalReducer';
 import { baselinesTableRootReducer } from '../SmartComponents/BaselinesTable/redux';
 import { filterDropdownReducer } from '../SmartComponents/DriftPage/FilterDropDown/redux/filterDropdownReducer';
-import { exportCSVButtonReducer } from '../SmartComponents/BaselinesPage/ExportCSVButton/redux/exportCSVButtonReducer';
 import { createBaselineModalReducer } from '../SmartComponents/BaselinesPage/CreateBaselineModal/redux/reducers';
 import { editBaselineReducer } from '../SmartComponents/BaselinesPage/EditBaseline/redux/reducers';
 import { historicProfilesReducer } from '../SmartComponents/HistoricalProfilesDropdown/redux/reducers';
@@ -40,7 +39,6 @@ export function init (...middleware) {
         addSystemModalState: addSystemModalReducer,
         baselinesTableState: baselinesTableRootReducer,
         filterDropdownOpened: filterDropdownReducer,
-        exportCSVButtonState: exportCSVButtonReducer,
         createBaselineModalState: createBaselineModalReducer,
         editBaselineState: editBaselineReducer,
         historicProfilesState: historicProfilesReducer,

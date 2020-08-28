@@ -149,7 +149,7 @@ describe('ConnectedDriftPage', () => {
             </MemoryRouter>
         );
 
-        wrapper.find('.pf-c-dropdown__toggle').at(1).simulate('click');
+        wrapper.find('.pf-c-dropdown__toggle').at(2).simulate('click');
         expect(wrapper.find('[id="action-kebab"]').first().prop('isOpen')).toBe(true);
     });
 });

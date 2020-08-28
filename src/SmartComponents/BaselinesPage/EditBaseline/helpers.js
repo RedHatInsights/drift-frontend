@@ -375,6 +375,50 @@ function findSelected(editBaselineTableData) {
     return selected;
 }
 
+function convertDataToCSV(data, baselineData) {
+    if (data === null || !data.length) {
+        return null;
+    }
+
+    let columnDelimiter = ',';
+    let lineDelimiter = '\n';
+
+    /*eslint-disable camelcase*/
+    let headers = 'Fact,Value,';
+    let result = baselineData.display_name + lineDelimiter + headers + lineDelimiter;
+    /*eslint-enable camelcase*/
+
+    data.forEach(function(row) {
+        row.forEach(function(rowData) {
+            if (row[0] === rowData) {
+                return;
+            }
+
+            if (Array.isArray(rowData)) {
+                rowData.forEach(function(subFact) {
+                    result += lineDelimiter;
+                    result += '    ';
+                    subFact.forEach(function(subFactData) {
+                        if (subFact[0] === subFactData) {
+                            return;
+                        }
+
+                        result += subFactData;
+                        result += columnDelimiter;
+                    });
+                });
+            } else {
+                result += rowData;
+                result += columnDelimiter;
+            }
+        });
+
+        result += lineDelimiter;
+    });
+
+    return result;
+}
+
 export default {
     renderKebab,
     buildNewFactData,
@@ -392,5 +436,6 @@ export default {
     isCategory,
     baselineSubFacts,
     findFactCount,
-    findSelected
+    findSelected,
+    convertDataToCSV
 };

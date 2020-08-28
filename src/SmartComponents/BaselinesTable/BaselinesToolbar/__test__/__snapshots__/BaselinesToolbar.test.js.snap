@@ -66,8 +66,19 @@ exports[`jest-tests BaselinesToolbar should render correctly 1`] = `
         variant="icon-button-group"
       >
         <ToolbarItem>
-          <Connect(ExportCSVButton)
-            exportType="baseline list"
+          <ExportCSVButton
+            dropdownItems={
+              Array [
+                <DropdownItem
+                  component="button"
+                  onClick={[Function]}
+                >
+                  Export to CSV
+                </DropdownItem>,
+              ]
+            }
+            isOpen={false}
+            onToggle={[Function]}
           />
         </ToolbarItem>
         <ToolbarItem>
@@ -909,58 +920,234 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                             <div
                               className="pf-c-toolbar__item"
                             >
-                              <Connect(ExportCSVButton)
-                                exportType="baseline list"
+                              <ExportCSVButton
+                                dropdownItems={
+                                  Array [
+                                    <DropdownItem
+                                      component="button"
+                                      onClick={[Function]}
+                                    >
+                                      Export to CSV
+                                    </DropdownItem>,
+                                  ]
+                                }
+                                isOpen={false}
+                                onToggle={[Function]}
                               >
-                                <ExportCSVButton
-                                  baselineTableData={
+                                <Dropdown
+                                  dropdownItems={
                                     Array [
-                                      Array [
-                                        "1234",
-                                        "beavs baseline",
-                                        "a year ago",
-                                      ],
-                                      Array [
-                                        "abcd",
-                                        "micjohns baseline",
-                                        "a year ago",
-                                      ],
+                                      <DropdownItem
+                                        component="button"
+                                        onClick={[Function]}
+                                      >
+                                        Export to CSV
+                                      </DropdownItem>,
                                     ]
                                   }
-                                  exportToCSV={[Function]}
-                                  exportType="baseline list"
-                                >
-                                  <ExportIcon
-                                    className="pointer not-active"
-                                    color="currentColor"
-                                    noVerticalAlign={false}
-                                    onClick={[Function]}
-                                    size="sm"
-                                  >
-                                    <svg
-                                      aria-hidden={true}
-                                      aria-labelledby={null}
-                                      className="pointer not-active"
-                                      fill="currentColor"
-                                      height="1em"
-                                      onClick={[Function]}
-                                      role="img"
-                                      style={
-                                        Object {
-                                          "verticalAlign": "-0.125em",
-                                        }
-                                      }
-                                      viewBox="0 64 1024 1024"
-                                      width="1em"
+                                  isOpen={false}
+                                  isPlain={true}
+                                  position="left"
+                                  toggle={
+                                    <DropdownToggle
+                                      onToggle={[Function]}
+                                      toggleIndicator={null}
                                     >
-                                      <path
-                                        d="M980.293 278.754l-95.387-95.387-393.84 393.856c-5.285 5.262-11.353 7.909-18.203 7.911-6.862 0-12.935-2.649-18.222-7.911l-81.019-81.019c-5.262-5.285-7.909-11.353-7.909-18.219 0-6.85 2.649-12.914 7.909-18.203l393.856-393.84-95.381-95.381c-24.039-24.037-15.89-43.705 18.105-43.705h271.982c53.227 0 61.813 9.273 61.813 61.813v271.982c0.005 33.998-19.662 42.151-43.703 18.105zM146.286 793.143c0 3.312 1.077 6.048 3.232 8.203 2.151 2.151 4.889 3.227 8.199 3.225h708.661c3.287 0 5.998-1.067 8.137-3.202 2.135-2.137 3.202-4.848 3.202-8.135v-331.701c0-6.571 2.135-11.995 6.409-16.272 4.27-4.267 9.696-6.407 16.267-6.405h100.933c6.571-0.002 11.998 2.137 16.267 6.405 4.277 4.277 6.409 9.701 6.409 16.272v466.647c0.002 6.571-2.137 11.998-6.405 16.267-4.277 4.274-9.701 6.409-16.272 6.409h-978.649c-6.571 0.002-11.998-2.137-16.267-6.405-4.274-4.277-6.409-9.701-6.409-16.272v-978.647c0-6.571 2.135-11.995 6.409-16.272 4.27-4.267 9.696-6.407 16.267-6.405h466.647c6.571 0 11.995 2.135 16.272 6.411 4.267 4.267 6.407 9.696 6.405 16.265v100.933c0.002 6.569-2.137 11.998-6.405 16.265-4.277 4.277-9.701 6.411-16.272 6.411h-331.609c-3.312 0-6.048 1.077-8.203 3.232-2.151 2.149-3.227 4.889-3.225 8.197v708.571z"
-                                        transform="rotate(180 0 512) scale(-1 1)"
+                                      <ExportIcon
+                                        className="pointer not-active"
+                                        color="currentColor"
+                                        noVerticalAlign={false}
+                                        size="sm"
                                       />
-                                    </svg>
-                                  </ExportIcon>
-                                </ExportCSVButton>
-                              </Connect(ExportCSVButton)>
+                                    </DropdownToggle>
+                                  }
+                                >
+                                  <DropdownWithContext
+                                    autoFocus={true}
+                                    className=""
+                                    direction="down"
+                                    dropdownItems={
+                                      Array [
+                                        <DropdownItem
+                                          component="button"
+                                          onClick={[Function]}
+                                        >
+                                          Export to CSV
+                                        </DropdownItem>,
+                                      ]
+                                    }
+                                    isGrouped={false}
+                                    isOpen={false}
+                                    isPlain={true}
+                                    menuAppendTo="inline"
+                                    onSelect={[Function]}
+                                    position="left"
+                                    toggle={
+                                      <DropdownToggle
+                                        onToggle={[Function]}
+                                        toggleIndicator={null}
+                                      >
+                                        <ExportIcon
+                                          className="pointer not-active"
+                                          color="currentColor"
+                                          noVerticalAlign={false}
+                                          size="sm"
+                                        />
+                                      </DropdownToggle>
+                                    }
+                                  >
+                                    <div
+                                      className="pf-c-dropdown"
+                                      data-ouia-component-id={2}
+                                      data-ouia-component-type="PF4/Dropdown"
+                                      data-ouia-safe={true}
+                                    >
+                                      <DropdownToggle
+                                        aria-haspopup={true}
+                                        getMenuRef={[Function]}
+                                        id="pf-dropdown-toggle-id-1"
+                                        isOpen={false}
+                                        isPlain={true}
+                                        key=".0"
+                                        onEnter={[Function]}
+                                        onToggle={[Function]}
+                                        parentRef={
+                                          Object {
+                                            "current": <div
+                                              class="pf-c-dropdown"
+                                              data-ouia-component-id="2"
+                                              data-ouia-component-type="PF4/Dropdown"
+                                              data-ouia-safe="true"
+                                            >
+                                              <button
+                                                aria-expanded="false"
+                                                aria-haspopup="true"
+                                                class="pf-c-dropdown__toggle pf-m-plain"
+                                                id="pf-dropdown-toggle-id-1"
+                                                type="button"
+                                              >
+                                                <span>
+                                                  <svg
+                                                    aria-hidden="true"
+                                                    class="pointer not-active"
+                                                    fill="currentColor"
+                                                    height="1em"
+                                                    role="img"
+                                                    style="vertical-align: -0.125em;"
+                                                    viewBox="0 64 1024 1024"
+                                                    width="1em"
+                                                  >
+                                                    <path
+                                                      d="M980.293 278.754l-95.387-95.387-393.84 393.856c-5.285 5.262-11.353 7.909-18.203 7.911-6.862 0-12.935-2.649-18.222-7.911l-81.019-81.019c-5.262-5.285-7.909-11.353-7.909-18.219 0-6.85 2.649-12.914 7.909-18.203l393.856-393.84-95.381-95.381c-24.039-24.037-15.89-43.705 18.105-43.705h271.982c53.227 0 61.813 9.273 61.813 61.813v271.982c0.005 33.998-19.662 42.151-43.703 18.105zM146.286 793.143c0 3.312 1.077 6.048 3.232 8.203 2.151 2.151 4.889 3.227 8.199 3.225h708.661c3.287 0 5.998-1.067 8.137-3.202 2.135-2.137 3.202-4.848 3.202-8.135v-331.701c0-6.571 2.135-11.995 6.409-16.272 4.27-4.267 9.696-6.407 16.267-6.405h100.933c6.571-0.002 11.998 2.137 16.267 6.405 4.277 4.277 6.409 9.701 6.409 16.272v466.647c0.002 6.571-2.137 11.998-6.405 16.267-4.277 4.274-9.701 6.409-16.272 6.409h-978.649c-6.571 0.002-11.998-2.137-16.267-6.405-4.274-4.277-6.409-9.701-6.409-16.272v-978.647c0-6.571 2.135-11.995 6.409-16.272 4.27-4.267 9.696-6.407 16.267-6.405h466.647c6.571 0 11.995 2.135 16.272 6.411 4.267 4.267 6.407 9.696 6.405 16.265v100.933c0.002 6.569-2.137 11.998-6.405 16.265-4.277 4.277-9.701 6.411-16.272 6.411h-331.609c-3.312 0-6.048 1.077-8.203 3.232-2.151 2.149-3.227 4.889-3.225 8.197v708.571z"
+                                                      transform="rotate(180 0 512) scale(-1 1)"
+                                                    />
+                                                  </svg>
+                                                </span>
+                                              </button>
+                                            </div>,
+                                          }
+                                        }
+                                        toggleIndicator={null}
+                                      >
+                                        <Toggle
+                                          aria-haspopup={true}
+                                          bubbleEvent={false}
+                                          className=""
+                                          getMenuRef={[Function]}
+                                          id="pf-dropdown-toggle-id-1"
+                                          isActive={false}
+                                          isDisabled={false}
+                                          isOpen={false}
+                                          isPlain={true}
+                                          isPrimary={false}
+                                          isSplitButton={false}
+                                          onEnter={[Function]}
+                                          onToggle={[Function]}
+                                          parentRef={
+                                            Object {
+                                              "current": <div
+                                                class="pf-c-dropdown"
+                                                data-ouia-component-id="2"
+                                                data-ouia-component-type="PF4/Dropdown"
+                                                data-ouia-safe="true"
+                                              >
+                                                <button
+                                                  aria-expanded="false"
+                                                  aria-haspopup="true"
+                                                  class="pf-c-dropdown__toggle pf-m-plain"
+                                                  id="pf-dropdown-toggle-id-1"
+                                                  type="button"
+                                                >
+                                                  <span>
+                                                    <svg
+                                                      aria-hidden="true"
+                                                      class="pointer not-active"
+                                                      fill="currentColor"
+                                                      height="1em"
+                                                      role="img"
+                                                      style="vertical-align: -0.125em;"
+                                                      viewBox="0 64 1024 1024"
+                                                      width="1em"
+                                                    >
+                                                      <path
+                                                        d="M980.293 278.754l-95.387-95.387-393.84 393.856c-5.285 5.262-11.353 7.909-18.203 7.911-6.862 0-12.935-2.649-18.222-7.911l-81.019-81.019c-5.262-5.285-7.909-11.353-7.909-18.219 0-6.85 2.649-12.914 7.909-18.203l393.856-393.84-95.381-95.381c-24.039-24.037-15.89-43.705 18.105-43.705h271.982c53.227 0 61.813 9.273 61.813 61.813v271.982c0.005 33.998-19.662 42.151-43.703 18.105zM146.286 793.143c0 3.312 1.077 6.048 3.232 8.203 2.151 2.151 4.889 3.227 8.199 3.225h708.661c3.287 0 5.998-1.067 8.137-3.202 2.135-2.137 3.202-4.848 3.202-8.135v-331.701c0-6.571 2.135-11.995 6.409-16.272 4.27-4.267 9.696-6.407 16.267-6.405h100.933c6.571-0.002 11.998 2.137 16.267 6.405 4.277 4.277 6.409 9.701 6.409 16.272v466.647c0.002 6.571-2.137 11.998-6.405 16.267-4.277 4.274-9.701 6.409-16.272 6.409h-978.649c-6.571 0.002-11.998-2.137-16.267-6.405-4.274-4.277-6.409-9.701-6.409-16.272v-978.647c0-6.571 2.135-11.995 6.409-16.272 4.27-4.267 9.696-6.407 16.267-6.405h466.647c6.571 0 11.995 2.135 16.272 6.411 4.267 4.267 6.407 9.696 6.405 16.265v100.933c0.002 6.569-2.137 11.998-6.405 16.265-4.277 4.277-9.701 6.411-16.272 6.411h-331.609c-3.312 0-6.048 1.077-8.203 3.232-2.151 2.149-3.227 4.889-3.225 8.197v708.571z"
+                                                        transform="rotate(180 0 512) scale(-1 1)"
+                                                      />
+                                                    </svg>
+                                                  </span>
+                                                </button>
+                                              </div>,
+                                            }
+                                          }
+                                        >
+                                          <button
+                                            aria-expanded={false}
+                                            aria-haspopup={true}
+                                            className="pf-c-dropdown__toggle pf-m-plain"
+                                            disabled={false}
+                                            id="pf-dropdown-toggle-id-1"
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
+                                            type="button"
+                                          >
+                                            <span
+                                              className={null}
+                                            >
+                                              <ExportIcon
+                                                className="pointer not-active"
+                                                color="currentColor"
+                                                noVerticalAlign={false}
+                                                size="sm"
+                                              >
+                                                <svg
+                                                  aria-hidden={true}
+                                                  aria-labelledby={null}
+                                                  className="pointer not-active"
+                                                  fill="currentColor"
+                                                  height="1em"
+                                                  role="img"
+                                                  style={
+                                                    Object {
+                                                      "verticalAlign": "-0.125em",
+                                                    }
+                                                  }
+                                                  viewBox="0 64 1024 1024"
+                                                  width="1em"
+                                                >
+                                                  <path
+                                                    d="M980.293 278.754l-95.387-95.387-393.84 393.856c-5.285 5.262-11.353 7.909-18.203 7.911-6.862 0-12.935-2.649-18.222-7.911l-81.019-81.019c-5.262-5.285-7.909-11.353-7.909-18.219 0-6.85 2.649-12.914 7.909-18.203l393.856-393.84-95.381-95.381c-24.039-24.037-15.89-43.705 18.105-43.705h271.982c53.227 0 61.813 9.273 61.813 61.813v271.982c0.005 33.998-19.662 42.151-43.703 18.105zM146.286 793.143c0 3.312 1.077 6.048 3.232 8.203 2.151 2.151 4.889 3.227 8.199 3.225h708.661c3.287 0 5.998-1.067 8.137-3.202 2.135-2.137 3.202-4.848 3.202-8.135v-331.701c0-6.571 2.135-11.995 6.409-16.272 4.27-4.267 9.696-6.407 16.267-6.405h100.933c6.571-0.002 11.998 2.137 16.267 6.405 4.277 4.277 6.409 9.701 6.409 16.272v466.647c0.002 6.571-2.137 11.998-6.405 16.267-4.277 4.274-9.701 6.409-16.272 6.409h-978.649c-6.571 0.002-11.998-2.137-16.267-6.405-4.274-4.277-6.409-9.701-6.409-16.272v-978.647c0-6.571 2.135-11.995 6.409-16.272 4.27-4.267 9.696-6.407 16.267-6.405h466.647c6.571 0 11.995 2.135 16.272 6.411 4.267 4.267 6.407 9.696 6.405 16.265v100.933c0.002 6.569-2.137 11.998-6.405 16.265-4.277 4.277-9.701 6.411-16.272 6.411h-331.609c-3.312 0-6.048 1.077-8.203 3.232-2.151 2.149-3.227 4.889-3.225 8.197v708.571z"
+                                                    transform="rotate(180 0 512) scale(-1 1)"
+                                                  />
+                                                </svg>
+                                              </ExportIcon>
+                                            </span>
+                                          </button>
+                                        </Toggle>
+                                      </DropdownToggle>
+                                    </div>
+                                  </DropdownWithContext>
+                                </Dropdown>
+                              </ExportCSVButton>
                             </div>
                           </ToolbarItem>
                           <ToolbarItem>
@@ -1041,7 +1228,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                     <div
                                       aria-label="action-kebab"
                                       className="pf-c-dropdown"
-                                      data-ouia-component-id={2}
+                                      data-ouia-component-id={3}
                                       data-ouia-component-type="PF4/Dropdown"
                                       data-ouia-safe={true}
                                       id="action-kebab"
@@ -1054,7 +1241,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                       <KebabToggle
                                         aria-haspopup={true}
                                         getMenuRef={[Function]}
-                                        id="pf-dropdown-toggle-id-1"
+                                        id="pf-dropdown-toggle-id-2"
                                         isOpen={false}
                                         isPlain={true}
                                         key=".0"
@@ -1065,7 +1252,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                             "current": <div
                                               aria-label="action-kebab"
                                               class="pf-c-dropdown"
-                                              data-ouia-component-id="2"
+                                              data-ouia-component-id="3"
                                               data-ouia-component-type="PF4/Dropdown"
                                               data-ouia-safe="true"
                                               id="action-kebab"
@@ -1076,7 +1263,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                                 aria-haspopup="true"
                                                 aria-label="Actions"
                                                 class="pf-c-dropdown__toggle pf-m-plain"
-                                                id="pf-dropdown-toggle-id-1"
+                                                id="pf-dropdown-toggle-id-2"
                                                 type="button"
                                               >
                                                 <svg
@@ -1104,7 +1291,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                           bubbleEvent={false}
                                           className=""
                                           getMenuRef={[Function]}
-                                          id="pf-dropdown-toggle-id-1"
+                                          id="pf-dropdown-toggle-id-2"
                                           isActive={false}
                                           isDisabled={false}
                                           isOpen={false}
@@ -1118,7 +1305,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                               "current": <div
                                                 aria-label="action-kebab"
                                                 class="pf-c-dropdown"
-                                                data-ouia-component-id="2"
+                                                data-ouia-component-id="3"
                                                 data-ouia-component-type="PF4/Dropdown"
                                                 data-ouia-safe="true"
                                                 id="action-kebab"
@@ -1129,7 +1316,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                                   aria-haspopup="true"
                                                   aria-label="Actions"
                                                   class="pf-c-dropdown__toggle pf-m-plain"
-                                                  id="pf-dropdown-toggle-id-1"
+                                                  id="pf-dropdown-toggle-id-2"
                                                   type="button"
                                                 >
                                                   <svg
@@ -1157,7 +1344,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                             aria-label="Actions"
                                             className="pf-c-dropdown__toggle pf-m-plain"
                                             disabled={false}
-                                            id="pf-dropdown-toggle-id-1"
+                                            id="pf-dropdown-toggle-id-2"
                                             onClick={[Function]}
                                             onKeyDown={[Function]}
                                             type="button"
@@ -1270,7 +1457,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                           >
                             <div
                               className="pf-c-pagination pf-m-compact"
-                              data-ouia-component-id={3}
+                              data-ouia-component-id={4}
                               data-ouia-component-type="PF4/Pagination"
                               data-ouia-safe={true}
                               id="pagination-options-menu-0"
@@ -1415,7 +1602,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                 >
                                   <div
                                     className="pf-c-options-menu"
-                                    data-ouia-component-id={4}
+                                    data-ouia-component-id={5}
                                     data-ouia-component-type="PF4/PaginationOptionsMenu"
                                     data-ouia-safe={true}
                                   >
@@ -1423,7 +1610,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                       aria-haspopup={true}
                                       firstIndex={0}
                                       getMenuRef={[Function]}
-                                      id="pf-dropdown-toggle-id-2"
+                                      id="pf-dropdown-toggle-id-3"
                                       isDisabled={false}
                                       isOpen={false}
                                       isPlain={true}
@@ -1439,7 +1626,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                         Object {
                                           "current": <div
                                             class="pf-c-options-menu"
-                                            data-ouia-component-id="4"
+                                            data-ouia-component-id="5"
                                             data-ouia-component-type="PF4/PaginationOptionsMenu"
                                             data-ouia-safe="true"
                                           >
@@ -1534,7 +1721,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                             Object {
                                               "current": <div
                                                 class="pf-c-options-menu"
-                                                data-ouia-component-id="4"
+                                                data-ouia-component-id="5"
                                                 data-ouia-component-type="PF4/PaginationOptionsMenu"
                                                 data-ouia-safe="true"
                                               >
@@ -1607,7 +1794,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                               Object {
                                                 "current": <div
                                                   class="pf-c-options-menu"
-                                                  data-ouia-component-id="4"
+                                                  data-ouia-component-id="5"
                                                   data-ouia-component-type="PF4/PaginationOptionsMenu"
                                                   data-ouia-safe="true"
                                                 >
@@ -1750,7 +1937,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                         aria-label="Go to previous page"
                                         className="pf-c-button pf-m-plain pf-m-disabled"
                                         data-action="previous"
-                                        data-ouia-component-id={5}
+                                        data-ouia-component-id={6}
                                         data-ouia-component-type="PF4/Button"
                                         data-ouia-safe={true}
                                         disabled={true}
@@ -1801,7 +1988,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                         aria-label="Go to next page"
                                         className="pf-c-button pf-m-plain pf-m-disabled"
                                         data-action="next"
-                                        data-ouia-component-id={6}
+                                        data-ouia-component-id={7}
                                         data-ouia-component-type="PF4/Button"
                                         data-ouia-safe={true}
                                         disabled={true}

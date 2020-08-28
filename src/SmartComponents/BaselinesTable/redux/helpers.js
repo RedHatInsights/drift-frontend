@@ -83,10 +83,34 @@ function toggleExpandedRow(expandedRows, factName) {
     return expandedRows;
 }
 
+function convertListToCSV(data) {
+    if (data === null || !data.length) {
+        return null;
+    }
+
+    let columnDelimiter = data.columnDelimiter || ',';
+    let lineDelimiter = data.lineDelimiter || '\n';
+
+    let headers = 'UUID,Name,Last updated,';
+    let result = headers + lineDelimiter;
+
+    data.forEach(function(baseline) {
+        baseline.forEach(function(detail) {
+            result += detail;
+            result += columnDelimiter;
+        });
+
+        result += lineDelimiter;
+    });
+
+    return result;
+}
+
 export default {
     fetchBaselines,
     buildBaselinesTable,
     setBaselineArray,
     toggleExpandedRow,
-    setSelected
+    setSelected,
+    convertListToCSV
 };
