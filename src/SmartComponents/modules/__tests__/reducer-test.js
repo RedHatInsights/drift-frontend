@@ -53,7 +53,8 @@ describe('compare reducer', () => {
                     { filter: 'DIFFERENT', display: 'Different', selected: true },
                     { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: false }
                 ],
-                factFilter: 'dog' }, {
+                factFilter: 'dog',
+                expandedRows: [ 'something', 'something-else' ]}, {
                 type: `${types.CLEAR_COMPARISON}` })
         ).toEqual({
             baselines: [],
