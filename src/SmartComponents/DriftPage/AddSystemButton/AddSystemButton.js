@@ -15,7 +15,6 @@ export class AddSystemButton extends Component {
 
         return (
             <Button
-                className="add-system-button"
                 variant='primary'
                 onClick={ toggleAddSystemModal }
                 isDisabled={ loading ? true : false }

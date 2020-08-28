@@ -14,7 +14,7 @@ class ExportCSVButton extends Component {
         const { exportToCSV } = this.props;
 
         return (
-            <ExportIcon className='pointer not-active export-button-margin' onClick={ exportToCSV } />
+            <ExportIcon className='pointer not-active' onClick={ exportToCSV } />
         );
     }
 }
