@@ -46,6 +46,19 @@ function deleteSelectedBaselines(deleteBaselinesAPIBody, tableId) {
     };
 }
 
+function exportToCSV(baselineData, baselineRowData = []) {
+    let data = {
+        exportType: 'baseline list',
+        exportData: baselineData,
+        baselineRowData
+    };
+
+    return {
+        type: `EXPORT_BASELINES_LIST_TO_CSV_CHECKBOX`,
+        payload: data
+    };
+}
+
 export default {
     fetchBaselines,
     revertBaselineFetch,
@@ -53,5 +66,6 @@ export default {
     setSelectedBaselines,
     clearSelectedBaselines,
     clearBaselineData,
-    deleteSelectedBaselines
+    deleteSelectedBaselines,
+    exportToCSV
 };

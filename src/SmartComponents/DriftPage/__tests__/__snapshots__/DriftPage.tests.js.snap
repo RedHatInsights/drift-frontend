@@ -102,6 +102,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
             clearComparisonFilters={[Function]}
             clearSelectedBaselines={[Function]}
             error={Object {}}
+            exportToCSV={[Function]}
             history={
               Object {
                 "action": "POP",
@@ -203,7 +204,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                   >
                     <article
                       className="pf-c-card pf-t-light pf-m-opaque-100"
-                      data-ouia-component-id={22}
+                      data-ouia-component-id={23}
                       data-ouia-component-type="PF4/Card"
                       data-ouia-safe={true}
                     >
@@ -654,41 +655,234 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                 <div
                                                   className="pf-c-toolbar__item"
                                                 >
-                                                  <Connect(ExportCSVButton)>
-                                                    <ExportCSVButton
-                                                      exportToCSV={[Function]}
-                                                    >
-                                                      <ExportIcon
-                                                        className="pointer not-active"
-                                                        color="currentColor"
-                                                        noVerticalAlign={false}
-                                                        onClick={[Function]}
-                                                        size="sm"
-                                                      >
-                                                        <svg
-                                                          aria-hidden={true}
-                                                          aria-labelledby={null}
-                                                          className="pointer not-active"
-                                                          fill="currentColor"
-                                                          height="1em"
+                                                  <ExportCSVButton
+                                                    dropdownItems={
+                                                      Array [
+                                                        <DropdownItem
+                                                          component="button"
                                                           onClick={[Function]}
-                                                          role="img"
-                                                          style={
-                                                            Object {
-                                                              "verticalAlign": "-0.125em",
-                                                            }
-                                                          }
-                                                          viewBox="0 64 1024 1024"
-                                                          width="1em"
                                                         >
-                                                          <path
-                                                            d="M980.293 278.754l-95.387-95.387-393.84 393.856c-5.285 5.262-11.353 7.909-18.203 7.911-6.862 0-12.935-2.649-18.222-7.911l-81.019-81.019c-5.262-5.285-7.909-11.353-7.909-18.219 0-6.85 2.649-12.914 7.909-18.203l393.856-393.84-95.381-95.381c-24.039-24.037-15.89-43.705 18.105-43.705h271.982c53.227 0 61.813 9.273 61.813 61.813v271.982c0.005 33.998-19.662 42.151-43.703 18.105zM146.286 793.143c0 3.312 1.077 6.048 3.232 8.203 2.151 2.151 4.889 3.227 8.199 3.225h708.661c3.287 0 5.998-1.067 8.137-3.202 2.135-2.137 3.202-4.848 3.202-8.135v-331.701c0-6.571 2.135-11.995 6.409-16.272 4.27-4.267 9.696-6.407 16.267-6.405h100.933c6.571-0.002 11.998 2.137 16.267 6.405 4.277 4.277 6.409 9.701 6.409 16.272v466.647c0.002 6.571-2.137 11.998-6.405 16.267-4.277 4.274-9.701 6.409-16.272 6.409h-978.649c-6.571 0.002-11.998-2.137-16.267-6.405-4.274-4.277-6.409-9.701-6.409-16.272v-978.647c0-6.571 2.135-11.995 6.409-16.272 4.27-4.267 9.696-6.407 16.267-6.405h466.647c6.571 0 11.995 2.135 16.272 6.411 4.267 4.267 6.407 9.696 6.405 16.265v100.933c0.002 6.569-2.137 11.998-6.405 16.265-4.277 4.277-9.701 6.411-16.272 6.411h-331.609c-3.312 0-6.048 1.077-8.203 3.232-2.151 2.149-3.227 4.889-3.225 8.197v708.571z"
-                                                            transform="rotate(180 0 512) scale(-1 1)"
+                                                          Export to CSV
+                                                        </DropdownItem>,
+                                                      ]
+                                                    }
+                                                    isOpen={false}
+                                                    onToggle={[Function]}
+                                                  >
+                                                    <Dropdown
+                                                      dropdownItems={
+                                                        Array [
+                                                          <DropdownItem
+                                                            component="button"
+                                                            onClick={[Function]}
+                                                          >
+                                                            Export to CSV
+                                                          </DropdownItem>,
+                                                        ]
+                                                      }
+                                                      isOpen={false}
+                                                      isPlain={true}
+                                                      position="left"
+                                                      toggle={
+                                                        <DropdownToggle
+                                                          onToggle={[Function]}
+                                                          toggleIndicator={null}
+                                                        >
+                                                          <ExportIcon
+                                                            className="pointer not-active"
+                                                            color="currentColor"
+                                                            noVerticalAlign={false}
+                                                            size="sm"
                                                           />
-                                                        </svg>
-                                                      </ExportIcon>
-                                                    </ExportCSVButton>
-                                                  </Connect(ExportCSVButton)>
+                                                        </DropdownToggle>
+                                                      }
+                                                    >
+                                                      <DropdownWithContext
+                                                        autoFocus={true}
+                                                        className=""
+                                                        direction="down"
+                                                        dropdownItems={
+                                                          Array [
+                                                            <DropdownItem
+                                                              component="button"
+                                                              onClick={[Function]}
+                                                            >
+                                                              Export to CSV
+                                                            </DropdownItem>,
+                                                          ]
+                                                        }
+                                                        isGrouped={false}
+                                                        isOpen={false}
+                                                        isPlain={true}
+                                                        menuAppendTo="inline"
+                                                        onSelect={[Function]}
+                                                        position="left"
+                                                        toggle={
+                                                          <DropdownToggle
+                                                            onToggle={[Function]}
+                                                            toggleIndicator={null}
+                                                          >
+                                                            <ExportIcon
+                                                              className="pointer not-active"
+                                                              color="currentColor"
+                                                              noVerticalAlign={false}
+                                                              size="sm"
+                                                            />
+                                                          </DropdownToggle>
+                                                        }
+                                                      >
+                                                        <div
+                                                          className="pf-c-dropdown"
+                                                          data-ouia-component-id={24}
+                                                          data-ouia-component-type="PF4/Dropdown"
+                                                          data-ouia-safe={true}
+                                                        >
+                                                          <DropdownToggle
+                                                            aria-haspopup={true}
+                                                            getMenuRef={[Function]}
+                                                            id="pf-dropdown-toggle-id-5"
+                                                            isOpen={false}
+                                                            isPlain={true}
+                                                            key=".0"
+                                                            onEnter={[Function]}
+                                                            onToggle={[Function]}
+                                                            parentRef={
+                                                              Object {
+                                                                "current": <div
+                                                                  class="pf-c-dropdown"
+                                                                  data-ouia-component-id="24"
+                                                                  data-ouia-component-type="PF4/Dropdown"
+                                                                  data-ouia-safe="true"
+                                                                >
+                                                                  <button
+                                                                    aria-expanded="false"
+                                                                    aria-haspopup="true"
+                                                                    class="pf-c-dropdown__toggle pf-m-plain"
+                                                                    id="pf-dropdown-toggle-id-5"
+                                                                    type="button"
+                                                                  >
+                                                                    <span>
+                                                                      <svg
+                                                                        aria-hidden="true"
+                                                                        class="pointer not-active"
+                                                                        fill="currentColor"
+                                                                        height="1em"
+                                                                        role="img"
+                                                                        style="vertical-align: -0.125em;"
+                                                                        viewBox="0 64 1024 1024"
+                                                                        width="1em"
+                                                                      >
+                                                                        <path
+                                                                          d="M980.293 278.754l-95.387-95.387-393.84 393.856c-5.285 5.262-11.353 7.909-18.203 7.911-6.862 0-12.935-2.649-18.222-7.911l-81.019-81.019c-5.262-5.285-7.909-11.353-7.909-18.219 0-6.85 2.649-12.914 7.909-18.203l393.856-393.84-95.381-95.381c-24.039-24.037-15.89-43.705 18.105-43.705h271.982c53.227 0 61.813 9.273 61.813 61.813v271.982c0.005 33.998-19.662 42.151-43.703 18.105zM146.286 793.143c0 3.312 1.077 6.048 3.232 8.203 2.151 2.151 4.889 3.227 8.199 3.225h708.661c3.287 0 5.998-1.067 8.137-3.202 2.135-2.137 3.202-4.848 3.202-8.135v-331.701c0-6.571 2.135-11.995 6.409-16.272 4.27-4.267 9.696-6.407 16.267-6.405h100.933c6.571-0.002 11.998 2.137 16.267 6.405 4.277 4.277 6.409 9.701 6.409 16.272v466.647c0.002 6.571-2.137 11.998-6.405 16.267-4.277 4.274-9.701 6.409-16.272 6.409h-978.649c-6.571 0.002-11.998-2.137-16.267-6.405-4.274-4.277-6.409-9.701-6.409-16.272v-978.647c0-6.571 2.135-11.995 6.409-16.272 4.27-4.267 9.696-6.407 16.267-6.405h466.647c6.571 0 11.995 2.135 16.272 6.411 4.267 4.267 6.407 9.696 6.405 16.265v100.933c0.002 6.569-2.137 11.998-6.405 16.265-4.277 4.277-9.701 6.411-16.272 6.411h-331.609c-3.312 0-6.048 1.077-8.203 3.232-2.151 2.149-3.227 4.889-3.225 8.197v708.571z"
+                                                                          transform="rotate(180 0 512) scale(-1 1)"
+                                                                        />
+                                                                      </svg>
+                                                                    </span>
+                                                                  </button>
+                                                                </div>,
+                                                              }
+                                                            }
+                                                            toggleIndicator={null}
+                                                          >
+                                                            <Toggle
+                                                              aria-haspopup={true}
+                                                              bubbleEvent={false}
+                                                              className=""
+                                                              getMenuRef={[Function]}
+                                                              id="pf-dropdown-toggle-id-5"
+                                                              isActive={false}
+                                                              isDisabled={false}
+                                                              isOpen={false}
+                                                              isPlain={true}
+                                                              isPrimary={false}
+                                                              isSplitButton={false}
+                                                              onEnter={[Function]}
+                                                              onToggle={[Function]}
+                                                              parentRef={
+                                                                Object {
+                                                                  "current": <div
+                                                                    class="pf-c-dropdown"
+                                                                    data-ouia-component-id="24"
+                                                                    data-ouia-component-type="PF4/Dropdown"
+                                                                    data-ouia-safe="true"
+                                                                  >
+                                                                    <button
+                                                                      aria-expanded="false"
+                                                                      aria-haspopup="true"
+                                                                      class="pf-c-dropdown__toggle pf-m-plain"
+                                                                      id="pf-dropdown-toggle-id-5"
+                                                                      type="button"
+                                                                    >
+                                                                      <span>
+                                                                        <svg
+                                                                          aria-hidden="true"
+                                                                          class="pointer not-active"
+                                                                          fill="currentColor"
+                                                                          height="1em"
+                                                                          role="img"
+                                                                          style="vertical-align: -0.125em;"
+                                                                          viewBox="0 64 1024 1024"
+                                                                          width="1em"
+                                                                        >
+                                                                          <path
+                                                                            d="M980.293 278.754l-95.387-95.387-393.84 393.856c-5.285 5.262-11.353 7.909-18.203 7.911-6.862 0-12.935-2.649-18.222-7.911l-81.019-81.019c-5.262-5.285-7.909-11.353-7.909-18.219 0-6.85 2.649-12.914 7.909-18.203l393.856-393.84-95.381-95.381c-24.039-24.037-15.89-43.705 18.105-43.705h271.982c53.227 0 61.813 9.273 61.813 61.813v271.982c0.005 33.998-19.662 42.151-43.703 18.105zM146.286 793.143c0 3.312 1.077 6.048 3.232 8.203 2.151 2.151 4.889 3.227 8.199 3.225h708.661c3.287 0 5.998-1.067 8.137-3.202 2.135-2.137 3.202-4.848 3.202-8.135v-331.701c0-6.571 2.135-11.995 6.409-16.272 4.27-4.267 9.696-6.407 16.267-6.405h100.933c6.571-0.002 11.998 2.137 16.267 6.405 4.277 4.277 6.409 9.701 6.409 16.272v466.647c0.002 6.571-2.137 11.998-6.405 16.267-4.277 4.274-9.701 6.409-16.272 6.409h-978.649c-6.571 0.002-11.998-2.137-16.267-6.405-4.274-4.277-6.409-9.701-6.409-16.272v-978.647c0-6.571 2.135-11.995 6.409-16.272 4.27-4.267 9.696-6.407 16.267-6.405h466.647c6.571 0 11.995 2.135 16.272 6.411 4.267 4.267 6.407 9.696 6.405 16.265v100.933c0.002 6.569-2.137 11.998-6.405 16.265-4.277 4.277-9.701 6.411-16.272 6.411h-331.609c-3.312 0-6.048 1.077-8.203 3.232-2.151 2.149-3.227 4.889-3.225 8.197v708.571z"
+                                                                            transform="rotate(180 0 512) scale(-1 1)"
+                                                                          />
+                                                                        </svg>
+                                                                      </span>
+                                                                    </button>
+                                                                  </div>,
+                                                                }
+                                                              }
+                                                            >
+                                                              <button
+                                                                aria-expanded={false}
+                                                                aria-haspopup={true}
+                                                                className="pf-c-dropdown__toggle pf-m-plain"
+                                                                disabled={false}
+                                                                id="pf-dropdown-toggle-id-5"
+                                                                onClick={[Function]}
+                                                                onKeyDown={[Function]}
+                                                                type="button"
+                                                              >
+                                                                <span
+                                                                  className={null}
+                                                                >
+                                                                  <ExportIcon
+                                                                    className="pointer not-active"
+                                                                    color="currentColor"
+                                                                    noVerticalAlign={false}
+                                                                    size="sm"
+                                                                  >
+                                                                    <svg
+                                                                      aria-hidden={true}
+                                                                      aria-labelledby={null}
+                                                                      className="pointer not-active"
+                                                                      fill="currentColor"
+                                                                      height="1em"
+                                                                      role="img"
+                                                                      style={
+                                                                        Object {
+                                                                          "verticalAlign": "-0.125em",
+                                                                        }
+                                                                      }
+                                                                      viewBox="0 64 1024 1024"
+                                                                      width="1em"
+                                                                    >
+                                                                      <path
+                                                                        d="M980.293 278.754l-95.387-95.387-393.84 393.856c-5.285 5.262-11.353 7.909-18.203 7.911-6.862 0-12.935-2.649-18.222-7.911l-81.019-81.019c-5.262-5.285-7.909-11.353-7.909-18.219 0-6.85 2.649-12.914 7.909-18.203l393.856-393.84-95.381-95.381c-24.039-24.037-15.89-43.705 18.105-43.705h271.982c53.227 0 61.813 9.273 61.813 61.813v271.982c0.005 33.998-19.662 42.151-43.703 18.105zM146.286 793.143c0 3.312 1.077 6.048 3.232 8.203 2.151 2.151 4.889 3.227 8.199 3.225h708.661c3.287 0 5.998-1.067 8.137-3.202 2.135-2.137 3.202-4.848 3.202-8.135v-331.701c0-6.571 2.135-11.995 6.409-16.272 4.27-4.267 9.696-6.407 16.267-6.405h100.933c6.571-0.002 11.998 2.137 16.267 6.405 4.277 4.277 6.409 9.701 6.409 16.272v466.647c0.002 6.571-2.137 11.998-6.405 16.267-4.277 4.274-9.701 6.409-16.272 6.409h-978.649c-6.571 0.002-11.998-2.137-16.267-6.405-4.274-4.277-6.409-9.701-6.409-16.272v-978.647c0-6.571 2.135-11.995 6.409-16.272 4.27-4.267 9.696-6.407 16.267-6.405h466.647c6.571 0 11.995 2.135 16.272 6.411 4.267 4.267 6.407 9.696 6.405 16.265v100.933c0.002 6.569-2.137 11.998-6.405 16.265-4.277 4.277-9.701 6.411-16.272 6.411h-331.609c-3.312 0-6.048 1.077-8.203 3.232-2.151 2.149-3.227 4.889-3.225 8.197v708.571z"
+                                                                        transform="rotate(180 0 512) scale(-1 1)"
+                                                                      />
+                                                                    </svg>
+                                                                  </ExportIcon>
+                                                                </span>
+                                                              </button>
+                                                            </Toggle>
+                                                          </DropdownToggle>
+                                                        </div>
+                                                      </DropdownWithContext>
+                                                    </Dropdown>
+                                                  </ExportCSVButton>
                                                 </div>
                                               </ToolbarItem>
                                               <ToolbarItem>
@@ -769,7 +963,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                         <div
                                                           aria-label="action-kebab"
                                                           className="pf-c-dropdown"
-                                                          data-ouia-component-id={23}
+                                                          data-ouia-component-id={25}
                                                           data-ouia-component-type="PF4/Dropdown"
                                                           data-ouia-safe={true}
                                                           id="action-kebab"
@@ -782,7 +976,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                           <KebabToggle
                                                             aria-haspopup={true}
                                                             getMenuRef={[Function]}
-                                                            id="pf-dropdown-toggle-id-4"
+                                                            id="pf-dropdown-toggle-id-6"
                                                             isOpen={false}
                                                             isPlain={true}
                                                             key=".0"
@@ -793,7 +987,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                 "current": <div
                                                                   aria-label="action-kebab"
                                                                   class="pf-c-dropdown"
-                                                                  data-ouia-component-id="23"
+                                                                  data-ouia-component-id="25"
                                                                   data-ouia-component-type="PF4/Dropdown"
                                                                   data-ouia-safe="true"
                                                                   id="action-kebab"
@@ -804,7 +998,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                     aria-haspopup="true"
                                                                     aria-label="Actions"
                                                                     class="pf-c-dropdown__toggle pf-m-plain"
-                                                                    id="pf-dropdown-toggle-id-4"
+                                                                    id="pf-dropdown-toggle-id-6"
                                                                     type="button"
                                                                   >
                                                                     <svg
@@ -832,7 +1026,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                               bubbleEvent={false}
                                                               className=""
                                                               getMenuRef={[Function]}
-                                                              id="pf-dropdown-toggle-id-4"
+                                                              id="pf-dropdown-toggle-id-6"
                                                               isActive={false}
                                                               isDisabled={false}
                                                               isOpen={false}
@@ -846,7 +1040,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                   "current": <div
                                                                     aria-label="action-kebab"
                                                                     class="pf-c-dropdown"
-                                                                    data-ouia-component-id="23"
+                                                                    data-ouia-component-id="25"
                                                                     data-ouia-component-type="PF4/Dropdown"
                                                                     data-ouia-safe="true"
                                                                     id="action-kebab"
@@ -857,7 +1051,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                       aria-haspopup="true"
                                                                       aria-label="Actions"
                                                                       class="pf-c-dropdown__toggle pf-m-plain"
-                                                                      id="pf-dropdown-toggle-id-4"
+                                                                      id="pf-dropdown-toggle-id-6"
                                                                       type="button"
                                                                     >
                                                                       <svg
@@ -885,7 +1079,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                 aria-label="Actions"
                                                                 className="pf-c-dropdown__toggle pf-m-plain"
                                                                 disabled={false}
-                                                                id="pf-dropdown-toggle-id-4"
+                                                                id="pf-dropdown-toggle-id-6"
                                                                 onClick={[Function]}
                                                                 onKeyDown={[Function]}
                                                                 type="button"
@@ -1010,7 +1204,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                               >
                                                 <div
                                                   className="pf-c-pagination pf-m-compact"
-                                                  data-ouia-component-id={24}
+                                                  data-ouia-component-id={26}
                                                   data-ouia-component-type="PF4/Pagination"
                                                   data-ouia-safe={true}
                                                   id="drift-pagination-top-2"
@@ -1155,7 +1349,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                     >
                                                       <div
                                                         className="pf-c-options-menu"
-                                                        data-ouia-component-id={25}
+                                                        data-ouia-component-id={27}
                                                         data-ouia-component-type="PF4/PaginationOptionsMenu"
                                                         data-ouia-safe={true}
                                                       >
@@ -1163,7 +1357,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                           aria-haspopup={true}
                                                           firstIndex={0}
                                                           getMenuRef={[Function]}
-                                                          id="pf-dropdown-toggle-id-5"
+                                                          id="pf-dropdown-toggle-id-7"
                                                           isDisabled={false}
                                                           isOpen={false}
                                                           isPlain={true}
@@ -1179,7 +1373,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                             Object {
                                                               "current": <div
                                                                 class="pf-c-options-menu"
-                                                                data-ouia-component-id="25"
+                                                                data-ouia-component-id="27"
                                                                 data-ouia-component-type="PF4/PaginationOptionsMenu"
                                                                 data-ouia-safe="true"
                                                               >
@@ -1274,7 +1468,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                 Object {
                                                                   "current": <div
                                                                     class="pf-c-options-menu"
-                                                                    data-ouia-component-id="25"
+                                                                    data-ouia-component-id="27"
                                                                     data-ouia-component-type="PF4/PaginationOptionsMenu"
                                                                     data-ouia-safe="true"
                                                                   >
@@ -1347,7 +1541,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                   Object {
                                                                     "current": <div
                                                                       class="pf-c-options-menu"
-                                                                      data-ouia-component-id="25"
+                                                                      data-ouia-component-id="27"
                                                                       data-ouia-component-type="PF4/PaginationOptionsMenu"
                                                                       data-ouia-safe="true"
                                                                     >
@@ -1490,7 +1684,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                             aria-label="Go to previous page"
                                                             className="pf-c-button pf-m-plain pf-m-disabled"
                                                             data-action="previous"
-                                                            data-ouia-component-id={26}
+                                                            data-ouia-component-id={28}
                                                             data-ouia-component-type="PF4/Button"
                                                             data-ouia-safe={true}
                                                             disabled={true}
@@ -1541,7 +1735,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                             aria-label="Go to next page"
                                                             className="pf-c-button pf-m-plain pf-m-disabled"
                                                             data-action="next"
-                                                            data-ouia-component-id={27}
+                                                            data-ouia-component-id={29}
                                                             data-ouia-component-type="PF4/Button"
                                                             data-ouia-safe={true}
                                                             disabled={true}
@@ -1773,7 +1967,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                   >
                                                                     <div
                                                                       className="pf-c-chip"
-                                                                      data-ouia-component-id={28}
+                                                                      data-ouia-component-id={30}
                                                                       data-ouia-component-type="PF4/Chip"
                                                                       data-ouia-safe={true}
                                                                     >
@@ -1795,7 +1989,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                           aria-label="close"
                                                                           aria-labelledby="remove_pf-random-id-3 pf-random-id-3"
                                                                           className="pf-c-button pf-m-plain"
-                                                                          data-ouia-component-id={29}
+                                                                          data-ouia-component-id={31}
                                                                           data-ouia-component-type="PF4/Button"
                                                                           data-ouia-safe={true}
                                                                           disabled={false}
@@ -1854,7 +2048,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                   >
                                                                     <div
                                                                       className="pf-c-chip"
-                                                                      data-ouia-component-id={30}
+                                                                      data-ouia-component-id={32}
                                                                       data-ouia-component-type="PF4/Chip"
                                                                       data-ouia-safe={true}
                                                                     >
@@ -1876,7 +2070,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                           aria-label="close"
                                                                           aria-labelledby="remove_pf-random-id-4 pf-random-id-4"
                                                                           className="pf-c-button pf-m-plain"
-                                                                          data-ouia-component-id={31}
+                                                                          data-ouia-component-id={33}
                                                                           data-ouia-component-type="PF4/Button"
                                                                           data-ouia-safe={true}
                                                                           disabled={false}
@@ -1935,7 +2129,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                   >
                                                                     <div
                                                                       className="pf-c-chip"
-                                                                      data-ouia-component-id={32}
+                                                                      data-ouia-component-id={34}
                                                                       data-ouia-component-type="PF4/Chip"
                                                                       data-ouia-safe={true}
                                                                     >
@@ -1957,7 +2151,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                           aria-label="close"
                                                                           aria-labelledby="remove_pf-random-id-5 pf-random-id-5"
                                                                           className="pf-c-button pf-m-plain"
-                                                                          data-ouia-component-id={33}
+                                                                          data-ouia-component-id={35}
                                                                           data-ouia-component-type="PF4/Button"
                                                                           data-ouia-safe={true}
                                                                           disabled={false}
@@ -2051,7 +2245,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                   >
                                                                     <div
                                                                       className="pf-c-chip"
-                                                                      data-ouia-component-id={34}
+                                                                      data-ouia-component-id={36}
                                                                       data-ouia-component-type="PF4/Chip"
                                                                       data-ouia-safe={true}
                                                                     >
@@ -2071,7 +2265,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                           aria-label="close"
                                                                           aria-labelledby="remove_pf-random-id-7 pf-random-id-7"
                                                                           className="pf-c-button pf-m-plain"
-                                                                          data-ouia-component-id={35}
+                                                                          data-ouia-component-id={37}
                                                                           data-ouia-component-type="PF4/Button"
                                                                           data-ouia-safe={true}
                                                                           disabled={false}
@@ -2596,7 +2790,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                               >
                                                 <div
                                                   className="pf-c-pagination pf-m-bottom"
-                                                  data-ouia-component-id={36}
+                                                  data-ouia-component-id={38}
                                                   data-ouia-component-type="PF4/Pagination"
                                                   data-ouia-safe={true}
                                                   id="drift-pagination-bottom-3"
@@ -2719,7 +2913,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                     >
                                                       <div
                                                         className="pf-c-options-menu pf-m-top"
-                                                        data-ouia-component-id={37}
+                                                        data-ouia-component-id={39}
                                                         data-ouia-component-type="PF4/PaginationOptionsMenu"
                                                         data-ouia-safe={true}
                                                       >
@@ -2727,7 +2921,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                           aria-haspopup={true}
                                                           firstIndex={0}
                                                           getMenuRef={[Function]}
-                                                          id="pf-dropdown-toggle-id-6"
+                                                          id="pf-dropdown-toggle-id-8"
                                                           isDisabled={false}
                                                           isOpen={false}
                                                           isPlain={true}
@@ -2743,7 +2937,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                             Object {
                                                               "current": <div
                                                                 class="pf-c-options-menu pf-m-top"
-                                                                data-ouia-component-id="37"
+                                                                data-ouia-component-id="39"
                                                                 data-ouia-component-type="PF4/PaginationOptionsMenu"
                                                                 data-ouia-safe="true"
                                                               >
@@ -2838,7 +3032,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                 Object {
                                                                   "current": <div
                                                                     class="pf-c-options-menu pf-m-top"
-                                                                    data-ouia-component-id="37"
+                                                                    data-ouia-component-id="39"
                                                                     data-ouia-component-type="PF4/PaginationOptionsMenu"
                                                                     data-ouia-safe="true"
                                                                   >
@@ -2911,7 +3105,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                   Object {
                                                                     "current": <div
                                                                       class="pf-c-options-menu pf-m-top"
-                                                                      data-ouia-component-id="37"
+                                                                      data-ouia-component-id="39"
                                                                       data-ouia-component-type="PF4/PaginationOptionsMenu"
                                                                       data-ouia-safe="true"
                                                                     >
@@ -3054,7 +3248,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                             aria-label="Go to first page"
                                                             className="pf-c-button pf-m-plain pf-m-disabled"
                                                             data-action="first"
-                                                            data-ouia-component-id={38}
+                                                            data-ouia-component-id={40}
                                                             data-ouia-component-type="PF4/Button"
                                                             data-ouia-safe={true}
                                                             disabled={true}
@@ -3105,7 +3299,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                             aria-label="Go to previous page"
                                                             className="pf-c-button pf-m-plain pf-m-disabled"
                                                             data-action="previous"
-                                                            data-ouia-component-id={39}
+                                                            data-ouia-component-id={41}
                                                             data-ouia-component-type="PF4/Button"
                                                             data-ouia-safe={true}
                                                             disabled={true}
@@ -3177,7 +3371,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                             aria-label="Go to next page"
                                                             className="pf-c-button pf-m-plain pf-m-disabled"
                                                             data-action="next"
-                                                            data-ouia-component-id={40}
+                                                            data-ouia-component-id={42}
                                                             data-ouia-component-type="PF4/Button"
                                                             data-ouia-safe={true}
                                                             disabled={true}
@@ -3228,7 +3422,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                             aria-label="Go to last page"
                                                             className="pf-c-button pf-m-plain pf-m-disabled"
                                                             data-action="last"
-                                                            data-ouia-component-id={41}
+                                                            data-ouia-component-id={43}
                                                             data-ouia-component-type="PF4/Button"
                                                             data-ouia-safe={true}
                                                             disabled={true}
@@ -3436,6 +3630,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                 "detail": "something",
               }
             }
+            exportToCSV={[Function]}
             history={
               Object {
                 "action": "POP",
@@ -3545,7 +3740,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                   >
                     <article
                       className="pf-c-card pf-t-light pf-m-opaque-100"
-                      data-ouia-component-id={64}
+                      data-ouia-component-id={67}
                       data-ouia-component-type="PF4/Card"
                       data-ouia-safe={true}
                     >
@@ -3762,14 +3957,14 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                         >
                                                           <div
                                                             className="pf-c-dropdown"
-                                                            data-ouia-component-id={43}
+                                                            data-ouia-component-id={45}
                                                             data-ouia-component-type="PF4/Dropdown"
                                                             data-ouia-safe={true}
                                                           >
                                                             <DropdownToggle
                                                               aria-haspopup={true}
                                                               getMenuRef={[Function]}
-                                                              id="pf-dropdown-toggle-id-7"
+                                                              id="pf-dropdown-toggle-id-9"
                                                               isOpen={false}
                                                               isPlain={false}
                                                               key=".0"
@@ -3779,7 +3974,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                 Object {
                                                                   "current": <div
                                                                     class="pf-c-dropdown"
-                                                                    data-ouia-component-id="43"
+                                                                    data-ouia-component-id="45"
                                                                     data-ouia-component-type="PF4/Dropdown"
                                                                     data-ouia-safe="true"
                                                                   >
@@ -3787,7 +3982,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                       aria-expanded="false"
                                                                       aria-haspopup="true"
                                                                       class="pf-c-dropdown__toggle"
-                                                                      id="pf-dropdown-toggle-id-7"
+                                                                      id="pf-dropdown-toggle-id-9"
                                                                       type="button"
                                                                     >
                                                                       <span
@@ -3824,7 +4019,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                 bubbleEvent={false}
                                                                 className=""
                                                                 getMenuRef={[Function]}
-                                                                id="pf-dropdown-toggle-id-7"
+                                                                id="pf-dropdown-toggle-id-9"
                                                                 isActive={false}
                                                                 isDisabled={false}
                                                                 isOpen={false}
@@ -3837,7 +4032,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                   Object {
                                                                     "current": <div
                                                                       class="pf-c-dropdown"
-                                                                      data-ouia-component-id="43"
+                                                                      data-ouia-component-id="45"
                                                                       data-ouia-component-type="PF4/Dropdown"
                                                                       data-ouia-safe="true"
                                                                     >
@@ -3845,7 +4040,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                         aria-expanded="false"
                                                                         aria-haspopup="true"
                                                                         class="pf-c-dropdown__toggle"
-                                                                        id="pf-dropdown-toggle-id-7"
+                                                                        id="pf-dropdown-toggle-id-9"
                                                                         type="button"
                                                                       >
                                                                         <span
@@ -3882,7 +4077,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                   aria-haspopup={true}
                                                                   className="pf-c-dropdown__toggle"
                                                                   disabled={false}
-                                                                  id="pf-dropdown-toggle-id-7"
+                                                                  id="pf-dropdown-toggle-id-9"
                                                                   onClick={[Function]}
                                                                   onKeyDown={[Function]}
                                                                   type="button"
@@ -3965,7 +4160,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                           aria-disabled={false}
                                                           aria-label={null}
                                                           className="pf-c-button pf-m-primary"
-                                                          data-ouia-component-id={44}
+                                                          data-ouia-component-id={46}
                                                           data-ouia-component-type="PF4/Button"
                                                           data-ouia-safe={true}
                                                           disabled={false}
@@ -3996,41 +4191,234 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                 <div
                                                   className="pf-c-toolbar__item"
                                                 >
-                                                  <Connect(ExportCSVButton)>
-                                                    <ExportCSVButton
-                                                      exportToCSV={[Function]}
-                                                    >
-                                                      <ExportIcon
-                                                        className="pointer not-active"
-                                                        color="currentColor"
-                                                        noVerticalAlign={false}
-                                                        onClick={[Function]}
-                                                        size="sm"
-                                                      >
-                                                        <svg
-                                                          aria-hidden={true}
-                                                          aria-labelledby={null}
-                                                          className="pointer not-active"
-                                                          fill="currentColor"
-                                                          height="1em"
+                                                  <ExportCSVButton
+                                                    dropdownItems={
+                                                      Array [
+                                                        <DropdownItem
+                                                          component="button"
                                                           onClick={[Function]}
-                                                          role="img"
-                                                          style={
-                                                            Object {
-                                                              "verticalAlign": "-0.125em",
-                                                            }
-                                                          }
-                                                          viewBox="0 64 1024 1024"
-                                                          width="1em"
                                                         >
-                                                          <path
-                                                            d="M980.293 278.754l-95.387-95.387-393.84 393.856c-5.285 5.262-11.353 7.909-18.203 7.911-6.862 0-12.935-2.649-18.222-7.911l-81.019-81.019c-5.262-5.285-7.909-11.353-7.909-18.219 0-6.85 2.649-12.914 7.909-18.203l393.856-393.84-95.381-95.381c-24.039-24.037-15.89-43.705 18.105-43.705h271.982c53.227 0 61.813 9.273 61.813 61.813v271.982c0.005 33.998-19.662 42.151-43.703 18.105zM146.286 793.143c0 3.312 1.077 6.048 3.232 8.203 2.151 2.151 4.889 3.227 8.199 3.225h708.661c3.287 0 5.998-1.067 8.137-3.202 2.135-2.137 3.202-4.848 3.202-8.135v-331.701c0-6.571 2.135-11.995 6.409-16.272 4.27-4.267 9.696-6.407 16.267-6.405h100.933c6.571-0.002 11.998 2.137 16.267 6.405 4.277 4.277 6.409 9.701 6.409 16.272v466.647c0.002 6.571-2.137 11.998-6.405 16.267-4.277 4.274-9.701 6.409-16.272 6.409h-978.649c-6.571 0.002-11.998-2.137-16.267-6.405-4.274-4.277-6.409-9.701-6.409-16.272v-978.647c0-6.571 2.135-11.995 6.409-16.272 4.27-4.267 9.696-6.407 16.267-6.405h466.647c6.571 0 11.995 2.135 16.272 6.411 4.267 4.267 6.407 9.696 6.405 16.265v100.933c0.002 6.569-2.137 11.998-6.405 16.265-4.277 4.277-9.701 6.411-16.272 6.411h-331.609c-3.312 0-6.048 1.077-8.203 3.232-2.151 2.149-3.227 4.889-3.225 8.197v708.571z"
-                                                            transform="rotate(180 0 512) scale(-1 1)"
+                                                          Export to CSV
+                                                        </DropdownItem>,
+                                                      ]
+                                                    }
+                                                    isOpen={false}
+                                                    onToggle={[Function]}
+                                                  >
+                                                    <Dropdown
+                                                      dropdownItems={
+                                                        Array [
+                                                          <DropdownItem
+                                                            component="button"
+                                                            onClick={[Function]}
+                                                          >
+                                                            Export to CSV
+                                                          </DropdownItem>,
+                                                        ]
+                                                      }
+                                                      isOpen={false}
+                                                      isPlain={true}
+                                                      position="left"
+                                                      toggle={
+                                                        <DropdownToggle
+                                                          onToggle={[Function]}
+                                                          toggleIndicator={null}
+                                                        >
+                                                          <ExportIcon
+                                                            className="pointer not-active"
+                                                            color="currentColor"
+                                                            noVerticalAlign={false}
+                                                            size="sm"
                                                           />
-                                                        </svg>
-                                                      </ExportIcon>
-                                                    </ExportCSVButton>
-                                                  </Connect(ExportCSVButton)>
+                                                        </DropdownToggle>
+                                                      }
+                                                    >
+                                                      <DropdownWithContext
+                                                        autoFocus={true}
+                                                        className=""
+                                                        direction="down"
+                                                        dropdownItems={
+                                                          Array [
+                                                            <DropdownItem
+                                                              component="button"
+                                                              onClick={[Function]}
+                                                            >
+                                                              Export to CSV
+                                                            </DropdownItem>,
+                                                          ]
+                                                        }
+                                                        isGrouped={false}
+                                                        isOpen={false}
+                                                        isPlain={true}
+                                                        menuAppendTo="inline"
+                                                        onSelect={[Function]}
+                                                        position="left"
+                                                        toggle={
+                                                          <DropdownToggle
+                                                            onToggle={[Function]}
+                                                            toggleIndicator={null}
+                                                          >
+                                                            <ExportIcon
+                                                              className="pointer not-active"
+                                                              color="currentColor"
+                                                              noVerticalAlign={false}
+                                                              size="sm"
+                                                            />
+                                                          </DropdownToggle>
+                                                        }
+                                                      >
+                                                        <div
+                                                          className="pf-c-dropdown"
+                                                          data-ouia-component-id={68}
+                                                          data-ouia-component-type="PF4/Dropdown"
+                                                          data-ouia-safe={true}
+                                                        >
+                                                          <DropdownToggle
+                                                            aria-haspopup={true}
+                                                            getMenuRef={[Function]}
+                                                            id="pf-dropdown-toggle-id-14"
+                                                            isOpen={false}
+                                                            isPlain={true}
+                                                            key=".0"
+                                                            onEnter={[Function]}
+                                                            onToggle={[Function]}
+                                                            parentRef={
+                                                              Object {
+                                                                "current": <div
+                                                                  class="pf-c-dropdown"
+                                                                  data-ouia-component-id="68"
+                                                                  data-ouia-component-type="PF4/Dropdown"
+                                                                  data-ouia-safe="true"
+                                                                >
+                                                                  <button
+                                                                    aria-expanded="false"
+                                                                    aria-haspopup="true"
+                                                                    class="pf-c-dropdown__toggle pf-m-plain"
+                                                                    id="pf-dropdown-toggle-id-14"
+                                                                    type="button"
+                                                                  >
+                                                                    <span>
+                                                                      <svg
+                                                                        aria-hidden="true"
+                                                                        class="pointer not-active"
+                                                                        fill="currentColor"
+                                                                        height="1em"
+                                                                        role="img"
+                                                                        style="vertical-align: -0.125em;"
+                                                                        viewBox="0 64 1024 1024"
+                                                                        width="1em"
+                                                                      >
+                                                                        <path
+                                                                          d="M980.293 278.754l-95.387-95.387-393.84 393.856c-5.285 5.262-11.353 7.909-18.203 7.911-6.862 0-12.935-2.649-18.222-7.911l-81.019-81.019c-5.262-5.285-7.909-11.353-7.909-18.219 0-6.85 2.649-12.914 7.909-18.203l393.856-393.84-95.381-95.381c-24.039-24.037-15.89-43.705 18.105-43.705h271.982c53.227 0 61.813 9.273 61.813 61.813v271.982c0.005 33.998-19.662 42.151-43.703 18.105zM146.286 793.143c0 3.312 1.077 6.048 3.232 8.203 2.151 2.151 4.889 3.227 8.199 3.225h708.661c3.287 0 5.998-1.067 8.137-3.202 2.135-2.137 3.202-4.848 3.202-8.135v-331.701c0-6.571 2.135-11.995 6.409-16.272 4.27-4.267 9.696-6.407 16.267-6.405h100.933c6.571-0.002 11.998 2.137 16.267 6.405 4.277 4.277 6.409 9.701 6.409 16.272v466.647c0.002 6.571-2.137 11.998-6.405 16.267-4.277 4.274-9.701 6.409-16.272 6.409h-978.649c-6.571 0.002-11.998-2.137-16.267-6.405-4.274-4.277-6.409-9.701-6.409-16.272v-978.647c0-6.571 2.135-11.995 6.409-16.272 4.27-4.267 9.696-6.407 16.267-6.405h466.647c6.571 0 11.995 2.135 16.272 6.411 4.267 4.267 6.407 9.696 6.405 16.265v100.933c0.002 6.569-2.137 11.998-6.405 16.265-4.277 4.277-9.701 6.411-16.272 6.411h-331.609c-3.312 0-6.048 1.077-8.203 3.232-2.151 2.149-3.227 4.889-3.225 8.197v708.571z"
+                                                                          transform="rotate(180 0 512) scale(-1 1)"
+                                                                        />
+                                                                      </svg>
+                                                                    </span>
+                                                                  </button>
+                                                                </div>,
+                                                              }
+                                                            }
+                                                            toggleIndicator={null}
+                                                          >
+                                                            <Toggle
+                                                              aria-haspopup={true}
+                                                              bubbleEvent={false}
+                                                              className=""
+                                                              getMenuRef={[Function]}
+                                                              id="pf-dropdown-toggle-id-14"
+                                                              isActive={false}
+                                                              isDisabled={false}
+                                                              isOpen={false}
+                                                              isPlain={true}
+                                                              isPrimary={false}
+                                                              isSplitButton={false}
+                                                              onEnter={[Function]}
+                                                              onToggle={[Function]}
+                                                              parentRef={
+                                                                Object {
+                                                                  "current": <div
+                                                                    class="pf-c-dropdown"
+                                                                    data-ouia-component-id="68"
+                                                                    data-ouia-component-type="PF4/Dropdown"
+                                                                    data-ouia-safe="true"
+                                                                  >
+                                                                    <button
+                                                                      aria-expanded="false"
+                                                                      aria-haspopup="true"
+                                                                      class="pf-c-dropdown__toggle pf-m-plain"
+                                                                      id="pf-dropdown-toggle-id-14"
+                                                                      type="button"
+                                                                    >
+                                                                      <span>
+                                                                        <svg
+                                                                          aria-hidden="true"
+                                                                          class="pointer not-active"
+                                                                          fill="currentColor"
+                                                                          height="1em"
+                                                                          role="img"
+                                                                          style="vertical-align: -0.125em;"
+                                                                          viewBox="0 64 1024 1024"
+                                                                          width="1em"
+                                                                        >
+                                                                          <path
+                                                                            d="M980.293 278.754l-95.387-95.387-393.84 393.856c-5.285 5.262-11.353 7.909-18.203 7.911-6.862 0-12.935-2.649-18.222-7.911l-81.019-81.019c-5.262-5.285-7.909-11.353-7.909-18.219 0-6.85 2.649-12.914 7.909-18.203l393.856-393.84-95.381-95.381c-24.039-24.037-15.89-43.705 18.105-43.705h271.982c53.227 0 61.813 9.273 61.813 61.813v271.982c0.005 33.998-19.662 42.151-43.703 18.105zM146.286 793.143c0 3.312 1.077 6.048 3.232 8.203 2.151 2.151 4.889 3.227 8.199 3.225h708.661c3.287 0 5.998-1.067 8.137-3.202 2.135-2.137 3.202-4.848 3.202-8.135v-331.701c0-6.571 2.135-11.995 6.409-16.272 4.27-4.267 9.696-6.407 16.267-6.405h100.933c6.571-0.002 11.998 2.137 16.267 6.405 4.277 4.277 6.409 9.701 6.409 16.272v466.647c0.002 6.571-2.137 11.998-6.405 16.267-4.277 4.274-9.701 6.409-16.272 6.409h-978.649c-6.571 0.002-11.998-2.137-16.267-6.405-4.274-4.277-6.409-9.701-6.409-16.272v-978.647c0-6.571 2.135-11.995 6.409-16.272 4.27-4.267 9.696-6.407 16.267-6.405h466.647c6.571 0 11.995 2.135 16.272 6.411 4.267 4.267 6.407 9.696 6.405 16.265v100.933c0.002 6.569-2.137 11.998-6.405 16.265-4.277 4.277-9.701 6.411-16.272 6.411h-331.609c-3.312 0-6.048 1.077-8.203 3.232-2.151 2.149-3.227 4.889-3.225 8.197v708.571z"
+                                                                            transform="rotate(180 0 512) scale(-1 1)"
+                                                                          />
+                                                                        </svg>
+                                                                      </span>
+                                                                    </button>
+                                                                  </div>,
+                                                                }
+                                                              }
+                                                            >
+                                                              <button
+                                                                aria-expanded={false}
+                                                                aria-haspopup={true}
+                                                                className="pf-c-dropdown__toggle pf-m-plain"
+                                                                disabled={false}
+                                                                id="pf-dropdown-toggle-id-14"
+                                                                onClick={[Function]}
+                                                                onKeyDown={[Function]}
+                                                                type="button"
+                                                              >
+                                                                <span
+                                                                  className={null}
+                                                                >
+                                                                  <ExportIcon
+                                                                    className="pointer not-active"
+                                                                    color="currentColor"
+                                                                    noVerticalAlign={false}
+                                                                    size="sm"
+                                                                  >
+                                                                    <svg
+                                                                      aria-hidden={true}
+                                                                      aria-labelledby={null}
+                                                                      className="pointer not-active"
+                                                                      fill="currentColor"
+                                                                      height="1em"
+                                                                      role="img"
+                                                                      style={
+                                                                        Object {
+                                                                          "verticalAlign": "-0.125em",
+                                                                        }
+                                                                      }
+                                                                      viewBox="0 64 1024 1024"
+                                                                      width="1em"
+                                                                    >
+                                                                      <path
+                                                                        d="M980.293 278.754l-95.387-95.387-393.84 393.856c-5.285 5.262-11.353 7.909-18.203 7.911-6.862 0-12.935-2.649-18.222-7.911l-81.019-81.019c-5.262-5.285-7.909-11.353-7.909-18.219 0-6.85 2.649-12.914 7.909-18.203l393.856-393.84-95.381-95.381c-24.039-24.037-15.89-43.705 18.105-43.705h271.982c53.227 0 61.813 9.273 61.813 61.813v271.982c0.005 33.998-19.662 42.151-43.703 18.105zM146.286 793.143c0 3.312 1.077 6.048 3.232 8.203 2.151 2.151 4.889 3.227 8.199 3.225h708.661c3.287 0 5.998-1.067 8.137-3.202 2.135-2.137 3.202-4.848 3.202-8.135v-331.701c0-6.571 2.135-11.995 6.409-16.272 4.27-4.267 9.696-6.407 16.267-6.405h100.933c6.571-0.002 11.998 2.137 16.267 6.405 4.277 4.277 6.409 9.701 6.409 16.272v466.647c0.002 6.571-2.137 11.998-6.405 16.267-4.277 4.274-9.701 6.409-16.272 6.409h-978.649c-6.571 0.002-11.998-2.137-16.267-6.405-4.274-4.277-6.409-9.701-6.409-16.272v-978.647c0-6.571 2.135-11.995 6.409-16.272 4.27-4.267 9.696-6.407 16.267-6.405h466.647c6.571 0 11.995 2.135 16.272 6.411 4.267 4.267 6.407 9.696 6.405 16.265v100.933c0.002 6.569-2.137 11.998-6.405 16.265-4.277 4.277-9.701 6.411-16.272 6.411h-331.609c-3.312 0-6.048 1.077-8.203 3.232-2.151 2.149-3.227 4.889-3.225 8.197v708.571z"
+                                                                        transform="rotate(180 0 512) scale(-1 1)"
+                                                                      />
+                                                                    </svg>
+                                                                  </ExportIcon>
+                                                                </span>
+                                                              </button>
+                                                            </Toggle>
+                                                          </DropdownToggle>
+                                                        </div>
+                                                      </DropdownWithContext>
+                                                    </Dropdown>
+                                                  </ExportCSVButton>
                                                 </div>
                                               </ToolbarItem>
                                               <ToolbarItem>
@@ -4111,7 +4499,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                         <div
                                                           aria-label="action-kebab"
                                                           className="pf-c-dropdown"
-                                                          data-ouia-component-id={65}
+                                                          data-ouia-component-id={69}
                                                           data-ouia-component-type="PF4/Dropdown"
                                                           data-ouia-safe={true}
                                                           id="action-kebab"
@@ -4124,7 +4512,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                           <KebabToggle
                                                             aria-haspopup={true}
                                                             getMenuRef={[Function]}
-                                                            id="pf-dropdown-toggle-id-11"
+                                                            id="pf-dropdown-toggle-id-15"
                                                             isOpen={false}
                                                             isPlain={true}
                                                             key=".0"
@@ -4135,7 +4523,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                 "current": <div
                                                                   aria-label="action-kebab"
                                                                   class="pf-c-dropdown"
-                                                                  data-ouia-component-id="65"
+                                                                  data-ouia-component-id="69"
                                                                   data-ouia-component-type="PF4/Dropdown"
                                                                   data-ouia-safe="true"
                                                                   id="action-kebab"
@@ -4146,7 +4534,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                     aria-haspopup="true"
                                                                     aria-label="Actions"
                                                                     class="pf-c-dropdown__toggle pf-m-plain"
-                                                                    id="pf-dropdown-toggle-id-11"
+                                                                    id="pf-dropdown-toggle-id-15"
                                                                     type="button"
                                                                   >
                                                                     <svg
@@ -4174,7 +4562,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                               bubbleEvent={false}
                                                               className=""
                                                               getMenuRef={[Function]}
-                                                              id="pf-dropdown-toggle-id-11"
+                                                              id="pf-dropdown-toggle-id-15"
                                                               isActive={false}
                                                               isDisabled={false}
                                                               isOpen={false}
@@ -4188,7 +4576,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                   "current": <div
                                                                     aria-label="action-kebab"
                                                                     class="pf-c-dropdown"
-                                                                    data-ouia-component-id="65"
+                                                                    data-ouia-component-id="69"
                                                                     data-ouia-component-type="PF4/Dropdown"
                                                                     data-ouia-safe="true"
                                                                     id="action-kebab"
@@ -4199,7 +4587,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                       aria-haspopup="true"
                                                                       aria-label="Actions"
                                                                       class="pf-c-dropdown__toggle pf-m-plain"
-                                                                      id="pf-dropdown-toggle-id-11"
+                                                                      id="pf-dropdown-toggle-id-15"
                                                                       type="button"
                                                                     >
                                                                       <svg
@@ -4227,7 +4615,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                 aria-label="Actions"
                                                                 className="pf-c-dropdown__toggle pf-m-plain"
                                                                 disabled={false}
-                                                                id="pf-dropdown-toggle-id-11"
+                                                                id="pf-dropdown-toggle-id-15"
                                                                 onClick={[Function]}
                                                                 onKeyDown={[Function]}
                                                                 type="button"
@@ -4352,7 +4740,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                               >
                                                 <div
                                                   className="pf-c-pagination pf-m-compact"
-                                                  data-ouia-component-id={66}
+                                                  data-ouia-component-id={70}
                                                   data-ouia-component-type="PF4/Pagination"
                                                   data-ouia-safe={true}
                                                   id="drift-pagination-top-6"
@@ -4497,7 +4885,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                     >
                                                       <div
                                                         className="pf-c-options-menu"
-                                                        data-ouia-component-id={67}
+                                                        data-ouia-component-id={71}
                                                         data-ouia-component-type="PF4/PaginationOptionsMenu"
                                                         data-ouia-safe={true}
                                                       >
@@ -4505,7 +4893,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                           aria-haspopup={true}
                                                           firstIndex={0}
                                                           getMenuRef={[Function]}
-                                                          id="pf-dropdown-toggle-id-12"
+                                                          id="pf-dropdown-toggle-id-16"
                                                           isDisabled={false}
                                                           isOpen={false}
                                                           isPlain={true}
@@ -4521,7 +4909,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                             Object {
                                                               "current": <div
                                                                 class="pf-c-options-menu"
-                                                                data-ouia-component-id="67"
+                                                                data-ouia-component-id="71"
                                                                 data-ouia-component-type="PF4/PaginationOptionsMenu"
                                                                 data-ouia-safe="true"
                                                               >
@@ -4616,7 +5004,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                 Object {
                                                                   "current": <div
                                                                     class="pf-c-options-menu"
-                                                                    data-ouia-component-id="67"
+                                                                    data-ouia-component-id="71"
                                                                     data-ouia-component-type="PF4/PaginationOptionsMenu"
                                                                     data-ouia-safe="true"
                                                                   >
@@ -4689,7 +5077,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                   Object {
                                                                     "current": <div
                                                                       class="pf-c-options-menu"
-                                                                      data-ouia-component-id="67"
+                                                                      data-ouia-component-id="71"
                                                                       data-ouia-component-type="PF4/PaginationOptionsMenu"
                                                                       data-ouia-safe="true"
                                                                     >
@@ -4832,7 +5220,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                             aria-label="Go to previous page"
                                                             className="pf-c-button pf-m-plain pf-m-disabled"
                                                             data-action="previous"
-                                                            data-ouia-component-id={68}
+                                                            data-ouia-component-id={72}
                                                             data-ouia-component-type="PF4/Button"
                                                             data-ouia-safe={true}
                                                             disabled={true}
@@ -4883,7 +5271,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                             aria-label="Go to next page"
                                                             className="pf-c-button pf-m-plain pf-m-disabled"
                                                             data-action="next"
-                                                            data-ouia-component-id={69}
+                                                            data-ouia-component-id={73}
                                                             data-ouia-component-type="PF4/Button"
                                                             data-ouia-safe={true}
                                                             disabled={true}
@@ -5115,7 +5503,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                   >
                                                                     <div
                                                                       className="pf-c-chip"
-                                                                      data-ouia-component-id={70}
+                                                                      data-ouia-component-id={74}
                                                                       data-ouia-component-type="PF4/Chip"
                                                                       data-ouia-safe={true}
                                                                     >
@@ -5137,7 +5525,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                           aria-label="close"
                                                                           aria-labelledby="remove_pf-random-id-12 pf-random-id-12"
                                                                           className="pf-c-button pf-m-plain"
-                                                                          data-ouia-component-id={71}
+                                                                          data-ouia-component-id={75}
                                                                           data-ouia-component-type="PF4/Button"
                                                                           data-ouia-safe={true}
                                                                           disabled={false}
@@ -5196,7 +5584,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                   >
                                                                     <div
                                                                       className="pf-c-chip"
-                                                                      data-ouia-component-id={72}
+                                                                      data-ouia-component-id={76}
                                                                       data-ouia-component-type="PF4/Chip"
                                                                       data-ouia-safe={true}
                                                                     >
@@ -5218,7 +5606,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                           aria-label="close"
                                                                           aria-labelledby="remove_pf-random-id-13 pf-random-id-13"
                                                                           className="pf-c-button pf-m-plain"
-                                                                          data-ouia-component-id={73}
+                                                                          data-ouia-component-id={77}
                                                                           data-ouia-component-type="PF4/Button"
                                                                           data-ouia-safe={true}
                                                                           disabled={false}
@@ -5277,7 +5665,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                   >
                                                                     <div
                                                                       className="pf-c-chip"
-                                                                      data-ouia-component-id={74}
+                                                                      data-ouia-component-id={78}
                                                                       data-ouia-component-type="PF4/Chip"
                                                                       data-ouia-safe={true}
                                                                     >
@@ -5299,7 +5687,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                           aria-label="close"
                                                                           aria-labelledby="remove_pf-random-id-14 pf-random-id-14"
                                                                           className="pf-c-button pf-m-plain"
-                                                                          data-ouia-component-id={75}
+                                                                          data-ouia-component-id={79}
                                                                           data-ouia-component-type="PF4/Button"
                                                                           data-ouia-safe={true}
                                                                           disabled={false}
@@ -5393,7 +5781,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                   >
                                                                     <div
                                                                       className="pf-c-chip"
-                                                                      data-ouia-component-id={76}
+                                                                      data-ouia-component-id={80}
                                                                       data-ouia-component-type="PF4/Chip"
                                                                       data-ouia-safe={true}
                                                                     >
@@ -5413,7 +5801,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                           aria-label="close"
                                                                           aria-labelledby="remove_pf-random-id-16 pf-random-id-16"
                                                                           className="pf-c-button pf-m-plain"
-                                                                          data-ouia-component-id={77}
+                                                                          data-ouia-component-id={81}
                                                                           data-ouia-component-type="PF4/Button"
                                                                           data-ouia-safe={true}
                                                                           disabled={false}
@@ -5951,7 +6339,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                               >
                                                 <div
                                                   className="pf-c-pagination pf-m-bottom"
-                                                  data-ouia-component-id={78}
+                                                  data-ouia-component-id={82}
                                                   data-ouia-component-type="PF4/Pagination"
                                                   data-ouia-safe={true}
                                                   id="drift-pagination-bottom-7"
@@ -6074,7 +6462,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                     >
                                                       <div
                                                         className="pf-c-options-menu pf-m-top"
-                                                        data-ouia-component-id={79}
+                                                        data-ouia-component-id={83}
                                                         data-ouia-component-type="PF4/PaginationOptionsMenu"
                                                         data-ouia-safe={true}
                                                       >
@@ -6082,7 +6470,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                           aria-haspopup={true}
                                                           firstIndex={0}
                                                           getMenuRef={[Function]}
-                                                          id="pf-dropdown-toggle-id-13"
+                                                          id="pf-dropdown-toggle-id-17"
                                                           isDisabled={false}
                                                           isOpen={false}
                                                           isPlain={true}
@@ -6098,7 +6486,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                             Object {
                                                               "current": <div
                                                                 class="pf-c-options-menu pf-m-top"
-                                                                data-ouia-component-id="79"
+                                                                data-ouia-component-id="83"
                                                                 data-ouia-component-type="PF4/PaginationOptionsMenu"
                                                                 data-ouia-safe="true"
                                                               >
@@ -6193,7 +6581,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                 Object {
                                                                   "current": <div
                                                                     class="pf-c-options-menu pf-m-top"
-                                                                    data-ouia-component-id="79"
+                                                                    data-ouia-component-id="83"
                                                                     data-ouia-component-type="PF4/PaginationOptionsMenu"
                                                                     data-ouia-safe="true"
                                                                   >
@@ -6266,7 +6654,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                   Object {
                                                                     "current": <div
                                                                       class="pf-c-options-menu pf-m-top"
-                                                                      data-ouia-component-id="79"
+                                                                      data-ouia-component-id="83"
                                                                       data-ouia-component-type="PF4/PaginationOptionsMenu"
                                                                       data-ouia-safe="true"
                                                                     >
@@ -6409,7 +6797,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                             aria-label="Go to first page"
                                                             className="pf-c-button pf-m-plain pf-m-disabled"
                                                             data-action="first"
-                                                            data-ouia-component-id={80}
+                                                            data-ouia-component-id={84}
                                                             data-ouia-component-type="PF4/Button"
                                                             data-ouia-safe={true}
                                                             disabled={true}
@@ -6460,7 +6848,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                             aria-label="Go to previous page"
                                                             className="pf-c-button pf-m-plain pf-m-disabled"
                                                             data-action="previous"
-                                                            data-ouia-component-id={81}
+                                                            data-ouia-component-id={85}
                                                             data-ouia-component-type="PF4/Button"
                                                             data-ouia-safe={true}
                                                             disabled={true}
@@ -6532,7 +6920,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                             aria-label="Go to next page"
                                                             className="pf-c-button pf-m-plain pf-m-disabled"
                                                             data-action="next"
-                                                            data-ouia-component-id={82}
+                                                            data-ouia-component-id={86}
                                                             data-ouia-component-type="PF4/Button"
                                                             data-ouia-safe={true}
                                                             disabled={true}
@@ -6583,7 +6971,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                             aria-label="Go to last page"
                                                             className="pf-c-button pf-m-plain pf-m-disabled"
                                                             data-action="last"
-                                                            data-ouia-component-id={83}
+                                                            data-ouia-component-id={87}
                                                             data-ouia-component-type="PF4/Button"
                                                             data-ouia-safe={true}
                                                             disabled={true}
@@ -6733,7 +7121,20 @@ exports[`DriftPage should render correctly 1`] = `
                 variant="icon-button-group"
               >
                 <ToolbarItem>
-                  <Connect(ExportCSVButton) />
+                  <ExportCSVButton
+                    dropdownItems={
+                      Array [
+                        <DropdownItem
+                          component="button"
+                          onClick={[Function]}
+                        >
+                          Export to CSV
+                        </DropdownItem>,
+                      ]
+                    }
+                    isOpen={false}
+                    onToggle={[Function]}
+                  />
                 </ToolbarItem>
                 <ToolbarItem>
                   <ActionKebab

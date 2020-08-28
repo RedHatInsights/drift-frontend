@@ -1,5 +1,6 @@
 import types from './types';
 import editBaselineHelpers from '../helpers';
+import helpers from '../../../helpers';
 import { FACT_VALUE } from '../../../../constants';
 
 const initialState = {
@@ -140,7 +141,7 @@ export function editBaselineReducer(state = initialState, action) {
                 isCategory: action.payload.isCategory,
                 isSubFact: action.payload.isSubFact
             };
-        case `${types.SELECT_FACT}`: {
+        case `${types.SELECT_FACT}`:
             newEditBaselineTableData = [ ...state.editBaselineTableData ];
 
             newEditBaselineTableData.map(row => {
@@ -165,8 +166,6 @@ export function editBaselineReducer(state = initialState, action) {
                 ...state,
                 editBaselineTableData: newEditBaselineTableData.slice()
             };
-        }
-
         case `${types.CLEAR_ERROR_DATA}`:
             return {
                 ...state,
@@ -174,6 +173,11 @@ export function editBaselineReducer(state = initialState, action) {
                 inlineError: {},
                 editBaselineEmptyState: false,
                 baselineDataLoading: false
+            };
+        case `${types.EXPORT_BASELINE_DATA_TO_CSV}`:
+            helpers.downloadCSV(action.payload);
+            return {
+                ...state
             };
 
         default:

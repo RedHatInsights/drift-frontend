@@ -6,7 +6,7 @@ import { DropdownItem, Toolbar, ToolbarGroup, ToolbarItem, ToolbarContent } from
 import { BulkSelect, ConditionalFilter } from '@redhat-cloud-services/frontend-components';
 
 import CreateBaselineButton from '../../BaselinesPage/CreateBaselineButton/CreateBaselineButton';
-import ExportCSVButton from '../../BaselinesPage/ExportCSVButton/ExportCSVButton';
+import ExportCSVButton from '../../ExportCSVButton/ExportCSVButton';
 import ActionKebab from '../../DriftPage/ActionKebab/ActionKebab';
 import DeleteBaselinesModal from '../../BaselinesPage/DeleteBaselinesModal/DeleteBaselinesModal';
 import BaselinesFilterChips from '../BaselinesFilterChips/BaselinesFilterChips';
@@ -29,11 +29,29 @@ export class BaselinesToolbar extends Component {
                     key: 'select-none',
                     onClick: () => this.props.onBulkSelect(false)
                 }
+            ],
+            dropdownOpen: false,
+            dropdownItems: [
+                <DropdownItem
+                    key='export-to-CSV'
+                    component='button'
+                    onClick={ () => this.props.exportToCSV(this.props.tableData) }
+                >
+                    Export to CSV
+                </DropdownItem>
             ]
         };
 
         this.handleSearch = this.handleSearch.bind(this);
         this.clearFilters = this.clearFilters.bind(this);
+    }
+
+    onToggle = () => {
+        const { dropdownOpen } = this.state;
+
+        this.setState({
+            dropdownOpen: !dropdownOpen
+        });
     }
 
     async clearFilters() {
@@ -88,7 +106,7 @@ export class BaselinesToolbar extends Component {
         const { createButton, exportButton, fetchWithParams,
             hasMultiSelect, kebab, onBulkSelect, tableData, tableId,
             page, perPage, totalBaselines, updatePagination } = this.props;
-        const { bulkSelectItems, modalOpened, nameSearch } = this.state;
+        const { bulkSelectItems, dropdownItems, dropdownOpen, modalOpened, nameSearch } = this.state;
         let selected = tableData.filter(baseline => baseline.selected === true).length;
 
         return (
@@ -135,7 +153,11 @@ export class BaselinesToolbar extends Component {
                         <ToolbarGroup variant='icon-button-group'>
                             { exportButton ?
                                 <ToolbarItem>
-                                    <ExportCSVButton exportType='baseline list'/>
+                                    <ExportCSVButton
+                                        dropdownItems={ dropdownItems }
+                                        isOpen={ dropdownOpen }
+                                        onToggle={ this.onToggle }
+                                    />
                                 </ToolbarItem>
                                 : null
                             }
@@ -199,7 +221,8 @@ BaselinesToolbar.propTypes = {
     page: PropTypes.number,
     perPage: PropTypes.number,
     totalBaselines: PropTypes.number,
-    updatePagination: PropTypes.func
+    updatePagination: PropTypes.func,
+    exportToCSV: PropTypes.func
 };
 
 export default BaselinesToolbar;

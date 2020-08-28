@@ -107,6 +107,7 @@ exports[`ConnectedEditBaseline should render correctly 1`] = `
             editBaselineTableData={Array []}
             expandRow={[Function]}
             expandedRows={Array []}
+            exportToCSV={[Function]}
             factModalOpened={false}
             fetchBaselineData={[Function]}
             history={
@@ -399,9 +400,12 @@ exports[`ConnectedEditBaseline should render correctly 1`] = `
                           className="pf-c-card__body"
                         >
                           <EditBaselineToolbar
+                            baselineData={Array []}
+                            exportToCSV={[Function]}
                             isDisabled={true}
                             onBulkSelect={[Function]}
                             selected={0}
+                            tableData={Array []}
                             totalFacts={0}
                           >
                             <Toolbar
@@ -816,225 +820,472 @@ exports[`ConnectedEditBaseline should render correctly 1`] = `
                                             </Connect(AddFactButton)>
                                           </div>
                                         </ToolbarItem>
-                                        <ToolbarItem>
-                                          <div
-                                            className="pf-c-toolbar__item"
+                                        <ForwardRef
+                                          variant="icon-button-group"
+                                        >
+                                          <ToolbarGroupWithRef
+                                            innerRef={null}
+                                            variant="icon-button-group"
                                           >
-                                            <Connect(EditBaselineKebab)>
-                                              <EditBaselineKebab
-                                                dispatch={[Function]}
-                                                editBaselineTableData={Array []}
-                                              >
-                                                <Dropdown
-                                                  dropdownItems={
-                                                    Array [
-                                                      <DropdownItem
-                                                        component="button"
-                                                        isDisabled={true}
-                                                        onClick={[Function]}
-                                                      >
-                                                        Delete facts
-                                                      </DropdownItem>,
-                                                    ]
-                                                  }
-                                                  isOpen={false}
-                                                  isPlain={true}
-                                                  style={
-                                                    Object {
-                                                      "float": "left",
-                                                    }
-                                                  }
-                                                  toggle={
-                                                    <KebabToggle
-                                                      onToggle={[Function]}
-                                                    />
-                                                  }
+                                            <div
+                                              className="pf-c-toolbar__group pf-m-icon-button-group"
+                                            >
+                                              <ToolbarItem>
+                                                <div
+                                                  className="pf-c-toolbar__item"
                                                 >
-                                                  <DropdownWithContext
-                                                    autoFocus={true}
-                                                    className=""
-                                                    direction="down"
+                                                  <ExportCSVButton
                                                     dropdownItems={
                                                       Array [
                                                         <DropdownItem
                                                           component="button"
-                                                          isDisabled={true}
                                                           onClick={[Function]}
                                                         >
-                                                          Delete facts
+                                                          Export to CSV
                                                         </DropdownItem>,
                                                       ]
                                                     }
-                                                    isGrouped={false}
                                                     isOpen={false}
-                                                    isPlain={true}
-                                                    menuAppendTo="inline"
-                                                    onSelect={[Function]}
-                                                    position="left"
-                                                    style={
-                                                      Object {
-                                                        "float": "left",
-                                                      }
-                                                    }
-                                                    toggle={
-                                                      <KebabToggle
-                                                        onToggle={[Function]}
-                                                      />
-                                                    }
+                                                    onToggle={[Function]}
                                                   >
-                                                    <div
-                                                      className="pf-c-dropdown"
-                                                      data-ouia-component-id={4}
-                                                      data-ouia-component-type="PF4/Dropdown"
-                                                      data-ouia-safe={true}
-                                                      style={
-                                                        Object {
-                                                          "float": "left",
-                                                        }
+                                                    <Dropdown
+                                                      dropdownItems={
+                                                        Array [
+                                                          <DropdownItem
+                                                            component="button"
+                                                            onClick={[Function]}
+                                                          >
+                                                            Export to CSV
+                                                          </DropdownItem>,
+                                                        ]
+                                                      }
+                                                      isOpen={false}
+                                                      isPlain={true}
+                                                      position="left"
+                                                      toggle={
+                                                        <DropdownToggle
+                                                          onToggle={[Function]}
+                                                          toggleIndicator={null}
+                                                        >
+                                                          <ExportIcon
+                                                            className="pointer not-active"
+                                                            color="currentColor"
+                                                            noVerticalAlign={false}
+                                                            size="sm"
+                                                          />
+                                                        </DropdownToggle>
                                                       }
                                                     >
-                                                      <KebabToggle
-                                                        aria-haspopup={true}
-                                                        getMenuRef={[Function]}
-                                                        id="pf-dropdown-toggle-id-1"
+                                                      <DropdownWithContext
+                                                        autoFocus={true}
+                                                        className=""
+                                                        direction="down"
+                                                        dropdownItems={
+                                                          Array [
+                                                            <DropdownItem
+                                                              component="button"
+                                                              onClick={[Function]}
+                                                            >
+                                                              Export to CSV
+                                                            </DropdownItem>,
+                                                          ]
+                                                        }
+                                                        isGrouped={false}
                                                         isOpen={false}
                                                         isPlain={true}
-                                                        key=".0"
-                                                        onEnter={[Function]}
-                                                        onToggle={[Function]}
-                                                        parentRef={
-                                                          Object {
-                                                            "current": <div
-                                                              class="pf-c-dropdown"
-                                                              data-ouia-component-id="4"
-                                                              data-ouia-component-type="PF4/Dropdown"
-                                                              data-ouia-safe="true"
-                                                              style="float: left;"
-                                                            >
-                                                              <button
-                                                                aria-expanded="false"
-                                                                aria-haspopup="true"
-                                                                aria-label="Actions"
-                                                                class="pf-c-dropdown__toggle pf-m-plain"
-                                                                id="pf-dropdown-toggle-id-1"
-                                                                type="button"
-                                                              >
-                                                                <svg
-                                                                  aria-hidden="true"
-                                                                  fill="currentColor"
-                                                                  height="1em"
-                                                                  role="img"
-                                                                  style="vertical-align: -0.125em;"
-                                                                  viewBox="0 0 192 512"
-                                                                  width="1em"
-                                                                >
-                                                                  <path
-                                                                    d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
-                                                                    transform=""
-                                                                  />
-                                                                </svg>
-                                                              </button>
-                                                            </div>,
-                                                          }
-                                                        }
-                                                      >
-                                                        <Toggle
-                                                          aria-haspopup={true}
-                                                          aria-label="Actions"
-                                                          bubbleEvent={false}
-                                                          className=""
-                                                          getMenuRef={[Function]}
-                                                          id="pf-dropdown-toggle-id-1"
-                                                          isActive={false}
-                                                          isDisabled={false}
-                                                          isOpen={false}
-                                                          isPlain={true}
-                                                          isPrimary={false}
-                                                          isSplitButton={false}
-                                                          onEnter={[Function]}
-                                                          onToggle={[Function]}
-                                                          parentRef={
-                                                            Object {
-                                                              "current": <div
-                                                                class="pf-c-dropdown"
-                                                                data-ouia-component-id="4"
-                                                                data-ouia-component-type="PF4/Dropdown"
-                                                                data-ouia-safe="true"
-                                                                style="float: left;"
-                                                              >
-                                                                <button
-                                                                  aria-expanded="false"
-                                                                  aria-haspopup="true"
-                                                                  aria-label="Actions"
-                                                                  class="pf-c-dropdown__toggle pf-m-plain"
-                                                                  id="pf-dropdown-toggle-id-1"
-                                                                  type="button"
-                                                                >
-                                                                  <svg
-                                                                    aria-hidden="true"
-                                                                    fill="currentColor"
-                                                                    height="1em"
-                                                                    role="img"
-                                                                    style="vertical-align: -0.125em;"
-                                                                    viewBox="0 0 192 512"
-                                                                    width="1em"
-                                                                  >
-                                                                    <path
-                                                                      d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
-                                                                      transform=""
-                                                                    />
-                                                                  </svg>
-                                                                </button>
-                                                              </div>,
-                                                            }
-                                                          }
-                                                        >
-                                                          <button
-                                                            aria-expanded={false}
-                                                            aria-haspopup={true}
-                                                            aria-label="Actions"
-                                                            className="pf-c-dropdown__toggle pf-m-plain"
-                                                            disabled={false}
-                                                            id="pf-dropdown-toggle-id-1"
-                                                            onClick={[Function]}
-                                                            onKeyDown={[Function]}
-                                                            type="button"
+                                                        menuAppendTo="inline"
+                                                        onSelect={[Function]}
+                                                        position="left"
+                                                        toggle={
+                                                          <DropdownToggle
+                                                            onToggle={[Function]}
+                                                            toggleIndicator={null}
                                                           >
-                                                            <EllipsisVIcon
+                                                            <ExportIcon
+                                                              className="pointer not-active"
                                                               color="currentColor"
                                                               noVerticalAlign={false}
                                                               size="sm"
+                                                            />
+                                                          </DropdownToggle>
+                                                        }
+                                                      >
+                                                        <div
+                                                          className="pf-c-dropdown"
+                                                          data-ouia-component-id={4}
+                                                          data-ouia-component-type="PF4/Dropdown"
+                                                          data-ouia-safe={true}
+                                                        >
+                                                          <DropdownToggle
+                                                            aria-haspopup={true}
+                                                            getMenuRef={[Function]}
+                                                            id="pf-dropdown-toggle-id-1"
+                                                            isOpen={false}
+                                                            isPlain={true}
+                                                            key=".0"
+                                                            onEnter={[Function]}
+                                                            onToggle={[Function]}
+                                                            parentRef={
+                                                              Object {
+                                                                "current": <div
+                                                                  class="pf-c-dropdown"
+                                                                  data-ouia-component-id="4"
+                                                                  data-ouia-component-type="PF4/Dropdown"
+                                                                  data-ouia-safe="true"
+                                                                >
+                                                                  <button
+                                                                    aria-expanded="false"
+                                                                    aria-haspopup="true"
+                                                                    class="pf-c-dropdown__toggle pf-m-plain"
+                                                                    id="pf-dropdown-toggle-id-1"
+                                                                    type="button"
+                                                                  >
+                                                                    <span>
+                                                                      <svg
+                                                                        aria-hidden="true"
+                                                                        class="pointer not-active"
+                                                                        fill="currentColor"
+                                                                        height="1em"
+                                                                        role="img"
+                                                                        style="vertical-align: -0.125em;"
+                                                                        viewBox="0 64 1024 1024"
+                                                                        width="1em"
+                                                                      >
+                                                                        <path
+                                                                          d="M980.293 278.754l-95.387-95.387-393.84 393.856c-5.285 5.262-11.353 7.909-18.203 7.911-6.862 0-12.935-2.649-18.222-7.911l-81.019-81.019c-5.262-5.285-7.909-11.353-7.909-18.219 0-6.85 2.649-12.914 7.909-18.203l393.856-393.84-95.381-95.381c-24.039-24.037-15.89-43.705 18.105-43.705h271.982c53.227 0 61.813 9.273 61.813 61.813v271.982c0.005 33.998-19.662 42.151-43.703 18.105zM146.286 793.143c0 3.312 1.077 6.048 3.232 8.203 2.151 2.151 4.889 3.227 8.199 3.225h708.661c3.287 0 5.998-1.067 8.137-3.202 2.135-2.137 3.202-4.848 3.202-8.135v-331.701c0-6.571 2.135-11.995 6.409-16.272 4.27-4.267 9.696-6.407 16.267-6.405h100.933c6.571-0.002 11.998 2.137 16.267 6.405 4.277 4.277 6.409 9.701 6.409 16.272v466.647c0.002 6.571-2.137 11.998-6.405 16.267-4.277 4.274-9.701 6.409-16.272 6.409h-978.649c-6.571 0.002-11.998-2.137-16.267-6.405-4.274-4.277-6.409-9.701-6.409-16.272v-978.647c0-6.571 2.135-11.995 6.409-16.272 4.27-4.267 9.696-6.407 16.267-6.405h466.647c6.571 0 11.995 2.135 16.272 6.411 4.267 4.267 6.407 9.696 6.405 16.265v100.933c0.002 6.569-2.137 11.998-6.405 16.265-4.277 4.277-9.701 6.411-16.272 6.411h-331.609c-3.312 0-6.048 1.077-8.203 3.232-2.151 2.149-3.227 4.889-3.225 8.197v708.571z"
+                                                                          transform="rotate(180 0 512) scale(-1 1)"
+                                                                        />
+                                                                      </svg>
+                                                                    </span>
+                                                                  </button>
+                                                                </div>,
+                                                              }
+                                                            }
+                                                            toggleIndicator={null}
+                                                          >
+                                                            <Toggle
+                                                              aria-haspopup={true}
+                                                              bubbleEvent={false}
+                                                              className=""
+                                                              getMenuRef={[Function]}
+                                                              id="pf-dropdown-toggle-id-1"
+                                                              isActive={false}
+                                                              isDisabled={false}
+                                                              isOpen={false}
+                                                              isPlain={true}
+                                                              isPrimary={false}
+                                                              isSplitButton={false}
+                                                              onEnter={[Function]}
+                                                              onToggle={[Function]}
+                                                              parentRef={
+                                                                Object {
+                                                                  "current": <div
+                                                                    class="pf-c-dropdown"
+                                                                    data-ouia-component-id="4"
+                                                                    data-ouia-component-type="PF4/Dropdown"
+                                                                    data-ouia-safe="true"
+                                                                  >
+                                                                    <button
+                                                                      aria-expanded="false"
+                                                                      aria-haspopup="true"
+                                                                      class="pf-c-dropdown__toggle pf-m-plain"
+                                                                      id="pf-dropdown-toggle-id-1"
+                                                                      type="button"
+                                                                    >
+                                                                      <span>
+                                                                        <svg
+                                                                          aria-hidden="true"
+                                                                          class="pointer not-active"
+                                                                          fill="currentColor"
+                                                                          height="1em"
+                                                                          role="img"
+                                                                          style="vertical-align: -0.125em;"
+                                                                          viewBox="0 64 1024 1024"
+                                                                          width="1em"
+                                                                        >
+                                                                          <path
+                                                                            d="M980.293 278.754l-95.387-95.387-393.84 393.856c-5.285 5.262-11.353 7.909-18.203 7.911-6.862 0-12.935-2.649-18.222-7.911l-81.019-81.019c-5.262-5.285-7.909-11.353-7.909-18.219 0-6.85 2.649-12.914 7.909-18.203l393.856-393.84-95.381-95.381c-24.039-24.037-15.89-43.705 18.105-43.705h271.982c53.227 0 61.813 9.273 61.813 61.813v271.982c0.005 33.998-19.662 42.151-43.703 18.105zM146.286 793.143c0 3.312 1.077 6.048 3.232 8.203 2.151 2.151 4.889 3.227 8.199 3.225h708.661c3.287 0 5.998-1.067 8.137-3.202 2.135-2.137 3.202-4.848 3.202-8.135v-331.701c0-6.571 2.135-11.995 6.409-16.272 4.27-4.267 9.696-6.407 16.267-6.405h100.933c6.571-0.002 11.998 2.137 16.267 6.405 4.277 4.277 6.409 9.701 6.409 16.272v466.647c0.002 6.571-2.137 11.998-6.405 16.267-4.277 4.274-9.701 6.409-16.272 6.409h-978.649c-6.571 0.002-11.998-2.137-16.267-6.405-4.274-4.277-6.409-9.701-6.409-16.272v-978.647c0-6.571 2.135-11.995 6.409-16.272 4.27-4.267 9.696-6.407 16.267-6.405h466.647c6.571 0 11.995 2.135 16.272 6.411 4.267 4.267 6.407 9.696 6.405 16.265v100.933c0.002 6.569-2.137 11.998-6.405 16.265-4.277 4.277-9.701 6.411-16.272 6.411h-331.609c-3.312 0-6.048 1.077-8.203 3.232-2.151 2.149-3.227 4.889-3.225 8.197v708.571z"
+                                                                            transform="rotate(180 0 512) scale(-1 1)"
+                                                                          />
+                                                                        </svg>
+                                                                      </span>
+                                                                    </button>
+                                                                  </div>,
+                                                                }
+                                                              }
                                                             >
-                                                              <svg
-                                                                aria-hidden={true}
-                                                                aria-labelledby={null}
-                                                                fill="currentColor"
-                                                                height="1em"
-                                                                role="img"
-                                                                style={
+                                                              <button
+                                                                aria-expanded={false}
+                                                                aria-haspopup={true}
+                                                                className="pf-c-dropdown__toggle pf-m-plain"
+                                                                disabled={false}
+                                                                id="pf-dropdown-toggle-id-1"
+                                                                onClick={[Function]}
+                                                                onKeyDown={[Function]}
+                                                                type="button"
+                                                              >
+                                                                <span
+                                                                  className={null}
+                                                                >
+                                                                  <ExportIcon
+                                                                    className="pointer not-active"
+                                                                    color="currentColor"
+                                                                    noVerticalAlign={false}
+                                                                    size="sm"
+                                                                  >
+                                                                    <svg
+                                                                      aria-hidden={true}
+                                                                      aria-labelledby={null}
+                                                                      className="pointer not-active"
+                                                                      fill="currentColor"
+                                                                      height="1em"
+                                                                      role="img"
+                                                                      style={
+                                                                        Object {
+                                                                          "verticalAlign": "-0.125em",
+                                                                        }
+                                                                      }
+                                                                      viewBox="0 64 1024 1024"
+                                                                      width="1em"
+                                                                    >
+                                                                      <path
+                                                                        d="M980.293 278.754l-95.387-95.387-393.84 393.856c-5.285 5.262-11.353 7.909-18.203 7.911-6.862 0-12.935-2.649-18.222-7.911l-81.019-81.019c-5.262-5.285-7.909-11.353-7.909-18.219 0-6.85 2.649-12.914 7.909-18.203l393.856-393.84-95.381-95.381c-24.039-24.037-15.89-43.705 18.105-43.705h271.982c53.227 0 61.813 9.273 61.813 61.813v271.982c0.005 33.998-19.662 42.151-43.703 18.105zM146.286 793.143c0 3.312 1.077 6.048 3.232 8.203 2.151 2.151 4.889 3.227 8.199 3.225h708.661c3.287 0 5.998-1.067 8.137-3.202 2.135-2.137 3.202-4.848 3.202-8.135v-331.701c0-6.571 2.135-11.995 6.409-16.272 4.27-4.267 9.696-6.407 16.267-6.405h100.933c6.571-0.002 11.998 2.137 16.267 6.405 4.277 4.277 6.409 9.701 6.409 16.272v466.647c0.002 6.571-2.137 11.998-6.405 16.267-4.277 4.274-9.701 6.409-16.272 6.409h-978.649c-6.571 0.002-11.998-2.137-16.267-6.405-4.274-4.277-6.409-9.701-6.409-16.272v-978.647c0-6.571 2.135-11.995 6.409-16.272 4.27-4.267 9.696-6.407 16.267-6.405h466.647c6.571 0 11.995 2.135 16.272 6.411 4.267 4.267 6.407 9.696 6.405 16.265v100.933c0.002 6.569-2.137 11.998-6.405 16.265-4.277 4.277-9.701 6.411-16.272 6.411h-331.609c-3.312 0-6.048 1.077-8.203 3.232-2.151 2.149-3.227 4.889-3.225 8.197v708.571z"
+                                                                        transform="rotate(180 0 512) scale(-1 1)"
+                                                                      />
+                                                                    </svg>
+                                                                  </ExportIcon>
+                                                                </span>
+                                                              </button>
+                                                            </Toggle>
+                                                          </DropdownToggle>
+                                                        </div>
+                                                      </DropdownWithContext>
+                                                    </Dropdown>
+                                                  </ExportCSVButton>
+                                                </div>
+                                              </ToolbarItem>
+                                              <ToolbarItem>
+                                                <div
+                                                  className="pf-c-toolbar__item"
+                                                >
+                                                  <Connect(EditBaselineKebab)>
+                                                    <EditBaselineKebab
+                                                      dispatch={[Function]}
+                                                      editBaselineTableData={Array []}
+                                                    >
+                                                      <Dropdown
+                                                        dropdownItems={
+                                                          Array [
+                                                            <DropdownItem
+                                                              component="button"
+                                                              isDisabled={true}
+                                                              onClick={[Function]}
+                                                            >
+                                                              Delete facts
+                                                            </DropdownItem>,
+                                                          ]
+                                                        }
+                                                        isOpen={false}
+                                                        isPlain={true}
+                                                        style={
+                                                          Object {
+                                                            "float": "left",
+                                                          }
+                                                        }
+                                                        toggle={
+                                                          <KebabToggle
+                                                            onToggle={[Function]}
+                                                          />
+                                                        }
+                                                      >
+                                                        <DropdownWithContext
+                                                          autoFocus={true}
+                                                          className=""
+                                                          direction="down"
+                                                          dropdownItems={
+                                                            Array [
+                                                              <DropdownItem
+                                                                component="button"
+                                                                isDisabled={true}
+                                                                onClick={[Function]}
+                                                              >
+                                                                Delete facts
+                                                              </DropdownItem>,
+                                                            ]
+                                                          }
+                                                          isGrouped={false}
+                                                          isOpen={false}
+                                                          isPlain={true}
+                                                          menuAppendTo="inline"
+                                                          onSelect={[Function]}
+                                                          position="left"
+                                                          style={
+                                                            Object {
+                                                              "float": "left",
+                                                            }
+                                                          }
+                                                          toggle={
+                                                            <KebabToggle
+                                                              onToggle={[Function]}
+                                                            />
+                                                          }
+                                                        >
+                                                          <div
+                                                            className="pf-c-dropdown"
+                                                            data-ouia-component-id={5}
+                                                            data-ouia-component-type="PF4/Dropdown"
+                                                            data-ouia-safe={true}
+                                                            style={
+                                                              Object {
+                                                                "float": "left",
+                                                              }
+                                                            }
+                                                          >
+                                                            <KebabToggle
+                                                              aria-haspopup={true}
+                                                              getMenuRef={[Function]}
+                                                              id="pf-dropdown-toggle-id-2"
+                                                              isOpen={false}
+                                                              isPlain={true}
+                                                              key=".0"
+                                                              onEnter={[Function]}
+                                                              onToggle={[Function]}
+                                                              parentRef={
+                                                                Object {
+                                                                  "current": <div
+                                                                    class="pf-c-dropdown"
+                                                                    data-ouia-component-id="5"
+                                                                    data-ouia-component-type="PF4/Dropdown"
+                                                                    data-ouia-safe="true"
+                                                                    style="float: left;"
+                                                                  >
+                                                                    <button
+                                                                      aria-expanded="false"
+                                                                      aria-haspopup="true"
+                                                                      aria-label="Actions"
+                                                                      class="pf-c-dropdown__toggle pf-m-plain"
+                                                                      id="pf-dropdown-toggle-id-2"
+                                                                      type="button"
+                                                                    >
+                                                                      <svg
+                                                                        aria-hidden="true"
+                                                                        fill="currentColor"
+                                                                        height="1em"
+                                                                        role="img"
+                                                                        style="vertical-align: -0.125em;"
+                                                                        viewBox="0 0 192 512"
+                                                                        width="1em"
+                                                                      >
+                                                                        <path
+                                                                          d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                                                                          transform=""
+                                                                        />
+                                                                      </svg>
+                                                                    </button>
+                                                                  </div>,
+                                                                }
+                                                              }
+                                                            >
+                                                              <Toggle
+                                                                aria-haspopup={true}
+                                                                aria-label="Actions"
+                                                                bubbleEvent={false}
+                                                                className=""
+                                                                getMenuRef={[Function]}
+                                                                id="pf-dropdown-toggle-id-2"
+                                                                isActive={false}
+                                                                isDisabled={false}
+                                                                isOpen={false}
+                                                                isPlain={true}
+                                                                isPrimary={false}
+                                                                isSplitButton={false}
+                                                                onEnter={[Function]}
+                                                                onToggle={[Function]}
+                                                                parentRef={
                                                                   Object {
-                                                                    "verticalAlign": "-0.125em",
+                                                                    "current": <div
+                                                                      class="pf-c-dropdown"
+                                                                      data-ouia-component-id="5"
+                                                                      data-ouia-component-type="PF4/Dropdown"
+                                                                      data-ouia-safe="true"
+                                                                      style="float: left;"
+                                                                    >
+                                                                      <button
+                                                                        aria-expanded="false"
+                                                                        aria-haspopup="true"
+                                                                        aria-label="Actions"
+                                                                        class="pf-c-dropdown__toggle pf-m-plain"
+                                                                        id="pf-dropdown-toggle-id-2"
+                                                                        type="button"
+                                                                      >
+                                                                        <svg
+                                                                          aria-hidden="true"
+                                                                          fill="currentColor"
+                                                                          height="1em"
+                                                                          role="img"
+                                                                          style="vertical-align: -0.125em;"
+                                                                          viewBox="0 0 192 512"
+                                                                          width="1em"
+                                                                        >
+                                                                          <path
+                                                                            d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                                                                            transform=""
+                                                                          />
+                                                                        </svg>
+                                                                      </button>
+                                                                    </div>,
                                                                   }
                                                                 }
-                                                                viewBox="0 0 192 512"
-                                                                width="1em"
                                                               >
-                                                                <path
-                                                                  d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
-                                                                  transform=""
-                                                                />
-                                                              </svg>
-                                                            </EllipsisVIcon>
-                                                          </button>
-                                                        </Toggle>
-                                                      </KebabToggle>
-                                                    </div>
-                                                  </DropdownWithContext>
-                                                </Dropdown>
-                                              </EditBaselineKebab>
-                                            </Connect(EditBaselineKebab)>
-                                          </div>
-                                        </ToolbarItem>
+                                                                <button
+                                                                  aria-expanded={false}
+                                                                  aria-haspopup={true}
+                                                                  aria-label="Actions"
+                                                                  className="pf-c-dropdown__toggle pf-m-plain"
+                                                                  disabled={false}
+                                                                  id="pf-dropdown-toggle-id-2"
+                                                                  onClick={[Function]}
+                                                                  onKeyDown={[Function]}
+                                                                  type="button"
+                                                                >
+                                                                  <EllipsisVIcon
+                                                                    color="currentColor"
+                                                                    noVerticalAlign={false}
+                                                                    size="sm"
+                                                                  >
+                                                                    <svg
+                                                                      aria-hidden={true}
+                                                                      aria-labelledby={null}
+                                                                      fill="currentColor"
+                                                                      height="1em"
+                                                                      role="img"
+                                                                      style={
+                                                                        Object {
+                                                                          "verticalAlign": "-0.125em",
+                                                                        }
+                                                                      }
+                                                                      viewBox="0 0 192 512"
+                                                                      width="1em"
+                                                                    >
+                                                                      <path
+                                                                        d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                                                                        transform=""
+                                                                      />
+                                                                    </svg>
+                                                                  </EllipsisVIcon>
+                                                                </button>
+                                                              </Toggle>
+                                                            </KebabToggle>
+                                                          </div>
+                                                        </DropdownWithContext>
+                                                      </Dropdown>
+                                                    </EditBaselineKebab>
+                                                  </Connect(EditBaselineKebab)>
+                                                </div>
+                                              </ToolbarItem>
+                                            </div>
+                                          </ToolbarGroupWithRef>
+                                        </ForwardRef>
                                       </div>
                                       <ToolbarExpandableContent
                                         chipContainerRef={
@@ -1267,6 +1518,7 @@ exports[`ConnectedEditBaseline should render loading rows 1`] = `
             editBaselineTableData={Array []}
             expandRow={[Function]}
             expandedRows={Array []}
+            exportToCSV={[Function]}
             factModalOpened={false}
             fetchBaselineData={[Function]}
             history={
@@ -1359,7 +1611,7 @@ exports[`ConnectedEditBaseline should render loading rows 1`] = `
                   >
                     <article
                       className="pf-c-card pf-t-light pf-m-opaque-100"
-                      data-ouia-component-id={5}
+                      data-ouia-component-id={6}
                       data-ouia-component-type="PF4/Card"
                       data-ouia-safe={true}
                     >
@@ -1368,9 +1620,11 @@ exports[`ConnectedEditBaseline should render loading rows 1`] = `
                           className="pf-c-card__body"
                         >
                           <EditBaselineToolbar
+                            exportToCSV={[Function]}
                             isDisabled={true}
                             onBulkSelect={[Function]}
                             selected={0}
+                            tableData={Array []}
                             totalFacts={0}
                           >
                             <Toolbar
@@ -1514,14 +1768,14 @@ exports[`ConnectedEditBaseline should render loading rows 1`] = `
                                                 >
                                                   <div
                                                     className="pf-c-dropdown ins-c-bulk-select"
-                                                    data-ouia-component-id={6}
+                                                    data-ouia-component-id={7}
                                                     data-ouia-component-type="PF4/Dropdown"
                                                     data-ouia-safe={true}
                                                   >
                                                     <DropdownToggle
                                                       aria-haspopup={true}
                                                       getMenuRef={[Function]}
-                                                      id="pf-dropdown-toggle-id-2"
+                                                      id="pf-dropdown-toggle-id-3"
                                                       isDisabled={true}
                                                       isOpen={false}
                                                       isPlain={false}
@@ -1532,7 +1786,7 @@ exports[`ConnectedEditBaseline should render loading rows 1`] = `
                                                         Object {
                                                           "current": <div
                                                             class="pf-c-dropdown ins-c-bulk-select"
-                                                            data-ouia-component-id="6"
+                                                            data-ouia-component-id="7"
                                                             data-ouia-component-type="PF4/Dropdown"
                                                             data-ouia-safe="true"
                                                           >
@@ -1557,7 +1811,7 @@ exports[`ConnectedEditBaseline should render loading rows 1`] = `
                                                                 aria-label="Select"
                                                                 class="pf-c-dropdown__toggle-button"
                                                                 disabled=""
-                                                                id="pf-dropdown-toggle-id-2"
+                                                                id="pf-dropdown-toggle-id-3"
                                                                 type="button"
                                                               >
                                                                 <span
@@ -1634,7 +1888,7 @@ exports[`ConnectedEditBaseline should render loading rows 1`] = `
                                                           bubbleEvent={false}
                                                           className=""
                                                           getMenuRef={[Function]}
-                                                          id="pf-dropdown-toggle-id-2"
+                                                          id="pf-dropdown-toggle-id-3"
                                                           isActive={false}
                                                           isDisabled={true}
                                                           isOpen={false}
@@ -1647,7 +1901,7 @@ exports[`ConnectedEditBaseline should render loading rows 1`] = `
                                                             Object {
                                                               "current": <div
                                                                 class="pf-c-dropdown ins-c-bulk-select"
-                                                                data-ouia-component-id="6"
+                                                                data-ouia-component-id="7"
                                                                 data-ouia-component-type="PF4/Dropdown"
                                                                 data-ouia-safe="true"
                                                               >
@@ -1672,7 +1926,7 @@ exports[`ConnectedEditBaseline should render loading rows 1`] = `
                                                                     aria-label="Select"
                                                                     class="pf-c-dropdown__toggle-button"
                                                                     disabled=""
-                                                                    id="pf-dropdown-toggle-id-2"
+                                                                    id="pf-dropdown-toggle-id-3"
                                                                     type="button"
                                                                   >
                                                                     <span
@@ -1705,7 +1959,7 @@ exports[`ConnectedEditBaseline should render loading rows 1`] = `
                                                             aria-label="Select"
                                                             className="pf-c-dropdown__toggle-button"
                                                             disabled={true}
-                                                            id="pf-dropdown-toggle-id-2"
+                                                            id="pf-dropdown-toggle-id-3"
                                                             onClick={[Function]}
                                                             onKeyDown={[Function]}
                                                             type="button"
@@ -1770,7 +2024,7 @@ exports[`ConnectedEditBaseline should render loading rows 1`] = `
                                                     aria-disabled={true}
                                                     aria-label={null}
                                                     className="pf-c-button pf-m-primary pf-m-disabled"
-                                                    data-ouia-component-id={7}
+                                                    data-ouia-component-id={8}
                                                     data-ouia-component-type="PF4/Button"
                                                     data-ouia-safe={true}
                                                     disabled={true}
@@ -1785,225 +2039,472 @@ exports[`ConnectedEditBaseline should render loading rows 1`] = `
                                             </Connect(AddFactButton)>
                                           </div>
                                         </ToolbarItem>
-                                        <ToolbarItem>
-                                          <div
-                                            className="pf-c-toolbar__item"
+                                        <ForwardRef
+                                          variant="icon-button-group"
+                                        >
+                                          <ToolbarGroupWithRef
+                                            innerRef={null}
+                                            variant="icon-button-group"
                                           >
-                                            <Connect(EditBaselineKebab)>
-                                              <EditBaselineKebab
-                                                dispatch={[Function]}
-                                                editBaselineTableData={Array []}
-                                              >
-                                                <Dropdown
-                                                  dropdownItems={
-                                                    Array [
-                                                      <DropdownItem
-                                                        component="button"
-                                                        isDisabled={true}
-                                                        onClick={[Function]}
-                                                      >
-                                                        Delete facts
-                                                      </DropdownItem>,
-                                                    ]
-                                                  }
-                                                  isOpen={false}
-                                                  isPlain={true}
-                                                  style={
-                                                    Object {
-                                                      "float": "left",
-                                                    }
-                                                  }
-                                                  toggle={
-                                                    <KebabToggle
-                                                      onToggle={[Function]}
-                                                    />
-                                                  }
+                                            <div
+                                              className="pf-c-toolbar__group pf-m-icon-button-group"
+                                            >
+                                              <ToolbarItem>
+                                                <div
+                                                  className="pf-c-toolbar__item"
                                                 >
-                                                  <DropdownWithContext
-                                                    autoFocus={true}
-                                                    className=""
-                                                    direction="down"
+                                                  <ExportCSVButton
                                                     dropdownItems={
                                                       Array [
                                                         <DropdownItem
                                                           component="button"
-                                                          isDisabled={true}
                                                           onClick={[Function]}
                                                         >
-                                                          Delete facts
+                                                          Export to CSV
                                                         </DropdownItem>,
                                                       ]
                                                     }
-                                                    isGrouped={false}
                                                     isOpen={false}
-                                                    isPlain={true}
-                                                    menuAppendTo="inline"
-                                                    onSelect={[Function]}
-                                                    position="left"
-                                                    style={
-                                                      Object {
-                                                        "float": "left",
-                                                      }
-                                                    }
-                                                    toggle={
-                                                      <KebabToggle
-                                                        onToggle={[Function]}
-                                                      />
-                                                    }
+                                                    onToggle={[Function]}
                                                   >
-                                                    <div
-                                                      className="pf-c-dropdown"
-                                                      data-ouia-component-id={8}
-                                                      data-ouia-component-type="PF4/Dropdown"
-                                                      data-ouia-safe={true}
-                                                      style={
-                                                        Object {
-                                                          "float": "left",
-                                                        }
+                                                    <Dropdown
+                                                      dropdownItems={
+                                                        Array [
+                                                          <DropdownItem
+                                                            component="button"
+                                                            onClick={[Function]}
+                                                          >
+                                                            Export to CSV
+                                                          </DropdownItem>,
+                                                        ]
+                                                      }
+                                                      isOpen={false}
+                                                      isPlain={true}
+                                                      position="left"
+                                                      toggle={
+                                                        <DropdownToggle
+                                                          onToggle={[Function]}
+                                                          toggleIndicator={null}
+                                                        >
+                                                          <ExportIcon
+                                                            className="pointer not-active"
+                                                            color="currentColor"
+                                                            noVerticalAlign={false}
+                                                            size="sm"
+                                                          />
+                                                        </DropdownToggle>
                                                       }
                                                     >
-                                                      <KebabToggle
-                                                        aria-haspopup={true}
-                                                        getMenuRef={[Function]}
-                                                        id="pf-dropdown-toggle-id-3"
+                                                      <DropdownWithContext
+                                                        autoFocus={true}
+                                                        className=""
+                                                        direction="down"
+                                                        dropdownItems={
+                                                          Array [
+                                                            <DropdownItem
+                                                              component="button"
+                                                              onClick={[Function]}
+                                                            >
+                                                              Export to CSV
+                                                            </DropdownItem>,
+                                                          ]
+                                                        }
+                                                        isGrouped={false}
                                                         isOpen={false}
                                                         isPlain={true}
-                                                        key=".0"
-                                                        onEnter={[Function]}
-                                                        onToggle={[Function]}
-                                                        parentRef={
-                                                          Object {
-                                                            "current": <div
-                                                              class="pf-c-dropdown"
-                                                              data-ouia-component-id="8"
-                                                              data-ouia-component-type="PF4/Dropdown"
-                                                              data-ouia-safe="true"
-                                                              style="float: left;"
-                                                            >
-                                                              <button
-                                                                aria-expanded="false"
-                                                                aria-haspopup="true"
-                                                                aria-label="Actions"
-                                                                class="pf-c-dropdown__toggle pf-m-plain"
-                                                                id="pf-dropdown-toggle-id-3"
-                                                                type="button"
-                                                              >
-                                                                <svg
-                                                                  aria-hidden="true"
-                                                                  fill="currentColor"
-                                                                  height="1em"
-                                                                  role="img"
-                                                                  style="vertical-align: -0.125em;"
-                                                                  viewBox="0 0 192 512"
-                                                                  width="1em"
-                                                                >
-                                                                  <path
-                                                                    d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
-                                                                    transform=""
-                                                                  />
-                                                                </svg>
-                                                              </button>
-                                                            </div>,
-                                                          }
-                                                        }
-                                                      >
-                                                        <Toggle
-                                                          aria-haspopup={true}
-                                                          aria-label="Actions"
-                                                          bubbleEvent={false}
-                                                          className=""
-                                                          getMenuRef={[Function]}
-                                                          id="pf-dropdown-toggle-id-3"
-                                                          isActive={false}
-                                                          isDisabled={false}
-                                                          isOpen={false}
-                                                          isPlain={true}
-                                                          isPrimary={false}
-                                                          isSplitButton={false}
-                                                          onEnter={[Function]}
-                                                          onToggle={[Function]}
-                                                          parentRef={
-                                                            Object {
-                                                              "current": <div
-                                                                class="pf-c-dropdown"
-                                                                data-ouia-component-id="8"
-                                                                data-ouia-component-type="PF4/Dropdown"
-                                                                data-ouia-safe="true"
-                                                                style="float: left;"
-                                                              >
-                                                                <button
-                                                                  aria-expanded="false"
-                                                                  aria-haspopup="true"
-                                                                  aria-label="Actions"
-                                                                  class="pf-c-dropdown__toggle pf-m-plain"
-                                                                  id="pf-dropdown-toggle-id-3"
-                                                                  type="button"
-                                                                >
-                                                                  <svg
-                                                                    aria-hidden="true"
-                                                                    fill="currentColor"
-                                                                    height="1em"
-                                                                    role="img"
-                                                                    style="vertical-align: -0.125em;"
-                                                                    viewBox="0 0 192 512"
-                                                                    width="1em"
-                                                                  >
-                                                                    <path
-                                                                      d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
-                                                                      transform=""
-                                                                    />
-                                                                  </svg>
-                                                                </button>
-                                                              </div>,
-                                                            }
-                                                          }
-                                                        >
-                                                          <button
-                                                            aria-expanded={false}
-                                                            aria-haspopup={true}
-                                                            aria-label="Actions"
-                                                            className="pf-c-dropdown__toggle pf-m-plain"
-                                                            disabled={false}
-                                                            id="pf-dropdown-toggle-id-3"
-                                                            onClick={[Function]}
-                                                            onKeyDown={[Function]}
-                                                            type="button"
+                                                        menuAppendTo="inline"
+                                                        onSelect={[Function]}
+                                                        position="left"
+                                                        toggle={
+                                                          <DropdownToggle
+                                                            onToggle={[Function]}
+                                                            toggleIndicator={null}
                                                           >
-                                                            <EllipsisVIcon
+                                                            <ExportIcon
+                                                              className="pointer not-active"
                                                               color="currentColor"
                                                               noVerticalAlign={false}
                                                               size="sm"
+                                                            />
+                                                          </DropdownToggle>
+                                                        }
+                                                      >
+                                                        <div
+                                                          className="pf-c-dropdown"
+                                                          data-ouia-component-id={9}
+                                                          data-ouia-component-type="PF4/Dropdown"
+                                                          data-ouia-safe={true}
+                                                        >
+                                                          <DropdownToggle
+                                                            aria-haspopup={true}
+                                                            getMenuRef={[Function]}
+                                                            id="pf-dropdown-toggle-id-4"
+                                                            isOpen={false}
+                                                            isPlain={true}
+                                                            key=".0"
+                                                            onEnter={[Function]}
+                                                            onToggle={[Function]}
+                                                            parentRef={
+                                                              Object {
+                                                                "current": <div
+                                                                  class="pf-c-dropdown"
+                                                                  data-ouia-component-id="9"
+                                                                  data-ouia-component-type="PF4/Dropdown"
+                                                                  data-ouia-safe="true"
+                                                                >
+                                                                  <button
+                                                                    aria-expanded="false"
+                                                                    aria-haspopup="true"
+                                                                    class="pf-c-dropdown__toggle pf-m-plain"
+                                                                    id="pf-dropdown-toggle-id-4"
+                                                                    type="button"
+                                                                  >
+                                                                    <span>
+                                                                      <svg
+                                                                        aria-hidden="true"
+                                                                        class="pointer not-active"
+                                                                        fill="currentColor"
+                                                                        height="1em"
+                                                                        role="img"
+                                                                        style="vertical-align: -0.125em;"
+                                                                        viewBox="0 64 1024 1024"
+                                                                        width="1em"
+                                                                      >
+                                                                        <path
+                                                                          d="M980.293 278.754l-95.387-95.387-393.84 393.856c-5.285 5.262-11.353 7.909-18.203 7.911-6.862 0-12.935-2.649-18.222-7.911l-81.019-81.019c-5.262-5.285-7.909-11.353-7.909-18.219 0-6.85 2.649-12.914 7.909-18.203l393.856-393.84-95.381-95.381c-24.039-24.037-15.89-43.705 18.105-43.705h271.982c53.227 0 61.813 9.273 61.813 61.813v271.982c0.005 33.998-19.662 42.151-43.703 18.105zM146.286 793.143c0 3.312 1.077 6.048 3.232 8.203 2.151 2.151 4.889 3.227 8.199 3.225h708.661c3.287 0 5.998-1.067 8.137-3.202 2.135-2.137 3.202-4.848 3.202-8.135v-331.701c0-6.571 2.135-11.995 6.409-16.272 4.27-4.267 9.696-6.407 16.267-6.405h100.933c6.571-0.002 11.998 2.137 16.267 6.405 4.277 4.277 6.409 9.701 6.409 16.272v466.647c0.002 6.571-2.137 11.998-6.405 16.267-4.277 4.274-9.701 6.409-16.272 6.409h-978.649c-6.571 0.002-11.998-2.137-16.267-6.405-4.274-4.277-6.409-9.701-6.409-16.272v-978.647c0-6.571 2.135-11.995 6.409-16.272 4.27-4.267 9.696-6.407 16.267-6.405h466.647c6.571 0 11.995 2.135 16.272 6.411 4.267 4.267 6.407 9.696 6.405 16.265v100.933c0.002 6.569-2.137 11.998-6.405 16.265-4.277 4.277-9.701 6.411-16.272 6.411h-331.609c-3.312 0-6.048 1.077-8.203 3.232-2.151 2.149-3.227 4.889-3.225 8.197v708.571z"
+                                                                          transform="rotate(180 0 512) scale(-1 1)"
+                                                                        />
+                                                                      </svg>
+                                                                    </span>
+                                                                  </button>
+                                                                </div>,
+                                                              }
+                                                            }
+                                                            toggleIndicator={null}
+                                                          >
+                                                            <Toggle
+                                                              aria-haspopup={true}
+                                                              bubbleEvent={false}
+                                                              className=""
+                                                              getMenuRef={[Function]}
+                                                              id="pf-dropdown-toggle-id-4"
+                                                              isActive={false}
+                                                              isDisabled={false}
+                                                              isOpen={false}
+                                                              isPlain={true}
+                                                              isPrimary={false}
+                                                              isSplitButton={false}
+                                                              onEnter={[Function]}
+                                                              onToggle={[Function]}
+                                                              parentRef={
+                                                                Object {
+                                                                  "current": <div
+                                                                    class="pf-c-dropdown"
+                                                                    data-ouia-component-id="9"
+                                                                    data-ouia-component-type="PF4/Dropdown"
+                                                                    data-ouia-safe="true"
+                                                                  >
+                                                                    <button
+                                                                      aria-expanded="false"
+                                                                      aria-haspopup="true"
+                                                                      class="pf-c-dropdown__toggle pf-m-plain"
+                                                                      id="pf-dropdown-toggle-id-4"
+                                                                      type="button"
+                                                                    >
+                                                                      <span>
+                                                                        <svg
+                                                                          aria-hidden="true"
+                                                                          class="pointer not-active"
+                                                                          fill="currentColor"
+                                                                          height="1em"
+                                                                          role="img"
+                                                                          style="vertical-align: -0.125em;"
+                                                                          viewBox="0 64 1024 1024"
+                                                                          width="1em"
+                                                                        >
+                                                                          <path
+                                                                            d="M980.293 278.754l-95.387-95.387-393.84 393.856c-5.285 5.262-11.353 7.909-18.203 7.911-6.862 0-12.935-2.649-18.222-7.911l-81.019-81.019c-5.262-5.285-7.909-11.353-7.909-18.219 0-6.85 2.649-12.914 7.909-18.203l393.856-393.84-95.381-95.381c-24.039-24.037-15.89-43.705 18.105-43.705h271.982c53.227 0 61.813 9.273 61.813 61.813v271.982c0.005 33.998-19.662 42.151-43.703 18.105zM146.286 793.143c0 3.312 1.077 6.048 3.232 8.203 2.151 2.151 4.889 3.227 8.199 3.225h708.661c3.287 0 5.998-1.067 8.137-3.202 2.135-2.137 3.202-4.848 3.202-8.135v-331.701c0-6.571 2.135-11.995 6.409-16.272 4.27-4.267 9.696-6.407 16.267-6.405h100.933c6.571-0.002 11.998 2.137 16.267 6.405 4.277 4.277 6.409 9.701 6.409 16.272v466.647c0.002 6.571-2.137 11.998-6.405 16.267-4.277 4.274-9.701 6.409-16.272 6.409h-978.649c-6.571 0.002-11.998-2.137-16.267-6.405-4.274-4.277-6.409-9.701-6.409-16.272v-978.647c0-6.571 2.135-11.995 6.409-16.272 4.27-4.267 9.696-6.407 16.267-6.405h466.647c6.571 0 11.995 2.135 16.272 6.411 4.267 4.267 6.407 9.696 6.405 16.265v100.933c0.002 6.569-2.137 11.998-6.405 16.265-4.277 4.277-9.701 6.411-16.272 6.411h-331.609c-3.312 0-6.048 1.077-8.203 3.232-2.151 2.149-3.227 4.889-3.225 8.197v708.571z"
+                                                                            transform="rotate(180 0 512) scale(-1 1)"
+                                                                          />
+                                                                        </svg>
+                                                                      </span>
+                                                                    </button>
+                                                                  </div>,
+                                                                }
+                                                              }
                                                             >
-                                                              <svg
-                                                                aria-hidden={true}
-                                                                aria-labelledby={null}
-                                                                fill="currentColor"
-                                                                height="1em"
-                                                                role="img"
-                                                                style={
+                                                              <button
+                                                                aria-expanded={false}
+                                                                aria-haspopup={true}
+                                                                className="pf-c-dropdown__toggle pf-m-plain"
+                                                                disabled={false}
+                                                                id="pf-dropdown-toggle-id-4"
+                                                                onClick={[Function]}
+                                                                onKeyDown={[Function]}
+                                                                type="button"
+                                                              >
+                                                                <span
+                                                                  className={null}
+                                                                >
+                                                                  <ExportIcon
+                                                                    className="pointer not-active"
+                                                                    color="currentColor"
+                                                                    noVerticalAlign={false}
+                                                                    size="sm"
+                                                                  >
+                                                                    <svg
+                                                                      aria-hidden={true}
+                                                                      aria-labelledby={null}
+                                                                      className="pointer not-active"
+                                                                      fill="currentColor"
+                                                                      height="1em"
+                                                                      role="img"
+                                                                      style={
+                                                                        Object {
+                                                                          "verticalAlign": "-0.125em",
+                                                                        }
+                                                                      }
+                                                                      viewBox="0 64 1024 1024"
+                                                                      width="1em"
+                                                                    >
+                                                                      <path
+                                                                        d="M980.293 278.754l-95.387-95.387-393.84 393.856c-5.285 5.262-11.353 7.909-18.203 7.911-6.862 0-12.935-2.649-18.222-7.911l-81.019-81.019c-5.262-5.285-7.909-11.353-7.909-18.219 0-6.85 2.649-12.914 7.909-18.203l393.856-393.84-95.381-95.381c-24.039-24.037-15.89-43.705 18.105-43.705h271.982c53.227 0 61.813 9.273 61.813 61.813v271.982c0.005 33.998-19.662 42.151-43.703 18.105zM146.286 793.143c0 3.312 1.077 6.048 3.232 8.203 2.151 2.151 4.889 3.227 8.199 3.225h708.661c3.287 0 5.998-1.067 8.137-3.202 2.135-2.137 3.202-4.848 3.202-8.135v-331.701c0-6.571 2.135-11.995 6.409-16.272 4.27-4.267 9.696-6.407 16.267-6.405h100.933c6.571-0.002 11.998 2.137 16.267 6.405 4.277 4.277 6.409 9.701 6.409 16.272v466.647c0.002 6.571-2.137 11.998-6.405 16.267-4.277 4.274-9.701 6.409-16.272 6.409h-978.649c-6.571 0.002-11.998-2.137-16.267-6.405-4.274-4.277-6.409-9.701-6.409-16.272v-978.647c0-6.571 2.135-11.995 6.409-16.272 4.27-4.267 9.696-6.407 16.267-6.405h466.647c6.571 0 11.995 2.135 16.272 6.411 4.267 4.267 6.407 9.696 6.405 16.265v100.933c0.002 6.569-2.137 11.998-6.405 16.265-4.277 4.277-9.701 6.411-16.272 6.411h-331.609c-3.312 0-6.048 1.077-8.203 3.232-2.151 2.149-3.227 4.889-3.225 8.197v708.571z"
+                                                                        transform="rotate(180 0 512) scale(-1 1)"
+                                                                      />
+                                                                    </svg>
+                                                                  </ExportIcon>
+                                                                </span>
+                                                              </button>
+                                                            </Toggle>
+                                                          </DropdownToggle>
+                                                        </div>
+                                                      </DropdownWithContext>
+                                                    </Dropdown>
+                                                  </ExportCSVButton>
+                                                </div>
+                                              </ToolbarItem>
+                                              <ToolbarItem>
+                                                <div
+                                                  className="pf-c-toolbar__item"
+                                                >
+                                                  <Connect(EditBaselineKebab)>
+                                                    <EditBaselineKebab
+                                                      dispatch={[Function]}
+                                                      editBaselineTableData={Array []}
+                                                    >
+                                                      <Dropdown
+                                                        dropdownItems={
+                                                          Array [
+                                                            <DropdownItem
+                                                              component="button"
+                                                              isDisabled={true}
+                                                              onClick={[Function]}
+                                                            >
+                                                              Delete facts
+                                                            </DropdownItem>,
+                                                          ]
+                                                        }
+                                                        isOpen={false}
+                                                        isPlain={true}
+                                                        style={
+                                                          Object {
+                                                            "float": "left",
+                                                          }
+                                                        }
+                                                        toggle={
+                                                          <KebabToggle
+                                                            onToggle={[Function]}
+                                                          />
+                                                        }
+                                                      >
+                                                        <DropdownWithContext
+                                                          autoFocus={true}
+                                                          className=""
+                                                          direction="down"
+                                                          dropdownItems={
+                                                            Array [
+                                                              <DropdownItem
+                                                                component="button"
+                                                                isDisabled={true}
+                                                                onClick={[Function]}
+                                                              >
+                                                                Delete facts
+                                                              </DropdownItem>,
+                                                            ]
+                                                          }
+                                                          isGrouped={false}
+                                                          isOpen={false}
+                                                          isPlain={true}
+                                                          menuAppendTo="inline"
+                                                          onSelect={[Function]}
+                                                          position="left"
+                                                          style={
+                                                            Object {
+                                                              "float": "left",
+                                                            }
+                                                          }
+                                                          toggle={
+                                                            <KebabToggle
+                                                              onToggle={[Function]}
+                                                            />
+                                                          }
+                                                        >
+                                                          <div
+                                                            className="pf-c-dropdown"
+                                                            data-ouia-component-id={10}
+                                                            data-ouia-component-type="PF4/Dropdown"
+                                                            data-ouia-safe={true}
+                                                            style={
+                                                              Object {
+                                                                "float": "left",
+                                                              }
+                                                            }
+                                                          >
+                                                            <KebabToggle
+                                                              aria-haspopup={true}
+                                                              getMenuRef={[Function]}
+                                                              id="pf-dropdown-toggle-id-5"
+                                                              isOpen={false}
+                                                              isPlain={true}
+                                                              key=".0"
+                                                              onEnter={[Function]}
+                                                              onToggle={[Function]}
+                                                              parentRef={
+                                                                Object {
+                                                                  "current": <div
+                                                                    class="pf-c-dropdown"
+                                                                    data-ouia-component-id="10"
+                                                                    data-ouia-component-type="PF4/Dropdown"
+                                                                    data-ouia-safe="true"
+                                                                    style="float: left;"
+                                                                  >
+                                                                    <button
+                                                                      aria-expanded="false"
+                                                                      aria-haspopup="true"
+                                                                      aria-label="Actions"
+                                                                      class="pf-c-dropdown__toggle pf-m-plain"
+                                                                      id="pf-dropdown-toggle-id-5"
+                                                                      type="button"
+                                                                    >
+                                                                      <svg
+                                                                        aria-hidden="true"
+                                                                        fill="currentColor"
+                                                                        height="1em"
+                                                                        role="img"
+                                                                        style="vertical-align: -0.125em;"
+                                                                        viewBox="0 0 192 512"
+                                                                        width="1em"
+                                                                      >
+                                                                        <path
+                                                                          d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                                                                          transform=""
+                                                                        />
+                                                                      </svg>
+                                                                    </button>
+                                                                  </div>,
+                                                                }
+                                                              }
+                                                            >
+                                                              <Toggle
+                                                                aria-haspopup={true}
+                                                                aria-label="Actions"
+                                                                bubbleEvent={false}
+                                                                className=""
+                                                                getMenuRef={[Function]}
+                                                                id="pf-dropdown-toggle-id-5"
+                                                                isActive={false}
+                                                                isDisabled={false}
+                                                                isOpen={false}
+                                                                isPlain={true}
+                                                                isPrimary={false}
+                                                                isSplitButton={false}
+                                                                onEnter={[Function]}
+                                                                onToggle={[Function]}
+                                                                parentRef={
                                                                   Object {
-                                                                    "verticalAlign": "-0.125em",
+                                                                    "current": <div
+                                                                      class="pf-c-dropdown"
+                                                                      data-ouia-component-id="10"
+                                                                      data-ouia-component-type="PF4/Dropdown"
+                                                                      data-ouia-safe="true"
+                                                                      style="float: left;"
+                                                                    >
+                                                                      <button
+                                                                        aria-expanded="false"
+                                                                        aria-haspopup="true"
+                                                                        aria-label="Actions"
+                                                                        class="pf-c-dropdown__toggle pf-m-plain"
+                                                                        id="pf-dropdown-toggle-id-5"
+                                                                        type="button"
+                                                                      >
+                                                                        <svg
+                                                                          aria-hidden="true"
+                                                                          fill="currentColor"
+                                                                          height="1em"
+                                                                          role="img"
+                                                                          style="vertical-align: -0.125em;"
+                                                                          viewBox="0 0 192 512"
+                                                                          width="1em"
+                                                                        >
+                                                                          <path
+                                                                            d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                                                                            transform=""
+                                                                          />
+                                                                        </svg>
+                                                                      </button>
+                                                                    </div>,
                                                                   }
                                                                 }
-                                                                viewBox="0 0 192 512"
-                                                                width="1em"
                                                               >
-                                                                <path
-                                                                  d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
-                                                                  transform=""
-                                                                />
-                                                              </svg>
-                                                            </EllipsisVIcon>
-                                                          </button>
-                                                        </Toggle>
-                                                      </KebabToggle>
-                                                    </div>
-                                                  </DropdownWithContext>
-                                                </Dropdown>
-                                              </EditBaselineKebab>
-                                            </Connect(EditBaselineKebab)>
-                                          </div>
-                                        </ToolbarItem>
+                                                                <button
+                                                                  aria-expanded={false}
+                                                                  aria-haspopup={true}
+                                                                  aria-label="Actions"
+                                                                  className="pf-c-dropdown__toggle pf-m-plain"
+                                                                  disabled={false}
+                                                                  id="pf-dropdown-toggle-id-5"
+                                                                  onClick={[Function]}
+                                                                  onKeyDown={[Function]}
+                                                                  type="button"
+                                                                >
+                                                                  <EllipsisVIcon
+                                                                    color="currentColor"
+                                                                    noVerticalAlign={false}
+                                                                    size="sm"
+                                                                  >
+                                                                    <svg
+                                                                      aria-hidden={true}
+                                                                      aria-labelledby={null}
+                                                                      fill="currentColor"
+                                                                      height="1em"
+                                                                      role="img"
+                                                                      style={
+                                                                        Object {
+                                                                          "verticalAlign": "-0.125em",
+                                                                        }
+                                                                      }
+                                                                      viewBox="0 0 192 512"
+                                                                      width="1em"
+                                                                    >
+                                                                      <path
+                                                                        d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                                                                        transform=""
+                                                                      />
+                                                                    </svg>
+                                                                  </EllipsisVIcon>
+                                                                </button>
+                                                              </Toggle>
+                                                            </KebabToggle>
+                                                          </div>
+                                                        </DropdownWithContext>
+                                                      </Dropdown>
+                                                    </EditBaselineKebab>
+                                                  </Connect(EditBaselineKebab)>
+                                                </div>
+                                              </ToolbarItem>
+                                            </div>
+                                          </ToolbarGroupWithRef>
+                                        </ForwardRef>
                                       </div>
                                       <ToolbarExpandableContent
                                         chipContainerRef={
@@ -2550,9 +3051,11 @@ exports[`EditBaseline should render correctly 1`] = `
     >
       <CardBody>
         <EditBaselineToolbar
+          baselineData={Array []}
           isDisabled={true}
           onBulkSelect={[Function]}
           selected={0}
+          tableData={Array []}
           totalFacts={0}
         />
         <table
@@ -2633,9 +3136,11 @@ exports[`EditBaseline should render error correctly 1`] = `
     >
       <CardBody>
         <EditBaselineToolbar
+          baselineData={Array []}
           isDisabled={true}
           onBulkSelect={[Function]}
           selected={0}
+          tableData={Array []}
           totalFacts={0}
         />
         <table
@@ -2770,9 +3275,131 @@ exports[`EditBaseline should render expandable rows closed 1`] = `
     >
       <CardBody>
         <EditBaselineToolbar
+          baselineData={
+            Object {
+              "baseline_facts": Array [
+                Object {
+                  "name": "Sauron",
+                  "value": "the Dark Lord",
+                },
+                Object {
+                  "name": "Galadriel",
+                  "value": "the Elven Queen",
+                },
+                Object {
+                  "name": "The Fellowship of the Ring",
+                  "values": Array [
+                    Object {
+                      "name": "Frodo",
+                      "value": "Baggins",
+                    },
+                    Object {
+                      "name": "Samwise",
+                      "value": "Gamgee",
+                    },
+                    Object {
+                      "name": "Gandalf",
+                      "value": "the Grey",
+                    },
+                    Object {
+                      "name": "Meriadoc",
+                      "value": "Brandybuck",
+                    },
+                    Object {
+                      "name": "Peregrin",
+                      "value": "Took",
+                    },
+                    Object {
+                      "name": "Gimli",
+                      "value": "song of Gloin",
+                    },
+                    Object {
+                      "name": "Legolas",
+                      "value": "Greenleaf",
+                    },
+                    Object {
+                      "name": "Boromir",
+                      "value": "son of Denethor",
+                    },
+                    Object {
+                      "name": "Aragorn",
+                      "value": "son of Arathorn",
+                    },
+                  ],
+                },
+              ],
+              "display_name": "lotr_baseline",
+              "id": "38gnw73l-fn36-5829-1287-2m5ghs46801c",
+            }
+          }
           isDisabled={false}
           onBulkSelect={[Function]}
           selected={0}
+          tableData={
+            Array [
+              Array [
+                0,
+                "Sauron",
+                "the Dark Lord",
+              ],
+              Array [
+                1,
+                "Galadriel",
+                "the Elven Queen",
+              ],
+              Array [
+                2,
+                "The Fellowship of the Ring",
+                Array [
+                  Array [
+                    3,
+                    "Frodo",
+                    "Baggins",
+                  ],
+                  Array [
+                    4,
+                    "Samwise",
+                    "Gamgee",
+                  ],
+                  Array [
+                    5,
+                    "Gandalf",
+                    "the Grey",
+                  ],
+                  Array [
+                    6,
+                    "Meriadoc",
+                    "Brandybuck",
+                  ],
+                  Array [
+                    7,
+                    "Peregrin",
+                    "Took",
+                  ],
+                  Array [
+                    8,
+                    "Gimli",
+                    "son of Gloin",
+                  ],
+                  Array [
+                    9,
+                    "Legolas",
+                    "Greenleaf",
+                  ],
+                  Array [
+                    10,
+                    "Boromir",
+                    "son of Denethor",
+                  ],
+                  Array [
+                    11,
+                    "Aragorn",
+                    "son of Arathorn",
+                  ],
+                ],
+              ],
+            ]
+          }
           totalFacts={11}
         />
         <table
@@ -3056,9 +3683,131 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
     >
       <CardBody>
         <EditBaselineToolbar
+          baselineData={
+            Object {
+              "baseline_facts": Array [
+                Object {
+                  "name": "Sauron",
+                  "value": "the Dark Lord",
+                },
+                Object {
+                  "name": "Galadriel",
+                  "value": "the Elven Queen",
+                },
+                Object {
+                  "name": "The Fellowship of the Ring",
+                  "values": Array [
+                    Object {
+                      "name": "Frodo",
+                      "value": "Baggins",
+                    },
+                    Object {
+                      "name": "Samwise",
+                      "value": "Gamgee",
+                    },
+                    Object {
+                      "name": "Gandalf",
+                      "value": "the Grey",
+                    },
+                    Object {
+                      "name": "Meriadoc",
+                      "value": "Brandybuck",
+                    },
+                    Object {
+                      "name": "Peregrin",
+                      "value": "Took",
+                    },
+                    Object {
+                      "name": "Gimli",
+                      "value": "song of Gloin",
+                    },
+                    Object {
+                      "name": "Legolas",
+                      "value": "Greenleaf",
+                    },
+                    Object {
+                      "name": "Boromir",
+                      "value": "son of Denethor",
+                    },
+                    Object {
+                      "name": "Aragorn",
+                      "value": "son of Arathorn",
+                    },
+                  ],
+                },
+              ],
+              "display_name": "lotr_baseline",
+              "id": "38gnw73l-fn36-5829-1287-2m5ghs46801c",
+            }
+          }
           isDisabled={false}
           onBulkSelect={[Function]}
           selected={0}
+          tableData={
+            Array [
+              Array [
+                0,
+                "Sauron",
+                "the Dark Lord",
+              ],
+              Array [
+                1,
+                "Galadriel",
+                "the Elven Queen",
+              ],
+              Array [
+                2,
+                "The Fellowship of the Ring",
+                Array [
+                  Array [
+                    3,
+                    "Frodo",
+                    "Baggins",
+                  ],
+                  Array [
+                    4,
+                    "Samwise",
+                    "Gamgee",
+                  ],
+                  Array [
+                    5,
+                    "Gandalf",
+                    "the Grey",
+                  ],
+                  Array [
+                    6,
+                    "Meriadoc",
+                    "Brandybuck",
+                  ],
+                  Array [
+                    7,
+                    "Peregrin",
+                    "Took",
+                  ],
+                  Array [
+                    8,
+                    "Gimli",
+                    "son of Gloin",
+                  ],
+                  Array [
+                    9,
+                    "Legolas",
+                    "Greenleaf",
+                  ],
+                  Array [
+                    10,
+                    "Boromir",
+                    "son of Denethor",
+                  ],
+                  Array [
+                    11,
+                    "Aragorn",
+                    "son of Arathorn",
+                  ],
+                ],
+              ],
+            ]
+          }
           totalFacts={11}
         />
         <table
@@ -3967,6 +4716,7 @@ exports[`EditBaseline should render loading rows 1`] = `
           isDisabled={true}
           onBulkSelect={[Function]}
           selected={0}
+          tableData={Array []}
           totalFacts={0}
         />
         <table
@@ -4105,9 +4855,135 @@ exports[`EditBaseline should render with baseline facts 1`] = `
     >
       <CardBody>
         <EditBaselineToolbar
+          baselineData={
+            Object {
+              "account": "12345678",
+              "baseline_facts": Array [
+                Object {
+                  "name": "Sauron",
+                  "value": "the Dark Lord",
+                },
+                Object {
+                  "name": "Galadriel",
+                  "value": "the Elven Queen",
+                },
+                Object {
+                  "name": "The Fellowship of the Ring",
+                  "values": Array [
+                    Object {
+                      "name": "Frodo",
+                      "value": "Baggins",
+                    },
+                    Object {
+                      "name": "Samwise",
+                      "value": "Gamgee",
+                    },
+                    Object {
+                      "name": "Gandalf",
+                      "value": "the Grey",
+                    },
+                    Object {
+                      "name": "Meriadoc",
+                      "value": "Brandybuck",
+                    },
+                    Object {
+                      "name": "Peregrin",
+                      "value": "Took",
+                    },
+                    Object {
+                      "name": "Gimli",
+                      "value": "son of Gloin",
+                    },
+                    Object {
+                      "name": "Legolas",
+                      "value": "Greenleaf",
+                    },
+                    Object {
+                      "name": "Boromir",
+                      "value": "son of Denethor",
+                    },
+                    Object {
+                      "name": "Aragorn",
+                      "value": "son of Arathorn",
+                    },
+                  ],
+                },
+              ],
+              "created": "2019-10-17T16:20:06.050710Z",
+              "display_name": "lotr-baseline",
+              "fact_count": 3,
+              "id": "jf8alskj-jf74-aje8-ke83-jf84ldjru439k",
+              "updated": "2020-02-06T21:48:30.661510Z",
+            }
+          }
           isDisabled={false}
           onBulkSelect={[Function]}
           selected={0}
+          tableData={
+            Array [
+              Array [
+                0,
+                "Sauron",
+                "the Dark Lord",
+              ],
+              Array [
+                1,
+                "Galadriel",
+                "the Elven Queen",
+              ],
+              Array [
+                2,
+                "The Fellowship of the Ring",
+                Array [
+                  Array [
+                    3,
+                    "Frodo",
+                    "Baggins",
+                  ],
+                  Array [
+                    4,
+                    "Samwise",
+                    "Gamgee",
+                  ],
+                  Array [
+                    5,
+                    "Gandalf",
+                    "the Grey",
+                  ],
+                  Array [
+                    6,
+                    "Meriadoc",
+                    "Brandybuck",
+                  ],
+                  Array [
+                    7,
+                    "Peregrin",
+                    "Took",
+                  ],
+                  Array [
+                    8,
+                    "Gimli",
+                    "son of Gloin",
+                  ],
+                  Array [
+                    9,
+                    "Legolas",
+                    "Greenleaf",
+                  ],
+                  Array [
+                    10,
+                    "Boromir",
+                    "son of Denethor",
+                  ],
+                  Array [
+                    11,
+                    "Aragorn",
+                    "son of Arathorn",
+                  ],
+                ],
+              ],
+            ]
+          }
           totalFacts={11}
         />
         <table

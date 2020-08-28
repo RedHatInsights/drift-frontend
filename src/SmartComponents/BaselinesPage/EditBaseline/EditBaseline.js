@@ -337,7 +337,8 @@ export class EditBaseline extends Component {
     }
 
     render() {
-        const { editBaselineTableData, factModalOpened, editBaselineEmptyState, editBaselineError, clearErrorData } = this.props;
+        const { baselineData, editBaselineTableData, exportToCSV, factModalOpened,
+            editBaselineEmptyState, editBaselineError, clearErrorData } = this.props;
         let selected = editBaselineHelpers.findSelected(editBaselineTableData);
 
         return (
@@ -361,6 +362,9 @@ export class EditBaseline extends Component {
                                     onBulkSelect={ this.onBulkSelect }
                                     isDisabled={ editBaselineTableData.length === 0 }
                                     totalFacts={ editBaselineHelpers.findFactCount(editBaselineTableData) }
+                                    baselineData={ baselineData }
+                                    exportToCSV={ exportToCSV }
+                                    tableData={ editBaselineTableData }
                                 />
                                 { this.renderTable() }
                             </CardBody>
@@ -387,7 +391,8 @@ EditBaseline.propTypes = {
     clearErrorData: PropTypes.func,
     editBaselineError: PropTypes.object,
     inlineError: PropTypes.object,
-    editBaselineEmptyState: PropTypes.bool
+    editBaselineEmptyState: PropTypes.bool,
+    exportToCSV: PropTypes.func
 };
 
 function mapStateToProps(state) {
@@ -409,7 +414,10 @@ function mapDispatchToProps(dispatch) {
         expandRow: (factName) => dispatch(editBaselineActions.expandRow(factName)),
         fetchBaselineData: (baselineUUID) => dispatch(editBaselineActions.fetchBaselineData(baselineUUID)),
         selectFact: (facts, isSelected) => dispatch(editBaselineActions.selectFact(facts, isSelected)),
-        clearErrorData: () => dispatch(editBaselineActions.clearErrorData())
+        clearErrorData: () => dispatch(editBaselineActions.clearErrorData()),
+        exportToCSV: (exportData, baselineRowData)=> {
+            dispatch(editBaselineActions.exportToCSV(exportData, baselineRowData));
+        }
     };
 }
 

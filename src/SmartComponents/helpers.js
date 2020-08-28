@@ -1,6 +1,8 @@
 import React from 'react';
 import { CloseIcon, HistoryIcon } from '@patternfly/react-icons';
 import moment from 'moment';
+import baselinesTableHelpers from './BaselinesTable/redux/helpers';
+import editBaselineHelpers from './BaselinesPage/EditBaseline/helpers';
 
 function findCheckedValue(total, selected) {
     if (selected === total && total > 0) {
@@ -56,8 +58,41 @@ function buildSystemsTableWithSelectedHSP (rows, selectedHSP, deselectHistorical
     return rows;
 }
 
+function downloadCSV(baselineData) {
+    let filename;
+    let csv;
+
+    if (baselineData.exportType === 'baseline list') {
+        filename = 'baseline-list-export-';
+        csv = baselinesTableHelpers.convertListToCSV(baselineData.exportData);
+    } else if (baselineData.exportType === 'baselines data') {
+        filename = 'baseline-data-export-';
+        csv = editBaselineHelpers.convertDataToCSV(baselineData.exportData, baselineData.baselineRowData);
+    }
+
+    if (csv === null) {
+        return;
+    }
+
+    let today = new Date();
+    filename += today.toISOString();
+    filename += '.csv';
+
+    if (!csv.match(/^data:text\/csv/i)) {
+        csv = 'data:text/csv;charset=utf-8,' + csv;
+    }
+
+    let data = encodeURI(csv);
+
+    let link = document.createElement('a');
+    link.setAttribute('href', data);
+    link.setAttribute('download', filename);
+    link.dispatchEvent(new MouseEvent(`click`, { bubbles: true, cancelable: true, view: window }));
+}
+
 export default {
     findCheckedValue,
     paginateData,
-    buildSystemsTableWithSelectedHSP
+    buildSystemsTableWithSelectedHSP,
+    downloadCSV
 };

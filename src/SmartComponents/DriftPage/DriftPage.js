@@ -17,7 +17,7 @@ import SearchBar from './SearchBar/SearchBar';
 import ActionKebab from './ActionKebab/ActionKebab';
 import ErrorAlert from '../ErrorAlert/ErrorAlert';
 import TablePagination from '../Pagination/Pagination';
-import ExportCSVButton from './ExportCSVButton/ExportCSVButton';
+import ExportCSVButton from '../ExportCSVButton/ExportCSVButton';
 import DriftFilterChips from './DriftFilterChips/DriftFilterChips';
 import AddSystemButton from './AddSystemButton/AddSystemButton';
 import EmptyStateDisplay from '../EmptyStateDisplay/EmptyStateDisplay';
@@ -29,11 +29,21 @@ export class DriftPage extends Component {
             actionKebabItems: [
                 <DropdownItem key="remove-systems" component="button" onClick={ this.clearComparison }>Clear all comparisons</DropdownItem>
             ],
-            isEmpty: true,
+            dropdownItems: [
+                <DropdownItem
+                    key='export-to-CSV'
+                    component='button'
+                    onClick={ () => this.props.exportToCSV() }
+                >
+                    Export to CSV
+                </DropdownItem>
+            ],
+            dropdownOpen: false,
             emptyStateMessage: [
                 'You currently have no system or baselines displayed. Add at least two',
                 'systems or baselines to compare their facts.'
-            ]
+            ],
+            isEmpty: true
         };
 
         this.props.clearSelectedBaselines('CHECKBOX');
@@ -41,6 +51,14 @@ export class DriftPage extends Component {
 
     async componentDidMount() {
         await window.insights.chrome.auth.getUser();
+    }
+
+    onToggle = () => {
+        const { dropdownOpen } = this.state;
+
+        this.setState({
+            dropdownOpen: !dropdownOpen
+        });
     }
 
     setIsEmpty = (isEmpty) => {
@@ -98,7 +116,7 @@ export class DriftPage extends Component {
 
     render() {
         const { emptyState, error, loading, page, perPage, totalFacts, updatePagination, updateReferenceId } = this.props;
-        const { actionKebabItems, isEmpty } = this.state;
+        const { actionKebabItems, dropdownItems, dropdownOpen, isEmpty } = this.state;
 
         return (
             <React.Fragment>
@@ -136,7 +154,11 @@ export class DriftPage extends Component {
                                                 </ToolbarGroup>
                                                 <ToolbarGroup variant='icon-button-group'>
                                                     <ToolbarItem>
-                                                        <ExportCSVButton />
+                                                        <ExportCSVButton
+                                                            dropdownItems={ dropdownItems }
+                                                            isOpen={ dropdownOpen }
+                                                            onToggle={ this.onToggle }
+                                                        />
                                                     </ToolbarItem>
                                                     <ToolbarItem>
                                                         <ActionKebab dropdownItems={ actionKebabItems } />
@@ -222,7 +244,8 @@ DriftPage.propTypes = {
     selectHistoricProfiles: PropTypes.func,
     selectedHSPIds: PropTypes.array,
     revertCompareData: PropTypes.func,
-    previousStateSystems: PropTypes.array
+    previousStateSystems: PropTypes.array,
+    exportToCSV: PropTypes.func
 };
 
 function mapDispatchToProps(dispatch) {
@@ -233,7 +256,8 @@ function mapDispatchToProps(dispatch) {
         clearComparison: () => dispatch(compareActions.clearComparison()),
         clearComparisonFilters: () => dispatch(compareActions.clearComparisonFilters()),
         selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds)),
-        revertCompareData: () => dispatch(compareActions.revertCompareData())
+        revertCompareData: () => dispatch(compareActions.revertCompareData()),
+        exportToCSV: () => dispatch(compareActions.exportToCSV())
     };
 }
 

@@ -1,4 +1,5 @@
 import baselinesReducerHelpers from './helpers';
+import helpers from '../../helpers';
 import union from 'lodash/union';
 
 const initialState = {
@@ -136,6 +137,11 @@ const baselinesTableReducer = (tableId = '') => {
                     ...state,
                     loading: false,
                     baselineError: errorObject
+                };
+            case `EXPORT_BASELINES_LIST_TO_CSV_${tableId}`:
+                helpers.downloadCSV(action.payload);
+                return {
+                    ...state
                 };
             default:
                 return state;

@@ -240,7 +240,7 @@ export class BaselinesTable extends Component {
     }
 
     render() {
-        const { kebab, createButton, exportButton, hasMultiSelect, onBulkSelect, selectedBaselineIds,
+        const { kebab, createButton, exportToCSV, exportButton, hasMultiSelect, onBulkSelect, selectedBaselineIds,
             tableData, tableId, totalBaselines } = this.props;
         const { page, perPage } = this.state;
 
@@ -262,6 +262,7 @@ export class BaselinesTable extends Component {
                     perPage={ perPage }
                     totalBaselines={ totalBaselines }
                     updatePagination={ this.updatePagination }
+                    exportToCSV={ exportToCSV }
                 />
                 { this.renderTable() }
                 <Toolbar>
@@ -297,12 +298,16 @@ BaselinesTable.propTypes = {
     columns: PropTypes.array,
     onBulkSelect: PropTypes.func,
     selectedBaselineIds: PropTypes.array,
-    totalBaselines: PropTypes.number
+    totalBaselines: PropTypes.number,
+    exportToCSV: PropTypes.func
 };
 
 function mapDispatchToProps(dispatch) {
     return {
-        fetchBaselines: (tableId, params) => dispatch(baselinesTableActions.fetchBaselines(tableId, params))
+        fetchBaselines: (tableId, params) => dispatch(baselinesTableActions.fetchBaselines(tableId, params)),
+        exportToCSV: (exportData, baselineRowData)=> {
+            dispatch(baselinesTableActions.exportToCSV(exportData, baselineRowData));
+        }
     };
 }
 
