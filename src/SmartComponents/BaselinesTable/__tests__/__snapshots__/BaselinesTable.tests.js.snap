@@ -5883,12 +5883,107 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
             tableId="CHECKBOX"
             updatePagination={[Function]}
           >
-            <Toolbar>
+            <Connect(DeleteBaselinesModal)
+              fetchWithParams={[Function]}
+              modalOpened={false}
+              tableId="CHECKBOX"
+              toggleModal={[Function]}
+            >
+              <DeleteBaselinesModal
+                clearSelectedBaselines={[Function]}
+                deleteSelectedBaselines={[Function]}
+                fetchWithParams={[Function]}
+                modalOpened={false}
+                revertBaselineFetch={[Function]}
+                selectedBaselineIds={
+                  Array [
+                    "1234",
+                  ]
+                }
+                tableId="CHECKBOX"
+                toggleModal={[Function]}
+              >
+                <Modal
+                  actions={
+                    Array [
+                      <Button
+                        onClick={[Function]}
+                        variant="danger"
+                      >
+                        Delete baseline
+                      </Button>,
+                      <Button
+                        onClick={[Function]}
+                        variant="link"
+                      >
+                        Cancel
+                      </Button>,
+                    ]
+                  }
+                  appendTo={
+                    <body>
+                      <div />
+                    </body>
+                  }
+                  aria-describedby=""
+                  aria-label=""
+                  aria-labelledby=""
+                  className=""
+                  hasNoBodyWrapper={false}
+                  isOpen={false}
+                  onClose={[Function]}
+                  ouiaSafe={true}
+                  showClose={true}
+                  title="Delete baseline"
+                  variant="small"
+                >
+                  <Portal
+                    containerInfo={<div />}
+                  >
+                    <ModalContent
+                      actions={
+                        Array [
+                          <Button
+                            onClick={[Function]}
+                            variant="danger"
+                          >
+                            Delete baseline
+                          </Button>,
+                          <Button
+                            onClick={[Function]}
+                            variant="link"
+                          >
+                            Cancel
+                          </Button>,
+                        ]
+                      }
+                      aria-describedby=""
+                      aria-label=""
+                      aria-labelledby=""
+                      boxId="pf-modal-part-0"
+                      className=""
+                      descriptorId="pf-modal-part-2"
+                      hasNoBodyWrapper={false}
+                      isOpen={false}
+                      labelId="pf-modal-part-1"
+                      onClose={[Function]}
+                      ouiaSafe={true}
+                      showClose={true}
+                      title="Delete baseline"
+                      variant="small"
+                    />
+                  </Portal>
+                </Modal>
+              </DeleteBaselinesModal>
+            </Connect(DeleteBaselinesModal)>
+            <Toolbar
+              className="drift-toolbar"
+            >
               <GenerateId
                 prefix="pf-random-id-"
               >
                 <div
-                  className="pf-c-toolbar"
+                  className="pf-c-toolbar drift-toolbar"
                   id="pf-random-id-0"
                 >
                   <ToolbarContent

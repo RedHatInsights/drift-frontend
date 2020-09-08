@@ -185,7 +185,8 @@ describe('compare reducer', () => {
                 }}
             })
         ).toEqual({
-            emptyState: false,
+            emptyState: true,
+            loading: false,
             error: {
                 detail: 'system_id 7 is not a UUID',
                 status: 400
@@ -204,7 +205,8 @@ describe('compare reducer', () => {
                 }}
             })
         ).toEqual({
-            emptyState: false,
+            emptyState: true,
+            loading: false,
             error: {
                 detail: 'Service is unreachable',
                 status: 500
@@ -222,7 +224,8 @@ describe('compare reducer', () => {
                 }}
             })
         ).toEqual({
-            emptyState: false,
+            emptyState: true,
+            loading: false,
             error: {
                 detail: 'This is a 400 error',
                 status: 400

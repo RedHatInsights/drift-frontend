@@ -4,7 +4,6 @@ import { getRegistry } from '@redhat-cloud-services/frontend-components-utilitie
 import { compareReducer } from '../SmartComponents/modules/reducers';
 import { addSystemModalReducer } from '../SmartComponents/AddSystemModal/redux/addSystemModalReducer';
 import { baselinesTableRootReducer } from '../SmartComponents/BaselinesTable/redux';
-import { errorAlertReducer } from '../SmartComponents/ErrorAlert/redux/errorAlertReducer';
 import { filterDropdownReducer } from '../SmartComponents/DriftPage/FilterDropDown/redux/filterDropdownReducer';
 import { exportCSVButtonReducer } from '../SmartComponents/BaselinesPage/ExportCSVButton/redux/exportCSVButtonReducer';
 import { createBaselineModalReducer } from '../SmartComponents/BaselinesPage/CreateBaselineModal/redux/reducers';
@@ -12,7 +11,7 @@ import { editBaselineReducer } from '../SmartComponents/BaselinesPage/EditBaseli
 import { historicProfilesReducer } from '../SmartComponents/HistoricalProfilesDropdown/redux/reducers';
 
 import MiddlewareListener from '@redhat-cloud-services/frontend-components-utilities/files/MiddlewareListener';
-import { notificationsMiddleware } from '@redhat-cloud-services/frontend-components-notifications';
+import { notifications } from '@redhat-cloud-services/frontend-components-notifications';
 export { default as reducers } from './reducers';
 
 let registry;
@@ -33,9 +32,6 @@ export function init (...middleware) {
     registry = getRegistry({}, [
         promiseMiddleware(),
         middlewareListener.getMiddleware(),
-        notificationsMiddleware({
-            errorDescriptionKey: [ 'detail', 'stack' ]
-        }),
         ...middleware
     ]);
 
@@ -43,12 +39,12 @@ export function init (...middleware) {
         compareState: compareReducer,
         addSystemModalState: addSystemModalReducer,
         baselinesTableState: baselinesTableRootReducer,
-        errorAlertOpened: errorAlertReducer,
         filterDropdownOpened: filterDropdownReducer,
         exportCSVButtonState: exportCSVButtonReducer,
         createBaselineModalState: createBaselineModalReducer,
         editBaselineState: editBaselineReducer,
-        historicProfilesState: historicProfilesReducer
+        historicProfilesState: historicProfilesReducer,
+        notifications
     });
 
     return registry;

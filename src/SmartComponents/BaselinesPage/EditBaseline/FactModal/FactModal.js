@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Button, Checkbox, Form, FormGroup, Modal, ModalVariant, TextInput } from '@patternfly/react-core';
+import { Alert, Button, Checkbox, Form, FormGroup, Modal, ModalVariant, TextInput, ValidatedOptions } from '@patternfly/react-core';
 
 import { editBaselineActions } from '../redux';
 import editBaselineHelpers from '../helpers';
 
-class FactModal extends Component {
+export class FactModal extends Component {
     constructor(props) {
         super(props);
 
@@ -21,7 +21,8 @@ class FactModal extends Component {
             factName: this.props.factName,
             factValue: this.props.factValue,
             factData: this.props.factData,
-            isCategory: this.props.isCategory
+            isCategory: this.props.isCategory,
+            inlineError: {}
         };
 
         this.state.isAddFact = this.props.factName === '' && this.props.factValue === '';
@@ -50,6 +51,7 @@ class FactModal extends Component {
         const { toggleFactModal, baselineData, patchBaseline, fetchBaselineData } = this.props;
         const { isAddFact } = this.state;
         let newAPIBody = '';
+        let error;
 
         try {
             if (isAddFact) {
@@ -65,7 +67,10 @@ class FactModal extends Component {
 
             toggleFactModal();
         } catch (e) {
-            // do nothing and let redux handle
+            error = e.response.data;
+            this.setState({
+                inlineError: { status: error.status, detail: error.detail }
+            });
         }
     }
 
@@ -108,7 +113,7 @@ class FactModal extends Component {
     }
 
     renderFactInput() {
-        const { error } = this.props;
+        const { editBaselineError } = this.props;
         const { factName, isCategory } = this.state;
 
         return (
@@ -117,8 +122,8 @@ class FactModal extends Component {
                     <FormGroup
                         label={ isCategory ? 'Category name' : 'Fact name' }
                         isRequired
-                        helperTextInvalid={ error.hasOwnProperty('detail') ? error.detail : null }
-                        isValid={ !error.hasOwnProperty('status') }
+                        helperTextInvalid={ editBaselineError.hasOwnProperty('detail') ? editBaselineError.detail : null }
+                        validated={ editBaselineError.hasOwnProperty('status') ? 'error' : null }
                         fieldId='fact name'
                         onKeyPress={ this.checkKeyPress }
                     >
@@ -127,7 +132,7 @@ class FactModal extends Component {
                             type="text"
                             placeholder="Name"
                             onChange={ this.handleNewName }
-                            isValid={ !error.hasOwnProperty('status') }
+                            validated={ editBaselineError.hasOwnProperty('status') ? ValidatedOptions.error : null }
                             aria-label="fact name"
                         />
                     </FormGroup>
@@ -137,7 +142,7 @@ class FactModal extends Component {
     }
 
     renderValueInput() {
-        const { error } = this.props;
+        const { editBaselineError } = this.props;
         const { factValue } = this.state;
 
         return (
@@ -146,8 +151,8 @@ class FactModal extends Component {
                     <FormGroup
                         label='Value'
                         isRequired
-                        helperTextInvalid={ error.hasOwnProperty('detail') ? error.detail : null }
-                        isValid={ !error.hasOwnProperty('status') }
+                        helperTextInvalid={ editBaselineError.hasOwnProperty('detail') ? editBaselineError.detail : null }
+                        validated={ editBaselineError.hasOwnProperty('status') ? 'error' : null }
                         fieldId='fact value'
                         onKeyPress={ this.checkKeyPress }
                     >
@@ -156,7 +161,7 @@ class FactModal extends Component {
                             type="text"
                             placeholder="Value"
                             onChange={ this.handleNewValue }
-                            isValid={ !error.hasOwnProperty('status') }
+                            validated={ editBaselineError.hasOwnProperty('status') ? ValidatedOptions.error : null }
                             aria-label="value"
                         />
                     </FormGroup>
@@ -167,15 +172,28 @@ class FactModal extends Component {
 
     renderModalBody() {
         const { isSubFact } = this.props;
-        const { isAddFact, isCategory } = this.state;
+        const { inlineError, isAddFact, isCategory } = this.state;
         let modalBody;
 
-        modalBody = <React.Fragment>
-            { (isAddFact && !isSubFact) || isCategory ? this.renderCategoryCheckbox() : null }
-            { this.renderFactInput() }
-            <br></br>
-            { isCategory ? null : this.renderValueInput() }
-        </React.Fragment>;
+        modalBody =
+            <React.Fragment>
+                { inlineError.status
+                    ? <Alert
+                        variant='danger'
+                        isInline
+                        title={ 'Status: ' + inlineError.status }
+                    >
+                        <p>
+                            { inlineError.detail }
+                        </p>
+                    </Alert>
+                    : <div></div>
+                }
+                { (isAddFact && !isSubFact) || isCategory ? this.renderCategoryCheckbox() : null }
+                { this.renderFactInput() }
+                <br></br>
+                { isCategory ? null : this.renderValueInput() }
+            </React.Fragment>;
 
         return modalBody;
     }
@@ -240,7 +258,7 @@ FactModal.propTypes = {
     isSubFact: PropTypes.bool,
     baselineData: PropTypes.object,
     patchBaseline: PropTypes.func,
-    error: PropTypes.object,
+    editBaselineError: PropTypes.object,
     fetchBaselineData: PropTypes.func
 };
 
@@ -253,7 +271,7 @@ function mapStateToProps(state) {
         isCategory: state.editBaselineState.isCategory,
         isSubFact: state.editBaselineState.isSubFact,
         baselineData: state.editBaselineState.baselineData,
-        error: state.editBaselineState.error
+        editBaselineError: state.editBaselineState.editBaselineError
     };
 }
 

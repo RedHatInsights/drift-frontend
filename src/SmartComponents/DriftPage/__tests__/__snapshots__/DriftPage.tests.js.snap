@@ -149,9 +149,9 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                 "url": "/",
               }
             }
+            revertCompareData={[Function]}
             selectHistoricProfiles={[Function]}
             selectedHSPIds={Array []}
-            toggleErrorAlert={[Function]}
             updatePagination={[Function]}
             updateReferenceId={[Function]}
           >
@@ -187,110 +187,17 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                   className="pf-l-page__main-section pf-c-page__main-section"
                   page-type=""
                 >
-                  <withRouter(Connect(ErrorAlert))>
-                    <Connect(ErrorAlert)
-                      history={
-                        Object {
-                          "action": "POP",
-                          "block": [Function],
-                          "canGo": [Function],
-                          "createHref": [Function],
-                          "entries": Array [
-                            Object {
-                              "hash": "",
-                              "pathname": "/",
-                              "search": "",
-                              "state": undefined,
-                            },
-                          ],
-                          "go": [Function],
-                          "goBack": [Function],
-                          "goForward": [Function],
-                          "index": 0,
-                          "length": 1,
-                          "listen": [Function],
-                          "location": Object {
-                            "hash": "",
-                            "pathname": "/",
-                            "search": "",
-                            "state": undefined,
-                          },
-                          "push": [Function],
-                          "replace": [Function],
-                        }
-                      }
-                      location={
-                        Object {
-                          "hash": "",
-                          "pathname": "/",
-                          "search": "",
-                          "state": undefined,
-                        }
-                      }
-                      match={
-                        Object {
-                          "isExact": true,
-                          "params": Object {},
-                          "path": "/",
-                          "url": "/",
-                        }
-                      }
-                    >
-                      <ErrorAlert
-                        error={Object {}}
-                        fullCompareData={Array []}
-                        history={
-                          Object {
-                            "action": "POP",
-                            "block": [Function],
-                            "canGo": [Function],
-                            "createHref": [Function],
-                            "entries": Array [
-                              Object {
-                                "hash": "",
-                                "pathname": "/",
-                                "search": "",
-                                "state": undefined,
-                              },
-                            ],
-                            "go": [Function],
-                            "goBack": [Function],
-                            "goForward": [Function],
-                            "index": 0,
-                            "length": 1,
-                            "listen": [Function],
-                            "location": Object {
-                              "hash": "",
-                              "pathname": "/",
-                              "search": "",
-                              "state": undefined,
-                            },
-                            "push": [Function],
-                            "replace": [Function],
-                          }
-                        }
-                        location={
-                          Object {
-                            "hash": "",
-                            "pathname": "/",
-                            "search": "",
-                            "state": undefined,
-                          }
-                        }
-                        match={
-                          Object {
-                            "isExact": true,
-                            "params": Object {},
-                            "path": "/",
-                            "url": "/",
-                          }
-                        }
-                        revertBaselineFetch={[Function]}
-                        revertCompareData={[Function]}
-                        toggleModal={[Function]}
-                      />
-                    </Connect(ErrorAlert)>
-                  </withRouter(Connect(ErrorAlert))>
+                  <Connect(ErrorAlert)
+                    error={Object {}}
+                    onClose={[Function]}
+                  >
+                    <ErrorAlert
+                      addNotification={[Function]}
+                      error={Object {}}
+                      onClose={[Function]}
+                    />
+                  </Connect(ErrorAlert)>
+                  <div />
                   <Card
                     className="pf-t-light pf-m-opaque-100"
                   >
@@ -2297,9 +2204,11 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                               </GenerateId>
                             </Toolbar>
                             <withRouter(Connect(DriftTable))
+                              error={Object {}}
                               updateReferenceId={[Function]}
                             >
                               <Connect(DriftTable)
+                                error={Object {}}
                                 history={
                                   Object {
                                     "action": "POP",
@@ -2351,6 +2260,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                 <DriftTable
                                   addSystemModalOpened={false}
                                   baselines={Array []}
+                                  error={Object {}}
                                   expandRow={[Function]}
                                   fetchCompare={[Function]}
                                   fullCompareData={Array []}
@@ -2426,7 +2336,6 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                       selectedSystemIds={Array []}
                                       systems={Array []}
                                       toggleModal={[Function]}
-                                      updatePagination={[Function]}
                                     >
                                       <Modal
                                         actions={
@@ -3563,9 +3472,9 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                 "url": "/",
               }
             }
+            revertCompareData={[Function]}
             selectHistoricProfiles={[Function]}
             selectedHSPIds={Array []}
-            toggleErrorAlert={[Function]}
             updatePagination={[Function]}
             updateReferenceId={[Function]}
           >
@@ -3601,114 +3510,25 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                   className="pf-l-page__main-section pf-c-page__main-section"
                   page-type=""
                 >
-                  <withRouter(Connect(ErrorAlert))>
-                    <Connect(ErrorAlert)
-                      history={
+                  <Connect(ErrorAlert)
+                    error={
+                      Object {
+                        "detail": "something",
+                      }
+                    }
+                    onClose={[Function]}
+                  >
+                    <ErrorAlert
+                      addNotification={[Function]}
+                      error={
                         Object {
-                          "action": "POP",
-                          "block": [Function],
-                          "canGo": [Function],
-                          "createHref": [Function],
-                          "entries": Array [
-                            Object {
-                              "hash": "",
-                              "pathname": "/",
-                              "search": "",
-                              "state": undefined,
-                            },
-                          ],
-                          "go": [Function],
-                          "goBack": [Function],
-                          "goForward": [Function],
-                          "index": 0,
-                          "length": 1,
-                          "listen": [Function],
-                          "location": Object {
-                            "hash": "",
-                            "pathname": "/",
-                            "search": "",
-                            "state": undefined,
-                          },
-                          "push": [Function],
-                          "replace": [Function],
+                          "detail": "something",
                         }
                       }
-                      location={
-                        Object {
-                          "hash": "",
-                          "pathname": "/",
-                          "search": "",
-                          "state": undefined,
-                        }
-                      }
-                      match={
-                        Object {
-                          "isExact": true,
-                          "params": Object {},
-                          "path": "/",
-                          "url": "/",
-                        }
-                      }
-                    >
-                      <ErrorAlert
-                        error={
-                          Object {
-                            "detail": "something",
-                          }
-                        }
-                        fullCompareData={Array []}
-                        history={
-                          Object {
-                            "action": "POP",
-                            "block": [Function],
-                            "canGo": [Function],
-                            "createHref": [Function],
-                            "entries": Array [
-                              Object {
-                                "hash": "",
-                                "pathname": "/",
-                                "search": "",
-                                "state": undefined,
-                              },
-                            ],
-                            "go": [Function],
-                            "goBack": [Function],
-                            "goForward": [Function],
-                            "index": 0,
-                            "length": 1,
-                            "listen": [Function],
-                            "location": Object {
-                              "hash": "",
-                              "pathname": "/",
-                              "search": "",
-                              "state": undefined,
-                            },
-                            "push": [Function],
-                            "replace": [Function],
-                          }
-                        }
-                        location={
-                          Object {
-                            "hash": "",
-                            "pathname": "/",
-                            "search": "",
-                            "state": undefined,
-                          }
-                        }
-                        match={
-                          Object {
-                            "isExact": true,
-                            "params": Object {},
-                            "path": "/",
-                            "url": "/",
-                          }
-                        }
-                        revertBaselineFetch={[Function]}
-                        revertCompareData={[Function]}
-                        toggleModal={[Function]}
-                      />
-                    </Connect(ErrorAlert)>
-                  </withRouter(Connect(ErrorAlert))>
+                      onClose={[Function]}
+                    />
+                  </Connect(ErrorAlert)>
+                  <div />
                   <Card
                     className="pf-t-light pf-m-opaque-100"
                   >
@@ -5715,9 +5535,19 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                               </GenerateId>
                             </Toolbar>
                             <withRouter(Connect(DriftTable))
+                              error={
+                                Object {
+                                  "detail": "something",
+                                }
+                              }
                               updateReferenceId={[Function]}
                             >
                               <Connect(DriftTable)
+                                error={
+                                  Object {
+                                    "detail": "something",
+                                  }
+                                }
                                 history={
                                   Object {
                                     "action": "POP",
@@ -5769,6 +5599,11 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                 <DriftTable
                                   addSystemModalOpened={false}
                                   baselines={Array []}
+                                  error={
+                                    Object {
+                                      "detail": "something",
+                                    }
+                                  }
                                   expandRow={[Function]}
                                   fetchCompare={[Function]}
                                   fullCompareData={Array []}
@@ -5844,7 +5679,6 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                       selectedSystemIds={Array []}
                                       systems={Array []}
                                       toggleModal={[Function]}
-                                      updatePagination={[Function]}
                                     >
                                       <Modal
                                         actions={
@@ -6837,7 +6671,11 @@ exports[`DriftPage should render correctly 1`] = `
     />
   </PageHeader>
   <Connect(Main)>
-    <withRouter(Connect(ErrorAlert)) />
+    <Connect(ErrorAlert)
+      error={Object {}}
+      onClose={[Function]}
+    />
+    <div />
     <Card
       className="pf-t-light pf-m-opaque-100"
     >
@@ -6923,6 +6761,7 @@ exports[`DriftPage should render correctly 1`] = `
             </ToolbarContent>
           </Toolbar>
           <withRouter(Connect(DriftTable))
+            error={Object {}}
             updateReferenceId={[MockFunction]}
           />
           <Toolbar

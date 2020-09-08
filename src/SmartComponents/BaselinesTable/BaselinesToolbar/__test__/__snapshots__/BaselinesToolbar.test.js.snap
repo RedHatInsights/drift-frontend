@@ -2,7 +2,14 @@
 
 exports[`jest-tests BaselinesToolbar should render correctly 1`] = `
 <Fragment>
-  <Toolbar>
+  <Connect(DeleteBaselinesModal)
+    modalOpened={false}
+    tableId="CHECKBOX"
+    toggleModal={[Function]}
+  />
+  <Toolbar
+    className="drift-toolbar"
+  >
     <ToolbarContent
       isExpanded={false}
       showClearFiltersButton={false}
@@ -160,13 +167,102 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
         }
         tableId="CHECKBOX"
       >
-        <Toolbar>
+        <Connect(DeleteBaselinesModal)
+          modalOpened={false}
+          tableId="CHECKBOX"
+          toggleModal={[Function]}
+        >
+          <DeleteBaselinesModal
+            clearSelectedBaselines={[Function]}
+            deleteSelectedBaselines={[Function]}
+            modalOpened={false}
+            revertBaselineFetch={[Function]}
+            selectedBaselineIds={Array []}
+            tableId="CHECKBOX"
+            toggleModal={[Function]}
+          >
+            <Modal
+              actions={
+                Array [
+                  <Button
+                    onClick={[Function]}
+                    variant="danger"
+                  >
+                    Delete baselines
+                  </Button>,
+                  <Button
+                    onClick={[Function]}
+                    variant="link"
+                  >
+                    Cancel
+                  </Button>,
+                ]
+              }
+              appendTo={
+                <body>
+                  <div />
+                </body>
+              }
+              aria-describedby=""
+              aria-label=""
+              aria-labelledby=""
+              className=""
+              hasNoBodyWrapper={false}
+              isOpen={false}
+              onClose={[Function]}
+              ouiaSafe={true}
+              showClose={true}
+              title="Delete baselines"
+              variant="small"
+            >
+              <Portal
+                containerInfo={<div />}
+              >
+                <ModalContent
+                  actions={
+                    Array [
+                      <Button
+                        onClick={[Function]}
+                        variant="danger"
+                      >
+                        Delete baselines
+                      </Button>,
+                      <Button
+                        onClick={[Function]}
+                        variant="link"
+                      >
+                        Cancel
+                      </Button>,
+                    ]
+                  }
+                  aria-describedby=""
+                  aria-label=""
+                  aria-labelledby=""
+                  boxId="pf-modal-part-0"
+                  className=""
+                  descriptorId="pf-modal-part-2"
+                  hasNoBodyWrapper={false}
+                  isOpen={false}
+                  labelId="pf-modal-part-1"
+                  onClose={[Function]}
+                  ouiaSafe={true}
+                  showClose={true}
+                  title="Delete baselines"
+                  variant="small"
+                />
+              </Portal>
+            </Modal>
+          </DeleteBaselinesModal>
+        </Connect(DeleteBaselinesModal)>
+        <Toolbar
+          className="drift-toolbar"
+        >
           <GenerateId
             prefix="pf-random-id-"
           >
             <div
-              className="pf-c-toolbar"
-              id="pf-random-id-2"
+              className="pf-c-toolbar drift-toolbar"
+              id="pf-random-id-0"
             >
               <ToolbarContent
                 isExpanded={false}
@@ -309,14 +405,14 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                   >
                                     <div
                                       className="pf-c-dropdown ins-c-bulk-select"
-                                      data-ouia-component-id={8}
+                                      data-ouia-component-id={0}
                                       data-ouia-component-type="PF4/Dropdown"
                                       data-ouia-safe={true}
                                     >
                                       <DropdownToggle
                                         aria-haspopup={true}
                                         getMenuRef={[Function]}
-                                        id="pf-dropdown-toggle-id-2"
+                                        id="pf-dropdown-toggle-id-0"
                                         isDisabled={false}
                                         isOpen={false}
                                         isPlain={false}
@@ -327,7 +423,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                           Object {
                                             "current": <div
                                               class="pf-c-dropdown ins-c-bulk-select"
-                                              data-ouia-component-id="8"
+                                              data-ouia-component-id="0"
                                               data-ouia-component-type="PF4/Dropdown"
                                               data-ouia-safe="true"
                                             >
@@ -351,7 +447,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                                   aria-haspopup="true"
                                                   aria-label="Select"
                                                   class="pf-c-dropdown__toggle-button"
-                                                  id="pf-dropdown-toggle-id-2"
+                                                  id="pf-dropdown-toggle-id-0"
                                                   type="button"
                                                 >
                                                   <span
@@ -428,7 +524,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                             bubbleEvent={false}
                                             className=""
                                             getMenuRef={[Function]}
-                                            id="pf-dropdown-toggle-id-2"
+                                            id="pf-dropdown-toggle-id-0"
                                             isActive={false}
                                             isDisabled={false}
                                             isOpen={false}
@@ -441,7 +537,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                               Object {
                                                 "current": <div
                                                   class="pf-c-dropdown ins-c-bulk-select"
-                                                  data-ouia-component-id="8"
+                                                  data-ouia-component-id="0"
                                                   data-ouia-component-type="PF4/Dropdown"
                                                   data-ouia-safe="true"
                                                 >
@@ -465,7 +561,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                                       aria-haspopup="true"
                                                       aria-label="Select"
                                                       class="pf-c-dropdown__toggle-button"
-                                                      id="pf-dropdown-toggle-id-2"
+                                                      id="pf-dropdown-toggle-id-0"
                                                       type="button"
                                                     >
                                                       <span
@@ -498,7 +594,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                               aria-label="Select"
                                               className="pf-c-dropdown__toggle-button"
                                               disabled={false}
-                                              id="pf-dropdown-toggle-id-2"
+                                              id="pf-dropdown-toggle-id-0"
                                               onClick={[Function]}
                                               onKeyDown={[Function]}
                                               type="button"
@@ -780,7 +876,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                         aria-disabled={false}
                                         aria-label={null}
                                         className="pf-c-button pf-m-primary"
-                                        data-ouia-component-id={9}
+                                        data-ouia-component-id={1}
                                         data-ouia-component-type="PF4/Button"
                                         data-ouia-safe={true}
                                         disabled={false}
@@ -945,7 +1041,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                     <div
                                       aria-label="action-kebab"
                                       className="pf-c-dropdown"
-                                      data-ouia-component-id={10}
+                                      data-ouia-component-id={2}
                                       data-ouia-component-type="PF4/Dropdown"
                                       data-ouia-safe={true}
                                       id="action-kebab"
@@ -958,7 +1054,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                       <KebabToggle
                                         aria-haspopup={true}
                                         getMenuRef={[Function]}
-                                        id="pf-dropdown-toggle-id-3"
+                                        id="pf-dropdown-toggle-id-1"
                                         isOpen={false}
                                         isPlain={true}
                                         key=".0"
@@ -969,7 +1065,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                             "current": <div
                                               aria-label="action-kebab"
                                               class="pf-c-dropdown"
-                                              data-ouia-component-id="10"
+                                              data-ouia-component-id="2"
                                               data-ouia-component-type="PF4/Dropdown"
                                               data-ouia-safe="true"
                                               id="action-kebab"
@@ -980,7 +1076,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                                 aria-haspopup="true"
                                                 aria-label="Actions"
                                                 class="pf-c-dropdown__toggle pf-m-plain"
-                                                id="pf-dropdown-toggle-id-3"
+                                                id="pf-dropdown-toggle-id-1"
                                                 type="button"
                                               >
                                                 <svg
@@ -1008,7 +1104,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                           bubbleEvent={false}
                                           className=""
                                           getMenuRef={[Function]}
-                                          id="pf-dropdown-toggle-id-3"
+                                          id="pf-dropdown-toggle-id-1"
                                           isActive={false}
                                           isDisabled={false}
                                           isOpen={false}
@@ -1022,7 +1118,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                               "current": <div
                                                 aria-label="action-kebab"
                                                 class="pf-c-dropdown"
-                                                data-ouia-component-id="10"
+                                                data-ouia-component-id="2"
                                                 data-ouia-component-type="PF4/Dropdown"
                                                 data-ouia-safe="true"
                                                 id="action-kebab"
@@ -1033,7 +1129,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                                   aria-haspopup="true"
                                                   aria-label="Actions"
                                                   class="pf-c-dropdown__toggle pf-m-plain"
-                                                  id="pf-dropdown-toggle-id-3"
+                                                  id="pf-dropdown-toggle-id-1"
                                                   type="button"
                                                 >
                                                   <svg
@@ -1061,7 +1157,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                             aria-label="Actions"
                                             className="pf-c-dropdown__toggle pf-m-plain"
                                             disabled={false}
-                                            id="pf-dropdown-toggle-id-3"
+                                            id="pf-dropdown-toggle-id-1"
                                             onClick={[Function]}
                                             onKeyDown={[Function]}
                                             type="button"
@@ -1174,10 +1270,10 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                           >
                             <div
                               className="pf-c-pagination pf-m-compact"
-                              data-ouia-component-id={11}
+                              data-ouia-component-id={3}
                               data-ouia-component-type="PF4/Pagination"
                               data-ouia-safe={true}
-                              id="pagination-options-menu-2"
+                              id="pagination-options-menu-0"
                             >
                               <div
                                 className="pf-c-pagination__total-items"
@@ -1319,7 +1415,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                 >
                                   <div
                                     className="pf-c-options-menu"
-                                    data-ouia-component-id={12}
+                                    data-ouia-component-id={4}
                                     data-ouia-component-type="PF4/PaginationOptionsMenu"
                                     data-ouia-safe={true}
                                   >
@@ -1327,7 +1423,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                       aria-haspopup={true}
                                       firstIndex={0}
                                       getMenuRef={[Function]}
-                                      id="pf-dropdown-toggle-id-4"
+                                      id="pf-dropdown-toggle-id-2"
                                       isDisabled={false}
                                       isOpen={false}
                                       isPlain={true}
@@ -1343,7 +1439,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                         Object {
                                           "current": <div
                                             class="pf-c-options-menu"
-                                            data-ouia-component-id="12"
+                                            data-ouia-component-id="4"
                                             data-ouia-component-type="PF4/PaginationOptionsMenu"
                                             data-ouia-safe="true"
                                           >
@@ -1371,7 +1467,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                                 aria-label="Items per page"
                                                 class="  pf-c-options-menu__toggle-button"
                                                 disabled=""
-                                                id="pagination-options-menu-toggle-2"
+                                                id="pagination-options-menu-toggle-0"
                                                 type="button"
                                               >
                                                 <span
@@ -1429,7 +1525,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                         <DropdownToggle
                                           aria-label="Items per page"
                                           className="pf-c-options-menu__toggle-button"
-                                          id="pagination-options-menu-toggle-2"
+                                          id="pagination-options-menu-toggle-0"
                                           isDisabled={true}
                                           isOpen={false}
                                           onEnter={[Function]}
@@ -1438,7 +1534,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                             Object {
                                               "current": <div
                                                 class="pf-c-options-menu"
-                                                data-ouia-component-id="12"
+                                                data-ouia-component-id="4"
                                                 data-ouia-component-type="PF4/PaginationOptionsMenu"
                                                 data-ouia-safe="true"
                                               >
@@ -1466,7 +1562,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                                     aria-label="Items per page"
                                                     class="  pf-c-options-menu__toggle-button"
                                                     disabled=""
-                                                    id="pagination-options-menu-toggle-2"
+                                                    id="pagination-options-menu-toggle-0"
                                                     type="button"
                                                   >
                                                     <span
@@ -1498,7 +1594,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                             bubbleEvent={false}
                                             className="pf-c-options-menu__toggle-button"
                                             getMenuRef={null}
-                                            id="pagination-options-menu-toggle-2"
+                                            id="pagination-options-menu-toggle-0"
                                             isActive={false}
                                             isDisabled={true}
                                             isOpen={false}
@@ -1511,7 +1607,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                               Object {
                                                 "current": <div
                                                   class="pf-c-options-menu"
-                                                  data-ouia-component-id="12"
+                                                  data-ouia-component-id="4"
                                                   data-ouia-component-type="PF4/PaginationOptionsMenu"
                                                   data-ouia-safe="true"
                                                 >
@@ -1539,7 +1635,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                                       aria-label="Items per page"
                                                       class="  pf-c-options-menu__toggle-button"
                                                       disabled=""
-                                                      id="pagination-options-menu-toggle-2"
+                                                      id="pagination-options-menu-toggle-0"
                                                       type="button"
                                                     >
                                                       <span
@@ -1571,7 +1667,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                               aria-label="Items per page"
                                               className="  pf-c-options-menu__toggle-button"
                                               disabled={true}
-                                              id="pagination-options-menu-toggle-2"
+                                              id="pagination-options-menu-toggle-0"
                                               onClick={[Function]}
                                               onKeyDown={[Function]}
                                               type="button"
@@ -1654,7 +1750,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                         aria-label="Go to previous page"
                                         className="pf-c-button pf-m-plain pf-m-disabled"
                                         data-action="previous"
-                                        data-ouia-component-id={13}
+                                        data-ouia-component-id={5}
                                         data-ouia-component-type="PF4/Button"
                                         data-ouia-safe={true}
                                         disabled={true}
@@ -1705,7 +1801,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                         aria-label="Go to next page"
                                         className="pf-c-button pf-m-plain pf-m-disabled"
                                         data-action="next"
-                                        data-ouia-component-id={14}
+                                        data-ouia-component-id={6}
                                         data-ouia-component-type="PF4/Button"
                                         data-ouia-safe={true}
                                         disabled={true}
@@ -1760,7 +1856,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                       Object {
                         "current": <div
                           class="pf-c-toolbar__expandable-content"
-                          id="pf-random-id-2-expandable-content-2"
+                          id="pf-random-id-0-expandable-content-0"
                         >
                           <div
                             class="pf-c-toolbar__group"
@@ -1768,13 +1864,13 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                         </div>,
                       }
                     }
-                    id="pf-random-id-2-expandable-content-2"
+                    id="pf-random-id-0-expandable-content-0"
                     isExpanded={false}
                     showClearFiltersButton={false}
                   >
                     <div
                       className="pf-c-toolbar__expandable-content"
-                      id="pf-random-id-2-expandable-content-2"
+                      id="pf-random-id-0-expandable-content-0"
                     >
                       <ForwardRef>
                         <ToolbarGroupWithRef

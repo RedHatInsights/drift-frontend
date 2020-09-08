@@ -39,15 +39,15 @@ exports[`EditBaselineNameModal should render correctly 1`] = `
         fieldId="baseline name"
         helperTextInvalid={null}
         isRequired={true}
-        isValid={true}
         label="Baseline title"
         onKeyPress={[Function]}
+        validated={null}
       >
         <ForwardRef
           aria-label="baseline name"
-          isValid={true}
           onChange={[Function]}
           type="text"
+          validated={null}
           value="lotr-baseline"
         />
       </FormGroup>
@@ -584,13 +584,12 @@ exports[`EditBaselineNameModal should render mount correctly 1`] = `
                                 fieldId="baseline name"
                                 helperTextInvalid={null}
                                 isRequired={true}
-                                isValid={true}
                                 label="Baseline title"
                                 onKeyPress={[Function]}
+                                validated={null}
                               >
                                 <div
                                   className="pf-c-form__group"
-                                  isValid={true}
                                   onKeyPress={[Function]}
                                 >
                                   <div
@@ -620,9 +619,9 @@ exports[`EditBaselineNameModal should render mount correctly 1`] = `
                                   >
                                     <ForwardRef
                                       aria-label="baseline name"
-                                      isValid={true}
                                       onChange={[Function]}
                                       type="text"
+                                      validated={null}
                                       value="lotr-baseline"
                                     >
                                       <TextInputBase
@@ -632,10 +631,9 @@ exports[`EditBaselineNameModal should render mount correctly 1`] = `
                                         isDisabled={false}
                                         isReadOnly={false}
                                         isRequired={false}
-                                        isValid={true}
                                         onChange={[Function]}
                                         type="text"
-                                        validated="default"
+                                        validated={null}
                                         value="lotr-baseline"
                                       >
                                         <input
@@ -643,7 +641,6 @@ exports[`EditBaselineNameModal should render mount correctly 1`] = `
                                           aria-label="baseline name"
                                           className="pf-c-form-control"
                                           disabled={false}
-                                          isValid={true}
                                           onChange={[Function]}
                                           readOnly={false}
                                           required={false}

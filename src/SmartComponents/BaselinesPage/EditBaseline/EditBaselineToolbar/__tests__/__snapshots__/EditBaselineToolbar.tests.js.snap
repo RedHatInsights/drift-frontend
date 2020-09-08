@@ -431,24 +431,29 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                       <div
                         className="pf-c-toolbar__item"
                       >
-                        <Connect(AddFactButton)>
+                        <Connect(AddFactButton)
+                          isDisabled={true}
+                        >
                           <AddFactButton
+                            isDisabled={true}
                             setFactData={[Function]}
                             toggleFactModal={[Function]}
                           >
                             <Button
+                              isDisabled={true}
                               onClick={[Function]}
                               variant="primary"
                             >
                               <button
-                                aria-disabled={false}
+                                aria-disabled={true}
                                 aria-label={null}
-                                className="pf-c-button pf-m-primary"
+                                className="pf-c-button pf-m-primary pf-m-disabled"
                                 data-ouia-component-id={1}
                                 data-ouia-component-type="PF4/Button"
                                 data-ouia-safe={true}
-                                disabled={false}
+                                disabled={true}
                                 onClick={[Function]}
+                                tabIndex={null}
                                 type="button"
                               >
                                 Add fact or category
@@ -860,7 +865,9 @@ exports[`EditBaselineToolbar should render correctly 1`] = `
       />
     </ToolbarItem>
     <ToolbarItem>
-      <Connect(AddFactButton) />
+      <Connect(AddFactButton)
+        isDisabled={true}
+      />
     </ToolbarItem>
     <ToolbarItem>
       <Connect(EditBaselineKebab) />

@@ -6,9 +6,10 @@ import { connect } from 'react-redux';
 import { Main, PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, Checkbox, BreadcrumbHeading } from '@patternfly/react-core';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
-import { AngleDownIcon, AngleRightIcon, EditAltIcon } from '@patternfly/react-icons';
+import { AngleDownIcon, AngleRightIcon, EditAltIcon, ExclamationCircleIcon, UndoIcon } from '@patternfly/react-icons';
 
 import EditBaselineToolbar from './EditBaselineToolbar/EditBaselineToolbar';
+import ErrorAlert from '../../ErrorAlert/ErrorAlert';
 import FactModal from './FactModal/FactModal';
 import EditBaselineNameModal from './EditBaselineNameModal/EditBaselineNameModal';
 import AddFactButton from './AddFactButton/AddFactButton';
@@ -18,12 +19,18 @@ import editBaselineHelpers from './helpers';
 import { FACT_ID, FACT_NAME, FACT_VALUE } from '../../../constants';
 import EmptyStateDisplay from '../../EmptyStateDisplay/EmptyStateDisplay';
 
+import _ from 'lodash';
+
 export class EditBaseline extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            modalOpened: false
+            modalOpened: false,
+            errorMessage: [ 'The baseline cannot be displayed at this time. Please retry and if',
+                'the problem persists contact your system administrator.',
+                ''
+            ]
         };
 
         this.fetchBaselineId();
@@ -56,8 +63,14 @@ export class EditBaseline extends Component {
         history.push('/baselines');
     }
 
-    renderBreadcrumb() {
-        const { baselineData } = this.props;
+    retryBaselineFetch = () => {
+        const { clearErrorData } = this.props;
+
+        clearErrorData();
+        this.fetchBaselineId();
+    }
+
+    renderBreadcrumb(baselineData) {
         let breadcrumb;
 
         /*eslint-disable camelcase*/
@@ -67,11 +80,46 @@ export class EditBaseline extends Component {
                     Baselines
                 </a>
             </BreadcrumbItem>
-            <BreadcrumbHeading>{ baselineData.display_name }</BreadcrumbHeading>
+            { baselineData ? <BreadcrumbHeading>{ baselineData.display_name }</BreadcrumbHeading> : null }
         </Breadcrumb>;
         /*eslint-enable camelcase*/
 
         return breadcrumb;
+    }
+
+    renderPageHeader = () => {
+        const { modalOpened } = this.state;
+        const { baselineData, baselineDataLoading, inlineError } = this.props;
+        let pageHeader;
+
+        if (baselineDataLoading) {
+            pageHeader = <PageHeader>
+                <div><Skeleton size={ SkeletonSize.lg } /></div>
+            </PageHeader>;
+        } else {
+            if (baselineData !== undefined) {
+                pageHeader = <React.Fragment>
+                    <EditBaselineNameModal
+                        baselineData={ baselineData }
+                        modalOpened={ modalOpened }
+                        toggleEditNameModal={ this.toggleEditNameModal }
+                        error={ inlineError }
+                    />
+                    <PageHeader>
+                        { this.renderBreadcrumb(baselineData) }
+                        <PageHeaderTitle title={ !_.isEmpty(baselineData) ? baselineData.display_name : null }/>
+                        <EditAltIcon className='pointer not-active edit-icon-margin' onClick={ () => this.toggleEditNameModal() } />
+                    </PageHeader>
+                </React.Fragment>;
+            } else {
+                pageHeader = <PageHeader>
+                    { this.renderBreadcrumb() }
+                    <PageHeaderTitle title='Baseline' />
+                </PageHeader>;
+            }
+        }
+
+        return pageHeader;
     }
 
     renderHeaderRow() {
@@ -236,22 +284,42 @@ export class EditBaseline extends Component {
                 rowData = this.renderRowData(facts[i]);
                 rows.push(rowData);
             }
-        } else {
-            rows =
-                <td colSpan='3'>
-                    <EmptyStateDisplay
-                        title={ 'No facts' }
-                        text={ [ 'No facts or categories have been added to this baseline yet.' ] }
-                        button={ <AddFactButton /> }
-                    />
-                </td>;
         }
 
         return rows;
     }
 
+    renderEmptyState() {
+        const { editBaselineError } = this.props;
+        const { errorMessage } = this.state;
+
+        if (editBaselineError.status !== 200 && editBaselineError.status !== undefined) {
+            return <EmptyStateDisplay
+                icon={ ExclamationCircleIcon }
+                color='#c9190b'
+                title={ 'Baseline cannot be displayed' }
+                text={ errorMessage }
+                error={
+                    'Error ' + editBaselineError.status + ': ' + editBaselineError.detail
+                }
+                button={
+                    <a onClick={ () => this.retryBaselineFetch() }>
+                        <UndoIcon className='reload-button' />
+                        Retry
+                    </a>
+                }
+            />;
+        } else {
+            return <EmptyStateDisplay
+                title={ 'No facts' }
+                text={ [ 'No facts or categories have been added to this baseline yet.' ] }
+                button={ <AddFactButton /> }
+            />;
+        }
+    }
+
     renderTable() {
-        const { baselineData } = this.props;
+        const { baselineDataLoading } = this.props;
 
         return (
             <table className="pf-c-table ins-c-table pf-m-grid-md ins-entity-table drift-table">
@@ -259,7 +327,7 @@ export class EditBaseline extends Component {
                     { this.renderHeaderRow() }
                 </thead>
                 <tbody key='edit-baseline-table'>
-                    { baselineData !== undefined
+                    { !baselineDataLoading
                         ? this.renderRows()
                         : this.renderLoadingRows()
                     }
@@ -269,46 +337,35 @@ export class EditBaseline extends Component {
     }
 
     render() {
-        const { modalOpened } = this.state;
-        const { baselineData, baselineDataLoading, editBaselineTableData, factModalOpened, error } = this.props;
+        const { editBaselineTableData, factModalOpened, editBaselineEmptyState, editBaselineError, clearErrorData } = this.props;
         let selected = editBaselineHelpers.findSelected(editBaselineTableData);
 
         return (
             <React.Fragment>
-                { baselineData !== undefined && !baselineDataLoading
-                    ? <React.Fragment>
-                        <EditBaselineNameModal
-                            baselineData={ baselineData }
-                            modalOpened={ modalOpened }
-                            toggleEditNameModal={ this.toggleEditNameModal }
-                            error={ error }
-                        />
-                        <PageHeader>
-                            { this.renderBreadcrumb() }
-                            <PageHeaderTitle title={ baselineData ? baselineData.display_name : '' }/>
-                            <EditAltIcon className='pointer not-active edit-icon-margin' onClick={ () => this.toggleEditNameModal() } />
-                        </PageHeader>
-                    </React.Fragment>
-                    : <PageHeader>
-                        <div><Skeleton size={ SkeletonSize.lg } /></div>
-                    </PageHeader>
-                }
+                { this.renderPageHeader() }
                 <Main>
-                    <Card className='pf-t-light pf-m-opaque-100'>
-                        <CardBody>
-                            { factModalOpened
-                                ? <FactModal />
-                                : null
-                            }
-                            <EditBaselineToolbar
-                                selected={ selected }
-                                onBulkSelect={ this.onBulkSelect }
-                                isDisabled={ editBaselineTableData.length === 0 }
-                                totalFacts={ editBaselineHelpers.findFactCount(editBaselineTableData) }
-                            />
-                            { this.renderTable() }
-                        </CardBody>
-                    </Card>
+                    { factModalOpened
+                        ? <FactModal />
+                        : <div></div>
+                    }
+                    <ErrorAlert
+                        error={ !editBaselineEmptyState && editBaselineError.status ? editBaselineError : {} }
+                        onClose={ clearErrorData }
+                    />
+                    { editBaselineEmptyState
+                        ? this.renderEmptyState()
+                        : <Card className='pf-t-light pf-m-opaque-100'>
+                            <CardBody>
+                                <EditBaselineToolbar
+                                    selected={ selected }
+                                    onBulkSelect={ this.onBulkSelect }
+                                    isDisabled={ editBaselineTableData.length === 0 }
+                                    totalFacts={ editBaselineHelpers.findFactCount(editBaselineTableData) }
+                                />
+                                { this.renderTable() }
+                            </CardBody>
+                        </Card>
+                    }
                 </Main>
             </React.Fragment>
         );
@@ -328,7 +385,9 @@ EditBaseline.propTypes = {
     expandedRows: PropTypes.array,
     selectFact: PropTypes.func,
     clearErrorData: PropTypes.func,
-    error: PropTypes.object
+    editBaselineError: PropTypes.object,
+    inlineError: PropTypes.object,
+    editBaselineEmptyState: PropTypes.bool
 };
 
 function mapStateToProps(state) {
@@ -338,7 +397,9 @@ function mapStateToProps(state) {
         factModalOpened: state.editBaselineState.factModalOpened,
         editBaselineTableData: state.editBaselineState.editBaselineTableData,
         expandedRows: state.editBaselineState.expandedRows,
-        error: state.editBaselineState.error
+        editBaselineError: state.editBaselineState.editBaselineError,
+        editBaselineEmptyState: state.editBaselineState.editBaselineEmptyState,
+        inlineError: state.editBaselineState.inlineError
     };
 }
 

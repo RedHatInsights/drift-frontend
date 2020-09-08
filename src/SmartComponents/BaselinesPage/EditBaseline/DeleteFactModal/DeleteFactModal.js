@@ -10,27 +10,23 @@ class DeleteFactModal extends Component {
     constructor(props) {
         super(props);
         this.deleteFacts = this.deleteFacts.bind(this);
-
-        this.state = {
-            modalOpened: this.props.modalOpened
-        };
     }
 
     async deleteFacts() {
-        const { patchBaseline, fetchBaselineData, baselineData, editBaselineTableData } = this.props;
+        const { deleteBaselineData, fetchBaselineData, baselineData, editBaselineTableData } = this.props;
         let apiBody = editBaselineHelpers.makeDeleteFactsPatch(editBaselineTableData, baselineData);
-
-        let results = await patchBaseline(baselineData.id, apiBody);
-        if (results) {
-            fetchBaselineData(baselineData.id);
-        }
-
         this.props.toggleModal();
+
+        try {
+            await deleteBaselineData(baselineData.id, apiBody);
+            fetchBaselineData(baselineData.id);
+        } catch (e) {
+            // do nothing and let redux handle
+        }
     }
 
     render() {
-        const { modalOpened } = this.state;
-        const { deleteFact, categoryMessage, factMessage } = this.props;
+        const { deleteFact, categoryMessage, factMessage, modalOpened } = this.props;
 
         return (
             <Modal
@@ -73,7 +69,7 @@ class DeleteFactModal extends Component {
 
 DeleteFactModal.propTypes = {
     modalOpened: PropTypes.bool,
-    patchBaseline: PropTypes.func,
+    deleteBaselineData: PropTypes.func,
     fetchBaselineData: PropTypes.func,
     editBaselineTableData: PropTypes.array,
     baselineData: PropTypes.object,
@@ -92,7 +88,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        patchBaseline: (baselineId, newBaselineBody) => dispatch(editBaselineActions.patchBaseline(baselineId, newBaselineBody)),
+        deleteBaselineData: (baselineId, newBaselineBody) => dispatch(editBaselineActions.deleteBaselineData(baselineId, newBaselineBody)),
         fetchBaselineData: (baselineUUID) => dispatch(editBaselineActions.fetchBaselineData(baselineUUID))
     };
 }

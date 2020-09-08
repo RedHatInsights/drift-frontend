@@ -1,6 +1,4 @@
 import React from 'react';
-import { render, unmountComponentAtNode } from 'react-dom';
-import { act } from 'react-dom/test-utils';
 
 import { shallow, mount } from 'enzyme';
 import { MemoryRouter } from 'react-router-dom';
@@ -10,39 +8,6 @@ import toJson from 'enzyme-to-json';
 
 import ConnectedBaselinesToolbar, { BaselinesToolbar } from '../BaselinesToolbar';
 import baselinesTableFixtures from '../../redux/__tests__/baselinesTableReducer.fixtures';
-
-describe('react-dom tests', () => {
-    let container = null;
-    let props;
-
-    beforeEach(() => {
-        container = document.createElement('div');
-        document.body.appendChild(container);
-        props = {
-            tableData: []
-        };
-    });
-
-    afterEach(() => {
-        unmountComponentAtNode(container);
-        container.remove();
-        container = null;
-    });
-
-    it('renders without a create button', () => {
-        act(() => {
-            render(<BaselinesToolbar { ...props } />, container);
-        });
-        expect(container.querySelector('#create-baseline-button')).toBe(null);
-    });
-
-    it('renders with a search box', () => {
-        act(() => {
-            render(<BaselinesToolbar { ...props } />, container);
-        });
-        expect(container.querySelector('#default-input').placeholder).toBe('Filter by name');
-    });
-});
 
 describe('jest-tests', () => {
     describe('BaselinesToolbar', () => {
@@ -86,9 +51,9 @@ describe('jest-tests', () => {
                 />
             );
 
-            wrapper.setState({ deleteModalOpened: false });
+            wrapper.setState({ modalOpened: false });
             wrapper.instance().toggleModal();
-            expect(wrapper.state().deleteModalOpened).toBe(true);
+            expect(wrapper.state().modalOpened).toBe(true);
         });
 
         it('should clear text filter', () => {

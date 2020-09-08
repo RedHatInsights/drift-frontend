@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
@@ -15,7 +16,7 @@ class BaselineTableKebab extends Component {
 
         this.onKebabToggle = this.onKebabToggle.bind(this);
 
-        this.toggleModalOpened = () => {
+        this.toggleModal = () => {
             const { modalOpened } = this.state;
             this.setState({
                 modalOpened: !modalOpened
@@ -48,7 +49,7 @@ class BaselineTableKebab extends Component {
             <DropdownItem
                 key="delete"
                 component="button"
-                onClick={ this.toggleModalOpened }>
+                onClick={ this.toggleModal }>
                 Delete
             </DropdownItem>
         ];
@@ -57,10 +58,11 @@ class BaselineTableKebab extends Component {
             <React.Fragment>
                 { modalOpened
                     ? <DeleteBaselinesModal
-                        modalOpened={ true }
+                        modalOpened={ modalOpened }
                         baselineId={ baselineRowData[0] }
                         tableId={ tableId }
                         fetchWithParams={ fetchWithParams }
+                        toggleModal={ this.toggleModal }
                     />
                     : null
                 }

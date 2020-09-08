@@ -1,6 +1,7 @@
 // Importing Global Variables
 @import '~@redhat-cloud-services/frontend-components-utilities/files/Utilities/_all';
 @import '~@redhat-cloud-services/frontend-components/index.css';
+@import '~@redhat-cloud-services/frontend-components-notifications/index.css';
 @import '~@patternfly/patternfly/sass-utilities/colors';
 @import '~@patternfly/patternfly/sass-utilities/scss-variables';
 
@@ -346,6 +347,7 @@
 }
 
 .reload-button {
+  margin-top: 10px;
   margin-right: 5px;
 }
 
@@ -359,4 +361,10 @@
 
 .margin-left-5-px {
   margin-left: 5px;
+}
+
+.small-empty-state-icon {
+  width: 18px;
+  height: 18px;
+  margin: 0px;
 }

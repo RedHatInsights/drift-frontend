@@ -6,14 +6,16 @@ const initialState = {
     baselineData: undefined,
     baselineDataLoading: false,
     editBaselineTableData: [],
-    error: {},
+    editBaselineError: {},
+    inlineError: {},
     expandedRows: [],
     factModalOpened: false,
     factName: '',
     factValue: '',
     factData: [],
     isCategory: false,
-    isSubFact: false
+    isSubFact: false,
+    editBaselineEmptyState: false
 };
 
 export function editBaselineReducer(state = initialState, action) {
@@ -34,7 +36,25 @@ export function editBaselineReducer(state = initialState, action) {
                 ...state,
                 baselineDataLoading: false,
                 baselineData: action.payload,
-                editBaselineTableData: newEditBaselineTableData
+                editBaselineTableData: newEditBaselineTableData,
+                editBaselineEmptyState: action.payload.baseline_facts.length === 0
+            };
+        case `${types.FETCH_BASELINE_DATA}_REJECTED`:
+            response = action.payload.response;
+
+            if (response.data === '') {
+                errorObject = { detail: response.statusText, status: response.status };
+            } else if (response.data.message) {
+                errorObject = { detail: response.data.message, status: response.status };
+            } else {
+                errorObject = { detail: response.data.detail, status: response.status };
+            }
+
+            return {
+                ...state,
+                baselineDataLoading: false,
+                editBaselineError: errorObject,
+                editBaselineEmptyState: true
             };
         case `${types.CLEAR_EDIT_BASELINE_DATA}`:
             return {
@@ -46,13 +66,14 @@ export function editBaselineReducer(state = initialState, action) {
         case `${types.PATCH_BASELINE}_PENDING`:
             return {
                 ...state,
+                inlineError: {},
                 baselineDataLoading: true
             };
         case `${types.PATCH_BASELINE}_FULFILLED`:
             return {
                 ...state,
                 baselineDataLoading: false,
-                baselineData: action.payload
+                baselineData: action.payload.data[0]
             };
         case `${types.PATCH_BASELINE}_REJECTED`:
             response = action.payload.response;
@@ -68,7 +89,35 @@ export function editBaselineReducer(state = initialState, action) {
             return {
                 ...state,
                 baselineDataLoading: false,
-                error: errorObject
+                inlineError: errorObject
+            };
+        case `${types.DELETE_BASELINE_DATA}_PENDING`:
+            return {
+                ...state,
+                baselineDataLoading: true
+            };
+        case `${types.DELETE_BASELINE_DATA}_FULFILLED`:
+            return {
+                ...state,
+                baselineDataLoading: false,
+                baselineData: action.payload.data[0],
+                editBaselineEmptyState: action.payload.data[0].baseline_facts.length < 1
+            };
+        case `${types.DELETE_BASELINE_DATA}_REJECTED`:
+            response = action.payload.response;
+
+            if (response.data === '') {
+                errorObject = { detail: response.statusText, status: response.status };
+            } else if (response.data.message) {
+                errorObject = { detail: response.data.message, status: response.status };
+            } else {
+                errorObject = { detail: response.data.detail, status: response.status };
+            }
+
+            return {
+                ...state,
+                baselineDataLoading: false,
+                editBaselineError: errorObject
             };
         case `${types.EXPAND_PARENT_FACT}`:
             newExpandedRows = editBaselineHelpers.toggleExpandedRow(state.expandedRows, action.payload);
@@ -79,7 +128,7 @@ export function editBaselineReducer(state = initialState, action) {
         case `${types.TOGGLE_FACT_MODAL}`:
             return {
                 ...state,
-                error: {},
+                editBaselineError: {},
                 factModalOpened: !state.factModalOpened
             };
         case `${types.SET_FACT_DATA}`:
@@ -121,7 +170,10 @@ export function editBaselineReducer(state = initialState, action) {
         case `${types.CLEAR_ERROR_DATA}`:
             return {
                 ...state,
-                error: {}
+                editBaselineError: {},
+                inlineError: {},
+                editBaselineEmptyState: false,
+                baselineDataLoading: false
             };
 
         default:

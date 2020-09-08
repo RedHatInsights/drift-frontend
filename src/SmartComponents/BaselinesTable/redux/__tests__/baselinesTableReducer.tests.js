@@ -165,6 +165,7 @@ describe('baselines table reducer', () => {
     it('should handle SET_SELECTED_BASELINES', () => {
         expect(
             checkboxTableReducer({
+                fullBaselineListData: baselinesFixtures.baselinesListPayloadResults,
                 selectedBaselineIds: [],
                 baselineTableData: baselinesFixtures.baselineTableDataRows,
                 totalBaselines: 2
@@ -173,6 +174,7 @@ describe('baselines table reducer', () => {
                 payload: [ '1234', 'abcd' ]
             })
         ).toEqual({
+            fullBaselineListData: baselinesFixtures.baselinesListPayloadResults,
             baselineTableData: baselinesFixtures.baselineTableDataTwoSelected(),
             selectedBaselineIds: [ '1234', 'abcd' ],
             totalBaselines: 2

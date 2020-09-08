@@ -60,7 +60,6 @@ describe('ConnectedDriftTable', () => {
         mockStore = configureStore();
         initialState = {
             compareState: {
-                error: {},
                 loading: false,
                 systems: [],
                 baselines: [],
@@ -71,7 +70,7 @@ describe('ConnectedDriftTable', () => {
                     { filter: 'DIFFERENT', display: 'Different', selected: true },
                     { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
                 ],
-                emptyState: true
+                emptyState: false
             },
             addSystemModalState: { addSystemModalOpened: false },
             baselinesTableState: { checkboxTable: {}},
@@ -82,16 +81,19 @@ describe('ConnectedDriftTable', () => {
 
     it('should render correctly', () => {
         const store = mockStore(initialState);
+        let error = {};
 
         const wrapper = mount(
             <MemoryRouter keyLength={ 0 }>
                 <Provider store={ store }>
-                    <ConnectedDriftTable updateReferenceId={ updateReferenceId } />
+                    <ConnectedDriftTable
+                        updateReferenceId={ updateReferenceId }
+                        error={ error }
+                    />
                 </Provider>
             </MemoryRouter>
         );
 
-        expect(wrapper.find(EmptyState)).toHaveLength(1);
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 
@@ -100,7 +102,6 @@ describe('ConnectedDriftTable', () => {
         initialState.compareState.systems = compareReducerPayload.systems;
         initialState.compareState.baselines = baselinesPayload;
         initialState.compareState.historicalProfiles = historicalProfilesPayload;
-        initialState.compareState.emptyState = false;
         initialState.compareState.loading = false;
 
         const store = mockStore(initialState);
@@ -122,11 +123,15 @@ describe('ConnectedDriftTable', () => {
     it('should render loading rows', () => {
         initialState.compareState.loading = true;
         const store = mockStore(initialState);
+        let error = {};
 
         const wrapper = mount(
             <MemoryRouter keyLength={ 0 }>
                 <Provider store={ store }>
-                    <ConnectedDriftTable updateReferenceId={ updateReferenceId } />
+                    <ConnectedDriftTable
+                        updateReferenceId={ updateReferenceId }
+                        error={ error }
+                    />
                 </Provider>
             </MemoryRouter>
         );
@@ -142,7 +147,6 @@ describe('ConnectedDriftTable', () => {
         initialState.compareState.systems = compareReducerPayload.systems;
         initialState.compareState.baselines = baselinesPayload;
         initialState.compareState.historicalProfiles = historicalProfilesPayload;
-        initialState.compareState.emptyState = false;
         initialState.compareState.loading = false;
         initialState.historicProfilesState.selectedHSPIds = [
             '9bbbefcc-8f23-4d97-07f2-142asdl234e8', 'edmk59dj-fn42-dfjk-alv3-bmn2854mnn27'

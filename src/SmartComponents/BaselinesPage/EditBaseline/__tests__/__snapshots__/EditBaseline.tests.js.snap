@@ -102,38 +102,9 @@ exports[`ConnectedEditBaseline should render correctly 1`] = `
             baselineDataLoading={false}
             clearBaselineData={[Function]}
             clearErrorData={[Function]}
+            editBaselineEmptyState={false}
+            editBaselineError={Object {}}
             editBaselineTableData={Array []}
-            error={
-              Object {
-                "hasOwnProperty": [MockFunction] {
-                  "calls": Array [
-                    Array [
-                      "detail",
-                    ],
-                    Array [
-                      "status",
-                    ],
-                    Array [
-                      "status",
-                    ],
-                  ],
-                  "results": Array [
-                    Object {
-                      "type": "return",
-                      "value": undefined,
-                    },
-                    Object {
-                      "type": "return",
-                      "value": undefined,
-                    },
-                    Object {
-                      "type": "return",
-                      "value": undefined,
-                    },
-                  ],
-                },
-              }
-            }
             expandRow={[Function]}
             expandedRows={Array []}
             factModalOpened={false}
@@ -168,6 +139,7 @@ exports[`ConnectedEditBaseline should render correctly 1`] = `
                 "replace": [Function],
               }
             }
+            inlineError={Object {}}
             location={
               Object {
                 "hash": "",
@@ -188,73 +160,13 @@ exports[`ConnectedEditBaseline should render correctly 1`] = `
           >
             <Connect(EditBaselineNameModal)
               baselineData={Array []}
-              error={
-                Object {
-                  "hasOwnProperty": [MockFunction] {
-                    "calls": Array [
-                      Array [
-                        "detail",
-                      ],
-                      Array [
-                        "status",
-                      ],
-                      Array [
-                        "status",
-                      ],
-                    ],
-                    "results": Array [
-                      Object {
-                        "type": "return",
-                        "value": undefined,
-                      },
-                      Object {
-                        "type": "return",
-                        "value": undefined,
-                      },
-                      Object {
-                        "type": "return",
-                        "value": undefined,
-                      },
-                    ],
-                  },
-                }
-              }
+              error={Object {}}
               modalOpened={false}
               toggleEditNameModal={[Function]}
             >
               <EditBaselineNameModal
                 baselineData={Array []}
-                error={
-                  Object {
-                    "hasOwnProperty": [MockFunction] {
-                      "calls": Array [
-                        Array [
-                          "detail",
-                        ],
-                        Array [
-                          "status",
-                        ],
-                        Array [
-                          "status",
-                        ],
-                      ],
-                      "results": Array [
-                        Object {
-                          "type": "return",
-                          "value": undefined,
-                        },
-                        Object {
-                          "type": "return",
-                          "value": undefined,
-                        },
-                        Object {
-                          "type": "return",
-                          "value": undefined,
-                        },
-                      ],
-                    },
-                  }
-                }
+                error={Object {}}
                 modalOpened={false}
                 patchBaseline={[Function]}
                 toggleEditNameModal={[Function]}
@@ -407,7 +319,9 @@ exports[`ConnectedEditBaseline should render correctly 1`] = `
                     </ol>
                   </nav>
                 </Breadcrumb>
-                <PageHeaderTitle>
+                <PageHeaderTitle
+                  title={null}
+                >
                   <Title
                     className=""
                     headingLevel="h1"
@@ -460,6 +374,17 @@ exports[`ConnectedEditBaseline should render correctly 1`] = `
                   className="pf-l-page__main-section pf-c-page__main-section"
                   page-type=""
                 >
+                  <div />
+                  <Connect(ErrorAlert)
+                    error={Object {}}
+                    onClose={[Function]}
+                  >
+                    <ErrorAlert
+                      addNotification={[Function]}
+                      error={Object {}}
+                      onClose={[Function]}
+                    />
+                  </Connect(ErrorAlert)>
                   <Card
                     className="pf-t-light pf-m-opaque-100"
                   >
@@ -859,24 +784,29 @@ exports[`ConnectedEditBaseline should render correctly 1`] = `
                                           <div
                                             className="pf-c-toolbar__item"
                                           >
-                                            <Connect(AddFactButton)>
+                                            <Connect(AddFactButton)
+                                              isDisabled={true}
+                                            >
                                               <AddFactButton
+                                                isDisabled={true}
                                                 setFactData={[Function]}
                                                 toggleFactModal={[Function]}
                                               >
                                                 <Button
+                                                  isDisabled={true}
                                                   onClick={[Function]}
                                                   variant="primary"
                                                 >
                                                   <button
-                                                    aria-disabled={false}
+                                                    aria-disabled={true}
                                                     aria-label={null}
-                                                    className="pf-c-button pf-m-primary"
+                                                    className="pf-c-button pf-m-primary pf-m-disabled"
                                                     data-ouia-component-id={3}
                                                     data-ouia-component-type="PF4/Button"
                                                     data-ouia-safe={true}
-                                                    disabled={false}
+                                                    disabled={true}
                                                     onClick={[Function]}
+                                                    tabIndex={null}
                                                     type="button"
                                                   >
                                                     Add fact or category
@@ -1214,83 +1144,7 @@ exports[`ConnectedEditBaseline should render correctly 1`] = `
                             </thead>
                             <tbody
                               key="edit-baseline-table"
-                            >
-                              <td
-                                colSpan="3"
-                              >
-                                <EmptyStateDisplay
-                                  button={<Memo(Connect(AddFactButton)) />}
-                                  text={
-                                    Array [
-                                      "No facts or categories have been added to this baseline yet.",
-                                    ]
-                                  }
-                                  title="No facts"
-                                >
-                                  <Bullseye>
-                                    <div
-                                      className="pf-l-bullseye"
-                                    >
-                                      <EmptyState
-                                        variant="large"
-                                      >
-                                        <div
-                                          className="pf-c-empty-state pf-m-lg"
-                                        >
-                                          <div
-                                            className="pf-c-empty-state__content"
-                                          >
-                                            <br />
-                                            <Title
-                                              headingLevel="h1"
-                                              size="lg"
-                                            >
-                                              <h1
-                                                className="pf-c-title pf-m-lg"
-                                              >
-                                                No facts
-                                              </h1>
-                                            </Title>
-                                            <EmptyStateBody>
-                                              <div
-                                                className="pf-c-empty-state__body"
-                                              >
-                                                No facts or categories have been added to this baseline yet.
-                                              </div>
-                                            </EmptyStateBody>
-                                            <Connect(AddFactButton)>
-                                              <AddFactButton
-                                                setFactData={[Function]}
-                                                toggleFactModal={[Function]}
-                                              >
-                                                <Button
-                                                  onClick={[Function]}
-                                                  variant="primary"
-                                                >
-                                                  <button
-                                                    aria-disabled={false}
-                                                    aria-label={null}
-                                                    className="pf-c-button pf-m-primary"
-                                                    data-ouia-component-id={5}
-                                                    data-ouia-component-type="PF4/Button"
-                                                    data-ouia-safe={true}
-                                                    disabled={false}
-                                                    onClick={[Function]}
-                                                    type="button"
-                                                  >
-                                                    Add fact or category
-                                                  </button>
-                                                </Button>
-                                              </AddFactButton>
-                                            </Connect(AddFactButton)>
-                                          </div>
-                                        </div>
-                                      </EmptyState>
-                                    </div>
-                                  </Bullseye>
-                                </EmptyStateDisplay>
-                              </td>
-                            </tbody>
+                            />
                           </table>
                         </div>
                       </CardBody>
@@ -1408,12 +1262,9 @@ exports[`ConnectedEditBaseline should render loading rows 1`] = `
             baselineDataLoading={true}
             clearBaselineData={[Function]}
             clearErrorData={[Function]}
+            editBaselineEmptyState={false}
+            editBaselineError={Object {}}
             editBaselineTableData={Array []}
-            error={
-              Object {
-                "hasOwnProperty": [MockFunction],
-              }
-            }
             expandRow={[Function]}
             expandedRows={Array []}
             factModalOpened={false}
@@ -1448,6 +1299,7 @@ exports[`ConnectedEditBaseline should render loading rows 1`] = `
                 "replace": [Function],
               }
             }
+            inlineError={Object {}}
             location={
               Object {
                 "hash": "",
@@ -1491,12 +1343,23 @@ exports[`ConnectedEditBaseline should render loading rows 1`] = `
                   className="pf-l-page__main-section pf-c-page__main-section"
                   page-type=""
                 >
+                  <div />
+                  <Connect(ErrorAlert)
+                    error={Object {}}
+                    onClose={[Function]}
+                  >
+                    <ErrorAlert
+                      addNotification={[Function]}
+                      error={Object {}}
+                      onClose={[Function]}
+                    />
+                  </Connect(ErrorAlert)>
                   <Card
                     className="pf-t-light pf-m-opaque-100"
                   >
                     <article
                       className="pf-c-card pf-t-light pf-m-opaque-100"
-                      data-ouia-component-id={6}
+                      data-ouia-component-id={5}
                       data-ouia-component-type="PF4/Card"
                       data-ouia-safe={true}
                     >
@@ -1651,7 +1514,7 @@ exports[`ConnectedEditBaseline should render loading rows 1`] = `
                                                 >
                                                   <div
                                                     className="pf-c-dropdown ins-c-bulk-select"
-                                                    data-ouia-component-id={7}
+                                                    data-ouia-component-id={6}
                                                     data-ouia-component-type="PF4/Dropdown"
                                                     data-ouia-safe={true}
                                                   >
@@ -1669,7 +1532,7 @@ exports[`ConnectedEditBaseline should render loading rows 1`] = `
                                                         Object {
                                                           "current": <div
                                                             class="pf-c-dropdown ins-c-bulk-select"
-                                                            data-ouia-component-id="7"
+                                                            data-ouia-component-id="6"
                                                             data-ouia-component-type="PF4/Dropdown"
                                                             data-ouia-safe="true"
                                                           >
@@ -1784,7 +1647,7 @@ exports[`ConnectedEditBaseline should render loading rows 1`] = `
                                                             Object {
                                                               "current": <div
                                                                 class="pf-c-dropdown ins-c-bulk-select"
-                                                                data-ouia-component-id="7"
+                                                                data-ouia-component-id="6"
                                                                 data-ouia-component-type="PF4/Dropdown"
                                                                 data-ouia-safe="true"
                                                               >
@@ -1890,24 +1753,29 @@ exports[`ConnectedEditBaseline should render loading rows 1`] = `
                                           <div
                                             className="pf-c-toolbar__item"
                                           >
-                                            <Connect(AddFactButton)>
+                                            <Connect(AddFactButton)
+                                              isDisabled={true}
+                                            >
                                               <AddFactButton
+                                                isDisabled={true}
                                                 setFactData={[Function]}
                                                 toggleFactModal={[Function]}
                                               >
                                                 <Button
+                                                  isDisabled={true}
                                                   onClick={[Function]}
                                                   variant="primary"
                                                 >
                                                   <button
-                                                    aria-disabled={false}
+                                                    aria-disabled={true}
                                                     aria-label={null}
-                                                    className="pf-c-button pf-m-primary"
-                                                    data-ouia-component-id={8}
+                                                    className="pf-c-button pf-m-primary pf-m-disabled"
+                                                    data-ouia-component-id={7}
                                                     data-ouia-component-type="PF4/Button"
                                                     data-ouia-safe={true}
-                                                    disabled={false}
+                                                    disabled={true}
                                                     onClick={[Function]}
+                                                    tabIndex={null}
                                                     type="button"
                                                   >
                                                     Add fact or category
@@ -1985,7 +1853,7 @@ exports[`ConnectedEditBaseline should render loading rows 1`] = `
                                                   >
                                                     <div
                                                       className="pf-c-dropdown"
-                                                      data-ouia-component-id={9}
+                                                      data-ouia-component-id={8}
                                                       data-ouia-component-type="PF4/Dropdown"
                                                       data-ouia-safe={true}
                                                       style={
@@ -2007,7 +1875,7 @@ exports[`ConnectedEditBaseline should render loading rows 1`] = `
                                                           Object {
                                                             "current": <div
                                                               class="pf-c-dropdown"
-                                                              data-ouia-component-id="9"
+                                                              data-ouia-component-id="8"
                                                               data-ouia-component-type="PF4/Dropdown"
                                                               data-ouia-safe="true"
                                                               style="float: left;"
@@ -2058,7 +1926,7 @@ exports[`ConnectedEditBaseline should render loading rows 1`] = `
                                                             Object {
                                                               "current": <div
                                                                 class="pf-c-dropdown"
-                                                                data-ouia-component-id="9"
+                                                                data-ouia-component-id="8"
                                                                 data-ouia-component-type="PF4/Dropdown"
                                                                 data-ouia-safe="true"
                                                                 style="float: left;"
@@ -2661,7 +2529,9 @@ exports[`EditBaseline should render correctly 1`] = `
       </BreadcrumbItem>
       <BreadcrumbHeading />
     </Breadcrumb>
-    <PageHeaderTitle />
+    <PageHeaderTitle
+      title={null}
+    />
     <EditAltIcon
       className="pointer not-active edit-icon-margin"
       color="currentColor"
@@ -2671,6 +2541,10 @@ exports[`EditBaseline should render correctly 1`] = `
     />
   </PageHeader>
   <Connect(Main)>
+    <div />
+    <Connect(ErrorAlert)
+      error={Object {}}
+    />
     <Card
       className="pf-t-light pf-m-opaque-100"
     >
@@ -2708,21 +2582,90 @@ exports[`EditBaseline should render correctly 1`] = `
           </thead>
           <tbody
             key="edit-baseline-table"
-          >
-            <td
-              colSpan="3"
+          />
+        </table>
+      </CardBody>
+    </Card>
+  </Connect(Main)>
+</Fragment>
+`;
+
+exports[`EditBaseline should render error correctly 1`] = `
+<Fragment>
+  <Connect(EditBaselineNameModal)
+    baselineData={Array []}
+    modalOpened={false}
+    toggleEditNameModal={[Function]}
+  />
+  <PageHeader>
+    <Breadcrumb>
+      <BreadcrumbItem>
+        <a
+          onClick={[Function]}
+        >
+          Baselines
+        </a>
+      </BreadcrumbItem>
+      <BreadcrumbHeading />
+    </Breadcrumb>
+    <PageHeaderTitle
+      title={null}
+    />
+    <EditAltIcon
+      className="pointer not-active edit-icon-margin"
+      color="currentColor"
+      noVerticalAlign={false}
+      onClick={[Function]}
+      size="sm"
+    />
+  </PageHeader>
+  <Connect(Main)>
+    <div />
+    <Connect(ErrorAlert)
+      error={
+        Object {
+          "status": 404,
+        }
+      }
+    />
+    <Card
+      className="pf-t-light pf-m-opaque-100"
+    >
+      <CardBody>
+        <EditBaselineToolbar
+          isDisabled={true}
+          onBulkSelect={[Function]}
+          selected={0}
+          totalFacts={0}
+        />
+        <table
+          className="pf-c-table ins-c-table pf-m-grid-md ins-entity-table drift-table"
+        >
+          <thead>
+            <tr
+              key="edit-baseline-table-header"
             >
-              <EmptyStateDisplay
-                button={<Memo(Connect(AddFactButton)) />}
-                text={
-                  Array [
-                    "No facts or categories have been added to this baseline yet.",
-                  ]
-                }
-                title="No facts"
-              />
-            </td>
-          </tbody>
+              <th />
+              <th
+                className="edit-baseline-header"
+              >
+                <div>
+                  Fact
+                </div>
+              </th>
+              <th
+                className="edit-baseline-header"
+              >
+                <div>
+                  Value
+                </div>
+              </th>
+              <th />
+            </tr>
+          </thead>
+          <tbody
+            key="edit-baseline-table"
+          />
         </table>
       </CardBody>
     </Card>
@@ -2818,6 +2761,10 @@ exports[`EditBaseline should render expandable rows closed 1`] = `
     />
   </PageHeader>
   <Connect(Main)>
+    <div />
+    <Connect(ErrorAlert)
+      error={Object {}}
+    />
     <Card
       className="pf-t-light pf-m-opaque-100"
     >
@@ -3100,6 +3047,10 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
     />
   </PageHeader>
   <Connect(Main)>
+    <div />
+    <Connect(ErrorAlert)
+      error={Object {}}
+    />
     <Card
       className="pf-t-light pf-m-opaque-100"
     >
@@ -3990,14 +3941,24 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
 exports[`EditBaseline should render loading rows 1`] = `
 <Fragment>
   <PageHeader>
-    <div>
-      <Skeleton
-        isDark={false}
-        size="lg"
-      />
-    </div>
+    <Breadcrumb>
+      <BreadcrumbItem>
+        <a
+          onClick={[Function]}
+        >
+          Baselines
+        </a>
+      </BreadcrumbItem>
+    </Breadcrumb>
+    <PageHeaderTitle
+      title="Baseline"
+    />
   </PageHeader>
   <Connect(Main)>
+    <div />
+    <Connect(ErrorAlert)
+      error={Object {}}
+    />
     <Card
       className="pf-t-light pf-m-opaque-100"
     >
@@ -4035,208 +3996,7 @@ exports[`EditBaseline should render loading rows 1`] = `
           </thead>
           <tbody
             key="edit-baseline-table"
-          >
-            <tr>
-              <td>
-                <Skeleton
-                  isDark={false}
-                  size="md"
-                />
-              </td>
-              <td>
-                <Skeleton
-                  isDark={false}
-                  size="md"
-                />
-              </td>
-              <td>
-                <Skeleton
-                  isDark={false}
-                  size="md"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <Skeleton
-                  isDark={false}
-                  size="md"
-                />
-              </td>
-              <td>
-                <Skeleton
-                  isDark={false}
-                  size="md"
-                />
-              </td>
-              <td>
-                <Skeleton
-                  isDark={false}
-                  size="md"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <Skeleton
-                  isDark={false}
-                  size="md"
-                />
-              </td>
-              <td>
-                <Skeleton
-                  isDark={false}
-                  size="md"
-                />
-              </td>
-              <td>
-                <Skeleton
-                  isDark={false}
-                  size="md"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <Skeleton
-                  isDark={false}
-                  size="md"
-                />
-              </td>
-              <td>
-                <Skeleton
-                  isDark={false}
-                  size="md"
-                />
-              </td>
-              <td>
-                <Skeleton
-                  isDark={false}
-                  size="md"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <Skeleton
-                  isDark={false}
-                  size="md"
-                />
-              </td>
-              <td>
-                <Skeleton
-                  isDark={false}
-                  size="md"
-                />
-              </td>
-              <td>
-                <Skeleton
-                  isDark={false}
-                  size="md"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <Skeleton
-                  isDark={false}
-                  size="md"
-                />
-              </td>
-              <td>
-                <Skeleton
-                  isDark={false}
-                  size="md"
-                />
-              </td>
-              <td>
-                <Skeleton
-                  isDark={false}
-                  size="md"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <Skeleton
-                  isDark={false}
-                  size="md"
-                />
-              </td>
-              <td>
-                <Skeleton
-                  isDark={false}
-                  size="md"
-                />
-              </td>
-              <td>
-                <Skeleton
-                  isDark={false}
-                  size="md"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <Skeleton
-                  isDark={false}
-                  size="md"
-                />
-              </td>
-              <td>
-                <Skeleton
-                  isDark={false}
-                  size="md"
-                />
-              </td>
-              <td>
-                <Skeleton
-                  isDark={false}
-                  size="md"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <Skeleton
-                  isDark={false}
-                  size="md"
-                />
-              </td>
-              <td>
-                <Skeleton
-                  isDark={false}
-                  size="md"
-                />
-              </td>
-              <td>
-                <Skeleton
-                  isDark={false}
-                  size="md"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <Skeleton
-                  isDark={false}
-                  size="md"
-                />
-              </td>
-              <td>
-                <Skeleton
-                  isDark={false}
-                  size="md"
-                />
-              </td>
-              <td>
-                <Skeleton
-                  isDark={false}
-                  size="md"
-                />
-              </td>
-            </tr>
-          </tbody>
+          />
         </table>
       </CardBody>
     </Card>
@@ -4336,6 +4096,10 @@ exports[`EditBaseline should render with baseline facts 1`] = `
     />
   </PageHeader>
   <Connect(Main)>
+    <div />
+    <Connect(ErrorAlert)
+      error={Object {}}
+    />
     <Card
       className="pf-t-light pf-m-opaque-100"
     >

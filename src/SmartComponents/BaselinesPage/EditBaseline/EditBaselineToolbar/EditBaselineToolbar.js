@@ -42,7 +42,9 @@ export class EditBaselineToolbar extends Component {
                         />
                     </ToolbarItem>
                     <ToolbarItem>
-                        <AddFactButton />
+                        <AddFactButton
+                            isDisabled={ totalFacts > 0 ? false : true }
+                        />
                     </ToolbarItem>
                     <ToolbarItem>
                         <EditBaselineKebab />

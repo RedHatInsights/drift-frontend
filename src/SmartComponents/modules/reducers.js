@@ -122,8 +122,9 @@ export function compareReducer(state = initialState, action) {
 
             return {
                 ...state,
+                loading: false,
                 error: errorObject,
-                emptyState: false
+                emptyState: true
             };
         case `${types.UPDATE_DRIFT_PAGINATION}`:
             filteredFacts = reducerHelpers.filterCompareData(state.fullCompareData, state.stateFilters, state.factFilter);

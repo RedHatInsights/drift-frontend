@@ -4,19 +4,17 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { DropdownDirection, Tooltip } from '@patternfly/react-core';
 import queryString from 'query-string';
-import { ClockIcon, TimesIcon, ExclamationTriangleIcon, PlusCircleIcon, ServerIcon, BlueprintIcon } from '@patternfly/react-icons';
+import { ClockIcon, TimesIcon, ExclamationTriangleIcon, ServerIcon, BlueprintIcon } from '@patternfly/react-icons';
 import { AngleDownIcon, AngleRightIcon, LongArrowAltUpIcon, LongArrowAltDownIcon, ArrowsAltVIcon } from '@patternfly/react-icons';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
 import moment from 'moment';
 
 import AddSystemModal from '../../AddSystemModal/AddSystemModal';
-import AddSystemButton from '../AddSystemButton/AddSystemButton';
 import StateIcon from '../../StateIcon/StateIcon';
 import { ASC, DESC } from '../../../constants';
 import { setHistory } from '../../../Utilities/SetHistory';
 
 import HistoricalProfilesDropdown from '../../HistoricalProfilesDropdown/HistoricalProfilesDropdown';
-import EmptyStateDisplay from '../../EmptyStateDisplay/EmptyStateDisplay';
 import { compareActions } from '../../modules';
 import { baselinesTableActions } from '../../BaselinesTable/redux';
 import { historicProfilesActions } from '../../HistoricalProfilesDropdown/redux';
@@ -466,7 +464,6 @@ export class DriftTable extends Component {
 
     render() {
         const { emptyState, filteredCompareData, systems, baselines, historicalProfiles, loading } = this.props;
-        const { emptyStateMessage } = this.state;
 
         this.masterList = this.formatEntities(systems, baselines, historicalProfiles);
 
@@ -477,14 +474,9 @@ export class DriftTable extends Component {
                     confirmModal={ this.fetchCompare }
                     referenceId={ this.props.referenceId }
                 />
-                { emptyState && !loading
-                    ? <EmptyStateDisplay
-                        icon={ PlusCircleIcon }
-                        title={ 'Add systems or baselines to compare' }
-                        text={ emptyStateMessage }
-                        button={ <AddSystemButton isTable={ false }/> }
-                    />
-                    : this.renderTable(filteredCompareData, loading)
+                { !emptyState
+                    ? this.renderTable(filteredCompareData, loading)
+                    : null
                 }
             </React.Fragment>
         );
@@ -546,7 +538,8 @@ DriftTable.propTypes = {
     selectHistoricProfiles: PropTypes.func,
     emptyState: PropTypes.bool,
     updateReferenceId: PropTypes.func,
-    referenceId: PropTypes.string
+    referenceId: PropTypes.string,
+    error: PropTypes.object
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DriftTable));

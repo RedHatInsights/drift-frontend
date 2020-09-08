@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Button, Modal, Radio, TextInput, Form, FormGroup } from '@patternfly/react-core';
+import { Alert, Button, Modal, Radio, TextInput, Form, FormGroup, ValidatedOptions } from '@patternfly/react-core';
 import { sortable } from '@patternfly/react-table';
 
 import SystemsTable from '../../SystemsTable/SystemsTable';
@@ -172,7 +172,7 @@ export class CreateBaselineModal extends Component {
 
     renderModalBody = () => {
         const { baselineName, copyBaselineChecked, copySystemChecked } = this.state;
-        const { error } = this.props;
+        const { createBaselineError } = this.props;
         let modalBody;
 
         if (copyBaselineChecked) {
@@ -184,14 +184,14 @@ export class CreateBaselineModal extends Component {
         return (<React.Fragment>
             { this.renderRadioButtons() }
             <br></br>
-            <b>Baseline name</b>
-            <br></br>
             <Form>
                 <FormGroup
+                    label='Baseline name'
+                    isRequired
                     type="text"
-                    helperTextInvalid={ error.hasOwnProperty('detail') ? error.detail : null }
+                    helperTextInvalid={ createBaselineError.hasOwnProperty('detail') ? createBaselineError.detail : null }
                     fieldId="name"
-                    isValid={ !error.hasOwnProperty('status') }
+                    validated={ createBaselineError.hasOwnProperty('status') ? 'error' : null }
                     onKeyPress={ this.checkKeyPress }
                 >
                     <TextInput
@@ -200,7 +200,7 @@ export class CreateBaselineModal extends Component {
                         value={ baselineName }
                         type="text"
                         onChange={ this.updateBaselineName }
-                        isValid={ !error.hasOwnProperty('status') }
+                        validated={ createBaselineError.hasOwnProperty('status') ? ValidatedOptions.error : null }
                         aria-label="baseline name"
                     />
                 </FormGroup>
@@ -258,7 +258,7 @@ export class CreateBaselineModal extends Component {
     }
 
     render() {
-        const { createBaselineModalOpened } = this.props;
+        const { createBaselineError, createBaselineModalOpened } = this.props;
 
         return (
             <Modal
@@ -268,6 +268,18 @@ export class CreateBaselineModal extends Component {
                 onClose={ this.cancelModal }
                 actions={ this.renderActions() }
             >
+                { createBaselineError.status
+                    ? <Alert
+                        variant='danger'
+                        isInline
+                        title={ 'Status: ' + createBaselineError.status }
+                    >
+                        <p>
+                            { createBaselineError.detail }
+                        </p>
+                    </Alert>
+                    : <div></div>
+                }
                 { this.renderModalBody() }
             </Modal>
         );
@@ -284,7 +296,7 @@ CreateBaselineModal.propTypes = {
     clearSelectedBaselines: PropTypes.func,
     entities: PropTypes.object,
     selectedBaselineIds: PropTypes.array,
-    error: PropTypes.object,
+    createBaselineError: PropTypes.object,
     baselineTableData: PropTypes.array,
     loading: PropTypes.bool,
     totalBaselines: PropTypes.number,
@@ -299,7 +311,7 @@ function mapStateToProps(state) {
         baselineData: state.createBaselineModalState.baselineData,
         entities: state.entities,
         selectedBaselineIds: state.baselinesTableState.radioTable.selectedBaselineIds,
-        error: state.createBaselineModalState.error,
+        createBaselineError: state.createBaselineModalState.createBaselineError,
         loading: state.baselinesTableState.radioTable.loading,
         emptyState: state.baselinesTableState.radioTable.emptyState,
         baselineTableData: state.baselinesTableState.radioTable.baselineTableData,

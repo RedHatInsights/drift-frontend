@@ -50,7 +50,7 @@ class FactKebab extends Component {
     }
 
     async deleteFact() {
-        const { baselineData, patchBaseline, factName, factValue, fact, isSubFact, fetchBaselineData } = this.props;
+        const { baselineData, deleteBaselineData, factName, factValue, fact, isSubFact, fetchBaselineData } = this.props;
         let factToDelete = { name: factName, value: factValue };
         let newAPIBody;
 
@@ -61,9 +61,12 @@ class FactKebab extends Component {
         }
 
         this.toggleModalOpened();
-        let results = await patchBaseline(baselineData.id, newAPIBody);
-        if (results) {
+
+        try {
+            await deleteBaselineData(baselineData.id, newAPIBody);
             fetchBaselineData(baselineData.id);
+        } catch (e) {
+            // do nothing and let redux handle
         }
 
         this.onKebabToggle(false);
@@ -145,7 +148,7 @@ FactKebab.propTypes = {
     toggleFactModal: PropTypes.func,
     setFactData: PropTypes.func,
     baselineData: PropTypes.object,
-    patchBaseline: PropTypes.func,
+    deleteBaselineData: PropTypes.func,
     fetchBaselineData: PropTypes.func
 };
 
@@ -159,7 +162,7 @@ function mapDispatchToProps(dispatch) {
     return {
         toggleFactModal: () => dispatch(editBaselineActions.toggleFactModal()),
         setFactData: (factData) => dispatch(editBaselineActions.setFactData(factData)),
-        patchBaseline: (baselineId, newAPIBody) => dispatch(editBaselineActions.patchBaseline(baselineId, newAPIBody)),
+        deleteBaselineData: (baselineId, newAPIBody) => dispatch(editBaselineActions.deleteBaselineData(baselineId, newAPIBody)),
         fetchBaselineData: (baselineUUID) => dispatch(editBaselineActions.fetchBaselineData(baselineUUID))
     };
 }

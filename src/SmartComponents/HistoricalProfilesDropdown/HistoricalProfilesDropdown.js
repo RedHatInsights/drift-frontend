@@ -152,6 +152,7 @@ export class HistoricalProfilesDropdown extends Component {
             dropdownItems.push(
                 <EmptyStateDisplay
                     icon={ ExclamationCircleIcon }
+                    isSmall={ true }
                     color='#c9190b'
                     title={ 'Cannot get historical check-ins' }
                     error={ error.status + ': ' + error.message }

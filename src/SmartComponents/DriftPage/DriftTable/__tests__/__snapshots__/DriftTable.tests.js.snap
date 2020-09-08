@@ -49,6 +49,7 @@ exports[`ConnectedDriftTable should render correctly 1`] = `
       }
     >
       <withRouter(Connect(DriftTable))
+        error={Object {}}
         updateReferenceId={
           [MockFunction] {
             "calls": Array [
@@ -66,6 +67,7 @@ exports[`ConnectedDriftTable should render correctly 1`] = `
         }
       >
         <Connect(DriftTable)
+          error={Object {}}
           history={
             Object {
               "action": "POP",
@@ -131,7 +133,8 @@ exports[`ConnectedDriftTable should render correctly 1`] = `
           <DriftTable
             addSystemModalOpened={false}
             baselines={Array []}
-            emptyState={true}
+            emptyState={false}
+            error={Object {}}
             expandRow={[Function]}
             fetchCompare={[Function]}
             fullCompareData={Array []}
@@ -220,7 +223,6 @@ exports[`ConnectedDriftTable should render correctly 1`] = `
                 selectedSystemIds={Array []}
                 systems={Array []}
                 toggleModal={[Function]}
-                updatePagination={[Function]}
               >
                 <Modal
                   actions={
@@ -285,120 +287,97 @@ exports[`ConnectedDriftTable should render correctly 1`] = `
                 </Modal>
               </AddSystemModal>
             </Connect(AddSystemModal)>
-            <EmptyStateDisplay
-              button={
-                <Memo(Connect(AddSystemButton))
-                  isTable={false}
-                />
-              }
-              icon={[Function]}
-              text={
-                Array [
-                  "You currently have no system or baselines displayed. Add at least two",
-                  "systems or baselines to compare their facts.",
-                ]
-              }
-              title="Add systems or baselines to compare"
+            <div
+              className="drift-table-wrapper"
             >
-              <Bullseye>
-                <div
-                  className="pf-l-bullseye"
-                >
-                  <EmptyState
-                    variant="large"
+              <table
+                className="pf-c-table pf-m-compact drift-table"
+              >
+                <thead>
+                  <tr
+                    className="sticky-column-header"
                   >
-                    <div
-                      className="pf-c-empty-state pf-m-lg"
+                    <th
+                      className="fact-header sticky-column fixed-column-1 pointer"
+                      key="fact-header"
+                      onClick={[Function]}
                     >
                       <div
-                        className="pf-c-empty-state__content"
+                        className="active-blue"
                       >
-                        <EmptyStateIcon
-                          color={null}
-                          icon={[Function]}
+                        Fact 
+                        <ArrowsAltVIcon
+                          className="not-active"
+                          color="currentColor"
+                          noVerticalAlign={false}
+                          size="sm"
                         >
-                          <PlusCircleIcon
-                            aria-hidden="true"
-                            className="pf-c-empty-state__icon"
-                            color={null}
-                            noVerticalAlign={false}
-                            size="sm"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              aria-labelledby={null}
-                              className="pf-c-empty-state__icon"
-                              fill={null}
-                              height="1em"
-                              role="img"
-                              style={
-                                Object {
-                                  "verticalAlign": "-0.125em",
-                                }
+                          <svg
+                            aria-hidden={true}
+                            aria-labelledby={null}
+                            className="not-active"
+                            fill="currentColor"
+                            height="1em"
+                            role="img"
+                            style={
+                              Object {
+                                "verticalAlign": "-0.125em",
                               }
-                              viewBox="0 0 512 512"
-                              width="1em"
-                            >
-                              <path
-                                d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z"
-                                transform=""
-                              />
-                            </svg>
-                          </PlusCircleIcon>
-                        </EmptyStateIcon>
-                        <br />
-                        <Title
-                          headingLevel="h1"
-                          size="lg"
-                        >
-                          <h1
-                            className="pf-c-title pf-m-lg"
+                            }
+                            viewBox="0 0 256 512"
+                            width="1em"
                           >
-                            Add systems or baselines to compare
-                          </h1>
-                        </Title>
-                        <EmptyStateBody>
-                          <div
-                            className="pf-c-empty-state__body"
-                          >
-                            You currently have no system or baselines displayed. Add at least two
-systems or baselines to compare their facts.
-                          </div>
-                        </EmptyStateBody>
-                        <Connect(AddSystemButton)
-                          isTable={false}
-                        >
-                          <AddSystemButton
-                            isTable={false}
-                            toggleAddSystemModal={[Function]}
-                          >
-                            <Button
-                              isDisabled={false}
-                              onClick={[Function]}
-                              variant="primary"
-                            >
-                              <button
-                                aria-disabled={false}
-                                aria-label={null}
-                                className="pf-c-button pf-m-primary"
-                                data-ouia-component-id={0}
-                                data-ouia-component-type="PF4/Button"
-                                data-ouia-safe={true}
-                                disabled={false}
-                                onClick={[Function]}
-                                type="button"
-                              >
-                                Add to comparison
-                              </button>
-                            </Button>
-                          </AddSystemButton>
-                        </Connect(AddSystemButton)>
+                            <path
+                              d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                              transform=""
+                            />
+                          </svg>
+                        </ArrowsAltVIcon>
                       </div>
-                    </div>
-                  </EmptyState>
-                </div>
-              </Bullseye>
-            </EmptyStateDisplay>
+                    </th>
+                    <th
+                      className="state-header sticky-column fixed-column-2 pointer"
+                      key="state-header"
+                      onClick={[Function]}
+                    >
+                      <div
+                        className="active-blue"
+                      >
+                        State 
+                        <ArrowsAltVIcon
+                          className="not-active"
+                          color="currentColor"
+                          noVerticalAlign={false}
+                          size="sm"
+                        >
+                          <svg
+                            aria-hidden={true}
+                            aria-labelledby={null}
+                            className="not-active"
+                            fill="currentColor"
+                            height="1em"
+                            role="img"
+                            style={
+                              Object {
+                                "verticalAlign": "-0.125em",
+                              }
+                            }
+                            viewBox="0 0 256 512"
+                            width="1em"
+                          >
+                            <path
+                              d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                              transform=""
+                            />
+                          </svg>
+                        </ArrowsAltVIcon>
+                      </div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody />
+              </table>
+            </div>
           </DriftTable>
         </Connect(DriftTable)>
       </withRouter(Connect(DriftTable))>
@@ -456,6 +435,7 @@ exports[`ConnectedDriftTable should render loading rows 1`] = `
       }
     >
       <withRouter(Connect(DriftTable))
+        error={Object {}}
         updateReferenceId={
           [MockFunction] {
             "calls": Array [
@@ -473,6 +453,7 @@ exports[`ConnectedDriftTable should render loading rows 1`] = `
         }
       >
         <Connect(DriftTable)
+          error={Object {}}
           history={
             Object {
               "action": "POP",
@@ -538,7 +519,8 @@ exports[`ConnectedDriftTable should render loading rows 1`] = `
           <DriftTable
             addSystemModalOpened={false}
             baselines={Array []}
-            emptyState={true}
+            emptyState={false}
+            error={Object {}}
             expandRow={[Function]}
             fetchCompare={[Function]}
             fullCompareData={Array []}
@@ -627,7 +609,6 @@ exports[`ConnectedDriftTable should render loading rows 1`] = `
                 selectedSystemIds={Array []}
                 systems={Array []}
                 toggleModal={[Function]}
-                updatePagination={[Function]}
               >
                 <Modal
                   actions={
@@ -1543,7 +1524,6 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                   ]
                 }
                 toggleModal={[Function]}
-                updatePagination={[Function]}
               >
                 <Modal
                   actions={
@@ -2266,7 +2246,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                   >
                                     <div
                                       className="pf-c-dropdown pf-m-align-right historical-system-profile-dropdown"
-                                      data-ouia-component-id={1}
+                                      data-ouia-component-id={0}
                                       data-ouia-component-type="PF4/Dropdown"
                                       data-ouia-safe={true}
                                     >
@@ -2284,7 +2264,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                           Object {
                                             "current": <div
                                               class="pf-c-dropdown pf-m-align-right historical-system-profile-dropdown"
-                                              data-ouia-component-id="1"
+                                              data-ouia-component-id="0"
                                               data-ouia-component-type="PF4/Dropdown"
                                               data-ouia-safe="true"
                                             >
@@ -2335,7 +2315,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                             Object {
                                               "current": <div
                                                 class="pf-c-dropdown pf-m-align-right historical-system-profile-dropdown"
-                                                data-ouia-component-id="1"
+                                                data-ouia-component-id="0"
                                                 data-ouia-component-type="PF4/Dropdown"
                                                 data-ouia-safe="true"
                                               >
@@ -2760,7 +2740,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                   >
                                     <div
                                       className="pf-c-dropdown pf-m-align-right historical-system-profile-dropdown"
-                                      data-ouia-component-id={2}
+                                      data-ouia-component-id={1}
                                       data-ouia-component-type="PF4/Dropdown"
                                       data-ouia-safe={true}
                                     >
@@ -2778,7 +2758,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                           Object {
                                             "current": <div
                                               class="pf-c-dropdown pf-m-align-right historical-system-profile-dropdown"
-                                              data-ouia-component-id="2"
+                                              data-ouia-component-id="1"
                                               data-ouia-component-type="PF4/Dropdown"
                                               data-ouia-safe="true"
                                             >
@@ -2829,7 +2809,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                             Object {
                                               "current": <div
                                                 class="pf-c-dropdown pf-m-align-right historical-system-profile-dropdown"
-                                                data-ouia-component-id="2"
+                                                data-ouia-component-id="1"
                                                 data-ouia-component-type="PF4/Dropdown"
                                                 data-ouia-safe="true"
                                               >
@@ -3254,7 +3234,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                   >
                                     <div
                                       className="pf-c-dropdown pf-m-align-right historical-system-profile-dropdown"
-                                      data-ouia-component-id={3}
+                                      data-ouia-component-id={2}
                                       data-ouia-component-type="PF4/Dropdown"
                                       data-ouia-safe={true}
                                     >
@@ -3272,7 +3252,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                           Object {
                                             "current": <div
                                               class="pf-c-dropdown pf-m-align-right historical-system-profile-dropdown"
-                                              data-ouia-component-id="3"
+                                              data-ouia-component-id="2"
                                               data-ouia-component-type="PF4/Dropdown"
                                               data-ouia-safe="true"
                                             >
@@ -3323,7 +3303,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                             Object {
                                               "current": <div
                                                 class="pf-c-dropdown pf-m-align-right historical-system-profile-dropdown"
-                                                data-ouia-component-id="3"
+                                                data-ouia-component-id="2"
                                                 data-ouia-component-type="PF4/Dropdown"
                                                 data-ouia-safe="true"
                                               >
@@ -3745,7 +3725,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                   >
                                     <div
                                       className="pf-c-dropdown pf-m-align-right historical-system-profile-dropdown"
-                                      data-ouia-component-id={4}
+                                      data-ouia-component-id={3}
                                       data-ouia-component-type="PF4/Dropdown"
                                       data-ouia-safe={true}
                                     >
@@ -3763,7 +3743,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                           Object {
                                             "current": <div
                                               class="pf-c-dropdown pf-m-align-right historical-system-profile-dropdown"
-                                              data-ouia-component-id="4"
+                                              data-ouia-component-id="3"
                                               data-ouia-component-type="PF4/Dropdown"
                                               data-ouia-safe="true"
                                             >
@@ -3814,7 +3794,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                             Object {
                                               "current": <div
                                                 class="pf-c-dropdown pf-m-align-right historical-system-profile-dropdown"
-                                                data-ouia-component-id="4"
+                                                data-ouia-component-id="3"
                                                 data-ouia-component-type="PF4/Dropdown"
                                                 data-ouia-safe="true"
                                               >

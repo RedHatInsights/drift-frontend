@@ -18,19 +18,29 @@ class AddFactButton extends Component {
     }
 
     render() {
+        const { isDisabled } = this.props;
+
         return (
-            <Button
-                variant='primary'
-                onClick={ this.handleAddFact }>
-                Add fact or category
-            </Button>
+            isDisabled
+                ? <Button
+                    variant='primary'
+                    isDisabled
+                    onClick={ this.handleAddFact }>
+                    Add fact or category
+                </Button>
+                : <Button
+                    variant='primary'
+                    onClick={ this.handleAddFact }>
+                    Add fact or category
+                </Button>
         );
     };
 }
 
 AddFactButton.propTypes = {
     toggleFactModal: PropTypes.func,
-    setFactData: PropTypes.func
+    setFactData: PropTypes.func,
+    isDisabled: PropTypes.bool
 };
 
 function mapDispatchToProps(dispatch) {

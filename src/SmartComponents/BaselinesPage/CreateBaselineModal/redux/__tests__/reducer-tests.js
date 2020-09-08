@@ -3,14 +3,14 @@ import types from '../types';
 
 import createBaselineModalFixtures from './reducer.fixtures';
 
-describe('compare reducer', () => {
+describe('create baseline modal reducer', () => {
     it('should return initial state', () => {
         expect(createBaselineModalReducer(undefined, {})).toEqual(
             {
                 createBaselineModalOpened: false,
                 baselineDataLoading: false,
                 baselineData: undefined,
-                error: {}
+                createBaselineError: {}
             }
         );
     });
@@ -22,7 +22,7 @@ describe('compare reducer', () => {
             type: `${types.TOGGLE_CREATE_BASELINE_MODAL}`
         })).toEqual({
             createBaselineModalOpened: true,
-            error: {}
+            createBaselineError: {}
         });
     });
 
@@ -34,7 +34,7 @@ describe('compare reducer', () => {
         })).toEqual({
             baselineData: {},
             baselineDataLoading: true,
-            error: {}
+            createBaselineError: {}
         });
     });
 
@@ -58,7 +58,7 @@ describe('compare reducer', () => {
             type: `${types.CREATE_BASELINE}_REJECTED`
         })).toEqual({
             baselineDataLoading: false,
-            error: { detail: response.response.statusText, status: response.response.status }
+            createBaselineError: { detail: response.response.statusText, status: response.response.status }
         });
     });
 
@@ -70,7 +70,7 @@ describe('compare reducer', () => {
             type: `${types.CREATE_BASELINE}_REJECTED`
         })).toEqual({
             baselineDataLoading: false,
-            error: { detail: response.response.data.message, status: response.response.status }
+            createBaselineError: { detail: response.response.data.message, status: response.response.status }
         });
     });
 
@@ -82,7 +82,7 @@ describe('compare reducer', () => {
             type: `${types.CREATE_BASELINE}_REJECTED`
         })).toEqual({
             baselineDataLoading: false,
-            error: { detail: response.response.data.detail, status: response.response.status }
+            createBaselineError: { detail: response.response.data.detail, status: response.response.status }
         });
     });
 });
