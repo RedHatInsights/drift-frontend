@@ -150,6 +150,8 @@ export class CreateBaselineModal extends Component {
     }
 
     renderCopySystem() {
+        const { historicalProfiles } = this.props;
+
         return (<React.Fragment>
             <b>Select system to copy from</b>
             <SystemsTable
@@ -157,7 +159,7 @@ export class CreateBaselineModal extends Component {
                 createBaselineModal={ true }
                 hasHistoricalDropdown={ true }
                 hasMultiSelect={ false }
-                historicalProfiles={ this.props.historicalProfiles }
+                historicalProfiles={ historicalProfiles }
             />
         </React.Fragment>
         );

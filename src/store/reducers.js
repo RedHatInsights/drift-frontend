@@ -64,13 +64,17 @@ function selectedReducer(
             }
 
             /* Hide link on systems table */
-            newColumns.forEach(function(column) {
+            newColumns.forEach(function(column, index) {
                 if (!column.props) {
                     column.props = {};
                 }
 
-                if (column.key === 'display_name') {
+                if (column.key === 'display_name' || column.key === 'display_selected_hsp') {
                     column.props.width = 20;
+                    if (newColumns.find(({ key }) => key === 'display_selected_hsp')) {
+                        let displaySelectedHSP = newColumns.splice(newColumns.findIndex(({ key }) => key === 'display_selected_hsp'), 1);
+                        newColumns.splice(index, 1, displaySelectedHSP[0]);
+                    }
                 } else {
                     column.props.width = 10;
                 }
@@ -83,7 +87,9 @@ function selectedReducer(
             return {
                 ...state,
                 columns: newColumns,
-                rows
+                rows: state.selectedHSP
+                    ? helpers.buildSystemsTableWithSelectedHSP(rows, state.selectedHSP, deselectHistoricalProfiles)
+                    : rows
             };
         },
         [types.UPDATE_COLUMNS]: (state, action) => {
@@ -165,7 +171,8 @@ function selectedReducer(
                 ...state,
                 rows: helpers.buildSystemsTableWithSelectedHSP([ ...state.rows ], action.payload, deselectHistoricalProfiles),
                 columns: newColumns,
-                selectedSystemIds: []
+                selectedSystemIds: [],
+                selectedHSP: action.payload
             };
         }
     });
