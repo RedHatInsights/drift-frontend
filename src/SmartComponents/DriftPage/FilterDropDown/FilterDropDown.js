@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Checkbox, Dropdown, DropdownToggle } from '@patternfly/react-core';
+import { Checkbox, Dropdown, DropdownItem, DropdownToggle } from '@patternfly/react-core';
 import PropTypes from 'prop-types';
 
 import { compareActions } from '../../modules';
@@ -18,15 +18,17 @@ class FilterDropDown extends Component {
     }
 
     createDropdownItem(stateFilter) {
-        let dropdownItem = <Checkbox
-            className="state-filter-checkbox"
-            id={ stateFilter.display }
-            label={ stateFilter.display }
-            isChecked={ stateFilter.selected }
-            onChange={ () =>
-                this.props.addStateFilter(stateFilter)
-            } />;
-
+        let dropdownItem =
+            <DropdownItem>
+                <Checkbox
+                    id={ stateFilter.display }
+                    label={ stateFilter.display }
+                    isChecked={ stateFilter.selected }
+                    onChange={ () =>
+                        this.props.addStateFilter(stateFilter)
+                    }
+                />
+            </DropdownItem>;
         return dropdownItem;
     }
 
@@ -73,7 +75,6 @@ class FilterDropDown extends Component {
         return (
             <React.Fragment>
                 <Dropdown
-                    onSelect={ this.onToggle }
                     toggle={ <DropdownToggle onToggle={ this.onToggle }>
                         View: { selectedViews }
                     </DropdownToggle> }
