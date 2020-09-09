@@ -99,7 +99,8 @@ SystemsTable.propTypes = {
     hasHistoricalDropdown: PropTypes.bool,
     historicalProfiles: PropTypes.array,
     hasMultiSelect: PropTypes.bool,
-    updateColumns: PropTypes.func
+    updateColumns: PropTypes.func,
+    selectedHSPIds: PropTypes.array
 };
 
 SystemsTable.defaultProps = {
