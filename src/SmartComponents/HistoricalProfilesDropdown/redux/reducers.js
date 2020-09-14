@@ -15,11 +15,6 @@ export function historicProfilesReducer(state = initialState, action) {
                 ...state,
                 selectedHSPIds: action.payload
             };
-        case types.SET_SELECTED_HISTORIC_PROFILES:
-            return {
-                ...state,
-                selectedHSPIds: action.payload
-            };
         case 'SELECT_ENTITY':
             id = action.payload.id;
             selected = action.payload.selected;
@@ -27,6 +22,10 @@ export function historicProfilesReducer(state = initialState, action) {
             return {
                 ...state,
                 selectedHSPIds: id === 0 && !selected ? [] : state.selectedHSPIds
+            };
+        case 'CLEAR_COMPARISON':
+            return {
+                selectedHSPIds: []
             };
 
         default:

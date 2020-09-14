@@ -159,6 +159,8 @@ export class DriftTable extends Component {
     }
 
     async removeSystem(item) {
+        const { selectHistoricProfiles } = this.props;
+
         if (item.type === 'system') {
             this.systemIds = this.systemIds.filter(id => id !== item.id);
 
@@ -176,7 +178,7 @@ export class DriftTable extends Component {
             await this.props.updateReferenceId();
         }
 
-        this.props.setSelectedHistoricProfiles(this.HSPIds);
+        selectHistoricProfiles(this.HSPIds);
         this.fetchCompare(this.systemIds, this.baselineIds, this.HSPIds, this.props.referenceId);
     }
 
@@ -511,8 +513,7 @@ function mapDispatchToProps(dispatch) {
         setSelectedBaselines: ((selectedBaselineIds, tableId) =>
             dispatch(baselinesTableActions.setSelectedBaselines(selectedBaselineIds, tableId))
         ),
-        selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds)),
-        setSelectedHistoricProfiles: (HPIds) => dispatch(historicProfilesActions.setSelectedHistoricProfiles(HPIds))
+        selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds))
     };
 }
 
@@ -534,7 +535,6 @@ DriftTable.propTypes = {
     expandRow: PropTypes.func,
     expandedRows: PropTypes.array,
     setSelectedBaselines: PropTypes.func,
-    setSelectedHistoricProfiles: PropTypes.func,
     selectHistoricProfiles: PropTypes.func,
     emptyState: PropTypes.bool,
     updateReferenceId: PropTypes.func,

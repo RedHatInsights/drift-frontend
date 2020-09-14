@@ -54,11 +54,10 @@ export class DriftPage extends Component {
     }
 
     clearComparison = () => {
-        const { history, clearComparison, clearSelectedBaselines, selectHistoricProfiles, selectedHSPIds, updateReferenceId } = this.props;
+        const { history, clearComparison, clearSelectedBaselines, updateReferenceId } = this.props;
 
         clearComparison();
         clearSelectedBaselines('CHECKBOX');
-        selectHistoricProfiles(selectedHSPIds);
         updateReferenceId();
         setHistory(history, []);
     }

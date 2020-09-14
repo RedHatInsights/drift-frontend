@@ -33,7 +33,6 @@ describe('DriftTable', () => {
             expandRow: jest.fn(),
             expandedRows: [],
             setSelectedBaselines: jest.fn(),
-            setSelectedHistoricProfiles: jest.fn(),
             selectHistoricProfiles: jest.fn(),
             updateReferenceId: jest.fn()
         };
