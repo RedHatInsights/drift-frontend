@@ -59,7 +59,8 @@ export function compareReducer(state = initialState, action) {
                 factSort: state.factSort,
                 stateSort: state.stateSort,
                 perPage: state.perPage,
-                expandedRows: []
+                expandedRows: [],
+                historicalProfiles: []
             };
         case types.CLEAR_COMPARISON_FILTERS:
             newStateFilters = [ ...state.stateFilters ];
