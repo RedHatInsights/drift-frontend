@@ -28,7 +28,8 @@ export class DriftTable extends Component {
             emptyStateMessage: [
                 'You currently have no system or baselines displayed. Add at least two',
                 'systems or baselines to compare their facts.'
-            ]
+            ],
+            isFirstReference: true
         };
 
         this.masterList = [];
@@ -44,10 +45,9 @@ export class DriftTable extends Component {
 
     async componentDidMount() {
         await window.insights.chrome.auth.getUser();
-        const { fetchCompare } = this.props;
 
         if (this.systemIds.length > 0 || this.baselineIds.length > 0 || this.HSPIds.length > 0) {
-            fetchCompare(this.systemIds, this.baselineIds, this.HSPIds, this.props.referenceId);
+            this.fetchCompare(this.systemIds, this.baselineIds, this.HSPIds, this.props.referenceId);
         }
     }
 
@@ -147,7 +147,8 @@ export class DriftTable extends Component {
     }
 
     setReferenceId() {
-        this.props.updateReferenceId(queryString.parse(this.props.location.search).reference_id);
+        const { location, updateReferenceId } = this.props;
+        updateReferenceId(queryString.parse(location.search).reference_id);
     }
 
     updateReferenceId = (id) => {
@@ -173,7 +174,7 @@ export class DriftTable extends Component {
         }
 
         if (item.id === this.props.referenceId) {
-            await this.props.updateReferenceId();
+            await this.props.updateReferenceId(this.baselineIds[0]);
         }
 
         this.props.setSelectedHistoricProfiles(this.HSPIds);
@@ -181,14 +182,29 @@ export class DriftTable extends Component {
     }
 
     fetchCompare(systemIds, baselineIds, HSPIds, referenceId) {
+        const { isFirstReference } = this.state;
+        let reference;
+
         this.systemIds = systemIds;
         this.baselineIds = baselineIds;
         this.HSPIds = HSPIds;
 
-        setHistory(this.props.history, systemIds, baselineIds, HSPIds, referenceId);
+        if (isFirstReference) {
+            if (!referenceId && this.baselineIds.length) {
+                reference = baselineIds[0];
+                this.setState({ isFirstReference: false });
+            } else if (referenceId) {
+                reference = referenceId;
+                this.setState({ isFirstReference: false });
+            }
+        } else {
+            reference = referenceId;
+        }
+
+        setHistory(this.props.history, systemIds, baselineIds, HSPIds, reference);
         this.props.setSelectedBaselines(this.baselineIds, 'CHECKBOX');
-        this.props.updateReferenceId(referenceId);
-        this.props.fetchCompare(systemIds, baselineIds, HSPIds, referenceId);
+        this.props.updateReferenceId(reference);
+        this.props.fetchCompare(systemIds, baselineIds, HSPIds, reference);
     }
 
     renderRows(facts) {
