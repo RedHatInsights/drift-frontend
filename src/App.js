@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import React, { createContext, Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { NotificationsPortal } from '@redhat-cloud-services/frontend-components-notifications';
@@ -7,7 +7,26 @@ import { NotificationsPortal } from '@redhat-cloud-services/frontend-components-
 import { Routes } from './Routes';
 import './App.scss';
 
+export const PermissionContext = createContext();
+
 class App extends Component {
+
+    constructor() {
+        super();
+        this.state = {
+            hasCompareReadPermissions: undefined,
+            hasBaselinesReadPermissions: undefined,
+            hasBaselinesWritePermissions: undefined,
+            arePermissionsLoaded: false
+        };
+    }
+
+    handlePermissionsUpdate = (hasCompareRead, hasBaselinesRead, hasBaselinesWrite) => this.setState({
+        hasCompareReadPermissions: hasCompareRead,
+        hasBaselinesReadPermissions: hasBaselinesRead,
+        hasBaselinesWritePermissions: hasBaselinesWrite,
+        arePermissionsLoaded: true
+    });
 
     componentDidMount () {
         insights.chrome.init();
@@ -17,6 +36,20 @@ class App extends Component {
                 this.props.history.push(`/${event.navId}`);
             }
         });
+        window.insights.chrome.getUserPermissions('drift').then(
+            driftPermissions => {
+                const permissionsList = driftPermissions.map(permissions => permissions.permission);
+                if (permissionsList.includes('drift:*:*')) {
+                    this.handlePermissionsUpdate(true, true, true);
+                } else {
+                    this.handlePermissionsUpdate(
+                        permissionsList.includes('drift:comparison:read' || 'drift:*:read'),
+                        permissionsList.includes('drift:baselines:read' || 'drift:*:read'),
+                        permissionsList.includes('drift:baselines:write' || 'drift:*:write')
+                    );
+                }
+            }
+        );
     }
 
     componentWillUnmount () {
@@ -25,11 +58,22 @@ class App extends Component {
     }
 
     render () {
+        const { hasCompareReadPermissions, hasBaselinesReadPermissions, hasBaselinesWritePermissions, arePermissionsLoaded } = this.state;
+
         return (
-            <React.Fragment>
-                <NotificationsPortal />
-                <Routes childProps={ this.props } />
-            </React.Fragment>
+            arePermissionsLoaded
+                ? <PermissionContext.Provider
+                    value={ {
+                        permissions: {
+                            compareRead: hasCompareReadPermissions,
+                            baselinesRead: hasBaselinesReadPermissions,
+                            baselinesWrite: hasBaselinesWritePermissions
+                        }
+                    } }>
+                    <NotificationsPortal />
+                    <Routes childProps={ this.props } />
+                </PermissionContext.Provider>
+                : null
         );
     }
 }

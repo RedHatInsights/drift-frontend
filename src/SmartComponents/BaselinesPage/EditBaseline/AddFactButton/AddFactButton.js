@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Button } from '@patternfly/react-core';
+import { Button, Tooltip } from '@patternfly/react-core';
 
 import { editBaselineActions } from '../redux';
 
@@ -18,21 +18,33 @@ class AddFactButton extends Component {
     }
 
     render() {
-        const { isDisabled } = this.props;
+        const { hasWritePermissions, isDisabled } = this.props;
 
         return (
-            isDisabled
-                ? <Button
-                    variant='primary'
-                    isDisabled
-                    onClick={ this.handleAddFact }>
-                    Add fact or category
-                </Button>
-                : <Button
-                    variant='primary'
-                    onClick={ this.handleAddFact }>
-                    Add fact or category
-                </Button>
+            <React.Fragment>
+                { !hasWritePermissions && hasWritePermissions !== undefined
+                    ? <Tooltip
+                        content={
+                            <div>You do not have permissions to perform this action</div>
+                        }
+                    >
+                        <div>
+                            <Button
+                                variant='primary'
+                                isDisabled
+                                onClick={ this.handleAddFact }>
+                                Add fact or category
+                            </Button>
+                        </div>
+                    </Tooltip>
+                    : <Button
+                        variant='primary'
+                        isDisabled={ isDisabled }
+                        onClick={ this.handleAddFact }>
+                        Add fact or category
+                    </Button>
+                }
+            </React.Fragment>
         );
     };
 }
@@ -40,7 +52,8 @@ class AddFactButton extends Component {
 AddFactButton.propTypes = {
     toggleFactModal: PropTypes.func,
     setFactData: PropTypes.func,
-    isDisabled: PropTypes.bool
+    isDisabled: PropTypes.bool,
+    hasWritePermissions: PropTypes.bool
 };
 
 function mapDispatchToProps(dispatch) {

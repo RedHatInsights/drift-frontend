@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Table, TableBody, TableHeader } from '@patternfly/react-table';
 import { Skeleton, SkeletonSize, EmptyTable } from '@redhat-cloud-services/frontend-components';
 import { Radio, Toolbar, ToolbarGroup, ToolbarItem } from '@patternfly/react-core';
+import { LockIcon } from '@patternfly/react-icons';
 
 import BaselineTableKebab from './BaselineTableKebab/BaselineTableKebab';
 import { baselinesTableActions } from './redux';
@@ -11,6 +12,7 @@ import baselinesReducerHelpers from './redux/helpers';
 import BaselinesToolbar from './BaselinesToolbar/BaselinesToolbar';
 import EmptyStateDisplay from '../EmptyStateDisplay/EmptyStateDisplay';
 import TablePagination from '../Pagination/Pagination';
+import { PermissionContext } from '../../App';
 
 export class BaselinesTable extends Component {
     constructor(props) {
@@ -126,7 +128,7 @@ export class BaselinesTable extends Component {
         );
     }
 
-    renderRows() {
+    renderRows(hasWritePermissions) {
         const { tableData, kebab, onClick, tableId, hasMultiSelect } = this.props;
         let table = [];
 
@@ -154,7 +156,7 @@ export class BaselinesTable extends Component {
 
             row.push(baseline[2]);
 
-            if (kebab) {
+            if (kebab && hasWritePermissions) {
                 let kebab = <BaselineTableKebab
                     tableId={ tableId }
                     baselineRowData={ baseline }
@@ -173,8 +175,8 @@ export class BaselinesTable extends Component {
         return table;
     }
 
-    renderTable() {
-        const { tableData, loading, columns, onSelect, hasMultiSelect } = this.props;
+    renderTable(hasWritePermissions, hasReadPermissions) {
+        const { columns, createButton, hasMultiSelect, kebab, loading, onSelect, tableData } = this.props;
         const { emptyStateMessage } = this.state;
         let loadingRows = [];
         let tableRows = [];
@@ -206,20 +208,33 @@ export class BaselinesTable extends Component {
                     <TableBody />
                 </Table>;
             } else {
-                tableRows = this.renderRows();
+                if (!hasReadPermissions && !createButton) {
+                    return <EmptyStateDisplay
+                        icon={ LockIcon }
+                        color='#6a6e73'
+                        title={ 'You do not have access to Baselines' }
+                        text={ [ 'Contact your organization administrator(s) for more information.' ] }
+                    />;
+                } else {
+                    tableRows = this.renderRows(hasWritePermissions);
 
-                table = <Table
-                    aria-label="Baselines Table"
-                    onSort={ this.onSort }
-                    onSelect={ hasMultiSelect ? onSelect : false }
-                    sortBy={ this.state.sortBy }
-                    cells={ columns }
-                    rows={ tableRows }
-                    canSelectAll={ false }
-                >
-                    <TableHeader />
-                    <TableBody />
-                </Table>;
+                    table = <Table
+                        aria-label="Baselines Table"
+                        onSort={ this.onSort }
+                        onSelect={
+                            hasMultiSelect && (hasWritePermissions) || (!hasWritePermissions && !kebab)
+                                ? onSelect
+                                : false
+                        }
+                        sortBy={ this.state.sortBy }
+                        cells={ columns }
+                        rows={ tableRows }
+                        canSelectAll={ false }
+                    >
+                        <TableHeader />
+                        <TableBody />
+                    </Table>;
+                }
             }
         } else if (loading) {
             loadingRows = this.renderLoadingRows();
@@ -240,46 +255,53 @@ export class BaselinesTable extends Component {
     }
 
     render() {
-        const { kebab, createButton, exportToCSV, exportButton, hasMultiSelect, onBulkSelect, selectedBaselineIds,
+        const { kebab, createButton, exportToCSV, exportButton, hasMultiSelect, loading, onBulkSelect, selectedBaselineIds,
             tableData, tableId, totalBaselines } = this.props;
         const { page, perPage } = this.state;
 
         return (
-            <React.Fragment>
-                <BaselinesToolbar
-                    createButton={ createButton }
-                    exportButton={ exportButton }
-                    kebab={ kebab }
-                    onSearch={ this.onSearch }
-                    tableId={ tableId }
-                    fetchWithParams={ this.fetchWithParams }
-                    tableData={ tableData }
-                    onBulkSelect={ onBulkSelect }
-                    hasMultiSelect={ hasMultiSelect }
-                    selectedBaselineIds={ selectedBaselineIds }
-                    isDisabled={ this.isDisabled() }
-                    page={ page }
-                    perPage={ perPage }
-                    totalBaselines={ totalBaselines }
-                    updatePagination={ this.updatePagination }
-                    exportToCSV={ exportToCSV }
-                />
-                { this.renderTable() }
-                <Toolbar>
-                    <ToolbarGroup className='pf-c-pagination'>
-                        <ToolbarItem>
-                            <TablePagination
-                                page={ page }
-                                perPage={ perPage }
-                                total={ totalBaselines }
-                                isCompact={ false }
-                                updatePagination={ this.updatePagination }
-                                tableId={ tableId }
-                            />
-                        </ToolbarItem>
-                    </ToolbarGroup>
-                </Toolbar>
-            </React.Fragment>
+            <PermissionContext.Consumer>
+                { value =>
+                    <React.Fragment>
+                        <BaselinesToolbar
+                            createButton={ createButton }
+                            exportButton={ exportButton }
+                            kebab={ kebab }
+                            onSearch={ this.onSearch }
+                            tableId={ tableId }
+                            fetchWithParams={ this.fetchWithParams }
+                            tableData={ tableData }
+                            onBulkSelect={ onBulkSelect }
+                            hasMultiSelect={ hasMultiSelect }
+                            selectedBaselineIds={ selectedBaselineIds }
+                            isDisabled={ this.isDisabled() }
+                            page={ page }
+                            perPage={ perPage }
+                            totalBaselines={ totalBaselines }
+                            updatePagination={ this.updatePagination }
+                            exportToCSV={ exportToCSV }
+                            loading={ loading }
+                            hasWritePermissions={ value.permissions.baselinesWrite }
+                            hasReadPermissions={ value.permissions.baselinesRead }
+                        />
+                        { this.renderTable(value.permissions.baselinesWrite, value.permissions.baselinesRead) }
+                        <Toolbar>
+                            <ToolbarGroup className='pf-c-pagination'>
+                                <ToolbarItem>
+                                    <TablePagination
+                                        page={ page }
+                                        perPage={ perPage }
+                                        total={ !value.permissions.baselinesRead ? 0 : totalBaselines }
+                                        isCompact={ false }
+                                        updatePagination={ this.updatePagination }
+                                        tableId={ tableId }
+                                    />
+                                </ToolbarItem>
+                            </ToolbarGroup>
+                        </Toolbar>
+                    </React.Fragment>
+                }
+            </PermissionContext.Consumer>
         );
     }
 }

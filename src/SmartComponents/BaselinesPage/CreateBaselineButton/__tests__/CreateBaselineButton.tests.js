@@ -12,18 +12,31 @@ describe('CreateBaselineButton', () => {
 
     beforeEach(() => {
         props = {
-            addSystemModalOpened: false
+            addSystemModalOpened: false,
+            hasWritePermissions: true
         };
     });
 
-    it('should render correctly', () =>{
+    it('should render correctly', () => {
         const wrapper = shallow(
             <CreateBaselineButton { ...props }/>
         );
+
+        expect(wrapper.find('[id="create-baseline-button"]').prop('isDisabled')).toBe(false);
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 
-    it('should render mount correctly', () =>{
+    it('should render disabled with no write permissions', () => {
+        props.hasWritePermissions = false;
+        const wrapper = shallow(
+            <CreateBaselineButton { ...props }/>
+        );
+
+        expect(wrapper.find('[id="create-baseline-button"]').prop('isDisabled')).toBe(true);
+        expect(wrapper.find('Tooltip')).toHaveLength(1);
+    });
+
+    it('should render mount correctly', () => {
         const wrapper = mount(
             <CreateBaselineButton { ...props }/>
         );
@@ -35,11 +48,14 @@ describe('CreateBaselineButton', () => {
             const toggleCreateBaselineModal = jest.fn();
             const toggleAddSystemModal = jest.fn();
             const history = { location: { pathname: '/baselines' }, push: jest.fn() };
-            const wrapper = mount(<CreateBaselineButton
-                history={ history }
-                toggleCreateBaselineModal={ toggleCreateBaselineModal }
-                toggleAddSystemModal={ toggleAddSystemModal }
-            />);
+            const wrapper = mount(
+                <CreateBaselineButton
+                    history={ history }
+                    toggleCreateBaselineModal={ toggleCreateBaselineModal }
+                    toggleAddSystemModal={ toggleAddSystemModal }
+                    { ...props }
+                />
+            );
 
             wrapper.find('.pf-c-button').simulate('click');
             expect(toggleCreateBaselineModal).toHaveBeenCalledTimes(1);
@@ -47,16 +63,18 @@ describe('CreateBaselineButton', () => {
         });
 
         it('should call toggleAddSystemModal', () => {
-            const addSystemModalOpened = true;
+            props.addSystemModalOpened = true;
             const toggleCreateBaselineModal = jest.fn();
             const toggleAddSystemModal = jest.fn();
             const history = { location: { pathname: '/' }, push: jest.fn() };
-            const wrapper = mount(<CreateBaselineButton
-                addSystemModalOpened={ addSystemModalOpened }
-                history={ history }
-                toggleCreateBaselineModal={ toggleCreateBaselineModal }
-                toggleAddSystemModal={ toggleAddSystemModal }
-            />);
+            const wrapper = mount(
+                <CreateBaselineButton
+                    history={ history }
+                    toggleCreateBaselineModal={ toggleCreateBaselineModal }
+                    toggleAddSystemModal={ toggleAddSystemModal }
+                    { ...props }
+                />
+            );
 
             wrapper.find('.pf-c-button').simulate('click');
             expect(toggleCreateBaselineModal).toHaveBeenCalledTimes(1);
@@ -68,6 +86,7 @@ describe('CreateBaselineButton', () => {
 describe('ConnectedCreateBaselineButton', () => {
     let initialState;
     let mockStore;
+    let props;
 
     beforeEach(() => {
         mockStore = configureStore();
@@ -76,6 +95,10 @@ describe('ConnectedCreateBaselineButton', () => {
                 addSystemModalOpened: false
             }
         };
+
+        props = {
+            hasWritePermissions: true
+        };
     });
 
     it('should render correctly', () => {
@@ -83,7 +106,7 @@ describe('ConnectedCreateBaselineButton', () => {
         const wrapper = mount(
             <MemoryRouter keyLength={ 0 }>
                 <Provider store={ store }>
-                    <ConnectedCreateBaselineButton />
+                    <ConnectedCreateBaselineButton { ...props } />
                 </Provider>
             </MemoryRouter>
         );
@@ -96,7 +119,7 @@ describe('ConnectedCreateBaselineButton', () => {
         const wrapper = mount(
             <MemoryRouter keyLength={ 0 }>
                 <Provider store={ store }>
-                    <ConnectedCreateBaselineButton />
+                    <ConnectedCreateBaselineButton { ...props } />
                 </Provider>
             </MemoryRouter>
         );
@@ -112,7 +135,7 @@ describe('ConnectedCreateBaselineButton', () => {
         const wrapper = mount(
             <MemoryRouter keyLength={ 0 }>
                 <Provider store={ store }>
-                    <ConnectedCreateBaselineButton />
+                    <ConnectedCreateBaselineButton { ...props } />
                 </Provider>
             </MemoryRouter>
         );

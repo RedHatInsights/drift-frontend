@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 import { Main, PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components';
 import { Card, CardBody, DropdownItem, Toolbar, ToolbarGroup, ToolbarItem, ToolbarContent, PaginationVariant } from '@patternfly/react-core';
-import { ExclamationCircleIcon, PlusCircleIcon } from '@patternfly/react-icons';
+import { ExclamationCircleIcon, LockIcon, PlusCircleIcon } from '@patternfly/react-icons';
 import { baselinesTableActions } from '../BaselinesTable/redux';
 import { compareActions } from '../modules';
 import { historicProfilesActions } from '../HistoricalProfilesDropdown/redux';
@@ -21,6 +21,7 @@ import ExportCSVButton from '../ExportCSVButton/ExportCSVButton';
 import DriftFilterChips from './DriftFilterChips/DriftFilterChips';
 import AddSystemButton from './AddSystemButton/AddSystemButton';
 import EmptyStateDisplay from '../EmptyStateDisplay/EmptyStateDisplay';
+import { PermissionContext } from '../../App';
 
 export class DriftPage extends Component {
     constructor(props) {
@@ -123,104 +124,117 @@ export class DriftPage extends Component {
                     <PageHeaderTitle title='Comparison'/>
                 </PageHeader>
                 <Main>
-                    <ErrorAlert
-                        error={ error }
-                        onClose={ this.onClose }
-                    />
-                    { emptyState && !loading
-                        ? this.renderEmptyState()
-                        : <div></div>
-                    }
-                    <Card className='pf-t-light pf-m-opaque-100'>
-                        <CardBody>
-                            <div>
-                                { !emptyState ?
-                                    <React.Fragment>
-                                        <Toolbar className="drift-toolbar">
-                                            <ToolbarContent>
-                                                <ToolbarGroup variant='filter-group'>
-                                                    <ToolbarItem>
-                                                        <SearchBar />
-                                                    </ToolbarItem>
-                                                    <ToolbarItem>
-                                                        <FilterDropDown />
-                                                    </ToolbarItem>
-                                                </ToolbarGroup>
-                                                <ToolbarGroup variant='button-group'>
-                                                    <ToolbarItem>
-                                                        <AddSystemButton loading={ loading } />
-                                                    </ToolbarItem>
-                                                </ToolbarGroup>
-                                                <ToolbarGroup variant='icon-button-group'>
-                                                    <ToolbarItem>
-                                                        <ExportCSVButton
-                                                            dropdownItems={ dropdownItems }
-                                                            isOpen={ dropdownOpen }
-                                                            onToggle={ this.onToggle }
-                                                        />
-                                                    </ToolbarItem>
-                                                    <ToolbarItem>
-                                                        <ActionKebab dropdownItems={ actionKebabItems } />
-                                                    </ToolbarItem>
-                                                </ToolbarGroup>
-                                                <ToolbarItem variant='pagination' align={ { default: 'alignRight' } }>
-                                                    <TablePagination
-                                                        page={ page }
-                                                        perPage={ perPage }
-                                                        total={ totalFacts }
-                                                        isCompact={ true }
-                                                        updatePagination={ updatePagination }
-                                                        widgetId='drift-pagination-top'
-                                                        variant={ PaginationVariant.top }
-                                                    />
-                                                </ToolbarItem>
-                                            </ToolbarContent>
-                                        </Toolbar>
-                                        <Toolbar className="drift-toolbar">
-                                            <ToolbarContent>
-                                                <ToolbarGroup>
-                                                    <ToolbarItem>
-                                                        <DriftFilterChips setIsEmpty={ this.setIsEmpty } />
-                                                    </ToolbarItem>
-                                                    { !isEmpty
-                                                        ? <ToolbarItem>
-                                                            <a onClick={ () => this.clearFilters() } >
-                                                                Clear filters
-                                                            </a>
-                                                        </ToolbarItem>
-                                                        : null
-                                                    }
-                                                </ToolbarGroup>
-                                            </ToolbarContent>
-                                        </Toolbar>
-                                    </React.Fragment>
-                                    : null
-                                }
-                                <DriftTable
-                                    updateReferenceId={ updateReferenceId }
-                                    error={ error }
+                    <PermissionContext.Consumer>
+                        { value =>
+                            value.permissions.compareRead === false
+                                ? <EmptyStateDisplay
+                                    icon={ LockIcon }
+                                    color='#6a6e73'
+                                    title={ 'You do not have access to Drift comparison' }
+                                    text={ [ 'Contact your organization administrator(s) for more information.' ] }
                                 />
-                                { !emptyState && !loading ?
-                                    <Toolbar className="drift-toolbar">
-                                        <ToolbarGroup className="pf-c-pagination">
-                                            <ToolbarItem>
-                                                <TablePagination
-                                                    page={ page }
-                                                    perPage={ perPage }
-                                                    total={ totalFacts }
-                                                    isCompact={ false }
-                                                    updatePagination={ updatePagination }
-                                                    widgetId='drift-pagination-bottom'
-                                                    variant={ PaginationVariant.bottom }
+                                : <React.Fragment>
+                                    <ErrorAlert
+                                        error={ error }
+                                        onClose={ this.onClose }
+                                    />
+                                    { emptyState && !loading
+                                        ? this.renderEmptyState()
+                                        : <div></div>
+                                    }
+                                    <Card className='pf-t-light pf-m-opaque-100'>
+                                        <CardBody>
+                                            <div>
+                                                { !emptyState ?
+                                                    <React.Fragment>
+                                                        <Toolbar className="drift-toolbar">
+                                                            <ToolbarContent>
+                                                                <ToolbarGroup variant='filter-group'>
+                                                                    <ToolbarItem>
+                                                                        <SearchBar />
+                                                                    </ToolbarItem>
+                                                                    <ToolbarItem>
+                                                                        <FilterDropDown />
+                                                                    </ToolbarItem>
+                                                                </ToolbarGroup>
+                                                                <ToolbarGroup variant='button-group'>
+                                                                    <ToolbarItem>
+                                                                        <AddSystemButton loading={ loading } />
+                                                                    </ToolbarItem>
+                                                                </ToolbarGroup>
+                                                                <ToolbarGroup variant='icon-button-group'>
+                                                                    <ToolbarItem>
+                                                                        <ExportCSVButton
+                                                                            dropdownItems={ dropdownItems }
+                                                                            isOpen={ dropdownOpen }
+                                                                            onToggle={ this.onToggle }
+                                                                        />
+                                                                    </ToolbarItem>
+                                                                    <ToolbarItem>
+                                                                        <ActionKebab dropdownItems={ actionKebabItems } />
+                                                                    </ToolbarItem>
+                                                                </ToolbarGroup>
+                                                                <ToolbarItem variant='pagination' align={ { default: 'alignRight' } }>
+                                                                    <TablePagination
+                                                                        page={ page }
+                                                                        perPage={ perPage }
+                                                                        total={ totalFacts }
+                                                                        isCompact={ true }
+                                                                        updatePagination={ updatePagination }
+                                                                        widgetId='drift-pagination-top'
+                                                                        variant={ PaginationVariant.top }
+                                                                    />
+                                                                </ToolbarItem>
+                                                            </ToolbarContent>
+                                                        </Toolbar>
+                                                        <Toolbar className="drift-toolbar">
+                                                            <ToolbarContent>
+                                                                <ToolbarGroup>
+                                                                    <ToolbarItem>
+                                                                        <DriftFilterChips setIsEmpty={ this.setIsEmpty } />
+                                                                    </ToolbarItem>
+                                                                    { !isEmpty
+                                                                        ? <ToolbarItem>
+                                                                            <a onClick={ () => this.clearFilters() } >
+                                                                                Clear filters
+                                                                            </a>
+                                                                        </ToolbarItem>
+                                                                        : null
+                                                                    }
+                                                                </ToolbarGroup>
+                                                            </ToolbarContent>
+                                                        </Toolbar>
+                                                    </React.Fragment>
+                                                    : null
+                                                }
+                                                <DriftTable
+                                                    updateReferenceId={ updateReferenceId }
+                                                    error={ error }
                                                 />
-                                            </ToolbarItem>
-                                        </ToolbarGroup>
-                                    </Toolbar>
-                                    : null
-                                }
-                            </div>
-                        </CardBody>
-                    </Card>
+                                                { !emptyState && !loading ?
+                                                    <Toolbar className="drift-toolbar">
+                                                        <ToolbarGroup className="pf-c-pagination">
+                                                            <ToolbarItem>
+                                                                <TablePagination
+                                                                    page={ page }
+                                                                    perPage={ perPage }
+                                                                    total={ totalFacts }
+                                                                    isCompact={ false }
+                                                                    updatePagination={ updatePagination }
+                                                                    widgetId='drift-pagination-bottom'
+                                                                    variant={ PaginationVariant.bottom }
+                                                                />
+                                                            </ToolbarItem>
+                                                        </ToolbarGroup>
+                                                    </Toolbar>
+                                                    : null
+                                                }
+                                            </div>
+                                        </CardBody>
+                                    </Card>
+                                </React.Fragment>
+                        }
+                    </PermissionContext.Consumer>
                 </Main>
             </React.Fragment>
         );

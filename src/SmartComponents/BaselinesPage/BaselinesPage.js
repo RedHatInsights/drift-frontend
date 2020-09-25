@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 
 import { Main, PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components';
 import { Card, CardBody } from '@patternfly/react-core';
-import { AddCircleOIcon, ExclamationCircleIcon, UndoIcon } from '@patternfly/react-icons';
+import { AddCircleOIcon, ExclamationCircleIcon, LockIcon, UndoIcon } from '@patternfly/react-icons';
 import { sortable } from '@patternfly/react-table';
 
 import BaselinesTable from '../BaselinesTable/BaselinesTable';
@@ -15,6 +15,7 @@ import EmptyStateDisplay from '../EmptyStateDisplay/EmptyStateDisplay';
 import ErrorAlert from '../ErrorAlert/ErrorAlert';
 import { baselinesTableActions } from '../BaselinesTable/redux';
 import { editBaselineActions } from './EditBaseline/redux';
+import { PermissionContext } from '../../App';
 
 export class BaselinesPage extends Component {
     constructor(props) {
@@ -144,21 +145,31 @@ export class BaselinesPage extends Component {
                     <PageHeaderTitle title='Baselines'/>
                 </PageHeader>
                 <Main>
-                    { emptyState && !loading
-                        ? this.renderEmptyState()
-                        : <React.Fragment>
-                            <ErrorAlert
-                                error={ !emptyState && baselineError ? baselineError : {} }
-                                onClose={ revertBaselineFetch }
-                                tableId={ 'CHECKBOX' }
-                            />
-                            <Card className='pf-t-light pf-m-opaque-100'>
-                                {
-                                    this.renderTable()
-                                }
-                            </Card>
-                        </React.Fragment>
-                    }
+                    <PermissionContext.Consumer>
+                        { value =>
+                            value.permissions.baselinesRead === false
+                                ? <EmptyStateDisplay
+                                    icon={ LockIcon }
+                                    color='#6a6e73'
+                                    title={ 'You do not have access to Baselines' }
+                                    text={ [ 'Contact your organization administrator(s) for more information.' ] }
+                                />
+                                : emptyState && !loading
+                                    ? this.renderEmptyState()
+                                    : <React.Fragment>
+                                        <ErrorAlert
+                                            error={ !emptyState && baselineError ? baselineError : {} }
+                                            onClose={ revertBaselineFetch }
+                                            tableId={ 'CHECKBOX' }
+                                        />
+                                        <Card className='pf-t-light pf-m-opaque-100'>
+                                            {
+                                                this.renderTable()
+                                            }
+                                        </Card>
+                                    </React.Fragment>
+                        }
+                    </PermissionContext.Consumer>
                 </Main>
             </React.Fragment>
         );

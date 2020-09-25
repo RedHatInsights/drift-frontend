@@ -49,9 +49,12 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
       }
     >
       <EditBaselineToolbar
+        exportToCSV={[MockFunction]}
+        hasWritePermissions={true}
         isDisabled={false}
         onBulkSelect={[MockFunction]}
         selected={0}
+        totalFacts={2}
       >
         <Toolbar
           className="drift-toolbar"
@@ -432,28 +435,29 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                         className="pf-c-toolbar__item"
                       >
                         <Connect(AddFactButton)
-                          isDisabled={true}
+                          hasWritePermissions={true}
+                          isDisabled={false}
                         >
                           <AddFactButton
-                            isDisabled={true}
+                            hasWritePermissions={true}
+                            isDisabled={false}
                             setFactData={[Function]}
                             toggleFactModal={[Function]}
                           >
                             <Button
-                              isDisabled={true}
+                              isDisabled={false}
                               onClick={[Function]}
                               variant="primary"
                             >
                               <button
-                                aria-disabled={true}
+                                aria-disabled={false}
                                 aria-label={null}
-                                className="pf-c-button pf-m-primary pf-m-disabled"
+                                className="pf-c-button pf-m-primary"
                                 data-ouia-component-id={1}
                                 data-ouia-component-type="PF4/Button"
                                 data-ouia-safe={true}
-                                disabled={true}
+                                disabled={false}
                                 onClick={[Function]}
-                                tabIndex={null}
                                 type="button"
                               >
                                 Add fact or category
@@ -1113,7 +1117,8 @@ exports[`EditBaselineToolbar should render correctly 1`] = `
     </ToolbarItem>
     <ToolbarItem>
       <Connect(AddFactButton)
-        isDisabled={true}
+        hasWritePermissions={true}
+        isDisabled={false}
       />
     </ToolbarItem>
     <ForwardRef

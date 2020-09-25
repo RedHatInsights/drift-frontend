@@ -21,6 +21,8 @@ describe('jest-tests', () => {
                 tableData: baselinesTableFixtures.baselineTableDataRows,
                 tableId: 'CHECKBOX',
                 hasMultiSelect: true,
+                hasWritePermissions: true,
+                hasReadPermissions: true,
                 onSearch: jest.fn()
             };
         });
@@ -31,6 +33,25 @@ describe('jest-tests', () => {
             );
 
             expect(toJson(wrapper)).toMatchSnapshot();
+        });
+
+        it('should have disabled BulkSelect with no write permissions', () => {
+            props.hasWritePermissions = false;
+            const wrapper = shallow(
+                <BaselinesToolbar { ...props } />
+            );
+
+            expect(wrapper.find('BulkSelect').prop('isDisabled')).toBe(true);
+        });
+
+        it('should have enabled BulkSelect with no write permissions in add system modal', () => {
+            props.hasWritePermissions = false;
+            props.kebab = false;
+            const wrapper = shallow(
+                <BaselinesToolbar { ...props } />
+            );
+
+            expect(wrapper.find('BulkSelect').prop('isDisabled')).toBe(false);
         });
 
         it('should call onSearch with clear filters', () => {
@@ -94,7 +115,9 @@ describe('jest-tests', () => {
                 kebab: true,
                 tableData: baselinesTableFixtures.baselineTableDataRows,
                 tableId: 'CHECKBOX',
-                hasMultiSelect: true
+                hasMultiSelect: true,
+                hasWritePermissions: true,
+                hasReadPermissions: true
             };
         });
 

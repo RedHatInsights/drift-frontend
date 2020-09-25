@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import { MemoryRouter } from 'react-router-dom';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
@@ -7,255 +7,14 @@ import toJson from 'enzyme-to-json';
 import helpersFixtures from './helpers.fixtures';
 
 import editBaselineFixtures from './helpers.fixtures';
-import ConnectedEditBaseline, { EditBaseline } from '../EditBaseline';
+import ConnectedEditBaseline from '../EditBaseline';
 import api from '../../../../api';
-
-describe('EditBaseline', () => {
-    let props;
-
-    beforeEach(() => {
-        props = {
-            baselineData: [],
-            baselineDataLoading: false,
-            factModalOpened: false,
-            editBaselineTableData: [],
-            expandedRows: [],
-            selectAll: false,
-            editBaselineError: {},
-            match: { params: {}},
-            history: { push: jest.fn() },
-            fetchBaselineData: jest.fn()
-        };
-    });
-
-    it('should render correctly', () => {
-        const wrapper = shallow(
-            <EditBaseline { ...props } />
-        );
-
-        expect(toJson(wrapper)).toMatchSnapshot();
-    });
-
-    it('should render error correctly', () => {
-        props.editBaselineError = { status: 404 };
-        const wrapper = shallow(
-            <EditBaseline { ...props } />
-        );
-
-        expect(toJson(wrapper)).toMatchSnapshot();
-    });
-
-    it('should call clearBaselineData on Breadcrumb click', () => {
-        const clearBaselineData = jest.fn();
-        const wrapper = shallow(
-            <EditBaseline { ...props } clearBaselineData={ clearBaselineData } />
-        );
-
-        wrapper.find('a').simulate('click');
-        expect(clearBaselineData).toHaveBeenCalledTimes(1);
-    });
-
-    it('should render loading rows', () => {
-        props.baselineData = undefined;
-        const wrapper = shallow(
-            <EditBaseline { ...props } />
-        );
-
-        expect(toJson(wrapper)).toMatchSnapshot();
-    });
-
-    it('should render expandable rows closed', () => {
-        props.editBaselineTableData = helpersFixtures.mockBaselineTableData1;
-        props.baselineData = helpersFixtures.mockBaselineAPIBody;
-        const wrapper = shallow(
-            <EditBaseline { ...props } />
-        );
-
-        expect(toJson(wrapper)).toMatchSnapshot();
-    });
-
-    it('should render expandable rows opened', () => {
-        props.editBaselineTableData = helpersFixtures.mockBaselineTableData1;
-        props.baselineData = helpersFixtures.mockBaselineAPIBody;
-        props.expandedRows = [ 'The Fellowship of the Ring' ];
-        const wrapper = shallow(
-            <EditBaseline { ...props } />
-        );
-
-        expect(toJson(wrapper)).toMatchSnapshot();
-    });
-
-    it('should render with baseline facts', () => {
-        props.baselineData = editBaselineFixtures.mockBaselineData1;
-        props.editBaselineTableData = editBaselineFixtures.mockBaselineTableData1;
-
-        const wrapper = shallow(
-            <EditBaseline { ...props } />
-        );
-
-        expect(toJson(wrapper)).toMatchSnapshot();
-    });
-
-    describe('API', () => {
-        it('should call clearBaselineData', () => {
-            const clearBaselineData = jest.fn();
-            const history = { location: { pathname: '/baselines' }, push: jest.fn() };
-            const wrapper = shallow(
-                <EditBaseline
-                    { ...props }
-                    clearBaselineData={ clearBaselineData }
-                    history={ history }
-                />
-            );
-
-            wrapper.find('a').simulate('click');
-            expect(clearBaselineData).toHaveBeenCalled();
-        });
-
-        it('should render row expanded', () => {
-            props.baselineData = editBaselineFixtures.mockBaselineData1;
-            props.editBaselineTableData = editBaselineFixtures.mockBaselineTableData1;
-            props.expandedRows = [ 'The Fellowship of the Ring' ];
-
-            const wrapper = shallow(
-                <EditBaseline { ...props } />
-            );
-
-            expect(wrapper.find('AngleDownIcon').exists()).toBeTruthy();
-        });
-
-        it('should select single fact', () => {
-            const event = { target: { name: 0 }};
-            const isSelected = true;
-            props.baselineData = editBaselineFixtures.mockBaselineData1;
-            props.editBaselineTableData = editBaselineFixtures.mockBaselineTableData1;
-            const selectFact = jest.fn();
-
-            const wrapper = shallow(
-                <EditBaseline
-                    { ...props }
-                    selectFact={ selectFact }
-                />
-            );
-
-            wrapper.find('Checkbox').at(1).simulate('change', isSelected, event);
-            expect(selectFact).toBeCalledWith([ 0 ], true);
-        });
-
-        it('should deselect single fact', () => {
-            const event = { target: { name: 0 }};
-            const isSelected = false;
-            props.baselineData = editBaselineFixtures.mockBaselineData1;
-            props.editBaselineTableData = editBaselineFixtures.mockBaselineTableData1;
-            const selectFact = jest.fn();
-
-            const wrapper = shallow(
-                <EditBaseline
-                    { ...props }
-                    selectFact={ selectFact }
-                />
-            );
-
-            wrapper.find('Checkbox').at(1).simulate('change', isSelected, event);
-            expect(selectFact).toBeCalledWith([ 0 ], false);
-        });
-
-        it('should select all sub facts', () => {
-            const event = { target: { name: 2 }};
-            const isSelected = true;
-            props.baselineData = editBaselineFixtures.mockBaselineData1;
-            props.editBaselineTableData = editBaselineFixtures.mockBaselineTableData1;
-            const selectFact = jest.fn();
-            const facts = [ 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ];
-
-            const wrapper = shallow(
-                <EditBaseline
-                    { ...props }
-                    selectFact={ selectFact }
-                />
-            );
-
-            wrapper.find('Checkbox').at(2).simulate('change', isSelected, event);
-            expect(selectFact).toBeCalledWith(facts, true);
-        });
-
-        it('should deselect all sub facts', () => {
-            const event = { target: { name: 2 }};
-            const isSelected = false;
-            props.baselineData = editBaselineFixtures.mockBaselineData1;
-            props.editBaselineTableData = editBaselineFixtures.mockBaselineTableData1;
-            const selectFact = jest.fn();
-            const facts = [ 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ];
-
-            const wrapper = shallow(
-                <EditBaseline
-                    { ...props }
-                    selectFact={ selectFact }
-                />
-            );
-
-            wrapper.find('Checkbox').at(2).simulate('change', isSelected, event);
-            expect(selectFact).toBeCalledWith(facts, false);
-        });
-
-        it('should select sub fact', () => {
-            const event = { target: { name: 3 }};
-            const isSelected = true;
-            props.baselineData = editBaselineFixtures.mockBaselineData1;
-            props.editBaselineTableData = editBaselineFixtures.mockBaselineTableData1;
-            props.expandedRows = [ 'The Fellowship of the Ring' ];
-            const selectFact = jest.fn();
-
-            const wrapper = shallow(
-                <EditBaseline
-                    { ...props }
-                    selectFact={ selectFact }
-                />
-            );
-
-            wrapper.find('Checkbox').at(4).simulate('change', isSelected, event);
-            expect(selectFact).toBeCalledWith([ 3 ], true);
-        });
-
-        it('should deselect sub fact', () => {
-            const event = { target: { name: 3 }};
-            const isSelected = false;
-            props.baselineData = editBaselineFixtures.mockBaselineData1;
-            props.editBaselineTableData = editBaselineFixtures.mockBaselineTableData1;
-            props.expandedRows = [ 'The Fellowship of the Ring' ];
-            const selectFact = jest.fn();
-
-            const wrapper = shallow(
-                <EditBaseline
-                    { ...props }
-                    selectFact={ selectFact }
-                />
-            );
-
-            wrapper.find('Checkbox').at(4).simulate('change', isSelected, event);
-            expect(selectFact).toBeCalledWith([ 3 ], false);
-        });
-
-        it('should render toggle edit name modal', () => {
-            props.baselineData = editBaselineFixtures.mockBaselineData1;
-            const clearErrorData = jest.fn();
-
-            const wrapper = shallow(
-                <EditBaseline
-                    { ...props }
-                    clearErrorData={ clearErrorData }
-                />
-            );
-
-            wrapper.find('[className="pointer not-active edit-icon-margin"]').simulate('click');
-            expect(clearErrorData).toHaveBeenCalled();
-        });
-    });
-});
+import { PermissionContext } from '../../../../App';
 
 describe('ConnectedEditBaseline', () => {
     let initialState;
     let mockStore;
+    let value;
 
     beforeEach(() => {
         mockStore = configureStore();
@@ -274,21 +33,70 @@ describe('ConnectedEditBaseline', () => {
             match: { params: {}},
             clearBaselineData: jest.fn(),
             selectFact: jest.fn(),
-            onBulkSelect: jest.fn()
+            onBulkSelect: jest.fn(),
+            clearErrorData: jest.fn(),
+            addNotification: jest.fn()
+        };
+
+        value = {
+            permissions: {
+                compareRead: true,
+                baselinesRead: true,
+                baselinesWrite: true
+            }
         };
     });
 
     it('should render correctly', () => {
         const store = mockStore(initialState);
         const wrapper = mount(
-            <MemoryRouter keyLength={ 0 }>
-                <Provider store={ store }>
-                    <ConnectedEditBaseline />
-                </Provider>
-            </MemoryRouter>
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedEditBaseline />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
         );
 
+        expect(wrapper.find('EmptyStateDisplay')).toHaveLength(0);
+        expect(wrapper.find('EditAltIcon')).toHaveLength(1);
         expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('should render empty with no read permissions', () => {
+        value.permissions.baselinesRead = false;
+        const store = mockStore(initialState);
+        const wrapper = mount(
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedEditBaseline />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
+        );
+
+        expect(wrapper.find('EmptyStateDisplay')).toHaveLength(1);
+        expect(wrapper.find('EditAltIcon')).toHaveLength(0);
+    });
+
+    it('should render disabled with no write permissions', () => {
+        value.permissions.baselinesWrite = false;
+        const store = mockStore(initialState);
+        const wrapper = mount(
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedEditBaseline />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
+        );
+
+        expect(wrapper.find('EditAltIcon')).toHaveLength(0);
+        expect(wrapper.find('FactKebab')).toHaveLength(0);
+        expect(wrapper.find('BulkSelect').prop('isDisabled')).toBe(true);
     });
 
     it('should render loading rows', () => {
@@ -296,11 +104,65 @@ describe('ConnectedEditBaseline', () => {
         initialState.editBaselineState.baselineDataLoading = true;
         const store = mockStore(initialState);
         const wrapper = mount(
-            <MemoryRouter keyLength={ 0 }>
-                <Provider store={ store }>
-                    <ConnectedEditBaseline />
-                </Provider>
-            </MemoryRouter>
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedEditBaseline />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
+        );
+
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('should render with baseline facts', () => {
+        initialState.editBaselineState.baselineData = editBaselineFixtures.mockBaselineData1;
+        initialState.editBaselineState.editBaselineTableData = editBaselineFixtures.mockBaselineTableData1;
+        const store = mockStore(initialState);
+        const wrapper = mount(
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedEditBaseline />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
+        );
+
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('should render expandable rows closed', () => {
+        initialState.editBaselineState.editBaselineTableData = helpersFixtures.mockBaselineTableData1;
+        initialState.editBaselineState.baselineData = helpersFixtures.mockBaselineAPIBody;
+        const store = mockStore(initialState);
+        const wrapper = mount(
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedEditBaseline />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
+        );
+
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('should render expandable rows opened', () => {
+        initialState.editBaselineState.editBaselineTableData = helpersFixtures.mockBaselineTableData1;
+        initialState.editBaselineState.baselineData = helpersFixtures.mockBaselineAPIBody;
+        initialState.editBaselineState.expandedRows = [ 'The Fellowship of the Ring' ];
+        const store = mockStore(initialState);
+        const wrapper = mount(
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedEditBaseline />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
         );
 
         expect(toJson(wrapper)).toMatchSnapshot();
@@ -310,13 +172,15 @@ describe('ConnectedEditBaseline', () => {
         const store = mockStore(initialState);
         const history = { location: { pathname: '/baselines' }, push: jest.fn() };
         const wrapper = mount(
-            <MemoryRouter keyLength={ 0 }>
-                <Provider store={ store }>
-                    <ConnectedEditBaseline
-                        history={ history }
-                    />
-                </Provider>
-            </MemoryRouter>
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedEditBaseline
+                            history={ history }
+                        />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
         );
 
         const actions = store.getActions();
@@ -333,11 +197,13 @@ describe('ConnectedEditBaseline', () => {
         const store = mockStore(initialState);
 
         const wrapper = mount(
-            <MemoryRouter keyLength={ 0 }>
-                <Provider store={ store }>
-                    <ConnectedEditBaseline />
-                </Provider>
-            </MemoryRouter>
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedEditBaseline />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
         );
 
         const actions = store.getActions();
@@ -353,11 +219,13 @@ describe('ConnectedEditBaseline', () => {
         const store = mockStore(initialState);
 
         const wrapper = mount(
-            <MemoryRouter keyLength={ 0 }>
-                <Provider store={ store }>
-                    <ConnectedEditBaseline />
-                </Provider>
-            </MemoryRouter>
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedEditBaseline />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
         );
 
         const actions = store.getActions();
@@ -368,26 +236,190 @@ describe('ConnectedEditBaseline', () => {
         ]);
     });
 
-    it.skip('should call selectFact', () => {
-        const event = { target: { name: 0 }};
-        const isSelected = true;
+    it('should call selectFact', () => {
         initialState.editBaselineState.baselineData = editBaselineFixtures.mockBaselineData1;
         initialState.editBaselineState.editBaselineTableData = editBaselineFixtures.mockBaselineTableData1;
         const store = mockStore(initialState);
 
         const wrapper = mount(
-            <MemoryRouter keyLength={ 0 }>
-                <Provider store={ store }>
-                    <ConnectedEditBaseline />
-                </Provider>
-            </MemoryRouter>
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedEditBaseline />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
         );
 
         const actions = store.getActions();
-        wrapper.find('[id="fact-0"]').at(1).simulate('change', isSelected, event);
+        const target = wrapper.find('[id="fact-0"]').at(1);
+        target.getDOMNode().checked = true;
+        target.getDOMNode().name = 0;
+        target.simulate('change');
+        wrapper.update();
         expect(actions).toEqual([
             { type: 'FETCH_BASELINE_DATA', payload: api.getBaselineData('blah') },
             { type: 'SELECT_FACT', payload: { ids: [ 0 ], isSelected: true }}
         ]);
+    });
+
+    it('should deselect single fact', () => {
+        initialState.editBaselineState.baselineData = editBaselineFixtures.mockBaselineData1;
+        initialState.editBaselineState.editBaselineTableData = editBaselineFixtures.mockBaselineTableData1;
+        const store = mockStore(initialState);
+
+        const wrapper = mount(
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedEditBaseline />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
+        );
+
+        const actions = store.getActions();
+        const target = wrapper.find('[id="fact-0"]').at(1);
+        target.getDOMNode().checked = false;
+        target.getDOMNode().name = 0;
+        target.simulate('change');
+        wrapper.update();
+        expect(actions).toEqual([
+            { type: 'FETCH_BASELINE_DATA', payload: api.getBaselineData('blah') },
+            { type: 'SELECT_FACT', payload: { ids: [ 0 ], isSelected: false }}
+        ]);
+    });
+
+    it('should select all sub facts', () => {
+        initialState.editBaselineState.baselineData = editBaselineFixtures.mockBaselineData1;
+        initialState.editBaselineState.editBaselineTableData = editBaselineFixtures.mockBaselineTableData1;
+        const facts = [ 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ];
+        const store = mockStore(initialState);
+
+        const wrapper = mount(
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedEditBaseline />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
+        );
+
+        const actions = store.getActions();
+        const target = wrapper.find('[id="category-2"]').at(1);
+        target.getDOMNode().checked = true;
+        target.getDOMNode().name = 2;
+        target.simulate('change');
+        wrapper.update();
+        expect(actions).toEqual([
+            { type: 'FETCH_BASELINE_DATA', payload: api.getBaselineData('blah') },
+            { type: 'SELECT_FACT', payload: { ids: facts, isSelected: true }}
+        ]);
+    });
+
+    it('should deselect all sub facts', () => {
+        initialState.editBaselineState.baselineData = editBaselineFixtures.mockBaselineData1;
+        initialState.editBaselineState.editBaselineTableData = editBaselineFixtures.mockBaselineTableData1;
+        const facts = [ 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ];
+        const store = mockStore(initialState);
+
+        const wrapper = mount(
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedEditBaseline />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
+        );
+
+        const actions = store.getActions();
+        const target = wrapper.find('[id="category-2"]').at(1);
+        target.getDOMNode().checked = false;
+        target.getDOMNode().name = 2;
+        target.simulate('change');
+        wrapper.update();
+        expect(actions).toEqual([
+            { type: 'FETCH_BASELINE_DATA', payload: api.getBaselineData('blah') },
+            { type: 'SELECT_FACT', payload: { ids: facts, isSelected: false }}
+        ]);
+    });
+
+    it('should select sub fact', () => {
+        initialState.editBaselineState.baselineData = editBaselineFixtures.mockBaselineData1;
+        initialState.editBaselineState.editBaselineTableData = editBaselineFixtures.mockBaselineTableData1;
+        initialState.editBaselineState.expandedRows = [ 'The Fellowship of the Ring' ];
+        const store = mockStore(initialState);
+
+        const wrapper = mount(
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedEditBaseline />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
+        );
+
+        const actions = store.getActions();
+        const target = wrapper.find('[id="fact-3"]').at(1);
+        target.getDOMNode().checked = true;
+        target.getDOMNode().name = 3;
+        target.simulate('change');
+        wrapper.update();
+        expect(actions).toEqual([
+            { type: 'FETCH_BASELINE_DATA', payload: api.getBaselineData('blah') },
+            { type: 'SELECT_FACT', payload: { ids: [ 3 ], isSelected: true }}
+        ]);
+    });
+
+    it('should deselect sub fact', () => {
+        initialState.editBaselineState.baselineData = editBaselineFixtures.mockBaselineData1;
+        initialState.editBaselineState.editBaselineTableData = editBaselineFixtures.mockBaselineTableData1;
+        initialState.editBaselineState.expandedRows = [ 'The Fellowship of the Ring' ];
+        const store = mockStore(initialState);
+
+        const wrapper = mount(
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedEditBaseline />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
+        );
+
+        const actions = store.getActions();
+        const target = wrapper.find('[id="fact-3"]').at(1);
+        target.getDOMNode().checked = false;
+        target.getDOMNode().name = 3;
+        target.simulate('change');
+        wrapper.update();
+        expect(actions).toEqual([
+            { type: 'FETCH_BASELINE_DATA', payload: api.getBaselineData('blah') },
+            { type: 'SELECT_FACT', payload: { ids: [ 3 ], isSelected: false }}
+        ]);
+    });
+
+    it.skip('should render toggle edit name modal', () => {
+        initialState.editBaselineState.baselineData = editBaselineFixtures.mockBaselineData1;
+        //const clearErrorData = jest.fn();
+        const store = mockStore(initialState);
+
+        const wrapper = mount(
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedEditBaseline/>
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
+        );
+
+        wrapper.find('[className="pointer not-active edit-icon-margin"]').at(1).simulate('click');
+        wrapper.update();
+        //expect(initialState.clearErrorData).toHaveBeenCalled();
+        expect(wrapper.instance().state.modalOpened).toBe(true);
     });
 });
