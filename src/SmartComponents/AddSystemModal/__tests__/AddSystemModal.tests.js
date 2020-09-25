@@ -8,12 +8,14 @@ import toJson from 'enzyme-to-json';
 import ConnectedAddSystemModal, { AddSystemModal } from '../AddSystemModal';
 import { compareReducerPayload } from '../../modules/__tests__/reducer.fixtures';
 import { createMiddlewareListener } from '../../../store';
+import { PermissionContext } from '../../../App';
 
 const middlewareListener = createMiddlewareListener();
 middlewareListener.getMiddleware();
 
 describe('AddSystemModal', () => {
     let props;
+    let value;
 
     beforeEach(() => {
         props = {
@@ -28,11 +30,22 @@ describe('AddSystemModal', () => {
             baselineTableData: [],
             historicalProfiles: []
         };
+
+        value = {
+            permissions: {
+                compareRead: true,
+                baselinesRead: true,
+                baselinesWrite: true
+            }
+        };
     });
 
     it('should render correctly', () => {
         const wrapper = shallow(
-            <AddSystemModal { ...props }/>
+            <AddSystemModal
+                { ...props }
+                value={ value }
+            />
         );
 
         expect(toJson(wrapper)).toMatchSnapshot();
@@ -42,6 +55,7 @@ describe('AddSystemModal', () => {
 describe('ConnectedAddSystemModal', () => {
     let initialState;
     let mockStore;
+    let value;
 
     beforeEach(() => {
         mockStore = configureStore();
@@ -69,17 +83,27 @@ describe('ConnectedAddSystemModal', () => {
                 selectedSystemIds: []
             }
         };
+
+        value = {
+            permissions: {
+                compareRead: true,
+                baselinesRead: true,
+                baselinesWrite: true
+            }
+        };
     });
 
     it('should render correctly', () => {
         const store = mockStore(initialState);
 
         const wrapper = mount(
-            <MemoryRouter keyLength={ 0 }>
-                <Provider store={ store }>
-                    <ConnectedAddSystemModal />
-                </Provider>
-            </MemoryRouter>
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedAddSystemModal />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
         );
 
         expect(toJson(wrapper)).toMatchSnapshot();
@@ -89,11 +113,13 @@ describe('ConnectedAddSystemModal', () => {
         const store = mockStore(initialState);
 
         const wrapper = mount(
-            <MemoryRouter keyLength={ 0 }>
-                <Provider store={ store }>
-                    <ConnectedAddSystemModal />
-                </Provider>
-            </MemoryRouter>
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedAddSystemModal />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
         );
 
         expect(wrapper.find('.pf-c-button').at(1).prop('disabled')).toBe(true);
@@ -104,11 +130,13 @@ describe('ConnectedAddSystemModal', () => {
         const store = mockStore(initialState);
 
         const wrapper = mount(
-            <MemoryRouter keyLength={ 0 }>
-                <Provider store={ store }>
-                    <ConnectedAddSystemModal />
-                </Provider>
-            </MemoryRouter>
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedAddSystemModal />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
         );
 
         expect(toJson(wrapper)).toMatchSnapshot();
@@ -121,14 +149,16 @@ describe('ConnectedAddSystemModal', () => {
         const store = mockStore(initialState);
 
         const wrapper = mount(
-            <MemoryRouter keyLength={ 0 }>
-                <Provider store={ store }>
-                    <ConnectedAddSystemModal
-                        confirmModal={ confirmModal }
-                        toggleModal={ toggleModal }
-                    />
-                </Provider>
-            </MemoryRouter>
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedAddSystemModal
+                            confirmModal={ confirmModal }
+                            toggleModal={ toggleModal }
+                        />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
         );
 
         wrapper.find('.pf-c-button').at(1).simulate('click');
@@ -142,14 +172,16 @@ describe('ConnectedAddSystemModal', () => {
         const store = mockStore(initialState);
 
         const wrapper = mount(
-            <MemoryRouter keyLength={ 0 }>
-                <Provider store={ store }>
-                    <ConnectedAddSystemModal
-                        confirmModal={ confirmModal }
-                        toggleModal={ toggleModal }
-                    />
-                </Provider>
-            </MemoryRouter>
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedAddSystemModal
+                            confirmModal={ confirmModal }
+                            toggleModal={ toggleModal }
+                        />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
         );
 
         wrapper.find('.pf-c-button').at(1).simulate('click');
@@ -163,14 +195,16 @@ describe('ConnectedAddSystemModal', () => {
         const store = mockStore(initialState);
 
         const wrapper = mount(
-            <MemoryRouter keyLength={ 0 }>
-                <Provider store={ store }>
-                    <ConnectedAddSystemModal
-                        confirmModal={ confirmModal }
-                        toggleModal={ toggleModal }
-                    />
-                </Provider>
-            </MemoryRouter>
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedAddSystemModal
+                            confirmModal={ confirmModal }
+                            toggleModal={ toggleModal }
+                        />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
         );
 
         wrapper.find('.pf-c-button').at(1).simulate('click');
@@ -182,13 +216,15 @@ describe('ConnectedAddSystemModal', () => {
         const selectActiveTab = jest.fn();
 
         const wrapper = mount(
-            <MemoryRouter keyLength={ 0 }>
-                <Provider store={ store }>
-                    <ConnectedAddSystemModal
-                        selectActiveTab={ selectActiveTab }
-                    />
-                </Provider>
-            </MemoryRouter>
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedAddSystemModal
+                            selectActiveTab={ selectActiveTab }
+                        />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
         );
 
         wrapper.find('.pf-c-tabs__button').at(4).simulate('click');
@@ -200,13 +236,15 @@ describe('ConnectedAddSystemModal', () => {
         const store = mockStore(initialState);
 
         const wrapper = mount(
-            <MemoryRouter keyLength={ 0 }>
-                <Provider store={ store }>
-                    <ConnectedAddSystemModal
-                        toggleModal={ toggleModal }
-                    />
-                </Provider>
-            </MemoryRouter>
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedAddSystemModal
+                            toggleModal={ toggleModal }
+                        />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
         );
 
         wrapper.find('.pf-c-button').at(0).simulate('click');

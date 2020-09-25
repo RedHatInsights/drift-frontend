@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { Main, PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, Checkbox, BreadcrumbHeading } from '@patternfly/react-core';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
-import { AngleDownIcon, AngleRightIcon, EditAltIcon, ExclamationCircleIcon, UndoIcon } from '@patternfly/react-icons';
+import { AngleDownIcon, AngleRightIcon, EditAltIcon, ExclamationCircleIcon, LockIcon, UndoIcon } from '@patternfly/react-icons';
 
 import EditBaselineToolbar from './EditBaselineToolbar/EditBaselineToolbar';
 import ErrorAlert from '../../ErrorAlert/ErrorAlert';
@@ -18,6 +18,7 @@ import { editBaselineActions } from './redux';
 import editBaselineHelpers from './helpers';
 import { FACT_ID, FACT_NAME, FACT_VALUE } from '../../../constants';
 import EmptyStateDisplay from '../../EmptyStateDisplay/EmptyStateDisplay';
+import { PermissionContext } from '../../../App';
 
 import _ from 'lodash';
 
@@ -87,7 +88,7 @@ export class EditBaseline extends Component {
         return breadcrumb;
     }
 
-    renderPageHeader = () => {
+    renderPageHeader = (hasReadPermissions, hasWritePermissions) => {
         const { modalOpened } = this.state;
         const { baselineData, baselineDataLoading, inlineError } = this.props;
         let pageHeader;
@@ -108,7 +109,10 @@ export class EditBaseline extends Component {
                     <PageHeader>
                         { this.renderBreadcrumb(baselineData) }
                         <PageHeaderTitle title={ !_.isEmpty(baselineData) ? baselineData.display_name : null }/>
-                        <EditAltIcon className='pointer not-active edit-icon-margin' onClick={ () => this.toggleEditNameModal() } />
+                        { hasReadPermissions && hasWritePermissions
+                            ? <EditAltIcon className='pointer not-active edit-icon-margin' onClick={ () => this.toggleEditNameModal() } />
+                            : null
+                        }
                     </PageHeader>
                 </React.Fragment>;
             } else {
@@ -122,10 +126,10 @@ export class EditBaseline extends Component {
         return pageHeader;
     }
 
-    renderHeaderRow() {
+    renderHeaderRow(hasWritePermissions) {
         return (
             <tr key='edit-baseline-table-header'>
-                <th></th>
+                { hasWritePermissions ? <th></th> : null }
                 <th className="edit-baseline-header"><div>Fact</div></th>
                 <th className="edit-baseline-header"><div>Value</div></th>
                 <th></th>
@@ -225,7 +229,7 @@ export class EditBaseline extends Component {
         );
     }
 
-    renderRowData(fact) {
+    renderRowData(fact, hasWritePermissions) {
         const { expandedRows, baselineData } = this.props;
         let row = [];
         let rows = [];
@@ -234,22 +238,26 @@ export class EditBaseline extends Component {
             return baselineFact.name === fact[FACT_NAME];
         });
 
-        row.push(<td
-            className={ expandedRows.includes(fact[FACT_NAME]) ? 'pf-c-table__check nested-fact' : 'pf-c-table__check' }>
-            { this.renderCheckbox(fact) }
-        </td>);
+        hasWritePermissions
+            ? row.push(<td
+                className={ expandedRows.includes(fact[FACT_NAME]) ? 'pf-c-table__check nested-fact' : 'pf-c-table__check' }>
+                { this.renderCheckbox(fact) }
+            </td>)
+            : null;
 
         if (editBaselineHelpers.isCategory(fact)) {
             row.push(<td>
                 { this.renderExpandableRowButton(fact[FACT_NAME]) } { fact[FACT_NAME] }</td>);
             row.push(<td></td>);
-            row.push(editBaselineHelpers.renderKebab({ factName: fact[FACT_NAME], factData, isCategory: true }));
+            row.push(editBaselineHelpers.renderKebab({ factName: fact[FACT_NAME], factData, isCategory: true, hasWritePermissions }));
             rows.push(<tr key={ fact[FACT_NAME] }>{ row }</tr>);
 
             if (expandedRows.includes(fact[FACT_NAME])) {
                 editBaselineHelpers.baselineSubFacts(fact).forEach((subFact) => {
                     row = [];
-                    row.push(<td className='pf-c-table__check nested-fact'>{ this.renderCheckbox(subFact) }</td>);
+                    hasWritePermissions
+                        ? row.push(<td className='pf-c-table__check nested-fact'>{ this.renderCheckbox(subFact) }</td>)
+                        : null;
                     row.push(<td>
                         <p className="child-row">{ subFact[FACT_NAME] }</p>
                     </td>);
@@ -258,7 +266,8 @@ export class EditBaseline extends Component {
                         factName: subFact[FACT_NAME],
                         factValue: subFact[FACT_VALUE],
                         factData,
-                        isSubFact: true
+                        isSubFact: true,
+                        hasWritePermissions
                     }));
                     rows.push(<tr key={ subFact[FACT_NAME] }>{ row }</tr>);
                 });
@@ -266,14 +275,14 @@ export class EditBaseline extends Component {
         } else {
             row.push(<td>{ fact[FACT_NAME] }</td>);
             row.push(<td>{ fact[FACT_VALUE] }</td>);
-            row.push(editBaselineHelpers.renderKebab({ factName: fact[FACT_NAME], factValue: fact[FACT_VALUE], factData }));
+            row.push(editBaselineHelpers.renderKebab({ factName: fact[FACT_NAME], factValue: fact[FACT_VALUE], factData, hasWritePermissions }));
             rows.push(<tr key={ fact[FACT_NAME] }>{ row }</tr>);
         }
 
         return rows;
     }
 
-    renderRows() {
+    renderRows(hasWritePermissions) {
         const { editBaselineTableData } = this.props;
         let facts = editBaselineTableData;
         let rows = [];
@@ -281,7 +290,7 @@ export class EditBaseline extends Component {
 
         if (facts.length !== 0) {
             for (let i = 0; i < facts.length; i += 1) {
-                rowData = this.renderRowData(facts[i]);
+                rowData = this.renderRowData(facts[i], hasWritePermissions);
                 rows.push(rowData);
             }
         }
@@ -318,17 +327,17 @@ export class EditBaseline extends Component {
         }
     }
 
-    renderTable() {
+    renderTable(hasWritePermissions) {
         const { baselineDataLoading } = this.props;
 
         return (
             <table className="pf-c-table ins-c-table pf-m-grid-md ins-entity-table drift-table">
                 <thead>
-                    { this.renderHeaderRow() }
+                    { this.renderHeaderRow(hasWritePermissions) }
                 </thead>
                 <tbody key='edit-baseline-table'>
                     { !baselineDataLoading
-                        ? this.renderRows()
+                        ? this.renderRows(hasWritePermissions)
                         : this.renderLoadingRows()
                     }
                 </tbody>
@@ -342,36 +351,51 @@ export class EditBaseline extends Component {
         let selected = editBaselineHelpers.findSelected(editBaselineTableData);
 
         return (
-            <React.Fragment>
-                { this.renderPageHeader() }
-                <Main>
-                    { factModalOpened
-                        ? <FactModal />
-                        : <div></div>
-                    }
-                    <ErrorAlert
-                        error={ !editBaselineEmptyState && editBaselineError.status ? editBaselineError : {} }
-                        onClose={ clearErrorData }
-                    />
-                    { editBaselineEmptyState
-                        ? this.renderEmptyState()
-                        : <Card className='pf-t-light pf-m-opaque-100'>
-                            <CardBody>
-                                <EditBaselineToolbar
-                                    selected={ selected }
-                                    onBulkSelect={ this.onBulkSelect }
-                                    isDisabled={ editBaselineTableData.length === 0 }
-                                    totalFacts={ editBaselineHelpers.findFactCount(editBaselineTableData) }
-                                    baselineData={ baselineData }
-                                    exportToCSV={ exportToCSV }
-                                    tableData={ editBaselineTableData }
+            <PermissionContext.Consumer>
+                { value =>
+                    <React.Fragment>
+                        { this.renderPageHeader(value.permissions.baselinesRead, value.permissions.baselinesWrite) }
+                        <Main>
+                            { value.permissions.baselinesRead === false
+                                ? <EmptyStateDisplay
+                                    icon={ LockIcon }
+                                    color='#6a6e73'
+                                    title={ 'You do not have access to Baselines' }
+                                    text={ [ 'Contact your organization administrator(s) for more information.' ] }
                                 />
-                                { this.renderTable() }
-                            </CardBody>
-                        </Card>
-                    }
-                </Main>
-            </React.Fragment>
+                                : <React.Fragment>
+                                    { factModalOpened
+                                        ? <FactModal />
+                                        : <div></div>
+                                    }
+                                    <ErrorAlert
+                                        error={ !editBaselineEmptyState && editBaselineError.status ? editBaselineError : {} }
+                                        onClose={ clearErrorData }
+                                    />
+                                    { editBaselineEmptyState
+                                        ? this.renderEmptyState()
+                                        : <Card className='pf-t-light pf-m-opaque-100'>
+                                            <CardBody>
+                                                <EditBaselineToolbar
+                                                    selected={ selected }
+                                                    onBulkSelect={ this.onBulkSelect }
+                                                    isDisabled={ editBaselineTableData.length === 0 || !value.permissions.baselinesWrite }
+                                                    totalFacts={ editBaselineHelpers.findFactCount(editBaselineTableData) }
+                                                    baselineData={ baselineData }
+                                                    exportToCSV={ exportToCSV }
+                                                    tableData={ editBaselineTableData }
+                                                    hasWritePermissions={ value.permissions.baselinesWrite }
+                                                />
+                                                { this.renderTable(value.permissions.baselinesWrite) }
+                                            </CardBody>
+                                        </Card>
+                                    }
+                                </React.Fragment>
+                            }
+                        </Main>
+                    </React.Fragment>
+                }
+            </PermissionContext.Consumer>
         );
     }
 }
@@ -392,7 +416,8 @@ EditBaseline.propTypes = {
     editBaselineError: PropTypes.object,
     inlineError: PropTypes.object,
     editBaselineEmptyState: PropTypes.bool,
-    exportToCSV: PropTypes.func
+    exportToCSV: PropTypes.func,
+    hasWritePermissions: PropTypes.bool
 };
 
 function mapStateToProps(state) {

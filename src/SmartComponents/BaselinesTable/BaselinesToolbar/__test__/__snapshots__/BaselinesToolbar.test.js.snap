@@ -59,7 +59,9 @@ exports[`jest-tests BaselinesToolbar should render correctly 1`] = `
         variant="button-group"
       >
         <ToolbarItem>
-          <withRouter(Connect(CreateBaselineButton)) />
+          <withRouter(Connect(CreateBaselineButton))
+            hasWritePermissions={true}
+          />
         </ToolbarItem>
       </ForwardRef>
       <ForwardRef
@@ -161,6 +163,8 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
         createButton={true}
         exportButton={true}
         hasMultiSelect={true}
+        hasReadPermissions={true}
+        hasWritePermissions={true}
         kebab={true}
         tableData={
           Array [
@@ -778,8 +782,11 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                             <div
                               className="pf-c-toolbar__item"
                             >
-                              <withRouter(Connect(CreateBaselineButton))>
+                              <withRouter(Connect(CreateBaselineButton))
+                                hasWritePermissions={true}
+                              >
                                 <Connect(CreateBaselineButton)
+                                  hasWritePermissions={true}
                                   history={
                                     Object {
                                       "action": "POP",
@@ -829,6 +836,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                 >
                                   <CreateBaselineButton
                                     addSystemModalOpened={false}
+                                    hasWritePermissions={true}
                                     history={
                                       Object {
                                         "action": "POP",
@@ -880,6 +888,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                   >
                                     <Button
                                       id="create-baseline-button"
+                                      isDisabled={false}
                                       onClick={[Function]}
                                       variant="primary"
                                     >

@@ -3,17 +3,19 @@ import jiff from 'jiff';
 import FactKebab from './FactKebab/FactKebab';
 
 /*eslint-disable react/prop-types*/
-function renderKebab({ factName, factValue, factData, isCategory, isSubFact } = {}) {
+function renderKebab({ factName, factValue, factData, isCategory, isSubFact, hasWritePermissions } = {}) {
     return (
-        <td>
-            <FactKebab
-                factName={ factName }
-                factValue={ factValue }
-                fact={ factData }
-                isCategory={ isCategory }
-                isSubFact={ isSubFact }
-            />
-        </td>
+        hasWritePermissions
+            ? <td>
+                <FactKebab
+                    factName={ factName }
+                    factValue={ factValue }
+                    fact={ factData }
+                    isCategory={ isCategory }
+                    isSubFact={ isSubFact }
+                />
+            </td>
+            : null
     );
 }
 /*eslint-enable react/prop-types*/

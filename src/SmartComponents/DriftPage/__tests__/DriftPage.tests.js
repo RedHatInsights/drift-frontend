@@ -7,6 +7,7 @@ import toJson from 'enzyme-to-json';
 
 import ConnectedDriftPage, { DriftPage } from '../DriftPage';
 import { compareReducerPayload, baselinesPayload } from '../../modules/__tests__/reducer.fixtures';
+import { PermissionContext } from '../../../App';
 
 describe('DriftPage', () => {
     let props;
@@ -25,13 +26,6 @@ describe('DriftPage', () => {
             updateReferenceId: jest.fn(),
             history: { push: jest.fn() }
         };
-    });
-
-    it('should render correctly', () => {
-        const wrapper = shallow(
-            <DriftPage { ...props } />
-        );
-        expect(toJson(wrapper)).toMatchSnapshot();
     });
 
     it('should call clearComparisonFilters', () => {
@@ -54,6 +48,7 @@ describe('DriftPage', () => {
 describe('ConnectedDriftPage', () => {
     let initialState;
     let mockStore;
+    let value;
 
     beforeEach(() => {
         mockStore = configureStore();
@@ -92,31 +87,58 @@ describe('ConnectedDriftPage', () => {
                 clearComparisonFilters: jest.fn()
             }
         };
+
+        value = {
+            permissions: {
+                compareRead: true
+            }
+        };
     });
 
     it('should render correctly', () => {
         const store = mockStore(initialState);
         const wrapper = mount(
-            <MemoryRouter keyLength={ 0 }>
-                <Provider store={ store }>
-                    <ConnectedDriftPage />
-                </Provider>
-            </MemoryRouter>
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedDriftPage />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
         );
 
+        expect(wrapper.find('EmptyStateDisplay')).toHaveLength(0);
         expect(wrapper.find('.drift-toolbar')).toHaveLength(6);
         expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('should render empty with no read permissions', () => {
+        value.permissions.compareRead = false;
+        const store = mockStore(initialState);
+        const wrapper = mount(
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedDriftPage />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
+        );
+
+        expect(wrapper.find('EmptyStateDisplay')).toHaveLength(1);
     });
 
     it('should render with error alert', () => {
         initialState.compareState.error.detail = 'something';
         const store = mockStore(initialState);
         const wrapper = mount(
-            <MemoryRouter keyLength={ 0 }>
-                <Provider store={ store }>
-                    <ConnectedDriftPage />
-                </Provider>
-            </MemoryRouter>
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedDriftPage />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
         );
 
         expect(toJson(wrapper)).toMatchSnapshot();
@@ -127,11 +149,13 @@ describe('ConnectedDriftPage', () => {
         initialState.compareState.baselines = baselinesPayload;
         const store = mockStore(initialState);
         const wrapper = mount(
-            <MemoryRouter keyLength={ 0 }>
-                <Provider store={ store }>
-                    <ConnectedDriftPage />
-                </Provider>
-            </MemoryRouter>
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedDriftPage />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
         );
 
         expect(wrapper.find('.drift-toolbar')).toHaveLength(6);
@@ -142,11 +166,13 @@ describe('ConnectedDriftPage', () => {
         initialState.compareState.baselines = baselinesPayload;
         const store = mockStore(initialState);
         const wrapper = mount(
-            <MemoryRouter keyLength={ 0 }>
-                <Provider store={ store }>
-                    <ConnectedDriftPage />
-                </Provider>
-            </MemoryRouter>
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedDriftPage />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
         );
 
         wrapper.find('.pf-c-dropdown__toggle').at(2).simulate('click');

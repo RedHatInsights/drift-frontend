@@ -48,8 +48,11 @@ exports[`ConnectedCreateBaselineButton should render correctly 1`] = `
         }
       }
     >
-      <withRouter(Connect(CreateBaselineButton))>
+      <withRouter(Connect(CreateBaselineButton))
+        hasWritePermissions={true}
+      >
         <Connect(CreateBaselineButton)
+          hasWritePermissions={true}
           history={
             Object {
               "action": "POP",
@@ -99,6 +102,7 @@ exports[`ConnectedCreateBaselineButton should render correctly 1`] = `
         >
           <CreateBaselineButton
             addSystemModalOpened={false}
+            hasWritePermissions={true}
             history={
               Object {
                 "action": "POP",
@@ -150,6 +154,7 @@ exports[`ConnectedCreateBaselineButton should render correctly 1`] = `
           >
             <Button
               id="create-baseline-button"
+              isDisabled={false}
               onClick={[Function]}
               variant="primary"
             >
@@ -177,21 +182,26 @@ exports[`ConnectedCreateBaselineButton should render correctly 1`] = `
 `;
 
 exports[`CreateBaselineButton should render correctly 1`] = `
-<Button
-  id="create-baseline-button"
-  onClick={[Function]}
-  variant="primary"
->
-  Create baseline
-</Button>
+<Fragment>
+  <Button
+    id="create-baseline-button"
+    isDisabled={false}
+    onClick={[Function]}
+    variant="primary"
+  >
+    Create baseline
+  </Button>
+</Fragment>
 `;
 
 exports[`CreateBaselineButton should render mount correctly 1`] = `
 <CreateBaselineButton
   addSystemModalOpened={false}
+  hasWritePermissions={true}
 >
   <Button
     id="create-baseline-button"
+    isDisabled={false}
     onClick={[Function]}
     variant="primary"
   >

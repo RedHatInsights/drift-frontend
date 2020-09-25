@@ -14,9 +14,12 @@ describe('EditBaselineToolbar', () => {
 
     beforeEach(() => {
         props = {
+            totalFacts: 2,
             isDisabled: false,
             selected: 0,
-            onBulkSelect: jest.fn()
+            hasWritePermissions: true,
+            onBulkSelect: jest.fn(),
+            exportToCSV: jest.fn()
         };
     });
 
@@ -42,9 +45,12 @@ describe('ConnectedEditBaselineToolbar', () => {
             }
         };
         props = {
+            totalFacts: 2,
             isDisabled: false,
             selected: 0,
-            onBulkSelect: jest.fn()
+            hasWritePermissions: true,
+            onBulkSelect: jest.fn(),
+            exportToCSV: jest.fn()
         };
     });
 
@@ -59,6 +65,21 @@ describe('ConnectedEditBaselineToolbar', () => {
         );
 
         expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('should render disabled with no write permissions', () => {
+        props.hasWritePermissions = false;
+        const store = mockStore(initialState);
+        const wrapper = mount(
+            <MemoryRouter keyLength={ 0 }>
+                <Provider store={ store }>
+                    <ConnectedEditBaselineToolbar { ...props } />
+                </Provider>
+            </MemoryRouter>
+        );
+
+        expect(wrapper.find('Button').prop('isDisabled')).toBe(true);
+        expect(wrapper.find('Tooltip')).toHaveLength(1);
     });
 
     it('should call onBulkSelect with true', () => {

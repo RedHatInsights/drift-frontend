@@ -103,8 +103,8 @@ export class BaselinesToolbar extends Component {
     }, 250)
 
     render() {
-        const { createButton, exportButton, fetchWithParams,
-            hasMultiSelect, kebab, onBulkSelect, tableData, tableId,
+        const { createButton, exportButton, fetchWithParams, hasMultiSelect, hasReadPermissions,
+            hasWritePermissions, kebab, loading, onBulkSelect, tableData, tableId,
             page, perPage, totalBaselines, updatePagination } = this.props;
         const { bulkSelectItems, dropdownItems, dropdownOpen, modalOpened, nameSearch } = this.state;
         let selected = tableData.filter(baseline => baseline.selected === true).length;
@@ -127,7 +127,9 @@ export class BaselinesToolbar extends Component {
                                         items={ bulkSelectItems }
                                         checked={ helpers.findCheckedValue(tableData.length, selected) }
                                         onSelect={ () => onBulkSelect(!selected > 0) }
-                                        isDisabled={ tableData.length === 0 }
+                                        isDisabled={
+                                            tableData.length === 0 || (!hasWritePermissions && kebab) || (!hasReadPermissions && !createButton)
+                                        }
                                     />
                                 </ToolbarItem>
                             </ToolbarGroup>
@@ -139,13 +141,17 @@ export class BaselinesToolbar extends Component {
                                     placeholder="Filter by name"
                                     value={ nameSearch }
                                     onChange={ (event, value) => this.setTextFilter(value) }
+                                    isDisabled={ !hasReadPermissions || !hasWritePermissions }
                                 />
                             </ToolbarItem>
                         </ToolbarGroup>
                         <ToolbarGroup variant='button-group'>
                             { createButton ?
                                 <ToolbarItem>
-                                    <CreateBaselineButton />
+                                    <CreateBaselineButton
+                                        loading={ loading }
+                                        hasWritePermissions={ hasWritePermissions }
+                                    />
                                 </ToolbarItem>
                                 : null
                             }
@@ -172,7 +178,7 @@ export class BaselinesToolbar extends Component {
                             <TablePagination
                                 page={ page }
                                 perPage={ perPage }
-                                total={ totalBaselines }
+                                total={ !hasReadPermissions ? 0 : totalBaselines }
                                 isCompact={ true }
                                 updatePagination={ updatePagination }
                                 tableId={ tableId }
@@ -222,7 +228,10 @@ BaselinesToolbar.propTypes = {
     perPage: PropTypes.number,
     totalBaselines: PropTypes.number,
     updatePagination: PropTypes.func,
-    exportToCSV: PropTypes.func
+    exportToCSV: PropTypes.func,
+    loading: PropTypes.bool,
+    hasWritePermissions: PropTypes.bool,
+    hasReadPermissions: PropTypes.bool
 };
 
 export default BaselinesToolbar;

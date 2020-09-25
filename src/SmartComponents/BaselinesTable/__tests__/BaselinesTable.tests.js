@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import { MemoryRouter } from 'react-router-dom';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
@@ -7,76 +7,15 @@ import toJson from 'enzyme-to-json';
 import baselinesTableFixtures from '../redux/__tests__/baselinesTableReducer.fixtures';
 import baselinesReducerHelpers from '../redux/helpers';
 
-import ConnectedBaselinesTable, { BaselinesTable } from '../BaselinesTable';
+import ConnectedBaselinesTable from '../BaselinesTable';
 import { sortable } from '@patternfly/react-table';
-
-describe('BaselinesTable', () => {
-    let props;
-
-    beforeEach(() => {
-        props = {
-            loading: false,
-            tableData: baselinesTableFixtures.baselineTableDataRows,
-            tableId: 'CHECKBOX',
-            hasMultiSelect: true,
-            kebab: true,
-            createButton: true,
-            exportButton: true,
-            columns: [
-                { title: 'Name', transforms: [ sortable ]},
-                { title: 'Last updated', transforms: [ sortable ]},
-                { title: '' }
-            ],
-            selectedBaselineIds: []
-        };
-    });
-
-    it('should render multi-select table correctly', () => {
-        const wrapper = shallow(
-            <BaselinesTable { ...props }/>
-        );
-        expect(toJson(wrapper)).toMatchSnapshot();
-    });
-
-    it('should render single-select table correctly', () => {
-        props.hasMultiSelect = false;
-        props.tableId = 'RADIO';
-        const wrapper = shallow(
-            <BaselinesTable { ...props }/>
-        );
-        expect(toJson(wrapper)).toMatchSnapshot();
-    });
-
-    it('should render no matching baselines EmptyState', () => {
-        props.tableData = [];
-        const wrapper = shallow(
-            <BaselinesTable { ...props }/>
-        );
-        expect(toJson(wrapper)).toMatchSnapshot();
-    });
-
-    it('should render loading rows for multi-select', () => {
-        props.loading = true;
-        const wrapper = shallow(
-            <BaselinesTable { ...props }/>
-        );
-        expect(toJson(wrapper)).toMatchSnapshot();
-    });
-
-    it('should render loading rows for single-select', () => {
-        props.loading = true;
-        props.hasMultiSelect = false;
-        const wrapper = shallow(
-            <BaselinesTable { ...props }/>
-        );
-        expect(toJson(wrapper)).toMatchSnapshot();
-    });
-});
+import { PermissionContext } from '../../../App';
 
 describe('ConnectedBaselinesTable', () => {
     let initialState;
     let mockStore;
     let props;
+    let value;
 
     beforeEach(() => {
         mockStore = configureStore();
@@ -105,21 +44,161 @@ describe('ConnectedBaselinesTable', () => {
                 { title: 'Last updated', transforms: [ sortable ]},
                 { title: '' }
             ],
-            selectedBaselineIds: [ '1234' ]
+            selectedBaselineIds: []
         };
+
+        value = {
+            permissions: {
+                compareRead: true,
+                baselinesRead: true,
+                baselinesWrite: true
+            }
+        };
+    });
+
+    it('should render no table kebabs with no write permissions', () => {
+        value.permissions.baselinesWrite = false;
+        const store = mockStore(initialState);
+        const wrapper = mount(
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedBaselinesTable
+                            { ...props }
+                        />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
+        );
+
+        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(wrapper.find('BaselineTableKebab')).toHaveLength(0);
+    });
+
+    it('should render no pagination in add system modal with no read permissions', () => {
+        value.permissions.baselinesRead = false;
+        const store = mockStore(initialState);
+        const wrapper = mount(
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedBaselinesTable
+                            { ...props }
+                        />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
+        );
+
+        expect(wrapper.find('TablePagination').at(0).prop('total')).toBe(0);
+        expect(wrapper.find('TablePagination').at(1).prop('total')).toBe(0);
+    });
+
+    it('should render multi-select table', () => {
+        const store = mockStore(initialState);
+        const wrapper = mount(
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedBaselinesTable
+                            { ...props }
+                        />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
+        );
+
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it.skip('should render single-select table', () => {
+        const store = mockStore(initialState);
+        props.hasMultiSelect = false;
+        props.tableId = 'RADIO';
+        const wrapper = mount(
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedBaselinesTable
+                            { ...props }
+                        />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
+        );
+
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('should render no matching baselines', () => {
+        const store = mockStore(initialState);
+        props.tableData = [];
+        const wrapper = mount(
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedBaselinesTable
+                            { ...props }
+                        />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
+        );
+
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('should render loading rows for multi-select', () => {
+        const store = mockStore(initialState);
+        props.loading = true;
+        const wrapper = mount(
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedBaselinesTable
+                            { ...props }
+                        />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
+        );
+
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('should render loading rows for single-select', () => {
+        const store = mockStore(initialState);
+        props.loading = true;
+        props.hasMultiSelect = false;
+        const wrapper = mount(
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedBaselinesTable
+                            { ...props }
+                        />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
+        );
+
+        expect(toJson(wrapper)).toMatchSnapshot();
     });
 
     it('should render baseline selected', () => {
         const store = mockStore(initialState);
         props.tableData[0].selected = true;
+        props.selectedBaselineIds = [ '1234' ];
         const wrapper = mount(
-            <MemoryRouter keyLength={ 0 }>
-                <Provider store={ store }>
-                    <ConnectedBaselinesTable
-                        { ...props }
-                    />
-                </Provider>
-            </MemoryRouter>
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedBaselinesTable
+                            { ...props }
+                        />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
         );
 
         expect(toJson(wrapper)).toMatchSnapshot();
@@ -128,16 +207,19 @@ describe('ConnectedBaselinesTable', () => {
     it('should sort by display_name', () => {
         const store = mockStore(initialState);
         baselinesReducerHelpers.fetchBaselines = jest.fn();
+        props.selectedBaselineIds = [ '1234' ];
         const onSelect = jest.fn();
         const wrapper = mount(
-            <MemoryRouter keyLength={ 0 }>
-                <Provider store={ store }>
-                    <ConnectedBaselinesTable
-                        { ...props }
-                        onSelect={ onSelect }
-                    />
-                </Provider>
-            </MemoryRouter>
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedBaselinesTable
+                            { ...props }
+                            onSelect={ onSelect }
+                        />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
         );
 
         wrapper.find('.pf-c-table__button').at(0).simulate('click');
@@ -185,15 +267,18 @@ describe('ConnectedBaselinesTable', () => {
 
     it.skip('should call clearSort', () => {
         const store = mockStore(initialState);
+        props.selectedBaselineIds = [ '1234' ];
 
         const wrapper = mount(
-            <MemoryRouter keyLength={ 0 }>
-                <Provider store={ store }>
-                    <ConnectedBaselinesTable
-                        { ...props }
-                    />
-                </Provider>
-            </MemoryRouter>
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedBaselinesTable
+                            { ...props }
+                        />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
         );
 
         wrapper.find('.pf-c-button').at(3).simulate('click');

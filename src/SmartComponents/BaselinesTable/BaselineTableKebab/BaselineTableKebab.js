@@ -6,7 +6,7 @@ import { Dropdown, KebabToggle, DropdownItem } from '@patternfly/react-core';
 
 import DeleteBaselinesModal from '../../BaselinesPage/DeleteBaselinesModal/DeleteBaselinesModal';
 
-class BaselineTableKebab extends Component {
+export class BaselineTableKebab extends Component {
     constructor(props) {
         super(props);
         this.state = {
