@@ -19,7 +19,7 @@ describe('FactModal', () => {
             isCategory: false,
             isSubFact: false,
             baselineData: [],
-            editBaselineError: {},
+            inlineError: {},
             toggleFactModal: jest.fn(),
             patchBaseline: jest.fn(),
             fetchBaselineData: jest.fn()
@@ -69,12 +69,12 @@ describe('FactModal', () => {
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 
-    /*describe('API', () => {
-        it('should call clearBaselineData', () => {
+    describe('API', () => {
+        it.skip('should call clearBaselineData', () => {
             const clearBaselineData = jest.fn();
             const history = { location: { pathname: '/baselines' }, push: jest.fn() };
             const wrapper = shallow(
-                <EditBaseline
+                <FactModal
                     { ...props }
                     clearBaselineData={ clearBaselineData }
                     history={ history }
@@ -84,7 +84,7 @@ describe('FactModal', () => {
             wrapper.find('a').simulate('click');
             expect(clearBaselineData).toHaveBeenCalled();
         });
-    });*/
+    });
 });
 
 describe('ConnectedFactModal', () => {
@@ -102,7 +102,7 @@ describe('ConnectedFactModal', () => {
                 isCategory: false,
                 isSubFact: false,
                 baselineData: [],
-                editBaselineError: {
+                inlineError: {
                     hasOwnProperty: jest.fn()
                 }
             },

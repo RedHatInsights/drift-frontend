@@ -130,7 +130,8 @@ export function editBaselineReducer(state = initialState, action) {
             return {
                 ...state,
                 editBaselineError: {},
-                factModalOpened: !state.factModalOpened
+                factModalOpened: !state.factModalOpened,
+                inlineError: {}
             };
         case `${types.SET_FACT_DATA}`:
             return {

@@ -21,8 +21,7 @@ export class FactModal extends Component {
             factName: this.props.factName,
             factValue: this.props.factValue,
             factData: this.props.factData,
-            isCategory: this.props.isCategory,
-            inlineError: {}
+            isCategory: this.props.isCategory
         };
 
         this.state.isAddFact = this.props.factName === '' && this.props.factValue === '';
@@ -51,7 +50,6 @@ export class FactModal extends Component {
         const { toggleFactModal, baselineData, patchBaseline, fetchBaselineData } = this.props;
         const { isAddFact } = this.state;
         let newAPIBody = '';
-        let error;
 
         try {
             if (isAddFact) {
@@ -67,10 +65,7 @@ export class FactModal extends Component {
 
             toggleFactModal();
         } catch (e) {
-            error = e.response.data;
-            this.setState({
-                inlineError: { status: error.status, detail: error.detail }
-            });
+            // do nothing and let redux handle
         }
     }
 
@@ -113,7 +108,7 @@ export class FactModal extends Component {
     }
 
     renderFactInput() {
-        const { editBaselineError } = this.props;
+        const { inlineError } = this.props;
         const { factName, isCategory } = this.state;
 
         return (
@@ -122,8 +117,8 @@ export class FactModal extends Component {
                     <FormGroup
                         label={ isCategory ? 'Category name' : 'Fact name' }
                         isRequired
-                        helperTextInvalid={ editBaselineError.hasOwnProperty('detail') ? editBaselineError.detail : null }
-                        validated={ editBaselineError.hasOwnProperty('status') ? 'error' : null }
+                        helperTextInvalid={ inlineError.hasOwnProperty('detail') ? inlineError.detail : null }
+                        validated={ inlineError.hasOwnProperty('status') ? 'error' : null }
                         fieldId='fact name'
                         onKeyPress={ this.checkKeyPress }
                     >
@@ -132,7 +127,7 @@ export class FactModal extends Component {
                             type="text"
                             placeholder="Name"
                             onChange={ this.handleNewName }
-                            validated={ editBaselineError.hasOwnProperty('status') ? ValidatedOptions.error : null }
+                            validated={ inlineError.hasOwnProperty('status') ? ValidatedOptions.error : null }
                             aria-label="fact name"
                         />
                     </FormGroup>
@@ -142,7 +137,7 @@ export class FactModal extends Component {
     }
 
     renderValueInput() {
-        const { editBaselineError } = this.props;
+        const { inlineError } = this.props;
         const { factValue } = this.state;
 
         return (
@@ -151,8 +146,8 @@ export class FactModal extends Component {
                     <FormGroup
                         label='Value'
                         isRequired
-                        helperTextInvalid={ editBaselineError.hasOwnProperty('detail') ? editBaselineError.detail : null }
-                        validated={ editBaselineError.hasOwnProperty('status') ? 'error' : null }
+                        helperTextInvalid={ inlineError.hasOwnProperty('detail') ? inlineError.detail : null }
+                        validated={ inlineError.hasOwnProperty('status') ? 'error' : null }
                         fieldId='fact value'
                         onKeyPress={ this.checkKeyPress }
                     >
@@ -161,7 +156,7 @@ export class FactModal extends Component {
                             type="text"
                             placeholder="Value"
                             onChange={ this.handleNewValue }
-                            validated={ editBaselineError.hasOwnProperty('status') ? ValidatedOptions.error : null }
+                            validated={ inlineError.hasOwnProperty('status') ? ValidatedOptions.error : null }
                             aria-label="value"
                         />
                     </FormGroup>
@@ -171,8 +166,8 @@ export class FactModal extends Component {
     }
 
     renderModalBody() {
-        const { isSubFact } = this.props;
-        const { inlineError, isAddFact, isCategory } = this.state;
+        const { inlineError, isSubFact } = this.props;
+        const { isAddFact, isCategory } = this.state;
         let modalBody;
 
         modalBody =
@@ -258,8 +253,8 @@ FactModal.propTypes = {
     isSubFact: PropTypes.bool,
     baselineData: PropTypes.object,
     patchBaseline: PropTypes.func,
-    editBaselineError: PropTypes.object,
-    fetchBaselineData: PropTypes.func
+    fetchBaselineData: PropTypes.func,
+    inlineError: PropTypes.object
 };
 
 function mapStateToProps(state) {
@@ -271,7 +266,7 @@ function mapStateToProps(state) {
         isCategory: state.editBaselineState.isCategory,
         isSubFact: state.editBaselineState.isSubFact,
         baselineData: state.editBaselineState.baselineData,
-        editBaselineError: state.editBaselineState.editBaselineError
+        inlineError: state.editBaselineState.inlineError
     };
 }
 
