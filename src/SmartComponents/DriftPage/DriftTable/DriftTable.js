@@ -425,25 +425,27 @@ export class DriftTable extends Component {
     }
 
     renderHeaderRow() {
-        const { stateSort } = this.props;
+        const { factSort, stateSort } = this.props;
 
         return (
             <tr className="sticky-column-header">
                 <th
                     className="fact-header sticky-column fixed-column-1 pointer"
                     key='fact-header'
-                    onClick={ () => this.toggleSort('fact', this.props.factSort) }
+                    id={ factSort }
+                    onClick={ () => this.toggleSort('fact', factSort) }
                 >
-                    <div className="active-blue">Fact { this.renderSortButton(this.props.factSort) }</div>
+                    <div className="active-blue">Fact { this.renderSortButton(factSort) }</div>
                 </th>
                 <th
                     className="state-header sticky-column fixed-column-2 pointer"
                     key='state-header'
-                    onClick={ () => this.toggleSort('state', this.props.stateSort) }
+                    id={ stateSort }
+                    onClick={ () => this.toggleSort('state', stateSort) }
                 >
                     { stateSort !== '' ?
-                        <div className="active-blue">State { this.renderSortButton(this.props.stateSort) }</div> :
-                        <div>State { this.renderSortButton(this.props.stateSort) }</div>
+                        <div className="active-blue">State { this.renderSortButton(stateSort) }</div> :
+                        <div>State { this.renderSortButton(stateSort) }</div>
                     }
                 </th>
                 { this.renderSystemHeaders() }

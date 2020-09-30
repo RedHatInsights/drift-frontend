@@ -3905,6 +3905,7 @@ exports[`DriftTable should render correctly 1`] = `
         >
           <th
             className="fact-header sticky-column fixed-column-1 pointer"
+            id=""
             key="fact-header"
             onClick={[Function]}
           >
@@ -3922,6 +3923,7 @@ exports[`DriftTable should render correctly 1`] = `
           </th>
           <th
             className="state-header sticky-column fixed-column-2 pointer"
+            id=""
             key="state-header"
             onClick={[Function]}
           >
@@ -3929,6 +3931,242 @@ exports[`DriftTable should render correctly 1`] = `
               State 
               <ArrowsAltVIcon
                 className="not-active"
+                color="currentColor"
+                noVerticalAlign={false}
+                size="sm"
+              />
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody />
+    </table>
+  </div>
+</Fragment>
+`;
+
+exports[`DriftTable should render fact sort asc 1`] = `
+<Fragment>
+  <Connect(AddSystemModal)
+    confirmModal={[Function]}
+    selectedSystemIds={Array []}
+  />
+  <div
+    className="drift-table-wrapper"
+  >
+    <table
+      className="pf-c-table pf-m-compact drift-table"
+    >
+      <thead>
+        <tr
+          className="sticky-column-header"
+        >
+          <th
+            className="fact-header sticky-column fixed-column-1 pointer"
+            id="asc"
+            key="fact-header"
+            onClick={[Function]}
+          >
+            <div
+              className="active-blue"
+            >
+              Fact 
+              <LongArrowAltUpIcon
+                className="active-blue"
+                color="currentColor"
+                noVerticalAlign={false}
+                size="sm"
+              />
+            </div>
+          </th>
+          <th
+            className="state-header sticky-column fixed-column-2 pointer"
+            id=""
+            key="state-header"
+            onClick={[Function]}
+          >
+            <div>
+              State 
+              <ArrowsAltVIcon
+                className="not-active"
+                color="currentColor"
+                noVerticalAlign={false}
+                size="sm"
+              />
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody />
+    </table>
+  </div>
+</Fragment>
+`;
+
+exports[`DriftTable should render fact sort desc 1`] = `
+<Fragment>
+  <Connect(AddSystemModal)
+    confirmModal={[Function]}
+    selectedSystemIds={Array []}
+  />
+  <div
+    className="drift-table-wrapper"
+  >
+    <table
+      className="pf-c-table pf-m-compact drift-table"
+    >
+      <thead>
+        <tr
+          className="sticky-column-header"
+        >
+          <th
+            className="fact-header sticky-column fixed-column-1 pointer"
+            id="desc"
+            key="fact-header"
+            onClick={[Function]}
+          >
+            <div
+              className="active-blue"
+            >
+              Fact 
+              <LongArrowAltDownIcon
+                className="active-blue"
+                color="currentColor"
+                noVerticalAlign={false}
+                size="sm"
+              />
+            </div>
+          </th>
+          <th
+            className="state-header sticky-column fixed-column-2 pointer"
+            id=""
+            key="state-header"
+            onClick={[Function]}
+          >
+            <div>
+              State 
+              <ArrowsAltVIcon
+                className="not-active"
+                color="currentColor"
+                noVerticalAlign={false}
+                size="sm"
+              />
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody />
+    </table>
+  </div>
+</Fragment>
+`;
+
+exports[`DriftTable should render state sort asc 1`] = `
+<Fragment>
+  <Connect(AddSystemModal)
+    confirmModal={[Function]}
+    selectedSystemIds={Array []}
+  />
+  <div
+    className="drift-table-wrapper"
+  >
+    <table
+      className="pf-c-table pf-m-compact drift-table"
+    >
+      <thead>
+        <tr
+          className="sticky-column-header"
+        >
+          <th
+            className="fact-header sticky-column fixed-column-1 pointer"
+            id=""
+            key="fact-header"
+            onClick={[Function]}
+          >
+            <div
+              className="active-blue"
+            >
+              Fact 
+              <ArrowsAltVIcon
+                className="not-active"
+                color="currentColor"
+                noVerticalAlign={false}
+                size="sm"
+              />
+            </div>
+          </th>
+          <th
+            className="state-header sticky-column fixed-column-2 pointer"
+            id="asc"
+            key="state-header"
+            onClick={[Function]}
+          >
+            <div
+              className="active-blue"
+            >
+              State 
+              <LongArrowAltUpIcon
+                className="active-blue"
+                color="currentColor"
+                noVerticalAlign={false}
+                size="sm"
+              />
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody />
+    </table>
+  </div>
+</Fragment>
+`;
+
+exports[`DriftTable should render state sort desc 1`] = `
+<Fragment>
+  <Connect(AddSystemModal)
+    confirmModal={[Function]}
+    selectedSystemIds={Array []}
+  />
+  <div
+    className="drift-table-wrapper"
+  >
+    <table
+      className="pf-c-table pf-m-compact drift-table"
+    >
+      <thead>
+        <tr
+          className="sticky-column-header"
+        >
+          <th
+            className="fact-header sticky-column fixed-column-1 pointer"
+            id=""
+            key="fact-header"
+            onClick={[Function]}
+          >
+            <div
+              className="active-blue"
+            >
+              Fact 
+              <ArrowsAltVIcon
+                className="not-active"
+                color="currentColor"
+                noVerticalAlign={false}
+                size="sm"
+              />
+            </div>
+          </th>
+          <th
+            className="state-header sticky-column fixed-column-2 pointer"
+            id="desc"
+            key="state-header"
+            onClick={[Function]}
+          >
+            <div
+              className="active-blue"
+            >
+              State 
+              <LongArrowAltDownIcon
+                className="active-blue"
                 color="currentColor"
                 noVerticalAlign={false}
                 size="sm"
