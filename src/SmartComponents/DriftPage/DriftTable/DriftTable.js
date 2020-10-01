@@ -440,7 +440,7 @@ export class DriftTable extends Component {
                 <th
                     className="state-header sticky-column fixed-column-2 pointer"
                     key='state-header'
-                    id={ stateSort }
+                    id={ stateSort || 'disabled' }
                     onClick={ () => this.toggleSort('state', stateSort) }
                 >
                     { stateSort !== '' ?
