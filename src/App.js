@@ -43,7 +43,7 @@ class App extends Component {
                     this.handlePermissionsUpdate(true, true, true);
                 } else {
                     this.handlePermissionsUpdate(
-                        permissionsList.includes('drift:comparison:read' || 'drift:*:read'),
+                        permissionsList.includes('drift:comparisons:read' || 'drift:*:read'),
                         permissionsList.includes('drift:baselines:read' || 'drift:*:read'),
                         permissionsList.includes('drift:baselines:write' || 'drift:*:write')
                     );
