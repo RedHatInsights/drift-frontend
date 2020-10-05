@@ -51,6 +51,12 @@ export class EditBaseline extends Component {
         await window.insights.chrome.auth.getUser();
     }
 
+    componentDidUpdate() {
+        if (this.props.baselineData) {
+            document.title = this.props.baselineData.display_name + ' - Baselines - Drift | Red Hat Insights';
+        }
+    }
+
     fetchBaselineId() {
         const { match: { params }, fetchBaselineData } = this.props;
 
@@ -404,7 +410,7 @@ EditBaseline.propTypes = {
     history: PropTypes.object,
     match: PropTypes.any,
     clearBaselineData: PropTypes.func,
-    baselineData: PropTypes.array,
+    baselineData: PropTypes.object,
     baselineDataLoading: PropTypes.bool,
     fetchBaselineData: PropTypes.func,
     factModalOpened: PropTypes.bool,
