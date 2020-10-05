@@ -43,6 +43,22 @@ describe('DriftPage', () => {
         wrapper.instance().clearComparison();
         expect(props.clearComparison).toHaveBeenCalled();
     });
+
+    it('should call setIsFirstReference with true', () => {
+        const wrapper = shallow(
+            <DriftPage { ...props } />
+        );
+        wrapper.instance().setIsFirstReference(true);
+        expect(wrapper.state('isFirstReference')).toBe(true);
+    });
+
+    it('should call setIsFirstReference with false', () => {
+        const wrapper = shallow(
+            <DriftPage { ...props } />
+        );
+        wrapper.instance().setIsFirstReference(false);
+        expect(wrapper.state('isFirstReference')).toBe(false);
+    });
 });
 
 describe('ConnectedDriftPage', () => {
