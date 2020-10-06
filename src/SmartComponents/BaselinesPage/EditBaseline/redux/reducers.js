@@ -172,7 +172,6 @@ export function editBaselineReducer(state = initialState, action) {
                 ...state,
                 editBaselineError: {},
                 inlineError: {},
-                editBaselineEmptyState: false,
                 baselineDataLoading: false
             };
         case `${types.EXPORT_BASELINE_DATA_TO_CSV}`:
