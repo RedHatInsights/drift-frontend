@@ -101,7 +101,7 @@ function mapDispatchToProps(dispatch) {
     return {
         selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds)),
         setSelectedSystemIds: (systemIds) => dispatch(compareActions.setSelectedSystemIds(systemIds)),
-        driftClearFilters: () => dispatch({ type: 'CLEAR_FILTERS' }),
+        driftClearFilters: () => dispatch(systemsTableActions.clearAllFilters()),
         updateColumns: (key) => dispatch(systemsTableActions.updateColumns(key))
     };
 }

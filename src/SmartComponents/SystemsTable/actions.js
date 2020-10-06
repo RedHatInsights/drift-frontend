@@ -14,7 +14,14 @@ function updateColumns(key) {
     };
 }
 
+function clearAllFilters() {
+    return {
+        type: types.DRIFT_CLEAR_ALL_FILTERS
+    };
+}
+
 export default {
     selectSingleHSP,
-    updateColumns
+    updateColumns,
+    clearAllFilters
 };
