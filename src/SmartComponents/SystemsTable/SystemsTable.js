@@ -26,6 +26,7 @@ const SystemsTable = ({
     updateColumns
 }) => {
     const [ InventoryCmp, setInventoryCmp ] = useState(null);
+    const tagsFilter = ReactRedux.useSelector(({ globalFilterState }) => globalFilterState?.tagsFilter);
     const store = ReactRedux.useStore();
 
     const deselectHistoricalProfiles = () => {
@@ -74,7 +75,13 @@ const SystemsTable = ({
     return (
         <Fragment>
             { InventoryCmp ?
-                <InventoryCmp showTags noDetail />
+                <InventoryCmp
+                    showTags
+                    noDetail
+                    customFilters={ {
+                        tags: tagsFilter
+                    } }
+                />
                 : <reactCore.Spinner size="lg" />
             }
         </Fragment>

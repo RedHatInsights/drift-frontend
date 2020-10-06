@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types';
-import React, { createContext, Component } from 'react';
-import { withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
+import React, { createContext, useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import actions from './SmartComponents/modules/actions';
+import { withRouter, useHistory } from 'react-router-dom';
 import { NotificationsPortal } from '@redhat-cloud-services/frontend-components-notifications';
 
 import { Routes } from './Routes';
@@ -9,77 +9,71 @@ import './App.scss';
 
 export const PermissionContext = createContext();
 
-class App extends Component {
+const App = (props) => {
+    const history = useHistory();
+    const dispatch = useDispatch();
+    const [{
+        hasCompareReadPermissions,
+        hasBaselinesReadPermissions,
+        hasBaselinesWritePermissions,
+        arePermissionsLoaded
+    }, setPermissions ] = useState({
+        hasCompareReadPermissions: undefined,
+        hasBaselinesReadPermissions: undefined,
+        hasBaselinesWritePermissions: undefined,
+        arePermissionsLoaded: false
+    });
 
-    constructor() {
-        super();
-        this.state = {
-            hasCompareReadPermissions: undefined,
-            hasBaselinesReadPermissions: undefined,
-            hasBaselinesWritePermissions: undefined,
-            arePermissionsLoaded: false
-        };
-    }
-
-    handlePermissionsUpdate = (hasCompareRead, hasBaselinesRead, hasBaselinesWrite) => this.setState({
+    const handlePermissionsUpdate = (hasCompareRead, hasBaselinesRead, hasBaselinesWrite) => setPermissions({
         hasCompareReadPermissions: hasCompareRead,
         hasBaselinesReadPermissions: hasBaselinesRead,
         hasBaselinesWritePermissions: hasBaselinesWrite,
         arePermissionsLoaded: true
     });
 
-    componentDidMount () {
+    useEffect(() => {
         insights.chrome.init();
         insights.chrome.identifyApp('drift');
         insights.chrome.on('APP_NAVIGATION', event => {
             if (event.domEvent !== undefined && event.domEvent.type === 'click') {
-                this.props.history.push(`/${event.navId}`);
+                history.push(`/${event.navId}`);
             }
         });
-        window.insights.chrome.getUserPermissions('drift').then(
-            driftPermissions => {
-                const permissionsList = driftPermissions.map(permissions => permissions.permission);
-                if (permissionsList.includes('drift:*:*')) {
-                    this.handlePermissionsUpdate(true, true, true);
-                } else {
-                    this.handlePermissionsUpdate(
-                        permissionsList.includes('drift:comparisons:read' || 'drift:*:read'),
-                        permissionsList.includes('drift:baselines:read' || 'drift:*:read'),
-                        permissionsList.includes('drift:baselines:write' || 'drift:*:write')
-                    );
-                }
+        (async () => {
+            const driftPermissions = await window.insights.chrome.getUserPermissions('drift');
+            const permissionsList = driftPermissions.map(permissions => permissions.permission);
+            if (permissionsList.includes('drift:*:*')) {
+                handlePermissionsUpdate(true, true, true);
+            } else {
+                handlePermissionsUpdate(
+                    permissionsList.includes('drift:comparisons:read' || 'drift:*:read'),
+                    permissionsList.includes('drift:baselines:read' || 'drift:*:read'),
+                    permissionsList.includes('drift:baselines:write' || 'drift:*:write')
+                );
             }
-        );
-    }
+        })();
 
-    componentWillUnmount () {
-        this.appNav();
-        this.buildNav();
-    }
+        insights.chrome.on('GLOBAL_FILTER_UPDATE', ({ data }) => {
+            const tags = insights.chrome?.mapGlobalFilter?.(data).filter(item => !item.includes('workloads')) || undefined;
+            dispatch(actions.setGlobalGilterTags(tags));
+        });
+    }, []);
 
-    render () {
-        const { hasCompareReadPermissions, hasBaselinesReadPermissions, hasBaselinesWritePermissions, arePermissionsLoaded } = this.state;
-
-        return (
-            arePermissionsLoaded
-                ? <PermissionContext.Provider
-                    value={ {
-                        permissions: {
-                            compareRead: hasCompareReadPermissions,
-                            baselinesRead: hasBaselinesReadPermissions,
-                            baselinesWrite: hasBaselinesWritePermissions
-                        }
-                    } }>
-                    <NotificationsPortal />
-                    <Routes childProps={ this.props } />
-                </PermissionContext.Provider>
-                : null
-        );
-    }
-}
-
-App.propTypes = {
-    history: PropTypes.object
+    return (
+        arePermissionsLoaded
+            ? <PermissionContext.Provider
+                value={ {
+                    permissions: {
+                        compareRead: hasCompareReadPermissions,
+                        baselinesRead: hasBaselinesReadPermissions,
+                        baselinesWrite: hasBaselinesWritePermissions
+                    }
+                } }>
+                <NotificationsPortal />
+                <Routes childProps={ props } />
+            </PermissionContext.Provider>
+            : null
+    );
 };
 
-export default withRouter (connect()(App));
+export default withRouter (App);

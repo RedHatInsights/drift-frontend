@@ -1,7 +1,7 @@
 import promiseMiddleware from 'redux-promise-middleware';
 import { getRegistry } from '@redhat-cloud-services/frontend-components-utilities/files/Registry';
 
-import { compareReducer } from '../SmartComponents/modules/reducers';
+import { compareReducer, globalFilterReducer } from '../SmartComponents/modules/reducers';
 import { addSystemModalReducer } from '../SmartComponents/AddSystemModal/redux/addSystemModalReducer';
 import { baselinesTableRootReducer } from '../SmartComponents/BaselinesTable/redux';
 import { filterDropdownReducer } from '../SmartComponents/DriftPage/FilterDropDown/redux/filterDropdownReducer';
@@ -42,7 +42,8 @@ export function init (...middleware) {
         createBaselineModalState: createBaselineModalReducer,
         editBaselineState: editBaselineReducer,
         historicProfilesState: historicProfilesReducer,
-        notifications
+        notifications,
+        globalFilterState: globalFilterReducer
     });
 
     return registry;

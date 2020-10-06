@@ -1,6 +1,7 @@
 import types from './types';
 import { ASC, DESC } from '../../constants';
 import reducerHelpers from './helpers';
+import { applyReducerHash } from '@redhat-cloud-services/frontend-components-utilities/files/ReducerRegistry';
 
 const initialState = {
     fullCompareData: [],
@@ -217,3 +218,10 @@ export function compareReducer(state = initialState, action) {
             };
     }
 }
+
+export const globalFilterReducer = applyReducerHash({
+    [types.SET_GLOBAL_FILTER_TAGS]: (state = {}, action) => ({
+        ...state,
+        tagsFilter: action.payload
+    })
+});
