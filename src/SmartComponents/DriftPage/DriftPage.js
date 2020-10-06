@@ -44,7 +44,8 @@ export class DriftPage extends Component {
                 'You currently have no system or baselines displayed. Add at least two',
                 'systems or baselines to compare their facts.'
             ],
-            isEmpty: true
+            isEmpty: true,
+            isFirstReference: true
         };
 
         this.props.clearSelectedBaselines('CHECKBOX');
@@ -52,6 +53,12 @@ export class DriftPage extends Component {
 
     async componentDidMount() {
         await window.insights.chrome.auth.getUser();
+    }
+
+    setIsFirstReference = (value) => {
+        this.setState({
+            isFirstReference: value
+        });
     }
 
     onToggle = () => {
@@ -77,6 +84,7 @@ export class DriftPage extends Component {
 
         clearComparison();
         clearSelectedBaselines('CHECKBOX');
+        this.setIsFirstReference(true);
         updateReferenceId();
         setHistory(history, []);
     }
@@ -115,8 +123,8 @@ export class DriftPage extends Component {
     }
 
     render() {
-        const { emptyState, error, loading, page, perPage, totalFacts, updatePagination, updateReferenceId } = this.props;
-        const { actionKebabItems, dropdownItems, dropdownOpen, isEmpty } = this.state;
+        const { clearComparison, emptyState, error, loading, page, perPage, totalFacts, updatePagination, updateReferenceId } = this.props;
+        const { actionKebabItems, dropdownItems, dropdownOpen, isEmpty, isFirstReference } = this.state;
 
         return (
             <React.Fragment>
@@ -210,6 +218,9 @@ export class DriftPage extends Component {
                                                 <DriftTable
                                                     updateReferenceId={ updateReferenceId }
                                                     error={ error }
+                                                    isFirstReference={ isFirstReference }
+                                                    setIsFirstReference={ this.setIsFirstReference }
+                                                    clearComparison= { clearComparison }
                                                 />
                                                 { !emptyState && !loading ?
                                                     <Toolbar className="drift-toolbar">

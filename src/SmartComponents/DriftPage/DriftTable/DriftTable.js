@@ -28,8 +28,7 @@ export class DriftTable extends Component {
             emptyStateMessage: [
                 'You currently have no system or baselines displayed. Add at least two',
                 'systems or baselines to compare their facts.'
-            ],
-            isFirstReference: true
+            ]
         };
 
         this.masterList = [];
@@ -160,7 +159,7 @@ export class DriftTable extends Component {
     }
 
     async removeSystem(item) {
-        const { selectHistoricProfiles } = this.props;
+        const { isFirstReference, selectHistoricProfiles, setIsFirstReference } = this.props;
 
         if (item.type === 'system') {
             this.systemIds = this.systemIds.filter(id => id !== item.id);
@@ -180,11 +179,16 @@ export class DriftTable extends Component {
         }
 
         selectHistoricProfiles(this.HSPIds);
+        if (!this.systemIds.length && !this.baselineIds.length
+            && !this.HSPIds.length && !this.props.referenceId && !isFirstReference) {
+            setIsFirstReference(true);
+        }
+
         this.fetchCompare(this.systemIds, this.baselineIds, this.HSPIds, this.props.referenceId);
     }
 
     fetchCompare(systemIds, baselineIds, HSPIds, referenceId) {
-        const { isFirstReference } = this.state;
+        const { clearComparison, fetchCompare, isFirstReference, setIsFirstReference, setSelectedBaselines, updateReferenceId } = this.props;
         let reference;
 
         this.systemIds = systemIds;
@@ -194,19 +198,24 @@ export class DriftTable extends Component {
         if (isFirstReference) {
             if (!referenceId && this.baselineIds.length) {
                 reference = baselineIds[0];
-                this.setState({ isFirstReference: false });
+                setIsFirstReference(false);
             } else if (referenceId) {
                 reference = referenceId;
-                this.setState({ isFirstReference: false });
+                setIsFirstReference(false);
             }
         } else {
             reference = referenceId;
         }
 
         setHistory(this.props.history, systemIds, baselineIds, HSPIds, reference);
-        this.props.setSelectedBaselines(this.baselineIds, 'CHECKBOX');
-        this.props.updateReferenceId(reference);
-        this.props.fetchCompare(systemIds, baselineIds, HSPIds, reference);
+        setSelectedBaselines(this.baselineIds, 'CHECKBOX');
+        updateReferenceId(reference);
+
+        if (systemIds.length || baselineIds.length || HSPIds.length || reference) {
+            fetchCompare(systemIds, baselineIds, HSPIds, reference);
+        } else {
+            clearComparison();
+        }
     }
 
     renderRows(facts) {
@@ -557,7 +566,10 @@ DriftTable.propTypes = {
     emptyState: PropTypes.bool,
     updateReferenceId: PropTypes.func,
     referenceId: PropTypes.string,
-    error: PropTypes.object
+    error: PropTypes.object,
+    isFirstReference: PropTypes.bool,
+    setIsFirstReference: PropTypes.func,
+    clearComparison: PropTypes.func
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DriftTable));

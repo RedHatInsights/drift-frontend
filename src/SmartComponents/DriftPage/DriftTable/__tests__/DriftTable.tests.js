@@ -18,7 +18,7 @@ describe('DriftTable', () => {
     beforeEach(() => {
         props = {
             location: {},
-            history: {},
+            history: { push: jest.fn() },
             fetchCompare: jest.fn(),
             fullCompareData: [],
             filteredCompareData: [],
@@ -28,13 +28,16 @@ describe('DriftTable', () => {
             factSort: '',
             stateSort: '',
             loading: false,
+            isFirstReference: true,
             toggleFactSort: jest.fn(),
             toggleStateSort: jest.fn(),
             expandRow: jest.fn(),
             expandedRows: [],
             setSelectedBaselines: jest.fn(),
             selectHistoricProfiles: jest.fn(),
-            updateReferenceId: jest.fn()
+            updateReferenceId: jest.fn(),
+            setIsFirstReference: jest.fn(),
+            clearComparison: jest.fn()
         };
     });
 
@@ -79,6 +82,47 @@ describe('DriftTable', () => {
             <DriftTable { ...props }/>
         );
         expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('should call clearComparison on fetchCompare with no data', () => {
+        const wrapper = shallow(
+            <DriftTable { ...props } />
+        );
+
+        wrapper.instance().fetchCompare([], [], [], undefined);
+        expect(props.clearComparison).toHaveBeenCalled();
+    });
+
+    it('should set first reference on baselineId', () => {
+        const wrapper = shallow(
+            <DriftTable { ...props } />
+        );
+
+        wrapper.instance().fetchCompare([], [ 'abcd1234' ], [], undefined);
+        expect(props.setIsFirstReference).toHaveBeenCalledWith(false);
+    });
+
+    it('should set first reference on referenceId', () => {
+        const wrapper = shallow(
+            <DriftTable { ...props } />
+        );
+
+        wrapper.instance().fetchCompare([ 'abcd1234' ], [], [], 'abcd1234');
+        expect(props.setIsFirstReference).toHaveBeenCalledWith(false);
+    });
+
+    it('should set first isFirstReference to true with no data', () => {
+        props.location.search = 'baseline_ids=abcd1234';
+        props.isFirstReference = false;
+        const wrapper = shallow(
+            <DriftTable { ...props } />
+        );
+
+        wrapper.instance().removeSystem({
+            type: 'baseline',
+            id: 'abcd1234'
+        });
+        expect(props.setIsFirstReference).toHaveBeenCalledWith(true);
     });
 });
 

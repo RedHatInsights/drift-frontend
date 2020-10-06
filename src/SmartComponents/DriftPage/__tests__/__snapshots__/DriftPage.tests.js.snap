@@ -2409,10 +2409,14 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                               </GenerateId>
                             </Toolbar>
                             <withRouter(Connect(DriftTable))
+                              clearComparison={[Function]}
                               error={Object {}}
+                              isFirstReference={true}
+                              setIsFirstReference={[Function]}
                               updateReferenceId={[Function]}
                             >
                               <Connect(DriftTable)
+                                clearComparison={[Function]}
                                 error={Object {}}
                                 history={
                                   Object {
@@ -2444,6 +2448,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                     "replace": [Function],
                                   }
                                 }
+                                isFirstReference={true}
                                 location={
                                   Object {
                                     "hash": "",
@@ -2460,11 +2465,13 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                     "url": "/",
                                   }
                                 }
+                                setIsFirstReference={[Function]}
                                 updateReferenceId={[Function]}
                               >
                                 <DriftTable
                                   addSystemModalOpened={false}
                                   baselines={Array []}
+                                  clearComparison={[Function]}
                                   error={Object {}}
                                   expandRow={[Function]}
                                   fetchCompare={[Function]}
@@ -2500,6 +2507,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                       "replace": [Function],
                                     }
                                   }
+                                  isFirstReference={true}
                                   loading={false}
                                   location={
                                     Object {
@@ -2518,6 +2526,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                     }
                                   }
                                   selectHistoricProfiles={[Function]}
+                                  setIsFirstReference={[Function]}
                                   setSelectedBaselines={[Function]}
                                   systems={Array []}
                                   toggleFactSort={[Function]}
@@ -5945,14 +5954,18 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                               </GenerateId>
                             </Toolbar>
                             <withRouter(Connect(DriftTable))
+                              clearComparison={[Function]}
                               error={
                                 Object {
                                   "detail": "something",
                                 }
                               }
+                              isFirstReference={true}
+                              setIsFirstReference={[Function]}
                               updateReferenceId={[Function]}
                             >
                               <Connect(DriftTable)
+                                clearComparison={[Function]}
                                 error={
                                   Object {
                                     "detail": "something",
@@ -5988,6 +6001,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                     "replace": [Function],
                                   }
                                 }
+                                isFirstReference={true}
                                 location={
                                   Object {
                                     "hash": "",
@@ -6004,11 +6018,13 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                     "url": "/",
                                   }
                                 }
+                                setIsFirstReference={[Function]}
                                 updateReferenceId={[Function]}
                               >
                                 <DriftTable
                                   addSystemModalOpened={false}
                                   baselines={Array []}
+                                  clearComparison={[Function]}
                                   error={
                                     Object {
                                       "detail": "something",
@@ -6048,6 +6064,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                       "replace": [Function],
                                     }
                                   }
+                                  isFirstReference={true}
                                   loading={false}
                                   location={
                                     Object {
@@ -6066,6 +6083,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                     }
                                   }
                                   selectHistoricProfiles={[Function]}
+                                  setIsFirstReference={[Function]}
                                   setSelectedBaselines={[Function]}
                                   systems={Array []}
                                   toggleFactSort={[Function]}
