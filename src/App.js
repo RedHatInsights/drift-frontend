@@ -55,7 +55,7 @@ const App = (props) => {
 
         insights.chrome.on('GLOBAL_FILTER_UPDATE', ({ data }) => {
             const tags = insights.chrome?.mapGlobalFilter?.(data).filter(item => !item.includes('workloads')) || undefined;
-            dispatch(actions.setGlobalGilterTags(tags));
+            dispatch(actions.setGlobalFilterTags(tags));
         });
     }, []);
 

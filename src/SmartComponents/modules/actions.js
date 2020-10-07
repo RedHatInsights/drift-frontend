@@ -101,7 +101,7 @@ function updateReferenceId(id) {
     };
 }
 
-function setGlobalGilterTags(tags = []) {
+function setGlobalFilterTags(tags = []) {
     return {
         type: types.SET_GLOBAL_FILTER_TAGS,
         payload: tags
@@ -122,5 +122,5 @@ export default {
     exportToCSV,
     expandRow,
     updateReferenceId,
-    setGlobalGilterTags
+    setGlobalFilterTags
 };
