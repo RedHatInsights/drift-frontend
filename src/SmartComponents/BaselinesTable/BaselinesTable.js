@@ -12,7 +12,7 @@ import baselinesReducerHelpers from './redux/helpers';
 import BaselinesToolbar from './BaselinesToolbar/BaselinesToolbar';
 import EmptyStateDisplay from '../EmptyStateDisplay/EmptyStateDisplay';
 import TablePagination from '../Pagination/Pagination';
-import { PermissionContext } from '../../App';
+//import { PermissionContext } from '../../App';
 
 export class BaselinesTable extends Component {
     constructor(props) {
@@ -67,10 +67,13 @@ export class BaselinesTable extends Component {
 
     onSort = (_event, index, direction) => {
         const { search } = this.state;
+        const { hasWritePermissions } = this.props;
         let orderBy = '';
 
-        if (index === 1) {
+        if (index === 0) {
             orderBy = 'display_name';
+        } else if (index === 1) {
+            orderBy = !hasWritePermissions ? 'updated' : 'display_name';
         } else if (index === 2) {
             orderBy = 'updated';
         }
@@ -256,52 +259,48 @@ export class BaselinesTable extends Component {
 
     render() {
         const { kebab, createButton, exportToCSV, exportButton, hasMultiSelect, loading, onBulkSelect, selectedBaselineIds,
-            tableData, tableId, totalBaselines } = this.props;
+            tableData, tableId, totalBaselines, hasReadPermissions, hasWritePermissions } = this.props;
         const { page, perPage } = this.state;
 
         return (
-            <PermissionContext.Consumer>
-                { value =>
-                    <React.Fragment>
-                        <BaselinesToolbar
-                            createButton={ createButton }
-                            exportButton={ exportButton }
-                            kebab={ kebab }
-                            onSearch={ this.onSearch }
-                            tableId={ tableId }
-                            fetchWithParams={ this.fetchWithParams }
-                            tableData={ tableData }
-                            onBulkSelect={ onBulkSelect }
-                            hasMultiSelect={ hasMultiSelect }
-                            selectedBaselineIds={ selectedBaselineIds }
-                            isDisabled={ this.isDisabled() }
-                            page={ page }
-                            perPage={ perPage }
-                            totalBaselines={ totalBaselines }
-                            updatePagination={ this.updatePagination }
-                            exportToCSV={ exportToCSV }
-                            loading={ loading }
-                            hasWritePermissions={ value.permissions.baselinesWrite }
-                            hasReadPermissions={ value.permissions.baselinesRead }
-                        />
-                        { this.renderTable(value.permissions.baselinesWrite, value.permissions.baselinesRead) }
-                        <Toolbar>
-                            <ToolbarGroup className='pf-c-pagination'>
-                                <ToolbarItem>
-                                    <TablePagination
-                                        page={ page }
-                                        perPage={ perPage }
-                                        total={ !value.permissions.baselinesRead ? 0 : totalBaselines }
-                                        isCompact={ false }
-                                        updatePagination={ this.updatePagination }
-                                        tableId={ tableId }
-                                    />
-                                </ToolbarItem>
-                            </ToolbarGroup>
-                        </Toolbar>
-                    </React.Fragment>
-                }
-            </PermissionContext.Consumer>
+            <React.Fragment>
+                <BaselinesToolbar
+                    createButton={ createButton }
+                    exportButton={ exportButton }
+                    kebab={ kebab }
+                    onSearch={ this.onSearch }
+                    tableId={ tableId }
+                    fetchWithParams={ this.fetchWithParams }
+                    tableData={ tableData }
+                    onBulkSelect={ onBulkSelect }
+                    hasMultiSelect={ hasMultiSelect }
+                    selectedBaselineIds={ selectedBaselineIds }
+                    isDisabled={ this.isDisabled() }
+                    page={ page }
+                    perPage={ perPage }
+                    totalBaselines={ totalBaselines }
+                    updatePagination={ this.updatePagination }
+                    exportToCSV={ exportToCSV }
+                    loading={ loading }
+                    hasWritePermissions={ hasWritePermissions }
+                    hasReadPermissions={ hasReadPermissions }
+                />
+                { this.renderTable(hasWritePermissions, hasReadPermissions) }
+                <Toolbar>
+                    <ToolbarGroup className='pf-c-pagination'>
+                        <ToolbarItem>
+                            <TablePagination
+                                page={ page }
+                                perPage={ perPage }
+                                total={ !hasReadPermissions ? 0 : totalBaselines }
+                                isCompact={ false }
+                                updatePagination={ this.updatePagination }
+                                tableId={ tableId }
+                            />
+                        </ToolbarItem>
+                    </ToolbarGroup>
+                </Toolbar>
+            </React.Fragment>
         );
     }
 }
@@ -321,7 +320,9 @@ BaselinesTable.propTypes = {
     onBulkSelect: PropTypes.func,
     selectedBaselineIds: PropTypes.array,
     totalBaselines: PropTypes.number,
-    exportToCSV: PropTypes.func
+    exportToCSV: PropTypes.func,
+    hasReadPermissions: PropTypes.bool,
+    hasWritePermissions: PropTypes.bool
 };
 
 function mapDispatchToProps(dispatch) {
