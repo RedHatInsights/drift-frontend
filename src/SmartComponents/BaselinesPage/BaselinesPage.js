@@ -74,7 +74,7 @@ export class BaselinesPage extends Component {
         selectBaseline(ids, isSelected, 'CHECKBOX');
     }
 
-    renderTable() {
+    renderTable(hasReadPermissions, hasWritePermissions) {
         const { baselineTableData, loading, createBaselineModalOpened, clearEditBaselineData, selectedBaselineIds,
             totalBaselines } = this.props;
         const { columns } = this.state;
@@ -99,6 +99,8 @@ export class BaselinesPage extends Component {
                         onBulkSelect={ this.onBulkSelect }
                         selectedBaselineIds={ selectedBaselineIds }
                         totalBaselines={ totalBaselines }
+                        hasReadPermissions={ hasReadPermissions }
+                        hasWritePermissions={ hasWritePermissions }
                     />
                 </div>
             </CardBody>
@@ -164,7 +166,7 @@ export class BaselinesPage extends Component {
                                         />
                                         <Card className='pf-t-light pf-m-opaque-100'>
                                             {
-                                                this.renderTable()
+                                                this.renderTable(value.permissions.baselinesRead, value.permissions.baselinesWrite)
                                             }
                                         </Card>
                                     </React.Fragment>
