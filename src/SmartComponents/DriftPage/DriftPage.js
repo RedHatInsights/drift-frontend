@@ -221,6 +221,7 @@ export class DriftPage extends Component {
                                                     isFirstReference={ isFirstReference }
                                                     setIsFirstReference={ this.setIsFirstReference }
                                                     clearComparison= { clearComparison }
+                                                    hasInventoryReadPermissions={ value.permissions.inventoryRead }
                                                 />
                                                 { !emptyState && !loading ?
                                                     <Toolbar className="drift-toolbar">

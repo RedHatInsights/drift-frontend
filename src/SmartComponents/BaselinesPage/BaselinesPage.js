@@ -139,15 +139,15 @@ export class BaselinesPage extends Component {
         const { baselineError, emptyState, loading, revertBaselineFetch } = this.props;
 
         return (
-            <React.Fragment>
-                <CreateBaselineModal />
-                <PageHeader>
-                    <PageHeaderTitle title='Baselines'/>
-                </PageHeader>
-                <Main>
-                    <PermissionContext.Consumer>
-                        { value =>
-                            value.permissions.baselinesRead === false
+            <PermissionContext.Consumer>
+                { value =>
+                    <React.Fragment>
+                        <CreateBaselineModal hasInventoryReadPermissions={ value.permissions.inventoryRead } />
+                        <PageHeader>
+                            <PageHeaderTitle title='Baselines'/>
+                        </PageHeader>
+                        <Main>
+                            { value.permissions.baselinesRead === false
                                 ? <EmptyStateDisplay
                                     icon={ LockIcon }
                                     color='#6a6e73'
@@ -168,10 +168,11 @@ export class BaselinesPage extends Component {
                                             }
                                         </Card>
                                     </React.Fragment>
-                        }
-                    </PermissionContext.Consumer>
-                </Main>
-            </React.Fragment>
+                            }
+                        </Main>
+                    </React.Fragment>
+                }
+            </PermissionContext.Consumer>
         );
     }
 }

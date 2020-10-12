@@ -148,7 +148,9 @@ describe('ConnectedDriftTable', () => {
                 emptyState: false
             },
             addSystemModalState: { addSystemModalOpened: false },
-            baselinesTableState: { checkboxTable: {}},
+            baselinesTableState: { checkboxTable: {
+                selectedBaselineIds: []
+            }},
             historicProfilesState: { selectedHSPIds: []}
         };
         updateReferenceId = jest.fn();
