@@ -148,7 +148,7 @@ export class CreateBaselineModal extends Component {
     }
 
     renderCopySystem() {
-        const { historicalProfiles } = this.props;
+        const { hasInventoryReadPermissions, historicalProfiles } = this.props;
 
         return (<React.Fragment>
             <b>Select system to copy from</b>
@@ -158,6 +158,7 @@ export class CreateBaselineModal extends Component {
                 hasHistoricalDropdown={ true }
                 hasMultiSelect={ false }
                 historicalProfiles={ historicalProfiles }
+                hasInventoryReadPermissions={ hasInventoryReadPermissions }
             />
         </React.Fragment>
         );
@@ -303,7 +304,8 @@ CreateBaselineModal.propTypes = {
     totalBaselines: PropTypes.number,
     updatePagination: PropTypes.func,
     historicalProfiles: PropTypes.array,
-    selectedHSPIds: PropTypes.array
+    selectedHSPIds: PropTypes.array,
+    hasInventoryReadPermissions: PropTypes.bool
 };
 
 function mapStateToProps(state) {
