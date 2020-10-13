@@ -15,8 +15,9 @@ import { compareActions } from '../modules';
 import { historicProfilesActions } from '../HistoricalProfilesDropdown/redux';
 import systemsTableActions from './actions';
 import EmptyStateDisplay from '../EmptyStateDisplay/EmptyStateDisplay';
+import helpers from '../helpers';
 
-const SystemsTable = ({
+export const SystemsTable = ({
     selectedSystemIds,
     setSelectedSystemIds,
     driftClearFilters,
@@ -26,7 +27,9 @@ const SystemsTable = ({
     hasMultiSelect,
     selectHistoricProfiles,
     updateColumns,
-    hasInventoryReadPermissions
+    hasInventoryReadPermissions,
+    entities,
+    selectEntities
 }) => {
     const [ InventoryCmp, setInventoryCmp ] = useState(null);
     const tagsFilter = ReactRedux.useSelector(({ globalFilterState }) => globalFilterState?.tagsFilter);
@@ -34,8 +37,26 @@ const SystemsTable = ({
     const sidsFilter = ReactRedux.useSelector(({ globalFilterState }) => globalFilterState?.sidsFilter);
     const store = ReactRedux.useStore();
 
-    const deselectHistoricalProfiles = () => {
+    const onSelect = (event) => {
+        let toSelect = [];
+        switch (event) {
+            case 'none': {
+                toSelect = { id: 0, selected: false, bulk: true };
 
+                break;
+            }
+
+            case 'page': {
+                toSelect = { id: 0, selected: true };
+
+                break;
+            }
+        }
+
+        selectEntities(toSelect);
+    };
+
+    const deselectHistoricalProfiles = () => {
         if (!hasMultiSelect) {
             updateColumns('display_name');
             selectHistoricProfiles([]);
@@ -93,6 +114,31 @@ const SystemsTable = ({
                                 }
                             }
                         } }
+                        tableProps={ {
+                            canSelectAll: false
+                        } }
+                        total={ entities.total }
+                        bulkSelect={ onSelect && {
+                            isDisabled: !hasMultiSelect,
+                            count: entities && entities.selectedSystemIds ? entities.selectedSystemIds.length : 0,
+                            items: [{
+                                title: `Select none (0)`,
+                                onClick: () => {
+                                    onSelect('none');
+                                }
+                            }, {
+                                title: `Select page (${ entities.count })`,
+                                onClick: () => {
+                                    onSelect('page');
+                                }
+                            }],
+                            onSelect: (value) => {
+                                value ? onSelect('page') : onSelect('none');
+                            },
+                            checked: entities && entities.selectedSystemIds
+                                ? helpers.findCheckedValue(entities.total, entities.selectedSystemIds.length)
+                                : null
+                        } }
                     />
                     : <reactCore.Spinner size="lg" />
                 }
@@ -111,7 +157,8 @@ function mapDispatchToProps(dispatch) {
         selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds)),
         setSelectedSystemIds: (systemIds) => dispatch(compareActions.setSelectedSystemIds(systemIds)),
         driftClearFilters: () => dispatch(systemsTableActions.clearAllFilters()),
-        updateColumns: (key) => dispatch(systemsTableActions.updateColumns(key))
+        updateColumns: (key) => dispatch(systemsTableActions.updateColumns(key)),
+        selectEntities: (toSelect) => dispatch({ type: 'SELECT_ENTITY', payload: toSelect })
     };
 }
 
@@ -126,7 +173,9 @@ SystemsTable.propTypes = {
     hasMultiSelect: PropTypes.bool,
     updateColumns: PropTypes.func,
     selectedHSPIds: PropTypes.array,
-    hasInventoryReadPermissions: PropTypes.bool
+    hasInventoryReadPermissions: PropTypes.bool,
+    entities: PropTypes.object,
+    selectEntities: PropTypes.func
 };
 
 SystemsTable.defaultProps = {

@@ -118,4 +118,66 @@ describe('compare reducer', () => {
             rows: []
         });
     });
+
+    it('should handle 0 SELECT_ENTITY false', () => {
+        expect(
+            reducer({
+                selectedSystemIds: [ '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9', '9c83bfcc-8t7a-47c7-b4r2-142fg52e89e1' ],
+                rows: [{ id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9' }, { id: '9c83bfcc-8t7a-47c7-b4r2-142fg52e89e1' }]
+            }, {
+                payload:
+                    {
+                        id: 0, selected: false
+                    },
+                type: types.SELECT_ENTITY
+            })
+        ).toEqual({
+            selectedSystemIds: [],
+            rows: [{ id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9' }, { id: '9c83bfcc-8t7a-47c7-b4r2-142fg52e89e1' }]
+        });
+    });
+
+    it('should handle 0 SELECT_ENTITY false on without bulk select', () => {
+        expect(
+            reducer({
+                selectedSystemIds: [
+                    '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9',
+                    '9c83bfcc-8t7a-47c7-b4r2-142fg52e89e1',
+                    '2c84bfvc-8t9q-52r9-b4c3-847fg51l09e1'
+                ],
+                rows: [{ id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9' }, { id: '9c83bfcc-8t7a-47c7-b4r2-142fg52e89e1' }]
+            }, {
+                payload:
+                    {
+                        id: 0, selected: false
+                    },
+                type: types.SELECT_ENTITY
+            })
+        ).toEqual({
+            selectedSystemIds: [ '2c84bfvc-8t9q-52r9-b4c3-847fg51l09e1' ],
+            rows: [{ id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9' }, { id: '9c83bfcc-8t7a-47c7-b4r2-142fg52e89e1' }]
+        });
+    });
+
+    it('should handle 0 SELECT_ENTITY false on bulk select', () => {
+        expect(
+            reducer({
+                selectedSystemIds: [
+                    '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9',
+                    '9c83bfcc-8t7a-47c7-b4r2-142fg52e89e1',
+                    '2c84bfvc-8t9q-52r9-b4c3-847fg51l09e1'
+                ],
+                rows: [{ id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9' }, { id: '9c83bfcc-8t7a-47c7-b4r2-142fg52e89e1' }]
+            }, {
+                payload:
+                    {
+                        id: 0, selected: false, bulk: true
+                    },
+                type: types.SELECT_ENTITY
+            })
+        ).toEqual({
+            selectedSystemIds: [],
+            rows: [{ id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9' }, { id: '9c83bfcc-8t7a-47c7-b4r2-142fg52e89e1' }]
+        });
+    });
 });

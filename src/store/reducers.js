@@ -132,8 +132,12 @@ function selectedReducer(
                         });
                         selectedSystemIds = [ ...new Set(selectedSystemIds.concat(ids)) ];
                     } else {
-                        for (let i = 0; i < state.rows.length; i += 1) {
-                            selectedSystemIds = selectedSystemIds.filter(item => item !== state.rows[i].id);
+                        if (action.payload.bulk) {
+                            selectedSystemIds = [];
+                        } else {
+                            for (let i = 0; i < state.rows.length; i += 1) {
+                                selectedSystemIds = selectedSystemIds.filter(item => item !== state.rows[i].id);
+                            }
                         }
                     }
                 }

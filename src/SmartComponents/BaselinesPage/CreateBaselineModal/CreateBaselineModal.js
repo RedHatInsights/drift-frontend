@@ -150,7 +150,7 @@ export class CreateBaselineModal extends Component {
     }
 
     renderCopySystem() {
-        const { hasInventoryReadPermissions, historicalProfiles } = this.props;
+        const { hasInventoryReadPermissions, entities, historicalProfiles } = this.props;
 
         return (<React.Fragment>
             <b>Select system to copy from</b>
@@ -161,6 +161,7 @@ export class CreateBaselineModal extends Component {
                 hasMultiSelect={ false }
                 historicalProfiles={ historicalProfiles }
                 hasInventoryReadPermissions={ hasInventoryReadPermissions }
+                entities={ entities }
             />
         </React.Fragment>
         );

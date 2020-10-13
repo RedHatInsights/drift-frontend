@@ -127,6 +127,7 @@ export class AddSystemModal extends Component {
                                 historicalProfiles={ historicalProfiles }
                                 hasMultiSelect={ true }
                                 hasInventoryReadPermissions={ hasInventoryReadPermissions }
+                                entities={ entities }
                             />
                         </Tab>
                         <Tab
