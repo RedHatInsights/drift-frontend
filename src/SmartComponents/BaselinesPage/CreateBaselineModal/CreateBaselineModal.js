@@ -10,8 +10,6 @@ import BaselinesTable from '../../BaselinesTable/BaselinesTable';
 import { createBaselineModalActions } from './redux';
 import { baselinesTableActions } from '../../BaselinesTable/redux';
 
-import _ from 'lodash';
-
 export class CreateBaselineModal extends Component {
     constructor(props) {
         super(props);
@@ -218,11 +216,12 @@ export class CreateBaselineModal extends Component {
         const { selectedBaselineIds, selectedHSPIds, entities } = this.props;
         const { baselineName, copyBaselineChecked, copySystemChecked } = this.state;
         let actions;
+        let selectedSystemIds = entities === undefined || entities.selectedSystemIds === undefined ? [] : entities.selectedSystemIds;
 
         if (baselineName === ''
             || (copyBaselineChecked && selectedBaselineIds.length === 0)
             || (copySystemChecked &&
-                ((_.isEmpty(entities.selectedSystemIds)) && (selectedHSPIds.length === 0))
+                (selectedSystemIds.length === 0 && selectedHSPIds.length === 0)
             )
         ) {
             actions = [
