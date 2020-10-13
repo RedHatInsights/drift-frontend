@@ -28,7 +28,8 @@ describe('AddSystemModal', () => {
             selectedHSPIds: [],
             loading: false,
             baselineTableData: [],
-            historicalProfiles: []
+            historicalProfiles: [],
+            hasInventoryReadPermissions: true
         };
 
         value = {
@@ -56,6 +57,7 @@ describe('ConnectedAddSystemModal', () => {
     let initialState;
     let mockStore;
     let value;
+    let props;
 
     beforeEach(() => {
         mockStore = configureStore();
@@ -84,6 +86,10 @@ describe('ConnectedAddSystemModal', () => {
             }
         };
 
+        props = {
+            hasInventoryReadPermissions: true
+        };
+
         value = {
             permissions: {
                 compareRead: true,
@@ -100,7 +106,24 @@ describe('ConnectedAddSystemModal', () => {
             <PermissionContext.Provider value={ value }>
                 <MemoryRouter keyLength={ 0 }>
                     <Provider store={ store }>
-                        <ConnectedAddSystemModal />
+                        <ConnectedAddSystemModal { ...props } />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
+        );
+
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('should render disabled with no inventory permissions', () => {
+        const store = mockStore(initialState);
+        props.hasInventoryReadPermissions = false;
+
+        const wrapper = mount(
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedAddSystemModal { ...props } />
                     </Provider>
                 </MemoryRouter>
             </PermissionContext.Provider>
@@ -116,7 +139,7 @@ describe('ConnectedAddSystemModal', () => {
             <PermissionContext.Provider value={ value }>
                 <MemoryRouter keyLength={ 0 }>
                     <Provider store={ store }>
-                        <ConnectedAddSystemModal />
+                        <ConnectedAddSystemModal { ...props } />
                     </Provider>
                 </MemoryRouter>
             </PermissionContext.Provider>
@@ -133,7 +156,7 @@ describe('ConnectedAddSystemModal', () => {
             <PermissionContext.Provider value={ value }>
                 <MemoryRouter keyLength={ 0 }>
                     <Provider store={ store }>
-                        <ConnectedAddSystemModal />
+                        <ConnectedAddSystemModal { ...props } />
                     </Provider>
                 </MemoryRouter>
             </PermissionContext.Provider>
@@ -155,6 +178,7 @@ describe('ConnectedAddSystemModal', () => {
                         <ConnectedAddSystemModal
                             confirmModal={ confirmModal }
                             toggleModal={ toggleModal }
+                            { ...props }
                         />
                     </Provider>
                 </MemoryRouter>
@@ -178,6 +202,7 @@ describe('ConnectedAddSystemModal', () => {
                         <ConnectedAddSystemModal
                             confirmModal={ confirmModal }
                             toggleModal={ toggleModal }
+                            { ...props }
                         />
                     </Provider>
                 </MemoryRouter>
@@ -201,6 +226,7 @@ describe('ConnectedAddSystemModal', () => {
                         <ConnectedAddSystemModal
                             confirmModal={ confirmModal }
                             toggleModal={ toggleModal }
+                            { ...props }
                         />
                     </Provider>
                 </MemoryRouter>
@@ -221,6 +247,7 @@ describe('ConnectedAddSystemModal', () => {
                     <Provider store={ store }>
                         <ConnectedAddSystemModal
                             selectActiveTab={ selectActiveTab }
+                            { ...props }
                         />
                     </Provider>
                 </MemoryRouter>
@@ -241,6 +268,7 @@ describe('ConnectedAddSystemModal', () => {
                     <Provider store={ store }>
                         <ConnectedAddSystemModal
                             toggleModal={ toggleModal }
+                            { ...props }
                         />
                     </Provider>
                 </MemoryRouter>

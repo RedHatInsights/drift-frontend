@@ -13,6 +13,7 @@ import { addNewListener } from '../../store';
 import { compareActions } from '../modules';
 import { historicProfilesActions } from '../HistoricalProfilesDropdown/redux';
 import systemsTableActions from './actions';
+import EmptyStateDisplay from '../EmptyStateDisplay/EmptyStateDisplay';
 
 const SystemsTable = ({
     selectedSystemIds,
@@ -23,7 +24,8 @@ const SystemsTable = ({
     historicalProfiles,
     hasMultiSelect,
     selectHistoricProfiles,
-    updateColumns
+    updateColumns,
+    hasInventoryReadPermissions
 }) => {
     const [ InventoryCmp, setInventoryCmp ] = useState(null);
     const tagsFilter = ReactRedux.useSelector(({ globalFilterState }) => globalFilterState?.tagsFilter);
@@ -73,18 +75,25 @@ const SystemsTable = ({
     }, []);
 
     return (
-        <Fragment>
-            { InventoryCmp ?
-                <InventoryCmp
-                    showTags
-                    noDetail
-                    customFilters={ {
-                        tags: tagsFilter
-                    } }
-                />
-                : <reactCore.Spinner size="lg" />
-            }
-        </Fragment>
+        hasInventoryReadPermissions
+            ? <Fragment>
+                { InventoryCmp ?
+                    <InventoryCmp
+                        showTags
+                        noDetail
+                        customFilters={ {
+                            tags: tagsFilter
+                        } }
+                    />
+                    : <reactCore.Spinner size="lg" />
+                }
+            </Fragment>
+            : <EmptyStateDisplay
+                icon={ reactIcons.LockIcon }
+                color='#6a6e73'
+                title={ 'You do not have access to the inventory' }
+                text={ [ 'Contact your organization administrator(s) for more information.' ] }
+            />
     );
 };
 
@@ -107,7 +116,8 @@ SystemsTable.propTypes = {
     historicalProfiles: PropTypes.array,
     hasMultiSelect: PropTypes.bool,
     updateColumns: PropTypes.func,
-    selectedHSPIds: PropTypes.array
+    selectedHSPIds: PropTypes.array,
+    hasInventoryReadPermissions: PropTypes.bool
 };
 
 SystemsTable.defaultProps = {

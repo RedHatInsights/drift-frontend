@@ -85,8 +85,8 @@ export class AddSystemModal extends Component {
     }
 
     render() {
-        const { activeTab, addSystemModalOpened, baselineTableData, historicalProfiles, loading,
-            entities, selectedBaselineIds, selectedHSPIds, totalBaselines } = this.props;
+        const { activeTab, addSystemModalOpened, baselineTableData, hasInventoryReadPermissions, historicalProfiles,
+            loading, entities, selectedBaselineIds, selectedHSPIds, totalBaselines } = this.props;
         const { columns } = this.state;
 
         return (
@@ -102,7 +102,7 @@ export class AddSystemModal extends Component {
                             variant="primary"
                             onClick={ this.confirmModal }
                             isDisabled={
-                                (entities && entities.selectedSystemIds && entities.selectedSystemIds.length === 0) &&
+                                ((entities && entities.selectedSystemIds && entities.selectedSystemIds.length === 0) || !entities) &&
                                 selectedBaselineIds.length === 0 &&
                                 selectedHSPIds.length === 0
                             }
@@ -125,6 +125,7 @@ export class AddSystemModal extends Component {
                                 hasHistoricalDropdown={ true }
                                 historicalProfiles={ historicalProfiles }
                                 hasMultiSelect={ true }
+                                hasInventoryReadPermissions={ hasInventoryReadPermissions }
                             />
                         </Tab>
                         <Tab
@@ -169,7 +170,8 @@ AddSystemModal.propTypes = {
     selectBaseline: PropTypes.func,
     historicalProfiles: PropTypes.array,
     referenceId: PropTypes.string,
-    totalBaselines: PropTypes.number
+    totalBaselines: PropTypes.number,
+    hasInventoryReadPermissions: PropTypes.bool
 };
 
 function mapStateToProps(state) {

@@ -16,20 +16,25 @@ const App = (props) => {
         hasCompareReadPermissions,
         hasBaselinesReadPermissions,
         hasBaselinesWritePermissions,
+        hasInventoryReadPermissions,
         arePermissionsLoaded
     }, setPermissions ] = useState({
         hasCompareReadPermissions: undefined,
         hasBaselinesReadPermissions: undefined,
         hasBaselinesWritePermissions: undefined,
+        hasInventoryReadPermissions: undefined,
         arePermissionsLoaded: false
     });
 
-    const handlePermissionsUpdate = (hasCompareRead, hasBaselinesRead, hasBaselinesWrite) => setPermissions({
-        hasCompareReadPermissions: hasCompareRead,
-        hasBaselinesReadPermissions: hasBaselinesRead,
-        hasBaselinesWritePermissions: hasBaselinesWrite,
-        arePermissionsLoaded: true
-    });
+    const handlePermissionsUpdate = (hasCompareRead, hasBaselinesRead, hasBaselinesWrite, hasInventoryRead) => {
+        setPermissions({
+            hasCompareReadPermissions: hasCompareRead,
+            hasBaselinesReadPermissions: hasBaselinesRead,
+            hasBaselinesWritePermissions: hasBaselinesWrite,
+            hasInventoryReadPermissions: hasInventoryRead,
+            arePermissionsLoaded: true
+        });
+    };
 
     useEffect(() => {
         insights.chrome.init();
@@ -41,16 +46,14 @@ const App = (props) => {
         });
         (async () => {
             const driftPermissions = await window.insights.chrome.getUserPermissions('drift');
-            const permissionsList = driftPermissions.map(permissions => permissions.permission);
-            if (permissionsList.includes('drift:*:*')) {
-                handlePermissionsUpdate(true, true, true);
-            } else {
-                handlePermissionsUpdate(
-                    permissionsList.includes('drift:comparisons:read' || 'drift:*:read'),
-                    permissionsList.includes('drift:baselines:read' || 'drift:*:read'),
-                    permissionsList.includes('drift:baselines:write' || 'drift:*:write')
-                );
-            }
+            const fullPermissions = driftPermissions.concat(await window.insights.chrome.getUserPermissions('inventory'));
+            const permissionsList = fullPermissions.map(permissions => permissions.permission);
+            handlePermissionsUpdate(
+                permissionsList.includes('drift:*:*' || 'drift:comparisons:read' || 'drift:*:read'),
+                permissionsList.includes('drift:*:*' || 'drift:baselines:read' || 'drift:*:read'),
+                permissionsList.includes('drift:*:*' || 'drift:baselines:write' || 'drift:*:write'),
+                permissionsList.includes('inventory:*:*', 'inventory:*:read')
+            );
         })();
 
         insights.chrome.on('GLOBAL_FILTER_UPDATE', ({ data }) => {
@@ -66,7 +69,8 @@ const App = (props) => {
                     permissions: {
                         compareRead: hasCompareReadPermissions,
                         baselinesRead: hasBaselinesReadPermissions,
-                        baselinesWrite: hasBaselinesWritePermissions
+                        baselinesWrite: hasBaselinesWritePermissions,
+                        inventoryRead: hasInventoryReadPermissions
                     }
                 } }>
                 <NotificationsPortal />
