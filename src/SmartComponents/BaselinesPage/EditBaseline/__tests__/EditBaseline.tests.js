@@ -116,6 +116,39 @@ describe('ConnectedEditBaseline', () => {
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 
+    it('should render empty baseline', () => {
+        initialState.editBaselineState.editBaselineEmptyState = true;
+        const store = mockStore(initialState);
+        const wrapper = mount(
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedEditBaseline />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
+        );
+
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('should render disabled button with empty baseline and no write permissions', () => {
+        initialState.editBaselineState.editBaselineEmptyState = true;
+        value.permissions.baselinesWrite = false;
+        const store = mockStore(initialState);
+        const wrapper = mount(
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedEditBaseline />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
+        );
+
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
     it('should render with baseline facts', () => {
         initialState.editBaselineState.baselineData = editBaselineFixtures.mockBaselineData1;
         initialState.editBaselineState.editBaselineTableData = editBaselineFixtures.mockBaselineTableData1;

@@ -1415,6 +1415,1020 @@ exports[`ConnectedEditBaseline should render correctly 1`] = `
 </MemoryRouter>
 `;
 
+exports[`ConnectedEditBaseline should render disabled button with empty baseline and no write permissions 1`] = `
+<MemoryRouter
+  keyLength={0}
+>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Provider
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+    >
+      <withRouter(Connect(EditBaseline))>
+        <Connect(EditBaseline)
+          history={
+            Object {
+              "action": "POP",
+              "block": [Function],
+              "canGo": [Function],
+              "createHref": [Function],
+              "entries": Array [
+                Object {
+                  "hash": "",
+                  "pathname": "/",
+                  "search": "",
+                  "state": undefined,
+                },
+              ],
+              "go": [Function],
+              "goBack": [Function],
+              "goForward": [Function],
+              "index": 0,
+              "length": 1,
+              "listen": [Function],
+              "location": Object {
+                "hash": "",
+                "pathname": "/",
+                "search": "",
+                "state": undefined,
+              },
+              "push": [Function],
+              "replace": [Function],
+            }
+          }
+          location={
+            Object {
+              "hash": "",
+              "pathname": "/",
+              "search": "",
+              "state": undefined,
+            }
+          }
+          match={
+            Object {
+              "isExact": true,
+              "params": Object {},
+              "path": "/",
+              "url": "/",
+            }
+          }
+        >
+          <EditBaseline
+            baselineData={Array []}
+            baselineDataLoading={false}
+            clearBaselineData={[Function]}
+            clearErrorData={[Function]}
+            editBaselineEmptyState={true}
+            editBaselineError={Object {}}
+            editBaselineTableData={Array []}
+            expandRow={[Function]}
+            expandedRows={Array []}
+            exportToCSV={[Function]}
+            factModalOpened={false}
+            fetchBaselineData={[Function]}
+            history={
+              Object {
+                "action": "POP",
+                "block": [Function],
+                "canGo": [Function],
+                "createHref": [Function],
+                "entries": Array [
+                  Object {
+                    "hash": "",
+                    "pathname": "/",
+                    "search": "",
+                    "state": undefined,
+                  },
+                ],
+                "go": [Function],
+                "goBack": [Function],
+                "goForward": [Function],
+                "index": 0,
+                "length": 1,
+                "listen": [Function],
+                "location": Object {
+                  "hash": "",
+                  "pathname": "/",
+                  "search": "",
+                  "state": undefined,
+                },
+                "push": [Function],
+                "replace": [Function],
+              }
+            }
+            inlineError={Object {}}
+            location={
+              Object {
+                "hash": "",
+                "pathname": "/",
+                "search": "",
+                "state": undefined,
+              }
+            }
+            match={
+              Object {
+                "isExact": true,
+                "params": Object {},
+                "path": "/",
+                "url": "/",
+              }
+            }
+            selectFact={[Function]}
+          >
+            <Connect(EditBaselineNameModal)
+              baselineData={Array []}
+              error={Object {}}
+              modalOpened={false}
+              toggleEditNameModal={[Function]}
+            >
+              <EditBaselineNameModal
+                baselineData={Array []}
+                error={Object {}}
+                modalOpened={false}
+                patchBaseline={[Function]}
+                toggleEditNameModal={[Function]}
+              >
+                <Modal
+                  actions={
+                    Array [
+                      <Button
+                        onClick={[Function]}
+                        variant="primary"
+                      >
+                        Save
+                      </Button>,
+                      <Button
+                        onClick={[Function]}
+                        variant="link"
+                      >
+                        Cancel
+                      </Button>,
+                    ]
+                  }
+                  appendTo={
+                    <body>
+                      <div />
+                      <div />
+                      <div />
+                      <div />
+                      <div />
+                    </body>
+                  }
+                  aria-describedby=""
+                  aria-label=""
+                  aria-labelledby=""
+                  className=""
+                  hasNoBodyWrapper={false}
+                  isOpen={false}
+                  onClose={[Function]}
+                  ouiaSafe={true}
+                  showClose={true}
+                  title="Edit name"
+                  variant="small"
+                >
+                  <Portal
+                    containerInfo={<div />}
+                  >
+                    <ModalContent
+                      actions={
+                        Array [
+                          <Button
+                            onClick={[Function]}
+                            variant="primary"
+                          >
+                            Save
+                          </Button>,
+                          <Button
+                            onClick={[Function]}
+                            variant="link"
+                          >
+                            Cancel
+                          </Button>,
+                        ]
+                      }
+                      aria-describedby=""
+                      aria-label=""
+                      aria-labelledby=""
+                      boxId="pf-modal-part-4"
+                      className=""
+                      descriptorId="pf-modal-part-6"
+                      hasNoBodyWrapper={false}
+                      isOpen={false}
+                      labelId="pf-modal-part-5"
+                      onClose={[Function]}
+                      ouiaSafe={true}
+                      showClose={true}
+                      title="Edit name"
+                      variant="small"
+                    />
+                  </Portal>
+                </Modal>
+              </EditBaselineNameModal>
+            </Connect(EditBaselineNameModal)>
+            <PageHeader>
+              <section
+                className="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
+                widget-type="InsightsPageHeader"
+              >
+                <Breadcrumb>
+                  <nav
+                    aria-label="Breadcrumb"
+                    className="pf-c-breadcrumb"
+                    data-ouia-component-id={20}
+                    data-ouia-component-type="PF4/Breadcrumb"
+                    data-ouia-safe={true}
+                  >
+                    <ol
+                      className="pf-c-breadcrumb__list"
+                    >
+                      <BreadcrumbItem
+                        key=".0"
+                        showDivider={false}
+                      >
+                        <li
+                          className="pf-c-breadcrumb__item"
+                        >
+                          <a
+                            onClick={[Function]}
+                          >
+                            Baselines
+                          </a>
+                        </li>
+                      </BreadcrumbItem>
+                      <BreadcrumbHeading
+                        key=".1"
+                        showDivider={true}
+                      >
+                        <li
+                          className="pf-c-breadcrumb__item"
+                        >
+                          <h1
+                            className="pf-c-breadcrumb__heading"
+                          >
+                            <span
+                              className="pf-c-breadcrumb__item-divider"
+                            >
+                              <AngleRightIcon
+                                color="currentColor"
+                                noVerticalAlign={false}
+                                size="sm"
+                              >
+                                <svg
+                                  aria-hidden={true}
+                                  aria-labelledby={null}
+                                  fill="currentColor"
+                                  height="1em"
+                                  role="img"
+                                  style={
+                                    Object {
+                                      "verticalAlign": "-0.125em",
+                                    }
+                                  }
+                                  viewBox="0 0 256 512"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                                    transform=""
+                                  />
+                                </svg>
+                              </AngleRightIcon>
+                            </span>
+                          </h1>
+                        </li>
+                      </BreadcrumbHeading>
+                    </ol>
+                  </nav>
+                </Breadcrumb>
+                <PageHeaderTitle
+                  title={null}
+                >
+                  <Title
+                    className=""
+                    headingLevel="h1"
+                    size="2xl"
+                    widget-type="InsightsPageHeaderTitle"
+                  >
+                    <h1
+                      className="pf-c-title pf-m-2xl"
+                      widget-type="InsightsPageHeaderTitle"
+                    >
+                       
+                       
+                    </h1>
+                  </Title>
+                </PageHeaderTitle>
+              </section>
+            </PageHeader>
+            <Connect(Main)>
+              <Main>
+                <section
+                  className="pf-l-page__main-section pf-c-page__main-section"
+                  page-type=""
+                >
+                  <div />
+                  <Connect(ErrorAlert)
+                    error={Object {}}
+                    onClose={[Function]}
+                  >
+                    <ErrorAlert
+                      addNotification={[Function]}
+                      error={Object {}}
+                      onClose={[Function]}
+                    />
+                  </Connect(ErrorAlert)>
+                  <EmptyStateDisplay
+                    button={
+                      <Memo(Connect(AddFactButton))
+                        editBaselineEmptyState={true}
+                        hasWritePermissions={false}
+                      />
+                    }
+                    text={
+                      Array [
+                        "No facts or categories have been added to this baseline yet.",
+                      ]
+                    }
+                    title="No facts"
+                  >
+                    <EmptyState
+                      variant="large"
+                    >
+                      <div
+                        className="pf-c-empty-state pf-m-lg"
+                      >
+                        <div
+                          className="pf-c-empty-state__content"
+                        >
+                          <br />
+                          <Title
+                            headingLevel="h1"
+                            size="lg"
+                          >
+                            <h1
+                              className="pf-c-title pf-m-lg"
+                            >
+                              No facts
+                            </h1>
+                          </Title>
+                          <EmptyStateBody>
+                            <div
+                              className="pf-c-empty-state__body"
+                            >
+                              No facts or categories have been added to this baseline yet.
+                            </div>
+                          </EmptyStateBody>
+                          <Connect(AddFactButton)
+                            editBaselineEmptyState={true}
+                            hasWritePermissions={false}
+                          >
+                            <AddFactButton
+                              editBaselineEmptyState={true}
+                              hasWritePermissions={false}
+                              setFactData={[Function]}
+                              toggleFactModal={[Function]}
+                            >
+                              <Tooltip
+                                content={
+                                  <div>
+                                    You do not have permissions to perform this action
+                                  </div>
+                                }
+                              >
+                                <Popper
+                                  appendTo={[Function]}
+                                  distance={15}
+                                  enableFlip={true}
+                                  flipBehavior={
+                                    Array [
+                                      "top",
+                                      "right",
+                                      "bottom",
+                                      "left",
+                                      "top",
+                                      "right",
+                                      "bottom",
+                                    ]
+                                  }
+                                  isVisible={false}
+                                  onBlur={[Function]}
+                                  onDocumentClick={false}
+                                  onDocumentKeyDown={[Function]}
+                                  onFocus={[Function]}
+                                  onMouseEnter={[Function]}
+                                  onMouseLeave={[Function]}
+                                  onTriggerEnter={[Function]}
+                                  placement="top"
+                                  popper={
+                                    <div
+                                      className="pf-c-tooltip"
+                                      id="pf-tooltip-2"
+                                      role="tooltip"
+                                      style={
+                                        Object {
+                                          "maxWidth": null,
+                                          "opacity": 0,
+                                          "transition": "opacity 300ms cubic-bezier(.54, 1.5, .38, 1.11)",
+                                        }
+                                      }
+                                    >
+                                      <TooltipArrow />
+                                      <TooltipContent
+                                        isLeftAligned={false}
+                                      >
+                                        <div>
+                                          You do not have permissions to perform this action
+                                        </div>
+                                      </TooltipContent>
+                                    </div>
+                                  }
+                                  popperMatchesTriggerWidth={false}
+                                  positionModifiers={
+                                    Object {
+                                      "bottom": "pf-m-bottom",
+                                      "left": "pf-m-left",
+                                      "right": "pf-m-right",
+                                      "top": "pf-m-top",
+                                    }
+                                  }
+                                  trigger={
+                                    <div
+                                      aria-describedby="pf-tooltip-2"
+                                      className="tooltip-button-margin"
+                                    >
+                                      <Button
+                                        isDisabled={true}
+                                        onClick={[Function]}
+                                        variant="primary"
+                                      >
+                                        Add fact or category
+                                      </Button>
+                                    </div>
+                                  }
+                                  zIndex={9999}
+                                >
+                                  <FindRefWrapper
+                                    onFoundRef={[Function]}
+                                  >
+                                    <div
+                                      aria-describedby="pf-tooltip-2"
+                                      className="tooltip-button-margin"
+                                    >
+                                      <Button
+                                        isDisabled={true}
+                                        onClick={[Function]}
+                                        variant="primary"
+                                      >
+                                        <button
+                                          aria-disabled={true}
+                                          aria-label={null}
+                                          className="pf-c-button pf-m-primary pf-m-disabled"
+                                          data-ouia-component-id={21}
+                                          data-ouia-component-type="PF4/Button"
+                                          data-ouia-safe={true}
+                                          disabled={true}
+                                          onClick={[Function]}
+                                          tabIndex={null}
+                                          type="button"
+                                        >
+                                          Add fact or category
+                                        </button>
+                                      </Button>
+                                    </div>
+                                  </FindRefWrapper>
+                                </Popper>
+                              </Tooltip>
+                            </AddFactButton>
+                          </Connect(AddFactButton)>
+                        </div>
+                      </div>
+                    </EmptyState>
+                  </EmptyStateDisplay>
+                </section>
+              </Main>
+            </Connect(Main)>
+          </EditBaseline>
+        </Connect(EditBaseline)>
+      </withRouter(Connect(EditBaseline))>
+    </Provider>
+  </Router>
+</MemoryRouter>
+`;
+
+exports[`ConnectedEditBaseline should render empty baseline 1`] = `
+<MemoryRouter
+  keyLength={0}
+>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Provider
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+    >
+      <withRouter(Connect(EditBaseline))>
+        <Connect(EditBaseline)
+          history={
+            Object {
+              "action": "POP",
+              "block": [Function],
+              "canGo": [Function],
+              "createHref": [Function],
+              "entries": Array [
+                Object {
+                  "hash": "",
+                  "pathname": "/",
+                  "search": "",
+                  "state": undefined,
+                },
+              ],
+              "go": [Function],
+              "goBack": [Function],
+              "goForward": [Function],
+              "index": 0,
+              "length": 1,
+              "listen": [Function],
+              "location": Object {
+                "hash": "",
+                "pathname": "/",
+                "search": "",
+                "state": undefined,
+              },
+              "push": [Function],
+              "replace": [Function],
+            }
+          }
+          location={
+            Object {
+              "hash": "",
+              "pathname": "/",
+              "search": "",
+              "state": undefined,
+            }
+          }
+          match={
+            Object {
+              "isExact": true,
+              "params": Object {},
+              "path": "/",
+              "url": "/",
+            }
+          }
+        >
+          <EditBaseline
+            baselineData={Array []}
+            baselineDataLoading={false}
+            clearBaselineData={[Function]}
+            clearErrorData={[Function]}
+            editBaselineEmptyState={true}
+            editBaselineError={Object {}}
+            editBaselineTableData={Array []}
+            expandRow={[Function]}
+            expandedRows={Array []}
+            exportToCSV={[Function]}
+            factModalOpened={false}
+            fetchBaselineData={[Function]}
+            history={
+              Object {
+                "action": "POP",
+                "block": [Function],
+                "canGo": [Function],
+                "createHref": [Function],
+                "entries": Array [
+                  Object {
+                    "hash": "",
+                    "pathname": "/",
+                    "search": "",
+                    "state": undefined,
+                  },
+                ],
+                "go": [Function],
+                "goBack": [Function],
+                "goForward": [Function],
+                "index": 0,
+                "length": 1,
+                "listen": [Function],
+                "location": Object {
+                  "hash": "",
+                  "pathname": "/",
+                  "search": "",
+                  "state": undefined,
+                },
+                "push": [Function],
+                "replace": [Function],
+              }
+            }
+            inlineError={Object {}}
+            location={
+              Object {
+                "hash": "",
+                "pathname": "/",
+                "search": "",
+                "state": undefined,
+              }
+            }
+            match={
+              Object {
+                "isExact": true,
+                "params": Object {},
+                "path": "/",
+                "url": "/",
+              }
+            }
+            selectFact={[Function]}
+          >
+            <Connect(EditBaselineNameModal)
+              baselineData={Array []}
+              error={Object {}}
+              modalOpened={false}
+              toggleEditNameModal={[Function]}
+            >
+              <EditBaselineNameModal
+                baselineData={Array []}
+                error={Object {}}
+                modalOpened={false}
+                patchBaseline={[Function]}
+                toggleEditNameModal={[Function]}
+              >
+                <Modal
+                  actions={
+                    Array [
+                      <Button
+                        onClick={[Function]}
+                        variant="primary"
+                      >
+                        Save
+                      </Button>,
+                      <Button
+                        onClick={[Function]}
+                        variant="link"
+                      >
+                        Cancel
+                      </Button>,
+                    ]
+                  }
+                  appendTo={
+                    <body>
+                      <div />
+                      <div />
+                      <div />
+                      <div />
+                    </body>
+                  }
+                  aria-describedby=""
+                  aria-label=""
+                  aria-labelledby=""
+                  className=""
+                  hasNoBodyWrapper={false}
+                  isOpen={false}
+                  onClose={[Function]}
+                  ouiaSafe={true}
+                  showClose={true}
+                  title="Edit name"
+                  variant="small"
+                >
+                  <Portal
+                    containerInfo={<div />}
+                  >
+                    <ModalContent
+                      actions={
+                        Array [
+                          <Button
+                            onClick={[Function]}
+                            variant="primary"
+                          >
+                            Save
+                          </Button>,
+                          <Button
+                            onClick={[Function]}
+                            variant="link"
+                          >
+                            Cancel
+                          </Button>,
+                        ]
+                      }
+                      aria-describedby=""
+                      aria-label=""
+                      aria-labelledby=""
+                      boxId="pf-modal-part-3"
+                      className=""
+                      descriptorId="pf-modal-part-5"
+                      hasNoBodyWrapper={false}
+                      isOpen={false}
+                      labelId="pf-modal-part-4"
+                      onClose={[Function]}
+                      ouiaSafe={true}
+                      showClose={true}
+                      title="Edit name"
+                      variant="small"
+                    />
+                  </Portal>
+                </Modal>
+              </EditBaselineNameModal>
+            </Connect(EditBaselineNameModal)>
+            <PageHeader>
+              <section
+                className="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
+                widget-type="InsightsPageHeader"
+              >
+                <Breadcrumb>
+                  <nav
+                    aria-label="Breadcrumb"
+                    className="pf-c-breadcrumb"
+                    data-ouia-component-id={18}
+                    data-ouia-component-type="PF4/Breadcrumb"
+                    data-ouia-safe={true}
+                  >
+                    <ol
+                      className="pf-c-breadcrumb__list"
+                    >
+                      <BreadcrumbItem
+                        key=".0"
+                        showDivider={false}
+                      >
+                        <li
+                          className="pf-c-breadcrumb__item"
+                        >
+                          <a
+                            onClick={[Function]}
+                          >
+                            Baselines
+                          </a>
+                        </li>
+                      </BreadcrumbItem>
+                      <BreadcrumbHeading
+                        key=".1"
+                        showDivider={true}
+                      >
+                        <li
+                          className="pf-c-breadcrumb__item"
+                        >
+                          <h1
+                            className="pf-c-breadcrumb__heading"
+                          >
+                            <span
+                              className="pf-c-breadcrumb__item-divider"
+                            >
+                              <AngleRightIcon
+                                color="currentColor"
+                                noVerticalAlign={false}
+                                size="sm"
+                              >
+                                <svg
+                                  aria-hidden={true}
+                                  aria-labelledby={null}
+                                  fill="currentColor"
+                                  height="1em"
+                                  role="img"
+                                  style={
+                                    Object {
+                                      "verticalAlign": "-0.125em",
+                                    }
+                                  }
+                                  viewBox="0 0 256 512"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                                    transform=""
+                                  />
+                                </svg>
+                              </AngleRightIcon>
+                            </span>
+                          </h1>
+                        </li>
+                      </BreadcrumbHeading>
+                    </ol>
+                  </nav>
+                </Breadcrumb>
+                <PageHeaderTitle
+                  title={null}
+                >
+                  <Title
+                    className=""
+                    headingLevel="h1"
+                    size="2xl"
+                    widget-type="InsightsPageHeaderTitle"
+                  >
+                    <h1
+                      className="pf-c-title pf-m-2xl"
+                      widget-type="InsightsPageHeaderTitle"
+                    >
+                       
+                       
+                    </h1>
+                  </Title>
+                </PageHeaderTitle>
+                <EditAltIcon
+                  className="pointer not-active edit-icon-margin"
+                  color="currentColor"
+                  noVerticalAlign={false}
+                  onClick={[Function]}
+                  size="sm"
+                >
+                  <svg
+                    aria-hidden={true}
+                    aria-labelledby={null}
+                    className="pointer not-active edit-icon-margin"
+                    fill="currentColor"
+                    height="1em"
+                    onClick={[Function]}
+                    role="img"
+                    style={
+                      Object {
+                        "verticalAlign": "-0.125em",
+                      }
+                    }
+                    viewBox="0 64 1024 1024"
+                    width="1em"
+                  >
+                    <path
+                      d="M219.554 0l73.294 73.143-146.583 146.286-73.070-73.143v-73.143h73.090v-73.438l73.269 0.295zM806.176 512l-586.747-585.143h-219.429v219.429l586.585 585.143 219.591-219.429zM1024 762.937c0-19.056-6.656-35.237-19.968-48.537l-146.578-150.455-218.686 218.505 148.576 147.915c12.955 13.662 29.147 20.494 48.578 20.494 19.074 0 35.445-6.832 49.115-20.494l118.994-118.352c13.312-14.023 19.968-30.384 19.968-49.077v0z"
+                      transform="rotate(180 0 512) scale(-1 1)"
+                    />
+                  </svg>
+                </EditAltIcon>
+              </section>
+            </PageHeader>
+            <Connect(Main)>
+              <Main>
+                <section
+                  className="pf-l-page__main-section pf-c-page__main-section"
+                  page-type=""
+                >
+                  <div />
+                  <Connect(ErrorAlert)
+                    error={Object {}}
+                    onClose={[Function]}
+                  >
+                    <ErrorAlert
+                      addNotification={[Function]}
+                      error={Object {}}
+                      onClose={[Function]}
+                    />
+                  </Connect(ErrorAlert)>
+                  <EmptyStateDisplay
+                    button={
+                      <Memo(Connect(AddFactButton))
+                        editBaselineEmptyState={true}
+                        hasWritePermissions={true}
+                      />
+                    }
+                    text={
+                      Array [
+                        "No facts or categories have been added to this baseline yet.",
+                      ]
+                    }
+                    title="No facts"
+                  >
+                    <EmptyState
+                      variant="large"
+                    >
+                      <div
+                        className="pf-c-empty-state pf-m-lg"
+                      >
+                        <div
+                          className="pf-c-empty-state__content"
+                        >
+                          <br />
+                          <Title
+                            headingLevel="h1"
+                            size="lg"
+                          >
+                            <h1
+                              className="pf-c-title pf-m-lg"
+                            >
+                              No facts
+                            </h1>
+                          </Title>
+                          <EmptyStateBody>
+                            <div
+                              className="pf-c-empty-state__body"
+                            >
+                              No facts or categories have been added to this baseline yet.
+                            </div>
+                          </EmptyStateBody>
+                          <Connect(AddFactButton)
+                            editBaselineEmptyState={true}
+                            hasWritePermissions={true}
+                          >
+                            <AddFactButton
+                              editBaselineEmptyState={true}
+                              hasWritePermissions={true}
+                              setFactData={[Function]}
+                              toggleFactModal={[Function]}
+                            >
+                              <Button
+                                onClick={[Function]}
+                                variant="primary"
+                              >
+                                <button
+                                  aria-disabled={false}
+                                  aria-label={null}
+                                  className="pf-c-button pf-m-primary"
+                                  data-ouia-component-id={19}
+                                  data-ouia-component-type="PF4/Button"
+                                  data-ouia-safe={true}
+                                  disabled={false}
+                                  onClick={[Function]}
+                                  type="button"
+                                >
+                                  Add fact or category
+                                </button>
+                              </Button>
+                            </AddFactButton>
+                          </Connect(AddFactButton)>
+                        </div>
+                      </div>
+                    </EmptyState>
+                  </EmptyStateDisplay>
+                </section>
+              </Main>
+            </Connect(Main)>
+          </EditBaseline>
+        </Connect(EditBaseline)>
+      </withRouter(Connect(EditBaseline))>
+    </Provider>
+  </Router>
+</MemoryRouter>
+`;
+
 exports[`ConnectedEditBaseline should render expandable rows closed 1`] = `
 <MemoryRouter
   keyLength={0}
@@ -1843,6 +2857,8 @@ exports[`ConnectedEditBaseline should render expandable rows closed 1`] = `
                       <div />
                       <div />
                       <div />
+                      <div />
+                      <div />
                     </body>
                   }
                   aria-describedby=""
@@ -1880,12 +2896,12 @@ exports[`ConnectedEditBaseline should render expandable rows closed 1`] = `
                       aria-describedby=""
                       aria-label=""
                       aria-labelledby=""
-                      boxId="pf-modal-part-4"
+                      boxId="pf-modal-part-6"
                       className=""
-                      descriptorId="pf-modal-part-6"
+                      descriptorId="pf-modal-part-8"
                       hasNoBodyWrapper={false}
                       isOpen={false}
-                      labelId="pf-modal-part-5"
+                      labelId="pf-modal-part-7"
                       onClose={[Function]}
                       ouiaSafe={true}
                       showClose={true}
@@ -1905,7 +2921,7 @@ exports[`ConnectedEditBaseline should render expandable rows closed 1`] = `
                   <nav
                     aria-label="Breadcrumb"
                     className="pf-c-breadcrumb"
-                    data-ouia-component-id={27}
+                    data-ouia-component-id={31}
                     data-ouia-component-type="PF4/Breadcrumb"
                     data-ouia-safe={true}
                   >
@@ -2044,7 +3060,7 @@ exports[`ConnectedEditBaseline should render expandable rows closed 1`] = `
                   >
                     <article
                       className="pf-c-card pf-t-light pf-m-opaque-100"
-                      data-ouia-component-id={28}
+                      data-ouia-component-id={32}
                       data-ouia-component-type="PF4/Card"
                       data-ouia-safe={true}
                     >
@@ -2323,7 +3339,7 @@ exports[`ConnectedEditBaseline should render expandable rows closed 1`] = `
                                                 >
                                                   <div
                                                     className="pf-c-dropdown ins-c-bulk-select"
-                                                    data-ouia-component-id={29}
+                                                    data-ouia-component-id={33}
                                                     data-ouia-component-type="PF4/Dropdown"
                                                     data-ouia-safe={true}
                                                   >
@@ -2341,7 +3357,7 @@ exports[`ConnectedEditBaseline should render expandable rows closed 1`] = `
                                                         Object {
                                                           "current": <div
                                                             class="pf-c-dropdown ins-c-bulk-select"
-                                                            data-ouia-component-id="29"
+                                                            data-ouia-component-id="33"
                                                             data-ouia-component-type="PF4/Dropdown"
                                                             data-ouia-safe="true"
                                                           >
@@ -2455,7 +3471,7 @@ exports[`ConnectedEditBaseline should render expandable rows closed 1`] = `
                                                             Object {
                                                               "current": <div
                                                                 class="pf-c-dropdown ins-c-bulk-select"
-                                                                data-ouia-component-id="29"
+                                                                data-ouia-component-id="33"
                                                                 data-ouia-component-type="PF4/Dropdown"
                                                                 data-ouia-safe="true"
                                                               >
@@ -2579,7 +3595,7 @@ exports[`ConnectedEditBaseline should render expandable rows closed 1`] = `
                                                     aria-disabled={false}
                                                     aria-label={null}
                                                     className="pf-c-button pf-m-primary"
-                                                    data-ouia-component-id={30}
+                                                    data-ouia-component-id={34}
                                                     data-ouia-component-type="PF4/Button"
                                                     data-ouia-safe={true}
                                                     disabled={false}
@@ -2685,7 +3701,7 @@ exports[`ConnectedEditBaseline should render expandable rows closed 1`] = `
                                                       >
                                                         <div
                                                           className="pf-c-dropdown"
-                                                          data-ouia-component-id={31}
+                                                          data-ouia-component-id={35}
                                                           data-ouia-component-type="PF4/Dropdown"
                                                           data-ouia-safe={true}
                                                         >
@@ -2702,7 +3718,7 @@ exports[`ConnectedEditBaseline should render expandable rows closed 1`] = `
                                                               Object {
                                                                 "current": <div
                                                                   class="pf-c-dropdown"
-                                                                  data-ouia-component-id="31"
+                                                                  data-ouia-component-id="35"
                                                                   data-ouia-component-type="PF4/Dropdown"
                                                                   data-ouia-safe="true"
                                                                 >
@@ -2754,7 +3770,7 @@ exports[`ConnectedEditBaseline should render expandable rows closed 1`] = `
                                                                 Object {
                                                                   "current": <div
                                                                     class="pf-c-dropdown"
-                                                                    data-ouia-component-id="31"
+                                                                    data-ouia-component-id="35"
                                                                     data-ouia-component-type="PF4/Dropdown"
                                                                     data-ouia-safe="true"
                                                                   >
@@ -2969,7 +3985,7 @@ exports[`ConnectedEditBaseline should render expandable rows closed 1`] = `
                                                         >
                                                           <div
                                                             className="pf-c-dropdown"
-                                                            data-ouia-component-id={32}
+                                                            data-ouia-component-id={36}
                                                             data-ouia-component-type="PF4/Dropdown"
                                                             data-ouia-safe={true}
                                                             style={
@@ -2991,7 +4007,7 @@ exports[`ConnectedEditBaseline should render expandable rows closed 1`] = `
                                                                 Object {
                                                                   "current": <div
                                                                     class="pf-c-dropdown"
-                                                                    data-ouia-component-id="32"
+                                                                    data-ouia-component-id="36"
                                                                     data-ouia-component-type="PF4/Dropdown"
                                                                     data-ouia-safe="true"
                                                                     style="float: left;"
@@ -3042,7 +4058,7 @@ exports[`ConnectedEditBaseline should render expandable rows closed 1`] = `
                                                                   Object {
                                                                     "current": <div
                                                                       class="pf-c-dropdown"
-                                                                      data-ouia-component-id="32"
+                                                                      data-ouia-component-id="36"
                                                                       data-ouia-component-type="PF4/Dropdown"
                                                                       data-ouia-safe="true"
                                                                       style="float: left;"
@@ -3423,7 +4439,7 @@ exports[`ConnectedEditBaseline should render expandable rows closed 1`] = `
                                         >
                                           <div
                                             className="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                            data-ouia-component-id={33}
+                                            data-ouia-component-id={37}
                                             data-ouia-component-type="PF4/Dropdown"
                                             data-ouia-safe={true}
                                             style={
@@ -3445,7 +4461,7 @@ exports[`ConnectedEditBaseline should render expandable rows closed 1`] = `
                                                 Object {
                                                   "current": <div
                                                     class="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                                    data-ouia-component-id="33"
+                                                    data-ouia-component-id="37"
                                                     data-ouia-component-type="PF4/Dropdown"
                                                     data-ouia-safe="true"
                                                     style="float: right;"
@@ -3496,7 +4512,7 @@ exports[`ConnectedEditBaseline should render expandable rows closed 1`] = `
                                                   Object {
                                                     "current": <div
                                                       class="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                                      data-ouia-component-id="33"
+                                                      data-ouia-component-id="37"
                                                       data-ouia-component-type="PF4/Dropdown"
                                                       data-ouia-safe="true"
                                                       style="float: right;"
@@ -3764,7 +4780,7 @@ exports[`ConnectedEditBaseline should render expandable rows closed 1`] = `
                                         >
                                           <div
                                             className="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                            data-ouia-component-id={34}
+                                            data-ouia-component-id={38}
                                             data-ouia-component-type="PF4/Dropdown"
                                             data-ouia-safe={true}
                                             style={
@@ -3786,7 +4802,7 @@ exports[`ConnectedEditBaseline should render expandable rows closed 1`] = `
                                                 Object {
                                                   "current": <div
                                                     class="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                                    data-ouia-component-id="34"
+                                                    data-ouia-component-id="38"
                                                     data-ouia-component-type="PF4/Dropdown"
                                                     data-ouia-safe="true"
                                                     style="float: right;"
@@ -3837,7 +4853,7 @@ exports[`ConnectedEditBaseline should render expandable rows closed 1`] = `
                                                   Object {
                                                     "current": <div
                                                       class="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                                      data-ouia-component-id="34"
+                                                      data-ouia-component-id="38"
                                                       data-ouia-component-type="PF4/Dropdown"
                                                       data-ouia-safe="true"
                                                       style="float: right;"
@@ -4219,7 +5235,7 @@ exports[`ConnectedEditBaseline should render expandable rows closed 1`] = `
                                         >
                                           <div
                                             className="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                            data-ouia-component-id={35}
+                                            data-ouia-component-id={39}
                                             data-ouia-component-type="PF4/Dropdown"
                                             data-ouia-safe={true}
                                             style={
@@ -4241,7 +5257,7 @@ exports[`ConnectedEditBaseline should render expandable rows closed 1`] = `
                                                 Object {
                                                   "current": <div
                                                     class="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                                    data-ouia-component-id="35"
+                                                    data-ouia-component-id="39"
                                                     data-ouia-component-type="PF4/Dropdown"
                                                     data-ouia-safe="true"
                                                     style="float: right;"
@@ -4292,7 +5308,7 @@ exports[`ConnectedEditBaseline should render expandable rows closed 1`] = `
                                                   Object {
                                                     "current": <div
                                                       class="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                                      data-ouia-component-id="35"
+                                                      data-ouia-component-id="39"
                                                       data-ouia-component-type="PF4/Dropdown"
                                                       data-ouia-safe="true"
                                                       style="float: right;"
@@ -4820,6 +5836,8 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                       <div />
                       <div />
                       <div />
+                      <div />
+                      <div />
                     </body>
                   }
                   aria-describedby=""
@@ -4857,12 +5875,12 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                       aria-describedby=""
                       aria-label=""
                       aria-labelledby=""
-                      boxId="pf-modal-part-5"
+                      boxId="pf-modal-part-7"
                       className=""
-                      descriptorId="pf-modal-part-7"
+                      descriptorId="pf-modal-part-9"
                       hasNoBodyWrapper={false}
                       isOpen={false}
-                      labelId="pf-modal-part-6"
+                      labelId="pf-modal-part-8"
                       onClose={[Function]}
                       ouiaSafe={true}
                       showClose={true}
@@ -4882,7 +5900,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                   <nav
                     aria-label="Breadcrumb"
                     className="pf-c-breadcrumb"
-                    data-ouia-component-id={36}
+                    data-ouia-component-id={40}
                     data-ouia-component-type="PF4/Breadcrumb"
                     data-ouia-safe={true}
                   >
@@ -5021,7 +6039,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                   >
                     <article
                       className="pf-c-card pf-t-light pf-m-opaque-100"
-                      data-ouia-component-id={37}
+                      data-ouia-component-id={41}
                       data-ouia-component-type="PF4/Card"
                       data-ouia-safe={true}
                     >
@@ -5300,7 +6318,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                                 >
                                                   <div
                                                     className="pf-c-dropdown ins-c-bulk-select"
-                                                    data-ouia-component-id={38}
+                                                    data-ouia-component-id={42}
                                                     data-ouia-component-type="PF4/Dropdown"
                                                     data-ouia-safe={true}
                                                   >
@@ -5318,7 +6336,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                                         Object {
                                                           "current": <div
                                                             class="pf-c-dropdown ins-c-bulk-select"
-                                                            data-ouia-component-id="38"
+                                                            data-ouia-component-id="42"
                                                             data-ouia-component-type="PF4/Dropdown"
                                                             data-ouia-safe="true"
                                                           >
@@ -5432,7 +6450,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                                             Object {
                                                               "current": <div
                                                                 class="pf-c-dropdown ins-c-bulk-select"
-                                                                data-ouia-component-id="38"
+                                                                data-ouia-component-id="42"
                                                                 data-ouia-component-type="PF4/Dropdown"
                                                                 data-ouia-safe="true"
                                                               >
@@ -5556,7 +6574,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                                     aria-disabled={false}
                                                     aria-label={null}
                                                     className="pf-c-button pf-m-primary"
-                                                    data-ouia-component-id={39}
+                                                    data-ouia-component-id={43}
                                                     data-ouia-component-type="PF4/Button"
                                                     data-ouia-safe={true}
                                                     disabled={false}
@@ -5662,7 +6680,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                                       >
                                                         <div
                                                           className="pf-c-dropdown"
-                                                          data-ouia-component-id={40}
+                                                          data-ouia-component-id={44}
                                                           data-ouia-component-type="PF4/Dropdown"
                                                           data-ouia-safe={true}
                                                         >
@@ -5679,7 +6697,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                                               Object {
                                                                 "current": <div
                                                                   class="pf-c-dropdown"
-                                                                  data-ouia-component-id="40"
+                                                                  data-ouia-component-id="44"
                                                                   data-ouia-component-type="PF4/Dropdown"
                                                                   data-ouia-safe="true"
                                                                 >
@@ -5731,7 +6749,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                                                 Object {
                                                                   "current": <div
                                                                     class="pf-c-dropdown"
-                                                                    data-ouia-component-id="40"
+                                                                    data-ouia-component-id="44"
                                                                     data-ouia-component-type="PF4/Dropdown"
                                                                     data-ouia-safe="true"
                                                                   >
@@ -5946,7 +6964,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                                         >
                                                           <div
                                                             className="pf-c-dropdown"
-                                                            data-ouia-component-id={41}
+                                                            data-ouia-component-id={45}
                                                             data-ouia-component-type="PF4/Dropdown"
                                                             data-ouia-safe={true}
                                                             style={
@@ -5968,7 +6986,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                                                 Object {
                                                                   "current": <div
                                                                     class="pf-c-dropdown"
-                                                                    data-ouia-component-id="41"
+                                                                    data-ouia-component-id="45"
                                                                     data-ouia-component-type="PF4/Dropdown"
                                                                     data-ouia-safe="true"
                                                                     style="float: left;"
@@ -6019,7 +7037,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                                                   Object {
                                                                     "current": <div
                                                                       class="pf-c-dropdown"
-                                                                      data-ouia-component-id="41"
+                                                                      data-ouia-component-id="45"
                                                                       data-ouia-component-type="PF4/Dropdown"
                                                                       data-ouia-safe="true"
                                                                       style="float: left;"
@@ -6400,7 +7418,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                         >
                                           <div
                                             className="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                            data-ouia-component-id={42}
+                                            data-ouia-component-id={46}
                                             data-ouia-component-type="PF4/Dropdown"
                                             data-ouia-safe={true}
                                             style={
@@ -6422,7 +7440,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                                 Object {
                                                   "current": <div
                                                     class="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                                    data-ouia-component-id="42"
+                                                    data-ouia-component-id="46"
                                                     data-ouia-component-type="PF4/Dropdown"
                                                     data-ouia-safe="true"
                                                     style="float: right;"
@@ -6473,7 +7491,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                                   Object {
                                                     "current": <div
                                                       class="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                                      data-ouia-component-id="42"
+                                                      data-ouia-component-id="46"
                                                       data-ouia-component-type="PF4/Dropdown"
                                                       data-ouia-safe="true"
                                                       style="float: right;"
@@ -6741,7 +7759,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                         >
                                           <div
                                             className="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                            data-ouia-component-id={43}
+                                            data-ouia-component-id={47}
                                             data-ouia-component-type="PF4/Dropdown"
                                             data-ouia-safe={true}
                                             style={
@@ -6763,7 +7781,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                                 Object {
                                                   "current": <div
                                                     class="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                                    data-ouia-component-id="43"
+                                                    data-ouia-component-id="47"
                                                     data-ouia-component-type="PF4/Dropdown"
                                                     data-ouia-safe="true"
                                                     style="float: right;"
@@ -6814,7 +7832,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                                   Object {
                                                     "current": <div
                                                       class="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                                      data-ouia-component-id="43"
+                                                      data-ouia-component-id="47"
                                                       data-ouia-component-type="PF4/Dropdown"
                                                       data-ouia-safe="true"
                                                       style="float: right;"
@@ -7196,7 +8214,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                         >
                                           <div
                                             className="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                            data-ouia-component-id={44}
+                                            data-ouia-component-id={48}
                                             data-ouia-component-type="PF4/Dropdown"
                                             data-ouia-safe={true}
                                             style={
@@ -7218,7 +8236,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                                 Object {
                                                   "current": <div
                                                     class="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                                    data-ouia-component-id="44"
+                                                    data-ouia-component-id="48"
                                                     data-ouia-component-type="PF4/Dropdown"
                                                     data-ouia-safe="true"
                                                     style="float: right;"
@@ -7269,7 +8287,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                                   Object {
                                                     "current": <div
                                                       class="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                                      data-ouia-component-id="44"
+                                                      data-ouia-component-id="48"
                                                       data-ouia-component-type="PF4/Dropdown"
                                                       data-ouia-safe="true"
                                                       style="float: right;"
@@ -7617,7 +8635,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                         >
                                           <div
                                             className="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                            data-ouia-component-id={45}
+                                            data-ouia-component-id={49}
                                             data-ouia-component-type="PF4/Dropdown"
                                             data-ouia-safe={true}
                                             style={
@@ -7639,7 +8657,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                                 Object {
                                                   "current": <div
                                                     class="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                                    data-ouia-component-id="45"
+                                                    data-ouia-component-id="49"
                                                     data-ouia-component-type="PF4/Dropdown"
                                                     data-ouia-safe="true"
                                                     style="float: right;"
@@ -7690,7 +8708,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                                   Object {
                                                     "current": <div
                                                       class="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                                      data-ouia-component-id="45"
+                                                      data-ouia-component-id="49"
                                                       data-ouia-component-type="PF4/Dropdown"
                                                       data-ouia-safe="true"
                                                       style="float: right;"
@@ -8038,7 +9056,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                         >
                                           <div
                                             className="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                            data-ouia-component-id={46}
+                                            data-ouia-component-id={50}
                                             data-ouia-component-type="PF4/Dropdown"
                                             data-ouia-safe={true}
                                             style={
@@ -8060,7 +9078,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                                 Object {
                                                   "current": <div
                                                     class="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                                    data-ouia-component-id="46"
+                                                    data-ouia-component-id="50"
                                                     data-ouia-component-type="PF4/Dropdown"
                                                     data-ouia-safe="true"
                                                     style="float: right;"
@@ -8111,7 +9129,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                                   Object {
                                                     "current": <div
                                                       class="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                                      data-ouia-component-id="46"
+                                                      data-ouia-component-id="50"
                                                       data-ouia-component-type="PF4/Dropdown"
                                                       data-ouia-safe="true"
                                                       style="float: right;"
@@ -8459,7 +9477,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                         >
                                           <div
                                             className="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                            data-ouia-component-id={47}
+                                            data-ouia-component-id={51}
                                             data-ouia-component-type="PF4/Dropdown"
                                             data-ouia-safe={true}
                                             style={
@@ -8481,7 +9499,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                                 Object {
                                                   "current": <div
                                                     class="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                                    data-ouia-component-id="47"
+                                                    data-ouia-component-id="51"
                                                     data-ouia-component-type="PF4/Dropdown"
                                                     data-ouia-safe="true"
                                                     style="float: right;"
@@ -8532,7 +9550,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                                   Object {
                                                     "current": <div
                                                       class="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                                      data-ouia-component-id="47"
+                                                      data-ouia-component-id="51"
                                                       data-ouia-component-type="PF4/Dropdown"
                                                       data-ouia-safe="true"
                                                       style="float: right;"
@@ -8880,7 +9898,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                         >
                                           <div
                                             className="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                            data-ouia-component-id={48}
+                                            data-ouia-component-id={52}
                                             data-ouia-component-type="PF4/Dropdown"
                                             data-ouia-safe={true}
                                             style={
@@ -8902,7 +9920,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                                 Object {
                                                   "current": <div
                                                     class="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                                    data-ouia-component-id="48"
+                                                    data-ouia-component-id="52"
                                                     data-ouia-component-type="PF4/Dropdown"
                                                     data-ouia-safe="true"
                                                     style="float: right;"
@@ -8953,7 +9971,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                                   Object {
                                                     "current": <div
                                                       class="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                                      data-ouia-component-id="48"
+                                                      data-ouia-component-id="52"
                                                       data-ouia-component-type="PF4/Dropdown"
                                                       data-ouia-safe="true"
                                                       style="float: right;"
@@ -9301,7 +10319,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                         >
                                           <div
                                             className="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                            data-ouia-component-id={49}
+                                            data-ouia-component-id={53}
                                             data-ouia-component-type="PF4/Dropdown"
                                             data-ouia-safe={true}
                                             style={
@@ -9323,7 +10341,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                                 Object {
                                                   "current": <div
                                                     class="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                                    data-ouia-component-id="49"
+                                                    data-ouia-component-id="53"
                                                     data-ouia-component-type="PF4/Dropdown"
                                                     data-ouia-safe="true"
                                                     style="float: right;"
@@ -9374,7 +10392,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                                   Object {
                                                     "current": <div
                                                       class="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                                      data-ouia-component-id="49"
+                                                      data-ouia-component-id="53"
                                                       data-ouia-component-type="PF4/Dropdown"
                                                       data-ouia-safe="true"
                                                       style="float: right;"
@@ -9722,7 +10740,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                         >
                                           <div
                                             className="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                            data-ouia-component-id={50}
+                                            data-ouia-component-id={54}
                                             data-ouia-component-type="PF4/Dropdown"
                                             data-ouia-safe={true}
                                             style={
@@ -9744,7 +10762,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                                 Object {
                                                   "current": <div
                                                     class="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                                    data-ouia-component-id="50"
+                                                    data-ouia-component-id="54"
                                                     data-ouia-component-type="PF4/Dropdown"
                                                     data-ouia-safe="true"
                                                     style="float: right;"
@@ -9795,7 +10813,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                                   Object {
                                                     "current": <div
                                                       class="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                                      data-ouia-component-id="50"
+                                                      data-ouia-component-id="54"
                                                       data-ouia-component-type="PF4/Dropdown"
                                                       data-ouia-safe="true"
                                                       style="float: right;"
@@ -10143,7 +11161,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                         >
                                           <div
                                             className="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                            data-ouia-component-id={51}
+                                            data-ouia-component-id={55}
                                             data-ouia-component-type="PF4/Dropdown"
                                             data-ouia-safe={true}
                                             style={
@@ -10165,7 +11183,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                                 Object {
                                                   "current": <div
                                                     class="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                                    data-ouia-component-id="51"
+                                                    data-ouia-component-id="55"
                                                     data-ouia-component-type="PF4/Dropdown"
                                                     data-ouia-safe="true"
                                                     style="float: right;"
@@ -10216,7 +11234,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                                   Object {
                                                     "current": <div
                                                       class="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                                      data-ouia-component-id="51"
+                                                      data-ouia-component-id="55"
                                                       data-ouia-component-type="PF4/Dropdown"
                                                       data-ouia-safe="true"
                                                       style="float: right;"
@@ -10564,7 +11582,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                         >
                                           <div
                                             className="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                            data-ouia-component-id={52}
+                                            data-ouia-component-id={56}
                                             data-ouia-component-type="PF4/Dropdown"
                                             data-ouia-safe={true}
                                             style={
@@ -10586,7 +11604,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                                 Object {
                                                   "current": <div
                                                     class="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                                    data-ouia-component-id="52"
+                                                    data-ouia-component-id="56"
                                                     data-ouia-component-type="PF4/Dropdown"
                                                     data-ouia-safe="true"
                                                     style="float: right;"
@@ -10637,7 +11655,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                                   Object {
                                                     "current": <div
                                                       class="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                                      data-ouia-component-id="52"
+                                                      data-ouia-component-id="56"
                                                       data-ouia-component-type="PF4/Dropdown"
                                                       data-ouia-safe="true"
                                                       style="float: right;"
@@ -10985,7 +12003,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                         >
                                           <div
                                             className="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                            data-ouia-component-id={53}
+                                            data-ouia-component-id={57}
                                             data-ouia-component-type="PF4/Dropdown"
                                             data-ouia-safe={true}
                                             style={
@@ -11007,7 +12025,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                                 Object {
                                                   "current": <div
                                                     class="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                                    data-ouia-component-id="53"
+                                                    data-ouia-component-id="57"
                                                     data-ouia-component-type="PF4/Dropdown"
                                                     data-ouia-safe="true"
                                                     style="float: right;"
@@ -11058,7 +12076,7 @@ exports[`ConnectedEditBaseline should render expandable rows opened 1`] = `
                                                   Object {
                                                     "current": <div
                                                       class="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                                      data-ouia-component-id="53"
+                                                      data-ouia-component-id="57"
                                                       data-ouia-component-type="PF4/Dropdown"
                                                       data-ouia-safe="true"
                                                       style="float: right;"
@@ -13195,6 +14213,8 @@ exports[`ConnectedEditBaseline should render with baseline facts 1`] = `
                       <div />
                       <div />
                       <div />
+                      <div />
+                      <div />
                     </body>
                   }
                   aria-describedby=""
@@ -13232,12 +14252,12 @@ exports[`ConnectedEditBaseline should render with baseline facts 1`] = `
                       aria-describedby=""
                       aria-label=""
                       aria-labelledby=""
-                      boxId="pf-modal-part-3"
+                      boxId="pf-modal-part-5"
                       className=""
-                      descriptorId="pf-modal-part-5"
+                      descriptorId="pf-modal-part-7"
                       hasNoBodyWrapper={false}
                       isOpen={false}
-                      labelId="pf-modal-part-4"
+                      labelId="pf-modal-part-6"
                       onClose={[Function]}
                       ouiaSafe={true}
                       showClose={true}
@@ -13257,7 +14277,7 @@ exports[`ConnectedEditBaseline should render with baseline facts 1`] = `
                   <nav
                     aria-label="Breadcrumb"
                     className="pf-c-breadcrumb"
-                    data-ouia-component-id={18}
+                    data-ouia-component-id={22}
                     data-ouia-component-type="PF4/Breadcrumb"
                     data-ouia-safe={true}
                   >
@@ -13396,7 +14416,7 @@ exports[`ConnectedEditBaseline should render with baseline facts 1`] = `
                   >
                     <article
                       className="pf-c-card pf-t-light pf-m-opaque-100"
-                      data-ouia-component-id={19}
+                      data-ouia-component-id={23}
                       data-ouia-component-type="PF4/Card"
                       data-ouia-safe={true}
                     >
@@ -13679,7 +14699,7 @@ exports[`ConnectedEditBaseline should render with baseline facts 1`] = `
                                                 >
                                                   <div
                                                     className="pf-c-dropdown ins-c-bulk-select"
-                                                    data-ouia-component-id={20}
+                                                    data-ouia-component-id={24}
                                                     data-ouia-component-type="PF4/Dropdown"
                                                     data-ouia-safe={true}
                                                   >
@@ -13697,7 +14717,7 @@ exports[`ConnectedEditBaseline should render with baseline facts 1`] = `
                                                         Object {
                                                           "current": <div
                                                             class="pf-c-dropdown ins-c-bulk-select"
-                                                            data-ouia-component-id="20"
+                                                            data-ouia-component-id="24"
                                                             data-ouia-component-type="PF4/Dropdown"
                                                             data-ouia-safe="true"
                                                           >
@@ -13811,7 +14831,7 @@ exports[`ConnectedEditBaseline should render with baseline facts 1`] = `
                                                             Object {
                                                               "current": <div
                                                                 class="pf-c-dropdown ins-c-bulk-select"
-                                                                data-ouia-component-id="20"
+                                                                data-ouia-component-id="24"
                                                                 data-ouia-component-type="PF4/Dropdown"
                                                                 data-ouia-safe="true"
                                                               >
@@ -13935,7 +14955,7 @@ exports[`ConnectedEditBaseline should render with baseline facts 1`] = `
                                                     aria-disabled={false}
                                                     aria-label={null}
                                                     className="pf-c-button pf-m-primary"
-                                                    data-ouia-component-id={21}
+                                                    data-ouia-component-id={25}
                                                     data-ouia-component-type="PF4/Button"
                                                     data-ouia-safe={true}
                                                     disabled={false}
@@ -14041,7 +15061,7 @@ exports[`ConnectedEditBaseline should render with baseline facts 1`] = `
                                                       >
                                                         <div
                                                           className="pf-c-dropdown"
-                                                          data-ouia-component-id={22}
+                                                          data-ouia-component-id={26}
                                                           data-ouia-component-type="PF4/Dropdown"
                                                           data-ouia-safe={true}
                                                         >
@@ -14058,7 +15078,7 @@ exports[`ConnectedEditBaseline should render with baseline facts 1`] = `
                                                               Object {
                                                                 "current": <div
                                                                   class="pf-c-dropdown"
-                                                                  data-ouia-component-id="22"
+                                                                  data-ouia-component-id="26"
                                                                   data-ouia-component-type="PF4/Dropdown"
                                                                   data-ouia-safe="true"
                                                                 >
@@ -14110,7 +15130,7 @@ exports[`ConnectedEditBaseline should render with baseline facts 1`] = `
                                                                 Object {
                                                                   "current": <div
                                                                     class="pf-c-dropdown"
-                                                                    data-ouia-component-id="22"
+                                                                    data-ouia-component-id="26"
                                                                     data-ouia-component-type="PF4/Dropdown"
                                                                     data-ouia-safe="true"
                                                                   >
@@ -14325,7 +15345,7 @@ exports[`ConnectedEditBaseline should render with baseline facts 1`] = `
                                                         >
                                                           <div
                                                             className="pf-c-dropdown"
-                                                            data-ouia-component-id={23}
+                                                            data-ouia-component-id={27}
                                                             data-ouia-component-type="PF4/Dropdown"
                                                             data-ouia-safe={true}
                                                             style={
@@ -14347,7 +15367,7 @@ exports[`ConnectedEditBaseline should render with baseline facts 1`] = `
                                                                 Object {
                                                                   "current": <div
                                                                     class="pf-c-dropdown"
-                                                                    data-ouia-component-id="23"
+                                                                    data-ouia-component-id="27"
                                                                     data-ouia-component-type="PF4/Dropdown"
                                                                     data-ouia-safe="true"
                                                                     style="float: left;"
@@ -14398,7 +15418,7 @@ exports[`ConnectedEditBaseline should render with baseline facts 1`] = `
                                                                   Object {
                                                                     "current": <div
                                                                       class="pf-c-dropdown"
-                                                                      data-ouia-component-id="23"
+                                                                      data-ouia-component-id="27"
                                                                       data-ouia-component-type="PF4/Dropdown"
                                                                       data-ouia-safe="true"
                                                                       style="float: left;"
@@ -14783,7 +15803,7 @@ exports[`ConnectedEditBaseline should render with baseline facts 1`] = `
                                         >
                                           <div
                                             className="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                            data-ouia-component-id={24}
+                                            data-ouia-component-id={28}
                                             data-ouia-component-type="PF4/Dropdown"
                                             data-ouia-safe={true}
                                             style={
@@ -14805,7 +15825,7 @@ exports[`ConnectedEditBaseline should render with baseline facts 1`] = `
                                                 Object {
                                                   "current": <div
                                                     class="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                                    data-ouia-component-id="24"
+                                                    data-ouia-component-id="28"
                                                     data-ouia-component-type="PF4/Dropdown"
                                                     data-ouia-safe="true"
                                                     style="float: right;"
@@ -14856,7 +15876,7 @@ exports[`ConnectedEditBaseline should render with baseline facts 1`] = `
                                                   Object {
                                                     "current": <div
                                                       class="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                                      data-ouia-component-id="24"
+                                                      data-ouia-component-id="28"
                                                       data-ouia-component-type="PF4/Dropdown"
                                                       data-ouia-safe="true"
                                                       style="float: right;"
@@ -15128,7 +16148,7 @@ exports[`ConnectedEditBaseline should render with baseline facts 1`] = `
                                         >
                                           <div
                                             className="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                            data-ouia-component-id={25}
+                                            data-ouia-component-id={29}
                                             data-ouia-component-type="PF4/Dropdown"
                                             data-ouia-safe={true}
                                             style={
@@ -15150,7 +16170,7 @@ exports[`ConnectedEditBaseline should render with baseline facts 1`] = `
                                                 Object {
                                                   "current": <div
                                                     class="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                                    data-ouia-component-id="25"
+                                                    data-ouia-component-id="29"
                                                     data-ouia-component-type="PF4/Dropdown"
                                                     data-ouia-safe="true"
                                                     style="float: right;"
@@ -15201,7 +16221,7 @@ exports[`ConnectedEditBaseline should render with baseline facts 1`] = `
                                                   Object {
                                                     "current": <div
                                                       class="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                                      data-ouia-component-id="25"
+                                                      data-ouia-component-id="29"
                                                       data-ouia-component-type="PF4/Dropdown"
                                                       data-ouia-safe="true"
                                                       style="float: right;"
@@ -15587,7 +16607,7 @@ exports[`ConnectedEditBaseline should render with baseline facts 1`] = `
                                         >
                                           <div
                                             className="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                            data-ouia-component-id={26}
+                                            data-ouia-component-id={30}
                                             data-ouia-component-type="PF4/Dropdown"
                                             data-ouia-safe={true}
                                             style={
@@ -15609,7 +16629,7 @@ exports[`ConnectedEditBaseline should render with baseline facts 1`] = `
                                                 Object {
                                                   "current": <div
                                                     class="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                                    data-ouia-component-id="26"
+                                                    data-ouia-component-id="30"
                                                     data-ouia-component-type="PF4/Dropdown"
                                                     data-ouia-safe="true"
                                                     style="float: right;"
@@ -15660,7 +16680,7 @@ exports[`ConnectedEditBaseline should render with baseline facts 1`] = `
                                                   Object {
                                                     "current": <div
                                                       class="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
-                                                      data-ouia-component-id="26"
+                                                      data-ouia-component-id="30"
                                                       data-ouia-component-type="PF4/Dropdown"
                                                       data-ouia-safe="true"
                                                       style="float: right;"

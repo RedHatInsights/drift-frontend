@@ -304,8 +304,8 @@ export class EditBaseline extends Component {
         return rows;
     }
 
-    renderEmptyState() {
-        const { editBaselineError } = this.props;
+    renderEmptyState(hasWritePermissions) {
+        const { editBaselineEmptyState, editBaselineError } = this.props;
         const { errorMessage } = this.state;
 
         if (editBaselineError.status !== 200 && editBaselineError.status !== undefined) {
@@ -328,7 +328,10 @@ export class EditBaseline extends Component {
             return <EmptyStateDisplay
                 title={ 'No facts' }
                 text={ [ 'No facts or categories have been added to this baseline yet.' ] }
-                button={ <AddFactButton /> }
+                button={ <AddFactButton
+                    hasWritePermissions={ hasWritePermissions }
+                    editBaselineEmptyState={ editBaselineEmptyState }
+                /> }
             />;
         }
     }
@@ -379,7 +382,7 @@ export class EditBaseline extends Component {
                                         onClose={ clearErrorData }
                                     />
                                     { editBaselineEmptyState
-                                        ? this.renderEmptyState()
+                                        ? this.renderEmptyState(value.permissions.baselinesWrite)
                                         : <Card className='pf-t-light pf-m-opaque-100'>
                                             <CardBody>
                                                 <EditBaselineToolbar
