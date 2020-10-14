@@ -45,15 +45,19 @@ const App = (props) => {
             }
         });
         (async () => {
-            const driftPermissions = await window.insights.chrome.getUserPermissions('drift');
-            const fullPermissions = driftPermissions.concat(await window.insights.chrome.getUserPermissions('inventory'));
-            const permissionsList = fullPermissions.map(permissions => permissions.permission);
-            handlePermissionsUpdate(
-                permissionsList.includes('drift:*:*' || 'drift:comparisons:read' || 'drift:*:read'),
-                permissionsList.includes('drift:*:*' || 'drift:baselines:read' || 'drift:*:read'),
-                permissionsList.includes('drift:*:*' || 'drift:baselines:write' || 'drift:*:write'),
-                permissionsList.includes('inventory:*:*', 'inventory:*:read')
-            );
+            if (await window.insights.chrome.isBeta()) {
+                const driftPermissions = await window.insights.chrome.getUserPermissions('drift');
+                const fullPermissions = driftPermissions.concat(await window.insights.chrome.getUserPermissions('inventory'));
+                const permissionsList = fullPermissions.map(permissions => permissions.permission);
+                handlePermissionsUpdate(
+                    permissionsList.some((permission) => permission === 'drift:*:*' || 'drift:comparisons:read' || 'drift:*:read'),
+                    permissionsList.some((permission) => permission === 'drift:*:*' || 'drift:baselines:read' || 'drift:*:read'),
+                    permissionsList.some((permission) => permission === 'drift:*:*' || 'drift:baselines:write' || 'drift:*:write'),
+                    permissionsList.some((permission) => permission === 'inventory:*:*' || 'inventory:*:read')
+                );
+            } else {
+                handlePermissionsUpdate(true, true, true, true);
+            }
         })();
 
         insights.chrome.on('GLOBAL_FILTER_UPDATE', ({ data }) => {

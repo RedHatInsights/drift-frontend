@@ -12,7 +12,6 @@ import baselinesReducerHelpers from './redux/helpers';
 import BaselinesToolbar from './BaselinesToolbar/BaselinesToolbar';
 import EmptyStateDisplay from '../EmptyStateDisplay/EmptyStateDisplay';
 import TablePagination from '../Pagination/Pagination';
-//import { PermissionContext } from '../../App';
 
 export class BaselinesTable extends Component {
     constructor(props) {

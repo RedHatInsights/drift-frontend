@@ -129,7 +129,7 @@ export class CreateBaselineModal extends Component {
     }
 
     renderCopyBaseline() {
-        const { baselineTableData, loading, createBaselineModalOpened, totalBaselines } = this.props;
+        const { baselineTableData, createBaselineModalOpened, hasReadPermissions, hasWritePermissions, loading, totalBaselines } = this.props;
         const { columns } = this.state;
 
         return (<React.Fragment>
@@ -142,6 +142,8 @@ export class CreateBaselineModal extends Component {
                 createBaselineModalOpened={ createBaselineModalOpened }
                 columns={ columns }
                 totalBaselines={ totalBaselines }
+                hasReadPermissions={ hasReadPermissions }
+                hasWritePermissions={ hasWritePermissions }
             />
         </React.Fragment>
         );
@@ -305,7 +307,9 @@ CreateBaselineModal.propTypes = {
     updatePagination: PropTypes.func,
     historicalProfiles: PropTypes.array,
     selectedHSPIds: PropTypes.array,
-    hasInventoryReadPermissions: PropTypes.bool
+    hasInventoryReadPermissions: PropTypes.bool,
+    hasReadPermissions: PropTypes.bool,
+    hasWritePermissions: PropTypes.bool
 };
 
 function mapStateToProps(state) {
