@@ -221,6 +221,8 @@ export class DriftPage extends Component {
                                                     isFirstReference={ isFirstReference }
                                                     setIsFirstReference={ this.setIsFirstReference }
                                                     clearComparison= { clearComparison }
+                                                    hasBaselinesReadPermissions={ value.permissions.baselinesRead }
+                                                    hasBaselinesWritePermissions={ value.permissions.baselinesWrite }
                                                     hasInventoryReadPermissions={ value.permissions.inventoryRead }
                                                 />
                                                 { !emptyState && !loading ?

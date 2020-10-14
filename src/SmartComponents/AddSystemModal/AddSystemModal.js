@@ -85,8 +85,9 @@ export class AddSystemModal extends Component {
     }
 
     render() {
-        const { activeTab, addSystemModalOpened, baselineTableData, hasInventoryReadPermissions, historicalProfiles,
-            loading, entities, selectedBaselineIds, selectedHSPIds, totalBaselines } = this.props;
+        const { activeTab, addSystemModalOpened, baselineTableData, hasBaselinesReadPermissions, hasBaselinesWritePermissions,
+            hasInventoryReadPermissions, historicalProfiles, loading, entities, selectedBaselineIds, selectedHSPIds,
+            totalBaselines } = this.props;
         const { columns } = this.state;
 
         return (
@@ -143,6 +144,8 @@ export class AddSystemModal extends Component {
                                 onBulkSelect={ this.onBulkSelect }
                                 selectedBaselineIds={ selectedBaselineIds }
                                 totalBaselines={ totalBaselines }
+                                hasReadPermissions={ hasBaselinesReadPermissions }
+                                hasWritePermissions={ hasBaselinesWritePermissions }
                             />
                         </Tab>
                     </Tabs>
@@ -171,7 +174,9 @@ AddSystemModal.propTypes = {
     historicalProfiles: PropTypes.array,
     referenceId: PropTypes.string,
     totalBaselines: PropTypes.number,
-    hasInventoryReadPermissions: PropTypes.bool
+    hasInventoryReadPermissions: PropTypes.bool,
+    hasBaselinesReadPermissions: PropTypes.bool,
+    hasBaselinesWritePermissions: PropTypes.bool
 };
 
 function mapStateToProps(state) {
