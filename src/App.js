@@ -36,6 +36,18 @@ const App = (props) => {
         });
     };
 
+    const hasPermission = (permission, permissionList) => {
+        let hasPermission = false;
+
+        permissionList.forEach((permissions) => {
+            if (permission === permissions) {
+                hasPermission = true;
+            }
+        });
+
+        return hasPermission;
+    };
+
     useEffect(() => {
         insights.chrome.init();
         insights.chrome.identifyApp('drift');
@@ -50,10 +62,10 @@ const App = (props) => {
                 const fullPermissions = driftPermissions.concat(await window.insights.chrome.getUserPermissions('inventory'));
                 const permissionsList = fullPermissions.map(permissions => permissions.permission);
                 handlePermissionsUpdate(
-                    permissionsList.some((permission) => permission === 'drift:*:*' || 'drift:comparisons:read' || 'drift:*:read'),
-                    permissionsList.some((permission) => permission === 'drift:*:*' || 'drift:baselines:read' || 'drift:*:read'),
-                    permissionsList.some((permission) => permission === 'drift:*:*' || 'drift:baselines:write' || 'drift:*:write'),
-                    permissionsList.some((permission) => permission === 'inventory:*:*' || 'inventory:*:read')
+                    permissionsList.some((permission) => hasPermission(permission, [ 'drift:*:*', 'drift:comparisons:read', 'drift:*:read' ])),
+                    permissionsList.some((permission) => hasPermission(permission, [ 'drift:*:*', 'drift:baselines:read', 'drift:*:read' ])),
+                    permissionsList.some((permission) => hasPermission(permission, [ 'drift:*:*', 'drift:baselines:write', 'drift:*:write' ])),
+                    permissionsList.some((permission) => hasPermission(permission, [ 'inventory:*:*', 'inventory:*:read' ]))
                 );
             } else {
                 handlePermissionsUpdate(true, true, true, true);
