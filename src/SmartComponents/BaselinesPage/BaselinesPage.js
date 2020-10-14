@@ -144,7 +144,11 @@ export class BaselinesPage extends Component {
             <PermissionContext.Consumer>
                 { value =>
                     <React.Fragment>
-                        <CreateBaselineModal hasInventoryReadPermissions={ value.permissions.inventoryRead } />
+                        <CreateBaselineModal
+                            hasInventoryReadPermissions={ value.permissions.inventoryRead }
+                            hasReadPermissions={ value.permissions.baselinesRead }
+                            hasWritePermissions={ value.permissions.baselinesWrite }
+                        />
                         <PageHeader>
                             <PageHeaderTitle title='Baselines'/>
                         </PageHeader>

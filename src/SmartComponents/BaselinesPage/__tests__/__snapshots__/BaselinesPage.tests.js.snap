@@ -154,8 +154,13 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
             selectBaseline={[Function]}
             selectedBaselineIds={Array []}
           >
-            <withRouter(Connect(CreateBaselineModal))>
+            <withRouter(Connect(CreateBaselineModal))
+              hasReadPermissions={true}
+              hasWritePermissions={true}
+            >
               <Connect(CreateBaselineModal)
+                hasReadPermissions={true}
+                hasWritePermissions={true}
                 history={
                   Object {
                     "action": "POP",
@@ -209,6 +214,8 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                   createBaselineError={Object {}}
                   createBaselineModalOpened={false}
                   emptyState={false}
+                  hasReadPermissions={true}
+                  hasWritePermissions={true}
                   history={
                     Object {
                       "action": "POP",
@@ -5058,8 +5065,13 @@ exports[`ConnectedBaselinesPage should render empty state 1`] = `
             selectBaseline={[Function]}
             selectedBaselineIds={Array []}
           >
-            <withRouter(Connect(CreateBaselineModal))>
+            <withRouter(Connect(CreateBaselineModal))
+              hasReadPermissions={true}
+              hasWritePermissions={true}
+            >
               <Connect(CreateBaselineModal)
+                hasReadPermissions={true}
+                hasWritePermissions={true}
                 history={
                   Object {
                     "action": "POP",
@@ -5113,6 +5125,8 @@ exports[`ConnectedBaselinesPage should render empty state 1`] = `
                   createBaselineError={Object {}}
                   createBaselineModalOpened={false}
                   emptyState={false}
+                  hasReadPermissions={true}
+                  hasWritePermissions={true}
                   history={
                     Object {
                       "action": "POP",
