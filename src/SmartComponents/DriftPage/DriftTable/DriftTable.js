@@ -492,7 +492,8 @@ export class DriftTable extends Component {
     }
 
     render() {
-        const { emptyState, filteredCompareData, systems, baselines, hasInventoryReadPermissions, historicalProfiles, loading } = this.props;
+        const { emptyState, filteredCompareData, systems, baselines, hasBaselinesReadPermissions, hasBaselinesWritePermissions,
+            hasInventoryReadPermissions, historicalProfiles, loading } = this.props;
 
         this.masterList = this.formatEntities(systems, baselines, historicalProfiles);
 
@@ -503,6 +504,8 @@ export class DriftTable extends Component {
                     confirmModal={ this.fetchCompare }
                     referenceId={ this.props.referenceId }
                     hasInventoryReadPermissions={ hasInventoryReadPermissions }
+                    hasBaselinesReadPermissions={ hasBaselinesReadPermissions }
+                    hasBaselinesWritePermissions={ hasBaselinesWritePermissions }
                 />
                 { !emptyState
                     ? this.renderTable(filteredCompareData, loading)
@@ -571,7 +574,9 @@ DriftTable.propTypes = {
     isFirstReference: PropTypes.bool,
     setIsFirstReference: PropTypes.func,
     clearComparison: PropTypes.func,
-    hasInventoryReadPermissions: PropTypes.bool
+    hasInventoryReadPermissions: PropTypes.bool,
+    hasBaselinesReadPermissions: PropTypes.bool,
+    hasBaselinesWritePermissions: PropTypes.bool
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DriftTable));
