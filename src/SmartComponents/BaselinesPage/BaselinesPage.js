@@ -107,8 +107,8 @@ export class BaselinesPage extends Component {
         );
     }
 
-    renderEmptyState = () => {
-        const { baselineError, revertBaselineFetch } = this.props;
+    renderEmptyState = (hasBaselinesWritePermissions) => {
+        const { baselineError, emptyState, loading, revertBaselineFetch } = this.props;
         const { emptyStateMessage, errorMessage } = this.state;
 
         if (!baselineError.status) {
@@ -116,7 +116,11 @@ export class BaselinesPage extends Component {
                 icon={ AddCircleOIcon }
                 title={ 'No baselines' }
                 text={ emptyStateMessage }
-                button={ <CreateBaselineButton /> }
+                button={ <CreateBaselineButton
+                    emptyState={ emptyState }
+                    hasWritePermissions={ hasBaselinesWritePermissions }
+                    loading={ loading } />
+                }
             />;
         } else if (baselineError.status !== 200 && baselineError.status !== undefined) {
             return <EmptyStateDisplay
@@ -161,7 +165,7 @@ export class BaselinesPage extends Component {
                                     text={ [ 'Contact your organization administrator(s) for more information.' ] }
                                 />
                                 : emptyState && !loading
-                                    ? this.renderEmptyState()
+                                    ? this.renderEmptyState(value.permissions.baselinesWrite)
                                     : <React.Fragment>
                                         <ErrorAlert
                                             error={ !emptyState && baselineError ? baselineError : {} }

@@ -27,7 +27,8 @@ export class CreateBaselineButton extends Component {
     }
 
     render() {
-        const { hasWritePermissions, loading } = this.props;
+        const { emptyState, hasWritePermissions, loading } = this.props;
+
         return (
             <React.Fragment>
                 { !hasWritePermissions && hasWritePermissions !== undefined
@@ -36,7 +37,7 @@ export class CreateBaselineButton extends Component {
                             <div>You do not have permissions to perform this action</div>
                         }
                     >
-                        <div>
+                        <div className={ emptyState ? 'tooltip-button-margin' : null }>
                             <Button
                                 id='create-baseline-button'
                                 variant='primary'
@@ -50,7 +51,7 @@ export class CreateBaselineButton extends Component {
                         id='create-baseline-button'
                         variant='primary'
                         onClick={ this.createBaseline }
-                        isDisabled={ loading || !hasWritePermissions }>
+                        isDisabled={ loading }>
                         Create baseline
                     </Button>
                 }
@@ -65,7 +66,8 @@ CreateBaselineButton.propTypes = {
     history: PropTypes.object,
     addSystemModalOpened: PropTypes.bool,
     loading: PropTypes.bool,
-    hasWritePermissions: PropTypes.bool
+    hasWritePermissions: PropTypes.bool,
+    emptyState: PropTypes.bool
 };
 
 function mapStateToProps(state) {

@@ -154,7 +154,6 @@ exports[`ConnectedCreateBaselineButton should render correctly 1`] = `
           >
             <Button
               id="create-baseline-button"
-              isDisabled={false}
               onClick={[Function]}
               variant="primary"
             >
@@ -198,6 +197,7 @@ exports[`CreateBaselineButton should render mount correctly 1`] = `
 <CreateBaselineButton
   addSystemModalOpened={false}
   hasWritePermissions={true}
+  loading={false}
 >
   <Button
     id="create-baseline-button"

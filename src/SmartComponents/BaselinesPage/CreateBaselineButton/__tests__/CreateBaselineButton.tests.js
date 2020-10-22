@@ -13,7 +13,8 @@ describe('CreateBaselineButton', () => {
     beforeEach(() => {
         props = {
             addSystemModalOpened: false,
-            hasWritePermissions: true
+            hasWritePermissions: true,
+            loading: false
         };
     });
 
