@@ -77,7 +77,7 @@ export class EditBaseline extends Component {
         this.fetchBaselineId();
     }
 
-    renderBreadcrumb(baselineData) {
+    renderBreadcrumb(baselineData, hasReadPermissions) {
         let breadcrumb;
 
         /*eslint-disable camelcase*/
@@ -87,11 +87,24 @@ export class EditBaseline extends Component {
                     Baselines
                 </a>
             </BreadcrumbItem>
-            { baselineData ? <BreadcrumbHeading>{ baselineData.display_name }</BreadcrumbHeading> : null }
+            { baselineData && hasReadPermissions
+                ? <BreadcrumbHeading>
+                    { baselineData.display_name }
+                </BreadcrumbHeading>
+                : null
+            }
         </Breadcrumb>;
         /*eslint-enable camelcase*/
 
         return breadcrumb;
+    }
+
+    renderPageTitle(baselineData, hasReadPermissions) {
+        if (hasReadPermissions) {
+            return <PageHeaderTitle title={ !_.isEmpty(baselineData) ? baselineData.display_name : null }/>;
+        } else {
+            return <PageHeaderTitle title='Baseline' />;
+        }
     }
 
     renderPageHeader = (hasReadPermissions, hasWritePermissions) => {
@@ -113,8 +126,8 @@ export class EditBaseline extends Component {
                         error={ inlineError }
                     />
                     <PageHeader>
-                        { this.renderBreadcrumb(baselineData) }
-                        <PageHeaderTitle title={ !_.isEmpty(baselineData) ? baselineData.display_name : null }/>
+                        { this.renderBreadcrumb(baselineData, hasReadPermissions) }
+                        { this.renderPageTitle(baselineData, hasReadPermissions) }
                         { hasReadPermissions && hasWritePermissions
                             ? <EditAltIcon className='pointer not-active edit-icon-margin' onClick={ () => this.toggleEditNameModal() } />
                             : null
@@ -369,7 +382,7 @@ export class EditBaseline extends Component {
                                 ? <EmptyStateDisplay
                                     icon={ LockIcon }
                                     color='#6a6e73'
-                                    title={ 'You do not have access to Baselines' }
+                                    title={ 'You do not have access to view this Baseline' }
                                     text={ [ 'Contact your organization administrator(s) for more information.' ] }
                                 />
                                 : <React.Fragment>
