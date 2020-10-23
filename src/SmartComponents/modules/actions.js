@@ -108,6 +108,20 @@ function setGlobalFilterTags(tags = []) {
     };
 }
 
+function setGlobalFilterWorkloads(workloads = []) {
+    return {
+        type: types.SET_GLOBAL_FILTER_WORKLOADS,
+        payload: workloads
+    };
+}
+
+function setGlobalFilterSIDs(SIDs = []) {
+    return {
+        type: types.SET_GLOBAL_FILTER_SIDS,
+        payload: SIDs
+    };
+}
+
 export default {
     fetchCompare,
     revertCompareData,
@@ -122,5 +136,7 @@ export default {
     exportToCSV,
     expandRow,
     updateReferenceId,
-    setGlobalFilterTags
+    setGlobalFilterTags,
+    setGlobalFilterWorkloads,
+    setGlobalFilterSIDs
 };

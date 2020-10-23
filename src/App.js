@@ -73,8 +73,10 @@ const App = (props) => {
         })();
 
         insights.chrome.on('GLOBAL_FILTER_UPDATE', ({ data }) => {
-            const tags = insights.chrome?.mapGlobalFilter?.(data).filter(item => !item.includes('workloads')) || undefined;
+            const [ workloads, SID, tags ] = insights.chrome?.mapGlobalFilter?.(data, false, true) || [];
             dispatch(actions.setGlobalFilterTags(tags));
+            dispatch(actions.setGlobalFilterWorkloads(workloads));
+            dispatch(actions.setGlobalFilterSIDs(SID));
         });
     }, []);
 
