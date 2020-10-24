@@ -92,6 +92,10 @@ function selectedReducer(
                     : rows
             };
         },
+        [types.DRIFT_CLEAR_ALL_FILTERS]: (state) => ({
+            ...state,
+            activeFilters: undefined
+        }),
         [types.UPDATE_COLUMNS]: (state, action) => {
             let nameColumn = {
                 key: action.payload,

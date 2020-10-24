@@ -5291,7 +5291,13 @@ exports[`ConnectedBaselinesPage should render empty state 1`] = `
                   page-type=""
                 >
                   <EmptyStateDisplay
-                    button={<withRouter(Connect(CreateBaselineButton)) />}
+                    button={
+                      <withRouter(Connect(CreateBaselineButton))
+                        emptyState={true}
+                        hasWritePermissions={true}
+                        loading={false}
+                      />
+                    }
                     icon={[Function]}
                     text={
                       Array [
@@ -5363,8 +5369,14 @@ exports[`ConnectedBaselinesPage should render empty state 1`] = `
 Create a baseline to use in your Comparison analysis.
                             </div>
                           </EmptyStateBody>
-                          <withRouter(Connect(CreateBaselineButton))>
+                          <withRouter(Connect(CreateBaselineButton))
+                            emptyState={true}
+                            hasWritePermissions={true}
+                            loading={false}
+                          >
                             <Connect(CreateBaselineButton)
+                              emptyState={true}
+                              hasWritePermissions={true}
                               history={
                                 Object {
                                   "action": "POP",
@@ -5395,6 +5407,7 @@ Create a baseline to use in your Comparison analysis.
                                   "replace": [Function],
                                 }
                               }
+                              loading={false}
                               location={
                                 Object {
                                   "hash": "",
@@ -5414,6 +5427,8 @@ Create a baseline to use in your Comparison analysis.
                             >
                               <CreateBaselineButton
                                 addSystemModalOpened={false}
+                                emptyState={true}
+                                hasWritePermissions={true}
                                 history={
                                   Object {
                                     "action": "POP",
@@ -5444,6 +5459,7 @@ Create a baseline to use in your Comparison analysis.
                                     "replace": [Function],
                                   }
                                 }
+                                loading={false}
                                 location={
                                   Object {
                                     "hash": "",
@@ -5465,21 +5481,20 @@ Create a baseline to use in your Comparison analysis.
                               >
                                 <Button
                                   id="create-baseline-button"
-                                  isDisabled={true}
+                                  isDisabled={false}
                                   onClick={[Function]}
                                   variant="primary"
                                 >
                                   <button
-                                    aria-disabled={true}
+                                    aria-disabled={false}
                                     aria-label={null}
-                                    className="pf-c-button pf-m-primary pf-m-disabled"
+                                    className="pf-c-button pf-m-primary"
                                     data-ouia-component-id={17}
                                     data-ouia-component-type="PF4/Button"
                                     data-ouia-safe={true}
-                                    disabled={true}
+                                    disabled={false}
                                     id="create-baseline-button"
                                     onClick={[Function]}
-                                    tabIndex={null}
                                     type="button"
                                   >
                                     Create baseline
