@@ -220,7 +220,8 @@ describe('ConnectedEditBaseline', () => {
         wrapper.find('a').simulate('click');
         expect(actions).toEqual([
             { type: 'FETCH_BASELINE_DATA', payload: api.getBaselineData('blah') },
-            { type: 'CLEAR_BASELINE_DATA_CHECKBOX' }
+            { type: 'CLEAR_BASELINE_DATA_CHECKBOX' },
+            { type: 'FETCH_BASELINE_LIST_CHECKBOX', payload: api.getBaselineList('blah') }
         ]);
     });
 

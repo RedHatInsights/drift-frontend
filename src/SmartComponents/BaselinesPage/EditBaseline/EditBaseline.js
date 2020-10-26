@@ -64,9 +64,10 @@ export class EditBaseline extends Component {
     }
 
     goToBaselinesList() {
-        const { history, clearBaselineData } = this.props;
+        const { clearBaselineData, fetchBaselines, history } = this.props;
 
         clearBaselineData('CHECKBOX');
+        fetchBaselines('CHECKBOX');
         history.push('/baselines');
     }
 
@@ -426,7 +427,8 @@ EditBaseline.propTypes = {
     inlineError: PropTypes.object,
     editBaselineEmptyState: PropTypes.bool,
     exportToCSV: PropTypes.func,
-    hasWritePermissions: PropTypes.bool
+    hasWritePermissions: PropTypes.bool,
+    fetchBaselines: PropTypes.func
 };
 
 function mapStateToProps(state) {
@@ -451,7 +453,8 @@ function mapDispatchToProps(dispatch) {
         clearErrorData: () => dispatch(editBaselineActions.clearErrorData()),
         exportToCSV: (exportData, baselineRowData)=> {
             dispatch(editBaselineActions.exportToCSV(exportData, baselineRowData));
-        }
+        },
+        fetchBaselines: (tableId, params) => dispatch(baselinesTableActions.fetchBaselines(tableId, params))
     };
 }
 
