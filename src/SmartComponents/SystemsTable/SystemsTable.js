@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React, { Fragment, useState, useEffect } from 'react';
 import * as reactRouterDom from 'react-router-dom';
 import * as ReactRedux from 'react-redux';
@@ -29,6 +30,8 @@ const SystemsTable = ({
 }) => {
     const [ InventoryCmp, setInventoryCmp ] = useState(null);
     const tagsFilter = ReactRedux.useSelector(({ globalFilterState }) => globalFilterState?.tagsFilter);
+    const workloadsFilter = ReactRedux.useSelector(({ globalFilterState }) => globalFilterState?.workloadsFilter);
+    const sidsFilter = ReactRedux.useSelector(({ globalFilterState }) => globalFilterState?.sidsFilter);
     const store = ReactRedux.useStore();
 
     const deselectHistoricalProfiles = () => {
@@ -82,7 +85,13 @@ const SystemsTable = ({
                         showTags
                         noDetail
                         customFilters={ {
-                            tags: tagsFilter
+                            tags: tagsFilter,
+                            filter: {
+                                system_profile: {
+                                    ...workloadsFilter?.SAP?.isSelected && { sap_system: true },
+                                    ...sidsFilter?.length > 0 && { sap_sids: sidsFilter }
+                                }
+                            }
                         } }
                     />
                     : <reactCore.Spinner size="lg" />
