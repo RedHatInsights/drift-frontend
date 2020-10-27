@@ -228,13 +228,17 @@ describe('ConnectedDriftTable', () => {
         initialState.historicProfilesState.selectedHSPIds = [
             '9bbbefcc-8f23-4d97-07f2-142asdl234e8', 'edmk59dj-fn42-dfjk-alv3-bmn2854mnn27'
         ];
+        let setIsFirstReference = jest.fn();
 
         const store = mockStore(initialState);
 
         const wrapper = mount(
             <MemoryRouter keyLength={ 0 }>
                 <Provider store={ store }>
-                    <ConnectedDriftTable updateReferenceId={ updateReferenceId } />
+                    <ConnectedDriftTable
+                        updateReferenceId={ updateReferenceId }
+                        setIsFirstReference={ setIsFirstReference }
+                    />
                 </Provider>
             </MemoryRouter>
         );
