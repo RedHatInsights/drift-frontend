@@ -158,13 +158,28 @@ export class DriftTable extends Component {
         return moment.utc(dateString).format('DD MMM YYYY, HH:mm UTC');
     }
 
+    findHSPReference = () => {
+        const { referenceId } = this.props;
+        let newReferenceId = referenceId;
+
+        this.HSPIds.forEach((id) => {
+            if (id === referenceId) {
+                newReferenceId = undefined;
+            }
+        });
+
+        return newReferenceId;
+    }
+
     async removeSystem(item) {
-        const { isFirstReference, selectHistoricProfiles, setIsFirstReference } = this.props;
+        const { historicalProfiles, isFirstReference, referenceId, selectHistoricProfiles, setIsFirstReference } = this.props;
+        let newReferenceId;
 
         if (item.type === 'system') {
             this.systemIds = this.systemIds.filter(id => id !== item.id);
+            newReferenceId = await this.findHSPReference();
 
-            this.HSPIds = this.props.historicalProfiles.filter((profile) => {
+            this.HSPIds = await historicalProfiles.filter((profile) => {
                 return profile.system_id !== item.id;
             }).map(profile => profile.id);
 
@@ -174,17 +189,13 @@ export class DriftTable extends Component {
             this.HSPIds = this.HSPIds.filter(id => id !== item.id);
         }
 
-        if (item.id === this.props.referenceId) {
-            await this.props.updateReferenceId(this.baselineIds[0]);
-        }
-
         selectHistoricProfiles(this.HSPIds);
         if (!this.systemIds.length && !this.baselineIds.length
-            && !this.HSPIds.length && !this.props.referenceId && !isFirstReference) {
+            && !this.HSPIds.length && !referenceId && !isFirstReference) {
             setIsFirstReference(true);
         }
 
-        this.fetchCompare(this.systemIds, this.baselineIds, this.HSPIds, this.props.referenceId);
+        this.fetchCompare(this.systemIds, this.baselineIds, this.HSPIds, newReferenceId);
     }
 
     fetchCompare(systemIds, baselineIds, HSPIds, referenceId) {
@@ -198,10 +209,8 @@ export class DriftTable extends Component {
         if (isFirstReference) {
             if (!referenceId && this.baselineIds.length) {
                 reference = baselineIds[0];
-                setIsFirstReference(false);
             } else if (referenceId) {
                 reference = referenceId;
-                setIsFirstReference(false);
             }
         } else {
             reference = referenceId;
@@ -213,6 +222,7 @@ export class DriftTable extends Component {
 
         if (systemIds.length || baselineIds.length || HSPIds.length || reference) {
             fetchCompare(systemIds, baselineIds, HSPIds, reference);
+            setIsFirstReference(false);
         } else {
             clearComparison();
         }
