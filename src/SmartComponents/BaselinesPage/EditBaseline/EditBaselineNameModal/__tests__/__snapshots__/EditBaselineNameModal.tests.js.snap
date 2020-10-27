@@ -18,7 +18,7 @@ exports[`EditBaselineNameModal should render correctly 1`] = `
       </Button>,
     ]
   }
-  appendTo={<body />}
+  appendTo={[Function]}
   aria-describedby=""
   aria-label=""
   aria-labelledby=""
@@ -139,144 +139,7 @@ exports[`EditBaselineNameModal should render mount correctly 1`] = `
         </Button>,
       ]
     }
-    appendTo={
-      <body
-        class="pf-c-backdrop__open"
-      >
-        <div>
-          <div
-            class="pf-c-backdrop"
-          >
-            <div
-              class="pf-l-bullseye"
-            >
-              <div
-                aria-describedby="pf-modal-part-2"
-                aria-labelledby="pf-modal-part-1"
-                aria-modal="true"
-                class="pf-c-modal-box pf-m-sm"
-                data-ouia-component-id="0"
-                data-ouia-component-type="PF4/ModalContent"
-                data-ouia-safe="true"
-                id="pf-modal-part-0"
-                role="dialog"
-              >
-                <button
-                  aria-disabled="false"
-                  aria-label="Close"
-                  class="pf-c-button pf-m-plain"
-                  data-ouia-component-id="1"
-                  data-ouia-component-type="PF4/Button"
-                  data-ouia-safe="true"
-                  type="button"
-                >
-                  <svg
-                    aria-hidden="true"
-                    fill="currentColor"
-                    height="1em"
-                    role="img"
-                    style="vertical-align: -0.125em;"
-                    viewBox="0 0 352 512"
-                    width="1em"
-                  >
-                    <path
-                      d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
-                      transform=""
-                    />
-                  </svg>
-                </button>
-                <header
-                  class="pf-c-modal-box__header"
-                >
-                  <h1
-                    class="pf-c-modal-box__title pf-c-modal-box__title"
-                    id="pf-modal-part-1"
-                  >
-                    Edit name
-                  </h1>
-                </header>
-                <div
-                  class="pf-c-modal-box__body"
-                  id="pf-modal-part-2"
-                >
-                  <div
-                    class="fact-value"
-                  >
-                    <form
-                      class="pf-c-form"
-                      novalidate=""
-                    >
-                      <div
-                        class="pf-c-form__group"
-                      >
-                        <div
-                          class="pf-c-form__group-label"
-                        >
-                          <label
-                            class="pf-c-form__label"
-                            for="baseline name"
-                          >
-                            <span
-                              class="pf-c-form__label-text"
-                            >
-                              Baseline title
-                            </span>
-                            <span
-                              aria-hidden="true"
-                              class="pf-c-form__label-required"
-                            >
-                               
-                              *
-                            </span>
-                          </label>
-                           
-                        </div>
-                        <div
-                          class="pf-c-form__group-control"
-                        >
-                          <input
-                            aria-invalid="false"
-                            aria-label="baseline name"
-                            class="pf-c-form-control"
-                            type="text"
-                            value="lotr-baseline"
-                          />
-                          
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-                <footer
-                  class="pf-c-modal-box__footer"
-                >
-                  <button
-                    aria-disabled="false"
-                    class="pf-c-button pf-m-primary"
-                    data-ouia-component-id="2"
-                    data-ouia-component-type="PF4/Button"
-                    data-ouia-safe="true"
-                    type="button"
-                  >
-                    Save
-                  </button>
-                  <button
-                    aria-disabled="false"
-                    class="pf-c-button pf-m-link"
-                    data-ouia-component-id="3"
-                    data-ouia-component-type="PF4/Button"
-                    data-ouia-safe="true"
-                    type="button"
-                  >
-                    Cancel
-                  </button>
-                </footer>
-              </div>
-            </div>
-          </div>
-        </div>
-      </body>
-    }
+    appendTo={[Function]}
     aria-describedby=""
     aria-label=""
     aria-labelledby=""
@@ -329,7 +192,6 @@ exports[`EditBaselineNameModal should render mount correctly 1`] = `
                   >
                     <path
                       d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
-                      transform=""
                     />
                   </svg>
                 </button>
@@ -540,7 +402,6 @@ exports[`EditBaselineNameModal should render mount correctly 1`] = `
                             >
                               <path
                                 d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
-                                transform=""
                               />
                             </svg>
                           </TimesIcon>
@@ -629,6 +490,7 @@ exports[`EditBaselineNameModal should render mount correctly 1`] = `
                                         className=""
                                         innerRef={null}
                                         isDisabled={false}
+                                        isLeftTruncated={false}
                                         isReadOnly={false}
                                         isRequired={false}
                                         onChange={[Function]}
@@ -641,7 +503,9 @@ exports[`EditBaselineNameModal should render mount correctly 1`] = `
                                           aria-label="baseline name"
                                           className="pf-c-form-control"
                                           disabled={false}
+                                          onBlur={[Function]}
                                           onChange={[Function]}
+                                          onFocus={[Function]}
                                           readOnly={false}
                                           required={false}
                                           type="text"
