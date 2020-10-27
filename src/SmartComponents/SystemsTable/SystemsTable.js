@@ -37,6 +37,13 @@ export const SystemsTable = ({
     const sidsFilter = ReactRedux.useSelector(({ globalFilterState }) => globalFilterState?.sidsFilter);
     const store = ReactRedux.useStore();
 
+    const deselectHistoricalProfiles = () => {
+        if (!hasMultiSelect) {
+            updateColumns('display_name');
+            selectHistoricProfiles([]);
+        }
+    };
+
     const onSelect = (event) => {
         let toSelect = [];
         switch (event) {
@@ -54,13 +61,6 @@ export const SystemsTable = ({
         }
 
         selectEntities(toSelect);
-    };
-
-    const deselectHistoricalProfiles = () => {
-        if (!hasMultiSelect) {
-            updateColumns('display_name');
-            selectHistoricProfiles([]);
-        }
     };
 
     const fetchInventory = async () => {

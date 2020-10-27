@@ -42,6 +42,12 @@ export class HistoricalProfilesDropdown extends Component {
         this.onSingleSelect = this.onSingleSelect.bind(this);
     }
 
+    componentDidUpdate(prevProps) {
+        if (this.props.selectedHSPIds.length !== prevProps.selectedHSPIds.length) {
+            this.updateBadgeCount();
+        }
+    }
+
     async onSelect(checked, profile) {
         const { selectHistoricProfiles, selectSystem, selectedHSPIds } = this.props;
         let newSelectedHSPIds = [ ...selectedHSPIds ];
@@ -193,7 +199,7 @@ export class HistoricalProfilesDropdown extends Component {
 
     updateBadgeCount = () => {
         this.setState({
-            badgeCount: this.state.historicalData.profiles.filter((hsp) => {
+            badgeCount: this.state.historicalData?.profiles.filter((hsp) => {
                 return this.props.selectedHSPIds.includes(hsp.id);
             }).length
         });
