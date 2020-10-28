@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Alert, Button, Modal, Radio, TextInput, Form, FormGroup, ValidatedOptions } from '@patternfly/react-core';
-import { sortable } from '@patternfly/react-table';
+import { sortable, cellWidth } from '@patternfly/react-table';
 
 import SystemsTable from '../../SystemsTable/SystemsTable';
 import BaselinesTable from '../../BaselinesTable/BaselinesTable';
@@ -24,7 +24,7 @@ export class CreateBaselineModal extends Component {
             columns: [
                 { title: '' },
                 { title: 'Name', transforms: [ sortable ]},
-                { title: 'Last updated', transforms: [ sortable ]}
+                { title: 'Last updated', transforms: [ sortable, cellWidth(40) ]}
             ]
         };
 
