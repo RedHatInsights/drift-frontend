@@ -11,11 +11,11 @@ class StateIcon extends Component {
         let iconClass = '';
 
         if (this.props.factState === 'SAME') {
-            iconClass = <CheckCircleIcon color='#3E8635' height='20px' width='20px'/>;
+            iconClass = <CheckCircleIcon color='#3E8635' height='16px' width='16px'/>;
         } else if (this.props.factState === 'DIFFERENT') {
-            iconClass = <ExclamationCircleIcon color='#C9190B' height='20px' width='20px'/>;
+            iconClass = <ExclamationCircleIcon color='#C9190B' height='16px' width='16px'/>;
         } else {
-            iconClass = <QuestionCircleIcon color='#151515' height='20px' width='20px'/>;
+            iconClass = <QuestionCircleIcon color='#151515' height='16px' width='16px'/>;
         }
 
         return iconClass;
