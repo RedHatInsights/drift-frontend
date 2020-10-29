@@ -189,6 +189,10 @@ export class DriftTable extends Component {
             this.HSPIds = this.HSPIds.filter(id => id !== item.id);
         }
 
+        if (item.id === newReferenceId) {
+            newReferenceId = undefined;
+        }
+
         selectHistoricProfiles(this.HSPIds);
         if (!this.systemIds.length && !this.baselineIds.length
             && !this.HSPIds.length && !referenceId && !isFirstReference) {
