@@ -186,7 +186,6 @@ export class FactModal extends Component {
                 }
                 { (isAddFact && !isSubFact) || isCategory ? this.renderCategoryCheckbox() : null }
                 { this.renderFactInput() }
-                <br></br>
                 { isCategory ? null : this.renderValueInput() }
             </React.Fragment>;
 
