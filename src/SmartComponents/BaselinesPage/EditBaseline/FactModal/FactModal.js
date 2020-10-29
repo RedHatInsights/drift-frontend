@@ -113,25 +113,23 @@ export class FactModal extends Component {
 
         return (
             <div className="fact-value">
-                <Form>
-                    <FormGroup
-                        label={ isCategory ? 'Category name' : 'Fact name' }
-                        isRequired
-                        helperTextInvalid={ inlineError.hasOwnProperty('detail') ? inlineError.detail : null }
-                        validated={ inlineError.hasOwnProperty('status') ? 'error' : null }
-                        fieldId='fact name'
-                        onKeyPress={ this.checkKeyPress }
-                    >
-                        <TextInput
-                            value={ factName }
-                            type="text"
-                            placeholder="Name"
-                            onChange={ this.handleNewName }
-                            validated={ inlineError.hasOwnProperty('status') ? ValidatedOptions.error : null }
-                            aria-label="fact name"
-                        />
-                    </FormGroup>
-                </Form>
+                <FormGroup
+                    label={ isCategory ? 'Category name' : 'Fact name' }
+                    isRequired
+                    helperTextInvalid={ inlineError.hasOwnProperty('detail') ? inlineError.detail : null }
+                    validated={ inlineError.hasOwnProperty('status') ? 'error' : null }
+                    fieldId='fact name'
+                    onKeyPress={ this.checkKeyPress }
+                >
+                    <TextInput
+                        value={ factName }
+                        type="text"
+                        placeholder="Name"
+                        onChange={ this.handleNewName }
+                        validated={ inlineError.hasOwnProperty('status') ? ValidatedOptions.error : null }
+                        aria-label="fact name"
+                    />
+                </FormGroup>
             </div>
         );
     }
@@ -142,25 +140,23 @@ export class FactModal extends Component {
 
         return (
             <div className="fact-value">
-                <Form>
-                    <FormGroup
-                        label='Value'
-                        isRequired
-                        helperTextInvalid={ inlineError.hasOwnProperty('detail') ? inlineError.detail : null }
-                        validated={ inlineError.hasOwnProperty('status') ? 'error' : null }
-                        fieldId='fact value'
-                        onKeyPress={ this.checkKeyPress }
-                    >
-                        <TextInput
-                            value={ factValue }
-                            type="text"
-                            placeholder="Value"
-                            onChange={ this.handleNewValue }
-                            validated={ inlineError.hasOwnProperty('status') ? ValidatedOptions.error : null }
-                            aria-label="value"
-                        />
-                    </FormGroup>
-                </Form>
+                <FormGroup
+                    label='Value'
+                    isRequired
+                    helperTextInvalid={ inlineError.hasOwnProperty('detail') ? inlineError.detail : null }
+                    validated={ inlineError.hasOwnProperty('status') ? 'error' : null }
+                    fieldId='fact value'
+                    onKeyPress={ this.checkKeyPress }
+                >
+                    <TextInput
+                        value={ factValue }
+                        type="text"
+                        placeholder="Value"
+                        onChange={ this.handleNewValue }
+                        validated={ inlineError.hasOwnProperty('status') ? ValidatedOptions.error : null }
+                        aria-label="value"
+                    />
+                </FormGroup>
             </div>
         );
     }
@@ -185,8 +181,11 @@ export class FactModal extends Component {
                     : <div></div>
                 }
                 { (isAddFact && !isSubFact) || isCategory ? this.renderCategoryCheckbox() : null }
-                { this.renderFactInput() }
-                { isCategory ? null : this.renderValueInput() }
+                <Form>
+                    { this.renderFactInput() }
+                    <br></br>
+                    { isCategory ? null : this.renderValueInput() }
+                </Form>
             </React.Fragment>;
 
         return modalBody;

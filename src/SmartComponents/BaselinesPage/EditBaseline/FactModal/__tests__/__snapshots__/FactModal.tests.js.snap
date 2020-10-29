@@ -219,12 +219,12 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                               This is a category
                             </label>
                           </div>
-                          <div
-                            class="fact-value"
+                          <form
+                            class="pf-c-form"
+                            novalidate=""
                           >
-                            <form
-                              class="pf-c-form"
-                              novalidate=""
+                            <div
+                              class="fact-value"
                             >
                               <div
                                 class="pf-c-form__group"
@@ -265,14 +265,10 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                                   
                                 </div>
                               </div>
-                            </form>
-                          </div>
-                          <div
-                            class="fact-value"
-                          >
-                            <form
-                              class="pf-c-form"
-                              novalidate=""
+                            </div>
+                            <br />
+                            <div
+                              class="fact-value"
                             >
                               <div
                                 class="pf-c-form__group"
@@ -313,8 +309,8 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                                   
                                 </div>
                               </div>
-                            </form>
-                          </div>
+                            </div>
+                          </form>
                         </div>
                         <footer
                           class="pf-c-modal-box__footer"
@@ -526,13 +522,13 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                                     </label>
                                   </div>
                                 </Checkbox>
-                                <div
-                                  className="fact-value"
-                                >
-                                  <Form>
-                                    <form
-                                      className="pf-c-form"
-                                      noValidate={true}
+                                <Form>
+                                  <form
+                                    className="pf-c-form"
+                                    noValidate={true}
+                                  >
+                                    <div
+                                      className="fact-value"
                                     >
                                       <FormGroup
                                         fieldId="fact name"
@@ -612,16 +608,10 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                                           </div>
                                         </div>
                                       </FormGroup>
-                                    </form>
-                                  </Form>
-                                </div>
-                                <div
-                                  className="fact-value"
-                                >
-                                  <Form>
-                                    <form
-                                      className="pf-c-form"
-                                      noValidate={true}
+                                    </div>
+                                    <br />
+                                    <div
+                                      className="fact-value"
                                     >
                                       <FormGroup
                                         fieldId="fact value"
@@ -701,9 +691,9 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                                           </div>
                                         </div>
                                       </FormGroup>
-                                    </form>
-                                  </Form>
-                                </div>
+                                    </div>
+                                  </form>
+                                </Form>
                               </div>
                             </ModalBoxBody>
                             <ModalBoxFooter>
@@ -809,10 +799,10 @@ exports[`FactModal should render category correctly 1`] = `
     name="isCategory"
     onChange={[Function]}
   />
-  <div
-    className="fact-value"
-  >
-    <Form>
+  <Form>
+    <div
+      className="fact-value"
+    >
       <FormGroup
         fieldId="fact name"
         helperTextInvalid={null}
@@ -830,8 +820,9 @@ exports[`FactModal should render category correctly 1`] = `
           value="cool"
         />
       </FormGroup>
-    </Form>
-  </div>
+    </div>
+    <br />
+  </Form>
 </Modal>
 `;
 
@@ -878,10 +869,10 @@ exports[`FactModal should render empty correctly 1`] = `
     name="isCategory"
     onChange={[Function]}
   />
-  <div
-    className="fact-value"
-  >
-    <Form>
+  <Form>
+    <div
+      className="fact-value"
+    >
       <FormGroup
         fieldId="fact name"
         helperTextInvalid={null}
@@ -899,12 +890,11 @@ exports[`FactModal should render empty correctly 1`] = `
           value=""
         />
       </FormGroup>
-    </Form>
-  </div>
-  <div
-    className="fact-value"
-  >
-    <Form>
+    </div>
+    <br />
+    <div
+      className="fact-value"
+    >
       <FormGroup
         fieldId="fact value"
         helperTextInvalid={null}
@@ -922,8 +912,8 @@ exports[`FactModal should render empty correctly 1`] = `
           value=""
         />
       </FormGroup>
-    </Form>
-  </div>
+    </div>
+  </Form>
 </Modal>
 `;
 
@@ -959,10 +949,10 @@ exports[`FactModal should render fact name and value correctly 1`] = `
   variant="small"
 >
   <div />
-  <div
-    className="fact-value"
-  >
-    <Form>
+  <Form>
+    <div
+      className="fact-value"
+    >
       <FormGroup
         fieldId="fact name"
         helperTextInvalid={null}
@@ -980,12 +970,11 @@ exports[`FactModal should render fact name and value correctly 1`] = `
           value="cool"
         />
       </FormGroup>
-    </Form>
-  </div>
-  <div
-    className="fact-value"
-  >
-    <Form>
+    </div>
+    <br />
+    <div
+      className="fact-value"
+    >
       <FormGroup
         fieldId="fact value"
         helperTextInvalid={null}
@@ -1003,8 +992,8 @@ exports[`FactModal should render fact name and value correctly 1`] = `
           value="fact"
         />
       </FormGroup>
-    </Form>
-  </div>
+    </div>
+  </Form>
 </Modal>
 `;
 
@@ -1040,10 +1029,10 @@ exports[`FactModal should render sub fact correctly 1`] = `
   variant="small"
 >
   <div />
-  <div
-    className="fact-value"
-  >
-    <Form>
+  <Form>
+    <div
+      className="fact-value"
+    >
       <FormGroup
         fieldId="fact name"
         helperTextInvalid={null}
@@ -1061,12 +1050,11 @@ exports[`FactModal should render sub fact correctly 1`] = `
           value="cool"
         />
       </FormGroup>
-    </Form>
-  </div>
-  <div
-    className="fact-value"
-  >
-    <Form>
+    </div>
+    <br />
+    <div
+      className="fact-value"
+    >
       <FormGroup
         fieldId="fact value"
         helperTextInvalid={null}
@@ -1084,7 +1072,7 @@ exports[`FactModal should render sub fact correctly 1`] = `
           value="subfact"
         />
       </FormGroup>
-    </Form>
-  </div>
+    </div>
+  </Form>
 </Modal>
 `;
