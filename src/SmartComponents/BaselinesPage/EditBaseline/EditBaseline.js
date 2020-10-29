@@ -354,7 +354,7 @@ export class EditBaseline extends Component {
         const { baselineDataLoading } = this.props;
 
         return (
-            <table className="pf-c-table ins-c-table pf-m-grid-md ins-entity-table drift-table">
+            <table className="pf-c-table ins-c-table pf-m-grid-md ins-entity-table">
                 <thead>
                     { this.renderHeaderRow(hasWritePermissions) }
                 </thead>
