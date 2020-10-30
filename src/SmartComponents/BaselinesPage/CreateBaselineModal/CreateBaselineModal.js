@@ -154,6 +154,7 @@ export class CreateBaselineModal extends Component {
 
         return (<React.Fragment>
             <b>Select system to copy from</b>
+            <br></br>
             <SystemsTable
                 selectedSystemIds={ [] }
                 createBaselineModal={ true }
