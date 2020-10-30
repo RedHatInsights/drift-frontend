@@ -187,30 +187,29 @@ export class CreateBaselineModal extends Component {
 
         return (<React.Fragment>
             { this.renderRadioButtons() }
-            <br></br>
-            <Form>
-                <FormGroup
-                    label='Baseline name'
-                    isRequired
-                    type="text"
-                    helperTextInvalid={ createBaselineError.hasOwnProperty('detail') ? createBaselineError.detail : null }
-                    fieldId="name"
-                    validated={ createBaselineError.hasOwnProperty('status') ? 'error' : null }
-                    onKeyPress={ this.checkKeyPress }
-                >
-                    <TextInput
-                        className="fact-value"
-                        placeholder="Baseline name"
-                        value={ baselineName }
+            <div className='md-padding-top md-padding-bottom'>
+                <Form>
+                    <FormGroup
+                        label='Baseline name'
+                        isRequired
                         type="text"
-                        onChange={ this.updateBaselineName }
-                        validated={ createBaselineError.hasOwnProperty('status') ? ValidatedOptions.error : null }
-                        aria-label="baseline name"
-                    />
-                </FormGroup>
-            </Form>
-            <br></br>
-            <br></br>
+                        helperTextInvalid={ createBaselineError.hasOwnProperty('detail') ? createBaselineError.detail : null }
+                        fieldId="name"
+                        validated={ createBaselineError.hasOwnProperty('status') ? 'error' : null }
+                        onKeyPress={ this.checkKeyPress }
+                    >
+                        <TextInput
+                            className="fact-value"
+                            placeholder="Baseline name"
+                            value={ baselineName }
+                            type="text"
+                            onChange={ this.updateBaselineName }
+                            validated={ createBaselineError.hasOwnProperty('status') ? ValidatedOptions.error : null }
+                            aria-label="baseline name"
+                        />
+                    </FormGroup>
+                </Form>
+            </div>
             { modalBody }
         </React.Fragment>
         );
