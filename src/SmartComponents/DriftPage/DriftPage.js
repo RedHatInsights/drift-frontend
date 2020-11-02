@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { Main, PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components';
-import { Card, CardBody, DropdownItem, Toolbar, ToolbarGroup, ToolbarItem, ToolbarContent, PaginationVariant } from '@patternfly/react-core';
+import { Card, CardBody, Toolbar, ToolbarGroup, ToolbarItem, PaginationVariant } from '@patternfly/react-core';
 import { ExclamationCircleIcon, LockIcon, PlusCircleIcon } from '@patternfly/react-icons';
 import { baselinesTableActions } from '../BaselinesTable/redux';
 import { compareActions } from '../modules';
@@ -12,14 +12,10 @@ import { historicProfilesActions } from '../HistoricalProfilesDropdown/redux';
 import { setHistory } from '../../Utilities/SetHistory';
 
 import DriftTable from './DriftTable/DriftTable';
-import FilterDropDown from './FilterDropDown/FilterDropDown';
-import SearchBar from './SearchBar/SearchBar';
-import ActionKebab from './ActionKebab/ActionKebab';
 import ErrorAlert from '../ErrorAlert/ErrorAlert';
 import TablePagination from '../Pagination/Pagination';
-import ExportCSVButton from '../ExportCSVButton/ExportCSVButton';
-import DriftFilterChips from './DriftFilterChips/DriftFilterChips';
 import AddSystemButton from './AddSystemButton/AddSystemButton';
+import DriftToolbar from './DriftToolbar/DriftToolbar';
 import EmptyStateDisplay from '../EmptyStateDisplay/EmptyStateDisplay';
 import { PermissionContext } from '../../App';
 
@@ -27,24 +23,10 @@ export class DriftPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            actionKebabItems: [
-                <DropdownItem key="remove-systems" component="button" onClick={ this.clearComparison }>Clear all comparisons</DropdownItem>
-            ],
-            dropdownItems: [
-                <DropdownItem
-                    key='export-to-CSV'
-                    component='button'
-                    onClick={ () => this.props.exportToCSV() }
-                >
-                    Export to CSV
-                </DropdownItem>
-            ],
-            dropdownOpen: false,
             emptyStateMessage: [
                 'You currently have no system or baselines displayed. Add at least two',
                 'systems or baselines to compare their facts.'
             ],
-            isEmpty: true,
             isFirstReference: true
         };
 
@@ -59,34 +41,6 @@ export class DriftPage extends Component {
         this.setState({
             isFirstReference: value
         });
-    }
-
-    onToggle = () => {
-        const { dropdownOpen } = this.state;
-
-        this.setState({
-            dropdownOpen: !dropdownOpen
-        });
-    }
-
-    setIsEmpty = (isEmpty) => {
-        this.setState({ isEmpty });
-    }
-
-    clearFilters = () => {
-        const { clearComparisonFilters } = this.props;
-
-        clearComparisonFilters();
-    }
-
-    clearComparison = () => {
-        const { history, clearComparison, clearSelectedBaselines, updateReferenceId } = this.props;
-
-        clearComparison();
-        clearSelectedBaselines('CHECKBOX');
-        this.setIsFirstReference(true);
-        updateReferenceId();
-        setHistory(history, []);
     }
 
     onClose = () => {
@@ -123,8 +77,9 @@ export class DriftPage extends Component {
     }
 
     render() {
-        const { clearComparison, emptyState, error, loading, page, perPage, totalFacts, updatePagination, updateReferenceId } = this.props;
-        const { actionKebabItems, dropdownItems, dropdownOpen, isEmpty, isFirstReference } = this.state;
+        const { clearComparison, clearComparisonFilters, clearSelectedBaselines, emptyState, error, exportToCSV, history,
+            loading, page, perPage, totalFacts, updatePagination, updateReferenceId } = this.props;
+        const { isFirstReference } = this.state;
 
         return (
             <React.Fragment>
@@ -153,66 +108,21 @@ export class DriftPage extends Component {
                                     <Card className='pf-t-light pf-m-opaque-100'>
                                         <CardBody>
                                             <div>
-                                                { !emptyState ?
-                                                    <React.Fragment>
-                                                        <Toolbar className="drift-toolbar">
-                                                            <ToolbarContent>
-                                                                <ToolbarGroup variant='filter-group'>
-                                                                    <ToolbarItem>
-                                                                        <SearchBar />
-                                                                    </ToolbarItem>
-                                                                    <ToolbarItem>
-                                                                        <FilterDropDown />
-                                                                    </ToolbarItem>
-                                                                </ToolbarGroup>
-                                                                <ToolbarGroup variant='button-group'>
-                                                                    <ToolbarItem>
-                                                                        <AddSystemButton loading={ loading } />
-                                                                    </ToolbarItem>
-                                                                </ToolbarGroup>
-                                                                <ToolbarGroup variant='icon-button-group'>
-                                                                    <ToolbarItem>
-                                                                        <ExportCSVButton
-                                                                            dropdownItems={ dropdownItems }
-                                                                            isOpen={ dropdownOpen }
-                                                                            onToggle={ this.onToggle }
-                                                                        />
-                                                                    </ToolbarItem>
-                                                                    <ToolbarItem>
-                                                                        <ActionKebab dropdownItems={ actionKebabItems } />
-                                                                    </ToolbarItem>
-                                                                </ToolbarGroup>
-                                                                <ToolbarItem variant='pagination' align={ { default: 'alignRight' } }>
-                                                                    <TablePagination
-                                                                        page={ page }
-                                                                        perPage={ perPage }
-                                                                        total={ totalFacts }
-                                                                        isCompact={ true }
-                                                                        updatePagination={ updatePagination }
-                                                                        widgetId='drift-pagination-top'
-                                                                        variant={ PaginationVariant.top }
-                                                                    />
-                                                                </ToolbarItem>
-                                                            </ToolbarContent>
-                                                        </Toolbar>
-                                                        <Toolbar className="drift-toolbar">
-                                                            <ToolbarContent>
-                                                                <ToolbarGroup>
-                                                                    <ToolbarItem>
-                                                                        <DriftFilterChips setIsEmpty={ this.setIsEmpty } />
-                                                                    </ToolbarItem>
-                                                                    { !isEmpty
-                                                                        ? <ToolbarItem>
-                                                                            <a onClick={ () => this.clearFilters() } >
-                                                                                Clear filters
-                                                                            </a>
-                                                                        </ToolbarItem>
-                                                                        : null
-                                                                    }
-                                                                </ToolbarGroup>
-                                                            </ToolbarContent>
-                                                        </Toolbar>
-                                                    </React.Fragment>
+                                                { !emptyState
+                                                    ? <DriftToolbar
+                                                        loading={ loading }
+                                                        history={ history }
+                                                        page={ page }
+                                                        perPage={ perPage }
+                                                        totalFacts={ totalFacts }
+                                                        updatePagination={ updatePagination }
+                                                        clearComparison={ clearComparison }
+                                                        clearComparisonFilters={ clearComparisonFilters }
+                                                        exportToCSV={ exportToCSV }
+                                                        updateReferenceId={ updateReferenceId }
+                                                        setIsFirstReference={ this.setIsFirstReference }
+                                                        clearSelectedBaselines={ clearSelectedBaselines }
+                                                    />
                                                     : null
                                                 }
                                                 <DriftTable

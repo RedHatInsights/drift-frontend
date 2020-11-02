@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DriftToolbar should render correctly 1`] = `
+<Fragment>
+  <Toolbar
+    className="drift-toolbar"
+  >
+    <ToolbarContent
+      isExpanded={false}
+      showClearFiltersButton={false}
+    >
+      <ForwardRef
+        variant="filter-group"
+      >
+        <ToolbarItem>
+          <Connect(SearchBar) />
+        </ToolbarItem>
+        <ToolbarItem>
+          <Connect(FilterDropDown) />
+        </ToolbarItem>
+      </ForwardRef>
+      <ForwardRef
+        variant="button-group"
+      >
+        <ToolbarItem>
+          <Connect(AddSystemButton)
+            loading={false}
+          />
+        </ToolbarItem>
+      </ForwardRef>
+      <ForwardRef
+        variant="icon-button-group"
+      >
+        <ToolbarItem>
+          <ExportCSVButton
+            dropdownItems={
+              Array [
+                <DropdownItem
+                  component="button"
+                  onClick={[Function]}
+                >
+                  Export to CSV
+                </DropdownItem>,
+              ]
+            }
+            isOpen={false}
+            onToggle={[Function]}
+          />
+        </ToolbarItem>
+        <ToolbarItem>
+          <ActionKebab
+            dropdownItems={
+              Array [
+                <DropdownItem
+                  component="button"
+                  onClick={[Function]}
+                >
+                  Clear all comparisons
+                </DropdownItem>,
+              ]
+            }
+          />
+        </ToolbarItem>
+      </ForwardRef>
+      <ToolbarItem
+        align={
+          Object {
+            "default": "alignRight",
+          }
+        }
+        variant="pagination"
+      >
+        <TablePagination
+          isCompact={true}
+          page={1}
+          perPage={50}
+          total={30}
+          updatePagination={[MockFunction]}
+          variant="top"
+          widgetId="drift-pagination-top"
+        />
+      </ToolbarItem>
+    </ToolbarContent>
+  </Toolbar>
+  <Toolbar
+    className="drift-toolbar"
+  >
+    <ToolbarContent
+      isExpanded={false}
+      showClearFiltersButton={false}
+    >
+      <ForwardRef>
+        <ToolbarItem>
+          <Connect(DriftFilterChips)
+            setIsEmpty={[Function]}
+          />
+        </ToolbarItem>
+      </ForwardRef>
+    </ToolbarContent>
+  </Toolbar>
+</Fragment>
+`;

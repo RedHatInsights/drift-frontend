@@ -18,30 +18,16 @@ describe('DriftPage', () => {
             loading: false,
             systems: [],
             baselines: [],
+            emptyState: false,
             clearSelectedBaselines: jest.fn(),
             toggleErrorAlert: jest.fn(),
             clearComparison: jest.fn(),
             clearComparisonFilters: jest.fn(),
             selectHistoricProfiles: jest.fn(),
             updateReferenceId: jest.fn(),
-            history: { push: jest.fn() }
+            history: { push: jest.fn() },
+            revertCompareData: jest.fn()
         };
-    });
-
-    it('should call clearComparisonFilters', () => {
-        const wrapper = shallow(
-            <DriftPage { ...props } />
-        );
-        wrapper.instance().clearFilters();
-        expect(props.clearComparisonFilters).toHaveBeenCalled();
-    });
-
-    it('should call clearComparison', () => {
-        const wrapper = shallow(
-            <DriftPage { ...props } />
-        );
-        wrapper.instance().clearComparison();
-        expect(props.clearComparison).toHaveBeenCalled();
     });
 
     it('should call setIsFirstReference with true', () => {
@@ -59,6 +45,17 @@ describe('DriftPage', () => {
         wrapper.instance().setIsFirstReference(false);
         expect(wrapper.state('isFirstReference')).toBe(false);
     });
+
+    it('should call revertCompareData', () => {
+        let previousStateSystems = [];
+
+        const wrapper = shallow(
+            <DriftPage { ...props } previousStateSystems={ previousStateSystems }/>
+        );
+
+        wrapper.instance().onClose();
+        expect(props.revertCompareData).toHaveBeenCalled();
+    });
 });
 
 describe('ConnectedDriftPage', () => {
@@ -71,11 +68,13 @@ describe('ConnectedDriftPage', () => {
         initialState = {
             compareState: {
                 error: {},
+                emptyState: false,
                 loading: false,
                 systems: [],
                 baselines: [],
                 historicalProfiles: [],
                 fullCompareData: [],
+                previousStateSystems: [],
                 stateFilters: [
                     { filter: 'SAME', display: 'Same', selected: true },
                     { filter: 'DIFFERENT', display: 'Different', selected: true },
@@ -126,6 +125,42 @@ describe('ConnectedDriftPage', () => {
         expect(wrapper.find('EmptyStateDisplay')).toHaveLength(0);
         expect(wrapper.find('.drift-toolbar')).toHaveLength(6);
         expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('should render EmptyStateDisplay', () => {
+        initialState.compareState.emptyState = true;
+        const store = mockStore(initialState);
+
+        const wrapper = mount(
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedDriftPage />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
+        );
+
+        expect(wrapper.find('EmptyStateDisplay')).toHaveLength(1);
+    });
+
+    it.skip('should render EmptyStateDisplay with error', () => {
+        initialState.compareState.emptyState = true;
+        initialState.compareState.error = { status: 400, detail: 'This is an error' };
+        const store = mockStore(initialState);
+
+        const wrapper = mount(
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedDriftPage />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
+        );
+
+        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(wrapper.find('EmptyStateDisplay')).toHaveLength(1);
     });
 
     it('should render empty with no read permissions', () => {
