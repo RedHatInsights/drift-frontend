@@ -101,14 +101,10 @@ export class BaselinesTable extends Component {
 
         if (!hasMultiSelect) {
             rowData.push(<div className='pf-c-table__check'><Skeleton size={ SkeletonSize.sm } /></div>);
+        }
 
-            for (let i = 0; i < 2; i += 1) {
-                rowData.push(<div><Skeleton size={ SkeletonSize.md } /></div>);
-            }
-        } else {
-            for (let i = 0; i < 3; i += 1) {
-                rowData.push(<div><Skeleton size={ SkeletonSize.md } /></div>);
-            }
+        for (let i = 0; i < 2; i += 1) {
+            rowData.push(<div><Skeleton size={ SkeletonSize.md } /></div>);
         }
 
         for (let i = 0; i < 10; i += 1) {
@@ -222,6 +218,9 @@ export class BaselinesTable extends Component {
                         text={ [ 'Contact your organization administrator(s) for more information.' ] }
                     />;
                 } else {
+                    /*eslint-disable*/
+                    console.log(columns);
+                    /*eslint-enable*/
                     tableRows = this.renderRows(hasWritePermissions);
 
                     table = <Table
