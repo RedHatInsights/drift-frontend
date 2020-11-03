@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Button, Modal, Tab, Tabs } from '@patternfly/react-core';
 import { connect } from 'react-redux';
-import { sortable } from '@patternfly/react-table';
+import { sortable, cellWidth } from '@patternfly/react-table';
 
 import SystemsTable from '../SystemsTable/SystemsTable';
 import BaselinesTable from '../BaselinesTable/BaselinesTable';
@@ -19,7 +19,7 @@ export class AddSystemModal extends Component {
         this.state = {
             columns: [
                 { title: 'Name', transforms: [ sortable ]},
-                { title: 'Last updated', transforms: [ sortable ]}
+                { title: 'Last updated', transforms: [ sortable, cellWidth(20) ]}
             ]
         };
     }

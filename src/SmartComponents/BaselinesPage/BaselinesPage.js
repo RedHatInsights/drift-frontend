@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 import { Main, PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components';
 import { Card, CardBody } from '@patternfly/react-core';
 import { AddCircleOIcon, ExclamationCircleIcon, LockIcon, UndoIcon } from '@patternfly/react-icons';
-import { sortable } from '@patternfly/react-table';
+import { sortable, cellWidth } from '@patternfly/react-table';
 
 import BaselinesTable from '../BaselinesTable/BaselinesTable';
 import CreateBaselineButton from './CreateBaselineButton/CreateBaselineButton';
@@ -23,9 +23,9 @@ export class BaselinesPage extends Component {
 
         this.state = {
             columns: [
-                { title: 'Name', transforms: [ sortable ]},
-                { title: 'Last updated', transforms: [ sortable ]},
-                { title: '' }
+                { title: 'Name', transforms: [ sortable, cellWidth(40) ]},
+                { title: 'Last updated', transforms: [ sortable, cellWidth(50) ]},
+                { title: '', transforms: [ cellWidth(5) ]}
             ],
             emptyStateMessage: [
                 'You currently have no baselines displayed.',
