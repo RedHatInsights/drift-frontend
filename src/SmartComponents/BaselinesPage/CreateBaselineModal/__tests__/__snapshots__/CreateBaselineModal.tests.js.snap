@@ -313,54 +313,55 @@ exports[`ConnectedCreateBaselineModal should render correctly 1`] = `
                                 Copy an existing system
                               </label>
                             </div>
-                            <br />
-                            <form
-                              class="pf-c-form"
-                              novalidate=""
+                            <div
+                              class="md-padding-top md-padding-bottom"
                             >
-                              <div
-                                class="pf-c-form__group"
-                                type="text"
+                              <form
+                                class="pf-c-form"
+                                novalidate=""
                               >
                                 <div
-                                  class="pf-c-form__group-label"
+                                  class="pf-c-form__group"
+                                  type="text"
                                 >
-                                  <label
-                                    class="pf-c-form__label"
-                                    for="name"
+                                  <div
+                                    class="pf-c-form__group-label"
                                   >
-                                    <span
-                                      class="pf-c-form__label-text"
+                                    <label
+                                      class="pf-c-form__label"
+                                      for="name"
                                     >
-                                      Baseline name
-                                    </span>
-                                    <span
-                                      aria-hidden="true"
-                                      class="pf-c-form__label-required"
-                                    >
-                                       
-                                      *
-                                    </span>
-                                  </label>
-                                   
+                                      <span
+                                        class="pf-c-form__label-text"
+                                      >
+                                        Baseline name
+                                      </span>
+                                      <span
+                                        aria-hidden="true"
+                                        class="pf-c-form__label-required"
+                                      >
+                                         
+                                        *
+                                      </span>
+                                    </label>
+                                     
+                                  </div>
+                                  <div
+                                    class="pf-c-form__group-control"
+                                  >
+                                    <input
+                                      aria-invalid="false"
+                                      aria-label="baseline name"
+                                      class="pf-c-form-control fact-value"
+                                      placeholder="Baseline name"
+                                      type="text"
+                                      value=""
+                                    />
+                                    
+                                  </div>
                                 </div>
-                                <div
-                                  class="pf-c-form__group-control"
-                                >
-                                  <input
-                                    aria-invalid="false"
-                                    aria-label="baseline name"
-                                    class="pf-c-form-control fact-value"
-                                    placeholder="Baseline name"
-                                    type="text"
-                                    value=""
-                                  />
-                                  
-                                </div>
-                              </div>
-                            </form>
-                            <br />
-                            <br />
+                              </form>
+                            </div>
                           </div>
                           <footer
                             class="pf-c-modal-box__footer"
@@ -657,97 +658,98 @@ exports[`ConnectedCreateBaselineModal should render correctly 1`] = `
                                       </label>
                                     </div>
                                   </Radio>
-                                  <br />
-                                  <Form>
-                                    <form
-                                      className="pf-c-form"
-                                      noValidate={true}
-                                    >
-                                      <FormGroup
-                                        fieldId="name"
-                                        helperTextInvalid={null}
-                                        isRequired={true}
-                                        label="Baseline name"
-                                        onKeyPress={[Function]}
-                                        type="text"
-                                        validated={null}
+                                  <div
+                                    className="md-padding-top md-padding-bottom"
+                                  >
+                                    <Form>
+                                      <form
+                                        className="pf-c-form"
+                                        noValidate={true}
                                       >
-                                        <div
-                                          className="pf-c-form__group"
+                                        <FormGroup
+                                          fieldId="name"
+                                          helperTextInvalid={null}
+                                          isRequired={true}
+                                          label="Baseline name"
                                           onKeyPress={[Function]}
                                           type="text"
+                                          validated={null}
                                         >
                                           <div
-                                            className="pf-c-form__group-label"
+                                            className="pf-c-form__group"
+                                            onKeyPress={[Function]}
+                                            type="text"
                                           >
-                                            <label
-                                              className="pf-c-form__label"
-                                              htmlFor="name"
+                                            <div
+                                              className="pf-c-form__group-label"
                                             >
-                                              <span
-                                                className="pf-c-form__label-text"
+                                              <label
+                                                className="pf-c-form__label"
+                                                htmlFor="name"
                                               >
-                                                Baseline name
-                                              </span>
-                                              <span
-                                                aria-hidden="true"
-                                                className="pf-c-form__label-required"
-                                              >
-                                                 
-                                                *
-                                              </span>
-                                            </label>
-                                             
-                                          </div>
-                                          <div
-                                            className="pf-c-form__group-control"
-                                          >
-                                            <ForwardRef
-                                              aria-label="baseline name"
-                                              className="fact-value"
-                                              onChange={[Function]}
-                                              placeholder="Baseline name"
-                                              type="text"
-                                              validated={null}
-                                              value=""
+                                                <span
+                                                  className="pf-c-form__label-text"
+                                                >
+                                                  Baseline name
+                                                </span>
+                                                <span
+                                                  aria-hidden="true"
+                                                  className="pf-c-form__label-required"
+                                                >
+                                                   
+                                                  *
+                                                </span>
+                                              </label>
+                                               
+                                            </div>
+                                            <div
+                                              className="pf-c-form__group-control"
                                             >
-                                              <TextInputBase
+                                              <ForwardRef
                                                 aria-label="baseline name"
                                                 className="fact-value"
-                                                innerRef={null}
-                                                isDisabled={false}
-                                                isLeftTruncated={false}
-                                                isReadOnly={false}
-                                                isRequired={false}
                                                 onChange={[Function]}
                                                 placeholder="Baseline name"
                                                 type="text"
                                                 validated={null}
                                                 value=""
                                               >
-                                                <input
-                                                  aria-invalid={false}
+                                                <TextInputBase
                                                   aria-label="baseline name"
-                                                  className="pf-c-form-control fact-value"
-                                                  disabled={false}
-                                                  onBlur={[Function]}
+                                                  className="fact-value"
+                                                  innerRef={null}
+                                                  isDisabled={false}
+                                                  isLeftTruncated={false}
+                                                  isReadOnly={false}
+                                                  isRequired={false}
                                                   onChange={[Function]}
-                                                  onFocus={[Function]}
                                                   placeholder="Baseline name"
-                                                  readOnly={false}
-                                                  required={false}
                                                   type="text"
+                                                  validated={null}
                                                   value=""
-                                                />
-                                              </TextInputBase>
-                                            </ForwardRef>
+                                                >
+                                                  <input
+                                                    aria-invalid={false}
+                                                    aria-label="baseline name"
+                                                    className="pf-c-form-control fact-value"
+                                                    disabled={false}
+                                                    onBlur={[Function]}
+                                                    onChange={[Function]}
+                                                    onFocus={[Function]}
+                                                    placeholder="Baseline name"
+                                                    readOnly={false}
+                                                    required={false}
+                                                    type="text"
+                                                    value=""
+                                                  />
+                                                </TextInputBase>
+                                              </ForwardRef>
+                                            </div>
                                           </div>
-                                        </div>
-                                      </FormGroup>
-                                    </form>
-                                  </Form>
-                                  <br />
-                                  <br />
+                                        </FormGroup>
+                                      </form>
+                                    </Form>
+                                  </div>
                                 </div>
                               </ModalBoxBody>
                               <ModalBoxFooter>
@@ -877,30 +879,31 @@ exports[`CreateBaselineModal should render correctly 1`] = `
     onChange={[Function]}
     value="copySystemChecked"
   />
-  <br />
-  <Form>
-    <FormGroup
-      fieldId="name"
-      helperTextInvalid={null}
-      isRequired={true}
-      label="Baseline name"
-      onKeyPress={[Function]}
-      type="text"
-      validated={null}
-    >
-      <ForwardRef
-        aria-label="baseline name"
-        className="fact-value"
-        onChange={[Function]}
-        placeholder="Baseline name"
+  <div
+    className="md-padding-top md-padding-bottom"
+  >
+    <Form>
+      <FormGroup
+        fieldId="name"
+        helperTextInvalid={null}
+        isRequired={true}
+        label="Baseline name"
+        onKeyPress={[Function]}
         type="text"
         validated={null}
-        value=""
-      />
-    </FormGroup>
-  </Form>
-  <br />
-  <br />
+      >
+        <ForwardRef
+          aria-label="baseline name"
+          className="fact-value"
+          onChange={[Function]}
+          placeholder="Baseline name"
+          type="text"
+          validated={null}
+          value=""
+        />
+      </FormGroup>
+    </Form>
+  </div>
 </Modal>
 `;
 
