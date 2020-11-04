@@ -2,23 +2,18 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { DropdownDirection, Tooltip } from '@patternfly/react-core';
 import queryString from 'query-string';
-import { ClockIcon, TimesIcon, ExclamationTriangleIcon, ServerIcon, BlueprintIcon } from '@patternfly/react-icons';
-import { AngleDownIcon, AngleRightIcon, LongArrowAltUpIcon, LongArrowAltDownIcon, ArrowsAltVIcon } from '@patternfly/react-icons';
+import { AngleDownIcon, AngleRightIcon } from '@patternfly/react-icons';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
-import moment from 'moment';
 
 import AddSystemModal from '../../AddSystemModal/AddSystemModal';
 import StateIcon from '../../StateIcon/StateIcon';
-import { ASC, DESC } from '../../../constants';
+import ComparisonHeader from './ComparisonHeader/ComparisonHeader';
 import { setHistory } from '../../../Utilities/SetHistory';
 
-import HistoricalProfilesDropdown from '../../HistoricalProfilesDropdown/HistoricalProfilesDropdown';
 import { compareActions } from '../../modules';
 import { baselinesTableActions } from '../../BaselinesTable/redux';
 import { historicProfilesActions } from '../../HistoricalProfilesDropdown/redux';
-import ReferenceSelector from './ReferenceSelector/ReferenceSelector';
 
 export class DriftTable extends Component {
     constructor(props) {
@@ -39,7 +34,6 @@ export class DriftTable extends Component {
         this.setReferenceId();
         this.fetchCompare = this.fetchCompare.bind(this);
         this.removeSystem = this.removeSystem.bind(this);
-        this.formatDate = this.formatDate.bind(this);
     }
 
     async componentDidMount() {
@@ -152,10 +146,6 @@ export class DriftTable extends Component {
 
     updateReferenceId = (id) => {
         this.fetchCompare(this.systemIds, this.baselineIds, this.HSPIds, id);
-    }
-
-    formatDate(dateString) {
-        return moment.utc(dateString).format('DD MMM YYYY, HH:mm UTC');
     }
 
     findHSPReference = () => {
@@ -347,135 +337,6 @@ export class DriftTable extends Component {
         return row;
     }
 
-    renderSystemHeaders() {
-        let row = [];
-        let typeIcon = '';
-        let referenceId = this.props.referenceId;
-        let updateReferenceId = this.updateReferenceId;
-
-        this.masterList.forEach(item => {
-            if (item.type === 'system') {
-                typeIcon = <ServerIcon/>;
-            } else if (item.type === 'baseline') {
-                typeIcon = <BlueprintIcon/>;
-            } else if (item.type === 'historical-system-profile') {
-                typeIcon = <ClockIcon />;
-            }
-
-            row.push(
-                <th
-                    header-id={ item.id }
-                    key={ item.id }
-                    className={
-                        item.id === referenceId
-                            ? 'drift-header reference-header'
-                            : `drift-header ${item.type}-header`
-                    }
-                >
-                    <div>
-                        <a onClick={ () => this.removeSystem(item) } className="remove-system-icon">
-                            <TimesIcon/>
-                        </a>
-                    </div>
-                    <div className='comparison-header'>
-                        <div className="drift-header-icon">
-                            { typeIcon }
-                        </div>
-                        <div className="system-name">{ item.display_name }</div>
-                        <div className="system-updated-and-reference">
-                            <ReferenceSelector
-                                updateReferenceId={ updateReferenceId }
-                                id={ item.id }
-                                isReference= { item.id === referenceId }
-                            />
-                            { item.system_profile_exists === false ?
-                                <Tooltip
-                                    position='top'
-                                    content={
-                                        <div>System profile does not exist. Please run insights-client on system to upload archive.</div>
-                                    }
-                                >
-                                    <ExclamationTriangleIcon color="#f0ab00"/>
-                                </Tooltip> : ''
-                            }
-                            { item.last_updated
-                                ? this.formatDate(item.last_updated)
-                                : this.formatDate(item.updated)
-                            }
-                            { item.type === 'system' || item.type === 'historical-system-profile'
-                                ? <HistoricalProfilesDropdown
-                                    system={ item }
-                                    systemIds={ this.systemIds }
-                                    referenceId={ referenceId }
-                                    fetchCompare={ this.fetchCompare }
-                                    dropdownDirection={ DropdownDirection.down }
-                                    hasCompareButton={ true }
-                                    hasMultiSelect={ true }
-                                />
-                                : null
-                            }
-                        </div>
-                    </div>
-                </th>
-            );
-        });
-
-        return row;
-    }
-
-    renderSortButton(sort) {
-        let sortIcon;
-
-        if (sort === ASC) {
-            sortIcon = <LongArrowAltUpIcon className="active-blue" />;
-        }
-        else if (sort === DESC) {
-            sortIcon = <LongArrowAltDownIcon className="active-blue" />;
-        }
-        else {
-            sortIcon = <ArrowsAltVIcon className="not-active" />;
-        }
-
-        return sortIcon;
-    }
-
-    toggleSort(sortType, sort) {
-        if (sortType === 'fact') {
-            this.props.toggleFactSort(sort);
-        } else {
-            this.props.toggleStateSort(sort);
-        }
-    }
-
-    renderHeaderRow() {
-        const { factSort, stateSort } = this.props;
-
-        return (
-            <tr className="sticky-column-header">
-                <th
-                    className="fact-header sticky-column fixed-column-1 pointer"
-                    key='fact-header'
-                    id={ factSort }
-                    onClick={ () => this.toggleSort('fact', factSort) }
-                >
-                    <div className="active-blue">Fact { this.renderSortButton(factSort) }</div>
-                </th>
-                <th
-                    className="state-header sticky-column fixed-column-2 pointer"
-                    key='state-header'
-                    id={ stateSort || 'disabled' }
-                    onClick={ () => this.toggleSort('state', stateSort) }
-                >
-                    { stateSort !== '' ?
-                        <div className="active-blue">State { this.renderSortButton(stateSort) }</div> :
-                        <div>State { this.renderSortButton(stateSort) }</div>
-                    }
-                </th>
-                { this.renderSystemHeaders() }
-            </tr>
-        );
-    }
-
     renderExpandableRowButton(expandedRows, factName) {
         let expandIcon;
 
@@ -489,12 +350,25 @@ export class DriftTable extends Component {
     }
 
     renderTable(compareData, loading) {
+        const { factSort, referenceId, stateSort, toggleFactSort, toggleStateSort } = this.props;
+
         return (
             <React.Fragment>
                 <div className="drift-table-wrapper">
                     <table className="pf-c-table pf-m-compact drift-table">
                         <thead>
-                            { this.renderHeaderRow() }
+                            <ComparisonHeader
+                                factSort={ factSort }
+                                fetchCompare={ this.fetchCompare }
+                                masterList={ this.masterList }
+                                referenceId={ referenceId }
+                                removeSystem={ this.removeSystem }
+                                stateSort={ stateSort }
+                                systemIds={ this.systemIds }
+                                toggleFactSort={ toggleFactSort }
+                                toggleStateSort={ toggleStateSort }
+                                updateReferenceId={ this.updateReferenceId }
+                            />
                         </thead>
                         <tbody>
                             { loading ? this.renderLoadingRows() : this.renderRows(compareData) }
