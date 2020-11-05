@@ -65,14 +65,14 @@ export class BaselinesToolbar extends Component {
     }
 
     buildDropdownList = () => {
-        const { isDisabled } = this.props;
+        const { isDeleteDisabled } = this.props;
         let actionKebabItems = [];
 
         actionKebabItems.push(<DropdownItem
             key="multi-delete"
             component="button"
             onClick={ this.toggleModal }
-            isDisabled={ isDisabled }
+            isDisabled={ isDeleteDisabled }
         >
             Delete baselines
         </DropdownItem>);
@@ -223,7 +223,7 @@ BaselinesToolbar.propTypes = {
     hasMultiSelect: PropTypes.bool,
     clearSort: PropTypes.func,
     selectedBaselineIds: PropTypes.array,
-    isDisabled: PropTypes.bool,
+    isDeleteDisabled: PropTypes.bool,
     page: PropTypes.number,
     perPage: PropTypes.number,
     totalBaselines: PropTypes.number,

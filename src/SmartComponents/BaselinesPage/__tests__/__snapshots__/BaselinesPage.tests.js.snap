@@ -488,7 +488,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                   hasMultiSelect={true}
                                   hasReadPermissions={true}
                                   hasWritePermissions={true}
-                                  isDisabled={true}
+                                  isDeleteDisabled={true}
                                   kebab={true}
                                   loading={false}
                                   onBulkSelect={[Function]}
@@ -987,6 +987,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                       >
                                                         <ConditionalFilter
                                                           hideLabel={false}
+                                                          id="default-input"
                                                           isDisabled={false}
                                                           items={Array []}
                                                           onChange={[Function]}
@@ -997,6 +998,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                             className="ins-c-conditional-filter"
                                                           >
                                                             <Text
+                                                              aria-label="text input"
                                                               id="default-input"
                                                               isDisabled={false}
                                                               onChange={[Function]}
@@ -1006,6 +1008,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                               widget-type="InsightsInput"
                                                             >
                                                               <ForwardRef
+                                                                aria-label="text input"
                                                                 className="ins-c-conditional-filter "
                                                                 id="default-input"
                                                                 isDisabled={false}
@@ -1016,7 +1019,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                 widget-type="InsightsInput"
                                                               >
                                                                 <TextInputBase
-                                                                  aria-label={null}
+                                                                  aria-label="text input"
                                                                   className="ins-c-conditional-filter "
                                                                   id="default-input"
                                                                   innerRef={null}
@@ -1034,7 +1037,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                 >
                                                                   <input
                                                                     aria-invalid={false}
-                                                                    aria-label={null}
+                                                                    aria-label="text input"
                                                                     className="pf-c-form-control ins-c-conditional-filter "
                                                                     disabled={false}
                                                                     id="default-input"
@@ -2498,11 +2501,13 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                       },
                                     ]
                                   }
+                                  selectVariant="checkbox"
                                   variant={null}
                                 >
                                   <Provider
                                     aria-label="Baselines Table"
-                                    className="pf-c-table pf-m-grid-md"
+                                    borders={true}
+                                    className=""
                                     columns={
                                       Array [
                                         Object {
@@ -2532,6 +2537,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                             "onSelect": undefined,
                                             "onSort": undefined,
                                             "rowLabeledBy": "simple-node",
+                                            "selectVariant": "checkbox",
                                             "sortBy": undefined,
                                           },
                                           "header": Object {
@@ -2577,6 +2583,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                             "onSelect": undefined,
                                             "onSort": undefined,
                                             "rowLabeledBy": "simple-node",
+                                            "selectVariant": "checkbox",
                                             "sortBy": undefined,
                                           },
                                           "header": Object {
@@ -2622,6 +2629,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                             "onSelect": undefined,
                                             "onSort": undefined,
                                             "rowLabeledBy": "simple-node",
+                                            "selectVariant": "checkbox",
                                             "sortBy": undefined,
                                           },
                                           "header": Object {
@@ -2641,9 +2649,9 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                         },
                                       ]
                                     }
-                                    data-ouia-component-id={9}
-                                    data-ouia-component-type="PF4/Table"
-                                    data-ouia-safe={true}
+                                    gridBreakPoint="grid-md"
+                                    isStickyHeader={false}
+                                    ouiaSafe={true}
                                     renderers={
                                       Object {
                                         "body": Object {
@@ -2657,193 +2665,48 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                       }
                                     }
                                     role="grid"
+                                    variant={null}
                                   >
-                                    <table
+                                    <TableComposable
                                       aria-label="Baselines Table"
-                                      className="pf-c-table pf-m-grid-md"
-                                      data-ouia-component-id={9}
-                                      data-ouia-component-type="PF4/Table"
-                                      data-ouia-safe={true}
+                                      borders={true}
+                                      className=""
+                                      gridBreakPoint="grid-md"
+                                      isStickyHeader={false}
+                                      ouiaSafe={true}
                                       role="grid"
+                                      variant={null}
                                     >
-                                      <TableHeader>
-                                        <ContextHeader
-                                          headerRows={null}
+                                      <TableComposableBase
+                                        aria-label="Baselines Table"
+                                        borders={true}
+                                        className=""
+                                        gridBreakPoint="grid-md"
+                                        innerRef={null}
+                                        isStickyHeader={false}
+                                        ouiaSafe={true}
+                                        role="grid"
+                                        variant={null}
+                                      >
+                                        <table
+                                          aria-label="Baselines Table"
+                                          className="pf-c-table pf-m-grid-md"
+                                          data-ouia-component-id="OUIA-Generated-Table-2"
+                                          data-ouia-component-type="PF4/Table"
+                                          data-ouia-safe={true}
+                                          role="grid"
                                         >
-                                          <Component
-                                            className=""
-                                            headerRows={null}
-                                          >
-                                            <BaseHeader
-                                              className=""
-                                              columns={
-                                                Array [
-                                                  Object {
-                                                    "cell": Object {
-                                                      "formatters": Array [
-                                                        [Function],
-                                                      ],
-                                                      "transforms": Array [
-                                                        [Function],
-                                                      ],
-                                                    },
-                                                    "data": undefined,
-                                                    "extraParams": Object {
-                                                      "actionResolver": undefined,
-                                                      "actions": undefined,
-                                                      "allRowsSelected": false,
-                                                      "areActionsDisabled": undefined,
-                                                      "canSelectAll": false,
-                                                      "contentId": "expanded-content",
-                                                      "dropdownDirection": "down",
-                                                      "dropdownPosition": "right",
-                                                      "expandId": "expandable-toggle",
-                                                      "firstUserColumnIndex": 0,
-                                                      "onCollapse": undefined,
-                                                      "onExpand": undefined,
-                                                      "onRowEdit": undefined,
-                                                      "onSelect": undefined,
-                                                      "onSort": undefined,
-                                                      "rowLabeledBy": "simple-node",
-                                                      "sortBy": undefined,
-                                                    },
-                                                    "header": Object {
-                                                      "formatters": Array [],
-                                                      "label": "Name",
-                                                      "transforms": Array [
-                                                        [Function],
-                                                        [Function],
-                                                        [Function],
-                                                        [Function],
-                                                      ],
-                                                    },
-                                                    "property": "name",
-                                                    "props": Object {
-                                                      "data-key": 0,
-                                                      "data-label": "Name",
-                                                    },
-                                                  },
-                                                  Object {
-                                                    "cell": Object {
-                                                      "formatters": Array [
-                                                        [Function],
-                                                      ],
-                                                      "transforms": Array [
-                                                        [Function],
-                                                      ],
-                                                    },
-                                                    "data": undefined,
-                                                    "extraParams": Object {
-                                                      "actionResolver": undefined,
-                                                      "actions": undefined,
-                                                      "allRowsSelected": false,
-                                                      "areActionsDisabled": undefined,
-                                                      "canSelectAll": false,
-                                                      "contentId": "expanded-content",
-                                                      "dropdownDirection": "down",
-                                                      "dropdownPosition": "right",
-                                                      "expandId": "expandable-toggle",
-                                                      "firstUserColumnIndex": 0,
-                                                      "onCollapse": undefined,
-                                                      "onExpand": undefined,
-                                                      "onRowEdit": undefined,
-                                                      "onSelect": undefined,
-                                                      "onSort": undefined,
-                                                      "rowLabeledBy": "simple-node",
-                                                      "sortBy": undefined,
-                                                    },
-                                                    "header": Object {
-                                                      "formatters": Array [],
-                                                      "label": "Last updated",
-                                                      "transforms": Array [
-                                                        [Function],
-                                                        [Function],
-                                                        [Function],
-                                                        [Function],
-                                                      ],
-                                                    },
-                                                    "property": "last-updated",
-                                                    "props": Object {
-                                                      "data-key": 1,
-                                                      "data-label": "Last updated",
-                                                    },
-                                                  },
-                                                  Object {
-                                                    "cell": Object {
-                                                      "formatters": Array [
-                                                        [Function],
-                                                      ],
-                                                      "transforms": Array [
-                                                        [Function],
-                                                      ],
-                                                    },
-                                                    "data": undefined,
-                                                    "extraParams": Object {
-                                                      "actionResolver": undefined,
-                                                      "actions": undefined,
-                                                      "allRowsSelected": false,
-                                                      "areActionsDisabled": undefined,
-                                                      "canSelectAll": false,
-                                                      "contentId": "expanded-content",
-                                                      "dropdownDirection": "down",
-                                                      "dropdownPosition": "right",
-                                                      "expandId": "expandable-toggle",
-                                                      "firstUserColumnIndex": 0,
-                                                      "onCollapse": undefined,
-                                                      "onExpand": undefined,
-                                                      "onRowEdit": undefined,
-                                                      "onSelect": undefined,
-                                                      "onSort": undefined,
-                                                      "rowLabeledBy": "simple-node",
-                                                      "sortBy": undefined,
-                                                    },
-                                                    "header": Object {
-                                                      "formatters": Array [],
-                                                      "label": "",
-                                                      "transforms": Array [
-                                                        [Function],
-                                                        [Function],
-                                                        [Function],
-                                                      ],
-                                                    },
-                                                    "property": "column-2",
-                                                    "props": Object {
-                                                      "data-key": 2,
-                                                      "data-label": "",
-                                                    },
-                                                  },
-                                                ]
-                                              }
+                                          <TableHeader>
+                                            <ContextHeader
                                               headerRows={null}
-                                              renderers={
-                                                Object {
-                                                  "body": Object {
-                                                    "cell": [Function],
-                                                    "row": [Function],
-                                                    "wrapper": [Function],
-                                                  },
-                                                  "header": Object {
-                                                    "cell": [Function],
-                                                    "row": "tr",
-                                                    "wrapper": "thead",
-                                                  },
-                                                  "table": "table",
-                                                }
-                                              }
                                             >
-                                              <thead
+                                              <Component
                                                 className=""
+                                                headerRows={null}
                                               >
-                                                <HeaderRow
-                                                  key="0-header-row"
-                                                  renderers={
-                                                    Object {
-                                                      "cell": [Function],
-                                                      "row": "tr",
-                                                      "wrapper": "thead",
-                                                    }
-                                                  }
-                                                  rowData={
+                                                <BaseHeader
+                                                  className=""
+                                                  columns={
                                                     Array [
                                                       Object {
                                                         "cell": Object {
@@ -2872,6 +2735,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                           "onSelect": undefined,
                                                           "onSort": undefined,
                                                           "rowLabeledBy": "simple-node",
+                                                          "selectVariant": "checkbox",
                                                           "sortBy": undefined,
                                                         },
                                                         "header": Object {
@@ -2917,6 +2781,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                           "onSelect": undefined,
                                                           "onSort": undefined,
                                                           "rowLabeledBy": "simple-node",
+                                                          "selectVariant": "checkbox",
                                                           "sortBy": undefined,
                                                         },
                                                         "header": Object {
@@ -2962,6 +2827,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                           "onSelect": undefined,
                                                           "onSort": undefined,
                                                           "rowLabeledBy": "simple-node",
+                                                          "selectVariant": "checkbox",
                                                           "sortBy": undefined,
                                                         },
                                                         "header": Object {
@@ -2981,443 +2847,457 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                       },
                                                     ]
                                                   }
-                                                  rowIndex={0}
+                                                  headerRows={null}
+                                                  renderers={
+                                                    Object {
+                                                      "body": Object {
+                                                        "cell": [Function],
+                                                        "row": [Function],
+                                                        "wrapper": [Function],
+                                                      },
+                                                      "header": Object {
+                                                        "cell": [Function],
+                                                        "row": Object {
+                                                          "$$typeof": Symbol(react.forward_ref),
+                                                          "displayName": "Tr",
+                                                          "render": [Function],
+                                                        },
+                                                        "wrapper": Object {
+                                                          "$$typeof": Symbol(react.forward_ref),
+                                                          "displayName": "Thead",
+                                                          "render": [Function],
+                                                        },
+                                                      },
+                                                      "table": Object {
+                                                        "$$typeof": Symbol(react.forward_ref),
+                                                        "displayName": "TableComposable",
+                                                        "render": [Function],
+                                                      },
+                                                    }
+                                                  }
                                                 >
-                                                  <tr>
-                                                    <HeaderCell
-                                                      aria-sort="none"
-                                                      className="pf-c-table__sort pf-m-width-40"
-                                                      data-key={0}
-                                                      data-label="Name"
-                                                      key="0-header"
-                                                      scope="col"
-                                                    >
-                                                      <th
-                                                        aria-sort="none"
-                                                        className="pf-c-table__sort pf-m-width-40"
-                                                        data-key={0}
-                                                        data-label="Name"
-                                                        onMouseEnter={[Function]}
-                                                        scope="col"
-                                                      >
-                                                        <SortColumn
-                                                          onSort={[Function]}
-                                                          sortDirection=""
-                                                        >
-                                                          <button
-                                                            className="pf-c-table__button"
-                                                            onClick={[Function]}
-                                                            type="button"
-                                                          >
-                                                            <div
-                                                              className="pf-c-table__button-content"
-                                                            >
-                                                              <TableText>
-                                                                <span
-                                                                  className="pf-c-table__text"
-                                                                  onMouseEnter={[Function]}
-                                                                >
-                                                                  Name
-                                                                </span>
-                                                              </TableText>
-                                                              <span
-                                                                className="pf-c-table__sort-indicator"
-                                                              >
-                                                                <ArrowsAltVIcon
-                                                                  color="currentColor"
-                                                                  noVerticalAlign={false}
-                                                                  size="sm"
-                                                                >
-                                                                  <svg
-                                                                    aria-hidden={true}
-                                                                    aria-labelledby={null}
-                                                                    fill="currentColor"
-                                                                    height="1em"
-                                                                    role="img"
-                                                                    style={
-                                                                      Object {
-                                                                        "verticalAlign": "-0.125em",
-                                                                      }
-                                                                    }
-                                                                    viewBox="0 0 256 512"
-                                                                    width="1em"
-                                                                  >
-                                                                    <path
-                                                                      d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
-                                                                    />
-                                                                  </svg>
-                                                                </ArrowsAltVIcon>
-                                                              </span>
-                                                            </div>
-                                                          </button>
-                                                        </SortColumn>
-                                                      </th>
-                                                    </HeaderCell>
-                                                    <HeaderCell
-                                                      aria-sort="none"
-                                                      className="pf-c-table__sort pf-m-width-50"
-                                                      data-key={1}
-                                                      data-label="Last updated"
-                                                      key="1-header"
-                                                      scope="col"
-                                                    >
-                                                      <th
-                                                        aria-sort="none"
-                                                        className="pf-c-table__sort pf-m-width-50"
-                                                        data-key={1}
-                                                        data-label="Last updated"
-                                                        onMouseEnter={[Function]}
-                                                        scope="col"
-                                                      >
-                                                        <SortColumn
-                                                          onSort={[Function]}
-                                                          sortDirection=""
-                                                        >
-                                                          <button
-                                                            className="pf-c-table__button"
-                                                            onClick={[Function]}
-                                                            type="button"
-                                                          >
-                                                            <div
-                                                              className="pf-c-table__button-content"
-                                                            >
-                                                              <TableText>
-                                                                <span
-                                                                  className="pf-c-table__text"
-                                                                  onMouseEnter={[Function]}
-                                                                >
-                                                                  Last updated
-                                                                </span>
-                                                              </TableText>
-                                                              <span
-                                                                className="pf-c-table__sort-indicator"
-                                                              >
-                                                                <ArrowsAltVIcon
-                                                                  color="currentColor"
-                                                                  noVerticalAlign={false}
-                                                                  size="sm"
-                                                                >
-                                                                  <svg
-                                                                    aria-hidden={true}
-                                                                    aria-labelledby={null}
-                                                                    fill="currentColor"
-                                                                    height="1em"
-                                                                    role="img"
-                                                                    style={
-                                                                      Object {
-                                                                        "verticalAlign": "-0.125em",
-                                                                      }
-                                                                    }
-                                                                    viewBox="0 0 256 512"
-                                                                    width="1em"
-                                                                  >
-                                                                    <path
-                                                                      d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
-                                                                    />
-                                                                  </svg>
-                                                                </ArrowsAltVIcon>
-                                                              </span>
-                                                            </div>
-                                                          </button>
-                                                        </SortColumn>
-                                                      </th>
-                                                    </HeaderCell>
-                                                    <HeaderCell
+                                                  <Thead
+                                                    className=""
+                                                  >
+                                                    <TheadBase
                                                       className=""
-                                                      data-key={2}
-                                                      data-label=""
-                                                      key="2-header"
-                                                      scope=""
+                                                      innerRef={null}
                                                     >
-                                                      <th
+                                                      <thead
                                                         className=""
-                                                        data-key={2}
-                                                        data-label=""
-                                                        onMouseEnter={[Function]}
-                                                      />
-                                                    </HeaderCell>
-                                                  </tr>
-                                                </HeaderRow>
-                                              </thead>
-                                            </BaseHeader>
-                                          </Component>
-                                        </ContextHeader>
-                                      </TableHeader>
-                                      <Component>
-                                        <ContextBody
-                                          className=""
-                                          headerData={
-                                            Array [
-                                              Object {
-                                                "cell": Object {
-                                                  "formatters": Array [
-                                                    [Function],
-                                                  ],
-                                                  "transforms": Array [
-                                                    [Function],
-                                                  ],
-                                                },
-                                                "data": undefined,
-                                                "extraParams": Object {
-                                                  "actionResolver": undefined,
-                                                  "actions": undefined,
-                                                  "allRowsSelected": false,
-                                                  "areActionsDisabled": undefined,
-                                                  "canSelectAll": false,
-                                                  "contentId": "expanded-content",
-                                                  "dropdownDirection": "down",
-                                                  "dropdownPosition": "right",
-                                                  "expandId": "expandable-toggle",
-                                                  "firstUserColumnIndex": 0,
-                                                  "onCollapse": undefined,
-                                                  "onExpand": undefined,
-                                                  "onRowEdit": undefined,
-                                                  "onSelect": undefined,
-                                                  "onSort": undefined,
-                                                  "rowLabeledBy": "simple-node",
-                                                  "sortBy": undefined,
-                                                },
-                                                "header": Object {
-                                                  "formatters": Array [],
-                                                  "label": "Name",
-                                                  "transforms": Array [
-                                                    [Function],
-                                                    [Function],
-                                                    [Function],
-                                                    [Function],
-                                                  ],
-                                                },
-                                                "property": "name",
-                                                "props": Object {
-                                                  "data-key": 0,
-                                                  "data-label": "Name",
-                                                },
-                                              },
-                                              Object {
-                                                "cell": Object {
-                                                  "formatters": Array [
-                                                    [Function],
-                                                  ],
-                                                  "transforms": Array [
-                                                    [Function],
-                                                  ],
-                                                },
-                                                "data": undefined,
-                                                "extraParams": Object {
-                                                  "actionResolver": undefined,
-                                                  "actions": undefined,
-                                                  "allRowsSelected": false,
-                                                  "areActionsDisabled": undefined,
-                                                  "canSelectAll": false,
-                                                  "contentId": "expanded-content",
-                                                  "dropdownDirection": "down",
-                                                  "dropdownPosition": "right",
-                                                  "expandId": "expandable-toggle",
-                                                  "firstUserColumnIndex": 0,
-                                                  "onCollapse": undefined,
-                                                  "onExpand": undefined,
-                                                  "onRowEdit": undefined,
-                                                  "onSelect": undefined,
-                                                  "onSort": undefined,
-                                                  "rowLabeledBy": "simple-node",
-                                                  "sortBy": undefined,
-                                                },
-                                                "header": Object {
-                                                  "formatters": Array [],
-                                                  "label": "Last updated",
-                                                  "transforms": Array [
-                                                    [Function],
-                                                    [Function],
-                                                    [Function],
-                                                    [Function],
-                                                  ],
-                                                },
-                                                "property": "last-updated",
-                                                "props": Object {
-                                                  "data-key": 1,
-                                                  "data-label": "Last updated",
-                                                },
-                                              },
-                                              Object {
-                                                "cell": Object {
-                                                  "formatters": Array [
-                                                    [Function],
-                                                  ],
-                                                  "transforms": Array [
-                                                    [Function],
-                                                  ],
-                                                },
-                                                "data": undefined,
-                                                "extraParams": Object {
-                                                  "actionResolver": undefined,
-                                                  "actions": undefined,
-                                                  "allRowsSelected": false,
-                                                  "areActionsDisabled": undefined,
-                                                  "canSelectAll": false,
-                                                  "contentId": "expanded-content",
-                                                  "dropdownDirection": "down",
-                                                  "dropdownPosition": "right",
-                                                  "expandId": "expandable-toggle",
-                                                  "firstUserColumnIndex": 0,
-                                                  "onCollapse": undefined,
-                                                  "onExpand": undefined,
-                                                  "onRowEdit": undefined,
-                                                  "onSelect": undefined,
-                                                  "onSort": undefined,
-                                                  "rowLabeledBy": "simple-node",
-                                                  "sortBy": undefined,
-                                                },
-                                                "header": Object {
-                                                  "formatters": Array [],
-                                                  "label": "",
-                                                  "transforms": Array [
-                                                    [Function],
-                                                    [Function],
-                                                    [Function],
-                                                  ],
-                                                },
-                                                "property": "column-2",
-                                                "props": Object {
-                                                  "data-key": 2,
-                                                  "data-label": "",
-                                                },
-                                              },
-                                            ]
-                                          }
-                                          headerRows={null}
-                                          onRow={[Function]}
-                                          onRowClick={[Function]}
-                                          rowKey="id"
-                                          rows={
-                                            Array [
-                                              Object {
-                                                "cells": Array [
-                                                  Object {
-                                                    "props": Object {
-                                                      "colSpan": 3,
-                                                    },
-                                                    "title": <EmptyTable>
-                                                      <EmptyStateDisplay
-                                                        text={
-                                                          Array [
-                                                            "This filter criteria matches no baselines.",
-                                                            "Try changing your filter settings.",
-                                                          ]
-                                                        }
-                                                        title="No matching baselines found"
-                                                      />
-                                                    </EmptyTable>,
-                                                  },
-                                                ],
-                                              },
-                                            ]
-                                          }
-                                        >
-                                          <Component
-                                            className=""
-                                            headerRows={null}
-                                            mappedRows={
-                                              Array [
-                                                Object {
-                                                  "cells": Array [
-                                                    Object {
-                                                      "props": Object {
-                                                        "colSpan": 3,
-                                                      },
-                                                      "title": <EmptyTable>
-                                                        <EmptyStateDisplay
-                                                          text={
+                                                      >
+                                                        <HeaderRow
+                                                          key="0-header-row"
+                                                          renderers={
+                                                            Object {
+                                                              "cell": [Function],
+                                                              "row": Object {
+                                                                "$$typeof": Symbol(react.forward_ref),
+                                                                "displayName": "Tr",
+                                                                "render": [Function],
+                                                              },
+                                                              "wrapper": Object {
+                                                                "$$typeof": Symbol(react.forward_ref),
+                                                                "displayName": "Thead",
+                                                                "render": [Function],
+                                                              },
+                                                            }
+                                                          }
+                                                          rowData={
                                                             Array [
-                                                              "This filter criteria matches no baselines.",
-                                                              "Try changing your filter settings.",
+                                                              Object {
+                                                                "cell": Object {
+                                                                  "formatters": Array [
+                                                                    [Function],
+                                                                  ],
+                                                                  "transforms": Array [
+                                                                    [Function],
+                                                                  ],
+                                                                },
+                                                                "data": undefined,
+                                                                "extraParams": Object {
+                                                                  "actionResolver": undefined,
+                                                                  "actions": undefined,
+                                                                  "allRowsSelected": false,
+                                                                  "areActionsDisabled": undefined,
+                                                                  "canSelectAll": false,
+                                                                  "contentId": "expanded-content",
+                                                                  "dropdownDirection": "down",
+                                                                  "dropdownPosition": "right",
+                                                                  "expandId": "expandable-toggle",
+                                                                  "firstUserColumnIndex": 0,
+                                                                  "onCollapse": undefined,
+                                                                  "onExpand": undefined,
+                                                                  "onRowEdit": undefined,
+                                                                  "onSelect": undefined,
+                                                                  "onSort": undefined,
+                                                                  "rowLabeledBy": "simple-node",
+                                                                  "selectVariant": "checkbox",
+                                                                  "sortBy": undefined,
+                                                                },
+                                                                "header": Object {
+                                                                  "formatters": Array [],
+                                                                  "label": "Name",
+                                                                  "transforms": Array [
+                                                                    [Function],
+                                                                    [Function],
+                                                                    [Function],
+                                                                    [Function],
+                                                                  ],
+                                                                },
+                                                                "property": "name",
+                                                                "props": Object {
+                                                                  "data-key": 0,
+                                                                  "data-label": "Name",
+                                                                },
+                                                              },
+                                                              Object {
+                                                                "cell": Object {
+                                                                  "formatters": Array [
+                                                                    [Function],
+                                                                  ],
+                                                                  "transforms": Array [
+                                                                    [Function],
+                                                                  ],
+                                                                },
+                                                                "data": undefined,
+                                                                "extraParams": Object {
+                                                                  "actionResolver": undefined,
+                                                                  "actions": undefined,
+                                                                  "allRowsSelected": false,
+                                                                  "areActionsDisabled": undefined,
+                                                                  "canSelectAll": false,
+                                                                  "contentId": "expanded-content",
+                                                                  "dropdownDirection": "down",
+                                                                  "dropdownPosition": "right",
+                                                                  "expandId": "expandable-toggle",
+                                                                  "firstUserColumnIndex": 0,
+                                                                  "onCollapse": undefined,
+                                                                  "onExpand": undefined,
+                                                                  "onRowEdit": undefined,
+                                                                  "onSelect": undefined,
+                                                                  "onSort": undefined,
+                                                                  "rowLabeledBy": "simple-node",
+                                                                  "selectVariant": "checkbox",
+                                                                  "sortBy": undefined,
+                                                                },
+                                                                "header": Object {
+                                                                  "formatters": Array [],
+                                                                  "label": "Last updated",
+                                                                  "transforms": Array [
+                                                                    [Function],
+                                                                    [Function],
+                                                                    [Function],
+                                                                    [Function],
+                                                                  ],
+                                                                },
+                                                                "property": "last-updated",
+                                                                "props": Object {
+                                                                  "data-key": 1,
+                                                                  "data-label": "Last updated",
+                                                                },
+                                                              },
+                                                              Object {
+                                                                "cell": Object {
+                                                                  "formatters": Array [
+                                                                    [Function],
+                                                                  ],
+                                                                  "transforms": Array [
+                                                                    [Function],
+                                                                  ],
+                                                                },
+                                                                "data": undefined,
+                                                                "extraParams": Object {
+                                                                  "actionResolver": undefined,
+                                                                  "actions": undefined,
+                                                                  "allRowsSelected": false,
+                                                                  "areActionsDisabled": undefined,
+                                                                  "canSelectAll": false,
+                                                                  "contentId": "expanded-content",
+                                                                  "dropdownDirection": "down",
+                                                                  "dropdownPosition": "right",
+                                                                  "expandId": "expandable-toggle",
+                                                                  "firstUserColumnIndex": 0,
+                                                                  "onCollapse": undefined,
+                                                                  "onExpand": undefined,
+                                                                  "onRowEdit": undefined,
+                                                                  "onSelect": undefined,
+                                                                  "onSort": undefined,
+                                                                  "rowLabeledBy": "simple-node",
+                                                                  "selectVariant": "checkbox",
+                                                                  "sortBy": undefined,
+                                                                },
+                                                                "header": Object {
+                                                                  "formatters": Array [],
+                                                                  "label": "",
+                                                                  "transforms": Array [
+                                                                    [Function],
+                                                                    [Function],
+                                                                    [Function],
+                                                                  ],
+                                                                },
+                                                                "property": "column-2",
+                                                                "props": Object {
+                                                                  "data-key": 2,
+                                                                  "data-label": "",
+                                                                },
+                                                              },
                                                             ]
                                                           }
-                                                          title="No matching baselines found"
-                                                        />
-                                                      </EmptyTable>,
-                                                    },
-                                                  ],
-                                                  "id": 0,
-                                                  "isExpanded": undefined,
-                                                  "isFirst": true,
-                                                  "isFirstVisible": true,
-                                                  "isHeightAuto": false,
-                                                  "isLast": true,
-                                                  "isLastVisible": true,
-                                                  "name": Object {
-                                                    "props": Object {
-                                                      "colSpan": 3,
-                                                      "isVisible": true,
-                                                    },
-                                                    "title": <EmptyTable>
-                                                      <EmptyStateDisplay
-                                                        text={
-                                                          Array [
-                                                            "This filter criteria matches no baselines.",
-                                                            "Try changing your filter settings.",
-                                                          ]
-                                                        }
-                                                        title="No matching baselines found"
-                                                      />
-                                                    </EmptyTable>,
-                                                  },
-                                                },
-                                              ]
-                                            }
-                                            onRow={[Function]}
-                                            rowKey="id"
-                                            rows={
-                                              Array [
-                                                Object {
-                                                  "cells": Array [
-                                                    Object {
-                                                      "props": Object {
-                                                        "colSpan": 3,
-                                                      },
-                                                      "title": <EmptyTable>
-                                                        <EmptyStateDisplay
-                                                          text={
-                                                            Array [
-                                                              "This filter criteria matches no baselines.",
-                                                              "Try changing your filter settings.",
-                                                            ]
-                                                          }
-                                                          title="No matching baselines found"
-                                                        />
-                                                      </EmptyTable>,
-                                                    },
-                                                  ],
-                                                  "id": 0,
-                                                  "isExpanded": undefined,
-                                                  "isFirst": true,
-                                                  "isFirstVisible": true,
-                                                  "isHeightAuto": false,
-                                                  "isLast": true,
-                                                  "isLastVisible": true,
-                                                  "name": Object {
-                                                    "props": Object {
-                                                      "colSpan": 3,
-                                                      "isVisible": true,
-                                                    },
-                                                    "title": <EmptyTable>
-                                                      <EmptyStateDisplay
-                                                        text={
-                                                          Array [
-                                                            "This filter criteria matches no baselines.",
-                                                            "Try changing your filter settings.",
-                                                          ]
-                                                        }
-                                                        title="No matching baselines found"
-                                                      />
-                                                    </EmptyTable>,
-                                                  },
-                                                },
-                                              ]
-                                            }
-                                          >
-                                            <BaseBody
+                                                          rowIndex={0}
+                                                        >
+                                                          <Tr>
+                                                            <TrBase
+                                                              innerRef={null}
+                                                            >
+                                                              <tr
+                                                                className=""
+                                                                data-ouia-component-id="OUIA-Generated-TableRow-1"
+                                                                data-ouia-component-type="PF4/TableRow"
+                                                                data-ouia-safe={true}
+                                                                hidden={false}
+                                                              >
+                                                                <HeaderCell
+                                                                  aria-sort="none"
+                                                                  className="pf-c-table__sort pf-m-width-40"
+                                                                  data-key={0}
+                                                                  data-label="Name"
+                                                                  key="0-header"
+                                                                  scope="col"
+                                                                >
+                                                                  <Th
+                                                                    aria-sort="none"
+                                                                    className="pf-c-table__sort pf-m-width-40"
+                                                                    component="th"
+                                                                    data-key={0}
+                                                                    data-label="Name"
+                                                                    onMouseEnter={[Function]}
+                                                                    scope="col"
+                                                                    textCenter={false}
+                                                                    tooltip=""
+                                                                  >
+                                                                    <ThBase
+                                                                      aria-sort="none"
+                                                                      className="pf-c-table__sort pf-m-width-40"
+                                                                      component="th"
+                                                                      data-key={0}
+                                                                      data-label="Name"
+                                                                      innerRef={null}
+                                                                      onMouseEnter={[Function]}
+                                                                      scope="col"
+                                                                      textCenter={false}
+                                                                      tooltip=""
+                                                                    >
+                                                                      <th
+                                                                        aria-sort="none"
+                                                                        className="pf-c-table__sort pf-m-width-40"
+                                                                        data-key={0}
+                                                                        data-label="Name"
+                                                                        onMouseEnter={[Function]}
+                                                                        scope="col"
+                                                                      >
+                                                                        <SortColumn
+                                                                          onSort={[Function]}
+                                                                          sortDirection=""
+                                                                        >
+                                                                          <button
+                                                                            className="pf-c-table__button"
+                                                                            onClick={[Function]}
+                                                                            type="button"
+                                                                          >
+                                                                            <div
+                                                                              className="pf-c-table__button-content"
+                                                                            >
+                                                                              <TableText>
+                                                                                <span
+                                                                                  className="pf-c-table__text"
+                                                                                  onMouseEnter={[Function]}
+                                                                                >
+                                                                                  Name
+                                                                                </span>
+                                                                              </TableText>
+                                                                              <span
+                                                                                className="pf-c-table__sort-indicator"
+                                                                              >
+                                                                                <ArrowsAltVIcon
+                                                                                  color="currentColor"
+                                                                                  noVerticalAlign={false}
+                                                                                  size="sm"
+                                                                                >
+                                                                                  <svg
+                                                                                    aria-hidden={true}
+                                                                                    aria-labelledby={null}
+                                                                                    fill="currentColor"
+                                                                                    height="1em"
+                                                                                    role="img"
+                                                                                    style={
+                                                                                      Object {
+                                                                                        "verticalAlign": "-0.125em",
+                                                                                      }
+                                                                                    }
+                                                                                    viewBox="0 0 256 512"
+                                                                                    width="1em"
+                                                                                  >
+                                                                                    <path
+                                                                                      d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                                                                                    />
+                                                                                  </svg>
+                                                                                </ArrowsAltVIcon>
+                                                                              </span>
+                                                                            </div>
+                                                                          </button>
+                                                                        </SortColumn>
+                                                                      </th>
+                                                                    </ThBase>
+                                                                  </Th>
+                                                                </HeaderCell>
+                                                                <HeaderCell
+                                                                  aria-sort="none"
+                                                                  className="pf-c-table__sort pf-m-width-45"
+                                                                  data-key={1}
+                                                                  data-label="Last updated"
+                                                                  key="1-header"
+                                                                  scope="col"
+                                                                >
+                                                                  <Th
+                                                                    aria-sort="none"
+                                                                    className="pf-c-table__sort pf-m-width-45"
+                                                                    component="th"
+                                                                    data-key={1}
+                                                                    data-label="Last updated"
+                                                                    onMouseEnter={[Function]}
+                                                                    scope="col"
+                                                                    textCenter={false}
+                                                                    tooltip=""
+                                                                  >
+                                                                    <ThBase
+                                                                      aria-sort="none"
+                                                                      className="pf-c-table__sort pf-m-width-45"
+                                                                      component="th"
+                                                                      data-key={1}
+                                                                      data-label="Last updated"
+                                                                      innerRef={null}
+                                                                      onMouseEnter={[Function]}
+                                                                      scope="col"
+                                                                      textCenter={false}
+                                                                      tooltip=""
+                                                                    >
+                                                                      <th
+                                                                        aria-sort="none"
+                                                                        className="pf-c-table__sort pf-m-width-45"
+                                                                        data-key={1}
+                                                                        data-label="Last updated"
+                                                                        onMouseEnter={[Function]}
+                                                                        scope="col"
+                                                                      >
+                                                                        <SortColumn
+                                                                          onSort={[Function]}
+                                                                          sortDirection=""
+                                                                        >
+                                                                          <button
+                                                                            className="pf-c-table__button"
+                                                                            onClick={[Function]}
+                                                                            type="button"
+                                                                          >
+                                                                            <div
+                                                                              className="pf-c-table__button-content"
+                                                                            >
+                                                                              <TableText>
+                                                                                <span
+                                                                                  className="pf-c-table__text"
+                                                                                  onMouseEnter={[Function]}
+                                                                                >
+                                                                                  Last updated
+                                                                                </span>
+                                                                              </TableText>
+                                                                              <span
+                                                                                className="pf-c-table__sort-indicator"
+                                                                              >
+                                                                                <ArrowsAltVIcon
+                                                                                  color="currentColor"
+                                                                                  noVerticalAlign={false}
+                                                                                  size="sm"
+                                                                                >
+                                                                                  <svg
+                                                                                    aria-hidden={true}
+                                                                                    aria-labelledby={null}
+                                                                                    fill="currentColor"
+                                                                                    height="1em"
+                                                                                    role="img"
+                                                                                    style={
+                                                                                      Object {
+                                                                                        "verticalAlign": "-0.125em",
+                                                                                      }
+                                                                                    }
+                                                                                    viewBox="0 0 256 512"
+                                                                                    width="1em"
+                                                                                  >
+                                                                                    <path
+                                                                                      d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                                                                                    />
+                                                                                  </svg>
+                                                                                </ArrowsAltVIcon>
+                                                                              </span>
+                                                                            </div>
+                                                                          </button>
+                                                                        </SortColumn>
+                                                                      </th>
+                                                                    </ThBase>
+                                                                  </Th>
+                                                                </HeaderCell>
+                                                                <HeaderCell
+                                                                  className=""
+                                                                  data-key={2}
+                                                                  data-label=""
+                                                                  key="2-header"
+                                                                  scope=""
+                                                                >
+                                                                  <Th
+                                                                    className=""
+                                                                    component="th"
+                                                                    data-key={2}
+                                                                    data-label=""
+                                                                    onMouseEnter={[Function]}
+                                                                    scope=""
+                                                                    textCenter={false}
+                                                                    tooltip=""
+                                                                  >
+                                                                    <ThBase
+                                                                      className=""
+                                                                      component="th"
+                                                                      data-key={2}
+                                                                      data-label=""
+                                                                      innerRef={null}
+                                                                      onMouseEnter={[Function]}
+                                                                      scope=""
+                                                                      textCenter={false}
+                                                                      tooltip=""
+                                                                    >
+                                                                      <th
+                                                                        className=""
+                                                                        data-key={2}
+                                                                        data-label=""
+                                                                        onMouseEnter={[Function]}
+                                                                        scope=""
+                                                                      />
+                                                                    </ThBase>
+                                                                  </Th>
+                                                                </HeaderCell>
+                                                              </tr>
+                                                            </TrBase>
+                                                          </Tr>
+                                                        </HeaderRow>
+                                                      </thead>
+                                                    </TheadBase>
+                                                  </Thead>
+                                                </BaseHeader>
+                                              </Component>
+                                            </ContextHeader>
+                                          </TableHeader>
+                                          <Component>
+                                            <ContextBody
                                               className=""
-                                              columns={
+                                              headerData={
                                                 Array [
                                                   Object {
                                                     "cell": Object {
@@ -3446,6 +3326,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                       "onSelect": undefined,
                                                       "onSort": undefined,
                                                       "rowLabeledBy": "simple-node",
+                                                      "selectVariant": "checkbox",
                                                       "sortBy": undefined,
                                                     },
                                                     "header": Object {
@@ -3491,6 +3372,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                       "onSelect": undefined,
                                                       "onSort": undefined,
                                                       "rowLabeledBy": "simple-node",
+                                                      "selectVariant": "checkbox",
                                                       "sortBy": undefined,
                                                     },
                                                     "header": Object {
@@ -3536,6 +3418,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                       "onSelect": undefined,
                                                       "onSort": undefined,
                                                       "rowLabeledBy": "simple-node",
+                                                      "selectVariant": "checkbox",
                                                       "sortBy": undefined,
                                                     },
                                                     "header": Object {
@@ -3556,71 +3439,9 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                 ]
                                               }
                                               headerRows={null}
-                                              mappedRows={
-                                                Array [
-                                                  Object {
-                                                    "cells": Array [
-                                                      Object {
-                                                        "props": Object {
-                                                          "colSpan": 3,
-                                                        },
-                                                        "title": <EmptyTable>
-                                                          <EmptyStateDisplay
-                                                            text={
-                                                              Array [
-                                                                "This filter criteria matches no baselines.",
-                                                                "Try changing your filter settings.",
-                                                              ]
-                                                            }
-                                                            title="No matching baselines found"
-                                                          />
-                                                        </EmptyTable>,
-                                                      },
-                                                    ],
-                                                    "id": 0,
-                                                    "isExpanded": undefined,
-                                                    "isFirst": true,
-                                                    "isFirstVisible": true,
-                                                    "isHeightAuto": false,
-                                                    "isLast": true,
-                                                    "isLastVisible": true,
-                                                    "name": Object {
-                                                      "props": Object {
-                                                        "colSpan": 3,
-                                                        "isVisible": true,
-                                                      },
-                                                      "title": <EmptyTable>
-                                                        <EmptyStateDisplay
-                                                          text={
-                                                            Array [
-                                                              "This filter criteria matches no baselines.",
-                                                              "Try changing your filter settings.",
-                                                            ]
-                                                          }
-                                                          title="No matching baselines found"
-                                                        />
-                                                      </EmptyTable>,
-                                                    },
-                                                  },
-                                                ]
-                                              }
                                               onRow={[Function]}
-                                              renderers={
-                                                Object {
-                                                  "body": Object {
-                                                    "cell": [Function],
-                                                    "row": [Function],
-                                                    "wrapper": [Function],
-                                                  },
-                                                  "header": Object {
-                                                    "cell": [Function],
-                                                    "row": "tr",
-                                                    "wrapper": "thead",
-                                                  },
-                                                  "table": "table",
-                                                }
-                                              }
-                                              rowKey="id"
+                                              onRowClick={[Function]}
+                                              rowKey="secretTableRowKeyId"
                                               rows={
                                                 Array [
                                                   Object {
@@ -3642,35 +3463,11 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                         </EmptyTable>,
                                                       },
                                                     ],
-                                                    "id": 0,
-                                                    "isExpanded": undefined,
-                                                    "isFirst": true,
-                                                    "isFirstVisible": true,
-                                                    "isHeightAuto": false,
-                                                    "isLast": true,
-                                                    "isLastVisible": true,
-                                                    "name": Object {
-                                                      "props": Object {
-                                                        "colSpan": 3,
-                                                        "isVisible": true,
-                                                      },
-                                                      "title": <EmptyTable>
-                                                        <EmptyStateDisplay
-                                                          text={
-                                                            Array [
-                                                              "This filter criteria matches no baselines.",
-                                                              "Try changing your filter settings.",
-                                                            ]
-                                                          }
-                                                          title="No matching baselines found"
-                                                        />
-                                                      </EmptyTable>,
-                                                    },
                                                   },
                                                 ]
                                               }
                                             >
-                                              <BodyWrapper
+                                              <Component
                                                 className=""
                                                 headerRows={null}
                                                 mappedRows={
@@ -3694,7 +3491,6 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                           </EmptyTable>,
                                                         },
                                                       ],
-                                                      "id": 0,
                                                       "isExpanded": undefined,
                                                       "isFirst": true,
                                                       "isFirstVisible": true,
@@ -3702,6 +3498,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                       "isLast": true,
                                                       "isLastVisible": true,
                                                       "name": Object {
+                                                        "formatters": Array [],
                                                         "props": Object {
                                                           "colSpan": 3,
                                                           "isVisible": true,
@@ -3718,162 +3515,208 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                           />
                                                         </EmptyTable>,
                                                       },
+                                                      "secretTableRowKeyId": 0,
+                                                    },
+                                                  ]
+                                                }
+                                                onRow={[Function]}
+                                                rowKey="secretTableRowKeyId"
+                                                rows={
+                                                  Array [
+                                                    Object {
+                                                      "cells": Array [
+                                                        Object {
+                                                          "props": Object {
+                                                            "colSpan": 3,
+                                                          },
+                                                          "title": <EmptyTable>
+                                                            <EmptyStateDisplay
+                                                              text={
+                                                                Array [
+                                                                  "This filter criteria matches no baselines.",
+                                                                  "Try changing your filter settings.",
+                                                                ]
+                                                              }
+                                                              title="No matching baselines found"
+                                                            />
+                                                          </EmptyTable>,
+                                                        },
+                                                      ],
+                                                      "isExpanded": undefined,
+                                                      "isFirst": true,
+                                                      "isFirstVisible": true,
+                                                      "isHeightAuto": false,
+                                                      "isLast": true,
+                                                      "isLastVisible": true,
+                                                      "name": Object {
+                                                        "formatters": Array [],
+                                                        "props": Object {
+                                                          "colSpan": 3,
+                                                          "isVisible": true,
+                                                        },
+                                                        "title": <EmptyTable>
+                                                          <EmptyStateDisplay
+                                                            text={
+                                                              Array [
+                                                                "This filter criteria matches no baselines.",
+                                                                "Try changing your filter settings.",
+                                                              ]
+                                                            }
+                                                            title="No matching baselines found"
+                                                          />
+                                                        </EmptyTable>,
+                                                      },
+                                                      "secretTableRowKeyId": 0,
                                                     },
                                                   ]
                                                 }
                                               >
-                                                <tbody
+                                                <BaseBody
                                                   className=""
-                                                >
-                                                  <BodyRow
-                                                    columns={
-                                                      Array [
-                                                        Object {
-                                                          "cell": Object {
-                                                            "formatters": Array [
-                                                              [Function],
-                                                            ],
-                                                            "transforms": Array [
-                                                              [Function],
-                                                            ],
-                                                          },
-                                                          "data": undefined,
-                                                          "extraParams": Object {
-                                                            "actionResolver": undefined,
-                                                            "actions": undefined,
-                                                            "allRowsSelected": false,
-                                                            "areActionsDisabled": undefined,
-                                                            "canSelectAll": false,
-                                                            "contentId": "expanded-content",
-                                                            "dropdownDirection": "down",
-                                                            "dropdownPosition": "right",
-                                                            "expandId": "expandable-toggle",
-                                                            "firstUserColumnIndex": 0,
-                                                            "onCollapse": undefined,
-                                                            "onExpand": undefined,
-                                                            "onRowEdit": undefined,
-                                                            "onSelect": undefined,
-                                                            "onSort": undefined,
-                                                            "rowLabeledBy": "simple-node",
-                                                            "sortBy": undefined,
-                                                          },
-                                                          "header": Object {
-                                                            "formatters": Array [],
-                                                            "label": "Name",
-                                                            "transforms": Array [
-                                                              [Function],
-                                                              [Function],
-                                                              [Function],
-                                                              [Function],
-                                                            ],
-                                                          },
-                                                          "property": "name",
-                                                          "props": Object {
-                                                            "data-key": 0,
-                                                            "data-label": "Name",
-                                                          },
-                                                        },
-                                                        Object {
-                                                          "cell": Object {
-                                                            "formatters": Array [
-                                                              [Function],
-                                                            ],
-                                                            "transforms": Array [
-                                                              [Function],
-                                                            ],
-                                                          },
-                                                          "data": undefined,
-                                                          "extraParams": Object {
-                                                            "actionResolver": undefined,
-                                                            "actions": undefined,
-                                                            "allRowsSelected": false,
-                                                            "areActionsDisabled": undefined,
-                                                            "canSelectAll": false,
-                                                            "contentId": "expanded-content",
-                                                            "dropdownDirection": "down",
-                                                            "dropdownPosition": "right",
-                                                            "expandId": "expandable-toggle",
-                                                            "firstUserColumnIndex": 0,
-                                                            "onCollapse": undefined,
-                                                            "onExpand": undefined,
-                                                            "onRowEdit": undefined,
-                                                            "onSelect": undefined,
-                                                            "onSort": undefined,
-                                                            "rowLabeledBy": "simple-node",
-                                                            "sortBy": undefined,
-                                                          },
-                                                          "header": Object {
-                                                            "formatters": Array [],
-                                                            "label": "Last updated",
-                                                            "transforms": Array [
-                                                              [Function],
-                                                              [Function],
-                                                              [Function],
-                                                              [Function],
-                                                            ],
-                                                          },
-                                                          "property": "last-updated",
-                                                          "props": Object {
-                                                            "data-key": 1,
-                                                            "data-label": "Last updated",
-                                                          },
-                                                        },
-                                                        Object {
-                                                          "cell": Object {
-                                                            "formatters": Array [
-                                                              [Function],
-                                                            ],
-                                                            "transforms": Array [
-                                                              [Function],
-                                                            ],
-                                                          },
-                                                          "data": undefined,
-                                                          "extraParams": Object {
-                                                            "actionResolver": undefined,
-                                                            "actions": undefined,
-                                                            "allRowsSelected": false,
-                                                            "areActionsDisabled": undefined,
-                                                            "canSelectAll": false,
-                                                            "contentId": "expanded-content",
-                                                            "dropdownDirection": "down",
-                                                            "dropdownPosition": "right",
-                                                            "expandId": "expandable-toggle",
-                                                            "firstUserColumnIndex": 0,
-                                                            "onCollapse": undefined,
-                                                            "onExpand": undefined,
-                                                            "onRowEdit": undefined,
-                                                            "onSelect": undefined,
-                                                            "onSort": undefined,
-                                                            "rowLabeledBy": "simple-node",
-                                                            "sortBy": undefined,
-                                                          },
-                                                          "header": Object {
-                                                            "formatters": Array [],
-                                                            "label": "",
-                                                            "transforms": Array [
-                                                              [Function],
-                                                              [Function],
-                                                              [Function],
-                                                            ],
-                                                          },
-                                                          "property": "column-2",
-                                                          "props": Object {
-                                                            "data-key": 2,
-                                                            "data-label": "",
-                                                          },
-                                                        },
-                                                      ]
-                                                    }
-                                                    key="0-row"
-                                                    onRow={[Function]}
-                                                    renderers={
+                                                  columns={
+                                                    Array [
                                                       Object {
-                                                        "cell": [Function],
-                                                        "row": [Function],
-                                                        "wrapper": [Function],
-                                                      }
-                                                    }
-                                                    rowData={
+                                                        "cell": Object {
+                                                          "formatters": Array [
+                                                            [Function],
+                                                          ],
+                                                          "transforms": Array [
+                                                            [Function],
+                                                          ],
+                                                        },
+                                                        "data": undefined,
+                                                        "extraParams": Object {
+                                                          "actionResolver": undefined,
+                                                          "actions": undefined,
+                                                          "allRowsSelected": false,
+                                                          "areActionsDisabled": undefined,
+                                                          "canSelectAll": false,
+                                                          "contentId": "expanded-content",
+                                                          "dropdownDirection": "down",
+                                                          "dropdownPosition": "right",
+                                                          "expandId": "expandable-toggle",
+                                                          "firstUserColumnIndex": 0,
+                                                          "onCollapse": undefined,
+                                                          "onExpand": undefined,
+                                                          "onRowEdit": undefined,
+                                                          "onSelect": undefined,
+                                                          "onSort": undefined,
+                                                          "rowLabeledBy": "simple-node",
+                                                          "selectVariant": "checkbox",
+                                                          "sortBy": undefined,
+                                                        },
+                                                        "header": Object {
+                                                          "formatters": Array [],
+                                                          "label": "Name",
+                                                          "transforms": Array [
+                                                            [Function],
+                                                            [Function],
+                                                            [Function],
+                                                            [Function],
+                                                          ],
+                                                        },
+                                                        "property": "name",
+                                                        "props": Object {
+                                                          "data-key": 0,
+                                                          "data-label": "Name",
+                                                        },
+                                                      },
+                                                      Object {
+                                                        "cell": Object {
+                                                          "formatters": Array [
+                                                            [Function],
+                                                          ],
+                                                          "transforms": Array [
+                                                            [Function],
+                                                          ],
+                                                        },
+                                                        "data": undefined,
+                                                        "extraParams": Object {
+                                                          "actionResolver": undefined,
+                                                          "actions": undefined,
+                                                          "allRowsSelected": false,
+                                                          "areActionsDisabled": undefined,
+                                                          "canSelectAll": false,
+                                                          "contentId": "expanded-content",
+                                                          "dropdownDirection": "down",
+                                                          "dropdownPosition": "right",
+                                                          "expandId": "expandable-toggle",
+                                                          "firstUserColumnIndex": 0,
+                                                          "onCollapse": undefined,
+                                                          "onExpand": undefined,
+                                                          "onRowEdit": undefined,
+                                                          "onSelect": undefined,
+                                                          "onSort": undefined,
+                                                          "rowLabeledBy": "simple-node",
+                                                          "selectVariant": "checkbox",
+                                                          "sortBy": undefined,
+                                                        },
+                                                        "header": Object {
+                                                          "formatters": Array [],
+                                                          "label": "Last updated",
+                                                          "transforms": Array [
+                                                            [Function],
+                                                            [Function],
+                                                            [Function],
+                                                            [Function],
+                                                          ],
+                                                        },
+                                                        "property": "last-updated",
+                                                        "props": Object {
+                                                          "data-key": 1,
+                                                          "data-label": "Last updated",
+                                                        },
+                                                      },
+                                                      Object {
+                                                        "cell": Object {
+                                                          "formatters": Array [
+                                                            [Function],
+                                                          ],
+                                                          "transforms": Array [
+                                                            [Function],
+                                                          ],
+                                                        },
+                                                        "data": undefined,
+                                                        "extraParams": Object {
+                                                          "actionResolver": undefined,
+                                                          "actions": undefined,
+                                                          "allRowsSelected": false,
+                                                          "areActionsDisabled": undefined,
+                                                          "canSelectAll": false,
+                                                          "contentId": "expanded-content",
+                                                          "dropdownDirection": "down",
+                                                          "dropdownPosition": "right",
+                                                          "expandId": "expandable-toggle",
+                                                          "firstUserColumnIndex": 0,
+                                                          "onCollapse": undefined,
+                                                          "onExpand": undefined,
+                                                          "onRowEdit": undefined,
+                                                          "onSelect": undefined,
+                                                          "onSort": undefined,
+                                                          "rowLabeledBy": "simple-node",
+                                                          "selectVariant": "checkbox",
+                                                          "sortBy": undefined,
+                                                        },
+                                                        "header": Object {
+                                                          "formatters": Array [],
+                                                          "label": "",
+                                                          "transforms": Array [
+                                                            [Function],
+                                                            [Function],
+                                                            [Function],
+                                                          ],
+                                                        },
+                                                        "property": "column-2",
+                                                        "props": Object {
+                                                          "data-key": 2,
+                                                          "data-label": "",
+                                                        },
+                                                      },
+                                                    ]
+                                                  }
+                                                  headerRows={null}
+                                                  mappedRows={
+                                                    Array [
                                                       Object {
                                                         "cells": Array [
                                                           Object {
@@ -3893,7 +3736,6 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                             </EmptyTable>,
                                                           },
                                                         ],
-                                                        "id": 0,
                                                         "isExpanded": undefined,
                                                         "isFirst": true,
                                                         "isFirstVisible": true,
@@ -3901,6 +3743,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                         "isLast": true,
                                                         "isLastVisible": true,
                                                         "name": Object {
+                                                          "formatters": Array [],
                                                           "props": Object {
                                                             "colSpan": 3,
                                                             "isVisible": true,
@@ -3917,15 +3760,94 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                             />
                                                           </EmptyTable>,
                                                         },
-                                                      }
+                                                        "secretTableRowKeyId": 0,
+                                                      },
+                                                    ]
+                                                  }
+                                                  onRow={[Function]}
+                                                  renderers={
+                                                    Object {
+                                                      "body": Object {
+                                                        "cell": [Function],
+                                                        "row": [Function],
+                                                        "wrapper": [Function],
+                                                      },
+                                                      "header": Object {
+                                                        "cell": [Function],
+                                                        "row": Object {
+                                                          "$$typeof": Symbol(react.forward_ref),
+                                                          "displayName": "Tr",
+                                                          "render": [Function],
+                                                        },
+                                                        "wrapper": Object {
+                                                          "$$typeof": Symbol(react.forward_ref),
+                                                          "displayName": "Thead",
+                                                          "render": [Function],
+                                                        },
+                                                      },
+                                                      "table": Object {
+                                                        "$$typeof": Symbol(react.forward_ref),
+                                                        "displayName": "TableComposable",
+                                                        "render": [Function],
+                                                      },
                                                     }
-                                                    rowIndex={0}
-                                                    rowKey="0-row"
-                                                  >
-                                                    <RowWrapper
-                                                      className=""
-                                                      onMouseDown={[Function]}
-                                                      row={
+                                                  }
+                                                  rowKey="secretTableRowKeyId"
+                                                  rows={
+                                                    Array [
+                                                      Object {
+                                                        "cells": Array [
+                                                          Object {
+                                                            "props": Object {
+                                                              "colSpan": 3,
+                                                            },
+                                                            "title": <EmptyTable>
+                                                              <EmptyStateDisplay
+                                                                text={
+                                                                  Array [
+                                                                    "This filter criteria matches no baselines.",
+                                                                    "Try changing your filter settings.",
+                                                                  ]
+                                                                }
+                                                                title="No matching baselines found"
+                                                              />
+                                                            </EmptyTable>,
+                                                          },
+                                                        ],
+                                                        "isExpanded": undefined,
+                                                        "isFirst": true,
+                                                        "isFirstVisible": true,
+                                                        "isHeightAuto": false,
+                                                        "isLast": true,
+                                                        "isLastVisible": true,
+                                                        "name": Object {
+                                                          "formatters": Array [],
+                                                          "props": Object {
+                                                            "colSpan": 3,
+                                                            "isVisible": true,
+                                                          },
+                                                          "title": <EmptyTable>
+                                                            <EmptyStateDisplay
+                                                              text={
+                                                                Array [
+                                                                  "This filter criteria matches no baselines.",
+                                                                  "Try changing your filter settings.",
+                                                                ]
+                                                              }
+                                                              title="No matching baselines found"
+                                                            />
+                                                          </EmptyTable>,
+                                                        },
+                                                        "secretTableRowKeyId": 0,
+                                                      },
+                                                    ]
+                                                  }
+                                                >
+                                                  <BodyWrapper
+                                                    className=""
+                                                    headerRows={null}
+                                                    mappedRows={
+                                                      Array [
                                                         Object {
                                                           "cells": Array [
                                                             Object {
@@ -3945,7 +3867,6 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                               </EmptyTable>,
                                                             },
                                                           ],
-                                                          "id": 0,
                                                           "isExpanded": undefined,
                                                           "isFirst": true,
                                                           "isFirstVisible": true,
@@ -3953,6 +3874,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                           "isLast": true,
                                                           "isLastVisible": true,
                                                           "name": Object {
+                                                            "formatters": Array [],
                                                             "props": Object {
                                                               "colSpan": 3,
                                                               "isVisible": true,
@@ -3969,107 +3891,408 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                               />
                                                             </EmptyTable>,
                                                           },
-                                                        }
-                                                      }
-                                                      rowProps={
-                                                        Object {
-                                                          "rowIndex": 0,
-                                                          "rowKey": "0-row",
-                                                        }
-                                                      }
+                                                          "secretTableRowKeyId": 0,
+                                                        },
+                                                      ]
+                                                    }
+                                                  >
+                                                    <Tbody
+                                                      className=""
                                                     >
-                                                      <tr
+                                                      <TbodyBase
                                                         className=""
-                                                        data-ouia-component-id={10}
-                                                        data-ouia-component-type="PF4/TableRow"
-                                                        data-ouia-safe={true}
-                                                        hidden={false}
-                                                        onMouseDown={[Function]}
+                                                        innerRef={null}
                                                       >
-                                                        <BodyCell
-                                                          colSpan={3}
-                                                          data-key={0}
-                                                          data-label="Name"
-                                                          isVisible={true}
-                                                          key="col-0-row-0"
+                                                        <tbody
+                                                          className=""
+                                                          role="rowgroup"
                                                         >
-                                                          <td
-                                                            className=""
-                                                            colSpan={3}
-                                                            data-key={0}
-                                                            data-label="Name"
-                                                            onMouseEnter={[Function]}
+                                                          <BodyRow
+                                                            columns={
+                                                              Array [
+                                                                Object {
+                                                                  "cell": Object {
+                                                                    "formatters": Array [
+                                                                      [Function],
+                                                                    ],
+                                                                    "transforms": Array [
+                                                                      [Function],
+                                                                    ],
+                                                                  },
+                                                                  "data": undefined,
+                                                                  "extraParams": Object {
+                                                                    "actionResolver": undefined,
+                                                                    "actions": undefined,
+                                                                    "allRowsSelected": false,
+                                                                    "areActionsDisabled": undefined,
+                                                                    "canSelectAll": false,
+                                                                    "contentId": "expanded-content",
+                                                                    "dropdownDirection": "down",
+                                                                    "dropdownPosition": "right",
+                                                                    "expandId": "expandable-toggle",
+                                                                    "firstUserColumnIndex": 0,
+                                                                    "onCollapse": undefined,
+                                                                    "onExpand": undefined,
+                                                                    "onRowEdit": undefined,
+                                                                    "onSelect": undefined,
+                                                                    "onSort": undefined,
+                                                                    "rowLabeledBy": "simple-node",
+                                                                    "selectVariant": "checkbox",
+                                                                    "sortBy": undefined,
+                                                                  },
+                                                                  "header": Object {
+                                                                    "formatters": Array [],
+                                                                    "label": "Name",
+                                                                    "transforms": Array [
+                                                                      [Function],
+                                                                      [Function],
+                                                                      [Function],
+                                                                      [Function],
+                                                                    ],
+                                                                  },
+                                                                  "property": "name",
+                                                                  "props": Object {
+                                                                    "data-key": 0,
+                                                                    "data-label": "Name",
+                                                                  },
+                                                                },
+                                                                Object {
+                                                                  "cell": Object {
+                                                                    "formatters": Array [
+                                                                      [Function],
+                                                                    ],
+                                                                    "transforms": Array [
+                                                                      [Function],
+                                                                    ],
+                                                                  },
+                                                                  "data": undefined,
+                                                                  "extraParams": Object {
+                                                                    "actionResolver": undefined,
+                                                                    "actions": undefined,
+                                                                    "allRowsSelected": false,
+                                                                    "areActionsDisabled": undefined,
+                                                                    "canSelectAll": false,
+                                                                    "contentId": "expanded-content",
+                                                                    "dropdownDirection": "down",
+                                                                    "dropdownPosition": "right",
+                                                                    "expandId": "expandable-toggle",
+                                                                    "firstUserColumnIndex": 0,
+                                                                    "onCollapse": undefined,
+                                                                    "onExpand": undefined,
+                                                                    "onRowEdit": undefined,
+                                                                    "onSelect": undefined,
+                                                                    "onSort": undefined,
+                                                                    "rowLabeledBy": "simple-node",
+                                                                    "selectVariant": "checkbox",
+                                                                    "sortBy": undefined,
+                                                                  },
+                                                                  "header": Object {
+                                                                    "formatters": Array [],
+                                                                    "label": "Last updated",
+                                                                    "transforms": Array [
+                                                                      [Function],
+                                                                      [Function],
+                                                                      [Function],
+                                                                      [Function],
+                                                                    ],
+                                                                  },
+                                                                  "property": "last-updated",
+                                                                  "props": Object {
+                                                                    "data-key": 1,
+                                                                    "data-label": "Last updated",
+                                                                  },
+                                                                },
+                                                                Object {
+                                                                  "cell": Object {
+                                                                    "formatters": Array [
+                                                                      [Function],
+                                                                    ],
+                                                                    "transforms": Array [
+                                                                      [Function],
+                                                                    ],
+                                                                  },
+                                                                  "data": undefined,
+                                                                  "extraParams": Object {
+                                                                    "actionResolver": undefined,
+                                                                    "actions": undefined,
+                                                                    "allRowsSelected": false,
+                                                                    "areActionsDisabled": undefined,
+                                                                    "canSelectAll": false,
+                                                                    "contentId": "expanded-content",
+                                                                    "dropdownDirection": "down",
+                                                                    "dropdownPosition": "right",
+                                                                    "expandId": "expandable-toggle",
+                                                                    "firstUserColumnIndex": 0,
+                                                                    "onCollapse": undefined,
+                                                                    "onExpand": undefined,
+                                                                    "onRowEdit": undefined,
+                                                                    "onSelect": undefined,
+                                                                    "onSort": undefined,
+                                                                    "rowLabeledBy": "simple-node",
+                                                                    "selectVariant": "checkbox",
+                                                                    "sortBy": undefined,
+                                                                  },
+                                                                  "header": Object {
+                                                                    "formatters": Array [],
+                                                                    "label": "",
+                                                                    "transforms": Array [
+                                                                      [Function],
+                                                                      [Function],
+                                                                      [Function],
+                                                                    ],
+                                                                  },
+                                                                  "property": "column-2",
+                                                                  "props": Object {
+                                                                    "data-key": 2,
+                                                                    "data-label": "",
+                                                                  },
+                                                                },
+                                                              ]
+                                                            }
+                                                            key="0-row"
+                                                            onRow={[Function]}
+                                                            renderers={
+                                                              Object {
+                                                                "cell": [Function],
+                                                                "row": [Function],
+                                                                "wrapper": [Function],
+                                                              }
+                                                            }
+                                                            rowData={
+                                                              Object {
+                                                                "cells": Array [
+                                                                  Object {
+                                                                    "props": Object {
+                                                                      "colSpan": 3,
+                                                                    },
+                                                                    "title": <EmptyTable>
+                                                                      <EmptyStateDisplay
+                                                                        text={
+                                                                          Array [
+                                                                            "This filter criteria matches no baselines.",
+                                                                            "Try changing your filter settings.",
+                                                                          ]
+                                                                        }
+                                                                        title="No matching baselines found"
+                                                                      />
+                                                                    </EmptyTable>,
+                                                                  },
+                                                                ],
+                                                                "isExpanded": undefined,
+                                                                "isFirst": true,
+                                                                "isFirstVisible": true,
+                                                                "isHeightAuto": false,
+                                                                "isLast": true,
+                                                                "isLastVisible": true,
+                                                                "name": Object {
+                                                                  "formatters": Array [],
+                                                                  "props": Object {
+                                                                    "colSpan": 3,
+                                                                    "isVisible": true,
+                                                                  },
+                                                                  "title": <EmptyTable>
+                                                                    <EmptyStateDisplay
+                                                                      text={
+                                                                        Array [
+                                                                          "This filter criteria matches no baselines.",
+                                                                          "Try changing your filter settings.",
+                                                                        ]
+                                                                      }
+                                                                      title="No matching baselines found"
+                                                                    />
+                                                                  </EmptyTable>,
+                                                                },
+                                                                "secretTableRowKeyId": 0,
+                                                              }
+                                                            }
+                                                            rowIndex={0}
+                                                            rowKey="0-row"
                                                           >
-                                                            <EmptyTable>
-                                                              <div
-                                                                className="ins-c-table__empty"
+                                                            <RowWrapper
+                                                              className=""
+                                                              onMouseDown={[Function]}
+                                                              row={
+                                                                Object {
+                                                                  "cells": Array [
+                                                                    Object {
+                                                                      "props": Object {
+                                                                        "colSpan": 3,
+                                                                      },
+                                                                      "title": <EmptyTable>
+                                                                        <EmptyStateDisplay
+                                                                          text={
+                                                                            Array [
+                                                                              "This filter criteria matches no baselines.",
+                                                                              "Try changing your filter settings.",
+                                                                            ]
+                                                                          }
+                                                                          title="No matching baselines found"
+                                                                        />
+                                                                      </EmptyTable>,
+                                                                    },
+                                                                  ],
+                                                                  "isExpanded": undefined,
+                                                                  "isFirst": true,
+                                                                  "isFirstVisible": true,
+                                                                  "isHeightAuto": false,
+                                                                  "isLast": true,
+                                                                  "isLastVisible": true,
+                                                                  "name": Object {
+                                                                    "formatters": Array [],
+                                                                    "props": Object {
+                                                                      "colSpan": 3,
+                                                                      "isVisible": true,
+                                                                    },
+                                                                    "title": <EmptyTable>
+                                                                      <EmptyStateDisplay
+                                                                        text={
+                                                                          Array [
+                                                                            "This filter criteria matches no baselines.",
+                                                                            "Try changing your filter settings.",
+                                                                          ]
+                                                                        }
+                                                                        title="No matching baselines found"
+                                                                      />
+                                                                    </EmptyTable>,
+                                                                  },
+                                                                  "secretTableRowKeyId": 0,
+                                                                }
+                                                              }
+                                                              rowProps={
+                                                                Object {
+                                                                  "rowIndex": 0,
+                                                                  "rowKey": "0-row",
+                                                                }
+                                                              }
+                                                            >
+                                                              <Tr
+                                                                className=""
+                                                                onMouseDown={[Function]}
                                                               >
-                                                                 
-                                                                <EmptyStateDisplay
-                                                                  text={
-                                                                    Array [
-                                                                      "This filter criteria matches no baselines.",
-                                                                      "Try changing your filter settings.",
-                                                                    ]
-                                                                  }
-                                                                  title="No matching baselines found"
+                                                                <TrBase
+                                                                  className=""
+                                                                  innerRef={null}
+                                                                  onMouseDown={[Function]}
                                                                 >
-                                                                  <EmptyState
-                                                                    variant="large"
+                                                                  <tr
+                                                                    className=""
+                                                                    data-ouia-component-id="OUIA-Generated-TableRow-2"
+                                                                    data-ouia-component-type="PF4/TableRow"
+                                                                    data-ouia-safe={true}
+                                                                    hidden={false}
+                                                                    onMouseDown={[Function]}
                                                                   >
-                                                                    <div
-                                                                      className="pf-c-empty-state pf-m-lg"
+                                                                    <BodyCell
+                                                                      colSpan={3}
+                                                                      data-key={0}
+                                                                      data-label="Name"
+                                                                      isVisible={true}
+                                                                      key="col-0-row-0"
                                                                     >
-                                                                      <div
-                                                                        className="pf-c-empty-state__content"
+                                                                      <Td
+                                                                        className=""
+                                                                        colSpan={3}
+                                                                        component="td"
+                                                                        data-key={0}
+                                                                        dataLabel="Name"
+                                                                        onMouseEnter={[Function]}
+                                                                        textCenter={false}
                                                                       >
-                                                                        <br />
-                                                                        <Title
-                                                                          headingLevel="h1"
-                                                                          size="lg"
+                                                                        <TdBase
+                                                                          className=""
+                                                                          colSpan={3}
+                                                                          component="td"
+                                                                          data-key={0}
+                                                                          dataLabel="Name"
+                                                                          innerRef={null}
+                                                                          onMouseEnter={[Function]}
+                                                                          textCenter={false}
                                                                         >
-                                                                          <h1
-                                                                            className="pf-c-title pf-m-lg"
+                                                                          <td
+                                                                            className=""
+                                                                            colSpan={3}
+                                                                            data-key={0}
+                                                                            data-label="Name"
+                                                                            onMouseEnter={[Function]}
                                                                           >
-                                                                            No matching baselines found
-                                                                          </h1>
-                                                                        </Title>
-                                                                        <EmptyStateBody>
-                                                                          <div
-                                                                            className="pf-c-empty-state__body"
-                                                                          >
-                                                                            This filter criteria matches no baselines.
+                                                                            <EmptyTable>
+                                                                              <div
+                                                                                className="ins-c-table__empty"
+                                                                              >
+                                                                                 
+                                                                                <EmptyStateDisplay
+                                                                                  text={
+                                                                                    Array [
+                                                                                      "This filter criteria matches no baselines.",
+                                                                                      "Try changing your filter settings.",
+                                                                                    ]
+                                                                                  }
+                                                                                  title="No matching baselines found"
+                                                                                >
+                                                                                  <EmptyState
+                                                                                    variant="large"
+                                                                                  >
+                                                                                    <div
+                                                                                      className="pf-c-empty-state pf-m-lg"
+                                                                                    >
+                                                                                      <div
+                                                                                        className="pf-c-empty-state__content"
+                                                                                      >
+                                                                                        <br />
+                                                                                        <Title
+                                                                                          headingLevel="h1"
+                                                                                          size="lg"
+                                                                                        >
+                                                                                          <h1
+                                                                                            className="pf-c-title pf-m-lg"
+                                                                                          >
+                                                                                            No matching baselines found
+                                                                                          </h1>
+                                                                                        </Title>
+                                                                                        <EmptyStateBody>
+                                                                                          <div
+                                                                                            className="pf-c-empty-state__body"
+                                                                                          >
+                                                                                            This filter criteria matches no baselines.
 Try changing your filter settings.
-                                                                          </div>
-                                                                        </EmptyStateBody>
-                                                                      </div>
-                                                                    </div>
-                                                                  </EmptyState>
-                                                                </EmptyStateDisplay>
-                                                              </div>
-                                                            </EmptyTable>
-                                                          </td>
-                                                        </BodyCell>
-                                                        <BodyCell
-                                                          data-key={1}
-                                                          data-label="Last updated"
-                                                          key="col-1-row-0"
-                                                        />
-                                                        <BodyCell
-                                                          data-key={2}
-                                                          data-label=""
-                                                          key="col-2-row-0"
-                                                        />
-                                                      </tr>
-                                                    </RowWrapper>
-                                                  </BodyRow>
-                                                </tbody>
-                                              </BodyWrapper>
-                                            </BaseBody>
+                                                                                          </div>
+                                                                                        </EmptyStateBody>
+                                                                                      </div>
+                                                                                    </div>
+                                                                                  </EmptyState>
+                                                                                </EmptyStateDisplay>
+                                                                              </div>
+                                                                            </EmptyTable>
+                                                                          </td>
+                                                                        </TdBase>
+                                                                      </Td>
+                                                                    </BodyCell>
+                                                                    <BodyCell
+                                                                      data-key={1}
+                                                                      data-label="Last updated"
+                                                                      key="col-1-row-0"
+                                                                    />
+                                                                    <BodyCell
+                                                                      data-key={2}
+                                                                      data-label=""
+                                                                      key="col-2-row-0"
+                                                                    />
+                                                                  </tr>
+                                                                </TrBase>
+                                                              </Tr>
+                                                            </RowWrapper>
+                                                          </BodyRow>
+                                                        </tbody>
+                                                      </TbodyBase>
+                                                    </Tbody>
+                                                  </BodyWrapper>
+                                                </BaseBody>
+                                              </Component>
+                                            </ContextBody>
                                           </Component>
-                                        </ContextBody>
-                                      </Component>
-                                    </table>
+                                        </table>
+                                      </TableComposableBase>
+                                    </TableComposable>
                                   </Provider>
                                 </Table>
                                 <Toolbar>
@@ -4162,7 +4385,7 @@ Try changing your filter settings.
                                                   >
                                                     <div
                                                       className="pf-c-pagination"
-                                                      data-ouia-component-id={11}
+                                                      data-ouia-component-id={9}
                                                       data-ouia-component-type="PF4/Pagination"
                                                       data-ouia-safe={true}
                                                       id="pagination-options-menu-1"
@@ -4307,7 +4530,7 @@ Try changing your filter settings.
                                                         >
                                                           <div
                                                             className="pf-c-options-menu"
-                                                            data-ouia-component-id={12}
+                                                            data-ouia-component-id={10}
                                                             data-ouia-component-type="PF4/PaginationOptionsMenu"
                                                             data-ouia-safe={true}
                                                           >
@@ -4331,7 +4554,7 @@ Try changing your filter settings.
                                                                 Object {
                                                                   "current": <div
                                                                     class="pf-c-options-menu"
-                                                                    data-ouia-component-id="12"
+                                                                    data-ouia-component-id="10"
                                                                     data-ouia-component-type="PF4/PaginationOptionsMenu"
                                                                     data-ouia-safe="true"
                                                                   >
@@ -4425,7 +4648,7 @@ Try changing your filter settings.
                                                                     Object {
                                                                       "current": <div
                                                                         class="pf-c-options-menu"
-                                                                        data-ouia-component-id="12"
+                                                                        data-ouia-component-id="10"
                                                                         data-ouia-component-type="PF4/PaginationOptionsMenu"
                                                                         data-ouia-safe="true"
                                                                       >
@@ -4497,7 +4720,7 @@ Try changing your filter settings.
                                                                       Object {
                                                                         "current": <div
                                                                           class="pf-c-options-menu"
-                                                                          data-ouia-component-id="12"
+                                                                          data-ouia-component-id="10"
                                                                           data-ouia-component-type="PF4/PaginationOptionsMenu"
                                                                           data-ouia-safe="true"
                                                                         >
@@ -4638,7 +4861,7 @@ Try changing your filter settings.
                                                                 aria-label="Go to first page"
                                                                 className="pf-c-button pf-m-plain pf-m-disabled"
                                                                 data-action="first"
-                                                                data-ouia-component-id={13}
+                                                                data-ouia-component-id={11}
                                                                 data-ouia-component-type="PF4/Button"
                                                                 data-ouia-safe={true}
                                                                 disabled={true}
@@ -4688,7 +4911,7 @@ Try changing your filter settings.
                                                                 aria-label="Go to previous page"
                                                                 className="pf-c-button pf-m-plain pf-m-disabled"
                                                                 data-action="previous"
-                                                                data-ouia-component-id={14}
+                                                                data-ouia-component-id={12}
                                                                 data-ouia-component-type="PF4/Button"
                                                                 data-ouia-safe={true}
                                                                 disabled={true}
@@ -4759,7 +4982,7 @@ Try changing your filter settings.
                                                                 aria-label="Go to next page"
                                                                 className="pf-c-button pf-m-plain pf-m-disabled"
                                                                 data-action="next"
-                                                                data-ouia-component-id={15}
+                                                                data-ouia-component-id={13}
                                                                 data-ouia-component-type="PF4/Button"
                                                                 data-ouia-safe={true}
                                                                 disabled={true}
@@ -4809,7 +5032,7 @@ Try changing your filter settings.
                                                                 aria-label="Go to last page"
                                                                 className="pf-c-button pf-m-plain pf-m-disabled"
                                                                 data-action="last"
-                                                                data-ouia-component-id={16}
+                                                                data-ouia-component-id={14}
                                                                 data-ouia-component-type="PF4/Button"
                                                                 data-ouia-safe={true}
                                                                 disabled={true}
@@ -5482,7 +5705,7 @@ Create a baseline to use in your Comparison analysis.
                                     aria-disabled={false}
                                     aria-label={null}
                                     className="pf-c-button pf-m-primary"
-                                    data-ouia-component-id={17}
+                                    data-ouia-component-id={15}
                                     data-ouia-component-type="PF4/Button"
                                     data-ouia-safe={true}
                                     disabled={false}

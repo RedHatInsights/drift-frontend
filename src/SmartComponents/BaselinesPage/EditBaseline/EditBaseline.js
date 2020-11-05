@@ -5,8 +5,9 @@ import { connect } from 'react-redux';
 
 import { Main, PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, Checkbox, BreadcrumbHeading } from '@patternfly/react-core';
-import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
+import { Skeleton, SkeletonSize, SkeletonTable } from '@redhat-cloud-services/frontend-components';
 import { AngleDownIcon, AngleRightIcon, EditAltIcon, ExclamationCircleIcon, LockIcon, UndoIcon } from '@patternfly/react-icons';
+import { cellWidth } from '@patternfly/react-table';
 
 import EditBaselineToolbar from './EditBaselineToolbar/EditBaselineToolbar';
 import ErrorAlert from '../../ErrorAlert/ErrorAlert';
@@ -31,6 +32,11 @@ export class EditBaseline extends Component {
             errorMessage: [ 'The baseline cannot be displayed at this time. Please retry and if',
                 'the problem persists contact your system administrator.',
                 ''
+            ],
+            loadingColumns: [
+                { title: 'Fact', transforms: [ cellWidth(40) ]},
+                { title: 'Value', transforms: [ cellWidth(45) ]},
+                { title: '', transforms: [ cellWidth(5) ]}
             ]
         };
 
@@ -100,12 +106,27 @@ export class EditBaseline extends Component {
         return breadcrumb;
     }
 
-    renderPageTitle(baselineData, hasReadPermissions) {
+    renderPageTitle(baselineData, hasReadPermissions, hasWritePermissions) {
+        let pageTitle;
+
         if (hasReadPermissions) {
-            return <PageHeaderTitle title={ !_.isEmpty(baselineData) ? baselineData.display_name : null }/>;
+            if (hasWritePermissions) {
+                pageTitle = <React.Fragment>
+                    <span className='pf-c-title pf-m-2xl'>
+                        { !_.isEmpty(baselineData) ? baselineData.display_name : null }
+                    </span>
+                    <span>
+                        { <EditAltIcon className='pointer not-active edit-icon-margin' onClick={ () => this.toggleEditNameModal() } /> }
+                    </span>
+                </React.Fragment>;
+            } else {
+                pageTitle = <React.Fragment>{ !_.isEmpty(baselineData) ? baselineData.display_name : null }</React.Fragment>;
+            }
         } else {
-            return <PageHeaderTitle title='Baseline' />;
+            pageTitle = <React.Fragment>{ 'Baseline' }</React.Fragment>;
         }
+
+        return pageTitle;
     }
 
     renderPageHeader = (hasReadPermissions, hasWritePermissions) => {
@@ -128,11 +149,9 @@ export class EditBaseline extends Component {
                     />
                     <PageHeader>
                         { this.renderBreadcrumb(baselineData, hasReadPermissions) }
-                        { this.renderPageTitle(baselineData, hasReadPermissions) }
-                        { hasReadPermissions && hasWritePermissions
-                            ? <EditAltIcon className='pointer not-active edit-icon-margin' onClick={ () => this.toggleEditNameModal() } />
-                            : null
-                        }
+                        <div id="edit-baseline-title">
+                            { this.renderPageTitle(baselineData, hasReadPermissions, hasWritePermissions) }
+                        </div>
                     </PageHeader>
                 </React.Fragment>;
             } else {
@@ -158,18 +177,15 @@ export class EditBaseline extends Component {
     }
 
     renderLoadingRows() {
-        let rows = [];
-        let rowData = [];
+        const { loadingColumns } = this.state;
 
-        for (let i = 0; i < 3; i += 1) {
-            rowData.push(<td><Skeleton size={ SkeletonSize.md } /></td>);
-        }
-
-        for (let i = 0; i < 10; i += 1) {
-            rows.push(<tr>{ rowData }</tr>);
-        }
-
-        return rows;
+        return <SkeletonTable
+            columns={ loadingColumns }
+            rowSize={ 8 }
+            onSelect={ true }
+            canSelectAll={ false }
+            isSelectable={ true }
+        />;
     }
 
     renderExpandableRowButton(factName) {
@@ -351,25 +367,20 @@ export class EditBaseline extends Component {
     }
 
     renderTable(hasWritePermissions) {
-        const { baselineDataLoading } = this.props;
-
         return (
             <table className="pf-c-table ins-c-table pf-m-grid-md ins-entity-table">
                 <thead>
                     { this.renderHeaderRow(hasWritePermissions) }
                 </thead>
                 <tbody key='edit-baseline-table'>
-                    { !baselineDataLoading
-                        ? this.renderRows(hasWritePermissions)
-                        : this.renderLoadingRows()
-                    }
+                    { this.renderRows(hasWritePermissions) }
                 </tbody>
             </table>
         );
     }
 
     render() {
-        const { baselineData, editBaselineTableData, exportToCSV, factModalOpened,
+        const { baselineData, baselineDataLoading, editBaselineTableData, exportToCSV, factModalOpened,
             editBaselineEmptyState, editBaselineError, clearErrorData } = this.props;
         let selected = editBaselineHelpers.findSelected(editBaselineTableData);
 
@@ -409,7 +420,10 @@ export class EditBaseline extends Component {
                                                     tableData={ editBaselineTableData }
                                                     hasWritePermissions={ value.permissions.baselinesWrite }
                                                 />
-                                                { this.renderTable(value.permissions.baselinesWrite) }
+                                                { baselineDataLoading
+                                                    ? this.renderLoadingRows()
+                                                    : this.renderTable(value.permissions.baselinesWrite)
+                                                }
                                             </CardBody>
                                         </Card>
                                     }

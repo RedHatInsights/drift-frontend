@@ -77,9 +77,9 @@ describe('ConnectedEditBaseline', () => {
             </PermissionContext.Provider>
         );
 
+        expect(toJson(wrapper)).toMatchSnapshot();
         expect(wrapper.find('EmptyStateDisplay')).toHaveLength(1);
         expect(wrapper.find('EditAltIcon')).toHaveLength(0);
-        expect(wrapper.find('PageHeaderTitle').prop('title')).toEqual('Baseline');
     });
 
     it('should render disabled with no write permissions', () => {
@@ -164,8 +164,9 @@ describe('ConnectedEditBaseline', () => {
             </PermissionContext.Provider>
         );
 
-        expect(wrapper.find('PageHeaderTitle').prop('title')).toEqual('lotr-baseline');
         expect(toJson(wrapper)).toMatchSnapshot();
+        //expect(wrapper.find('PageHeaderTitle').prop('title')).toEqual('lotr-baseline');
+        expect(wrapper.find('#edit-baseline-title').text()).toEqual('lotr-baseline');
     });
 
     it('should render expandable rows closed', () => {
