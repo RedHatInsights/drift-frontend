@@ -144,6 +144,7 @@ export class CreateBaselineModal extends Component {
                 totalBaselines={ totalBaselines }
                 hasReadPermissions={ hasReadPermissions }
                 hasWritePermissions={ hasWritePermissions }
+                hasMultiSelect={ false }
             />
         </React.Fragment>
         );

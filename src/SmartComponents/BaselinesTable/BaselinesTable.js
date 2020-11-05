@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Table, TableBody, TableHeader } from '@patternfly/react-table';
-import { Skeleton, SkeletonSize, EmptyTable } from '@redhat-cloud-services/frontend-components';
+import { EmptyTable, SkeletonTable } from '@redhat-cloud-services/frontend-components';
 import { Radio, Toolbar, ToolbarGroup, ToolbarItem } from '@patternfly/react-core';
 import { LockIcon } from '@patternfly/react-icons';
 
@@ -37,12 +37,6 @@ export class BaselinesTable extends Component {
     async componentDidMount() {
         await window.insights.chrome.auth.getUser();
         this.fetchWithParams();
-    }
-
-    isDisabled = () => {
-        const { selectedBaselineIds } = this.props;
-
-        return selectedBaselineIds && selectedBaselineIds.length < 1;
     }
 
     fetchWithParams = (fetchParams) => {
@@ -92,26 +86,6 @@ export class BaselinesTable extends Component {
     updatePagination = (pagination) => {
         this.setState({ page: pagination.page, perPage: pagination.perPage });
         this.fetchWithParams({ page: pagination.page, perPage: pagination.perPage });
-    }
-
-    renderLoadingRows() {
-        const { hasMultiSelect } = this.props;
-        let rows = [];
-        let rowData = [];
-
-        if (!hasMultiSelect) {
-            rowData.push(<div className='pf-c-table__check'><Skeleton size={ SkeletonSize.sm } /></div>);
-        }
-
-        for (let i = 0; i < 2; i += 1) {
-            rowData.push(<div><Skeleton size={ SkeletonSize.md } /></div>);
-        }
-
-        for (let i = 0; i < 10; i += 1) {
-            rows.push(rowData);
-        }
-
-        return rows;
     }
 
     renderRadioButton = (data) => {
@@ -180,7 +154,6 @@ export class BaselinesTable extends Component {
     renderTable(hasWritePermissions, hasReadPermissions) {
         const { columns, createButton, hasMultiSelect, kebab, loading, onSelect, tableData } = this.props;
         const { emptyStateMessage } = this.state;
-        let loadingRows = [];
         let tableRows = [];
         let table;
 
@@ -239,18 +212,14 @@ export class BaselinesTable extends Component {
                 }
             }
         } else if (loading) {
-            loadingRows = this.renderLoadingRows();
-
-            table = <Table
-                aria-label="Loading Baselines Table"
-                onSelect={ hasMultiSelect ? true : false }
-                cells={ columns }
-                rows={ loadingRows }
+            table = <SkeletonTable
+                columns={ columns }
+                rowSize={ 8 }
+                onSelect={ true }
+                hasRadio={ !hasMultiSelect }
                 canSelectAll={ false }
-            >
-                <TableHeader />
-                <TableBody />
-            </Table>;
+                isSelectable={ true }
+            />;
         }
 
         return table;
@@ -274,7 +243,7 @@ export class BaselinesTable extends Component {
                     onBulkSelect={ onBulkSelect }
                     hasMultiSelect={ hasMultiSelect }
                     selectedBaselineIds={ selectedBaselineIds }
-                    isDisabled={ this.isDisabled() }
+                    isDeleteDisabled={ selectedBaselineIds?.length < 1 }
                     page={ page }
                     perPage={ perPage }
                     totalBaselines={ totalBaselines }

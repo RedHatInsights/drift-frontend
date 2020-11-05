@@ -147,6 +147,7 @@ export class AddSystemModal extends Component {
                                 totalBaselines={ totalBaselines }
                                 hasReadPermissions={ hasBaselinesReadPermissions }
                                 hasWritePermissions={ hasBaselinesWritePermissions }
+                                kebab={ false }
                             />
                         </Tab>
                     </Tabs>

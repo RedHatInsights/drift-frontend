@@ -47,6 +47,7 @@ exports[`jest-tests BaselinesToolbar should render correctly 1`] = `
         <ToolbarItem>
           <ConditionalFilter
             hideLabel={false}
+            id="default-input"
             isDisabled={false}
             items={Array []}
             onChange={[Function]}
@@ -665,6 +666,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                             >
                               <ConditionalFilter
                                 hideLabel={false}
+                                id="default-input"
                                 isDisabled={false}
                                 items={Array []}
                                 onChange={[Function]}
@@ -675,6 +677,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                   className="ins-c-conditional-filter"
                                 >
                                   <Text
+                                    aria-label="text input"
                                     id="default-input"
                                     isDisabled={false}
                                     onChange={[Function]}
@@ -684,6 +687,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                     widget-type="InsightsInput"
                                   >
                                     <ForwardRef
+                                      aria-label="text input"
                                       className="ins-c-conditional-filter "
                                       id="default-input"
                                       isDisabled={false}
@@ -694,7 +698,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                       widget-type="InsightsInput"
                                     >
                                       <TextInputBase
-                                        aria-label={null}
+                                        aria-label="text input"
                                         className="ins-c-conditional-filter "
                                         id="default-input"
                                         innerRef={null}
@@ -712,7 +716,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                       >
                                         <input
                                           aria-invalid={false}
-                                          aria-label={null}
+                                          aria-label="text input"
                                           className="pf-c-form-control ins-c-conditional-filter "
                                           disabled={false}
                                           id="default-input"
