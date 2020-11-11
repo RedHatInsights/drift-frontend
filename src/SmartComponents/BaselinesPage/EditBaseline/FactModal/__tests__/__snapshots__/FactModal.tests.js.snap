@@ -202,7 +202,7 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                         >
                           <div />
                           <div
-                            class="pf-c-check"
+                            class="pf-c-check sm-padding-bottom"
                           >
                             <input
                               aria-invalid="false"
@@ -490,7 +490,7 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                                 <div />
                                 <Checkbox
                                   aria-label="controlled checkbox example"
-                                  className=""
+                                  className="sm-padding-bottom"
                                   id="isCategory"
                                   isChecked={false}
                                   isDisabled={false}
@@ -500,7 +500,7 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                                   onChange={[Function]}
                                 >
                                   <div
-                                    className="pf-c-check"
+                                    className="pf-c-check sm-padding-bottom"
                                   >
                                     <input
                                       aria-invalid={false}
@@ -788,7 +788,7 @@ exports[`FactModal should render category correctly 1`] = `
   <div />
   <Checkbox
     aria-label="controlled checkbox example"
-    className=""
+    className="sm-padding-bottom"
     id="isCategory"
     isChecked={true}
     isDisabled={true}
@@ -857,7 +857,7 @@ exports[`FactModal should render empty correctly 1`] = `
   <div />
   <Checkbox
     aria-label="controlled checkbox example"
-    className=""
+    className="sm-padding-bottom"
     id="isCategory"
     isChecked={false}
     isDisabled={false}

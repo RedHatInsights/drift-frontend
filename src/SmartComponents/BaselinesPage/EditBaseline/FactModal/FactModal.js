@@ -90,6 +90,7 @@ export class FactModal extends Component {
         const { isCategory, isEditFact } = this.state;
 
         return <Checkbox
+            className="sm-padding-bottom"
             aria-label="controlled checkbox example"
             label="This is a category"
             id="isCategory"
