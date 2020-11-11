@@ -52,38 +52,6 @@ describe('DriftTable', () => {
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 
-    it('should render fact sort asc', () => {
-        props.factSort = 'asc';
-        const wrapper = shallow(
-            <DriftTable { ...props }/>
-        );
-        expect(toJson(wrapper)).toMatchSnapshot();
-    });
-
-    it('should render fact sort desc', () => {
-        props.factSort = 'desc';
-        const wrapper = shallow(
-            <DriftTable { ...props }/>
-        );
-        expect(toJson(wrapper)).toMatchSnapshot();
-    });
-
-    it('should render state sort asc', () => {
-        props.stateSort = 'asc';
-        const wrapper = shallow(
-            <DriftTable { ...props }/>
-        );
-        expect(toJson(wrapper)).toMatchSnapshot();
-    });
-
-    it('should render state sort desc', () => {
-        props.stateSort = 'desc';
-        const wrapper = shallow(
-            <DriftTable { ...props }/>
-        );
-        expect(toJson(wrapper)).toMatchSnapshot();
-    });
-
     it('should call clearComparison on fetchCompare with no data', () => {
         const wrapper = shallow(
             <DriftTable { ...props } />
