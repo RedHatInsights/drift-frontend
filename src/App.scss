@@ -86,34 +86,10 @@
     }
   }
 
-  .historical-system-profile-dropdown {
-    .pf-c-dropdown__menu {
-      padding: 10px;
-      padding-top: 0px;
-      padding-bottom: 0px;
+  .historical-system-profile-popover {
+    .pf-c-popover__content {
       max-height: 250px;
       overflow: auto;
-    }
-
-    .pf-c-dropdown__menu .sticky-compare {
-      position: sticky;
-      bottom: 0;
-      min-height: 56px;
-      margin-left: -10px;
-      margin-right: -10px;
-      padding-left: 16px;
-      padding-top: 10px;
-      background: var(--pf-global--BackgroundColor--100);
-      border-top: var(--pf-global--BorderWidth--sm) solid
-        var(--pf-global--BorderColor--100);
-    }
-
-    .pf-c-dropdown__menu .sticky-header {
-      position: sticky;
-      top: 0;
-      padding: 10px;
-      padding-left: 16px;
-      background: var(--pf-global--BackgroundColor--100);
     }
   }
 
@@ -321,7 +297,7 @@
   }
 
   .hsp-dropdown-loading {
-    min-width: 200px;
+    min-width: 250px;
     margin-top: 20px;
     margin-bottom: 20px;
   }
@@ -345,12 +321,22 @@
   margin-right: 5px;
 }
 
+.hsp-icon-padding {
+  padding: 8px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
 .md-padding-top {
   padding-top: 16px;
 }
 
 .md-padding-bottom {
   padding-bottom: 16px;
+}
+
+.sm-padding-top {
+  padding-top: 8px;
 }
 
 .sm-padding-bottom {
@@ -373,4 +359,8 @@
 
 .tooltip-button-margin {
   margin-top: 32px;
+}
+
+.badge-margin {
+  margin-bottom: 30px;
 }

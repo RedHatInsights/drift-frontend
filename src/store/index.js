@@ -7,7 +7,7 @@ import { baselinesTableRootReducer } from '../SmartComponents/BaselinesTable/red
 import { filterDropdownReducer } from '../SmartComponents/DriftPage/FilterDropDown/redux/filterDropdownReducer';
 import { createBaselineModalReducer } from '../SmartComponents/BaselinesPage/CreateBaselineModal/redux/reducers';
 import { editBaselineReducer } from '../SmartComponents/BaselinesPage/EditBaseline/redux/reducers';
-import { historicProfilesReducer } from '../SmartComponents/HistoricalProfilesDropdown/redux/reducers';
+import { historicProfilesReducer } from '../SmartComponents/HistoricalProfilesPopover/redux/reducers';
 
 import MiddlewareListener from '@redhat-cloud-services/frontend-components-utilities/files/MiddlewareListener';
 import { notifications } from '@redhat-cloud-services/frontend-components-notifications';

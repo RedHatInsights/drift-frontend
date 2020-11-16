@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { DropdownDirection, Tooltip } from '@patternfly/react-core';
+import { Tooltip } from '@patternfly/react-core';
 import { ClockIcon, TimesIcon, ExclamationTriangleIcon, ServerIcon, BlueprintIcon } from '@patternfly/react-icons';
 import { LongArrowAltUpIcon, LongArrowAltDownIcon, ArrowsAltVIcon } from '@patternfly/react-icons';
 import moment from 'moment';
 
 import { ASC, DESC } from '../../../../constants';
 
-import HistoricalProfilesDropdown from '../../../HistoricalProfilesDropdown/HistoricalProfilesDropdown';
+import HistoricalProfilesPopover from '../../../HistoricalProfilesPopover/HistoricalProfilesPopover';
 import ReferenceSelector from '../ReferenceSelector/ReferenceSelector';
 
 class ComparisonHeader extends Component {
@@ -101,12 +101,11 @@ class ComparisonHeader extends Component {
                                 : this.formatDate(item.updated)
                             }
                             { item.type === 'system' || item.type === 'historical-system-profile'
-                                ? <HistoricalProfilesDropdown
+                                ? <HistoricalProfilesPopover
                                     system={ item }
                                     systemIds={ systemIds }
                                     referenceId={ referenceId }
                                     fetchCompare={ fetchCompare }
-                                    dropdownDirection={ DropdownDirection.down }
                                     hasCompareButton={ true }
                                     hasMultiSelect={ true }
                                 />

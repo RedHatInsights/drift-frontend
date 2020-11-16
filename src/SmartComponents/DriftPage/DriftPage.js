@@ -8,7 +8,7 @@ import { Card, CardBody, Toolbar, ToolbarGroup, ToolbarItem, PaginationVariant }
 import { ExclamationCircleIcon, LockIcon, PlusCircleIcon } from '@patternfly/react-icons';
 import { baselinesTableActions } from '../BaselinesTable/redux';
 import { compareActions } from '../modules';
-import { historicProfilesActions } from '../HistoricalProfilesDropdown/redux';
+import { historicProfilesActions } from '../HistoricalProfilesPopover/redux';
 import { setHistory } from '../../Utilities/SetHistory';
 
 import DriftTable from './DriftTable/DriftTable';

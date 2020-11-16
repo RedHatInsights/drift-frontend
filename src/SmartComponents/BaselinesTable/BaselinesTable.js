@@ -218,9 +218,6 @@ export class BaselinesTable extends Component {
                         text={ [ 'Contact your organization administrator(s) for more information.' ] }
                     />;
                 } else {
-                    /*eslint-disable*/
-                    console.log(columns);
-                    /*eslint-enable*/
                     tableRows = this.renderRows(hasWritePermissions);
 
                     table = <Table
