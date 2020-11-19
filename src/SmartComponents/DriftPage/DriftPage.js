@@ -77,8 +77,8 @@ export class DriftPage extends Component {
     }
 
     render() {
-        const { clearComparison, clearComparisonFilters, clearSelectedBaselines, emptyState, error, exportToCSV, history,
-            loading, page, perPage, totalFacts, updatePagination, updateReferenceId } = this.props;
+        const { addStateFilter, clearComparison, clearComparisonFilters, clearSelectedBaselines, emptyState, error, exportToCSV, factFilter,
+            filterByFact, history, loading, page, perPage, stateFilters, totalFacts, updatePagination, updateReferenceId } = this.props;
         const { isFirstReference } = this.state;
 
         return (
@@ -122,6 +122,10 @@ export class DriftPage extends Component {
                                                         updateReferenceId={ updateReferenceId }
                                                         setIsFirstReference={ this.setIsFirstReference }
                                                         clearSelectedBaselines={ clearSelectedBaselines }
+                                                        factFilter={ factFilter }
+                                                        filterByFact={ filterByFact }
+                                                        stateFilters={ stateFilters }
+                                                        addStateFilter={ addStateFilter }
                                                     />
                                                     : null
                                                 }
@@ -182,7 +186,11 @@ DriftPage.propTypes = {
     selectedHSPIds: PropTypes.array,
     revertCompareData: PropTypes.func,
     previousStateSystems: PropTypes.array,
-    exportToCSV: PropTypes.func
+    exportToCSV: PropTypes.func,
+    factFilter: PropTypes.string,
+    filterByFact: PropTypes.func,
+    stateFilters: PropTypes.array,
+    addStateFilter: PropTypes.func
 };
 
 function mapDispatchToProps(dispatch) {
@@ -194,7 +202,9 @@ function mapDispatchToProps(dispatch) {
         clearComparisonFilters: () => dispatch(compareActions.clearComparisonFilters()),
         selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds)),
         revertCompareData: () => dispatch(compareActions.revertCompareData()),
-        exportToCSV: () => dispatch(compareActions.exportToCSV())
+        exportToCSV: () => dispatch(compareActions.exportToCSV()),
+        filterByFact: (filter) => dispatch(compareActions.filterByFact(filter)),
+        addStateFilter: (filter) => dispatch(compareActions.addStateFilter(filter))
     };
 }
 
@@ -207,7 +217,9 @@ function mapStateToProps(state) {
         loading: state.compareState.loading,
         emptyState: state.compareState.emptyState,
         selectedHSPIds: state.historicProfilesState.selectedHSPIds,
-        previousStateSystems: state.compareState.previousStateSystems
+        previousStateSystems: state.compareState.previousStateSystems,
+        factFilter: state.compareState.factFilter,
+        stateFilters: state.compareState.stateFilters
     };
 }
 

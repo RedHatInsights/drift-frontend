@@ -3,6 +3,7 @@ import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
 import DriftToolbar from '../DriftToolbar';
+import stateFilters from '../../../modules/__tests__/state-filter.fixtures';
 
 describe('DriftToolbar', () => {
     let props;
@@ -19,7 +20,10 @@ describe('DriftToolbar', () => {
             updateReferenceId: jest.fn(),
             updatePagination: jest.fn(),
             setIsFirstReference: jest.fn(),
-            history: { push: jest.fn() }
+            history: { push: jest.fn() },
+            stateFilters: stateFilters.allStatesTrue,
+            addStateFilter: jest.fn(),
+            filterByFact: jest.fn()
         };
     });
 
@@ -55,6 +59,78 @@ describe('DriftToolbar', () => {
         expect(wrapper.state('dropdownOpen')).toEqual(true);
     });
 
+    it('should clear state chips', () => {
+        const wrapper = shallow(
+            <DriftToolbar { ...props } />
+        );
+        wrapper.instance().clearAllStateChips();
+
+        expect(props.addStateFilter).toHaveBeenCalledWith(
+            { filter: 'SAME', display: 'Same', selected: true }
+        );
+        expect(props.addStateFilter).toHaveBeenCalledWith(
+            { filter: 'DIFFERENT', display: 'Different', selected: true }
+        );
+        expect(props.addStateFilter).toHaveBeenCalledWith(
+            { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
+        );
+    });
+
+    it('should remove single state chip', () => {
+        const wrapper = shallow(
+            <DriftToolbar { ...props } />
+        );
+        wrapper.instance().removeChip('State', 'Same');
+
+        expect(props.addStateFilter).toHaveBeenCalledWith(
+            { filter: 'SAME', display: 'Same', selected: true }
+        );
+    });
+
+    it('should remove all state chips', () => {
+        const wrapper = shallow(
+            <DriftToolbar { ...props } />
+        );
+        wrapper.instance().removeChip('State', '');
+
+        expect(props.addStateFilter).toHaveBeenCalledWith(
+            { filter: 'SAME', display: 'Same', selected: true }
+        );
+        expect(props.addStateFilter).toHaveBeenCalledWith(
+            { filter: 'DIFFERENT', display: 'Different', selected: true }
+        );
+        expect(props.addStateFilter).toHaveBeenCalledWith(
+            { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
+        );
+    });
+
+    it('should remove filter chip', () => {
+        const wrapper = shallow(
+            <DriftToolbar { ...props } />
+        );
+        wrapper.instance().removeChip('Fact name', 'blah');
+
+        expect(props.filterByFact).toHaveBeenCalledWith('');
+    });
+
+    it('should clear all filters', () => {
+        const wrapper = shallow(
+            <DriftToolbar { ...props } />
+        );
+        wrapper.instance().removeChip();
+
+        expect(props.filterByFact).toHaveBeenCalledWith('');
+        expect(props.addStateFilter).toHaveBeenCalledWith(
+            { filter: 'SAME', display: 'Same', selected: true }
+        );
+        expect(props.addStateFilter).toHaveBeenCalledWith(
+            { filter: 'DIFFERENT', display: 'Different', selected: true }
+        );
+        expect(props.addStateFilter).toHaveBeenCalledWith(
+            { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
+        );
+    });
+
     it('should call clearFilters', () => {
         const wrapper = shallow(
             <DriftToolbar { ...props } />
@@ -62,5 +138,14 @@ describe('DriftToolbar', () => {
         wrapper.setState({ isEmpty: false });
         wrapper.find('a').simulate('click');
         expect(props.clearComparisonFilters).toHaveBeenCalled();
+    });
+
+    it('should set isEmpty', () => {
+        const wrapper = shallow(
+            <DriftToolbar { ...props } />
+        );
+
+        wrapper.instance().setIsEmpty(false);
+        expect(wrapper.state('isEmpty')).toEqual(false);
     });
 });

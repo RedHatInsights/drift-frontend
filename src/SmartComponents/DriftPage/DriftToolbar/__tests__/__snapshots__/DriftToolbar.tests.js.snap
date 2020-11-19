@@ -4,6 +4,7 @@ exports[`DriftToolbar should render correctly 1`] = `
 <Fragment>
   <Toolbar
     className="drift-toolbar"
+    clearAllFilters={[Function]}
   >
     <ToolbarContent
       isExpanded={false}
@@ -12,12 +13,33 @@ exports[`DriftToolbar should render correctly 1`] = `
       <ForwardRef
         variant="filter-group"
       >
-        <ToolbarItem>
+        <ToolbarFilter
+          categoryName="Fact name"
+          chips={
+            Array [
+              undefined,
+            ]
+          }
+          deleteChip={[Function]}
+          showToolbarItem={true}
+        >
           <Connect(SearchBar) />
-        </ToolbarItem>
-        <ToolbarItem>
+        </ToolbarFilter>
+        <ToolbarFilter
+          categoryName="State"
+          chips={
+            Array [
+              "Same",
+              "Different",
+              "Incomplete data",
+            ]
+          }
+          deleteChip={[Function]}
+          deleteChipGroup={[Function]}
+          showToolbarItem={true}
+        >
           <Connect(FilterDropDown) />
-        </ToolbarItem>
+        </ToolbarFilter>
       </ForwardRef>
       <ForwardRef
         variant="button-group"
@@ -80,22 +102,9 @@ exports[`DriftToolbar should render correctly 1`] = `
           widgetId="drift-pagination-top"
         />
       </ToolbarItem>
-    </ToolbarContent>
-  </Toolbar>
-  <Toolbar
-    className="drift-toolbar"
-  >
-    <ToolbarContent
-      isExpanded={false}
-      showClearFiltersButton={false}
-    >
-      <ForwardRef>
-        <ToolbarItem>
-          <Connect(DriftFilterChips)
-            setIsEmpty={[Function]}
-          />
-        </ToolbarItem>
-      </ForwardRef>
+      <ForwardRef
+        variant="filter-group"
+      />
     </ToolbarContent>
   </Toolbar>
 </Fragment>
