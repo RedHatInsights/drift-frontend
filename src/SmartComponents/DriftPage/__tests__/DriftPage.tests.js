@@ -79,7 +79,8 @@ describe('ConnectedDriftPage', () => {
                     { filter: 'SAME', display: 'Same', selected: true },
                     { filter: 'DIFFERENT', display: 'Different', selected: true },
                     { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
-                ]
+                ],
+                factFilter: ''
             },
             addSystemModalState: {
                 addSystemModalOpened: false
@@ -123,7 +124,7 @@ describe('ConnectedDriftPage', () => {
         );
 
         expect(wrapper.find('EmptyStateDisplay')).toHaveLength(0);
-        expect(wrapper.find('.drift-toolbar')).toHaveLength(6);
+        expect(wrapper.find('.drift-toolbar')).toHaveLength(4);
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 
@@ -209,7 +210,7 @@ describe('ConnectedDriftPage', () => {
             </PermissionContext.Provider>
         );
 
-        expect(wrapper.find('.drift-toolbar')).toHaveLength(6);
+        expect(wrapper.find('.drift-toolbar')).toHaveLength(4);
     });
 
     it('should toggle kebab', () => {
