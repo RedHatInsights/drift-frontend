@@ -69,26 +69,14 @@ export class DriftFilterChips extends Component {
     removeChip = (chip) => {
         const { stateFilters, addStateFilter, filterByFact } = this.props;
 
-        if (insights.chrome.isBeta()) {
-            if (chip === 'Expected' || chip === 'Unexpected' || chip === 'Uncertain') {
-                stateFilters.forEach(function(stateFilter) {
-                    if (stateFilter.display === chip) {
-                        addStateFilter(stateFilter);
-                    }
-                });
-            } else {
-                filterByFact('');
-            }
+        if (chip === 'Same' || chip === 'Different' || chip === 'Incomplete data') {
+            stateFilters.forEach(function(stateFilter) {
+                if (stateFilter.display === chip) {
+                    addStateFilter(stateFilter);
+                }
+            });
         } else {
-            if (chip === 'Same' || chip === 'Different' || chip === 'Incomplete data') {
-                stateFilters.forEach(function(stateFilter) {
-                    if (stateFilter.display === chip) {
-                        addStateFilter(stateFilter);
-                    }
-                });
-            } else {
-                filterByFact('');
-            }
+            filterByFact('');
         }
     }
 
