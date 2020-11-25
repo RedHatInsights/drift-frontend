@@ -57,19 +57,15 @@ const App = (props) => {
             }
         });
         (async () => {
-            if (await window.insights.chrome.isBeta()) {
-                const driftPermissions = await window.insights.chrome.getUserPermissions('drift');
-                const fullPermissions = driftPermissions.concat(await window.insights.chrome.getUserPermissions('inventory'));
-                const permissionsList = fullPermissions.map(permissions => permissions.permission);
-                handlePermissionsUpdate(
-                    permissionsList.some((permission) => hasPermission(permission, [ 'drift:*:*', 'drift:comparisons:read', 'drift:*:read' ])),
-                    permissionsList.some((permission) => hasPermission(permission, [ 'drift:*:*', 'drift:baselines:read', 'drift:*:read' ])),
-                    permissionsList.some((permission) => hasPermission(permission, [ 'drift:*:*', 'drift:baselines:write', 'drift:*:write' ])),
-                    permissionsList.some((permission) => hasPermission(permission, [ 'inventory:*:*', 'inventory:*:read' ]))
-                );
-            } else {
-                handlePermissionsUpdate(true, true, true, true);
-            }
+            const driftPermissions = await window.insights.chrome.getUserPermissions('drift');
+            const fullPermissions = driftPermissions.concat(await window.insights.chrome.getUserPermissions('inventory'));
+            const permissionsList = fullPermissions.map(permissions => permissions.permission);
+            handlePermissionsUpdate(
+                permissionsList.some((permission) => hasPermission(permission, [ 'drift:*:*', 'drift:comparisons:read', 'drift:*:read' ])),
+                permissionsList.some((permission) => hasPermission(permission, [ 'drift:*:*', 'drift:baselines:read', 'drift:*:read' ])),
+                permissionsList.some((permission) => hasPermission(permission, [ 'drift:*:*', 'drift:baselines:write', 'drift:*:write' ])),
+                permissionsList.some((permission) => hasPermission(permission, [ 'inventory:*:*', 'inventory:*:read' ]))
+            );
         })();
 
         insights.chrome.on('GLOBAL_FILTER_UPDATE', ({ data }) => {
