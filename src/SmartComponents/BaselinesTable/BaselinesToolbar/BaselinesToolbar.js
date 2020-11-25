@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import debounce from 'lodash/debounce';
 
-import { DropdownItem, Toolbar, ToolbarGroup, ToolbarItem, ToolbarContent } from '@patternfly/react-core';
+import { DropdownItem, Toolbar, ToolbarFilter, ToolbarGroup, ToolbarItem, ToolbarContent } from '@patternfly/react-core';
 import { BulkSelect, ConditionalFilter } from '@redhat-cloud-services/frontend-components';
 
 import CreateBaselineButton from '../../BaselinesPage/CreateBaselineButton/CreateBaselineButton';
 import ExportCSVButton from '../../ExportCSVButton/ExportCSVButton';
 import ActionKebab from '../../DriftPage/ActionKebab/ActionKebab';
 import DeleteBaselinesModal from '../../BaselinesPage/DeleteBaselinesModal/DeleteBaselinesModal';
-import BaselinesFilterChips from '../BaselinesFilterChips/BaselinesFilterChips';
 import helpers from '../../helpers';
 import { TablePagination } from '../../Pagination/Pagination';
 
@@ -117,7 +116,7 @@ export class BaselinesToolbar extends Component {
                     fetchWithParams={ fetchWithParams }
                     toggleModal={ this.toggleModal }
                 />
-                <Toolbar className="drift-toolbar">
+                <Toolbar className="drift-toolbar" clearAllFilters={ this.clearFilters }>
                     <ToolbarContent>
                         { hasMultiSelect
                             ? <ToolbarGroup variant='filter-group'>
@@ -136,14 +135,18 @@ export class BaselinesToolbar extends Component {
                             : null
                         }
                         <ToolbarGroup variant='filter-group'>
-                            <ToolbarItem>
+                            <ToolbarFilter
+                                chips={ nameSearch !== '' ? [ nameSearch ] : [] }
+                                deleteChip={ this.clearFilters }
+                                categoryName="Fact name"
+                            >
                                 <ConditionalFilter
                                     placeholder="Filter by name"
                                     value={ nameSearch }
                                     onChange={ (event, value) => this.setTextFilter(value) }
                                     isDisabled={ !hasReadPermissions || !hasWritePermissions }
                                 />
-                            </ToolbarItem>
+                            </ToolbarFilter>
                         </ToolbarGroup>
                         <ToolbarGroup variant='button-group'>
                             { createButton ?
@@ -186,26 +189,6 @@ export class BaselinesToolbar extends Component {
                         </ToolbarItem>
                     </ToolbarContent>
                 </Toolbar>
-                { nameSearch.length > 0 ?
-                    <Toolbar>
-                        <ToolbarContent>
-                            <ToolbarGroup>
-                                <ToolbarItem>
-                                    <BaselinesFilterChips
-                                        nameSearch={ nameSearch }
-                                        clearTextFilter={ this.clearTextFilter }
-                                    />
-                                </ToolbarItem>
-                                <ToolbarItem>
-                                    <a onClick={ () => this.clearFilters() } >
-                                        Clear filters
-                                    </a>
-                                </ToolbarItem>
-                            </ToolbarGroup>
-                        </ToolbarContent>
-                    </Toolbar>
-                    : null
-                }
             </React.Fragment>
         );
     }
