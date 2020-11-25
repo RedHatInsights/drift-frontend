@@ -12,6 +12,12 @@ exports[`AddSystemModal should render correctly 1`] = `
         >
           Submit
         </Button>,
+        <Button
+          onClick={[Function]}
+          variant="link"
+        >
+          Cancel
+        </Button>,
       ]
     }
     appendTo={[Function]}
@@ -9337,7 +9343,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
               },
             ]
           }
-          toggleModal={[Function]}
+          toggleAddSystemModal={[Function]}
         >
           <Modal
             actions={
@@ -9348,6 +9354,12 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                   variant="primary"
                 >
                   Submit
+                </Button>,
+                <Button
+                  onClick={[Function]}
+                  variant="link"
+                >
+                  Cancel
                 </Button>,
               ]
             }
@@ -9379,7 +9391,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                         aria-labelledby="pf-modal-part-7"
                         aria-modal="true"
                         class="pf-c-modal-box"
-                        data-ouia-component-id="48"
+                        data-ouia-component-id="51"
                         data-ouia-component-type="PF4/ModalContent"
                         data-ouia-safe="true"
                         id="pf-modal-part-6"
@@ -9390,7 +9402,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                           aria-disabled="false"
                           aria-label="Close"
                           class="pf-c-button pf-m-plain"
-                          data-ouia-component-id="49"
+                          data-ouia-component-id="52"
                           data-ouia-component-type="PF4/Button"
                           data-ouia-safe="true"
                           type="button"
@@ -9425,7 +9437,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                         >
                           <div
                             class="pf-c-tabs"
-                            data-ouia-component-id="63"
+                            data-ouia-component-id="67"
                             data-ouia-component-type="PF4/Tabs"
                             data-ouia-safe="true"
                           >
@@ -9545,7 +9557,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                     >
                                       <div
                                         class="pf-c-dropdown ins-c-bulk-select"
-                                        data-ouia-component-id="51"
+                                        data-ouia-component-id="54"
                                         data-ouia-component-type="PF4/Dropdown"
                                         data-ouia-safe="true"
                                       >
@@ -9642,7 +9654,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                   >
                                     <div
                                       class="pf-c-pagination pf-m-compact"
-                                      data-ouia-component-id="52"
+                                      data-ouia-component-id="55"
                                       data-ouia-component-type="PF4/Pagination"
                                       data-ouia-safe="true"
                                       id="pagination-options-menu-6"
@@ -9666,7 +9678,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                       </div>
                                       <div
                                         class="pf-c-options-menu"
-                                        data-ouia-component-id="53"
+                                        data-ouia-component-id="56"
                                         data-ouia-component-type="PF4/PaginationOptionsMenu"
                                         data-ouia-safe="true"
                                       >
@@ -9729,7 +9741,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                             aria-label="Go to previous page"
                                             class="pf-c-button pf-m-plain pf-m-disabled"
                                             data-action="previous"
-                                            data-ouia-component-id="54"
+                                            data-ouia-component-id="57"
                                             data-ouia-component-type="PF4/Button"
                                             data-ouia-safe="true"
                                             disabled=""
@@ -9758,7 +9770,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                             aria-label="Go to next page"
                                             class="pf-c-button pf-m-plain pf-m-disabled"
                                             data-action="next"
-                                            data-ouia-component-id="55"
+                                            data-ouia-component-id="58"
                                             data-ouia-component-type="PF4/Button"
                                             data-ouia-safe="true"
                                             disabled=""
@@ -9955,7 +9967,7 @@ Try changing your filter settings.
                                 >
                                   <div
                                     class="pf-c-pagination"
-                                    data-ouia-component-id="56"
+                                    data-ouia-component-id="59"
                                     data-ouia-component-type="PF4/Pagination"
                                     data-ouia-safe="true"
                                     id="pagination-options-menu-7"
@@ -9979,7 +9991,7 @@ Try changing your filter settings.
                                     </div>
                                     <div
                                       class="pf-c-options-menu"
-                                      data-ouia-component-id="57"
+                                      data-ouia-component-id="60"
                                       data-ouia-component-type="PF4/PaginationOptionsMenu"
                                       data-ouia-safe="true"
                                     >
@@ -10042,7 +10054,7 @@ Try changing your filter settings.
                                           aria-label="Go to first page"
                                           class="pf-c-button pf-m-plain pf-m-disabled"
                                           data-action="first"
-                                          data-ouia-component-id="58"
+                                          data-ouia-component-id="61"
                                           data-ouia-component-type="PF4/Button"
                                           data-ouia-safe="true"
                                           disabled=""
@@ -10071,7 +10083,7 @@ Try changing your filter settings.
                                           aria-label="Go to previous page"
                                           class="pf-c-button pf-m-plain pf-m-disabled"
                                           data-action="previous"
-                                          data-ouia-component-id="59"
+                                          data-ouia-component-id="62"
                                           data-ouia-component-type="PF4/Button"
                                           data-ouia-safe="true"
                                           disabled=""
@@ -10119,7 +10131,7 @@ Try changing your filter settings.
                                           aria-label="Go to next page"
                                           class="pf-c-button pf-m-plain pf-m-disabled"
                                           data-action="next"
-                                          data-ouia-component-id="60"
+                                          data-ouia-component-id="63"
                                           data-ouia-component-type="PF4/Button"
                                           data-ouia-safe="true"
                                           disabled=""
@@ -10148,7 +10160,7 @@ Try changing your filter settings.
                                           aria-label="Go to last page"
                                           class="pf-c-button pf-m-plain pf-m-disabled"
                                           data-action="last"
-                                          data-ouia-component-id="61"
+                                          data-ouia-component-id="64"
                                           data-ouia-component-type="PF4/Button"
                                           data-ouia-safe="true"
                                           disabled=""
@@ -10190,13 +10202,23 @@ Try changing your filter settings.
                           <button
                             aria-disabled="true"
                             class="pf-c-button pf-m-primary pf-m-disabled"
-                            data-ouia-component-id="62"
+                            data-ouia-component-id="65"
                             data-ouia-component-type="PF4/Button"
                             data-ouia-safe="true"
                             disabled=""
                             type="button"
                           >
                             Submit
+                          </button>
+                          <button
+                            aria-disabled="false"
+                            class="pf-c-button pf-m-link"
+                            data-ouia-component-id="66"
+                            data-ouia-component-type="PF4/Button"
+                            data-ouia-safe="true"
+                            type="button"
+                          >
+                            Cancel
                           </button>
                         </footer>
                       </div>
@@ -10214,6 +10236,12 @@ Try changing your filter settings.
                       variant="primary"
                     >
                       Submit
+                    </Button>,
+                    <Button
+                      onClick={[Function]}
+                      variant="link"
+                    >
+                      Cancel
                     </Button>,
                   ]
                 }
@@ -10255,7 +10283,7 @@ Try changing your filter settings.
                           aria-label=""
                           aria-labelledby="pf-modal-part-7"
                           className=""
-                          data-ouia-component-id={48}
+                          data-ouia-component-id={51}
                           data-ouia-component-type="PF4/ModalContent"
                           data-ouia-safe={true}
                           id="pf-modal-part-6"
@@ -10272,7 +10300,7 @@ Try changing your filter settings.
                             aria-labelledby="pf-modal-part-7"
                             aria-modal="true"
                             className="pf-c-modal-box"
-                            data-ouia-component-id={48}
+                            data-ouia-component-id={51}
                             data-ouia-component-type="PF4/ModalContent"
                             data-ouia-safe={true}
                             id="pf-modal-part-6"
@@ -10296,7 +10324,7 @@ Try changing your filter settings.
                                   aria-disabled={false}
                                   aria-label="Close"
                                   className="pf-c-button pf-m-plain"
-                                  data-ouia-component-id={49}
+                                  data-ouia-component-id={52}
                                   data-ouia-component-type="PF4/Button"
                                   data-ouia-safe={true}
                                   disabled={false}
@@ -10371,7 +10399,7 @@ Try changing your filter settings.
                                 >
                                   <div
                                     className="pf-c-tabs"
-                                    data-ouia-component-id={63}
+                                    data-ouia-component-id={67}
                                     data-ouia-component-type="PF4/Tabs"
                                     data-ouia-safe={true}
                                     onSelect={[Function]}
@@ -11018,7 +11046,7 @@ Try changing your filter settings.
                                                                         >
                                                                           <div
                                                                             className="pf-c-dropdown ins-c-bulk-select"
-                                                                            data-ouia-component-id={51}
+                                                                            data-ouia-component-id={54}
                                                                             data-ouia-component-type="PF4/Dropdown"
                                                                             data-ouia-safe={true}
                                                                           >
@@ -11036,7 +11064,7 @@ Try changing your filter settings.
                                                                                 Object {
                                                                                   "current": <div
                                                                                     class="pf-c-dropdown ins-c-bulk-select"
-                                                                                    data-ouia-component-id="51"
+                                                                                    data-ouia-component-id="54"
                                                                                     data-ouia-component-type="PF4/Dropdown"
                                                                                     data-ouia-safe="true"
                                                                                   >
@@ -11150,7 +11178,7 @@ Try changing your filter settings.
                                                                                     Object {
                                                                                       "current": <div
                                                                                         class="pf-c-dropdown ins-c-bulk-select"
-                                                                                        data-ouia-component-id="51"
+                                                                                        data-ouia-component-id="54"
                                                                                         data-ouia-component-type="PF4/Dropdown"
                                                                                         data-ouia-safe="true"
                                                                                       >
@@ -11483,7 +11511,7 @@ Try changing your filter settings.
                                                                 >
                                                                   <div
                                                                     className="pf-c-pagination pf-m-compact"
-                                                                    data-ouia-component-id={52}
+                                                                    data-ouia-component-id={55}
                                                                     data-ouia-component-type="PF4/Pagination"
                                                                     data-ouia-safe={true}
                                                                     id="pagination-options-menu-6"
@@ -11628,7 +11656,7 @@ Try changing your filter settings.
                                                                       >
                                                                         <div
                                                                           className="pf-c-options-menu"
-                                                                          data-ouia-component-id={53}
+                                                                          data-ouia-component-id={56}
                                                                           data-ouia-component-type="PF4/PaginationOptionsMenu"
                                                                           data-ouia-safe={true}
                                                                         >
@@ -11652,7 +11680,7 @@ Try changing your filter settings.
                                                                               Object {
                                                                                 "current": <div
                                                                                   class="pf-c-options-menu"
-                                                                                  data-ouia-component-id="53"
+                                                                                  data-ouia-component-id="56"
                                                                                   data-ouia-component-type="PF4/PaginationOptionsMenu"
                                                                                   data-ouia-safe="true"
                                                                                 >
@@ -11746,7 +11774,7 @@ Try changing your filter settings.
                                                                                   Object {
                                                                                     "current": <div
                                                                                       class="pf-c-options-menu"
-                                                                                      data-ouia-component-id="53"
+                                                                                      data-ouia-component-id="56"
                                                                                       data-ouia-component-type="PF4/PaginationOptionsMenu"
                                                                                       data-ouia-safe="true"
                                                                                     >
@@ -11818,7 +11846,7 @@ Try changing your filter settings.
                                                                                     Object {
                                                                                       "current": <div
                                                                                         class="pf-c-options-menu"
-                                                                                        data-ouia-component-id="53"
+                                                                                        data-ouia-component-id="56"
                                                                                         data-ouia-component-type="PF4/PaginationOptionsMenu"
                                                                                         data-ouia-safe="true"
                                                                                       >
@@ -11959,7 +11987,7 @@ Try changing your filter settings.
                                                                               aria-label="Go to previous page"
                                                                               className="pf-c-button pf-m-plain pf-m-disabled"
                                                                               data-action="previous"
-                                                                              data-ouia-component-id={54}
+                                                                              data-ouia-component-id={57}
                                                                               data-ouia-component-type="PF4/Button"
                                                                               data-ouia-safe={true}
                                                                               disabled={true}
@@ -12009,7 +12037,7 @@ Try changing your filter settings.
                                                                               aria-label="Go to next page"
                                                                               className="pf-c-button pf-m-plain pf-m-disabled"
                                                                               data-action="next"
-                                                                              data-ouia-component-id={55}
+                                                                              data-ouia-component-id={58}
                                                                               data-ouia-component-type="PF4/Button"
                                                                               data-ouia-safe={true}
                                                                               disabled={true}
@@ -13756,7 +13784,7 @@ Try changing your filter settings.
                                                               >
                                                                 <div
                                                                   className="pf-c-pagination"
-                                                                  data-ouia-component-id={56}
+                                                                  data-ouia-component-id={59}
                                                                   data-ouia-component-type="PF4/Pagination"
                                                                   data-ouia-safe={true}
                                                                   id="pagination-options-menu-7"
@@ -13901,7 +13929,7 @@ Try changing your filter settings.
                                                                     >
                                                                       <div
                                                                         className="pf-c-options-menu"
-                                                                        data-ouia-component-id={57}
+                                                                        data-ouia-component-id={60}
                                                                         data-ouia-component-type="PF4/PaginationOptionsMenu"
                                                                         data-ouia-safe={true}
                                                                       >
@@ -13925,7 +13953,7 @@ Try changing your filter settings.
                                                                             Object {
                                                                               "current": <div
                                                                                 class="pf-c-options-menu"
-                                                                                data-ouia-component-id="57"
+                                                                                data-ouia-component-id="60"
                                                                                 data-ouia-component-type="PF4/PaginationOptionsMenu"
                                                                                 data-ouia-safe="true"
                                                                               >
@@ -14019,7 +14047,7 @@ Try changing your filter settings.
                                                                                 Object {
                                                                                   "current": <div
                                                                                     class="pf-c-options-menu"
-                                                                                    data-ouia-component-id="57"
+                                                                                    data-ouia-component-id="60"
                                                                                     data-ouia-component-type="PF4/PaginationOptionsMenu"
                                                                                     data-ouia-safe="true"
                                                                                   >
@@ -14091,7 +14119,7 @@ Try changing your filter settings.
                                                                                   Object {
                                                                                     "current": <div
                                                                                       class="pf-c-options-menu"
-                                                                                      data-ouia-component-id="57"
+                                                                                      data-ouia-component-id="60"
                                                                                       data-ouia-component-type="PF4/PaginationOptionsMenu"
                                                                                       data-ouia-safe="true"
                                                                                     >
@@ -14232,7 +14260,7 @@ Try changing your filter settings.
                                                                             aria-label="Go to first page"
                                                                             className="pf-c-button pf-m-plain pf-m-disabled"
                                                                             data-action="first"
-                                                                            data-ouia-component-id={58}
+                                                                            data-ouia-component-id={61}
                                                                             data-ouia-component-type="PF4/Button"
                                                                             data-ouia-safe={true}
                                                                             disabled={true}
@@ -14282,7 +14310,7 @@ Try changing your filter settings.
                                                                             aria-label="Go to previous page"
                                                                             className="pf-c-button pf-m-plain pf-m-disabled"
                                                                             data-action="previous"
-                                                                            data-ouia-component-id={59}
+                                                                            data-ouia-component-id={62}
                                                                             data-ouia-component-type="PF4/Button"
                                                                             data-ouia-safe={true}
                                                                             disabled={true}
@@ -14353,7 +14381,7 @@ Try changing your filter settings.
                                                                             aria-label="Go to next page"
                                                                             className="pf-c-button pf-m-plain pf-m-disabled"
                                                                             data-action="next"
-                                                                            data-ouia-component-id={60}
+                                                                            data-ouia-component-id={63}
                                                                             data-ouia-component-type="PF4/Button"
                                                                             data-ouia-safe={true}
                                                                             disabled={true}
@@ -14403,7 +14431,7 @@ Try changing your filter settings.
                                                                             aria-label="Go to last page"
                                                                             className="pf-c-button pf-m-plain pf-m-disabled"
                                                                             data-action="last"
-                                                                            data-ouia-component-id={61}
+                                                                            data-ouia-component-id={64}
                                                                             data-ouia-component-type="PF4/Button"
                                                                             data-ouia-safe={true}
                                                                             disabled={true}
@@ -14510,7 +14538,7 @@ Try changing your filter settings.
                                     aria-disabled={true}
                                     aria-label={null}
                                     className="pf-c-button pf-m-primary pf-m-disabled"
-                                    data-ouia-component-id={62}
+                                    data-ouia-component-id={65}
                                     data-ouia-component-type="PF4/Button"
                                     data-ouia-safe={true}
                                     disabled={true}
@@ -14519,6 +14547,25 @@ Try changing your filter settings.
                                     type="button"
                                   >
                                     Submit
+                                  </button>
+                                </Button>
+                                <Button
+                                  key="cancel"
+                                  onClick={[Function]}
+                                  variant="link"
+                                >
+                                  <button
+                                    aria-disabled={false}
+                                    aria-label={null}
+                                    className="pf-c-button pf-m-link"
+                                    data-ouia-component-id={66}
+                                    data-ouia-component-type="PF4/Button"
+                                    data-ouia-safe={true}
+                                    disabled={false}
+                                    onClick={[Function]}
+                                    type="button"
+                                  >
+                                    Cancel
                                   </button>
                                 </Button>
                               </footer>
@@ -14621,7 +14668,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
               },
             ]
           }
-          toggleModal={[Function]}
+          toggleAddSystemModal={[Function]}
         >
           <Modal
             actions={
@@ -14632,6 +14679,12 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                   variant="primary"
                 >
                   Submit
+                </Button>,
+                <Button
+                  onClick={[Function]}
+                  variant="link"
+                >
+                  Cancel
                 </Button>,
               ]
             }
@@ -14709,7 +14762,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                         >
                           <div
                             class="pf-c-tabs"
-                            data-ouia-component-id="15"
+                            data-ouia-component-id="16"
                             data-ouia-component-type="PF4/Tabs"
                             data-ouia-safe="true"
                           >
@@ -15482,6 +15535,16 @@ Try changing your filter settings.
                           >
                             Submit
                           </button>
+                          <button
+                            aria-disabled="false"
+                            class="pf-c-button pf-m-link"
+                            data-ouia-component-id="15"
+                            data-ouia-component-type="PF4/Button"
+                            data-ouia-safe="true"
+                            type="button"
+                          >
+                            Cancel
+                          </button>
                         </footer>
                       </div>
                     </div>
@@ -15498,6 +15561,12 @@ Try changing your filter settings.
                       variant="primary"
                     >
                       Submit
+                    </Button>,
+                    <Button
+                      onClick={[Function]}
+                      variant="link"
+                    >
+                      Cancel
                     </Button>,
                   ]
                 }
@@ -15655,7 +15724,7 @@ Try changing your filter settings.
                                 >
                                   <div
                                     className="pf-c-tabs"
-                                    data-ouia-component-id={15}
+                                    data-ouia-component-id={16}
                                     data-ouia-component-type="PF4/Tabs"
                                     data-ouia-safe={true}
                                     onSelect={[Function]}
@@ -19805,6 +19874,25 @@ Try changing your filter settings.
                                     Submit
                                   </button>
                                 </Button>
+                                <Button
+                                  key="cancel"
+                                  onClick={[Function]}
+                                  variant="link"
+                                >
+                                  <button
+                                    aria-disabled={false}
+                                    aria-label={null}
+                                    className="pf-c-button pf-m-link"
+                                    data-ouia-component-id={15}
+                                    data-ouia-component-type="PF4/Button"
+                                    data-ouia-safe={true}
+                                    disabled={false}
+                                    onClick={[Function]}
+                                    type="button"
+                                  >
+                                    Cancel
+                                  </button>
+                                </Button>
                               </footer>
                             </ModalBoxFooter>
                           </div>
@@ -19905,7 +19993,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
               },
             ]
           }
-          toggleModal={[Function]}
+          toggleAddSystemModal={[Function]}
         >
           <Modal
             actions={
@@ -19916,6 +20004,12 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                   variant="primary"
                 >
                   Submit
+                </Button>,
+                <Button
+                  onClick={[Function]}
+                  variant="link"
+                >
+                  Cancel
                 </Button>,
               ]
             }
@@ -19947,7 +20041,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                         aria-labelledby="pf-modal-part-3"
                         aria-modal="true"
                         class="pf-c-modal-box"
-                        data-ouia-component-id="16"
+                        data-ouia-component-id="17"
                         data-ouia-component-type="PF4/ModalContent"
                         data-ouia-safe="true"
                         id="pf-modal-part-2"
@@ -19958,7 +20052,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                           aria-disabled="false"
                           aria-label="Close"
                           class="pf-c-button pf-m-plain"
-                          data-ouia-component-id="17"
+                          data-ouia-component-id="18"
                           data-ouia-component-type="PF4/Button"
                           data-ouia-safe="true"
                           type="button"
@@ -19993,7 +20087,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                         >
                           <div
                             class="pf-c-tabs"
-                            data-ouia-component-id="31"
+                            data-ouia-component-id="33"
                             data-ouia-component-type="PF4/Tabs"
                             data-ouia-safe="true"
                           >
@@ -20131,7 +20225,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                     >
                                       <div
                                         class="pf-c-dropdown ins-c-bulk-select"
-                                        data-ouia-component-id="19"
+                                        data-ouia-component-id="20"
                                         data-ouia-component-type="PF4/Dropdown"
                                         data-ouia-safe="true"
                                       >
@@ -20228,7 +20322,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                   >
                                     <div
                                       class="pf-c-pagination pf-m-compact"
-                                      data-ouia-component-id="20"
+                                      data-ouia-component-id="21"
                                       data-ouia-component-type="PF4/Pagination"
                                       data-ouia-safe="true"
                                       id="pagination-options-menu-2"
@@ -20252,7 +20346,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                       </div>
                                       <div
                                         class="pf-c-options-menu"
-                                        data-ouia-component-id="21"
+                                        data-ouia-component-id="22"
                                         data-ouia-component-type="PF4/PaginationOptionsMenu"
                                         data-ouia-safe="true"
                                       >
@@ -20315,7 +20409,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                             aria-label="Go to previous page"
                                             class="pf-c-button pf-m-plain pf-m-disabled"
                                             data-action="previous"
-                                            data-ouia-component-id="22"
+                                            data-ouia-component-id="23"
                                             data-ouia-component-type="PF4/Button"
                                             data-ouia-safe="true"
                                             disabled=""
@@ -20344,7 +20438,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                             aria-label="Go to next page"
                                             class="pf-c-button pf-m-plain pf-m-disabled"
                                             data-action="next"
-                                            data-ouia-component-id="23"
+                                            data-ouia-component-id="24"
                                             data-ouia-component-type="PF4/Button"
                                             data-ouia-safe="true"
                                             disabled=""
@@ -20541,7 +20635,7 @@ Try changing your filter settings.
                                 >
                                   <div
                                     class="pf-c-pagination"
-                                    data-ouia-component-id="24"
+                                    data-ouia-component-id="25"
                                     data-ouia-component-type="PF4/Pagination"
                                     data-ouia-safe="true"
                                     id="pagination-options-menu-3"
@@ -20565,7 +20659,7 @@ Try changing your filter settings.
                                     </div>
                                     <div
                                       class="pf-c-options-menu"
-                                      data-ouia-component-id="25"
+                                      data-ouia-component-id="26"
                                       data-ouia-component-type="PF4/PaginationOptionsMenu"
                                       data-ouia-safe="true"
                                     >
@@ -20628,7 +20722,7 @@ Try changing your filter settings.
                                           aria-label="Go to first page"
                                           class="pf-c-button pf-m-plain pf-m-disabled"
                                           data-action="first"
-                                          data-ouia-component-id="26"
+                                          data-ouia-component-id="27"
                                           data-ouia-component-type="PF4/Button"
                                           data-ouia-safe="true"
                                           disabled=""
@@ -20657,7 +20751,7 @@ Try changing your filter settings.
                                           aria-label="Go to previous page"
                                           class="pf-c-button pf-m-plain pf-m-disabled"
                                           data-action="previous"
-                                          data-ouia-component-id="27"
+                                          data-ouia-component-id="28"
                                           data-ouia-component-type="PF4/Button"
                                           data-ouia-safe="true"
                                           disabled=""
@@ -20705,7 +20799,7 @@ Try changing your filter settings.
                                           aria-label="Go to next page"
                                           class="pf-c-button pf-m-plain pf-m-disabled"
                                           data-action="next"
-                                          data-ouia-component-id="28"
+                                          data-ouia-component-id="29"
                                           data-ouia-component-type="PF4/Button"
                                           data-ouia-safe="true"
                                           disabled=""
@@ -20734,7 +20828,7 @@ Try changing your filter settings.
                                           aria-label="Go to last page"
                                           class="pf-c-button pf-m-plain pf-m-disabled"
                                           data-action="last"
-                                          data-ouia-component-id="29"
+                                          data-ouia-component-id="30"
                                           data-ouia-component-type="PF4/Button"
                                           data-ouia-safe="true"
                                           disabled=""
@@ -20776,13 +20870,23 @@ Try changing your filter settings.
                           <button
                             aria-disabled="true"
                             class="pf-c-button pf-m-primary pf-m-disabled"
-                            data-ouia-component-id="30"
+                            data-ouia-component-id="31"
                             data-ouia-component-type="PF4/Button"
                             data-ouia-safe="true"
                             disabled=""
                             type="button"
                           >
                             Submit
+                          </button>
+                          <button
+                            aria-disabled="false"
+                            class="pf-c-button pf-m-link"
+                            data-ouia-component-id="32"
+                            data-ouia-component-type="PF4/Button"
+                            data-ouia-safe="true"
+                            type="button"
+                          >
+                            Cancel
                           </button>
                         </footer>
                       </div>
@@ -20800,6 +20904,12 @@ Try changing your filter settings.
                       variant="primary"
                     >
                       Submit
+                    </Button>,
+                    <Button
+                      onClick={[Function]}
+                      variant="link"
+                    >
+                      Cancel
                     </Button>,
                   ]
                 }
@@ -20841,7 +20951,7 @@ Try changing your filter settings.
                           aria-label=""
                           aria-labelledby="pf-modal-part-3"
                           className=""
-                          data-ouia-component-id={16}
+                          data-ouia-component-id={17}
                           data-ouia-component-type="PF4/ModalContent"
                           data-ouia-safe={true}
                           id="pf-modal-part-2"
@@ -20858,7 +20968,7 @@ Try changing your filter settings.
                             aria-labelledby="pf-modal-part-3"
                             aria-modal="true"
                             className="pf-c-modal-box"
-                            data-ouia-component-id={16}
+                            data-ouia-component-id={17}
                             data-ouia-component-type="PF4/ModalContent"
                             data-ouia-safe={true}
                             id="pf-modal-part-2"
@@ -20882,7 +20992,7 @@ Try changing your filter settings.
                                   aria-disabled={false}
                                   aria-label="Close"
                                   className="pf-c-button pf-m-plain"
-                                  data-ouia-component-id={17}
+                                  data-ouia-component-id={18}
                                   data-ouia-component-type="PF4/Button"
                                   data-ouia-safe={true}
                                   disabled={false}
@@ -20957,7 +21067,7 @@ Try changing your filter settings.
                                 >
                                   <div
                                     className="pf-c-tabs"
-                                    data-ouia-component-id={31}
+                                    data-ouia-component-id={33}
                                     data-ouia-component-type="PF4/Tabs"
                                     data-ouia-safe={true}
                                     onSelect={[Function]}
@@ -21659,7 +21769,7 @@ Try changing your filter settings.
                                                                         >
                                                                           <div
                                                                             className="pf-c-dropdown ins-c-bulk-select"
-                                                                            data-ouia-component-id={19}
+                                                                            data-ouia-component-id={20}
                                                                             data-ouia-component-type="PF4/Dropdown"
                                                                             data-ouia-safe={true}
                                                                           >
@@ -21677,7 +21787,7 @@ Try changing your filter settings.
                                                                                 Object {
                                                                                   "current": <div
                                                                                     class="pf-c-dropdown ins-c-bulk-select"
-                                                                                    data-ouia-component-id="19"
+                                                                                    data-ouia-component-id="20"
                                                                                     data-ouia-component-type="PF4/Dropdown"
                                                                                     data-ouia-safe="true"
                                                                                   >
@@ -21791,7 +21901,7 @@ Try changing your filter settings.
                                                                                     Object {
                                                                                       "current": <div
                                                                                         class="pf-c-dropdown ins-c-bulk-select"
-                                                                                        data-ouia-component-id="19"
+                                                                                        data-ouia-component-id="20"
                                                                                         data-ouia-component-type="PF4/Dropdown"
                                                                                         data-ouia-safe="true"
                                                                                       >
@@ -22124,7 +22234,7 @@ Try changing your filter settings.
                                                                 >
                                                                   <div
                                                                     className="pf-c-pagination pf-m-compact"
-                                                                    data-ouia-component-id={20}
+                                                                    data-ouia-component-id={21}
                                                                     data-ouia-component-type="PF4/Pagination"
                                                                     data-ouia-safe={true}
                                                                     id="pagination-options-menu-2"
@@ -22269,7 +22379,7 @@ Try changing your filter settings.
                                                                       >
                                                                         <div
                                                                           className="pf-c-options-menu"
-                                                                          data-ouia-component-id={21}
+                                                                          data-ouia-component-id={22}
                                                                           data-ouia-component-type="PF4/PaginationOptionsMenu"
                                                                           data-ouia-safe={true}
                                                                         >
@@ -22293,7 +22403,7 @@ Try changing your filter settings.
                                                                               Object {
                                                                                 "current": <div
                                                                                   class="pf-c-options-menu"
-                                                                                  data-ouia-component-id="21"
+                                                                                  data-ouia-component-id="22"
                                                                                   data-ouia-component-type="PF4/PaginationOptionsMenu"
                                                                                   data-ouia-safe="true"
                                                                                 >
@@ -22387,7 +22497,7 @@ Try changing your filter settings.
                                                                                   Object {
                                                                                     "current": <div
                                                                                       class="pf-c-options-menu"
-                                                                                      data-ouia-component-id="21"
+                                                                                      data-ouia-component-id="22"
                                                                                       data-ouia-component-type="PF4/PaginationOptionsMenu"
                                                                                       data-ouia-safe="true"
                                                                                     >
@@ -22459,7 +22569,7 @@ Try changing your filter settings.
                                                                                     Object {
                                                                                       "current": <div
                                                                                         class="pf-c-options-menu"
-                                                                                        data-ouia-component-id="21"
+                                                                                        data-ouia-component-id="22"
                                                                                         data-ouia-component-type="PF4/PaginationOptionsMenu"
                                                                                         data-ouia-safe="true"
                                                                                       >
@@ -22600,7 +22710,7 @@ Try changing your filter settings.
                                                                               aria-label="Go to previous page"
                                                                               className="pf-c-button pf-m-plain pf-m-disabled"
                                                                               data-action="previous"
-                                                                              data-ouia-component-id={22}
+                                                                              data-ouia-component-id={23}
                                                                               data-ouia-component-type="PF4/Button"
                                                                               data-ouia-safe={true}
                                                                               disabled={true}
@@ -22650,7 +22760,7 @@ Try changing your filter settings.
                                                                               aria-label="Go to next page"
                                                                               className="pf-c-button pf-m-plain pf-m-disabled"
                                                                               data-action="next"
-                                                                              data-ouia-component-id={23}
+                                                                              data-ouia-component-id={24}
                                                                               data-ouia-component-type="PF4/Button"
                                                                               data-ouia-safe={true}
                                                                               disabled={true}
@@ -24397,7 +24507,7 @@ Try changing your filter settings.
                                                               >
                                                                 <div
                                                                   className="pf-c-pagination"
-                                                                  data-ouia-component-id={24}
+                                                                  data-ouia-component-id={25}
                                                                   data-ouia-component-type="PF4/Pagination"
                                                                   data-ouia-safe={true}
                                                                   id="pagination-options-menu-3"
@@ -24542,7 +24652,7 @@ Try changing your filter settings.
                                                                     >
                                                                       <div
                                                                         className="pf-c-options-menu"
-                                                                        data-ouia-component-id={25}
+                                                                        data-ouia-component-id={26}
                                                                         data-ouia-component-type="PF4/PaginationOptionsMenu"
                                                                         data-ouia-safe={true}
                                                                       >
@@ -24566,7 +24676,7 @@ Try changing your filter settings.
                                                                             Object {
                                                                               "current": <div
                                                                                 class="pf-c-options-menu"
-                                                                                data-ouia-component-id="25"
+                                                                                data-ouia-component-id="26"
                                                                                 data-ouia-component-type="PF4/PaginationOptionsMenu"
                                                                                 data-ouia-safe="true"
                                                                               >
@@ -24660,7 +24770,7 @@ Try changing your filter settings.
                                                                                 Object {
                                                                                   "current": <div
                                                                                     class="pf-c-options-menu"
-                                                                                    data-ouia-component-id="25"
+                                                                                    data-ouia-component-id="26"
                                                                                     data-ouia-component-type="PF4/PaginationOptionsMenu"
                                                                                     data-ouia-safe="true"
                                                                                   >
@@ -24732,7 +24842,7 @@ Try changing your filter settings.
                                                                                   Object {
                                                                                     "current": <div
                                                                                       class="pf-c-options-menu"
-                                                                                      data-ouia-component-id="25"
+                                                                                      data-ouia-component-id="26"
                                                                                       data-ouia-component-type="PF4/PaginationOptionsMenu"
                                                                                       data-ouia-safe="true"
                                                                                     >
@@ -24873,7 +24983,7 @@ Try changing your filter settings.
                                                                             aria-label="Go to first page"
                                                                             className="pf-c-button pf-m-plain pf-m-disabled"
                                                                             data-action="first"
-                                                                            data-ouia-component-id={26}
+                                                                            data-ouia-component-id={27}
                                                                             data-ouia-component-type="PF4/Button"
                                                                             data-ouia-safe={true}
                                                                             disabled={true}
@@ -24923,7 +25033,7 @@ Try changing your filter settings.
                                                                             aria-label="Go to previous page"
                                                                             className="pf-c-button pf-m-plain pf-m-disabled"
                                                                             data-action="previous"
-                                                                            data-ouia-component-id={27}
+                                                                            data-ouia-component-id={28}
                                                                             data-ouia-component-type="PF4/Button"
                                                                             data-ouia-safe={true}
                                                                             disabled={true}
@@ -24994,7 +25104,7 @@ Try changing your filter settings.
                                                                             aria-label="Go to next page"
                                                                             className="pf-c-button pf-m-plain pf-m-disabled"
                                                                             data-action="next"
-                                                                            data-ouia-component-id={28}
+                                                                            data-ouia-component-id={29}
                                                                             data-ouia-component-type="PF4/Button"
                                                                             data-ouia-safe={true}
                                                                             disabled={true}
@@ -25044,7 +25154,7 @@ Try changing your filter settings.
                                                                             aria-label="Go to last page"
                                                                             className="pf-c-button pf-m-plain pf-m-disabled"
                                                                             data-action="last"
-                                                                            data-ouia-component-id={29}
+                                                                            data-ouia-component-id={30}
                                                                             data-ouia-component-type="PF4/Button"
                                                                             data-ouia-safe={true}
                                                                             disabled={true}
@@ -25151,7 +25261,7 @@ Try changing your filter settings.
                                     aria-disabled={true}
                                     aria-label={null}
                                     className="pf-c-button pf-m-primary pf-m-disabled"
-                                    data-ouia-component-id={30}
+                                    data-ouia-component-id={31}
                                     data-ouia-component-type="PF4/Button"
                                     data-ouia-safe={true}
                                     disabled={true}
@@ -25160,6 +25270,25 @@ Try changing your filter settings.
                                     type="button"
                                   >
                                     Submit
+                                  </button>
+                                </Button>
+                                <Button
+                                  key="cancel"
+                                  onClick={[Function]}
+                                  variant="link"
+                                >
+                                  <button
+                                    aria-disabled={false}
+                                    aria-label={null}
+                                    className="pf-c-button pf-m-link"
+                                    data-ouia-component-id={32}
+                                    data-ouia-component-type="PF4/Button"
+                                    data-ouia-safe={true}
+                                    disabled={false}
+                                    onClick={[Function]}
+                                    type="button"
+                                  >
+                                    Cancel
                                   </button>
                                 </Button>
                               </footer>

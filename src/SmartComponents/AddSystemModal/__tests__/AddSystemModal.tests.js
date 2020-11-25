@@ -83,6 +83,9 @@ describe('ConnectedAddSystemModal', () => {
             },
             entities: {
                 selectedSystemIds: []
+            },
+            addSystemModalActions: {
+                toggleAddSystemModal: jest.fn()
             }
         };
 
@@ -167,7 +170,6 @@ describe('ConnectedAddSystemModal', () => {
 
     it.skip('should confirm modal with one system selected', () => {
         const confirmModal = jest.fn();
-        const toggleModal = jest.fn();
         initialState.entities.selectedSystemIds = [ 'abcd1234' ];
         const store = mockStore(initialState);
 
@@ -177,7 +179,6 @@ describe('ConnectedAddSystemModal', () => {
                     <Provider store={ store }>
                         <ConnectedAddSystemModal
                             confirmModal={ confirmModal }
-                            toggleModal={ toggleModal }
                             { ...props }
                         />
                     </Provider>
@@ -191,7 +192,6 @@ describe('ConnectedAddSystemModal', () => {
 
     it.skip('should confirm modal with one baseline selected', () => {
         const confirmModal = jest.fn();
-        const toggleModal = jest.fn();
         initialState.baselinesTableState.checkboxTable.selectedBaselineIds = [ 'abcd1234' ];
         const store = mockStore(initialState);
 
@@ -201,7 +201,6 @@ describe('ConnectedAddSystemModal', () => {
                     <Provider store={ store }>
                         <ConnectedAddSystemModal
                             confirmModal={ confirmModal }
-                            toggleModal={ toggleModal }
                             { ...props }
                         />
                     </Provider>
@@ -215,7 +214,6 @@ describe('ConnectedAddSystemModal', () => {
 
     it.skip('should confirm modal with one HSP selected', () => {
         const confirmModal = jest.fn();
-        const toggleModal = jest.fn();
         initialState.historicProfilesState.selectedHSPIds = [ 'abcd1234' ];
         const store = mockStore(initialState);
 
@@ -225,7 +223,6 @@ describe('ConnectedAddSystemModal', () => {
                     <Provider store={ store }>
                         <ConnectedAddSystemModal
                             confirmModal={ confirmModal }
-                            toggleModal={ toggleModal }
                             { ...props }
                         />
                     </Provider>
@@ -259,7 +256,6 @@ describe('ConnectedAddSystemModal', () => {
     });
 
     it.skip('should toggle modal', () => {
-        const toggleModal = jest.fn();
         const store = mockStore(initialState);
 
         const wrapper = mount(
@@ -267,7 +263,6 @@ describe('ConnectedAddSystemModal', () => {
                 <MemoryRouter keyLength={ 0 }>
                     <Provider store={ store }>
                         <ConnectedAddSystemModal
-                            toggleModal={ toggleModal }
                             { ...props }
                         />
                     </Provider>
@@ -275,7 +270,26 @@ describe('ConnectedAddSystemModal', () => {
             </PermissionContext.Provider>
         );
 
-        wrapper.find('.pf-c-button').at(0).simulate('click');
-        expect(toggleModal).toHaveBeenCalledTimes(1);
+        wrapper.find('.pf-c-button.pf-m-plain').at(0).simulate('click');
+        expect(props.toggleAddSystemModal).toHaveBeenCalledTimes(1);
+    });
+
+    it.skip('should cancel modal', () => {
+        const store = mockStore(initialState);
+
+        const wrapper = mount(
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedAddSystemModal
+                            { ...props }
+                        />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
+        );
+
+        wrapper.find('.pf-c-button.pf-m-link').simulate('click');
+        expect(initialState.addSystemModalActions.toggleAddSystemModal).toHaveBeenCalled();
     });
 });

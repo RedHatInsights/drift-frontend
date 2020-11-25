@@ -3108,7 +3108,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                       selectedHSPIds={Array []}
                                       selectedSystemIds={Array []}
                                       systems={Array []}
-                                      toggleModal={[Function]}
+                                      toggleAddSystemModal={[Function]}
                                     >
                                       <Modal
                                         actions={
@@ -3119,6 +3119,12 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                               variant="primary"
                                             >
                                               Submit
+                                            </Button>,
+                                            <Button
+                                              onClick={[Function]}
+                                              variant="link"
+                                            >
+                                              Cancel
                                             </Button>,
                                           ]
                                         }
@@ -3148,6 +3154,12 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                   variant="primary"
                                                 >
                                                   Submit
+                                                </Button>,
+                                                <Button
+                                                  onClick={[Function]}
+                                                  variant="link"
+                                                >
+                                                  Cancel
                                                 </Button>,
                                               ]
                                             }
@@ -7223,7 +7235,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                       selectedHSPIds={Array []}
                                       selectedSystemIds={Array []}
                                       systems={Array []}
-                                      toggleModal={[Function]}
+                                      toggleAddSystemModal={[Function]}
                                     >
                                       <Modal
                                         actions={
@@ -7234,6 +7246,12 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                               variant="primary"
                                             >
                                               Submit
+                                            </Button>,
+                                            <Button
+                                              onClick={[Function]}
+                                              variant="link"
+                                            >
+                                              Cancel
                                             </Button>,
                                           ]
                                         }
@@ -7263,6 +7281,12 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                   variant="primary"
                                                 >
                                                   Submit
+                                                </Button>,
+                                                <Button
+                                                  onClick={[Function]}
+                                                  variant="link"
+                                                >
+                                                  Cancel
                                                 </Button>,
                                               ]
                                             }

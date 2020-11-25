@@ -44,7 +44,7 @@ export class AddSystemModal extends Component {
     }
 
     confirmModal() {
-        const { confirmModal, entities, selectedBaselineIds, toggleModal, selectedHSPIds, referenceId } = this.props;
+        const { confirmModal, entities, selectedBaselineIds, toggleAddSystemModal, selectedHSPIds, referenceId } = this.props;
 
         confirmModal(
             entities.selectedSystemIds,
@@ -52,11 +52,13 @@ export class AddSystemModal extends Component {
             selectedHSPIds,
             referenceId
         );
-        toggleModal();
+        toggleAddSystemModal();
     }
 
     cancelSelection() {
-        this.props.toggleModal();
+        const { toggleAddSystemModal } = this.props;
+
+        toggleAddSystemModal();
     }
 
     selectedSystemIds() {
@@ -109,6 +111,13 @@ export class AddSystemModal extends Component {
                             }
                         >
                             Submit
+                        </Button>,
+                        <Button
+                            key="cancel"
+                            variant="link"
+                            onClick={ this.cancelSelection }
+                        >
+                            Cancel
                         </Button>
                     ] }
                 >
@@ -163,7 +172,7 @@ AddSystemModal.propTypes = {
     activeTab: PropTypes.number,
     confirmModal: PropTypes.func,
     cancelSelection: PropTypes.func,
-    toggleModal: PropTypes.func,
+    toggleAddSystemModal: PropTypes.func,
     selectActiveTab: PropTypes.func,
     entities: PropTypes.object,
     systems: PropTypes.array,
@@ -199,7 +208,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        toggleModal: () => dispatch(addSystemModalActions.toggleAddSystemModal()),
+        toggleAddSystemModal: () => dispatch(addSystemModalActions.toggleAddSystemModal()),
         selectActiveTab: (newActiveTab) => dispatch(addSystemModalActions.selectActiveTab(newActiveTab)),
         selectBaseline: (id, isSelected, tableId) => dispatch(baselinesTableActions.selectBaseline(id, isSelected, tableId))
     };
