@@ -16,6 +16,7 @@ describe('jest-tests', () => {
         beforeEach(() => {
             props = {
                 createButton: true,
+                dropdownOpen: false,
                 exportButton: true,
                 kebab: true,
                 tableData: baselinesTableFixtures.baselineTableDataRows,
@@ -87,6 +88,17 @@ describe('jest-tests', () => {
             wrapper.setState({ nameSearch: 'something' });
             wrapper.instance().clearTextFilter();
             expect(wrapper.state().nameSearch).toBe('');
+        });
+
+        it('should toggle dropdown', () => {
+            const wrapper = shallow(
+                <BaselinesToolbar
+                    { ...props }
+                />
+            );
+
+            wrapper.instance().onToggle();
+            expect(wrapper.state('dropdownOpen')).toBe(true);
         });
     });
 
