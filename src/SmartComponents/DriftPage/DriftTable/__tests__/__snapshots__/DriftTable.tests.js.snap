@@ -222,7 +222,7 @@ exports[`ConnectedDriftTable should render correctly 1`] = `
                 selectedHSPIds={Array []}
                 selectedSystemIds={Array []}
                 systems={Array []}
-                toggleModal={[Function]}
+                toggleAddSystemModal={[Function]}
               >
                 <Modal
                   actions={
@@ -233,6 +233,12 @@ exports[`ConnectedDriftTable should render correctly 1`] = `
                         variant="primary"
                       >
                         Submit
+                      </Button>,
+                      <Button
+                        onClick={[Function]}
+                        variant="link"
+                      >
+                        Cancel
                       </Button>,
                     ]
                   }
@@ -262,6 +268,12 @@ exports[`ConnectedDriftTable should render correctly 1`] = `
                             variant="primary"
                           >
                             Submit
+                          </Button>,
+                          <Button
+                            onClick={[Function]}
+                            variant="link"
+                          >
+                            Cancel
                           </Button>,
                         ]
                       }
@@ -615,7 +627,7 @@ exports[`ConnectedDriftTable should render loading rows 1`] = `
                 selectedHSPIds={Array []}
                 selectedSystemIds={Array []}
                 systems={Array []}
-                toggleModal={[Function]}
+                toggleAddSystemModal={[Function]}
               >
                 <Modal
                   actions={
@@ -626,6 +638,12 @@ exports[`ConnectedDriftTable should render loading rows 1`] = `
                         variant="primary"
                       >
                         Submit
+                      </Button>,
+                      <Button
+                        onClick={[Function]}
+                        variant="link"
+                      >
+                        Cancel
                       </Button>,
                     ]
                   }
@@ -655,6 +673,12 @@ exports[`ConnectedDriftTable should render loading rows 1`] = `
                             variant="primary"
                           >
                             Submit
+                          </Button>,
+                          <Button
+                            onClick={[Function]}
+                            variant="link"
+                          >
+                            Cancel
                           </Button>,
                         ]
                       }
@@ -1535,7 +1559,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                     },
                   ]
                 }
-                toggleModal={[Function]}
+                toggleAddSystemModal={[Function]}
               >
                 <Modal
                   actions={
@@ -1546,6 +1570,12 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                         variant="primary"
                       >
                         Submit
+                      </Button>,
+                      <Button
+                        onClick={[Function]}
+                        variant="link"
+                      >
+                        Cancel
                       </Button>,
                     ]
                   }
@@ -1575,6 +1605,12 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                             variant="primary"
                           >
                             Submit
+                          </Button>,
+                          <Button
+                            onClick={[Function]}
+                            variant="link"
+                          >
+                            Cancel
                           </Button>,
                         ]
                       }
