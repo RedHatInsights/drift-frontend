@@ -62,7 +62,7 @@ export class EditBaselineToolbar extends Component {
                     </ToolbarItem>
                     <ToolbarItem>
                         <AddFactButton
-                            isDisabled={ totalFacts > 0 ? false : true }
+                            isDisabled={ isDisabled }
                             hasWritePermissions={ hasWritePermissions }
                         />
                     </ToolbarItem>
