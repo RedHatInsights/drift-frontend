@@ -12,9 +12,14 @@ import fixtures from './fixtures';
 const middlewareListener = createMiddlewareListener();
 middlewareListener.getMiddleware();
 
+const MockComponent = jest.fn(({ children, loaded }) => {
+    return children && loaded ? children : 'Loading...';
+});
+
 describe('ConnectedSystemsTable', () => {
     let initialState;
     let mockStore;
+    let props;
 
     beforeEach(() => {
         mockStore = configureStore();
@@ -31,11 +36,27 @@ describe('ConnectedSystemsTable', () => {
                 count: 3,
                 selectedSystemIds: []
             },
-            setSelectedsystemIds: jest.fn(),
+            selectVariant: 'checkbox',
+            setSelectedSystemIds: jest.fn(),
             driftClearFilters: jest.fn(),
             selectHistoricProfiles: jest.fn(),
             updateColumns: jest.fn(),
             selectEntities: jest.fn()
+        };
+        props = {
+            hasInventoryReadPermissions: true
+        };
+
+        global.window.insights = {
+            loadInventory: jest.fn(() => {
+                return Promise.resolve({
+                    inventoryConnector: () => ({
+                        InventoryDetails: MockComponent
+                    }),
+                    INVENTORY_ACTION_TYPES: {},
+                    mergeWithEntities: () => ({})
+                });
+            })
         };
     });
 
@@ -45,7 +66,22 @@ describe('ConnectedSystemsTable', () => {
         const wrapper = mount(
             <MemoryRouter keyLength={ 0 }>
                 <Provider store={ store }>
-                    <ConnectedSystemsTable />
+                    <ConnectedSystemsTable { ...props } />
+                </Provider>
+            </MemoryRouter>
+        );
+
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it.skip('should render radio correctly', () => {
+        initialState.selectVariant = 'radio';
+        const store = mockStore(initialState);
+
+        const wrapper = mount(
+            <MemoryRouter keyLength={ 0 }>
+                <Provider store={ store }>
+                    <ConnectedSystemsTable { ...props } />
                 </Provider>
             </MemoryRouter>
         );

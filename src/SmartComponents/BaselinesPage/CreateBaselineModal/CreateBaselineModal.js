@@ -164,6 +164,7 @@ export class CreateBaselineModal extends Component {
                 historicalProfiles={ historicalProfiles }
                 hasInventoryReadPermissions={ hasInventoryReadPermissions }
                 entities={ entities }
+                selectVariant='radio'
             />
         </React.Fragment>
         );

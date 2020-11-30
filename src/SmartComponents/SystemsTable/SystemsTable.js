@@ -29,7 +29,8 @@ export const SystemsTable = ({
     updateColumns,
     hasInventoryReadPermissions,
     entities,
-    selectEntities
+    selectEntities,
+    selectVariant
 }) => {
     const [ InventoryCmp, setInventoryCmp ] = useState(null);
     const tagsFilter = ReactRedux.useSelector(({ globalFilterState }) => globalFilterState?.tagsFilter);
@@ -115,7 +116,8 @@ export const SystemsTable = ({
                             }
                         } }
                         tableProps={ {
-                            canSelectAll: false
+                            canSelectAll: false,
+                            selectVariant
                         } }
                         total={ entities.total }
                         bulkSelect={ onSelect && {
@@ -175,7 +177,8 @@ SystemsTable.propTypes = {
     selectedHSPIds: PropTypes.array,
     hasInventoryReadPermissions: PropTypes.bool,
     entities: PropTypes.object,
-    selectEntities: PropTypes.func
+    selectEntities: PropTypes.func,
+    selectVariant: PropTypes.string
 };
 
 SystemsTable.defaultProps = {

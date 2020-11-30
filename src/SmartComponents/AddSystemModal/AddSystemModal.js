@@ -137,6 +137,7 @@ export class AddSystemModal extends Component {
                                 hasMultiSelect={ true }
                                 hasInventoryReadPermissions={ hasInventoryReadPermissions }
                                 entities={ entities }
+                                selectVariant='checkbox'
                             />
                         </Tab>
                         <Tab
