@@ -29,7 +29,43 @@ function getStateSelected(state, stateFilters) {
     return isStateSelected;
 }
 
-function filterCompareData(data, stateFilters, factFilter) {
+function getState(state, stateFilters) {
+    let isStateSelected;
+
+    isStateSelected = stateFilters.find(function(stateFilter) {
+        if (stateFilter.filter === state) {
+            return stateFilter;
+        }
+    });
+
+    return isStateSelected;
+}
+
+function setTooltip (data, stateFilter, referenceId) {
+    let type = data.comparisons ? 'category' : 'row';
+
+    if (stateFilter.filter === 'SAME') {
+        data.tooltip = stateFilter.display +
+        ' - ' +
+        'All system facts in this ' + type + ' are the same.';
+    } else if (stateFilter.filter === 'INCOMPLETE_DATA') {
+        data.tooltip = stateFilter.display +
+        ' - ' +
+        'At least one system fact value in this ' + type + ' is missing.';
+    } else {
+        if (referenceId) {
+            data.tooltip = stateFilter.display +
+            ' - ' +
+            'At least one system fact value in this ' + type + ' differs from the reference.';
+        } else {
+            data.tooltip = stateFilter.display +
+            ' - ' +
+            'At least one system fact value in this ' + type + ' differs.';
+        }
+    }
+}
+
+function filterCompareData(data, stateFilters, factFilter, referenceId) {
     let filteredFacts = [];
     let filteredComparisons = [];
     let isStateSelected;
@@ -43,8 +79,14 @@ function filterCompareData(data, stateFilters, factFilter) {
 
         if (data[i].comparisons) {
             if (data[i].name === factFilter) {
-                filteredComparisons = filterComparisons(data[i].comparisons, stateFilters, '');
-                filteredFacts.push({ name: data[i].name, state: data[i].state, comparisons: filteredComparisons });
+                setTooltip(data[i], getState(data[i].state, stateFilters), referenceId);
+                filteredComparisons = filterComparisons(data[i].comparisons, stateFilters, '', referenceId);
+                filteredFacts.push({
+                    name: data[i].name,
+                    state: data[i].state,
+                    comparisons: filteredComparisons,
+                    tooltip: data[i].tooltip
+                });
 
                 break;
             }
@@ -52,11 +94,18 @@ function filterCompareData(data, stateFilters, factFilter) {
             filteredComparisons = filterComparisons(data[i].comparisons, stateFilters, factFilter);
 
             if (filteredComparisons.length) {
-                filteredFacts.push({ name: data[i].name, state: data[i].state, comparisons: filteredComparisons });
+                setTooltip(data[i], isStateSelected, referenceId);
+                filteredFacts.push({
+                    name: data[i].name,
+                    state: data[i].state,
+                    comparisons: filteredComparisons,
+                    tooltip: data[i].tooltip
+                });
             }
         } else {
             if (data[i].name.includes(factFilter)) {
                 if (isStateSelected) {
+                    setTooltip(data[i], isStateSelected, referenceId);
                     filteredFacts.push(data[i]);
                 }
             }
@@ -66,7 +115,7 @@ function filterCompareData(data, stateFilters, factFilter) {
     return filteredFacts;
 }
 
-function filterComparisons(comparisons, stateFilters, factFilter) {
+function filterComparisons(comparisons, stateFilters, factFilter, referenceId) {
     let filteredComparisons = [];
     let isStateSelected;
 
@@ -75,6 +124,7 @@ function filterComparisons(comparisons, stateFilters, factFilter) {
 
         if (comparisons[i].name.includes(factFilter)) {
             if (isStateSelected) {
+                setTooltip(comparisons[i], isStateSelected, referenceId);
                 filteredComparisons.push(comparisons[i]);
             }
         }

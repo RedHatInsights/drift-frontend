@@ -10,7 +10,8 @@ export const stateFilteredStateAll = ({
                 {
                     id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2', value: 'FAKE-BIOS'
                 }
-            ]
+            ],
+            tooltip: 'Same - All system facts in this row are the same.'
         },
         {
             name: 'display_name',
@@ -22,7 +23,8 @@ export const stateFilteredStateAll = ({
                 {
                     id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2', value: 'PC-NAME'
                 }
-            ]
+            ],
+            tooltip: 'Different - At least one system fact value in this row differs.'
         },
         {
             name: 'cpus',
@@ -34,7 +36,8 @@ export const stateFilteredStateAll = ({
                 {
                     id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2', value: '3'
                 }
-            ]
+            ],
+            tooltip: 'Incomplete data - At least one system fact value in this row is missing.'
         }
 
     ],
@@ -65,7 +68,8 @@ const stateFilteredStateSame = ([
             {
                 id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2', value: 'FAKE-BIOS'
             }
-        ]
+        ],
+        tooltip: 'Same - All system facts in this row are the same.'
     }
 ]);
 
@@ -80,7 +84,8 @@ const stateFilteredStateDifferent = ([
             {
                 id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2', value: 'PC-NAME'
             }
-        ]
+        ],
+        tooltip: 'Different - At least one system fact value in this row differs.'
     }
 ]);
 
@@ -95,7 +100,8 @@ const stateFilteredStateIncomplete = ([
             {
                 id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2', value: '3'
             }
-        ]
+        ],
+        tooltip: 'Incomplete data - At least one system fact value in this row is missing.'
     }
 ]);
 
@@ -110,7 +116,8 @@ const stateFilteredStateSameDiff = ([
             {
                 id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2', value: 'FAKE-BIOS'
             }
-        ]
+        ],
+        tooltip: 'Same - All system facts in this row are the same.'
     },
     {
         name: 'display_name',
@@ -122,7 +129,8 @@ const stateFilteredStateSameDiff = ([
             {
                 id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2', value: 'PC-NAME'
             }
-        ]
+        ],
+        tooltip: 'Different - At least one system fact value in this row differs.'
     }
 ]);
 
@@ -137,7 +145,8 @@ const stateFilteredStateSameIncomplete = ([
             {
                 id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2', value: 'FAKE-BIOS'
             }
-        ]
+        ],
+        tooltip: 'Same - All system facts in this row are the same.'
     },
     {
         name: 'cpus',
@@ -149,7 +158,8 @@ const stateFilteredStateSameIncomplete = ([
             {
                 id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2', value: '3'
             }
-        ]
+        ],
+        tooltip: 'Incomplete data - At least one system fact value in this row is missing.'
     }
 ]);
 
@@ -164,7 +174,8 @@ const stateFilteredStateDiffIncomplete = ([
             {
                 id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2', value: 'PC-NAME'
             }
-        ]
+        ],
+        tooltip: 'Different - At least one system fact value in this row differs.'
     },
     {
         name: 'cpus',
@@ -176,7 +187,8 @@ const stateFilteredStateDiffIncomplete = ([
             {
                 id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2', value: '3'
             }
-        ]
+        ],
+        tooltip: 'Incomplete data - At least one system fact value in this row is missing.'
     }
 ]);
 

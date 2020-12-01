@@ -10,7 +10,8 @@ export const factFilteredStateOne = ({
                 {
                     id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2', value: 'FAKE-BIOS'
                 }
-            ]
+            ],
+            tooltip: 'Same - All system facts in this row are the same.'
         },
         {
             name: 'display_name',
@@ -22,7 +23,8 @@ export const factFilteredStateOne = ({
                 {
                     id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2', value: 'PC-NAME'
                 }
-            ]
+            ],
+            tooltip: 'Same - All system facts in this row are the same.'
         }
     ],
     /* eslint-disable camelcase */
@@ -53,7 +55,8 @@ export const factFilteredStateTwo = ({
                 {
                     id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2', value: 'FAKE-BIOS'
                 }
-            ]
+            ],
+            tooltip: 'Same - All system facts in this row are the same.'
         }
     ],
     /* eslint-disable camelcase */

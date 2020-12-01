@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { CheckCircleIcon, QuestionCircleIcon, ExclamationCircleIcon } from '@patternfly/react-icons';
+import { Tooltip } from '@patternfly/react-core';
 
 class StateIcon extends Component {
     constructor(props) {
@@ -10,9 +11,9 @@ class StateIcon extends Component {
     icon() {
         let iconClass = '';
 
-        if (this.props.factState === 'SAME') {
+        if (this.props.fact.state === 'SAME') {
             iconClass = <CheckCircleIcon color='#3E8635' height='16px' width='16px'/>;
-        } else if (this.props.factState === 'DIFFERENT') {
+        } else if (this.props.fact.state === 'DIFFERENT') {
             iconClass = <ExclamationCircleIcon color='#C9190B' height='16px' width='16px'/>;
         } else {
             iconClass = <QuestionCircleIcon color='#151515' height='16px' width='16px'/>;
@@ -23,13 +24,20 @@ class StateIcon extends Component {
 
     render() {
         return (
-            this.icon()
+            <Tooltip
+                position="top"
+                content={
+                    <div>{ this.props.fact.tooltip }</div>
+                }
+            >
+                { this.icon() }
+            </Tooltip>
         );
     }
 }
 
 StateIcon.propTypes = {
-    factState: PropTypes.string
+    fact: PropTypes.object
 };
 
 export default StateIcon;
