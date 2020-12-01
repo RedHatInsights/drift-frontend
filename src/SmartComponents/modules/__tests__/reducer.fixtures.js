@@ -11,7 +11,8 @@ export const compareReducerPayload = ({
                 {
                     id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2', value: '3'
                 }
-            ]
+            ],
+            tooltip: 'Different - At least one system fact value in this row differs.'
         },
         {
             name: 'bios_uuid',
@@ -64,7 +65,8 @@ export const compareReducerState = ({
                 {
                     id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2', value: '3'
                 }
-            ]
+            ],
+            tooltip: 'Different - At least one system fact value in this row differs.'
         },
         {
             name: 'bios_uuid',
@@ -76,7 +78,8 @@ export const compareReducerState = ({
                 {
                     id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2', value: 'FAKE-BIOS'
                 }
-            ]
+            ],
+            tooltip: 'Same - All system facts in this row are the same.'
         },
         {
             name: 'display_name',
@@ -88,7 +91,8 @@ export const compareReducerState = ({
                 {
                     id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2', value: 'PC-NAME'
                 }
-            ]
+            ],
+            tooltip: 'Same - All system facts in this row are the same.'
         }
     ],
     systems: [
@@ -117,7 +121,8 @@ export const sortedDesc = ({
                 {
                     id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2', value: 'FAKE-BIOS'
                 }
-            ]
+            ],
+            tooltip: 'Same - All system facts in this row are the same.'
         },
         {
             name: 'cpus',
@@ -129,7 +134,8 @@ export const sortedDesc = ({
                 {
                     id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2', value: '3'
                 }
-            ]
+            ],
+            tooltip: 'Different - At least one system fact value in this row differs.'
         },
         {
             name: 'display_name',
@@ -141,7 +147,8 @@ export const sortedDesc = ({
                 {
                     id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2', value: 'PC-NAME'
                 }
-            ]
+            ],
+            tooltip: 'Same - All system facts in this row are the same.'
         }
     ],
     systems: [
@@ -170,7 +177,8 @@ export const paginatedStatePageOne = ({
                 {
                     id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2', value: '3'
                 }
-            ]
+            ],
+            tooltip: 'Different - At least one system fact value in this row differs.'
         },
         {
             name: 'bios_uuid',
@@ -182,7 +190,8 @@ export const paginatedStatePageOne = ({
                 {
                     id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2', value: 'FAKE-BIOS'
                 }
-            ]
+            ],
+            tooltip: 'Same - All system facts in this row are the same.'
         }
     ],
     systems: [
@@ -211,7 +220,8 @@ export const paginatedStatePageTwo = ({
                 {
                     id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2', value: 'PC-NAME'
                 }
-            ]
+            ],
+            tooltip: 'Same - All system facts in this row are the same.'
         }
     ],
     systems: [

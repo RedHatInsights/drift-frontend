@@ -10,7 +10,7 @@ describe('ReferenceSelector', () => {
     beforeEach(() => {
         props = {
             isReference: false,
-            id: 'abcd1234',
+            item: { id: 'abcd1234' },
             updateReferenceId: jest.fn()
         };
     });

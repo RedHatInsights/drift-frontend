@@ -292,7 +292,7 @@ export class DriftTable extends Component {
             );
             row.push(
                 <td className="fact-state sticky-column fixed-column-2">
-                    <StateIcon factState={ fact.state }/>
+                    <StateIcon fact={ fact }/>
                 </td>
             );
 
@@ -312,7 +312,7 @@ export class DriftTable extends Component {
             row.push(<td className="sticky-column fixed-column-1">{ fact.name }</td>);
             row.push(
                 <td className="fact-state sticky-column fixed-column-2">
-                    <StateIcon factState={ fact.state }/>
+                    <StateIcon fact={ fact }/>
                 </td>
             );
 
@@ -330,7 +330,7 @@ export class DriftTable extends Component {
         row.push(<td className="nested-fact sticky-column fixed-column-1">
             <p className="child-row">{ fact.name }</p>
         </td>);
-        row.push(<td className="fact-state sticky-column fixed-column-2"><StateIcon factState={ fact.state }/></td>);
+        row.push(<td className="fact-state sticky-column fixed-column-2"><StateIcon fact={ fact }/></td>);
 
         row = row.concat(this.findSystem(fact));
 

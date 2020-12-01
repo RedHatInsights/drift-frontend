@@ -53,11 +53,26 @@ class ComparisonHeader extends Component {
 
         masterList.forEach(item => {
             if (item.type === 'system') {
-                typeIcon = <ServerIcon/>;
+                typeIcon = <Tooltip
+                    position='top'
+                    content={ <div>System</div> }
+                >
+                    <ServerIcon/>
+                </Tooltip>;
             } else if (item.type === 'baseline') {
-                typeIcon = <BlueprintIcon/>;
+                typeIcon = <Tooltip
+                    position='top'
+                    content={ <div>Baseline</div> }
+                >
+                    <BlueprintIcon/>
+                </Tooltip>;
             } else if (item.type === 'historical-system-profile') {
-                typeIcon = <ClockIcon />;
+                typeIcon = <Tooltip
+                    position='top'
+                    content={ <div>Historical system</div> }
+                >
+                    <ClockIcon />
+                </Tooltip>;
             }
 
             row.push(
@@ -83,7 +98,7 @@ class ComparisonHeader extends Component {
                         <div className="system-updated-and-reference">
                             <ReferenceSelector
                                 updateReferenceId={ updateReferenceId }
-                                id={ item.id }
+                                item={ item }
                                 isReference= { item.id === referenceId }
                             />
                             { item.system_profile_exists === false ?
