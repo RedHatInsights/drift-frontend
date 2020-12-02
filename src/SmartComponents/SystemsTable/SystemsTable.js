@@ -12,7 +12,7 @@ import * as pfReactTable from '@patternfly/react-table';
 import selectedReducer from '../../store/reducers';
 import { addNewListener } from '../../store';
 import { compareActions } from '../modules';
-import { historicProfilesActions } from '../HistoricalProfilesDropdown/redux';
+import { historicProfilesActions } from '../HistoricalProfilesPopover/redux';
 import systemsTableActions from './actions';
 import EmptyStateDisplay from '../EmptyStateDisplay/EmptyStateDisplay';
 import helpers from '../helpers';

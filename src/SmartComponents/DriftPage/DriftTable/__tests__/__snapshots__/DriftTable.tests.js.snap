@@ -2069,8 +2069,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                               </OutlinedStarIcon>
                             </ReferenceSelector>
                             15 Jan 2019, 14:53 UTC
-                            <withRouter(Connect(HistoricalProfilesDropdown))
-                              dropdownDirection="down"
+                            <withRouter(Connect(HistoricalProfilesPopover))
                               fetchCompare={[Function]}
                               hasCompareButton={true}
                               hasMultiSelect={true}
@@ -2084,8 +2083,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                               }
                               systemIds={Array []}
                             >
-                              <Connect(HistoricalProfilesDropdown)
-                                dropdownDirection="down"
+                              <Connect(HistoricalProfilesPopover)
                                 fetchCompare={[Function]}
                                 hasCompareButton={true}
                                 hasMultiSelect={true}
@@ -2145,8 +2143,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                 }
                                 systemIds={Array []}
                               >
-                                <HistoricalProfilesDropdown
-                                  dropdownDirection="down"
+                                <HistoricalProfilesPopover
                                   fetchCompare={[Function]}
                                   hasCompareButton={true}
                                   hasMultiSelect={true}
@@ -2212,50 +2209,11 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                   systemIds={Array []}
                                   updateColumns={[Function]}
                                 >
-                                  <Dropdown
-                                    className="historical-system-profile-dropdown"
-                                    direction="down"
-                                    dropdownItems={
-                                      Array [
-                                        <Skeleton
-                                          className="hsp-dropdown-loading"
-                                          isDark={false}
-                                          size="sm"
-                                        />,
-                                        <Skeleton
-                                          className="hsp-dropdown-loading"
-                                          isDark={false}
-                                          size="sm"
-                                        />,
-                                        <Skeleton
-                                          className="hsp-dropdown-loading"
-                                          isDark={false}
-                                          size="sm"
-                                        />,
-                                      ]
-                                    }
-                                    isOpen={false}
-                                    isPlain={true}
-                                    position="right"
-                                    toggle={
-                                      <DropdownToggle
-                                        className="hsp-dropdown-icon"
-                                        onToggle={[Function]}
-                                        toggleIndicator={null}
-                                      >
-                                        <HistoryIcon
-                                          color="currentColor"
-                                          noVerticalAlign={false}
-                                          size="sm"
-                                        />
-                                      </DropdownToggle>
-                                    }
+                                  <span
+                                    className="hsp-icon-padding historical-system-profile-popover"
                                   >
-                                    <DropdownWithContext
-                                      autoFocus={true}
-                                      className="historical-system-profile-dropdown"
-                                      direction="down"
-                                      dropdownItems={
+                                    <Popover
+                                      bodyContent={
                                         Array [
                                           <Skeleton
                                             className="hsp-dropdown-loading"
@@ -2274,174 +2232,172 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                           />,
                                         ]
                                       }
-                                      isGrouped={false}
-                                      isOpen={false}
-                                      isPlain={true}
-                                      menuAppendTo="inline"
-                                      onSelect={[Function]}
-                                      position="right"
-                                      toggle={
-                                        <DropdownToggle
-                                          className="hsp-dropdown-icon"
-                                          onToggle={[Function]}
-                                          toggleIndicator={null}
+                                      footerContent={
+                                        <Button
+                                          onClick={[Function]}
+                                          variant="primary"
                                         >
-                                          <HistoryIcon
-                                            color="currentColor"
-                                            noVerticalAlign={false}
-                                            size="sm"
-                                          />
-                                        </DropdownToggle>
+                                          Compare
+                                        </Button>
                                       }
+                                      headerContent={
+                                        <div>
+                                          Historical profiles for this system
+                                        </div>
+                                      }
+                                      id="hsp-popover-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9"
+                                      isVisible={false}
+                                      shouldClose={[Function]}
                                     >
-                                      <div
-                                        className="pf-c-dropdown pf-m-align-right historical-system-profile-dropdown"
-                                        data-ouia-component-id={0}
-                                        data-ouia-component-type="PF4/Dropdown"
-                                        data-ouia-safe={true}
-                                      >
-                                        <DropdownToggle
-                                          aria-haspopup={true}
-                                          className="hsp-dropdown-icon"
-                                          getMenuRef={[Function]}
-                                          id="pf-dropdown-toggle-id-0"
-                                          isOpen={false}
-                                          isPlain={true}
-                                          key=".0"
-                                          onEnter={[Function]}
-                                          onToggle={[Function]}
-                                          parentRef={
-                                            Object {
-                                              "current": <div
-                                                class="pf-c-dropdown pf-m-align-right historical-system-profile-dropdown"
-                                                data-ouia-component-id="0"
-                                                data-ouia-component-type="PF4/Dropdown"
-                                                data-ouia-safe="true"
-                                              >
-                                                <button
-                                                  aria-expanded="false"
-                                                  aria-haspopup="true"
-                                                  class="pf-c-dropdown__toggle pf-m-plain hsp-dropdown-icon"
-                                                  id="pf-dropdown-toggle-id-0"
-                                                  type="button"
-                                                >
-                                                  <span>
-                                                    <svg
-                                                      aria-hidden="true"
-                                                      fill="currentColor"
-                                                      height="1em"
-                                                      role="img"
-                                                      style="vertical-align: -0.125em;"
-                                                      viewBox="0 0 512 512"
-                                                      width="1em"
-                                                    >
-                                                      <path
-                                                        d="M504 255.531c.253 136.64-111.18 248.372-247.82 248.468-59.015.042-113.223-20.53-155.822-54.911-11.077-8.94-11.905-25.541-1.839-35.607l11.267-11.267c8.609-8.609 22.353-9.551 31.891-1.984C173.062 425.135 212.781 440 256 440c101.705 0 184-82.311 184-184 0-101.705-82.311-184-184-184-48.814 0-93.149 18.969-126.068 49.932l50.754 50.754c10.08 10.08 2.941 27.314-11.313 27.314H24c-8.837 0-16-7.163-16-16V38.627c0-14.254 17.234-21.393 27.314-11.314l49.372 49.372C129.209 34.136 189.552 8 256 8c136.81 0 247.747 110.78 248 247.531zm-180.912 78.784l9.823-12.63c8.138-10.463 6.253-25.542-4.21-33.679L288 256.349V152c0-13.255-10.745-24-24-24h-16c-13.255 0-24 10.745-24 24v135.651l65.409 50.874c10.463 8.137 25.541 6.253 33.679-4.21z"
-                                                      />
-                                                    </svg>
-                                                  </span>
-                                                </button>
-                                              </div>,
-                                            }
-                                          }
-                                          toggleIndicator={null}
-                                        >
-                                          <Toggle
-                                            aria-haspopup={true}
-                                            bubbleEvent={false}
-                                            className="hsp-dropdown-icon"
-                                            getMenuRef={[Function]}
-                                            id="pf-dropdown-toggle-id-0"
-                                            isActive={false}
-                                            isDisabled={false}
-                                            isOpen={false}
-                                            isPlain={true}
-                                            isPrimary={false}
-                                            isSplitButton={false}
-                                            onEnter={[Function]}
-                                            onToggle={[Function]}
-                                            parentRef={
+                                      <Popper
+                                        appendTo={[Function]}
+                                        distance={25}
+                                        enableFlip={true}
+                                        flipBehavior={
+                                          Array [
+                                            "top",
+                                            "right",
+                                            "bottom",
+                                            "left",
+                                            "top",
+                                            "right",
+                                            "bottom",
+                                          ]
+                                        }
+                                        isVisible={false}
+                                        onDocumentClick={[Function]}
+                                        onDocumentKeyDown={[Function]}
+                                        onTriggerClick={[Function]}
+                                        onTriggerEnter={[Function]}
+                                        placement="top"
+                                        popper={
+                                          <FocusTrap
+                                            active={false}
+                                            aria-describedby="popover-hsp-popover-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9-body"
+                                            aria-labelledby="popover-hsp-popover-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9-header"
+                                            aria-modal="true"
+                                            className="pf-c-popover"
+                                            focusTrapOptions={
                                               Object {
-                                                "current": <div
-                                                  class="pf-c-dropdown pf-m-align-right historical-system-profile-dropdown"
-                                                  data-ouia-component-id="0"
-                                                  data-ouia-component-type="PF4/Dropdown"
-                                                  data-ouia-safe="true"
-                                                >
-                                                  <button
-                                                    aria-expanded="false"
-                                                    aria-haspopup="true"
-                                                    class="pf-c-dropdown__toggle pf-m-plain hsp-dropdown-icon"
-                                                    id="pf-dropdown-toggle-id-0"
-                                                    type="button"
-                                                  >
-                                                    <span>
-                                                      <svg
-                                                        aria-hidden="true"
-                                                        fill="currentColor"
-                                                        height="1em"
-                                                        role="img"
-                                                        style="vertical-align: -0.125em;"
-                                                        viewBox="0 0 512 512"
-                                                        width="1em"
-                                                      >
-                                                        <path
-                                                          d="M504 255.531c.253 136.64-111.18 248.372-247.82 248.468-59.015.042-113.223-20.53-155.822-54.911-11.077-8.94-11.905-25.541-1.839-35.607l11.267-11.267c8.609-8.609 22.353-9.551 31.891-1.984C173.062 425.135 212.781 440 256 440c101.705 0 184-82.311 184-184 0-101.705-82.311-184-184-184-48.814 0-93.149 18.969-126.068 49.932l50.754 50.754c10.08 10.08 2.941 27.314-11.313 27.314H24c-8.837 0-16-7.163-16-16V38.627c0-14.254 17.234-21.393 27.314-11.314l49.372 49.372C129.209 34.136 189.552 8 256 8c136.81 0 247.747 110.78 248 247.531zm-180.912 78.784l9.823-12.63c8.138-10.463 6.253-25.542-4.21-33.679L288 256.349V152c0-13.255-10.745-24-24-24h-16c-13.255 0-24 10.745-24 24v135.651l65.409 50.874c10.463 8.137 25.541 6.253 33.679-4.21z"
-                                                        />
-                                                      </svg>
-                                                    </span>
-                                                  </button>
-                                                </div>,
+                                                "clickOutsideDeactivates": true,
+                                                "returnFocusOnDeactivate": true,
+                                              }
+                                            }
+                                            onMouseDown={[Function]}
+                                            paused={false}
+                                            role="dialog"
+                                            style={
+                                              Object {
+                                                "maxWidth": null,
+                                                "minWidth": null,
+                                                "opacity": 0,
+                                                "transition": "opacity 300ms cubic-bezier(.54, 1.5, .38, 1.11)",
                                               }
                                             }
                                           >
-                                            <button
-                                              aria-expanded={false}
-                                              aria-haspopup={true}
-                                              className="pf-c-dropdown__toggle pf-m-plain hsp-dropdown-icon"
-                                              disabled={false}
-                                              id="pf-dropdown-toggle-id-0"
-                                              onClick={[Function]}
-                                              onKeyDown={[Function]}
-                                              type="button"
-                                            >
-                                              <span
-                                                className={null}
+                                            <PopoverArrow />
+                                            <PopoverContent>
+                                              <PopoverCloseButton
+                                                aria-label="Close"
+                                                onClose={[Function]}
+                                              />
+                                              <PopoverHeader
+                                                id="popover-hsp-popover-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9-header"
                                               >
-                                                <HistoryIcon
-                                                  color="currentColor"
-                                                  noVerticalAlign={false}
+                                                <div>
+                                                  Historical profiles for this system
+                                                </div>
+                                              </PopoverHeader>
+                                              <PopoverBody
+                                                id="popover-hsp-popover-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9-body"
+                                              >
+                                                <Skeleton
+                                                  className="hsp-dropdown-loading"
+                                                  isDark={false}
                                                   size="sm"
+                                                />
+                                                <Skeleton
+                                                  className="hsp-dropdown-loading"
+                                                  isDark={false}
+                                                  size="sm"
+                                                />
+                                                <Skeleton
+                                                  className="hsp-dropdown-loading"
+                                                  isDark={false}
+                                                  size="sm"
+                                                />
+                                              </PopoverBody>
+                                              <PopoverFooter
+                                                id="popover-hsp-popover-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9-footer"
+                                              >
+                                                <Button
+                                                  onClick={[Function]}
+                                                  variant="primary"
                                                 >
-                                                  <svg
-                                                    aria-hidden={true}
-                                                    aria-labelledby={null}
-                                                    fill="currentColor"
-                                                    height="1em"
-                                                    role="img"
-                                                    style={
-                                                      Object {
-                                                        "verticalAlign": "-0.125em",
-                                                      }
-                                                    }
-                                                    viewBox="0 0 512 512"
-                                                    width="1em"
-                                                  >
-                                                    <path
-                                                      d="M504 255.531c.253 136.64-111.18 248.372-247.82 248.468-59.015.042-113.223-20.53-155.822-54.911-11.077-8.94-11.905-25.541-1.839-35.607l11.267-11.267c8.609-8.609 22.353-9.551 31.891-1.984C173.062 425.135 212.781 440 256 440c101.705 0 184-82.311 184-184 0-101.705-82.311-184-184-184-48.814 0-93.149 18.969-126.068 49.932l50.754 50.754c10.08 10.08 2.941 27.314-11.313 27.314H24c-8.837 0-16-7.163-16-16V38.627c0-14.254 17.234-21.393 27.314-11.314l49.372 49.372C129.209 34.136 189.552 8 256 8c136.81 0 247.747 110.78 248 247.531zm-180.912 78.784l9.823-12.63c8.138-10.463 6.253-25.542-4.21-33.679L288 256.349V152c0-13.255-10.745-24-24-24h-16c-13.255 0-24 10.745-24 24v135.651l65.409 50.874c10.463 8.137 25.541 6.253 33.679-4.21z"
-                                                    />
-                                                  </svg>
-                                                </HistoryIcon>
-                                              </span>
-                                            </button>
-                                          </Toggle>
-                                        </DropdownToggle>
-                                      </div>
-                                    </DropdownWithContext>
-                                  </Dropdown>
-                                </HistoricalProfilesDropdown>
-                              </Connect(HistoricalProfilesDropdown)>
-                            </withRouter(Connect(HistoricalProfilesDropdown))>
+                                                  Compare
+                                                </Button>
+                                              </PopoverFooter>
+                                            </PopoverContent>
+                                          </FocusTrap>
+                                        }
+                                        popperMatchesTriggerWidth={false}
+                                        positionModifiers={
+                                          Object {
+                                            "bottom": "pf-m-bottom",
+                                            "left": "pf-m-left",
+                                            "right": "pf-m-right",
+                                            "top": "pf-m-top",
+                                          }
+                                        }
+                                        trigger={
+                                          <HistoryIcon
+                                            className="hsp-dropdown-icon"
+                                            color="currentColor"
+                                            noVerticalAlign={false}
+                                            onClick={[Function]}
+                                            size="sm"
+                                          />
+                                        }
+                                        zIndex={9999}
+                                      >
+                                        <FindRefWrapper
+                                          onFoundRef={[Function]}
+                                        >
+                                          <HistoryIcon
+                                            className="hsp-dropdown-icon"
+                                            color="currentColor"
+                                            noVerticalAlign={false}
+                                            onClick={[Function]}
+                                            size="sm"
+                                          >
+                                            <svg
+                                              aria-hidden={true}
+                                              aria-labelledby={null}
+                                              className="hsp-dropdown-icon"
+                                              fill="currentColor"
+                                              height="1em"
+                                              onClick={[Function]}
+                                              role="img"
+                                              style={
+                                                Object {
+                                                  "verticalAlign": "-0.125em",
+                                                }
+                                              }
+                                              viewBox="0 0 512 512"
+                                              width="1em"
+                                            >
+                                              <path
+                                                d="M504 255.531c.253 136.64-111.18 248.372-247.82 248.468-59.015.042-113.223-20.53-155.822-54.911-11.077-8.94-11.905-25.541-1.839-35.607l11.267-11.267c8.609-8.609 22.353-9.551 31.891-1.984C173.062 425.135 212.781 440 256 440c101.705 0 184-82.311 184-184 0-101.705-82.311-184-184-184-48.814 0-93.149 18.969-126.068 49.932l50.754 50.754c10.08 10.08 2.941 27.314-11.313 27.314H24c-8.837 0-16-7.163-16-16V38.627c0-14.254 17.234-21.393 27.314-11.314l49.372 49.372C129.209 34.136 189.552 8 256 8c136.81 0 247.747 110.78 248 247.531zm-180.912 78.784l9.823-12.63c8.138-10.463 6.253-25.542-4.21-33.679L288 256.349V152c0-13.255-10.745-24-24-24h-16c-13.255 0-24 10.745-24 24v135.651l65.409 50.874c10.463 8.137 25.541 6.253 33.679-4.21z"
+                                              />
+                                            </svg>
+                                          </HistoryIcon>
+                                        </FindRefWrapper>
+                                      </Popper>
+                                    </Popover>
+                                  </span>
+                                </HistoricalProfilesPopover>
+                              </Connect(HistoricalProfilesPopover)>
+                            </withRouter(Connect(HistoricalProfilesPopover))>
                           </div>
                         </div>
                       </th>
@@ -2555,8 +2511,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                               </OutlinedStarIcon>
                             </ReferenceSelector>
                             15 Jan 2019, 14:53 UTC
-                            <withRouter(Connect(HistoricalProfilesDropdown))
-                              dropdownDirection="down"
+                            <withRouter(Connect(HistoricalProfilesPopover))
                               fetchCompare={[Function]}
                               hasCompareButton={true}
                               hasMultiSelect={true}
@@ -2571,8 +2526,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                               }
                               systemIds={Array []}
                             >
-                              <Connect(HistoricalProfilesDropdown)
-                                dropdownDirection="down"
+                              <Connect(HistoricalProfilesPopover)
                                 fetchCompare={[Function]}
                                 hasCompareButton={true}
                                 hasMultiSelect={true}
@@ -2633,8 +2587,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                 }
                                 systemIds={Array []}
                               >
-                                <HistoricalProfilesDropdown
-                                  dropdownDirection="down"
+                                <HistoricalProfilesPopover
                                   fetchCompare={[Function]}
                                   hasCompareButton={true}
                                   hasMultiSelect={true}
@@ -2701,50 +2654,11 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                   systemIds={Array []}
                                   updateColumns={[Function]}
                                 >
-                                  <Dropdown
-                                    className="historical-system-profile-dropdown"
-                                    direction="down"
-                                    dropdownItems={
-                                      Array [
-                                        <Skeleton
-                                          className="hsp-dropdown-loading"
-                                          isDark={false}
-                                          size="sm"
-                                        />,
-                                        <Skeleton
-                                          className="hsp-dropdown-loading"
-                                          isDark={false}
-                                          size="sm"
-                                        />,
-                                        <Skeleton
-                                          className="hsp-dropdown-loading"
-                                          isDark={false}
-                                          size="sm"
-                                        />,
-                                      ]
-                                    }
-                                    isOpen={false}
-                                    isPlain={true}
-                                    position="right"
-                                    toggle={
-                                      <DropdownToggle
-                                        className="hsp-dropdown-icon"
-                                        onToggle={[Function]}
-                                        toggleIndicator={null}
-                                      >
-                                        <HistoryIcon
-                                          color="currentColor"
-                                          noVerticalAlign={false}
-                                          size="sm"
-                                        />
-                                      </DropdownToggle>
-                                    }
+                                  <span
+                                    className="hsp-icon-padding historical-system-profile-popover"
                                   >
-                                    <DropdownWithContext
-                                      autoFocus={true}
-                                      className="historical-system-profile-dropdown"
-                                      direction="down"
-                                      dropdownItems={
+                                    <Popover
+                                      bodyContent={
                                         Array [
                                           <Skeleton
                                             className="hsp-dropdown-loading"
@@ -2763,174 +2677,172 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                           />,
                                         ]
                                       }
-                                      isGrouped={false}
-                                      isOpen={false}
-                                      isPlain={true}
-                                      menuAppendTo="inline"
-                                      onSelect={[Function]}
-                                      position="right"
-                                      toggle={
-                                        <DropdownToggle
-                                          className="hsp-dropdown-icon"
-                                          onToggle={[Function]}
-                                          toggleIndicator={null}
+                                      footerContent={
+                                        <Button
+                                          onClick={[Function]}
+                                          variant="primary"
                                         >
-                                          <HistoryIcon
-                                            color="currentColor"
-                                            noVerticalAlign={false}
-                                            size="sm"
-                                          />
-                                        </DropdownToggle>
+                                          Compare
+                                        </Button>
                                       }
+                                      headerContent={
+                                        <div>
+                                          Historical profiles for this system
+                                        </div>
+                                      }
+                                      id="hsp-popover-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9"
+                                      isVisible={false}
+                                      shouldClose={[Function]}
                                     >
-                                      <div
-                                        className="pf-c-dropdown pf-m-align-right historical-system-profile-dropdown"
-                                        data-ouia-component-id={1}
-                                        data-ouia-component-type="PF4/Dropdown"
-                                        data-ouia-safe={true}
-                                      >
-                                        <DropdownToggle
-                                          aria-haspopup={true}
-                                          className="hsp-dropdown-icon"
-                                          getMenuRef={[Function]}
-                                          id="pf-dropdown-toggle-id-1"
-                                          isOpen={false}
-                                          isPlain={true}
-                                          key=".0"
-                                          onEnter={[Function]}
-                                          onToggle={[Function]}
-                                          parentRef={
-                                            Object {
-                                              "current": <div
-                                                class="pf-c-dropdown pf-m-align-right historical-system-profile-dropdown"
-                                                data-ouia-component-id="1"
-                                                data-ouia-component-type="PF4/Dropdown"
-                                                data-ouia-safe="true"
-                                              >
-                                                <button
-                                                  aria-expanded="false"
-                                                  aria-haspopup="true"
-                                                  class="pf-c-dropdown__toggle pf-m-plain hsp-dropdown-icon"
-                                                  id="pf-dropdown-toggle-id-1"
-                                                  type="button"
-                                                >
-                                                  <span>
-                                                    <svg
-                                                      aria-hidden="true"
-                                                      fill="currentColor"
-                                                      height="1em"
-                                                      role="img"
-                                                      style="vertical-align: -0.125em;"
-                                                      viewBox="0 0 512 512"
-                                                      width="1em"
-                                                    >
-                                                      <path
-                                                        d="M504 255.531c.253 136.64-111.18 248.372-247.82 248.468-59.015.042-113.223-20.53-155.822-54.911-11.077-8.94-11.905-25.541-1.839-35.607l11.267-11.267c8.609-8.609 22.353-9.551 31.891-1.984C173.062 425.135 212.781 440 256 440c101.705 0 184-82.311 184-184 0-101.705-82.311-184-184-184-48.814 0-93.149 18.969-126.068 49.932l50.754 50.754c10.08 10.08 2.941 27.314-11.313 27.314H24c-8.837 0-16-7.163-16-16V38.627c0-14.254 17.234-21.393 27.314-11.314l49.372 49.372C129.209 34.136 189.552 8 256 8c136.81 0 247.747 110.78 248 247.531zm-180.912 78.784l9.823-12.63c8.138-10.463 6.253-25.542-4.21-33.679L288 256.349V152c0-13.255-10.745-24-24-24h-16c-13.255 0-24 10.745-24 24v135.651l65.409 50.874c10.463 8.137 25.541 6.253 33.679-4.21z"
-                                                      />
-                                                    </svg>
-                                                  </span>
-                                                </button>
-                                              </div>,
-                                            }
-                                          }
-                                          toggleIndicator={null}
-                                        >
-                                          <Toggle
-                                            aria-haspopup={true}
-                                            bubbleEvent={false}
-                                            className="hsp-dropdown-icon"
-                                            getMenuRef={[Function]}
-                                            id="pf-dropdown-toggle-id-1"
-                                            isActive={false}
-                                            isDisabled={false}
-                                            isOpen={false}
-                                            isPlain={true}
-                                            isPrimary={false}
-                                            isSplitButton={false}
-                                            onEnter={[Function]}
-                                            onToggle={[Function]}
-                                            parentRef={
+                                      <Popper
+                                        appendTo={[Function]}
+                                        distance={25}
+                                        enableFlip={true}
+                                        flipBehavior={
+                                          Array [
+                                            "top",
+                                            "right",
+                                            "bottom",
+                                            "left",
+                                            "top",
+                                            "right",
+                                            "bottom",
+                                          ]
+                                        }
+                                        isVisible={false}
+                                        onDocumentClick={[Function]}
+                                        onDocumentKeyDown={[Function]}
+                                        onTriggerClick={[Function]}
+                                        onTriggerEnter={[Function]}
+                                        placement="top"
+                                        popper={
+                                          <FocusTrap
+                                            active={false}
+                                            aria-describedby="popover-hsp-popover-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9-body"
+                                            aria-labelledby="popover-hsp-popover-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9-header"
+                                            aria-modal="true"
+                                            className="pf-c-popover"
+                                            focusTrapOptions={
                                               Object {
-                                                "current": <div
-                                                  class="pf-c-dropdown pf-m-align-right historical-system-profile-dropdown"
-                                                  data-ouia-component-id="1"
-                                                  data-ouia-component-type="PF4/Dropdown"
-                                                  data-ouia-safe="true"
-                                                >
-                                                  <button
-                                                    aria-expanded="false"
-                                                    aria-haspopup="true"
-                                                    class="pf-c-dropdown__toggle pf-m-plain hsp-dropdown-icon"
-                                                    id="pf-dropdown-toggle-id-1"
-                                                    type="button"
-                                                  >
-                                                    <span>
-                                                      <svg
-                                                        aria-hidden="true"
-                                                        fill="currentColor"
-                                                        height="1em"
-                                                        role="img"
-                                                        style="vertical-align: -0.125em;"
-                                                        viewBox="0 0 512 512"
-                                                        width="1em"
-                                                      >
-                                                        <path
-                                                          d="M504 255.531c.253 136.64-111.18 248.372-247.82 248.468-59.015.042-113.223-20.53-155.822-54.911-11.077-8.94-11.905-25.541-1.839-35.607l11.267-11.267c8.609-8.609 22.353-9.551 31.891-1.984C173.062 425.135 212.781 440 256 440c101.705 0 184-82.311 184-184 0-101.705-82.311-184-184-184-48.814 0-93.149 18.969-126.068 49.932l50.754 50.754c10.08 10.08 2.941 27.314-11.313 27.314H24c-8.837 0-16-7.163-16-16V38.627c0-14.254 17.234-21.393 27.314-11.314l49.372 49.372C129.209 34.136 189.552 8 256 8c136.81 0 247.747 110.78 248 247.531zm-180.912 78.784l9.823-12.63c8.138-10.463 6.253-25.542-4.21-33.679L288 256.349V152c0-13.255-10.745-24-24-24h-16c-13.255 0-24 10.745-24 24v135.651l65.409 50.874c10.463 8.137 25.541 6.253 33.679-4.21z"
-                                                        />
-                                                      </svg>
-                                                    </span>
-                                                  </button>
-                                                </div>,
+                                                "clickOutsideDeactivates": true,
+                                                "returnFocusOnDeactivate": true,
+                                              }
+                                            }
+                                            onMouseDown={[Function]}
+                                            paused={false}
+                                            role="dialog"
+                                            style={
+                                              Object {
+                                                "maxWidth": null,
+                                                "minWidth": null,
+                                                "opacity": 0,
+                                                "transition": "opacity 300ms cubic-bezier(.54, 1.5, .38, 1.11)",
                                               }
                                             }
                                           >
-                                            <button
-                                              aria-expanded={false}
-                                              aria-haspopup={true}
-                                              className="pf-c-dropdown__toggle pf-m-plain hsp-dropdown-icon"
-                                              disabled={false}
-                                              id="pf-dropdown-toggle-id-1"
-                                              onClick={[Function]}
-                                              onKeyDown={[Function]}
-                                              type="button"
-                                            >
-                                              <span
-                                                className={null}
+                                            <PopoverArrow />
+                                            <PopoverContent>
+                                              <PopoverCloseButton
+                                                aria-label="Close"
+                                                onClose={[Function]}
+                                              />
+                                              <PopoverHeader
+                                                id="popover-hsp-popover-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9-header"
                                               >
-                                                <HistoryIcon
-                                                  color="currentColor"
-                                                  noVerticalAlign={false}
+                                                <div>
+                                                  Historical profiles for this system
+                                                </div>
+                                              </PopoverHeader>
+                                              <PopoverBody
+                                                id="popover-hsp-popover-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9-body"
+                                              >
+                                                <Skeleton
+                                                  className="hsp-dropdown-loading"
+                                                  isDark={false}
                                                   size="sm"
+                                                />
+                                                <Skeleton
+                                                  className="hsp-dropdown-loading"
+                                                  isDark={false}
+                                                  size="sm"
+                                                />
+                                                <Skeleton
+                                                  className="hsp-dropdown-loading"
+                                                  isDark={false}
+                                                  size="sm"
+                                                />
+                                              </PopoverBody>
+                                              <PopoverFooter
+                                                id="popover-hsp-popover-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9-footer"
+                                              >
+                                                <Button
+                                                  onClick={[Function]}
+                                                  variant="primary"
                                                 >
-                                                  <svg
-                                                    aria-hidden={true}
-                                                    aria-labelledby={null}
-                                                    fill="currentColor"
-                                                    height="1em"
-                                                    role="img"
-                                                    style={
-                                                      Object {
-                                                        "verticalAlign": "-0.125em",
-                                                      }
-                                                    }
-                                                    viewBox="0 0 512 512"
-                                                    width="1em"
-                                                  >
-                                                    <path
-                                                      d="M504 255.531c.253 136.64-111.18 248.372-247.82 248.468-59.015.042-113.223-20.53-155.822-54.911-11.077-8.94-11.905-25.541-1.839-35.607l11.267-11.267c8.609-8.609 22.353-9.551 31.891-1.984C173.062 425.135 212.781 440 256 440c101.705 0 184-82.311 184-184 0-101.705-82.311-184-184-184-48.814 0-93.149 18.969-126.068 49.932l50.754 50.754c10.08 10.08 2.941 27.314-11.313 27.314H24c-8.837 0-16-7.163-16-16V38.627c0-14.254 17.234-21.393 27.314-11.314l49.372 49.372C129.209 34.136 189.552 8 256 8c136.81 0 247.747 110.78 248 247.531zm-180.912 78.784l9.823-12.63c8.138-10.463 6.253-25.542-4.21-33.679L288 256.349V152c0-13.255-10.745-24-24-24h-16c-13.255 0-24 10.745-24 24v135.651l65.409 50.874c10.463 8.137 25.541 6.253 33.679-4.21z"
-                                                    />
-                                                  </svg>
-                                                </HistoryIcon>
-                                              </span>
-                                            </button>
-                                          </Toggle>
-                                        </DropdownToggle>
-                                      </div>
-                                    </DropdownWithContext>
-                                  </Dropdown>
-                                </HistoricalProfilesDropdown>
-                              </Connect(HistoricalProfilesDropdown)>
-                            </withRouter(Connect(HistoricalProfilesDropdown))>
+                                                  Compare
+                                                </Button>
+                                              </PopoverFooter>
+                                            </PopoverContent>
+                                          </FocusTrap>
+                                        }
+                                        popperMatchesTriggerWidth={false}
+                                        positionModifiers={
+                                          Object {
+                                            "bottom": "pf-m-bottom",
+                                            "left": "pf-m-left",
+                                            "right": "pf-m-right",
+                                            "top": "pf-m-top",
+                                          }
+                                        }
+                                        trigger={
+                                          <HistoryIcon
+                                            className="hsp-dropdown-icon"
+                                            color="currentColor"
+                                            noVerticalAlign={false}
+                                            onClick={[Function]}
+                                            size="sm"
+                                          />
+                                        }
+                                        zIndex={9999}
+                                      >
+                                        <FindRefWrapper
+                                          onFoundRef={[Function]}
+                                        >
+                                          <HistoryIcon
+                                            className="hsp-dropdown-icon"
+                                            color="currentColor"
+                                            noVerticalAlign={false}
+                                            onClick={[Function]}
+                                            size="sm"
+                                          >
+                                            <svg
+                                              aria-hidden={true}
+                                              aria-labelledby={null}
+                                              className="hsp-dropdown-icon"
+                                              fill="currentColor"
+                                              height="1em"
+                                              onClick={[Function]}
+                                              role="img"
+                                              style={
+                                                Object {
+                                                  "verticalAlign": "-0.125em",
+                                                }
+                                              }
+                                              viewBox="0 0 512 512"
+                                              width="1em"
+                                            >
+                                              <path
+                                                d="M504 255.531c.253 136.64-111.18 248.372-247.82 248.468-59.015.042-113.223-20.53-155.822-54.911-11.077-8.94-11.905-25.541-1.839-35.607l11.267-11.267c8.609-8.609 22.353-9.551 31.891-1.984C173.062 425.135 212.781 440 256 440c101.705 0 184-82.311 184-184 0-101.705-82.311-184-184-184-48.814 0-93.149 18.969-126.068 49.932l50.754 50.754c10.08 10.08 2.941 27.314-11.313 27.314H24c-8.837 0-16-7.163-16-16V38.627c0-14.254 17.234-21.393 27.314-11.314l49.372 49.372C129.209 34.136 189.552 8 256 8c136.81 0 247.747 110.78 248 247.531zm-180.912 78.784l9.823-12.63c8.138-10.463 6.253-25.542-4.21-33.679L288 256.349V152c0-13.255-10.745-24-24-24h-16c-13.255 0-24 10.745-24 24v135.651l65.409 50.874c10.463 8.137 25.541 6.253 33.679-4.21z"
+                                              />
+                                            </svg>
+                                          </HistoryIcon>
+                                        </FindRefWrapper>
+                                      </Popper>
+                                    </Popover>
+                                  </span>
+                                </HistoricalProfilesPopover>
+                              </Connect(HistoricalProfilesPopover)>
+                            </withRouter(Connect(HistoricalProfilesPopover))>
                           </div>
                         </div>
                       </th>
@@ -3044,8 +2956,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                               </OutlinedStarIcon>
                             </ReferenceSelector>
                             15 Jan 2019, 15:25 UTC
-                            <withRouter(Connect(HistoricalProfilesDropdown))
-                              dropdownDirection="down"
+                            <withRouter(Connect(HistoricalProfilesPopover))
                               fetchCompare={[Function]}
                               hasCompareButton={true}
                               hasMultiSelect={true}
@@ -3060,8 +2971,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                               }
                               systemIds={Array []}
                             >
-                              <Connect(HistoricalProfilesDropdown)
-                                dropdownDirection="down"
+                              <Connect(HistoricalProfilesPopover)
                                 fetchCompare={[Function]}
                                 hasCompareButton={true}
                                 hasMultiSelect={true}
@@ -3122,8 +3032,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                 }
                                 systemIds={Array []}
                               >
-                                <HistoricalProfilesDropdown
-                                  dropdownDirection="down"
+                                <HistoricalProfilesPopover
                                   fetchCompare={[Function]}
                                   hasCompareButton={true}
                                   hasMultiSelect={true}
@@ -3190,50 +3099,11 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                   systemIds={Array []}
                                   updateColumns={[Function]}
                                 >
-                                  <Dropdown
-                                    className="historical-system-profile-dropdown"
-                                    direction="down"
-                                    dropdownItems={
-                                      Array [
-                                        <Skeleton
-                                          className="hsp-dropdown-loading"
-                                          isDark={false}
-                                          size="sm"
-                                        />,
-                                        <Skeleton
-                                          className="hsp-dropdown-loading"
-                                          isDark={false}
-                                          size="sm"
-                                        />,
-                                        <Skeleton
-                                          className="hsp-dropdown-loading"
-                                          isDark={false}
-                                          size="sm"
-                                        />,
-                                      ]
-                                    }
-                                    isOpen={false}
-                                    isPlain={true}
-                                    position="right"
-                                    toggle={
-                                      <DropdownToggle
-                                        className="hsp-dropdown-icon"
-                                        onToggle={[Function]}
-                                        toggleIndicator={null}
-                                      >
-                                        <HistoryIcon
-                                          color="currentColor"
-                                          noVerticalAlign={false}
-                                          size="sm"
-                                        />
-                                      </DropdownToggle>
-                                    }
+                                  <span
+                                    className="hsp-icon-padding historical-system-profile-popover"
                                   >
-                                    <DropdownWithContext
-                                      autoFocus={true}
-                                      className="historical-system-profile-dropdown"
-                                      direction="down"
-                                      dropdownItems={
+                                    <Popover
+                                      bodyContent={
                                         Array [
                                           <Skeleton
                                             className="hsp-dropdown-loading"
@@ -3252,174 +3122,172 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                           />,
                                         ]
                                       }
-                                      isGrouped={false}
-                                      isOpen={false}
-                                      isPlain={true}
-                                      menuAppendTo="inline"
-                                      onSelect={[Function]}
-                                      position="right"
-                                      toggle={
-                                        <DropdownToggle
-                                          className="hsp-dropdown-icon"
-                                          onToggle={[Function]}
-                                          toggleIndicator={null}
+                                      footerContent={
+                                        <Button
+                                          onClick={[Function]}
+                                          variant="primary"
                                         >
-                                          <HistoryIcon
-                                            color="currentColor"
-                                            noVerticalAlign={false}
-                                            size="sm"
-                                          />
-                                        </DropdownToggle>
+                                          Compare
+                                        </Button>
                                       }
+                                      headerContent={
+                                        <div>
+                                          Historical profiles for this system
+                                        </div>
+                                      }
+                                      id="hsp-popover-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9"
+                                      isVisible={false}
+                                      shouldClose={[Function]}
                                     >
-                                      <div
-                                        className="pf-c-dropdown pf-m-align-right historical-system-profile-dropdown"
-                                        data-ouia-component-id={2}
-                                        data-ouia-component-type="PF4/Dropdown"
-                                        data-ouia-safe={true}
-                                      >
-                                        <DropdownToggle
-                                          aria-haspopup={true}
-                                          className="hsp-dropdown-icon"
-                                          getMenuRef={[Function]}
-                                          id="pf-dropdown-toggle-id-2"
-                                          isOpen={false}
-                                          isPlain={true}
-                                          key=".0"
-                                          onEnter={[Function]}
-                                          onToggle={[Function]}
-                                          parentRef={
-                                            Object {
-                                              "current": <div
-                                                class="pf-c-dropdown pf-m-align-right historical-system-profile-dropdown"
-                                                data-ouia-component-id="2"
-                                                data-ouia-component-type="PF4/Dropdown"
-                                                data-ouia-safe="true"
-                                              >
-                                                <button
-                                                  aria-expanded="false"
-                                                  aria-haspopup="true"
-                                                  class="pf-c-dropdown__toggle pf-m-plain hsp-dropdown-icon"
-                                                  id="pf-dropdown-toggle-id-2"
-                                                  type="button"
-                                                >
-                                                  <span>
-                                                    <svg
-                                                      aria-hidden="true"
-                                                      fill="currentColor"
-                                                      height="1em"
-                                                      role="img"
-                                                      style="vertical-align: -0.125em;"
-                                                      viewBox="0 0 512 512"
-                                                      width="1em"
-                                                    >
-                                                      <path
-                                                        d="M504 255.531c.253 136.64-111.18 248.372-247.82 248.468-59.015.042-113.223-20.53-155.822-54.911-11.077-8.94-11.905-25.541-1.839-35.607l11.267-11.267c8.609-8.609 22.353-9.551 31.891-1.984C173.062 425.135 212.781 440 256 440c101.705 0 184-82.311 184-184 0-101.705-82.311-184-184-184-48.814 0-93.149 18.969-126.068 49.932l50.754 50.754c10.08 10.08 2.941 27.314-11.313 27.314H24c-8.837 0-16-7.163-16-16V38.627c0-14.254 17.234-21.393 27.314-11.314l49.372 49.372C129.209 34.136 189.552 8 256 8c136.81 0 247.747 110.78 248 247.531zm-180.912 78.784l9.823-12.63c8.138-10.463 6.253-25.542-4.21-33.679L288 256.349V152c0-13.255-10.745-24-24-24h-16c-13.255 0-24 10.745-24 24v135.651l65.409 50.874c10.463 8.137 25.541 6.253 33.679-4.21z"
-                                                      />
-                                                    </svg>
-                                                  </span>
-                                                </button>
-                                              </div>,
-                                            }
-                                          }
-                                          toggleIndicator={null}
-                                        >
-                                          <Toggle
-                                            aria-haspopup={true}
-                                            bubbleEvent={false}
-                                            className="hsp-dropdown-icon"
-                                            getMenuRef={[Function]}
-                                            id="pf-dropdown-toggle-id-2"
-                                            isActive={false}
-                                            isDisabled={false}
-                                            isOpen={false}
-                                            isPlain={true}
-                                            isPrimary={false}
-                                            isSplitButton={false}
-                                            onEnter={[Function]}
-                                            onToggle={[Function]}
-                                            parentRef={
+                                      <Popper
+                                        appendTo={[Function]}
+                                        distance={25}
+                                        enableFlip={true}
+                                        flipBehavior={
+                                          Array [
+                                            "top",
+                                            "right",
+                                            "bottom",
+                                            "left",
+                                            "top",
+                                            "right",
+                                            "bottom",
+                                          ]
+                                        }
+                                        isVisible={false}
+                                        onDocumentClick={[Function]}
+                                        onDocumentKeyDown={[Function]}
+                                        onTriggerClick={[Function]}
+                                        onTriggerEnter={[Function]}
+                                        placement="top"
+                                        popper={
+                                          <FocusTrap
+                                            active={false}
+                                            aria-describedby="popover-hsp-popover-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9-body"
+                                            aria-labelledby="popover-hsp-popover-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9-header"
+                                            aria-modal="true"
+                                            className="pf-c-popover"
+                                            focusTrapOptions={
                                               Object {
-                                                "current": <div
-                                                  class="pf-c-dropdown pf-m-align-right historical-system-profile-dropdown"
-                                                  data-ouia-component-id="2"
-                                                  data-ouia-component-type="PF4/Dropdown"
-                                                  data-ouia-safe="true"
-                                                >
-                                                  <button
-                                                    aria-expanded="false"
-                                                    aria-haspopup="true"
-                                                    class="pf-c-dropdown__toggle pf-m-plain hsp-dropdown-icon"
-                                                    id="pf-dropdown-toggle-id-2"
-                                                    type="button"
-                                                  >
-                                                    <span>
-                                                      <svg
-                                                        aria-hidden="true"
-                                                        fill="currentColor"
-                                                        height="1em"
-                                                        role="img"
-                                                        style="vertical-align: -0.125em;"
-                                                        viewBox="0 0 512 512"
-                                                        width="1em"
-                                                      >
-                                                        <path
-                                                          d="M504 255.531c.253 136.64-111.18 248.372-247.82 248.468-59.015.042-113.223-20.53-155.822-54.911-11.077-8.94-11.905-25.541-1.839-35.607l11.267-11.267c8.609-8.609 22.353-9.551 31.891-1.984C173.062 425.135 212.781 440 256 440c101.705 0 184-82.311 184-184 0-101.705-82.311-184-184-184-48.814 0-93.149 18.969-126.068 49.932l50.754 50.754c10.08 10.08 2.941 27.314-11.313 27.314H24c-8.837 0-16-7.163-16-16V38.627c0-14.254 17.234-21.393 27.314-11.314l49.372 49.372C129.209 34.136 189.552 8 256 8c136.81 0 247.747 110.78 248 247.531zm-180.912 78.784l9.823-12.63c8.138-10.463 6.253-25.542-4.21-33.679L288 256.349V152c0-13.255-10.745-24-24-24h-16c-13.255 0-24 10.745-24 24v135.651l65.409 50.874c10.463 8.137 25.541 6.253 33.679-4.21z"
-                                                        />
-                                                      </svg>
-                                                    </span>
-                                                  </button>
-                                                </div>,
+                                                "clickOutsideDeactivates": true,
+                                                "returnFocusOnDeactivate": true,
+                                              }
+                                            }
+                                            onMouseDown={[Function]}
+                                            paused={false}
+                                            role="dialog"
+                                            style={
+                                              Object {
+                                                "maxWidth": null,
+                                                "minWidth": null,
+                                                "opacity": 0,
+                                                "transition": "opacity 300ms cubic-bezier(.54, 1.5, .38, 1.11)",
                                               }
                                             }
                                           >
-                                            <button
-                                              aria-expanded={false}
-                                              aria-haspopup={true}
-                                              className="pf-c-dropdown__toggle pf-m-plain hsp-dropdown-icon"
-                                              disabled={false}
-                                              id="pf-dropdown-toggle-id-2"
-                                              onClick={[Function]}
-                                              onKeyDown={[Function]}
-                                              type="button"
-                                            >
-                                              <span
-                                                className={null}
+                                            <PopoverArrow />
+                                            <PopoverContent>
+                                              <PopoverCloseButton
+                                                aria-label="Close"
+                                                onClose={[Function]}
+                                              />
+                                              <PopoverHeader
+                                                id="popover-hsp-popover-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9-header"
                                               >
-                                                <HistoryIcon
-                                                  color="currentColor"
-                                                  noVerticalAlign={false}
+                                                <div>
+                                                  Historical profiles for this system
+                                                </div>
+                                              </PopoverHeader>
+                                              <PopoverBody
+                                                id="popover-hsp-popover-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9-body"
+                                              >
+                                                <Skeleton
+                                                  className="hsp-dropdown-loading"
+                                                  isDark={false}
                                                   size="sm"
+                                                />
+                                                <Skeleton
+                                                  className="hsp-dropdown-loading"
+                                                  isDark={false}
+                                                  size="sm"
+                                                />
+                                                <Skeleton
+                                                  className="hsp-dropdown-loading"
+                                                  isDark={false}
+                                                  size="sm"
+                                                />
+                                              </PopoverBody>
+                                              <PopoverFooter
+                                                id="popover-hsp-popover-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9-footer"
+                                              >
+                                                <Button
+                                                  onClick={[Function]}
+                                                  variant="primary"
                                                 >
-                                                  <svg
-                                                    aria-hidden={true}
-                                                    aria-labelledby={null}
-                                                    fill="currentColor"
-                                                    height="1em"
-                                                    role="img"
-                                                    style={
-                                                      Object {
-                                                        "verticalAlign": "-0.125em",
-                                                      }
-                                                    }
-                                                    viewBox="0 0 512 512"
-                                                    width="1em"
-                                                  >
-                                                    <path
-                                                      d="M504 255.531c.253 136.64-111.18 248.372-247.82 248.468-59.015.042-113.223-20.53-155.822-54.911-11.077-8.94-11.905-25.541-1.839-35.607l11.267-11.267c8.609-8.609 22.353-9.551 31.891-1.984C173.062 425.135 212.781 440 256 440c101.705 0 184-82.311 184-184 0-101.705-82.311-184-184-184-48.814 0-93.149 18.969-126.068 49.932l50.754 50.754c10.08 10.08 2.941 27.314-11.313 27.314H24c-8.837 0-16-7.163-16-16V38.627c0-14.254 17.234-21.393 27.314-11.314l49.372 49.372C129.209 34.136 189.552 8 256 8c136.81 0 247.747 110.78 248 247.531zm-180.912 78.784l9.823-12.63c8.138-10.463 6.253-25.542-4.21-33.679L288 256.349V152c0-13.255-10.745-24-24-24h-16c-13.255 0-24 10.745-24 24v135.651l65.409 50.874c10.463 8.137 25.541 6.253 33.679-4.21z"
-                                                    />
-                                                  </svg>
-                                                </HistoryIcon>
-                                              </span>
-                                            </button>
-                                          </Toggle>
-                                        </DropdownToggle>
-                                      </div>
-                                    </DropdownWithContext>
-                                  </Dropdown>
-                                </HistoricalProfilesDropdown>
-                              </Connect(HistoricalProfilesDropdown)>
-                            </withRouter(Connect(HistoricalProfilesDropdown))>
+                                                  Compare
+                                                </Button>
+                                              </PopoverFooter>
+                                            </PopoverContent>
+                                          </FocusTrap>
+                                        }
+                                        popperMatchesTriggerWidth={false}
+                                        positionModifiers={
+                                          Object {
+                                            "bottom": "pf-m-bottom",
+                                            "left": "pf-m-left",
+                                            "right": "pf-m-right",
+                                            "top": "pf-m-top",
+                                          }
+                                        }
+                                        trigger={
+                                          <HistoryIcon
+                                            className="hsp-dropdown-icon"
+                                            color="currentColor"
+                                            noVerticalAlign={false}
+                                            onClick={[Function]}
+                                            size="sm"
+                                          />
+                                        }
+                                        zIndex={9999}
+                                      >
+                                        <FindRefWrapper
+                                          onFoundRef={[Function]}
+                                        >
+                                          <HistoryIcon
+                                            className="hsp-dropdown-icon"
+                                            color="currentColor"
+                                            noVerticalAlign={false}
+                                            onClick={[Function]}
+                                            size="sm"
+                                          >
+                                            <svg
+                                              aria-hidden={true}
+                                              aria-labelledby={null}
+                                              className="hsp-dropdown-icon"
+                                              fill="currentColor"
+                                              height="1em"
+                                              onClick={[Function]}
+                                              role="img"
+                                              style={
+                                                Object {
+                                                  "verticalAlign": "-0.125em",
+                                                }
+                                              }
+                                              viewBox="0 0 512 512"
+                                              width="1em"
+                                            >
+                                              <path
+                                                d="M504 255.531c.253 136.64-111.18 248.372-247.82 248.468-59.015.042-113.223-20.53-155.822-54.911-11.077-8.94-11.905-25.541-1.839-35.607l11.267-11.267c8.609-8.609 22.353-9.551 31.891-1.984C173.062 425.135 212.781 440 256 440c101.705 0 184-82.311 184-184 0-101.705-82.311-184-184-184-48.814 0-93.149 18.969-126.068 49.932l50.754 50.754c10.08 10.08 2.941 27.314-11.313 27.314H24c-8.837 0-16-7.163-16-16V38.627c0-14.254 17.234-21.393 27.314-11.314l49.372 49.372C129.209 34.136 189.552 8 256 8c136.81 0 247.747 110.78 248 247.531zm-180.912 78.784l9.823-12.63c8.138-10.463 6.253-25.542-4.21-33.679L288 256.349V152c0-13.255-10.745-24-24-24h-16c-13.255 0-24 10.745-24 24v135.651l65.409 50.874c10.463 8.137 25.541 6.253 33.679-4.21z"
+                                              />
+                                            </svg>
+                                          </HistoryIcon>
+                                        </FindRefWrapper>
+                                      </Popper>
+                                    </Popover>
+                                  </span>
+                                </HistoricalProfilesPopover>
+                              </Connect(HistoricalProfilesPopover)>
+                            </withRouter(Connect(HistoricalProfilesPopover))>
                           </div>
                         </div>
                       </th>
@@ -3533,8 +3401,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                               </OutlinedStarIcon>
                             </ReferenceSelector>
                             15 Jan 2019, 15:25 UTC
-                            <withRouter(Connect(HistoricalProfilesDropdown))
-                              dropdownDirection="down"
+                            <withRouter(Connect(HistoricalProfilesPopover))
                               fetchCompare={[Function]}
                               hasCompareButton={true}
                               hasMultiSelect={true}
@@ -3548,8 +3415,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                               }
                               systemIds={Array []}
                             >
-                              <Connect(HistoricalProfilesDropdown)
-                                dropdownDirection="down"
+                              <Connect(HistoricalProfilesPopover)
                                 fetchCompare={[Function]}
                                 hasCompareButton={true}
                                 hasMultiSelect={true}
@@ -3609,8 +3475,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                 }
                                 systemIds={Array []}
                               >
-                                <HistoricalProfilesDropdown
-                                  dropdownDirection="down"
+                                <HistoricalProfilesPopover
                                   fetchCompare={[Function]}
                                   hasCompareButton={true}
                                   hasMultiSelect={true}
@@ -3676,50 +3541,11 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                   systemIds={Array []}
                                   updateColumns={[Function]}
                                 >
-                                  <Dropdown
-                                    className="historical-system-profile-dropdown"
-                                    direction="down"
-                                    dropdownItems={
-                                      Array [
-                                        <Skeleton
-                                          className="hsp-dropdown-loading"
-                                          isDark={false}
-                                          size="sm"
-                                        />,
-                                        <Skeleton
-                                          className="hsp-dropdown-loading"
-                                          isDark={false}
-                                          size="sm"
-                                        />,
-                                        <Skeleton
-                                          className="hsp-dropdown-loading"
-                                          isDark={false}
-                                          size="sm"
-                                        />,
-                                      ]
-                                    }
-                                    isOpen={false}
-                                    isPlain={true}
-                                    position="right"
-                                    toggle={
-                                      <DropdownToggle
-                                        className="hsp-dropdown-icon"
-                                        onToggle={[Function]}
-                                        toggleIndicator={null}
-                                      >
-                                        <HistoryIcon
-                                          color="currentColor"
-                                          noVerticalAlign={false}
-                                          size="sm"
-                                        />
-                                      </DropdownToggle>
-                                    }
+                                  <span
+                                    className="hsp-icon-padding historical-system-profile-popover"
                                   >
-                                    <DropdownWithContext
-                                      autoFocus={true}
-                                      className="historical-system-profile-dropdown"
-                                      direction="down"
-                                      dropdownItems={
+                                    <Popover
+                                      bodyContent={
                                         Array [
                                           <Skeleton
                                             className="hsp-dropdown-loading"
@@ -3738,174 +3564,172 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                           />,
                                         ]
                                       }
-                                      isGrouped={false}
-                                      isOpen={false}
-                                      isPlain={true}
-                                      menuAppendTo="inline"
-                                      onSelect={[Function]}
-                                      position="right"
-                                      toggle={
-                                        <DropdownToggle
-                                          className="hsp-dropdown-icon"
-                                          onToggle={[Function]}
-                                          toggleIndicator={null}
+                                      footerContent={
+                                        <Button
+                                          onClick={[Function]}
+                                          variant="primary"
                                         >
-                                          <HistoryIcon
-                                            color="currentColor"
-                                            noVerticalAlign={false}
-                                            size="sm"
-                                          />
-                                        </DropdownToggle>
+                                          Compare
+                                        </Button>
                                       }
+                                      headerContent={
+                                        <div>
+                                          Historical profiles for this system
+                                        </div>
+                                      }
+                                      id="hsp-popover-f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2"
+                                      isVisible={false}
+                                      shouldClose={[Function]}
                                     >
-                                      <div
-                                        className="pf-c-dropdown pf-m-align-right historical-system-profile-dropdown"
-                                        data-ouia-component-id={3}
-                                        data-ouia-component-type="PF4/Dropdown"
-                                        data-ouia-safe={true}
-                                      >
-                                        <DropdownToggle
-                                          aria-haspopup={true}
-                                          className="hsp-dropdown-icon"
-                                          getMenuRef={[Function]}
-                                          id="pf-dropdown-toggle-id-3"
-                                          isOpen={false}
-                                          isPlain={true}
-                                          key=".0"
-                                          onEnter={[Function]}
-                                          onToggle={[Function]}
-                                          parentRef={
-                                            Object {
-                                              "current": <div
-                                                class="pf-c-dropdown pf-m-align-right historical-system-profile-dropdown"
-                                                data-ouia-component-id="3"
-                                                data-ouia-component-type="PF4/Dropdown"
-                                                data-ouia-safe="true"
-                                              >
-                                                <button
-                                                  aria-expanded="false"
-                                                  aria-haspopup="true"
-                                                  class="pf-c-dropdown__toggle pf-m-plain hsp-dropdown-icon"
-                                                  id="pf-dropdown-toggle-id-3"
-                                                  type="button"
-                                                >
-                                                  <span>
-                                                    <svg
-                                                      aria-hidden="true"
-                                                      fill="currentColor"
-                                                      height="1em"
-                                                      role="img"
-                                                      style="vertical-align: -0.125em;"
-                                                      viewBox="0 0 512 512"
-                                                      width="1em"
-                                                    >
-                                                      <path
-                                                        d="M504 255.531c.253 136.64-111.18 248.372-247.82 248.468-59.015.042-113.223-20.53-155.822-54.911-11.077-8.94-11.905-25.541-1.839-35.607l11.267-11.267c8.609-8.609 22.353-9.551 31.891-1.984C173.062 425.135 212.781 440 256 440c101.705 0 184-82.311 184-184 0-101.705-82.311-184-184-184-48.814 0-93.149 18.969-126.068 49.932l50.754 50.754c10.08 10.08 2.941 27.314-11.313 27.314H24c-8.837 0-16-7.163-16-16V38.627c0-14.254 17.234-21.393 27.314-11.314l49.372 49.372C129.209 34.136 189.552 8 256 8c136.81 0 247.747 110.78 248 247.531zm-180.912 78.784l9.823-12.63c8.138-10.463 6.253-25.542-4.21-33.679L288 256.349V152c0-13.255-10.745-24-24-24h-16c-13.255 0-24 10.745-24 24v135.651l65.409 50.874c10.463 8.137 25.541 6.253 33.679-4.21z"
-                                                      />
-                                                    </svg>
-                                                  </span>
-                                                </button>
-                                              </div>,
-                                            }
-                                          }
-                                          toggleIndicator={null}
-                                        >
-                                          <Toggle
-                                            aria-haspopup={true}
-                                            bubbleEvent={false}
-                                            className="hsp-dropdown-icon"
-                                            getMenuRef={[Function]}
-                                            id="pf-dropdown-toggle-id-3"
-                                            isActive={false}
-                                            isDisabled={false}
-                                            isOpen={false}
-                                            isPlain={true}
-                                            isPrimary={false}
-                                            isSplitButton={false}
-                                            onEnter={[Function]}
-                                            onToggle={[Function]}
-                                            parentRef={
+                                      <Popper
+                                        appendTo={[Function]}
+                                        distance={25}
+                                        enableFlip={true}
+                                        flipBehavior={
+                                          Array [
+                                            "top",
+                                            "right",
+                                            "bottom",
+                                            "left",
+                                            "top",
+                                            "right",
+                                            "bottom",
+                                          ]
+                                        }
+                                        isVisible={false}
+                                        onDocumentClick={[Function]}
+                                        onDocumentKeyDown={[Function]}
+                                        onTriggerClick={[Function]}
+                                        onTriggerEnter={[Function]}
+                                        placement="top"
+                                        popper={
+                                          <FocusTrap
+                                            active={false}
+                                            aria-describedby="popover-hsp-popover-f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2-body"
+                                            aria-labelledby="popover-hsp-popover-f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2-header"
+                                            aria-modal="true"
+                                            className="pf-c-popover"
+                                            focusTrapOptions={
                                               Object {
-                                                "current": <div
-                                                  class="pf-c-dropdown pf-m-align-right historical-system-profile-dropdown"
-                                                  data-ouia-component-id="3"
-                                                  data-ouia-component-type="PF4/Dropdown"
-                                                  data-ouia-safe="true"
-                                                >
-                                                  <button
-                                                    aria-expanded="false"
-                                                    aria-haspopup="true"
-                                                    class="pf-c-dropdown__toggle pf-m-plain hsp-dropdown-icon"
-                                                    id="pf-dropdown-toggle-id-3"
-                                                    type="button"
-                                                  >
-                                                    <span>
-                                                      <svg
-                                                        aria-hidden="true"
-                                                        fill="currentColor"
-                                                        height="1em"
-                                                        role="img"
-                                                        style="vertical-align: -0.125em;"
-                                                        viewBox="0 0 512 512"
-                                                        width="1em"
-                                                      >
-                                                        <path
-                                                          d="M504 255.531c.253 136.64-111.18 248.372-247.82 248.468-59.015.042-113.223-20.53-155.822-54.911-11.077-8.94-11.905-25.541-1.839-35.607l11.267-11.267c8.609-8.609 22.353-9.551 31.891-1.984C173.062 425.135 212.781 440 256 440c101.705 0 184-82.311 184-184 0-101.705-82.311-184-184-184-48.814 0-93.149 18.969-126.068 49.932l50.754 50.754c10.08 10.08 2.941 27.314-11.313 27.314H24c-8.837 0-16-7.163-16-16V38.627c0-14.254 17.234-21.393 27.314-11.314l49.372 49.372C129.209 34.136 189.552 8 256 8c136.81 0 247.747 110.78 248 247.531zm-180.912 78.784l9.823-12.63c8.138-10.463 6.253-25.542-4.21-33.679L288 256.349V152c0-13.255-10.745-24-24-24h-16c-13.255 0-24 10.745-24 24v135.651l65.409 50.874c10.463 8.137 25.541 6.253 33.679-4.21z"
-                                                        />
-                                                      </svg>
-                                                    </span>
-                                                  </button>
-                                                </div>,
+                                                "clickOutsideDeactivates": true,
+                                                "returnFocusOnDeactivate": true,
+                                              }
+                                            }
+                                            onMouseDown={[Function]}
+                                            paused={false}
+                                            role="dialog"
+                                            style={
+                                              Object {
+                                                "maxWidth": null,
+                                                "minWidth": null,
+                                                "opacity": 0,
+                                                "transition": "opacity 300ms cubic-bezier(.54, 1.5, .38, 1.11)",
                                               }
                                             }
                                           >
-                                            <button
-                                              aria-expanded={false}
-                                              aria-haspopup={true}
-                                              className="pf-c-dropdown__toggle pf-m-plain hsp-dropdown-icon"
-                                              disabled={false}
-                                              id="pf-dropdown-toggle-id-3"
-                                              onClick={[Function]}
-                                              onKeyDown={[Function]}
-                                              type="button"
-                                            >
-                                              <span
-                                                className={null}
+                                            <PopoverArrow />
+                                            <PopoverContent>
+                                              <PopoverCloseButton
+                                                aria-label="Close"
+                                                onClose={[Function]}
+                                              />
+                                              <PopoverHeader
+                                                id="popover-hsp-popover-f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2-header"
                                               >
-                                                <HistoryIcon
-                                                  color="currentColor"
-                                                  noVerticalAlign={false}
+                                                <div>
+                                                  Historical profiles for this system
+                                                </div>
+                                              </PopoverHeader>
+                                              <PopoverBody
+                                                id="popover-hsp-popover-f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2-body"
+                                              >
+                                                <Skeleton
+                                                  className="hsp-dropdown-loading"
+                                                  isDark={false}
                                                   size="sm"
+                                                />
+                                                <Skeleton
+                                                  className="hsp-dropdown-loading"
+                                                  isDark={false}
+                                                  size="sm"
+                                                />
+                                                <Skeleton
+                                                  className="hsp-dropdown-loading"
+                                                  isDark={false}
+                                                  size="sm"
+                                                />
+                                              </PopoverBody>
+                                              <PopoverFooter
+                                                id="popover-hsp-popover-f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2-footer"
+                                              >
+                                                <Button
+                                                  onClick={[Function]}
+                                                  variant="primary"
                                                 >
-                                                  <svg
-                                                    aria-hidden={true}
-                                                    aria-labelledby={null}
-                                                    fill="currentColor"
-                                                    height="1em"
-                                                    role="img"
-                                                    style={
-                                                      Object {
-                                                        "verticalAlign": "-0.125em",
-                                                      }
-                                                    }
-                                                    viewBox="0 0 512 512"
-                                                    width="1em"
-                                                  >
-                                                    <path
-                                                      d="M504 255.531c.253 136.64-111.18 248.372-247.82 248.468-59.015.042-113.223-20.53-155.822-54.911-11.077-8.94-11.905-25.541-1.839-35.607l11.267-11.267c8.609-8.609 22.353-9.551 31.891-1.984C173.062 425.135 212.781 440 256 440c101.705 0 184-82.311 184-184 0-101.705-82.311-184-184-184-48.814 0-93.149 18.969-126.068 49.932l50.754 50.754c10.08 10.08 2.941 27.314-11.313 27.314H24c-8.837 0-16-7.163-16-16V38.627c0-14.254 17.234-21.393 27.314-11.314l49.372 49.372C129.209 34.136 189.552 8 256 8c136.81 0 247.747 110.78 248 247.531zm-180.912 78.784l9.823-12.63c8.138-10.463 6.253-25.542-4.21-33.679L288 256.349V152c0-13.255-10.745-24-24-24h-16c-13.255 0-24 10.745-24 24v135.651l65.409 50.874c10.463 8.137 25.541 6.253 33.679-4.21z"
-                                                    />
-                                                  </svg>
-                                                </HistoryIcon>
-                                              </span>
-                                            </button>
-                                          </Toggle>
-                                        </DropdownToggle>
-                                      </div>
-                                    </DropdownWithContext>
-                                  </Dropdown>
-                                </HistoricalProfilesDropdown>
-                              </Connect(HistoricalProfilesDropdown)>
-                            </withRouter(Connect(HistoricalProfilesDropdown))>
+                                                  Compare
+                                                </Button>
+                                              </PopoverFooter>
+                                            </PopoverContent>
+                                          </FocusTrap>
+                                        }
+                                        popperMatchesTriggerWidth={false}
+                                        positionModifiers={
+                                          Object {
+                                            "bottom": "pf-m-bottom",
+                                            "left": "pf-m-left",
+                                            "right": "pf-m-right",
+                                            "top": "pf-m-top",
+                                          }
+                                        }
+                                        trigger={
+                                          <HistoryIcon
+                                            className="hsp-dropdown-icon"
+                                            color="currentColor"
+                                            noVerticalAlign={false}
+                                            onClick={[Function]}
+                                            size="sm"
+                                          />
+                                        }
+                                        zIndex={9999}
+                                      >
+                                        <FindRefWrapper
+                                          onFoundRef={[Function]}
+                                        >
+                                          <HistoryIcon
+                                            className="hsp-dropdown-icon"
+                                            color="currentColor"
+                                            noVerticalAlign={false}
+                                            onClick={[Function]}
+                                            size="sm"
+                                          >
+                                            <svg
+                                              aria-hidden={true}
+                                              aria-labelledby={null}
+                                              className="hsp-dropdown-icon"
+                                              fill="currentColor"
+                                              height="1em"
+                                              onClick={[Function]}
+                                              role="img"
+                                              style={
+                                                Object {
+                                                  "verticalAlign": "-0.125em",
+                                                }
+                                              }
+                                              viewBox="0 0 512 512"
+                                              width="1em"
+                                            >
+                                              <path
+                                                d="M504 255.531c.253 136.64-111.18 248.372-247.82 248.468-59.015.042-113.223-20.53-155.822-54.911-11.077-8.94-11.905-25.541-1.839-35.607l11.267-11.267c8.609-8.609 22.353-9.551 31.891-1.984C173.062 425.135 212.781 440 256 440c101.705 0 184-82.311 184-184 0-101.705-82.311-184-184-184-48.814 0-93.149 18.969-126.068 49.932l50.754 50.754c10.08 10.08 2.941 27.314-11.313 27.314H24c-8.837 0-16-7.163-16-16V38.627c0-14.254 17.234-21.393 27.314-11.314l49.372 49.372C129.209 34.136 189.552 8 256 8c136.81 0 247.747 110.78 248 247.531zm-180.912 78.784l9.823-12.63c8.138-10.463 6.253-25.542-4.21-33.679L288 256.349V152c0-13.255-10.745-24-24-24h-16c-13.255 0-24 10.745-24 24v135.651l65.409 50.874c10.463 8.137 25.541 6.253 33.679-4.21z"
+                                              />
+                                            </svg>
+                                          </HistoryIcon>
+                                        </FindRefWrapper>
+                                      </Popper>
+                                    </Popover>
+                                  </span>
+                                </HistoricalProfilesPopover>
+                              </Connect(HistoricalProfilesPopover)>
+                            </withRouter(Connect(HistoricalProfilesPopover))>
                           </div>
                         </div>
                       </th>

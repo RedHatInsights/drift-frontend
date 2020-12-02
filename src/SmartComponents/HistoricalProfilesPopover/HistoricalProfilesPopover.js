@@ -1,25 +1,24 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Badge, Dropdown, DropdownItem, DropdownToggle, DropdownPosition } from '@patternfly/react-core';
+import { Badge, Button, Popover } from '@patternfly/react-core';
 import { ExclamationCircleIcon, HistoryIcon, UndoIcon } from '@patternfly/react-icons';
 import PropTypes from 'prop-types';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
 
-import { historicProfilesActions } from '../HistoricalProfilesDropdown/redux';
+import { historicProfilesActions } from './redux';
 import systemsTableActions from '../SystemsTable/actions';
 import HistoricalProfilesCheckbox from './HistoricalProfilesCheckbox/HistoricalProfilesCheckbox';
 import api from '../../api';
-import FetchHistoricalProfilesButton from './FetchHistoricalProfilesButton/FetchHistoricalProfilesButton';
 import EmptyStateDisplay from '../EmptyStateDisplay/EmptyStateDisplay';
 import HistoricalProfilesRadio from './HistoricalProfilesRadio/HistoricalProfilesRadio';
 
-export class HistoricalProfilesDropdown extends Component {
+export class HistoricalProfilesPopover extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            isOpen: false,
+            isVisible: false,
             historicalData: undefined,
             dropDownArray: this.renderLoadingRows(),
             badgeCount: this.props.badgeCount ? this.props.badgeCount : 0,
@@ -27,14 +26,14 @@ export class HistoricalProfilesDropdown extends Component {
         };
 
         this.onToggle = () => {
-            const { isOpen } = this.state;
+            const { isVisible } = this.state;
 
-            if (isOpen === false) {
+            if (isVisible === false) {
                 this.fetchData(this.props.system);
             }
 
             this.setState({
-                isOpen: !isOpen
+                isVisible: !isVisible
             });
         };
 
@@ -115,7 +114,7 @@ export class HistoricalProfilesDropdown extends Component {
     }
 
     createDropdownArray = () => {
-        const { hasCompareButton, hasMultiSelect } = this.props;
+        const { hasMultiSelect } = this.props;
         const { historicalData, error } = this.state;
 
         let dropdownItems = [];
@@ -124,14 +123,9 @@ export class HistoricalProfilesDropdown extends Component {
         let onSingleSelectFunc = this.onSingleSelect;
 
         if (historicalData && historicalData.profiles.length > 0) {
-            dropdownItems.push(
-                <div className="sticky-header">
-                    <b>Historical profiles for this system</b>
-                </div>
-            );
-            historicalData.profiles.forEach(function(profile) {
+            historicalData.profiles.forEach(function(profile, index) {
                 dropdownItems.push(
-                    <DropdownItem>
+                    <div className={ index > 0 ? 'sm-padding-top' : null }>
                         { hasMultiSelect
                             ? <HistoricalProfilesCheckbox
                                 profile={ profile }
@@ -143,17 +137,9 @@ export class HistoricalProfilesDropdown extends Component {
                                 onSingleSelect={ onSingleSelectFunc }
                             />
                         }
-                    </DropdownItem>
-                );
-            });
-
-            if (hasCompareButton) {
-                dropdownItems.push(
-                    <div className="sticky-compare">
-                        <FetchHistoricalProfilesButton fetchCompare={ this.fetchCompare } />
                     </div>
                 );
-            }
+            });
         } else if (error) {
             dropdownItems.push(
                 <EmptyStateDisplay
@@ -172,9 +158,9 @@ export class HistoricalProfilesDropdown extends Component {
             );
         } else {
             dropdownItems.push(
-                <DropdownItem isDisabled>
+                <div>
                     There are no historical profiles to display.
-                </DropdownItem>
+                </div>
             );
         }
 
@@ -216,32 +202,41 @@ export class HistoricalProfilesDropdown extends Component {
     }
 
     render() {
-        const { dropDownArray, error, isOpen } = this.state;
-        const { hasBadge } = this.props;
+        /*eslint-disable camelcase*/
+        const { dropDownArray, isVisible } = this.state;
+        const { hasBadge, hasCompareButton, system } = this.props;
+        let id = system?.system_id ? system?.system_id : system?.id;
+        /*eslint-enable camelcase*/
 
         return (
             <React.Fragment>
-                <Dropdown
-                    className={ !error ? 'historical-system-profile-dropdown' : 'historical-system-profile-dropdown dropdown-empty-state-width' }
-                    toggle={ <DropdownToggle
-                        className='hsp-dropdown-icon'
-                        toggleIndicator={ null }
-                        onToggle={ this.onToggle }>
-                        <HistoryIcon />
-                    </DropdownToggle> }
-                    isOpen={ isOpen }
-                    isPlain
-                    position={ DropdownPosition.right }
-                    direction={ this.props.dropdownDirection }
-                    dropdownItems={ dropDownArray }
-                />
+                <span
+                    className='hsp-icon-padding historical-system-profile-popover' >
+                    <Popover
+                        id={ 'hsp-popover-' + id }
+                        isVisible={ isVisible }
+                        shouldClose={ () => this.onToggle() }
+                        headerContent={ <div>Historical profiles for this system</div> }
+                        bodyContent={ dropDownArray }
+                        footerContent={ hasCompareButton
+                            ? <Button
+                                variant='primary'
+                                onClick={ () => this.fetchCompare() }>
+                                Compare
+                            </Button>
+                            : null
+                        }
+                    >
+                        <HistoryIcon className='hsp-dropdown-icon' onClick={ () => this.onToggle() } />
+                    </Popover>
+                </span>
                 { hasBadge ? this.renderBadge() : null }
             </React.Fragment>
         );
     }
 }
 
-HistoricalProfilesDropdown.propTypes = {
+HistoricalProfilesPopover.propTypes = {
     entities: PropTypes.object,
     fetchHistoricalData: PropTypes.func,
     system: PropTypes.object,
@@ -280,4 +275,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HistoricalProfilesDropdown));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HistoricalProfilesPopover));

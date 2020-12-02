@@ -1,8 +1,7 @@
 import React from 'react';
-import { DropdownDirection } from '@patternfly/react-core';
 import { mergeArraysByKey } from '@redhat-cloud-services/frontend-components-utilities/files/helpers';
 import { applyReducerHash } from '@redhat-cloud-services/frontend-components-utilities/files/ReducerRegistry';
-import HistoricalProfilesDropdown from '../SmartComponents/HistoricalProfilesDropdown/HistoricalProfilesDropdown';
+import HistoricalProfilesPopover from '../SmartComponents/HistoricalProfilesPopover/HistoricalProfilesPopover';
 
 import types from '../SmartComponents/modules/types';
 import helpers from '../SmartComponents/helpers';
@@ -51,11 +50,10 @@ function selectedReducer(
                     });
 
                     row.historical_profiles = <React.Fragment>
-                        <HistoricalProfilesDropdown
+                        <HistoricalProfilesPopover
                             system={ systemInfo }
                             hasBadge={ true }
                             badgeCount={ badgeCount }
-                            dropdownDirection={ DropdownDirection.up }
                             hasMultiSelect={ hasMultiSelect }
                         />
                     </React.Fragment>;

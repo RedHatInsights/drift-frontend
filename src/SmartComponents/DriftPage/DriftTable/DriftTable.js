@@ -13,7 +13,7 @@ import { setHistory } from '../../../Utilities/SetHistory';
 
 import { compareActions } from '../../modules';
 import { baselinesTableActions } from '../../BaselinesTable/redux';
-import { historicProfilesActions } from '../../HistoricalProfilesDropdown/redux';
+import { historicProfilesActions } from '../../HistoricalProfilesPopover/redux';
 
 export class DriftTable extends Component {
     constructor(props) {
