@@ -6,7 +6,7 @@ exports[`AddSystemModal should render correctly 1`] = `
     actions={
       Array [
         <Button
-          isDisabled={false}
+          isDisabled={true}
           onClick={[Function]}
           ouiaId="add-to-comparison-submit-button"
           variant="primary"
@@ -14,6 +14,7 @@ exports[`AddSystemModal should render correctly 1`] = `
           Submit
         </Button>,
         <Button
+          isDisabled={false}
           onClick={[Function]}
           ouiaId="add-to-comparison-cancel-button"
           variant="link"
@@ -40,6 +41,37 @@ exports[`AddSystemModal should render correctly 1`] = `
     width="950px"
   >
     <GlobalFilterAlert />
+    <Toolbar
+      style={
+        Object {
+          "padding": "0px",
+        }
+      }
+    >
+      <ToolbarContent
+        isExpanded={false}
+        showClearFiltersButton={false}
+      >
+        <ToolbarItem
+          variant="pagination"
+        >
+          <SelectedBasket
+            entities={
+              Object {
+                "selectedSystemIds": Array [],
+              }
+            }
+            handleBaselineSelection={[MockFunction]}
+            handleHSPSelection={[MockFunction]}
+            isVisible={false}
+            selectedBaselineContent={Array []}
+            selectedHSPContent={Array []}
+            selectedSystemContent={Array []}
+            toggleBasketVisible={[Function]}
+          />
+        </ToolbarItem>
+      </ToolbarContent>
+    </Toolbar>
     <Tabs
       activeKey={0}
       component="div"
@@ -62,7 +94,11 @@ exports[`AddSystemModal should render correctly 1`] = `
         title="Systems"
       >
         <Connect(SystemsTable)
-          entities={Object {}}
+          entities={
+            Object {
+              "selectedSystemIds": Array [],
+            }
+          }
           hasHistoricalDropdown={true}
           hasInventoryReadPermissions={true}
           hasMultiSelect={true}
@@ -77,6 +113,7 @@ exports[`AddSystemModal should render correctly 1`] = `
         title="Baselines"
       >
         <Connect(BaselinesTable)
+          basketIsVisible={false}
           columns={
             Array [
               Object {
@@ -9329,6 +9366,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
           addSystemModalOpened={true}
           baselineTableData={Array []}
           baselines={Array []}
+          disableSystemTable={[Function]}
           entities={
             Object {
               "selectedSystemIds": Array [],
@@ -9341,14 +9379,21 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
               "workloadsFilter": Object {},
             }
           }
+          handleBaselineSelection={[Function]}
+          handleHSPSelection={[Function]}
+          handleSystemSelection={[Function]}
           hasInventoryReadPermissions={true}
           historicalProfiles={Array []}
           loading={false}
           selectActiveTab={[Function]}
           selectBaseline={[Function]}
+          selectEntity={[Function]}
           selectHistoricProfiles={[Function]}
+          selectedBaselineContent={Array []}
           selectedBaselineIds={Array []}
+          selectedHSPContent={Array []}
           selectedHSPIds={Array []}
+          selectedSystemContent={Array []}
           selectedSystemIds={Array []}
           setSelectedSystemIds={[Function]}
           systems={
@@ -9366,6 +9411,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
             ]
           }
           toggleAddSystemModal={[Function]}
+          totalBaselines={0}
           updateColumns={[Function]}
         >
           <Modal
@@ -9380,6 +9426,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                   Submit
                 </Button>,
                 <Button
+                  isDisabled={false}
                   onClick={[Function]}
                   ouiaId="add-to-comparison-cancel-button"
                   variant="link"
@@ -9468,6 +9515,47 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                           class="pf-c-modal-box__body"
                           id="pf-modal-part-8"
                         >
+                          <div
+                            class="pf-c-toolbar"
+                            id="pf-random-id-9"
+                            style="padding: 0px;"
+                          >
+                            <div
+                              class="pf-c-toolbar__content"
+                            >
+                              <div
+                                class="pf-c-toolbar__content-section"
+                              >
+                                <div
+                                  class="pf-c-toolbar__item pf-m-pagination"
+                                >
+                                  <span>
+                                    <a>
+                                      Selected (
+                                      0
+                                      )
+                                    </a>
+                                  </span>
+                                </div>
+                              </div>
+                              <div
+                                class="pf-c-toolbar__expandable-content"
+                                id="pf-random-id-9-expandable-content-9"
+                              >
+                                <div
+                                  class="pf-c-toolbar__group"
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="pf-c-toolbar__content pf-m-hidden"
+                              hidden=""
+                            >
+                              <div
+                                class="pf-c-toolbar__group"
+                              />
+                            </div>
+                          </div>
                           <div
                             class="pf-c-tabs"
                             data-ouia-component-id="OUIA-Generated-Tabs-4"
@@ -9588,7 +9676,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                           >
                             <div
                               class="pf-c-toolbar drift-toolbar"
-                              id="pf-random-id-6"
+                              id="pf-random-id-10"
                             >
                               <div
                                 class="pf-c-toolbar__content"
@@ -9854,7 +9942,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                 </div>
                                 <div
                                   class="pf-c-toolbar__expandable-content"
-                                  id="pf-random-id-6-expandable-content-7"
+                                  id="pf-random-id-10-expandable-content-11"
                                 >
                                   <div
                                     class="pf-c-toolbar__group"
@@ -10014,7 +10102,7 @@ Try changing your filter settings.
                             </table>
                             <div
                               class="pf-c-toolbar"
-                              id="pf-random-id-7"
+                              id="pf-random-id-11"
                             >
                               <div
                                 class="pf-c-toolbar__group pf-c-pagination"
@@ -10298,6 +10386,7 @@ Try changing your filter settings.
                       Submit
                     </Button>,
                     <Button
+                      isDisabled={false}
                       onClick={[Function]}
                       ouiaId="add-to-comparison-cancel-button"
                       variant="link"
@@ -10464,6 +10553,296 @@ Try changing your filter settings.
                                     }
                                   }
                                 />
+                                <Toolbar
+                                  style={
+                                    Object {
+                                      "padding": "0px",
+                                    }
+                                  }
+                                >
+                                  <GenerateId
+                                    prefix="pf-random-id-"
+                                  >
+                                    <div
+                                      className="pf-c-toolbar"
+                                      id="pf-random-id-9"
+                                      style={
+                                        Object {
+                                          "padding": "0px",
+                                        }
+                                      }
+                                    >
+                                      <ToolbarContent
+                                        isExpanded={false}
+                                        showClearFiltersButton={false}
+                                      >
+                                        <div
+                                          className="pf-c-toolbar__content"
+                                        >
+                                          <div
+                                            className="pf-c-toolbar__content-section"
+                                          >
+                                            <ToolbarItem
+                                              variant="pagination"
+                                            >
+                                              <div
+                                                className="pf-c-toolbar__item pf-m-pagination"
+                                              >
+                                                <SelectedBasket
+                                                  entities={
+                                                    Object {
+                                                      "selectedSystemIds": Array [],
+                                                    }
+                                                  }
+                                                  handleBaselineSelection={[Function]}
+                                                  handleHSPSelection={[Function]}
+                                                  isVisible={false}
+                                                  selectBaseline={[Function]}
+                                                  selectEntity={[Function]}
+                                                  selectHistoricProfiles={[Function]}
+                                                  selectedBaselineContent={Array []}
+                                                  selectedHSPContent={Array []}
+                                                  selectedSystemContent={Array []}
+                                                  toggleBasketVisible={[Function]}
+                                                >
+                                                  <span>
+                                                    <Popover
+                                                      bodyContent={
+                                                        <div
+                                                          style={
+                                                            Object {
+                                                              "maxHeight": "350px",
+                                                              "overflowY": "scroll",
+                                                            }
+                                                          }
+                                                        >
+                                                          <SelectedTable
+                                                            entities={
+                                                              Object {
+                                                                "selectedSystemIds": Array [],
+                                                              }
+                                                            }
+                                                            findType={[Function]}
+                                                            selectedBaselineContent={Array []}
+                                                            selectedHSPContent={Array []}
+                                                            selectedSystemContent={Array []}
+                                                          />
+                                                        </div>
+                                                      }
+                                                      headerContent={
+                                                        <div>
+                                                          Selected items
+                                                        </div>
+                                                      }
+                                                      id="selected-basket"
+                                                      isVisible={false}
+                                                      position="bottom"
+                                                      shouldClose={[Function]}
+                                                    >
+                                                      <Popper
+                                                        appendTo={[Function]}
+                                                        distance={25}
+                                                        enableFlip={true}
+                                                        flipBehavior={
+                                                          Array [
+                                                            "top",
+                                                            "right",
+                                                            "bottom",
+                                                            "left",
+                                                            "top",
+                                                            "right",
+                                                            "bottom",
+                                                          ]
+                                                        }
+                                                        isVisible={false}
+                                                        onDocumentClick={[Function]}
+                                                        onDocumentKeyDown={[Function]}
+                                                        onTriggerClick={[Function]}
+                                                        onTriggerEnter={[Function]}
+                                                        placement="bottom"
+                                                        popper={
+                                                          <FocusTrap
+                                                            active={false}
+                                                            aria-describedby="popover-selected-basket-body"
+                                                            aria-labelledby="popover-selected-basket-header"
+                                                            aria-modal="true"
+                                                            className="pf-c-popover"
+                                                            focusTrapOptions={
+                                                              Object {
+                                                                "clickOutsideDeactivates": true,
+                                                                "returnFocusOnDeactivate": true,
+                                                              }
+                                                            }
+                                                            onMouseDown={[Function]}
+                                                            paused={false}
+                                                            role="dialog"
+                                                            style={
+                                                              Object {
+                                                                "maxWidth": null,
+                                                                "minWidth": null,
+                                                                "opacity": 0,
+                                                                "transition": "opacity 300ms cubic-bezier(.54, 1.5, .38, 1.11)",
+                                                              }
+                                                            }
+                                                          >
+                                                            <PopoverArrow />
+                                                            <PopoverContent>
+                                                              <PopoverCloseButton
+                                                                aria-label="Close"
+                                                                onClose={[Function]}
+                                                              />
+                                                              <PopoverHeader
+                                                                id="popover-selected-basket-header"
+                                                              >
+                                                                <div>
+                                                                  Selected items
+                                                                </div>
+                                                              </PopoverHeader>
+                                                              <PopoverBody
+                                                                id="popover-selected-basket-body"
+                                                              >
+                                                                <div
+                                                                  style={
+                                                                    Object {
+                                                                      "maxHeight": "350px",
+                                                                      "overflowY": "scroll",
+                                                                    }
+                                                                  }
+                                                                >
+                                                                  <SelectedTable
+                                                                    entities={
+                                                                      Object {
+                                                                        "selectedSystemIds": Array [],
+                                                                      }
+                                                                    }
+                                                                    findType={[Function]}
+                                                                    selectedBaselineContent={Array []}
+                                                                    selectedHSPContent={Array []}
+                                                                    selectedSystemContent={Array []}
+                                                                  />
+                                                                </div>
+                                                              </PopoverBody>
+                                                            </PopoverContent>
+                                                          </FocusTrap>
+                                                        }
+                                                        popperMatchesTriggerWidth={false}
+                                                        positionModifiers={
+                                                          Object {
+                                                            "bottom": "pf-m-bottom",
+                                                            "left": "pf-m-left",
+                                                            "right": "pf-m-right",
+                                                            "top": "pf-m-top",
+                                                          }
+                                                        }
+                                                        trigger={
+                                                          <a
+                                                            onClick={[Function]}
+                                                          >
+                                                            Selected (
+                                                            0
+                                                            )
+                                                          </a>
+                                                        }
+                                                        zIndex={9999}
+                                                      >
+                                                        <FindRefWrapper
+                                                          onFoundRef={[Function]}
+                                                        >
+                                                          <a
+                                                            onClick={[Function]}
+                                                          >
+                                                            Selected (
+                                                            0
+                                                            )
+                                                          </a>
+                                                        </FindRefWrapper>
+                                                      </Popper>
+                                                    </Popover>
+                                                  </span>
+                                                </SelectedBasket>
+                                              </div>
+                                            </ToolbarItem>
+                                          </div>
+                                          <ToolbarExpandableContent
+                                            chipContainerRef={
+                                              Object {
+                                                "current": null,
+                                              }
+                                            }
+                                            clearFiltersButtonText="Clear all filters"
+                                            expandableContentRef={
+                                              Object {
+                                                "current": <div
+                                                  class="pf-c-toolbar__expandable-content"
+                                                  id="pf-random-id-9-expandable-content-9"
+                                                >
+                                                  <div
+                                                    class="pf-c-toolbar__group"
+                                                  />
+                                                </div>,
+                                              }
+                                            }
+                                            id="pf-random-id-9-expandable-content-9"
+                                            isExpanded={false}
+                                            showClearFiltersButton={false}
+                                          >
+                                            <div
+                                              className="pf-c-toolbar__expandable-content"
+                                              id="pf-random-id-9-expandable-content-9"
+                                            >
+                                              <ForwardRef>
+                                                <ToolbarGroupWithRef
+                                                  innerRef={null}
+                                                >
+                                                  <div
+                                                    className="pf-c-toolbar__group"
+                                                  />
+                                                </ToolbarGroupWithRef>
+                                              </ForwardRef>
+                                            </div>
+                                          </ToolbarExpandableContent>
+                                        </div>
+                                      </ToolbarContent>
+                                      <ToolbarChipGroupContent
+                                        chipGroupContentRef={
+                                          Object {
+                                            "current": <div
+                                              class="pf-c-toolbar__content pf-m-hidden"
+                                              hidden=""
+                                            >
+                                              <div
+                                                class="pf-c-toolbar__group"
+                                              />
+                                            </div>,
+                                          }
+                                        }
+                                        clearFiltersButtonText="Clear all filters"
+                                        collapseListedFiltersBreakpoint="lg"
+                                        isExpanded={false}
+                                        numberOfFilters={0}
+                                        showClearFiltersButton={false}
+                                      >
+                                        <div
+                                          className="pf-c-toolbar__content pf-m-hidden"
+                                          hidden={true}
+                                        >
+                                          <ForwardRef
+                                            className=""
+                                          >
+                                            <ToolbarGroupWithRef
+                                              className=""
+                                              innerRef={null}
+                                            >
+                                              <div
+                                                className="pf-c-toolbar__group"
+                                              />
+                                            </ToolbarGroupWithRef>
+                                          </ForwardRef>
+                                        </div>
+                                      </ToolbarChipGroupContent>
+                                    </div>
+                                  </GenerateId>
+                                </Toolbar>
                                 <Tabs
                                   activeKey={1}
                                   component="div"
@@ -11198,6 +11577,7 @@ Try changing your filter settings.
                                         title="Baselines"
                                       >
                                         <Memo(Connect(BaselinesTable))
+                                          basketIsVisible={false}
                                           columns={
                                             Array [
                                               Object {
@@ -11223,6 +11603,7 @@ Try changing your filter settings.
                                           selectedBaselineIds={Array []}
                                           tableData={Array []}
                                           tableId="COMPARISON"
+                                          totalBaselines={0}
                                         />
                                       </Tab>
                                     }
@@ -11239,6 +11620,7 @@ Try changing your filter settings.
                                           title="Baselines"
                                         >
                                           <Memo(Connect(BaselinesTable))
+                                            basketIsVisible={false}
                                             columns={
                                               Array [
                                                 Object {
@@ -11264,6 +11646,7 @@ Try changing your filter settings.
                                             selectedBaselineIds={Array []}
                                             tableData={Array []}
                                             tableId="COMPARISON"
+                                            totalBaselines={0}
                                           />
                                         </Tab>
                                       }
@@ -11281,6 +11664,7 @@ Try changing your filter settings.
                                         tabIndex={0}
                                       >
                                         <Connect(BaselinesTable)
+                                          basketIsVisible={false}
                                           columns={
                                             Array [
                                               Object {
@@ -11306,8 +11690,10 @@ Try changing your filter settings.
                                           selectedBaselineIds={Array []}
                                           tableData={Array []}
                                           tableId="COMPARISON"
+                                          totalBaselines={0}
                                         >
                                           <BaselinesTable
+                                            basketIsVisible={false}
                                             columns={
                                               Array [
                                                 Object {
@@ -11335,6 +11721,7 @@ Try changing your filter settings.
                                             selectedBaselineIds={Array []}
                                             tableData={Array []}
                                             tableId="COMPARISON"
+                                            totalBaselines={0}
                                           >
                                             <BaselinesToolbar
                                               exportToCSV={[Function]}
@@ -11350,6 +11737,7 @@ Try changing your filter settings.
                                               selectedBaselineIds={Array []}
                                               tableData={Array []}
                                               tableId="COMPARISON"
+                                              totalBaselines={0}
                                               updatePagination={[Function]}
                                             >
                                               <Connect(DeleteBaselinesModal)
@@ -11460,7 +11848,7 @@ Try changing your filter settings.
                                                 >
                                                   <div
                                                     className="pf-c-toolbar drift-toolbar"
-                                                    id="pf-random-id-6"
+                                                    id="pf-random-id-10"
                                                   >
                                                     <ToolbarContent
                                                       isExpanded={false}
@@ -12696,7 +13084,7 @@ Try changing your filter settings.
                                                             Object {
                                                               "current": <div
                                                                 class="pf-c-toolbar__expandable-content"
-                                                                id="pf-random-id-6-expandable-content-7"
+                                                                id="pf-random-id-10-expandable-content-11"
                                                               >
                                                                 <div
                                                                   class="pf-c-toolbar__group"
@@ -12704,13 +13092,13 @@ Try changing your filter settings.
                                                               </div>,
                                                             }
                                                           }
-                                                          id="pf-random-id-6-expandable-content-7"
+                                                          id="pf-random-id-10-expandable-content-11"
                                                           isExpanded={false}
                                                           showClearFiltersButton={false}
                                                         >
                                                           <div
                                                             className="pf-c-toolbar__expandable-content"
-                                                            id="pf-random-id-6-expandable-content-7"
+                                                            id="pf-random-id-10-expandable-content-11"
                                                           >
                                                             <ForwardRef>
                                                               <ToolbarGroupWithRef
@@ -12797,6 +13185,7 @@ Try changing your filter settings.
                                               expandId="expandable-toggle"
                                               gridBreakPoint="grid-md"
                                               isStickyHeader={false}
+                                              isTreeTable={false}
                                               ouiaSafe={true}
                                               role="grid"
                                               rowLabeledBy="simple-node"
@@ -12933,6 +13322,7 @@ Try changing your filter settings.
                                                 data-ouia-component-id="baselines-table"
                                                 gridBreakPoint="grid-md"
                                                 isStickyHeader={false}
+                                                isTreeTable={false}
                                                 ouiaSafe={true}
                                                 renderers={
                                                   Object {
@@ -12956,6 +13346,7 @@ Try changing your filter settings.
                                                   data-ouia-component-id="baselines-table"
                                                   gridBreakPoint="grid-md"
                                                   isStickyHeader={false}
+                                                  isTreeTable={false}
                                                   ouiaSafe={true}
                                                   role="grid"
                                                   variant={null}
@@ -12968,6 +13359,7 @@ Try changing your filter settings.
                                                     gridBreakPoint="grid-md"
                                                     innerRef={null}
                                                     isStickyHeader={false}
+                                                    isTreeTable={false}
                                                     ouiaSafe={true}
                                                     role="grid"
                                                     variant={null}
@@ -14332,7 +14724,7 @@ Try changing your filter settings.
                                               >
                                                 <div
                                                   className="pf-c-toolbar"
-                                                  id="pf-random-id-7"
+                                                  id="pf-random-id-11"
                                                 >
                                                   <ForwardRef
                                                     className="pf-c-pagination"
@@ -15201,6 +15593,7 @@ Try changing your filter settings.
                                   </button>
                                 </Button>
                                 <Button
+                                  isDisabled={false}
                                   key="cancel"
                                   onClick={[Function]}
                                   ouiaId="add-to-comparison-cancel-button"
@@ -15298,6 +15691,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
           addSystemModalOpened={true}
           baselineTableData={Array []}
           baselines={Array []}
+          disableSystemTable={[Function]}
           entities={
             Object {
               "selectedSystemIds": Array [],
@@ -15310,14 +15704,21 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
               "workloadsFilter": Object {},
             }
           }
+          handleBaselineSelection={[Function]}
+          handleHSPSelection={[Function]}
+          handleSystemSelection={[Function]}
           hasInventoryReadPermissions={true}
           historicalProfiles={Array []}
           loading={false}
           selectActiveTab={[Function]}
           selectBaseline={[Function]}
+          selectEntity={[Function]}
           selectHistoricProfiles={[Function]}
+          selectedBaselineContent={Array []}
           selectedBaselineIds={Array []}
+          selectedHSPContent={Array []}
           selectedHSPIds={Array []}
+          selectedSystemContent={Array []}
           selectedSystemIds={Array []}
           setSelectedSystemIds={[Function]}
           systems={
@@ -15335,6 +15736,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
             ]
           }
           toggleAddSystemModal={[Function]}
+          totalBaselines={0}
           updateColumns={[Function]}
         >
           <Modal
@@ -15349,6 +15751,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                   Submit
                 </Button>,
                 <Button
+                  isDisabled={false}
                   onClick={[Function]}
                   ouiaId="add-to-comparison-cancel-button"
                   variant="link"
@@ -15437,6 +15840,47 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                           class="pf-c-modal-box__body"
                           id="pf-modal-part-2"
                         >
+                          <div
+                            class="pf-c-toolbar"
+                            id="pf-random-id-0"
+                            style="padding: 0px;"
+                          >
+                            <div
+                              class="pf-c-toolbar__content"
+                            >
+                              <div
+                                class="pf-c-toolbar__content-section"
+                              >
+                                <div
+                                  class="pf-c-toolbar__item pf-m-pagination"
+                                >
+                                  <span>
+                                    <a>
+                                      Selected (
+                                      0
+                                      )
+                                    </a>
+                                  </span>
+                                </div>
+                              </div>
+                              <div
+                                class="pf-c-toolbar__expandable-content"
+                                id="pf-random-id-0-expandable-content-0"
+                              >
+                                <div
+                                  class="pf-c-toolbar__group"
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="pf-c-toolbar__content pf-m-hidden"
+                              hidden=""
+                            >
+                              <div
+                                class="pf-c-toolbar__group"
+                              />
+                            </div>
+                          </div>
                           <div
                             class="pf-c-tabs"
                             data-ouia-component-id="OUIA-Generated-Tabs-1"
@@ -15557,7 +16001,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                           >
                             <div
                               class="pf-c-toolbar drift-toolbar"
-                              id="pf-random-id-0"
+                              id="pf-random-id-1"
                             >
                               <div
                                 class="pf-c-toolbar__content"
@@ -15823,7 +16267,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                 </div>
                                 <div
                                   class="pf-c-toolbar__expandable-content"
-                                  id="pf-random-id-0-expandable-content-1"
+                                  id="pf-random-id-1-expandable-content-2"
                                 >
                                   <div
                                     class="pf-c-toolbar__group"
@@ -15983,7 +16427,7 @@ Try changing your filter settings.
                             </table>
                             <div
                               class="pf-c-toolbar"
-                              id="pf-random-id-1"
+                              id="pf-random-id-2"
                             >
                               <div
                                 class="pf-c-toolbar__group pf-c-pagination"
@@ -16267,6 +16711,7 @@ Try changing your filter settings.
                       Submit
                     </Button>,
                     <Button
+                      isDisabled={false}
                       onClick={[Function]}
                       ouiaId="add-to-comparison-cancel-button"
                       variant="link"
@@ -16433,6 +16878,296 @@ Try changing your filter settings.
                                     }
                                   }
                                 />
+                                <Toolbar
+                                  style={
+                                    Object {
+                                      "padding": "0px",
+                                    }
+                                  }
+                                >
+                                  <GenerateId
+                                    prefix="pf-random-id-"
+                                  >
+                                    <div
+                                      className="pf-c-toolbar"
+                                      id="pf-random-id-0"
+                                      style={
+                                        Object {
+                                          "padding": "0px",
+                                        }
+                                      }
+                                    >
+                                      <ToolbarContent
+                                        isExpanded={false}
+                                        showClearFiltersButton={false}
+                                      >
+                                        <div
+                                          className="pf-c-toolbar__content"
+                                        >
+                                          <div
+                                            className="pf-c-toolbar__content-section"
+                                          >
+                                            <ToolbarItem
+                                              variant="pagination"
+                                            >
+                                              <div
+                                                className="pf-c-toolbar__item pf-m-pagination"
+                                              >
+                                                <SelectedBasket
+                                                  entities={
+                                                    Object {
+                                                      "selectedSystemIds": Array [],
+                                                    }
+                                                  }
+                                                  handleBaselineSelection={[Function]}
+                                                  handleHSPSelection={[Function]}
+                                                  isVisible={false}
+                                                  selectBaseline={[Function]}
+                                                  selectEntity={[Function]}
+                                                  selectHistoricProfiles={[Function]}
+                                                  selectedBaselineContent={Array []}
+                                                  selectedHSPContent={Array []}
+                                                  selectedSystemContent={Array []}
+                                                  toggleBasketVisible={[Function]}
+                                                >
+                                                  <span>
+                                                    <Popover
+                                                      bodyContent={
+                                                        <div
+                                                          style={
+                                                            Object {
+                                                              "maxHeight": "350px",
+                                                              "overflowY": "scroll",
+                                                            }
+                                                          }
+                                                        >
+                                                          <SelectedTable
+                                                            entities={
+                                                              Object {
+                                                                "selectedSystemIds": Array [],
+                                                              }
+                                                            }
+                                                            findType={[Function]}
+                                                            selectedBaselineContent={Array []}
+                                                            selectedHSPContent={Array []}
+                                                            selectedSystemContent={Array []}
+                                                          />
+                                                        </div>
+                                                      }
+                                                      headerContent={
+                                                        <div>
+                                                          Selected items
+                                                        </div>
+                                                      }
+                                                      id="selected-basket"
+                                                      isVisible={false}
+                                                      position="bottom"
+                                                      shouldClose={[Function]}
+                                                    >
+                                                      <Popper
+                                                        appendTo={[Function]}
+                                                        distance={25}
+                                                        enableFlip={true}
+                                                        flipBehavior={
+                                                          Array [
+                                                            "top",
+                                                            "right",
+                                                            "bottom",
+                                                            "left",
+                                                            "top",
+                                                            "right",
+                                                            "bottom",
+                                                          ]
+                                                        }
+                                                        isVisible={false}
+                                                        onDocumentClick={[Function]}
+                                                        onDocumentKeyDown={[Function]}
+                                                        onTriggerClick={[Function]}
+                                                        onTriggerEnter={[Function]}
+                                                        placement="bottom"
+                                                        popper={
+                                                          <FocusTrap
+                                                            active={false}
+                                                            aria-describedby="popover-selected-basket-body"
+                                                            aria-labelledby="popover-selected-basket-header"
+                                                            aria-modal="true"
+                                                            className="pf-c-popover"
+                                                            focusTrapOptions={
+                                                              Object {
+                                                                "clickOutsideDeactivates": true,
+                                                                "returnFocusOnDeactivate": true,
+                                                              }
+                                                            }
+                                                            onMouseDown={[Function]}
+                                                            paused={false}
+                                                            role="dialog"
+                                                            style={
+                                                              Object {
+                                                                "maxWidth": null,
+                                                                "minWidth": null,
+                                                                "opacity": 0,
+                                                                "transition": "opacity 300ms cubic-bezier(.54, 1.5, .38, 1.11)",
+                                                              }
+                                                            }
+                                                          >
+                                                            <PopoverArrow />
+                                                            <PopoverContent>
+                                                              <PopoverCloseButton
+                                                                aria-label="Close"
+                                                                onClose={[Function]}
+                                                              />
+                                                              <PopoverHeader
+                                                                id="popover-selected-basket-header"
+                                                              >
+                                                                <div>
+                                                                  Selected items
+                                                                </div>
+                                                              </PopoverHeader>
+                                                              <PopoverBody
+                                                                id="popover-selected-basket-body"
+                                                              >
+                                                                <div
+                                                                  style={
+                                                                    Object {
+                                                                      "maxHeight": "350px",
+                                                                      "overflowY": "scroll",
+                                                                    }
+                                                                  }
+                                                                >
+                                                                  <SelectedTable
+                                                                    entities={
+                                                                      Object {
+                                                                        "selectedSystemIds": Array [],
+                                                                      }
+                                                                    }
+                                                                    findType={[Function]}
+                                                                    selectedBaselineContent={Array []}
+                                                                    selectedHSPContent={Array []}
+                                                                    selectedSystemContent={Array []}
+                                                                  />
+                                                                </div>
+                                                              </PopoverBody>
+                                                            </PopoverContent>
+                                                          </FocusTrap>
+                                                        }
+                                                        popperMatchesTriggerWidth={false}
+                                                        positionModifiers={
+                                                          Object {
+                                                            "bottom": "pf-m-bottom",
+                                                            "left": "pf-m-left",
+                                                            "right": "pf-m-right",
+                                                            "top": "pf-m-top",
+                                                          }
+                                                        }
+                                                        trigger={
+                                                          <a
+                                                            onClick={[Function]}
+                                                          >
+                                                            Selected (
+                                                            0
+                                                            )
+                                                          </a>
+                                                        }
+                                                        zIndex={9999}
+                                                      >
+                                                        <FindRefWrapper
+                                                          onFoundRef={[Function]}
+                                                        >
+                                                          <a
+                                                            onClick={[Function]}
+                                                          >
+                                                            Selected (
+                                                            0
+                                                            )
+                                                          </a>
+                                                        </FindRefWrapper>
+                                                      </Popper>
+                                                    </Popover>
+                                                  </span>
+                                                </SelectedBasket>
+                                              </div>
+                                            </ToolbarItem>
+                                          </div>
+                                          <ToolbarExpandableContent
+                                            chipContainerRef={
+                                              Object {
+                                                "current": null,
+                                              }
+                                            }
+                                            clearFiltersButtonText="Clear all filters"
+                                            expandableContentRef={
+                                              Object {
+                                                "current": <div
+                                                  class="pf-c-toolbar__expandable-content"
+                                                  id="pf-random-id-0-expandable-content-0"
+                                                >
+                                                  <div
+                                                    class="pf-c-toolbar__group"
+                                                  />
+                                                </div>,
+                                              }
+                                            }
+                                            id="pf-random-id-0-expandable-content-0"
+                                            isExpanded={false}
+                                            showClearFiltersButton={false}
+                                          >
+                                            <div
+                                              className="pf-c-toolbar__expandable-content"
+                                              id="pf-random-id-0-expandable-content-0"
+                                            >
+                                              <ForwardRef>
+                                                <ToolbarGroupWithRef
+                                                  innerRef={null}
+                                                >
+                                                  <div
+                                                    className="pf-c-toolbar__group"
+                                                  />
+                                                </ToolbarGroupWithRef>
+                                              </ForwardRef>
+                                            </div>
+                                          </ToolbarExpandableContent>
+                                        </div>
+                                      </ToolbarContent>
+                                      <ToolbarChipGroupContent
+                                        chipGroupContentRef={
+                                          Object {
+                                            "current": <div
+                                              class="pf-c-toolbar__content pf-m-hidden"
+                                              hidden=""
+                                            >
+                                              <div
+                                                class="pf-c-toolbar__group"
+                                              />
+                                            </div>,
+                                          }
+                                        }
+                                        clearFiltersButtonText="Clear all filters"
+                                        collapseListedFiltersBreakpoint="lg"
+                                        isExpanded={false}
+                                        numberOfFilters={0}
+                                        showClearFiltersButton={false}
+                                      >
+                                        <div
+                                          className="pf-c-toolbar__content pf-m-hidden"
+                                          hidden={true}
+                                        >
+                                          <ForwardRef
+                                            className=""
+                                          >
+                                            <ToolbarGroupWithRef
+                                              className=""
+                                              innerRef={null}
+                                            >
+                                              <div
+                                                className="pf-c-toolbar__group"
+                                              />
+                                            </ToolbarGroupWithRef>
+                                          </ForwardRef>
+                                        </div>
+                                      </ToolbarChipGroupContent>
+                                    </div>
+                                  </GenerateId>
+                                </Toolbar>
                                 <Tabs
                                   activeKey={0}
                                   component="div"
@@ -17115,6 +17850,7 @@ Try changing your filter settings.
                                         title="Baselines"
                                       >
                                         <Memo(Connect(BaselinesTable))
+                                          basketIsVisible={false}
                                           columns={
                                             Array [
                                               Object {
@@ -17140,6 +17876,7 @@ Try changing your filter settings.
                                           selectedBaselineIds={Array []}
                                           tableData={Array []}
                                           tableId="COMPARISON"
+                                          totalBaselines={0}
                                         />
                                       </Tab>
                                     }
@@ -17156,6 +17893,7 @@ Try changing your filter settings.
                                           title="Baselines"
                                         >
                                           <Memo(Connect(BaselinesTable))
+                                            basketIsVisible={false}
                                             columns={
                                               Array [
                                                 Object {
@@ -17181,6 +17919,7 @@ Try changing your filter settings.
                                             selectedBaselineIds={Array []}
                                             tableData={Array []}
                                             tableId="COMPARISON"
+                                            totalBaselines={0}
                                           />
                                         </Tab>
                                       }
@@ -17198,6 +17937,7 @@ Try changing your filter settings.
                                         tabIndex={0}
                                       >
                                         <Connect(BaselinesTable)
+                                          basketIsVisible={false}
                                           columns={
                                             Array [
                                               Object {
@@ -17223,8 +17963,10 @@ Try changing your filter settings.
                                           selectedBaselineIds={Array []}
                                           tableData={Array []}
                                           tableId="COMPARISON"
+                                          totalBaselines={0}
                                         >
                                           <BaselinesTable
+                                            basketIsVisible={false}
                                             columns={
                                               Array [
                                                 Object {
@@ -17252,6 +17994,7 @@ Try changing your filter settings.
                                             selectedBaselineIds={Array []}
                                             tableData={Array []}
                                             tableId="COMPARISON"
+                                            totalBaselines={0}
                                           >
                                             <BaselinesToolbar
                                               exportToCSV={[Function]}
@@ -17267,6 +18010,7 @@ Try changing your filter settings.
                                               selectedBaselineIds={Array []}
                                               tableData={Array []}
                                               tableId="COMPARISON"
+                                              totalBaselines={0}
                                               updatePagination={[Function]}
                                             >
                                               <Connect(DeleteBaselinesModal)
@@ -17377,7 +18121,7 @@ Try changing your filter settings.
                                                 >
                                                   <div
                                                     className="pf-c-toolbar drift-toolbar"
-                                                    id="pf-random-id-0"
+                                                    id="pf-random-id-1"
                                                   >
                                                     <ToolbarContent
                                                       isExpanded={false}
@@ -18613,7 +19357,7 @@ Try changing your filter settings.
                                                             Object {
                                                               "current": <div
                                                                 class="pf-c-toolbar__expandable-content"
-                                                                id="pf-random-id-0-expandable-content-1"
+                                                                id="pf-random-id-1-expandable-content-2"
                                                               >
                                                                 <div
                                                                   class="pf-c-toolbar__group"
@@ -18621,13 +19365,13 @@ Try changing your filter settings.
                                                               </div>,
                                                             }
                                                           }
-                                                          id="pf-random-id-0-expandable-content-1"
+                                                          id="pf-random-id-1-expandable-content-2"
                                                           isExpanded={false}
                                                           showClearFiltersButton={false}
                                                         >
                                                           <div
                                                             className="pf-c-toolbar__expandable-content"
-                                                            id="pf-random-id-0-expandable-content-1"
+                                                            id="pf-random-id-1-expandable-content-2"
                                                           >
                                                             <ForwardRef>
                                                               <ToolbarGroupWithRef
@@ -18714,6 +19458,7 @@ Try changing your filter settings.
                                               expandId="expandable-toggle"
                                               gridBreakPoint="grid-md"
                                               isStickyHeader={false}
+                                              isTreeTable={false}
                                               ouiaSafe={true}
                                               role="grid"
                                               rowLabeledBy="simple-node"
@@ -18850,6 +19595,7 @@ Try changing your filter settings.
                                                 data-ouia-component-id="baselines-table"
                                                 gridBreakPoint="grid-md"
                                                 isStickyHeader={false}
+                                                isTreeTable={false}
                                                 ouiaSafe={true}
                                                 renderers={
                                                   Object {
@@ -18873,6 +19619,7 @@ Try changing your filter settings.
                                                   data-ouia-component-id="baselines-table"
                                                   gridBreakPoint="grid-md"
                                                   isStickyHeader={false}
+                                                  isTreeTable={false}
                                                   ouiaSafe={true}
                                                   role="grid"
                                                   variant={null}
@@ -18885,6 +19632,7 @@ Try changing your filter settings.
                                                     gridBreakPoint="grid-md"
                                                     innerRef={null}
                                                     isStickyHeader={false}
+                                                    isTreeTable={false}
                                                     ouiaSafe={true}
                                                     role="grid"
                                                     variant={null}
@@ -20249,7 +20997,7 @@ Try changing your filter settings.
                                               >
                                                 <div
                                                   className="pf-c-toolbar"
-                                                  id="pf-random-id-1"
+                                                  id="pf-random-id-2"
                                                 >
                                                   <ForwardRef
                                                     className="pf-c-pagination"
@@ -21118,6 +21866,7 @@ Try changing your filter settings.
                                   </button>
                                 </Button>
                                 <Button
+                                  isDisabled={false}
                                   key="cancel"
                                   onClick={[Function]}
                                   ouiaId="add-to-comparison-cancel-button"
@@ -21215,6 +21964,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
           addSystemModalOpened={true}
           baselineTableData={Array []}
           baselines={Array []}
+          disableSystemTable={[Function]}
           entities={
             Object {
               "selectedSystemIds": Array [],
@@ -21227,14 +21977,21 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
               "workloadsFilter": Object {},
             }
           }
+          handleBaselineSelection={[Function]}
+          handleHSPSelection={[Function]}
+          handleSystemSelection={[Function]}
           hasInventoryReadPermissions={false}
           historicalProfiles={Array []}
           loading={false}
           selectActiveTab={[Function]}
           selectBaseline={[Function]}
+          selectEntity={[Function]}
           selectHistoricProfiles={[Function]}
+          selectedBaselineContent={Array []}
           selectedBaselineIds={Array []}
+          selectedHSPContent={Array []}
           selectedHSPIds={Array []}
+          selectedSystemContent={Array []}
           selectedSystemIds={Array []}
           setSelectedSystemIds={[Function]}
           systems={
@@ -21252,6 +22009,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
             ]
           }
           toggleAddSystemModal={[Function]}
+          totalBaselines={0}
           updateColumns={[Function]}
         >
           <Modal
@@ -21266,6 +22024,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                   Submit
                 </Button>,
                 <Button
+                  isDisabled={false}
                   onClick={[Function]}
                   ouiaId="add-to-comparison-cancel-button"
                   variant="link"
@@ -21354,6 +22113,47 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                           class="pf-c-modal-box__body"
                           id="pf-modal-part-4"
                         >
+                          <div
+                            class="pf-c-toolbar"
+                            id="pf-random-id-3"
+                            style="padding: 0px;"
+                          >
+                            <div
+                              class="pf-c-toolbar__content"
+                            >
+                              <div
+                                class="pf-c-toolbar__content-section"
+                              >
+                                <div
+                                  class="pf-c-toolbar__item pf-m-pagination"
+                                >
+                                  <span>
+                                    <a>
+                                      Selected (
+                                      0
+                                      )
+                                    </a>
+                                  </span>
+                                </div>
+                              </div>
+                              <div
+                                class="pf-c-toolbar__expandable-content"
+                                id="pf-random-id-3-expandable-content-3"
+                              >
+                                <div
+                                  class="pf-c-toolbar__group"
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="pf-c-toolbar__content pf-m-hidden"
+                              hidden=""
+                            >
+                              <div
+                                class="pf-c-toolbar__group"
+                              />
+                            </div>
+                          </div>
                           <div
                             class="pf-c-tabs"
                             data-ouia-component-id="OUIA-Generated-Tabs-2"
@@ -21488,7 +22288,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                           >
                             <div
                               class="pf-c-toolbar drift-toolbar"
-                              id="pf-random-id-2"
+                              id="pf-random-id-4"
                             >
                               <div
                                 class="pf-c-toolbar__content"
@@ -21754,7 +22554,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                 </div>
                                 <div
                                   class="pf-c-toolbar__expandable-content"
-                                  id="pf-random-id-2-expandable-content-3"
+                                  id="pf-random-id-4-expandable-content-5"
                                 >
                                   <div
                                     class="pf-c-toolbar__group"
@@ -21914,7 +22714,7 @@ Try changing your filter settings.
                             </table>
                             <div
                               class="pf-c-toolbar"
-                              id="pf-random-id-3"
+                              id="pf-random-id-5"
                             >
                               <div
                                 class="pf-c-toolbar__group pf-c-pagination"
@@ -22198,6 +22998,7 @@ Try changing your filter settings.
                       Submit
                     </Button>,
                     <Button
+                      isDisabled={false}
                       onClick={[Function]}
                       ouiaId="add-to-comparison-cancel-button"
                       variant="link"
@@ -22364,6 +23165,296 @@ Try changing your filter settings.
                                     }
                                   }
                                 />
+                                <Toolbar
+                                  style={
+                                    Object {
+                                      "padding": "0px",
+                                    }
+                                  }
+                                >
+                                  <GenerateId
+                                    prefix="pf-random-id-"
+                                  >
+                                    <div
+                                      className="pf-c-toolbar"
+                                      id="pf-random-id-3"
+                                      style={
+                                        Object {
+                                          "padding": "0px",
+                                        }
+                                      }
+                                    >
+                                      <ToolbarContent
+                                        isExpanded={false}
+                                        showClearFiltersButton={false}
+                                      >
+                                        <div
+                                          className="pf-c-toolbar__content"
+                                        >
+                                          <div
+                                            className="pf-c-toolbar__content-section"
+                                          >
+                                            <ToolbarItem
+                                              variant="pagination"
+                                            >
+                                              <div
+                                                className="pf-c-toolbar__item pf-m-pagination"
+                                              >
+                                                <SelectedBasket
+                                                  entities={
+                                                    Object {
+                                                      "selectedSystemIds": Array [],
+                                                    }
+                                                  }
+                                                  handleBaselineSelection={[Function]}
+                                                  handleHSPSelection={[Function]}
+                                                  isVisible={false}
+                                                  selectBaseline={[Function]}
+                                                  selectEntity={[Function]}
+                                                  selectHistoricProfiles={[Function]}
+                                                  selectedBaselineContent={Array []}
+                                                  selectedHSPContent={Array []}
+                                                  selectedSystemContent={Array []}
+                                                  toggleBasketVisible={[Function]}
+                                                >
+                                                  <span>
+                                                    <Popover
+                                                      bodyContent={
+                                                        <div
+                                                          style={
+                                                            Object {
+                                                              "maxHeight": "350px",
+                                                              "overflowY": "scroll",
+                                                            }
+                                                          }
+                                                        >
+                                                          <SelectedTable
+                                                            entities={
+                                                              Object {
+                                                                "selectedSystemIds": Array [],
+                                                              }
+                                                            }
+                                                            findType={[Function]}
+                                                            selectedBaselineContent={Array []}
+                                                            selectedHSPContent={Array []}
+                                                            selectedSystemContent={Array []}
+                                                          />
+                                                        </div>
+                                                      }
+                                                      headerContent={
+                                                        <div>
+                                                          Selected items
+                                                        </div>
+                                                      }
+                                                      id="selected-basket"
+                                                      isVisible={false}
+                                                      position="bottom"
+                                                      shouldClose={[Function]}
+                                                    >
+                                                      <Popper
+                                                        appendTo={[Function]}
+                                                        distance={25}
+                                                        enableFlip={true}
+                                                        flipBehavior={
+                                                          Array [
+                                                            "top",
+                                                            "right",
+                                                            "bottom",
+                                                            "left",
+                                                            "top",
+                                                            "right",
+                                                            "bottom",
+                                                          ]
+                                                        }
+                                                        isVisible={false}
+                                                        onDocumentClick={[Function]}
+                                                        onDocumentKeyDown={[Function]}
+                                                        onTriggerClick={[Function]}
+                                                        onTriggerEnter={[Function]}
+                                                        placement="bottom"
+                                                        popper={
+                                                          <FocusTrap
+                                                            active={false}
+                                                            aria-describedby="popover-selected-basket-body"
+                                                            aria-labelledby="popover-selected-basket-header"
+                                                            aria-modal="true"
+                                                            className="pf-c-popover"
+                                                            focusTrapOptions={
+                                                              Object {
+                                                                "clickOutsideDeactivates": true,
+                                                                "returnFocusOnDeactivate": true,
+                                                              }
+                                                            }
+                                                            onMouseDown={[Function]}
+                                                            paused={false}
+                                                            role="dialog"
+                                                            style={
+                                                              Object {
+                                                                "maxWidth": null,
+                                                                "minWidth": null,
+                                                                "opacity": 0,
+                                                                "transition": "opacity 300ms cubic-bezier(.54, 1.5, .38, 1.11)",
+                                                              }
+                                                            }
+                                                          >
+                                                            <PopoverArrow />
+                                                            <PopoverContent>
+                                                              <PopoverCloseButton
+                                                                aria-label="Close"
+                                                                onClose={[Function]}
+                                                              />
+                                                              <PopoverHeader
+                                                                id="popover-selected-basket-header"
+                                                              >
+                                                                <div>
+                                                                  Selected items
+                                                                </div>
+                                                              </PopoverHeader>
+                                                              <PopoverBody
+                                                                id="popover-selected-basket-body"
+                                                              >
+                                                                <div
+                                                                  style={
+                                                                    Object {
+                                                                      "maxHeight": "350px",
+                                                                      "overflowY": "scroll",
+                                                                    }
+                                                                  }
+                                                                >
+                                                                  <SelectedTable
+                                                                    entities={
+                                                                      Object {
+                                                                        "selectedSystemIds": Array [],
+                                                                      }
+                                                                    }
+                                                                    findType={[Function]}
+                                                                    selectedBaselineContent={Array []}
+                                                                    selectedHSPContent={Array []}
+                                                                    selectedSystemContent={Array []}
+                                                                  />
+                                                                </div>
+                                                              </PopoverBody>
+                                                            </PopoverContent>
+                                                          </FocusTrap>
+                                                        }
+                                                        popperMatchesTriggerWidth={false}
+                                                        positionModifiers={
+                                                          Object {
+                                                            "bottom": "pf-m-bottom",
+                                                            "left": "pf-m-left",
+                                                            "right": "pf-m-right",
+                                                            "top": "pf-m-top",
+                                                          }
+                                                        }
+                                                        trigger={
+                                                          <a
+                                                            onClick={[Function]}
+                                                          >
+                                                            Selected (
+                                                            0
+                                                            )
+                                                          </a>
+                                                        }
+                                                        zIndex={9999}
+                                                      >
+                                                        <FindRefWrapper
+                                                          onFoundRef={[Function]}
+                                                        >
+                                                          <a
+                                                            onClick={[Function]}
+                                                          >
+                                                            Selected (
+                                                            0
+                                                            )
+                                                          </a>
+                                                        </FindRefWrapper>
+                                                      </Popper>
+                                                    </Popover>
+                                                  </span>
+                                                </SelectedBasket>
+                                              </div>
+                                            </ToolbarItem>
+                                          </div>
+                                          <ToolbarExpandableContent
+                                            chipContainerRef={
+                                              Object {
+                                                "current": null,
+                                              }
+                                            }
+                                            clearFiltersButtonText="Clear all filters"
+                                            expandableContentRef={
+                                              Object {
+                                                "current": <div
+                                                  class="pf-c-toolbar__expandable-content"
+                                                  id="pf-random-id-3-expandable-content-3"
+                                                >
+                                                  <div
+                                                    class="pf-c-toolbar__group"
+                                                  />
+                                                </div>,
+                                              }
+                                            }
+                                            id="pf-random-id-3-expandable-content-3"
+                                            isExpanded={false}
+                                            showClearFiltersButton={false}
+                                          >
+                                            <div
+                                              className="pf-c-toolbar__expandable-content"
+                                              id="pf-random-id-3-expandable-content-3"
+                                            >
+                                              <ForwardRef>
+                                                <ToolbarGroupWithRef
+                                                  innerRef={null}
+                                                >
+                                                  <div
+                                                    className="pf-c-toolbar__group"
+                                                  />
+                                                </ToolbarGroupWithRef>
+                                              </ForwardRef>
+                                            </div>
+                                          </ToolbarExpandableContent>
+                                        </div>
+                                      </ToolbarContent>
+                                      <ToolbarChipGroupContent
+                                        chipGroupContentRef={
+                                          Object {
+                                            "current": <div
+                                              class="pf-c-toolbar__content pf-m-hidden"
+                                              hidden=""
+                                            >
+                                              <div
+                                                class="pf-c-toolbar__group"
+                                              />
+                                            </div>,
+                                          }
+                                        }
+                                        clearFiltersButtonText="Clear all filters"
+                                        collapseListedFiltersBreakpoint="lg"
+                                        isExpanded={false}
+                                        numberOfFilters={0}
+                                        showClearFiltersButton={false}
+                                      >
+                                        <div
+                                          className="pf-c-toolbar__content pf-m-hidden"
+                                          hidden={true}
+                                        >
+                                          <ForwardRef
+                                            className=""
+                                          >
+                                            <ToolbarGroupWithRef
+                                              className=""
+                                              innerRef={null}
+                                            >
+                                              <div
+                                                className="pf-c-toolbar__group"
+                                              />
+                                            </ToolbarGroupWithRef>
+                                          </ForwardRef>
+                                        </div>
+                                      </ToolbarChipGroupContent>
+                                    </div>
+                                  </GenerateId>
+                                </Toolbar>
                                 <Tabs
                                   activeKey={0}
                                   component="div"
@@ -22693,6 +23784,7 @@ Try changing your filter settings.
                                         title="Baselines"
                                       >
                                         <Memo(Connect(BaselinesTable))
+                                          basketIsVisible={false}
                                           columns={
                                             Array [
                                               Object {
@@ -22718,6 +23810,7 @@ Try changing your filter settings.
                                           selectedBaselineIds={Array []}
                                           tableData={Array []}
                                           tableId="COMPARISON"
+                                          totalBaselines={0}
                                         />
                                       </Tab>
                                     }
@@ -22734,6 +23827,7 @@ Try changing your filter settings.
                                           title="Baselines"
                                         >
                                           <Memo(Connect(BaselinesTable))
+                                            basketIsVisible={false}
                                             columns={
                                               Array [
                                                 Object {
@@ -22759,6 +23853,7 @@ Try changing your filter settings.
                                             selectedBaselineIds={Array []}
                                             tableData={Array []}
                                             tableId="COMPARISON"
+                                            totalBaselines={0}
                                           />
                                         </Tab>
                                       }
@@ -22776,6 +23871,7 @@ Try changing your filter settings.
                                         tabIndex={0}
                                       >
                                         <Connect(BaselinesTable)
+                                          basketIsVisible={false}
                                           columns={
                                             Array [
                                               Object {
@@ -22801,8 +23897,10 @@ Try changing your filter settings.
                                           selectedBaselineIds={Array []}
                                           tableData={Array []}
                                           tableId="COMPARISON"
+                                          totalBaselines={0}
                                         >
                                           <BaselinesTable
+                                            basketIsVisible={false}
                                             columns={
                                               Array [
                                                 Object {
@@ -22830,6 +23928,7 @@ Try changing your filter settings.
                                             selectedBaselineIds={Array []}
                                             tableData={Array []}
                                             tableId="COMPARISON"
+                                            totalBaselines={0}
                                           >
                                             <BaselinesToolbar
                                               exportToCSV={[Function]}
@@ -22845,6 +23944,7 @@ Try changing your filter settings.
                                               selectedBaselineIds={Array []}
                                               tableData={Array []}
                                               tableId="COMPARISON"
+                                              totalBaselines={0}
                                               updatePagination={[Function]}
                                             >
                                               <Connect(DeleteBaselinesModal)
@@ -22955,7 +24055,7 @@ Try changing your filter settings.
                                                 >
                                                   <div
                                                     className="pf-c-toolbar drift-toolbar"
-                                                    id="pf-random-id-2"
+                                                    id="pf-random-id-4"
                                                   >
                                                     <ToolbarContent
                                                       isExpanded={false}
@@ -24191,7 +25291,7 @@ Try changing your filter settings.
                                                             Object {
                                                               "current": <div
                                                                 class="pf-c-toolbar__expandable-content"
-                                                                id="pf-random-id-2-expandable-content-3"
+                                                                id="pf-random-id-4-expandable-content-5"
                                                               >
                                                                 <div
                                                                   class="pf-c-toolbar__group"
@@ -24199,13 +25299,13 @@ Try changing your filter settings.
                                                               </div>,
                                                             }
                                                           }
-                                                          id="pf-random-id-2-expandable-content-3"
+                                                          id="pf-random-id-4-expandable-content-5"
                                                           isExpanded={false}
                                                           showClearFiltersButton={false}
                                                         >
                                                           <div
                                                             className="pf-c-toolbar__expandable-content"
-                                                            id="pf-random-id-2-expandable-content-3"
+                                                            id="pf-random-id-4-expandable-content-5"
                                                           >
                                                             <ForwardRef>
                                                               <ToolbarGroupWithRef
@@ -24292,6 +25392,7 @@ Try changing your filter settings.
                                               expandId="expandable-toggle"
                                               gridBreakPoint="grid-md"
                                               isStickyHeader={false}
+                                              isTreeTable={false}
                                               ouiaSafe={true}
                                               role="grid"
                                               rowLabeledBy="simple-node"
@@ -24428,6 +25529,7 @@ Try changing your filter settings.
                                                 data-ouia-component-id="baselines-table"
                                                 gridBreakPoint="grid-md"
                                                 isStickyHeader={false}
+                                                isTreeTable={false}
                                                 ouiaSafe={true}
                                                 renderers={
                                                   Object {
@@ -24451,6 +25553,7 @@ Try changing your filter settings.
                                                   data-ouia-component-id="baselines-table"
                                                   gridBreakPoint="grid-md"
                                                   isStickyHeader={false}
+                                                  isTreeTable={false}
                                                   ouiaSafe={true}
                                                   role="grid"
                                                   variant={null}
@@ -24463,6 +25566,7 @@ Try changing your filter settings.
                                                     gridBreakPoint="grid-md"
                                                     innerRef={null}
                                                     isStickyHeader={false}
+                                                    isTreeTable={false}
                                                     ouiaSafe={true}
                                                     role="grid"
                                                     variant={null}
@@ -25827,7 +26931,7 @@ Try changing your filter settings.
                                               >
                                                 <div
                                                   className="pf-c-toolbar"
-                                                  id="pf-random-id-3"
+                                                  id="pf-random-id-5"
                                                 >
                                                   <ForwardRef
                                                     className="pf-c-pagination"
@@ -26696,6 +27800,7 @@ Try changing your filter settings.
                                   </button>
                                 </Button>
                                 <Button
+                                  isDisabled={false}
                                   key="cancel"
                                   onClick={[Function]}
                                   ouiaId="add-to-comparison-cancel-button"

@@ -122,6 +122,7 @@ class ComparisonHeader extends Component {
                                 ? <HistoricalProfilesPopover
                                     system={ item }
                                     systemIds={ systemIds }
+                                    systemName={ item.display_name }
                                     referenceId={ referenceId }
                                     fetchCompare={ fetchCompare }
                                     hasCompareButton={ true }

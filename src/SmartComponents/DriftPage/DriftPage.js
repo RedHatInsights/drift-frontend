@@ -7,6 +7,7 @@ import { Main, PageHeader, PageHeaderTitle } from '@redhat-cloud-services/fronte
 import { Card, CardBody, Toolbar, ToolbarGroup, ToolbarItem, PaginationVariant } from '@patternfly/react-core';
 import { ExclamationCircleIcon, LockIcon, PlusCircleIcon } from '@patternfly/react-icons';
 import { baselinesTableActions } from '../BaselinesTable/redux';
+import { addSystemModalActions } from '../AddSystemModal/redux';
 import { compareActions } from '../modules';
 import { historicProfilesActions } from '../HistoricalProfilesPopover/redux';
 import { setHistory } from '../../Utilities/SetHistory';
@@ -88,9 +89,9 @@ export class DriftPage extends Component {
 
     render() {
         const { activeFactFilters, addStateFilter, baselines, clearAllFactFilters, clearComparison, clearComparisonFilters, clearSelectedBaselines,
-            emptyState, error, exportToCSV, factFilter, factSort, filterByFact, handleFactFilter, historicalProfiles, history, loading, page, perPage,
-            referenceId, selectedBaselineIds, selectedHSPIds, stateFilters, stateSort, systems, totalFacts, updatePagination,
-            updateReferenceId } = this.props;
+            emptyState, error, exportToCSV, factFilter, factSort, filterByFact, handleFactFilter, historicalProfiles, handleBaselineSelection,
+            handleHSPSelection, handleSystemSelection, history, loading, page, perPage, referenceId, selectedBaselineIds, selectedHSPIds,
+            stateFilters, stateSort, systems, totalFacts, updatePagination, updateReferenceId } = this.props;
         const { isFirstReference } = this.state;
 
         return (
@@ -151,6 +152,9 @@ export class DriftPage extends Component {
                                                     isFirstReference={ isFirstReference }
                                                     setIsFirstReference={ this.setIsFirstReference }
                                                     clearComparison= { clearComparison }
+                                                    handleBaselineSelection={ handleBaselineSelection }
+                                                    handleHSPSelection={ handleHSPSelection }
+                                                    handleSystemSelection={ handleSystemSelection }
                                                     hasBaselinesReadPermissions={ value.permissions.baselinesRead }
                                                     hasBaselinesWritePermissions={ value.permissions.baselinesWrite }
                                                     hasInventoryReadPermissions={ value.permissions.inventoryRead }
@@ -233,7 +237,10 @@ DriftPage.propTypes = {
     baselines: PropTypes.array,
     historicalProfiles: PropTypes.array,
     loadEntities: PropTypes.func,
-    selectedBaselineIds: PropTypes.array
+    selectedBaselineIds: PropTypes.array,
+    handleBaselineSelection: PropTypes.func,
+    handleHSPSelection: PropTypes.func,
+    handleSystemSelection: PropTypes.func
 };
 
 function mapDispatchToProps(dispatch) {
@@ -250,7 +257,10 @@ function mapDispatchToProps(dispatch) {
         addStateFilter: (filter) => dispatch(compareActions.addStateFilter(filter)),
         handleFactFilter: (filter) => dispatch(compareActions.handleFactFilter(filter)),
         clearAllFactFilters: () => dispatch(compareActions.clearAllFactFilters()),
-        loadEntities: () => dispatch({ type: 'LOAD_ENTITIES' })
+        loadEntities: () => dispatch({ type: 'LOAD_ENTITIES' }),
+        handleSystemSelection: (content, isSelected) => dispatch(addSystemModalActions.handleSystemSelection(content, isSelected)),
+        handleBaselineSelection: (content, isSelected) => dispatch(addSystemModalActions.handleBaselineSelection(content, isSelected)),
+        handleHSPSelection: (content) => dispatch(addSystemModalActions.handleHSPSelection(content))
     };
 }
 

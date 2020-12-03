@@ -179,8 +179,13 @@ exports[`ConnectedDriftTable should render correctly 1`] = `
               <AddSystemModal
                 addSystemModalOpened={false}
                 confirmModal={[Function]}
+                disableSystemTable={[Function]}
+                handleBaselineSelection={[Function]}
+                handleHSPSelection={[Function]}
+                handleSystemSelection={[Function]}
                 selectActiveTab={[Function]}
                 selectBaseline={[Function]}
+                selectEntity={[Function]}
                 selectHistoricProfiles={[Function]}
                 selectedBaselineIds={Array []}
                 selectedHSPIds={Array []}
@@ -201,6 +206,7 @@ exports[`ConnectedDriftTable should render correctly 1`] = `
                         Submit
                       </Button>,
                       <Button
+                        isDisabled={false}
                         onClick={[Function]}
                         ouiaId="add-to-comparison-cancel-button"
                         variant="link"
@@ -241,6 +247,7 @@ exports[`ConnectedDriftTable should render correctly 1`] = `
                             Submit
                           </Button>,
                           <Button
+                            isDisabled={false}
                             onClick={[Function]}
                             ouiaId="add-to-comparison-cancel-button"
                             variant="link"
@@ -568,8 +575,13 @@ exports[`ConnectedDriftTable should render loading rows 1`] = `
               <AddSystemModal
                 addSystemModalOpened={false}
                 confirmModal={[Function]}
+                disableSystemTable={[Function]}
+                handleBaselineSelection={[Function]}
+                handleHSPSelection={[Function]}
+                handleSystemSelection={[Function]}
                 selectActiveTab={[Function]}
                 selectBaseline={[Function]}
+                selectEntity={[Function]}
                 selectHistoricProfiles={[Function]}
                 selectedBaselineIds={Array []}
                 selectedHSPIds={Array []}
@@ -590,6 +602,7 @@ exports[`ConnectedDriftTable should render loading rows 1`] = `
                         Submit
                       </Button>,
                       <Button
+                        isDisabled={false}
                         onClick={[Function]}
                         ouiaId="add-to-comparison-cancel-button"
                         variant="link"
@@ -630,6 +643,7 @@ exports[`ConnectedDriftTable should render loading rows 1`] = `
                             Submit
                           </Button>,
                           <Button
+                            isDisabled={false}
                             onClick={[Function]}
                             ouiaId="add-to-comparison-cancel-button"
                             variant="link"
@@ -1229,16 +1243,16 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
             Object {
               "display_name": "system1",
               "id": "9bbbefcc-8f23-4d97-07f2-142asdl234e8",
-              "last_updated": "2019-01-15T14:53:15.886891Z",
               "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
               "type": "historical-system-profile",
+              "updated": "2019-01-15T14:53:15.886891Z",
             },
             Object {
               "display_name": "system1",
               "id": "edmk59dj-fn42-dfjk-alv3-bmn2854mnn27",
-              "last_updated": "2019-01-15T15:25:16.304899Z",
               "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
               "type": "historical-system-profile",
+              "updated": "2019-01-15T15:25:16.304899Z",
             },
           ]
         }
@@ -1282,16 +1296,16 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
               Object {
                 "display_name": "system1",
                 "id": "9bbbefcc-8f23-4d97-07f2-142asdl234e8",
-                "last_updated": "2019-01-15T14:53:15.886891Z",
                 "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                 "type": "historical-system-profile",
+                "updated": "2019-01-15T14:53:15.886891Z",
               },
               Object {
                 "display_name": "system1",
                 "id": "edmk59dj-fn42-dfjk-alv3-bmn2854mnn27",
-                "last_updated": "2019-01-15T15:25:16.304899Z",
                 "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                 "type": "historical-system-profile",
+                "updated": "2019-01-15T15:25:16.304899Z",
               },
             ]
           }
@@ -1869,16 +1883,16 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                 Object {
                   "display_name": "system1",
                   "id": "9bbbefcc-8f23-4d97-07f2-142asdl234e8",
-                  "last_updated": "2019-01-15T14:53:15.886891Z",
                   "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                   "type": "historical-system-profile",
+                  "updated": "2019-01-15T14:53:15.886891Z",
                 },
                 Object {
                   "display_name": "system1",
                   "id": "edmk59dj-fn42-dfjk-alv3-bmn2854mnn27",
-                  "last_updated": "2019-01-15T15:25:16.304899Z",
                   "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                   "type": "historical-system-profile",
+                  "updated": "2019-01-15T15:25:16.304899Z",
                 },
               ]
             }
@@ -1963,8 +1977,13 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
               <AddSystemModal
                 addSystemModalOpened={false}
                 confirmModal={[Function]}
+                disableSystemTable={[Function]}
+                handleBaselineSelection={[Function]}
+                handleHSPSelection={[Function]}
+                handleSystemSelection={[Function]}
                 selectActiveTab={[Function]}
                 selectBaseline={[Function]}
+                selectEntity={[Function]}
                 selectHistoricProfiles={[Function]}
                 selectedBaselineIds={Array []}
                 selectedHSPIds={Array []}
@@ -1990,6 +2009,7 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                         Submit
                       </Button>,
                       <Button
+                        isDisabled={false}
                         onClick={[Function]}
                         ouiaId="add-to-comparison-cancel-button"
                         variant="link"
@@ -2030,6 +2050,7 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                             Submit
                           </Button>,
                           <Button
+                            isDisabled={false}
                             onClick={[Function]}
                             ouiaId="add-to-comparison-cancel-button"
                             variant="link"
@@ -2095,16 +2116,16 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                         Object {
                           "display_name": "system1",
                           "id": "9bbbefcc-8f23-4d97-07f2-142asdl234e8",
-                          "last_updated": "2019-01-15T14:53:15.886891Z",
                           "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                           "type": "historical-system-profile",
+                          "updated": "2019-01-15T14:53:15.886891Z",
                         },
                         Object {
                           "display_name": "system1",
                           "id": "edmk59dj-fn42-dfjk-alv3-bmn2854mnn27",
-                          "last_updated": "2019-01-15T15:25:16.304899Z",
                           "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                           "type": "historical-system-profile",
+                          "updated": "2019-01-15T15:25:16.304899Z",
                         },
                         Object {
                           "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
@@ -3120,6 +3141,7 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                   "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                 ]
                               }
+                              systemName="sgi-xe500-01.rhts.eng.bos.redhat.com"
                             >
                               <Connect(HistoricalProfilesPopover)
                                 fetchCompare={[Function]}
@@ -3186,9 +3208,11 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                     "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                   ]
                                 }
+                                systemName="sgi-xe500-01.rhts.eng.bos.redhat.com"
                               >
                                 <HistoricalProfilesPopover
                                   fetchCompare={[Function]}
+                                  handleHSPSelection={[Function]}
                                   hasCompareButton={true}
                                   hasMultiSelect={true}
                                   history={
@@ -3256,32 +3280,40 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                       "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                     ]
                                   }
+                                  systemName="sgi-xe500-01.rhts.eng.bos.redhat.com"
                                   updateColumns={[Function]}
                                 >
                                   <span
-                                    className="hsp-icon-padding historical-system-profile-popover"
+                                    className="hsp-icon-padding"
                                     data-ouia-component-id="hsp-popover-toggle-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9"
                                     data-ouia-component-type="PF4/Button"
                                   >
                                     <Popover
                                       bodyContent={
-                                        Array [
+                                        <div
+                                          style={
+                                            Object {
+                                              "maxHeight": "350px",
+                                              "overflowY": "scroll",
+                                            }
+                                          }
+                                        >
                                           <Skeleton
                                             className="hsp-dropdown-loading"
                                             isDark={false}
                                             size="sm"
-                                          />,
+                                          />
                                           <Skeleton
                                             className="hsp-dropdown-loading"
                                             isDark={false}
                                             size="sm"
-                                          />,
+                                          />
                                           <Skeleton
                                             className="hsp-dropdown-loading"
                                             isDark={false}
                                             size="sm"
-                                          />,
-                                        ]
+                                          />
+                                        </div>
                                       }
                                       footerContent={
                                         <Button
@@ -3363,21 +3395,30 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                               <PopoverBody
                                                 id="popover-hsp-popover-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9-body"
                                               >
-                                                <Skeleton
-                                                  className="hsp-dropdown-loading"
-                                                  isDark={false}
-                                                  size="sm"
-                                                />
-                                                <Skeleton
-                                                  className="hsp-dropdown-loading"
-                                                  isDark={false}
-                                                  size="sm"
-                                                />
-                                                <Skeleton
-                                                  className="hsp-dropdown-loading"
-                                                  isDark={false}
-                                                  size="sm"
-                                                />
+                                                <div
+                                                  style={
+                                                    Object {
+                                                      "maxHeight": "350px",
+                                                      "overflowY": "scroll",
+                                                    }
+                                                  }
+                                                >
+                                                  <Skeleton
+                                                    className="hsp-dropdown-loading"
+                                                    isDark={false}
+                                                    size="sm"
+                                                  />
+                                                  <Skeleton
+                                                    className="hsp-dropdown-loading"
+                                                    isDark={false}
+                                                    size="sm"
+                                                  />
+                                                  <Skeleton
+                                                    className="hsp-dropdown-loading"
+                                                    isDark={false}
+                                                    size="sm"
+                                                  />
+                                                </div>
                                               </PopoverBody>
                                               <PopoverFooter
                                                 id="popover-hsp-popover-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9-footer"
@@ -3619,9 +3660,9 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                 Object {
                                   "display_name": "system1",
                                   "id": "9bbbefcc-8f23-4d97-07f2-142asdl234e8",
-                                  "last_updated": "2019-01-15T14:53:15.886891Z",
                                   "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                                   "type": "historical-system-profile",
+                                  "updated": "2019-01-15T14:53:15.886891Z",
                                 }
                               }
                               updateReferenceId={[Function]}
@@ -3759,9 +3800,9 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                 Object {
                                   "display_name": "system1",
                                   "id": "9bbbefcc-8f23-4d97-07f2-142asdl234e8",
-                                  "last_updated": "2019-01-15T14:53:15.886891Z",
                                   "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                                   "type": "historical-system-profile",
+                                  "updated": "2019-01-15T14:53:15.886891Z",
                                 }
                               }
                               systemIds={
@@ -3770,6 +3811,7 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                   "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                 ]
                               }
+                              systemName="system1"
                             >
                               <Connect(HistoricalProfilesPopover)
                                 fetchCompare={[Function]}
@@ -3826,9 +3868,9 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                   Object {
                                     "display_name": "system1",
                                     "id": "9bbbefcc-8f23-4d97-07f2-142asdl234e8",
-                                    "last_updated": "2019-01-15T14:53:15.886891Z",
                                     "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                                     "type": "historical-system-profile",
+                                    "updated": "2019-01-15T14:53:15.886891Z",
                                   }
                                 }
                                 systemIds={
@@ -3837,9 +3879,11 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                     "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                   ]
                                 }
+                                systemName="system1"
                               >
                                 <HistoricalProfilesPopover
                                   fetchCompare={[Function]}
+                                  handleHSPSelection={[Function]}
                                   hasCompareButton={true}
                                   hasMultiSelect={true}
                                   history={
@@ -3897,9 +3941,9 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                     Object {
                                       "display_name": "system1",
                                       "id": "9bbbefcc-8f23-4d97-07f2-142asdl234e8",
-                                      "last_updated": "2019-01-15T14:53:15.886891Z",
                                       "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                                       "type": "historical-system-profile",
+                                      "updated": "2019-01-15T14:53:15.886891Z",
                                     }
                                   }
                                   systemIds={
@@ -3908,32 +3952,40 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                       "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                     ]
                                   }
+                                  systemName="system1"
                                   updateColumns={[Function]}
                                 >
                                   <span
-                                    className="hsp-icon-padding historical-system-profile-popover"
+                                    className="hsp-icon-padding"
                                     data-ouia-component-id="hsp-popover-toggle-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9"
                                     data-ouia-component-type="PF4/Button"
                                   >
                                     <Popover
                                       bodyContent={
-                                        Array [
+                                        <div
+                                          style={
+                                            Object {
+                                              "maxHeight": "350px",
+                                              "overflowY": "scroll",
+                                            }
+                                          }
+                                        >
                                           <Skeleton
                                             className="hsp-dropdown-loading"
                                             isDark={false}
                                             size="sm"
-                                          />,
+                                          />
                                           <Skeleton
                                             className="hsp-dropdown-loading"
                                             isDark={false}
                                             size="sm"
-                                          />,
+                                          />
                                           <Skeleton
                                             className="hsp-dropdown-loading"
                                             isDark={false}
                                             size="sm"
-                                          />,
-                                        ]
+                                          />
+                                        </div>
                                       }
                                       footerContent={
                                         <Button
@@ -4015,21 +4067,30 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                               <PopoverBody
                                                 id="popover-hsp-popover-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9-body"
                                               >
-                                                <Skeleton
-                                                  className="hsp-dropdown-loading"
-                                                  isDark={false}
-                                                  size="sm"
-                                                />
-                                                <Skeleton
-                                                  className="hsp-dropdown-loading"
-                                                  isDark={false}
-                                                  size="sm"
-                                                />
-                                                <Skeleton
-                                                  className="hsp-dropdown-loading"
-                                                  isDark={false}
-                                                  size="sm"
-                                                />
+                                                <div
+                                                  style={
+                                                    Object {
+                                                      "maxHeight": "350px",
+                                                      "overflowY": "scroll",
+                                                    }
+                                                  }
+                                                >
+                                                  <Skeleton
+                                                    className="hsp-dropdown-loading"
+                                                    isDark={false}
+                                                    size="sm"
+                                                  />
+                                                  <Skeleton
+                                                    className="hsp-dropdown-loading"
+                                                    isDark={false}
+                                                    size="sm"
+                                                  />
+                                                  <Skeleton
+                                                    className="hsp-dropdown-loading"
+                                                    isDark={false}
+                                                    size="sm"
+                                                  />
+                                                </div>
                                               </PopoverBody>
                                               <PopoverFooter
                                                 id="popover-hsp-popover-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9-footer"
@@ -4271,9 +4332,9 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                 Object {
                                   "display_name": "system1",
                                   "id": "edmk59dj-fn42-dfjk-alv3-bmn2854mnn27",
-                                  "last_updated": "2019-01-15T15:25:16.304899Z",
                                   "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                                   "type": "historical-system-profile",
+                                  "updated": "2019-01-15T15:25:16.304899Z",
                                 }
                               }
                               updateReferenceId={[Function]}
@@ -4411,9 +4472,9 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                 Object {
                                   "display_name": "system1",
                                   "id": "edmk59dj-fn42-dfjk-alv3-bmn2854mnn27",
-                                  "last_updated": "2019-01-15T15:25:16.304899Z",
                                   "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                                   "type": "historical-system-profile",
+                                  "updated": "2019-01-15T15:25:16.304899Z",
                                 }
                               }
                               systemIds={
@@ -4422,6 +4483,7 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                   "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                 ]
                               }
+                              systemName="system1"
                             >
                               <Connect(HistoricalProfilesPopover)
                                 fetchCompare={[Function]}
@@ -4478,9 +4540,9 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                   Object {
                                     "display_name": "system1",
                                     "id": "edmk59dj-fn42-dfjk-alv3-bmn2854mnn27",
-                                    "last_updated": "2019-01-15T15:25:16.304899Z",
                                     "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                                     "type": "historical-system-profile",
+                                    "updated": "2019-01-15T15:25:16.304899Z",
                                   }
                                 }
                                 systemIds={
@@ -4489,9 +4551,11 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                     "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                   ]
                                 }
+                                systemName="system1"
                               >
                                 <HistoricalProfilesPopover
                                   fetchCompare={[Function]}
+                                  handleHSPSelection={[Function]}
                                   hasCompareButton={true}
                                   hasMultiSelect={true}
                                   history={
@@ -4549,9 +4613,9 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                     Object {
                                       "display_name": "system1",
                                       "id": "edmk59dj-fn42-dfjk-alv3-bmn2854mnn27",
-                                      "last_updated": "2019-01-15T15:25:16.304899Z",
                                       "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                                       "type": "historical-system-profile",
+                                      "updated": "2019-01-15T15:25:16.304899Z",
                                     }
                                   }
                                   systemIds={
@@ -4560,32 +4624,40 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                       "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                     ]
                                   }
+                                  systemName="system1"
                                   updateColumns={[Function]}
                                 >
                                   <span
-                                    className="hsp-icon-padding historical-system-profile-popover"
+                                    className="hsp-icon-padding"
                                     data-ouia-component-id="hsp-popover-toggle-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9"
                                     data-ouia-component-type="PF4/Button"
                                   >
                                     <Popover
                                       bodyContent={
-                                        Array [
+                                        <div
+                                          style={
+                                            Object {
+                                              "maxHeight": "350px",
+                                              "overflowY": "scroll",
+                                            }
+                                          }
+                                        >
                                           <Skeleton
                                             className="hsp-dropdown-loading"
                                             isDark={false}
                                             size="sm"
-                                          />,
+                                          />
                                           <Skeleton
                                             className="hsp-dropdown-loading"
                                             isDark={false}
                                             size="sm"
-                                          />,
+                                          />
                                           <Skeleton
                                             className="hsp-dropdown-loading"
                                             isDark={false}
                                             size="sm"
-                                          />,
-                                        ]
+                                          />
+                                        </div>
                                       }
                                       footerContent={
                                         <Button
@@ -4667,21 +4739,30 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                               <PopoverBody
                                                 id="popover-hsp-popover-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9-body"
                                               >
-                                                <Skeleton
-                                                  className="hsp-dropdown-loading"
-                                                  isDark={false}
-                                                  size="sm"
-                                                />
-                                                <Skeleton
-                                                  className="hsp-dropdown-loading"
-                                                  isDark={false}
-                                                  size="sm"
-                                                />
-                                                <Skeleton
-                                                  className="hsp-dropdown-loading"
-                                                  isDark={false}
-                                                  size="sm"
-                                                />
+                                                <div
+                                                  style={
+                                                    Object {
+                                                      "maxHeight": "350px",
+                                                      "overflowY": "scroll",
+                                                    }
+                                                  }
+                                                >
+                                                  <Skeleton
+                                                    className="hsp-dropdown-loading"
+                                                    isDark={false}
+                                                    size="sm"
+                                                  />
+                                                  <Skeleton
+                                                    className="hsp-dropdown-loading"
+                                                    isDark={false}
+                                                    size="sm"
+                                                  />
+                                                  <Skeleton
+                                                    className="hsp-dropdown-loading"
+                                                    isDark={false}
+                                                    size="sm"
+                                                  />
+                                                </div>
                                               </PopoverBody>
                                               <PopoverFooter
                                                 id="popover-hsp-popover-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9-footer"
@@ -5072,6 +5153,7 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                   "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                 ]
                               }
+                              systemName="ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com"
                             >
                               <Connect(HistoricalProfilesPopover)
                                 fetchCompare={[Function]}
@@ -5138,9 +5220,11 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                     "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                   ]
                                 }
+                                systemName="ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com"
                               >
                                 <HistoricalProfilesPopover
                                   fetchCompare={[Function]}
+                                  handleHSPSelection={[Function]}
                                   hasCompareButton={true}
                                   hasMultiSelect={true}
                                   history={
@@ -5208,32 +5292,40 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                       "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                     ]
                                   }
+                                  systemName="ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com"
                                   updateColumns={[Function]}
                                 >
                                   <span
-                                    className="hsp-icon-padding historical-system-profile-popover"
+                                    className="hsp-icon-padding"
                                     data-ouia-component-id="hsp-popover-toggle-f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2"
                                     data-ouia-component-type="PF4/Button"
                                   >
                                     <Popover
                                       bodyContent={
-                                        Array [
+                                        <div
+                                          style={
+                                            Object {
+                                              "maxHeight": "350px",
+                                              "overflowY": "scroll",
+                                            }
+                                          }
+                                        >
                                           <Skeleton
                                             className="hsp-dropdown-loading"
                                             isDark={false}
                                             size="sm"
-                                          />,
+                                          />
                                           <Skeleton
                                             className="hsp-dropdown-loading"
                                             isDark={false}
                                             size="sm"
-                                          />,
+                                          />
                                           <Skeleton
                                             className="hsp-dropdown-loading"
                                             isDark={false}
                                             size="sm"
-                                          />,
-                                        ]
+                                          />
+                                        </div>
                                       }
                                       footerContent={
                                         <Button
@@ -5315,21 +5407,30 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                               <PopoverBody
                                                 id="popover-hsp-popover-f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2-body"
                                               >
-                                                <Skeleton
-                                                  className="hsp-dropdown-loading"
-                                                  isDark={false}
-                                                  size="sm"
-                                                />
-                                                <Skeleton
-                                                  className="hsp-dropdown-loading"
-                                                  isDark={false}
-                                                  size="sm"
-                                                />
-                                                <Skeleton
-                                                  className="hsp-dropdown-loading"
-                                                  isDark={false}
-                                                  size="sm"
-                                                />
+                                                <div
+                                                  style={
+                                                    Object {
+                                                      "maxHeight": "350px",
+                                                      "overflowY": "scroll",
+                                                    }
+                                                  }
+                                                >
+                                                  <Skeleton
+                                                    className="hsp-dropdown-loading"
+                                                    isDark={false}
+                                                    size="sm"
+                                                  />
+                                                  <Skeleton
+                                                    className="hsp-dropdown-loading"
+                                                    isDark={false}
+                                                    size="sm"
+                                                  />
+                                                  <Skeleton
+                                                    className="hsp-dropdown-loading"
+                                                    isDark={false}
+                                                    size="sm"
+                                                  />
+                                                </div>
                                               </PopoverBody>
                                               <PopoverFooter
                                                 id="popover-hsp-popover-f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2-footer"
@@ -7369,16 +7470,16 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
             Object {
               "display_name": "system1",
               "id": "9bbbefcc-8f23-4d97-07f2-142asdl234e8",
-              "last_updated": "2019-01-15T14:53:15.886891Z",
               "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
               "type": "historical-system-profile",
+              "updated": "2019-01-15T14:53:15.886891Z",
             },
             Object {
               "display_name": "system1",
               "id": "edmk59dj-fn42-dfjk-alv3-bmn2854mnn27",
-              "last_updated": "2019-01-15T15:25:16.304899Z",
               "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
               "type": "historical-system-profile",
+              "updated": "2019-01-15T15:25:16.304899Z",
             },
           ]
         }
@@ -7422,16 +7523,16 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
               Object {
                 "display_name": "system1",
                 "id": "9bbbefcc-8f23-4d97-07f2-142asdl234e8",
-                "last_updated": "2019-01-15T14:53:15.886891Z",
                 "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                 "type": "historical-system-profile",
+                "updated": "2019-01-15T14:53:15.886891Z",
               },
               Object {
                 "display_name": "system1",
                 "id": "edmk59dj-fn42-dfjk-alv3-bmn2854mnn27",
-                "last_updated": "2019-01-15T15:25:16.304899Z",
                 "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                 "type": "historical-system-profile",
+                "updated": "2019-01-15T15:25:16.304899Z",
               },
             ]
           }
@@ -7620,16 +7721,16 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                 Object {
                   "display_name": "system1",
                   "id": "9bbbefcc-8f23-4d97-07f2-142asdl234e8",
-                  "last_updated": "2019-01-15T14:53:15.886891Z",
                   "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                   "type": "historical-system-profile",
+                  "updated": "2019-01-15T14:53:15.886891Z",
                 },
                 Object {
                   "display_name": "system1",
                   "id": "edmk59dj-fn42-dfjk-alv3-bmn2854mnn27",
-                  "last_updated": "2019-01-15T15:25:16.304899Z",
                   "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                   "type": "historical-system-profile",
+                  "updated": "2019-01-15T15:25:16.304899Z",
                 },
               ]
             }
@@ -7714,8 +7815,13 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
               <AddSystemModal
                 addSystemModalOpened={false}
                 confirmModal={[Function]}
+                disableSystemTable={[Function]}
+                handleBaselineSelection={[Function]}
+                handleHSPSelection={[Function]}
+                handleSystemSelection={[Function]}
                 selectActiveTab={[Function]}
                 selectBaseline={[Function]}
+                selectEntity={[Function]}
                 selectHistoricProfiles={[Function]}
                 selectedBaselineIds={Array []}
                 selectedHSPIds={Array []}
@@ -7741,6 +7847,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                         Submit
                       </Button>,
                       <Button
+                        isDisabled={false}
                         onClick={[Function]}
                         ouiaId="add-to-comparison-cancel-button"
                         variant="link"
@@ -7781,6 +7888,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                             Submit
                           </Button>,
                           <Button
+                            isDisabled={false}
                             onClick={[Function]}
                             ouiaId="add-to-comparison-cancel-button"
                             variant="link"
@@ -7846,16 +7954,16 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                         Object {
                           "display_name": "system1",
                           "id": "9bbbefcc-8f23-4d97-07f2-142asdl234e8",
-                          "last_updated": "2019-01-15T14:53:15.886891Z",
                           "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                           "type": "historical-system-profile",
+                          "updated": "2019-01-15T14:53:15.886891Z",
                         },
                         Object {
                           "display_name": "system1",
                           "id": "edmk59dj-fn42-dfjk-alv3-bmn2854mnn27",
-                          "last_updated": "2019-01-15T15:25:16.304899Z",
                           "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                           "type": "historical-system-profile",
+                          "updated": "2019-01-15T15:25:16.304899Z",
                         },
                         Object {
                           "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
@@ -8871,6 +8979,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                   "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                 ]
                               }
+                              systemName="sgi-xe500-01.rhts.eng.bos.redhat.com"
                             >
                               <Connect(HistoricalProfilesPopover)
                                 fetchCompare={[Function]}
@@ -8937,9 +9046,11 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                     "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                   ]
                                 }
+                                systemName="sgi-xe500-01.rhts.eng.bos.redhat.com"
                               >
                                 <HistoricalProfilesPopover
                                   fetchCompare={[Function]}
+                                  handleHSPSelection={[Function]}
                                   hasCompareButton={true}
                                   hasMultiSelect={true}
                                   history={
@@ -9007,32 +9118,40 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                       "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                     ]
                                   }
+                                  systemName="sgi-xe500-01.rhts.eng.bos.redhat.com"
                                   updateColumns={[Function]}
                                 >
                                   <span
-                                    className="hsp-icon-padding historical-system-profile-popover"
+                                    className="hsp-icon-padding"
                                     data-ouia-component-id="hsp-popover-toggle-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9"
                                     data-ouia-component-type="PF4/Button"
                                   >
                                     <Popover
                                       bodyContent={
-                                        Array [
+                                        <div
+                                          style={
+                                            Object {
+                                              "maxHeight": "350px",
+                                              "overflowY": "scroll",
+                                            }
+                                          }
+                                        >
                                           <Skeleton
                                             className="hsp-dropdown-loading"
                                             isDark={false}
                                             size="sm"
-                                          />,
+                                          />
                                           <Skeleton
                                             className="hsp-dropdown-loading"
                                             isDark={false}
                                             size="sm"
-                                          />,
+                                          />
                                           <Skeleton
                                             className="hsp-dropdown-loading"
                                             isDark={false}
                                             size="sm"
-                                          />,
-                                        ]
+                                          />
+                                        </div>
                                       }
                                       footerContent={
                                         <Button
@@ -9114,21 +9233,30 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                               <PopoverBody
                                                 id="popover-hsp-popover-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9-body"
                                               >
-                                                <Skeleton
-                                                  className="hsp-dropdown-loading"
-                                                  isDark={false}
-                                                  size="sm"
-                                                />
-                                                <Skeleton
-                                                  className="hsp-dropdown-loading"
-                                                  isDark={false}
-                                                  size="sm"
-                                                />
-                                                <Skeleton
-                                                  className="hsp-dropdown-loading"
-                                                  isDark={false}
-                                                  size="sm"
-                                                />
+                                                <div
+                                                  style={
+                                                    Object {
+                                                      "maxHeight": "350px",
+                                                      "overflowY": "scroll",
+                                                    }
+                                                  }
+                                                >
+                                                  <Skeleton
+                                                    className="hsp-dropdown-loading"
+                                                    isDark={false}
+                                                    size="sm"
+                                                  />
+                                                  <Skeleton
+                                                    className="hsp-dropdown-loading"
+                                                    isDark={false}
+                                                    size="sm"
+                                                  />
+                                                  <Skeleton
+                                                    className="hsp-dropdown-loading"
+                                                    isDark={false}
+                                                    size="sm"
+                                                  />
+                                                </div>
                                               </PopoverBody>
                                               <PopoverFooter
                                                 id="popover-hsp-popover-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9-footer"
@@ -9370,9 +9498,9 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                 Object {
                                   "display_name": "system1",
                                   "id": "9bbbefcc-8f23-4d97-07f2-142asdl234e8",
-                                  "last_updated": "2019-01-15T14:53:15.886891Z",
                                   "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                                   "type": "historical-system-profile",
+                                  "updated": "2019-01-15T14:53:15.886891Z",
                                 }
                               }
                               updateReferenceId={[Function]}
@@ -9510,9 +9638,9 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                 Object {
                                   "display_name": "system1",
                                   "id": "9bbbefcc-8f23-4d97-07f2-142asdl234e8",
-                                  "last_updated": "2019-01-15T14:53:15.886891Z",
                                   "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                                   "type": "historical-system-profile",
+                                  "updated": "2019-01-15T14:53:15.886891Z",
                                 }
                               }
                               systemIds={
@@ -9521,6 +9649,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                   "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                 ]
                               }
+                              systemName="system1"
                             >
                               <Connect(HistoricalProfilesPopover)
                                 fetchCompare={[Function]}
@@ -9577,9 +9706,9 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                   Object {
                                     "display_name": "system1",
                                     "id": "9bbbefcc-8f23-4d97-07f2-142asdl234e8",
-                                    "last_updated": "2019-01-15T14:53:15.886891Z",
                                     "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                                     "type": "historical-system-profile",
+                                    "updated": "2019-01-15T14:53:15.886891Z",
                                   }
                                 }
                                 systemIds={
@@ -9588,9 +9717,11 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                     "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                   ]
                                 }
+                                systemName="system1"
                               >
                                 <HistoricalProfilesPopover
                                   fetchCompare={[Function]}
+                                  handleHSPSelection={[Function]}
                                   hasCompareButton={true}
                                   hasMultiSelect={true}
                                   history={
@@ -9648,9 +9779,9 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                     Object {
                                       "display_name": "system1",
                                       "id": "9bbbefcc-8f23-4d97-07f2-142asdl234e8",
-                                      "last_updated": "2019-01-15T14:53:15.886891Z",
                                       "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                                       "type": "historical-system-profile",
+                                      "updated": "2019-01-15T14:53:15.886891Z",
                                     }
                                   }
                                   systemIds={
@@ -9659,32 +9790,40 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                       "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                     ]
                                   }
+                                  systemName="system1"
                                   updateColumns={[Function]}
                                 >
                                   <span
-                                    className="hsp-icon-padding historical-system-profile-popover"
+                                    className="hsp-icon-padding"
                                     data-ouia-component-id="hsp-popover-toggle-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9"
                                     data-ouia-component-type="PF4/Button"
                                   >
                                     <Popover
                                       bodyContent={
-                                        Array [
+                                        <div
+                                          style={
+                                            Object {
+                                              "maxHeight": "350px",
+                                              "overflowY": "scroll",
+                                            }
+                                          }
+                                        >
                                           <Skeleton
                                             className="hsp-dropdown-loading"
                                             isDark={false}
                                             size="sm"
-                                          />,
+                                          />
                                           <Skeleton
                                             className="hsp-dropdown-loading"
                                             isDark={false}
                                             size="sm"
-                                          />,
+                                          />
                                           <Skeleton
                                             className="hsp-dropdown-loading"
                                             isDark={false}
                                             size="sm"
-                                          />,
-                                        ]
+                                          />
+                                        </div>
                                       }
                                       footerContent={
                                         <Button
@@ -9766,21 +9905,30 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                               <PopoverBody
                                                 id="popover-hsp-popover-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9-body"
                                               >
-                                                <Skeleton
-                                                  className="hsp-dropdown-loading"
-                                                  isDark={false}
-                                                  size="sm"
-                                                />
-                                                <Skeleton
-                                                  className="hsp-dropdown-loading"
-                                                  isDark={false}
-                                                  size="sm"
-                                                />
-                                                <Skeleton
-                                                  className="hsp-dropdown-loading"
-                                                  isDark={false}
-                                                  size="sm"
-                                                />
+                                                <div
+                                                  style={
+                                                    Object {
+                                                      "maxHeight": "350px",
+                                                      "overflowY": "scroll",
+                                                    }
+                                                  }
+                                                >
+                                                  <Skeleton
+                                                    className="hsp-dropdown-loading"
+                                                    isDark={false}
+                                                    size="sm"
+                                                  />
+                                                  <Skeleton
+                                                    className="hsp-dropdown-loading"
+                                                    isDark={false}
+                                                    size="sm"
+                                                  />
+                                                  <Skeleton
+                                                    className="hsp-dropdown-loading"
+                                                    isDark={false}
+                                                    size="sm"
+                                                  />
+                                                </div>
                                               </PopoverBody>
                                               <PopoverFooter
                                                 id="popover-hsp-popover-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9-footer"
@@ -10022,9 +10170,9 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                 Object {
                                   "display_name": "system1",
                                   "id": "edmk59dj-fn42-dfjk-alv3-bmn2854mnn27",
-                                  "last_updated": "2019-01-15T15:25:16.304899Z",
                                   "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                                   "type": "historical-system-profile",
+                                  "updated": "2019-01-15T15:25:16.304899Z",
                                 }
                               }
                               updateReferenceId={[Function]}
@@ -10162,9 +10310,9 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                 Object {
                                   "display_name": "system1",
                                   "id": "edmk59dj-fn42-dfjk-alv3-bmn2854mnn27",
-                                  "last_updated": "2019-01-15T15:25:16.304899Z",
                                   "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                                   "type": "historical-system-profile",
+                                  "updated": "2019-01-15T15:25:16.304899Z",
                                 }
                               }
                               systemIds={
@@ -10173,6 +10321,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                   "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                 ]
                               }
+                              systemName="system1"
                             >
                               <Connect(HistoricalProfilesPopover)
                                 fetchCompare={[Function]}
@@ -10229,9 +10378,9 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                   Object {
                                     "display_name": "system1",
                                     "id": "edmk59dj-fn42-dfjk-alv3-bmn2854mnn27",
-                                    "last_updated": "2019-01-15T15:25:16.304899Z",
                                     "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                                     "type": "historical-system-profile",
+                                    "updated": "2019-01-15T15:25:16.304899Z",
                                   }
                                 }
                                 systemIds={
@@ -10240,9 +10389,11 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                     "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                   ]
                                 }
+                                systemName="system1"
                               >
                                 <HistoricalProfilesPopover
                                   fetchCompare={[Function]}
+                                  handleHSPSelection={[Function]}
                                   hasCompareButton={true}
                                   hasMultiSelect={true}
                                   history={
@@ -10300,9 +10451,9 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                     Object {
                                       "display_name": "system1",
                                       "id": "edmk59dj-fn42-dfjk-alv3-bmn2854mnn27",
-                                      "last_updated": "2019-01-15T15:25:16.304899Z",
                                       "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                                       "type": "historical-system-profile",
+                                      "updated": "2019-01-15T15:25:16.304899Z",
                                     }
                                   }
                                   systemIds={
@@ -10311,32 +10462,40 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                       "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                     ]
                                   }
+                                  systemName="system1"
                                   updateColumns={[Function]}
                                 >
                                   <span
-                                    className="hsp-icon-padding historical-system-profile-popover"
+                                    className="hsp-icon-padding"
                                     data-ouia-component-id="hsp-popover-toggle-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9"
                                     data-ouia-component-type="PF4/Button"
                                   >
                                     <Popover
                                       bodyContent={
-                                        Array [
+                                        <div
+                                          style={
+                                            Object {
+                                              "maxHeight": "350px",
+                                              "overflowY": "scroll",
+                                            }
+                                          }
+                                        >
                                           <Skeleton
                                             className="hsp-dropdown-loading"
                                             isDark={false}
                                             size="sm"
-                                          />,
+                                          />
                                           <Skeleton
                                             className="hsp-dropdown-loading"
                                             isDark={false}
                                             size="sm"
-                                          />,
+                                          />
                                           <Skeleton
                                             className="hsp-dropdown-loading"
                                             isDark={false}
                                             size="sm"
-                                          />,
-                                        ]
+                                          />
+                                        </div>
                                       }
                                       footerContent={
                                         <Button
@@ -10418,21 +10577,30 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                               <PopoverBody
                                                 id="popover-hsp-popover-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9-body"
                                               >
-                                                <Skeleton
-                                                  className="hsp-dropdown-loading"
-                                                  isDark={false}
-                                                  size="sm"
-                                                />
-                                                <Skeleton
-                                                  className="hsp-dropdown-loading"
-                                                  isDark={false}
-                                                  size="sm"
-                                                />
-                                                <Skeleton
-                                                  className="hsp-dropdown-loading"
-                                                  isDark={false}
-                                                  size="sm"
-                                                />
+                                                <div
+                                                  style={
+                                                    Object {
+                                                      "maxHeight": "350px",
+                                                      "overflowY": "scroll",
+                                                    }
+                                                  }
+                                                >
+                                                  <Skeleton
+                                                    className="hsp-dropdown-loading"
+                                                    isDark={false}
+                                                    size="sm"
+                                                  />
+                                                  <Skeleton
+                                                    className="hsp-dropdown-loading"
+                                                    isDark={false}
+                                                    size="sm"
+                                                  />
+                                                  <Skeleton
+                                                    className="hsp-dropdown-loading"
+                                                    isDark={false}
+                                                    size="sm"
+                                                  />
+                                                </div>
                                               </PopoverBody>
                                               <PopoverFooter
                                                 id="popover-hsp-popover-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9-footer"
@@ -10823,6 +10991,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                   "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                 ]
                               }
+                              systemName="ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com"
                             >
                               <Connect(HistoricalProfilesPopover)
                                 fetchCompare={[Function]}
@@ -10889,9 +11058,11 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                     "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                   ]
                                 }
+                                systemName="ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com"
                               >
                                 <HistoricalProfilesPopover
                                   fetchCompare={[Function]}
+                                  handleHSPSelection={[Function]}
                                   hasCompareButton={true}
                                   hasMultiSelect={true}
                                   history={
@@ -10959,32 +11130,40 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                       "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                     ]
                                   }
+                                  systemName="ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com"
                                   updateColumns={[Function]}
                                 >
                                   <span
-                                    className="hsp-icon-padding historical-system-profile-popover"
+                                    className="hsp-icon-padding"
                                     data-ouia-component-id="hsp-popover-toggle-f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2"
                                     data-ouia-component-type="PF4/Button"
                                   >
                                     <Popover
                                       bodyContent={
-                                        Array [
+                                        <div
+                                          style={
+                                            Object {
+                                              "maxHeight": "350px",
+                                              "overflowY": "scroll",
+                                            }
+                                          }
+                                        >
                                           <Skeleton
                                             className="hsp-dropdown-loading"
                                             isDark={false}
                                             size="sm"
-                                          />,
+                                          />
                                           <Skeleton
                                             className="hsp-dropdown-loading"
                                             isDark={false}
                                             size="sm"
-                                          />,
+                                          />
                                           <Skeleton
                                             className="hsp-dropdown-loading"
                                             isDark={false}
                                             size="sm"
-                                          />,
-                                        ]
+                                          />
+                                        </div>
                                       }
                                       footerContent={
                                         <Button
@@ -11066,21 +11245,30 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                               <PopoverBody
                                                 id="popover-hsp-popover-f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2-body"
                                               >
-                                                <Skeleton
-                                                  className="hsp-dropdown-loading"
-                                                  isDark={false}
-                                                  size="sm"
-                                                />
-                                                <Skeleton
-                                                  className="hsp-dropdown-loading"
-                                                  isDark={false}
-                                                  size="sm"
-                                                />
-                                                <Skeleton
-                                                  className="hsp-dropdown-loading"
-                                                  isDark={false}
-                                                  size="sm"
-                                                />
+                                                <div
+                                                  style={
+                                                    Object {
+                                                      "maxHeight": "350px",
+                                                      "overflowY": "scroll",
+                                                    }
+                                                  }
+                                                >
+                                                  <Skeleton
+                                                    className="hsp-dropdown-loading"
+                                                    isDark={false}
+                                                    size="sm"
+                                                  />
+                                                  <Skeleton
+                                                    className="hsp-dropdown-loading"
+                                                    isDark={false}
+                                                    size="sm"
+                                                  />
+                                                  <Skeleton
+                                                    className="hsp-dropdown-loading"
+                                                    isDark={false}
+                                                    size="sm"
+                                                  />
+                                                </div>
                                               </PopoverBody>
                                               <PopoverFooter
                                                 id="popover-hsp-popover-f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2-footer"

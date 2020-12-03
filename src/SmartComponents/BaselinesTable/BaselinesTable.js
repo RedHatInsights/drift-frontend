@@ -89,7 +89,7 @@ export class BaselinesTable extends Component {
     }
 
     renderRows(hasWritePermissions) {
-        const { tableData, kebab, onClick, selectedBaselineIds, tableId } = this.props;
+        const { basketIsVisible, hasMultiSelect, tableData, kebab, onClick, selectedBaselineIds, tableId } = this.props;
         let table = [];
 
         tableData.forEach((baseline) => {
@@ -126,6 +126,10 @@ export class BaselinesTable extends Component {
 
             if (baseline.selected) {
                 row.selected = true;
+            }
+
+            if (hasMultiSelect) {
+                row.disableSelection = basketIsVisible;
             }
 
             table.push(row);
@@ -274,7 +278,8 @@ BaselinesTable.propTypes = {
     totalBaselines: PropTypes.number,
     exportToCSV: PropTypes.func,
     hasReadPermissions: PropTypes.bool,
-    hasWritePermissions: PropTypes.bool
+    hasWritePermissions: PropTypes.bool,
+    basketIsVisible: PropTypes.bool
 };
 
 function mapDispatchToProps(dispatch) {

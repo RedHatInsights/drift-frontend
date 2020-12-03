@@ -44,7 +44,8 @@ describe('DriftTable', () => {
             clearComparison: jest.fn(),
             setHistory: jest.fn(),
             handleFactFilter: jest.fn(),
-            addStateFilter: jest.fn()
+            addStateFilter: jest.fn(),
+            handleBaselineSelection: jest.fn()
         };
     });
 
@@ -86,7 +87,7 @@ describe('DriftTable', () => {
         expect(props.setIsFirstReference).toHaveBeenCalledWith(false);
     });
 
-    it('should set first isFirstReference to true with no data', () => {
+    it('should set first isFirstReference to true with no data', async () => {
         props.location.search = 'baseline_ids=abcd1234';
         props.isFirstReference = false;
         const wrapper = shallow(
@@ -97,6 +98,9 @@ describe('DriftTable', () => {
             type: 'baseline',
             id: 'abcd1234'
         });
+
+        expect(props.handleBaselineSelection).toHaveBeenCalled();
+        expect(props.selectHistoricProfiles).toHaveBeenCalled();
         expect(props.setIsFirstReference).toHaveBeenCalledWith(true);
     });
 

@@ -244,21 +244,30 @@ export class DriftTable extends Component {
     }
 
     async removeSystem(item) {
-        const { historicalProfiles, isFirstReference, referenceId, selectHistoricProfiles, setIsFirstReference } = this.props;
-        let newReferenceId;
+        const { handleBaselineSelection, handleHSPSelection, handleSystemSelection, historicalProfiles, isFirstReference,
+            referenceId, selectHistoricProfiles, setIsFirstReference } = this.props;
+        let newReferenceId = referenceId;
 
         if (item.type === 'system') {
             this.systemIds = this.systemIds.filter(id => id !== item.id);
             newReferenceId = await this.findHSPReference();
+            handleSystemSelection([ item ], false);
+
+            let hspsToRemove = historicalProfiles.filter(profile => profile.system_id === item.id);
 
             this.HSPIds = await historicalProfiles.filter((profile) => {
                 return profile.system_id !== item.id;
             }).map(profile => profile.id);
 
+            hspsToRemove.forEach(function(hsp) {
+                handleHSPSelection(hsp);
+            });
         } else if (item.type === 'baseline') {
             this.baselineIds = this.baselineIds.filter(id => id !== item.id);
+            handleBaselineSelection([ item ], false);
         } else if (item.type === 'historical-system-profile') {
             this.HSPIds = this.HSPIds.filter(id => id !== item.id);
+            handleHSPSelection(item);
         }
 
         if (item.id === newReferenceId) {
@@ -653,7 +662,10 @@ DriftTable.propTypes = {
     factFilter: PropTypes.string,
     setHistory: PropTypes.func,
     selectedHSPIds: PropTypes.array,
-    selectedBaselineIds: PropTypes.array
+    selectedBaselineIds: PropTypes.array,
+    handleBaselineSelection: PropTypes.func,
+    handleHSPSelection: PropTypes.func,
+    handleSystemSelection: PropTypes.func
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DriftTable));

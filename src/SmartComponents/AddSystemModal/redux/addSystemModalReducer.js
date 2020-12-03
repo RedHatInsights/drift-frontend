@@ -1,12 +1,18 @@
 import types from './types';
+import helpers from './helpers';
 
 const initialState = {
     addSystemModalOpened: false,
     activeTab: 0,
-    selectedSystemIds: []
+    selectedSystemIds: [],
+    selectedSystemContent: [],
+    selectedBaselineContent: [],
+    selectedHSPContent: []
 };
 
 export function addSystemModalReducer(state = initialState, action) {
+    let newSelectedContent;
+
     switch (action.type) {
         case `${types.OPEN_ADD_SYSTEM_MODAL}`:
             return {
@@ -22,6 +28,27 @@ export function addSystemModalReducer(state = initialState, action) {
             return {
                 ...state,
                 selectedSystemIds: action.payload
+            };
+        case `${types.HANDLE_SYSTEM_SELECTION}`:
+            newSelectedContent = helpers.makeSelections(action.payload.content, action.payload.isSelected, state.selectedSystemContent);
+
+            return {
+                ...state,
+                selectedSystemContent: newSelectedContent
+            };
+        case `${types.HANDLE_BASELINE_SELECTION}`:
+            newSelectedContent = helpers.makeSelections(action.payload.content, action.payload.isSelected, state.selectedBaselineContent);
+
+            return {
+                ...state,
+                selectedBaselineContent: newSelectedContent
+            };
+        case `${types.HANDLE_HSP_SELECTION}`:
+            newSelectedContent = helpers.makeHSPSelections(action.payload, state.selectedHSPContent);
+
+            return {
+                ...state,
+                selectedHSPContent: newSelectedContent
             };
 
         default:

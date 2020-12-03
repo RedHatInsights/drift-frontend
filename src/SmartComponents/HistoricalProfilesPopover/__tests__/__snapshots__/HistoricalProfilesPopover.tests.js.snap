@@ -477,6 +477,7 @@ exports[`ConnectedHistoricalProfilesPopover should render correctly 1`] = `
           }
         >
           <HistoricalProfilesPopover
+            handleHSPSelection={[Function]}
             history={
               Object {
                 "action": "POP",
@@ -530,29 +531,36 @@ exports[`ConnectedHistoricalProfilesPopover should render correctly 1`] = `
             updateColumns={[Function]}
           >
             <span
-              className="hsp-icon-padding historical-system-profile-popover"
+              className="hsp-icon-padding"
               data-ouia-component-id="hsp-popover-toggle-undefined"
               data-ouia-component-type="PF4/Button"
             >
               <Popover
                 bodyContent={
-                  Array [
+                  <div
+                    style={
+                      Object {
+                        "maxHeight": "350px",
+                        "overflowY": "scroll",
+                      }
+                    }
+                  >
                     <Skeleton
                       className="hsp-dropdown-loading"
                       isDark={false}
                       size="sm"
-                    />,
+                    />
                     <Skeleton
                       className="hsp-dropdown-loading"
                       isDark={false}
                       size="sm"
-                    />,
+                    />
                     <Skeleton
                       className="hsp-dropdown-loading"
                       isDark={false}
                       size="sm"
-                    />,
-                  ]
+                    />
+                  </div>
                 }
                 footerContent={null}
                 headerContent={
@@ -626,21 +634,30 @@ exports[`ConnectedHistoricalProfilesPopover should render correctly 1`] = `
                         <PopoverBody
                           id="popover-hsp-popover-undefined-body"
                         >
-                          <Skeleton
-                            className="hsp-dropdown-loading"
-                            isDark={false}
-                            size="sm"
-                          />
-                          <Skeleton
-                            className="hsp-dropdown-loading"
-                            isDark={false}
-                            size="sm"
-                          />
-                          <Skeleton
-                            className="hsp-dropdown-loading"
-                            isDark={false}
-                            size="sm"
-                          />
+                          <div
+                            style={
+                              Object {
+                                "maxHeight": "350px",
+                                "overflowY": "scroll",
+                              }
+                            }
+                          >
+                            <Skeleton
+                              className="hsp-dropdown-loading"
+                              isDark={false}
+                              size="sm"
+                            />
+                            <Skeleton
+                              className="hsp-dropdown-loading"
+                              isDark={false}
+                              size="sm"
+                            />
+                            <Skeleton
+                              className="hsp-dropdown-loading"
+                              isDark={false}
+                              size="sm"
+                            />
+                          </div>
                         </PopoverBody>
                       </PopoverContent>
                     </FocusTrap>
@@ -1070,29 +1087,36 @@ exports[`ConnectedHistoricalProfilesPopover should retry fetch 1`] = `
 exports[`HistoricalProfilesPopover should render correctly 1`] = `
 <Fragment>
   <span
-    className="hsp-icon-padding historical-system-profile-popover"
+    className="hsp-icon-padding"
     data-ouia-component-id="hsp-popover-toggle-4416c520-a339-4dde-b303-f317ea9efc5f"
     data-ouia-component-type="PF4/Button"
   >
     <Popover
       bodyContent={
-        Array [
+        <div
+          style={
+            Object {
+              "maxHeight": "350px",
+              "overflowY": "scroll",
+            }
+          }
+        >
           <Skeleton
             className="hsp-dropdown-loading"
             isDark={false}
             size="sm"
-          />,
+          />
           <Skeleton
             className="hsp-dropdown-loading"
             isDark={false}
             size="sm"
-          />,
+          />
           <Skeleton
             className="hsp-dropdown-loading"
             isDark={false}
             size="sm"
-          />,
-        ]
+          />
+        </div>
       }
       footerContent={null}
       headerContent={
@@ -1132,29 +1156,36 @@ exports[`HistoricalProfilesPopover should render mount correctly 1`] = `
   }
 >
   <span
-    className="hsp-icon-padding historical-system-profile-popover"
+    className="hsp-icon-padding"
     data-ouia-component-id="hsp-popover-toggle-4416c520-a339-4dde-b303-f317ea9efc5f"
     data-ouia-component-type="PF4/Button"
   >
     <Popover
       bodyContent={
-        Array [
+        <div
+          style={
+            Object {
+              "maxHeight": "350px",
+              "overflowY": "scroll",
+            }
+          }
+        >
           <Skeleton
             className="hsp-dropdown-loading"
             isDark={false}
             size="sm"
-          />,
+          />
           <Skeleton
             className="hsp-dropdown-loading"
             isDark={false}
             size="sm"
-          />,
+          />
           <Skeleton
             className="hsp-dropdown-loading"
             isDark={false}
             size="sm"
-          />,
-        ]
+          />
+        </div>
       }
       footerContent={null}
       headerContent={
@@ -1228,21 +1259,30 @@ exports[`HistoricalProfilesPopover should render mount correctly 1`] = `
               <PopoverBody
                 id="popover-hsp-popover-4416c520-a339-4dde-b303-f317ea9efc5f-body"
               >
-                <Skeleton
-                  className="hsp-dropdown-loading"
-                  isDark={false}
-                  size="sm"
-                />
-                <Skeleton
-                  className="hsp-dropdown-loading"
-                  isDark={false}
-                  size="sm"
-                />
-                <Skeleton
-                  className="hsp-dropdown-loading"
-                  isDark={false}
-                  size="sm"
-                />
+                <div
+                  style={
+                    Object {
+                      "maxHeight": "350px",
+                      "overflowY": "scroll",
+                    }
+                  }
+                >
+                  <Skeleton
+                    className="hsp-dropdown-loading"
+                    isDark={false}
+                    size="sm"
+                  />
+                  <Skeleton
+                    className="hsp-dropdown-loading"
+                    isDark={false}
+                    size="sm"
+                  />
+                  <Skeleton
+                    className="hsp-dropdown-loading"
+                    isDark={false}
+                    size="sm"
+                  />
+                </div>
               </PopoverBody>
             </PopoverContent>
           </FocusTrap>

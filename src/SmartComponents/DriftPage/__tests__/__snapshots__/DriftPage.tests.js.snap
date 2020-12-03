@@ -110,7 +110,10 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
             exportToCSV={[Function]}
             factFilter=""
             filterByFact={[Function]}
+            handleBaselineSelection={[Function]}
             handleFactFilter={[Function]}
+            handleHSPSelection={[Function]}
+            handleSystemSelection={[Function]}
             historicalProfiles={Array []}
             history={
               Object {
@@ -3141,7 +3144,10 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                               clearComparison={[Function]}
                               error={Object {}}
                               factFilter=""
+                              handleBaselineSelection={[Function]}
                               handleFactFilter={[Function]}
+                              handleHSPSelection={[Function]}
+                              handleSystemSelection={[Function]}
                               historicalProfiles={Array []}
                               isFirstReference={true}
                               selectedBaselineIds={Array []}
@@ -3177,7 +3183,10 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                 clearComparison={[Function]}
                                 error={Object {}}
                                 factFilter=""
+                                handleBaselineSelection={[Function]}
                                 handleFactFilter={[Function]}
+                                handleHSPSelection={[Function]}
+                                handleSystemSelection={[Function]}
                                 historicalProfiles={Array []}
                                 history={
                                   Object {
@@ -3264,7 +3273,10 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                   factFilter=""
                                   fetchCompare={[Function]}
                                   fullCompareData={Array []}
+                                  handleBaselineSelection={[Function]}
                                   handleFactFilter={[Function]}
+                                  handleHSPSelection={[Function]}
+                                  handleSystemSelection={[Function]}
                                   historicalProfiles={Array []}
                                   history={
                                     Object {
@@ -3352,9 +3364,14 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                       addSystemModalOpened={false}
                                       baselines={Array []}
                                       confirmModal={[Function]}
+                                      disableSystemTable={[Function]}
+                                      handleBaselineSelection={[Function]}
+                                      handleHSPSelection={[Function]}
+                                      handleSystemSelection={[Function]}
                                       historicalProfiles={Array []}
                                       selectActiveTab={[Function]}
                                       selectBaseline={[Function]}
+                                      selectEntity={[Function]}
                                       selectHistoricProfiles={[Function]}
                                       selectedBaselineIds={Array []}
                                       selectedHSPIds={Array []}
@@ -3376,6 +3393,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                               Submit
                                             </Button>,
                                             <Button
+                                              isDisabled={false}
                                               onClick={[Function]}
                                               ouiaId="add-to-comparison-cancel-button"
                                               variant="link"
@@ -3416,6 +3434,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                   Submit
                                                 </Button>,
                                                 <Button
+                                                  isDisabled={false}
                                                   onClick={[Function]}
                                                   ouiaId="add-to-comparison-cancel-button"
                                                   variant="link"
@@ -4511,7 +4530,10 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
             exportToCSV={[Function]}
             factFilter=""
             filterByFact={[Function]}
+            handleBaselineSelection={[Function]}
             handleFactFilter={[Function]}
+            handleHSPSelection={[Function]}
+            handleSystemSelection={[Function]}
             historicalProfiles={Array []}
             history={
               Object {
@@ -7554,7 +7576,10 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                 }
                               }
                               factFilter=""
+                              handleBaselineSelection={[Function]}
                               handleFactFilter={[Function]}
+                              handleHSPSelection={[Function]}
+                              handleSystemSelection={[Function]}
                               historicalProfiles={Array []}
                               isFirstReference={true}
                               selectedBaselineIds={Array []}
@@ -7594,7 +7619,10 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                   }
                                 }
                                 factFilter=""
+                                handleBaselineSelection={[Function]}
                                 handleFactFilter={[Function]}
+                                handleHSPSelection={[Function]}
+                                handleSystemSelection={[Function]}
                                 historicalProfiles={Array []}
                                 history={
                                   Object {
@@ -7685,7 +7713,10 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                   factFilter=""
                                   fetchCompare={[Function]}
                                   fullCompareData={Array []}
+                                  handleBaselineSelection={[Function]}
                                   handleFactFilter={[Function]}
+                                  handleHSPSelection={[Function]}
+                                  handleSystemSelection={[Function]}
                                   historicalProfiles={Array []}
                                   history={
                                     Object {
@@ -7773,9 +7804,14 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                       addSystemModalOpened={false}
                                       baselines={Array []}
                                       confirmModal={[Function]}
+                                      disableSystemTable={[Function]}
+                                      handleBaselineSelection={[Function]}
+                                      handleHSPSelection={[Function]}
+                                      handleSystemSelection={[Function]}
                                       historicalProfiles={Array []}
                                       selectActiveTab={[Function]}
                                       selectBaseline={[Function]}
+                                      selectEntity={[Function]}
                                       selectHistoricProfiles={[Function]}
                                       selectedBaselineIds={Array []}
                                       selectedHSPIds={Array []}
@@ -7797,6 +7833,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                               Submit
                                             </Button>,
                                             <Button
+                                              isDisabled={false}
                                               onClick={[Function]}
                                               ouiaId="add-to-comparison-cancel-button"
                                               variant="link"
@@ -7837,6 +7874,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                   Submit
                                                 </Button>,
                                                 <Button
+                                                  isDisabled={false}
                                                   onClick={[Function]}
                                                   ouiaId="add-to-comparison-cancel-button"
                                                   variant="link"

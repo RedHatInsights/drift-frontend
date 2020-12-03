@@ -1,0 +1,261 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectedTable should render empty 1`] = `
+<Fragment>
+  <table
+    className="pf-c-table"
+  >
+    <tbody />
+  </table>
+</Fragment>
+`;
+
+exports[`SelectedTable should render hsp with system and hsp without system 1`] = `
+<Fragment>
+  <table
+    className="pf-c-table"
+  >
+    <tbody>
+      <tr>
+        <td>
+          <SelectedBasketCheckbox
+            findType={[MockFunction]}
+            handleDeselect={[MockFunction]}
+            id="abcd1234"
+            type="baseline"
+          />
+        </td>
+        <td>
+          <BlueprintIcon
+            color="currentColor"
+            noVerticalAlign={false}
+            size="sm"
+          />
+        </td>
+        <td
+          style={
+            Object {
+              "align-content": "left",
+            }
+          }
+        >
+          baseline
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <SelectedBasketCheckbox
+            findType={[MockFunction]}
+            handleDeselect={[MockFunction]}
+            id="efgh5678"
+            type="system"
+          />
+        </td>
+        <td>
+          <ServerIcon
+            color="currentColor"
+            noVerticalAlign={false}
+            size="sm"
+          />
+        </td>
+        <td
+          style={
+            Object {
+              "align-content": "left",
+            }
+          }
+        >
+          system
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <SelectedBasketCheckbox
+            findType={[MockFunction]}
+            handleDeselect={[MockFunction]}
+            id="ijkl9101"
+            type="hsp"
+          />
+        </td>
+        <td>
+          <ClockIcon
+            color="currentColor"
+            noVerticalAlign={false}
+            size="sm"
+          />
+        </td>
+        <td
+          style={
+            Object {
+              "align-content": "left",
+            }
+          }
+        >
+          <div>
+            system
+          </div>
+          <div>
+            03 Mar 2021, 06:40 UTC
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <SelectedBasketCheckbox
+            findType={[MockFunction]}
+            handleDeselect={[MockFunction]}
+            id="mnop1121"
+            type="hsp"
+          />
+        </td>
+        <td>
+          <ClockIcon
+            color="currentColor"
+            noVerticalAlign={false}
+            size="sm"
+          />
+        </td>
+        <td
+          style={
+            Object {
+              "align-content": "left",
+            }
+          }
+        >
+          <div>
+            system2
+          </div>
+          <div>
+            02 Mar 2021, 06:40 UTC
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</Fragment>
+`;
+
+exports[`SelectedTable should render with system, baseline and hsp 1`] = `
+<Fragment>
+  <table
+    className="pf-c-table"
+  >
+    <tbody>
+      <tr>
+        <td>
+          <SelectedBasketCheckbox
+            findType={[MockFunction]}
+            handleDeselect={[MockFunction]}
+            id="abcd1234"
+            type="baseline"
+          />
+        </td>
+        <td>
+          <BlueprintIcon
+            color="currentColor"
+            noVerticalAlign={false}
+            size="sm"
+          />
+        </td>
+        <td
+          style={
+            Object {
+              "align-content": "left",
+            }
+          }
+        >
+          baseline
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <SelectedBasketCheckbox
+            findType={[MockFunction]}
+            handleDeselect={[MockFunction]}
+            id="efgh5678"
+            type="system"
+          />
+        </td>
+        <td>
+          <ServerIcon
+            color="currentColor"
+            noVerticalAlign={false}
+            size="sm"
+          />
+        </td>
+        <td
+          style={
+            Object {
+              "align-content": "left",
+            }
+          }
+        >
+          system
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <SelectedBasketCheckbox
+            findType={[MockFunction]}
+            handleDeselect={[MockFunction]}
+            id="ijkl9101"
+            type="hsp"
+          />
+        </td>
+        <td>
+          <ClockIcon
+            color="currentColor"
+            noVerticalAlign={false}
+            size="sm"
+          />
+        </td>
+        <td
+          style={
+            Object {
+              "align-content": "left",
+            }
+          }
+        >
+          <div>
+            system
+          </div>
+          <div>
+            03 Mar 2021, 06:40 UTC
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <SelectedBasketCheckbox
+            findType={[MockFunction]}
+            handleDeselect={[MockFunction]}
+            id="ijkl9101"
+            type="hsp"
+          />
+        </td>
+        <td>
+          <ClockIcon
+            color="currentColor"
+            noVerticalAlign={false}
+            size="sm"
+          />
+        </td>
+        <td
+          style={
+            Object {
+              "align-content": "left",
+            }
+          }
+        >
+          <div>
+            system
+          </div>
+          <div>
+            03 Mar 2021, 06:40 UTC
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</Fragment>
+`;

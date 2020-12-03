@@ -67,7 +67,6 @@ export const SystemsTable = ({
                             selectHistoricProfiles, systemNotificationIds, selectSystemsToAdd
                         )
                     ));
-                    console.log(selectedSystemIds, 'here');
                     createBaselineModal ? setSelectedSystemIds([]) : setSelectedSystemIds(selectedSystemIds);
                 } }
                 showTags
