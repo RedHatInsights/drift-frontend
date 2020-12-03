@@ -11,6 +11,7 @@ import HistoricalProfilesCheckbox from './HistoricalProfilesCheckbox/HistoricalP
 import api from '../../api';
 import EmptyStateDisplay from '../EmptyStateDisplay/EmptyStateDisplay';
 import HistoricalProfilesRadio from './HistoricalProfilesRadio/HistoricalProfilesRadio';
+import { addSystemModalActions } from '../AddSystemModal/redux';
 
 export class HistoricalProfilesPopover extends Component {
     constructor(props) {
@@ -48,7 +49,7 @@ export class HistoricalProfilesPopover extends Component {
     }
 
     async onSelect(checked, profile) {
-        const { selectHistoricProfiles, selectSystem, selectedHSPIds } = this.props;
+        const { handleHSPSelection, selectHistoricProfiles, selectSystem, selectedHSPIds } = this.props;
         let newSelectedHSPIds = [ ...selectedHSPIds ];
 
         if (profile.captured_date === 'Latest') {
@@ -63,6 +64,7 @@ export class HistoricalProfilesPopover extends Component {
             await selectHistoricProfiles(newSelectedHSPIds);
         }
 
+        handleHSPSelection(profile);
         this.updateBadgeCount(!checked);
     }
 
@@ -85,14 +87,22 @@ export class HistoricalProfilesPopover extends Component {
 
     async retryFetch() {
         const { system } = this.props;
-        await this.setState({
+        this.setState({
             dropDownArray: this.renderLoadingRows()
         });
-        this.fetchData(system);
+
+        await this.fetchData(system);
     }
 
+    /*eslint-disable camelcase*/
     async fetchData(system) {
+        const { systemName } = this.props;
+
         let fetchedData = await api.fetchHistoricalData(system.system_id ? system.system_id : system.id);
+
+        fetchedData.profiles?.forEach(function(profile) {
+            profile.system_name = systemName;
+        });
 
         if (fetchedData.status) {
             this.setState({
@@ -110,6 +120,7 @@ export class HistoricalProfilesPopover extends Component {
             dropDownArray: this.createDropdownArray()
         });
     }
+    /*eslint-enable camelcase*/
 
     createDropdownArray = () => {
         const { hasMultiSelect, selectedHSPIds } = this.props;
@@ -209,7 +220,7 @@ export class HistoricalProfilesPopover extends Component {
         return (
             <React.Fragment>
                 <span
-                    className='hsp-icon-padding historical-system-profile-popover'
+                    className='hsp-icon-padding'
                     data-ouia-component-id={ 'hsp-popover-toggle-' + id  }
                     data-ouia-component-type='PF4/Button' >
                     <Popover
@@ -217,7 +228,9 @@ export class HistoricalProfilesPopover extends Component {
                         isVisible={ isVisible }
                         shouldClose={ () => this.onToggle() }
                         headerContent={ <div>Historical profiles for this system</div> }
-                        bodyContent={ dropDownArray }
+                        bodyContent={ <div style={{ maxHeight: '350px', overflowY: 'scroll' }}>
+                            { dropDownArray }
+                        </div> }
                         footerContent={ hasCompareButton
                             ? <Button
                                 variant='primary'
@@ -252,7 +265,9 @@ HistoricalProfilesPopover.propTypes = {
     dropdownDirection: PropTypes.string,
     hasMultiSelect: PropTypes.bool,
     selectSingleHSP: PropTypes.func,
-    updateColumns: PropTypes.func
+    updateColumns: PropTypes.func,
+    handleHSPSelection: PropTypes.func,
+    systemName: PropTypes.string
 };
 
 function mapStateToProps(state) {
@@ -269,7 +284,8 @@ function mapDispatchToProps(dispatch) {
             payload: { id, selected }
         }),
         selectSingleHSP: (profile) => dispatch(systemsTableActions.selectSingleHSP(profile)),
-        updateColumns: (key) => dispatch(systemsTableActions.updateColumns(key))
+        updateColumns: (key) => dispatch(systemsTableActions.updateColumns(key)),
+        handleHSPSelection: (content) => dispatch(addSystemModalActions.handleHSPSelection(content))
     };
 }
 

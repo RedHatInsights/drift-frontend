@@ -10,7 +10,7 @@ describe('compare reducer', () => {
 
     it('should handle SELECT_ENTITY', () => {
         expect(
-            reducer({ selectedSystemIds: []}, {
+            reducer({ rows: [], selectedSystemIds: []}, {
                 payload:
                     {
                         id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9', selected: true
@@ -18,15 +18,18 @@ describe('compare reducer', () => {
                 type: types.SELECT_ENTITY
             })
         ).toEqual({
+            rows: [],
+            columns: undefined,
             selectedSystemIds: [
                 '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9'
-            ]
+            ],
+            selectedSystems: []
         });
     });
 
     it('should handle multiple SELECT_ENTITY', () => {
         expect(
-            reducer({ selectedSystemIds: [ '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9' ]}, {
+            reducer({ rows: [], selectedSystemIds: [ '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9' ]}, {
                 payload:
                     {
                         id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2', selected: true
@@ -34,16 +37,19 @@ describe('compare reducer', () => {
                 type: types.SELECT_ENTITY
             })
         ).toEqual({
+            rows: [],
+            columns: undefined,
             selectedSystemIds: [
                 '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9',
                 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2'
-            ]
+            ],
+            selectedSystems: []
         });
     });
 
     it('should handle false SELECT_ENTITY', () => {
         expect(
-            reducer({ selectedSystemIds: [ '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9' ]}, {
+            reducer({ rows: [], selectedSystemIds: [ '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9' ]}, {
                 payload:
                     {
                         id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2', selected: false
@@ -51,15 +57,18 @@ describe('compare reducer', () => {
                 type: types.SELECT_ENTITY
             })
         ).toEqual({
+            rows: [],
+            columns: undefined,
             selectedSystemIds: [
                 '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9'
-            ]
+            ],
+            selectedSystems: []
         });
     });
 
     it('should handle null SELECT_ENTITY', () => {
         expect(
-            reducer({ selectedSystemIds: []}, {
+            reducer({ rows: [], selectedSystemIds: []}, {
                 payload:
                     {
                         id: null, selected: true
@@ -67,13 +76,16 @@ describe('compare reducer', () => {
                 type: types.SELECT_ENTITY
             })
         ).toEqual({
-            selectedSystemIds: []
+            rows: [],
+            columns: undefined,
+            selectedSystemIds: [],
+            selectedSystems: []
         });
     });
 
     it('should handle null SELECT_ENTITY with selected ids', () => {
         expect(
-            reducer({ selectedSystemIds: [ '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9' ]}, {
+            reducer({ rows: [], selectedSystemIds: [ '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9' ]}, {
                 payload:
                     {
                         id: null, selected: true
@@ -81,9 +93,12 @@ describe('compare reducer', () => {
                 type: types.SELECT_ENTITY
             })
         ).toEqual({
+            rows: [],
+            columns: undefined,
             selectedSystemIds: [
                 '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9'
-            ]
+            ],
+            selectedSystems: []
         });
     });
 
@@ -97,8 +112,10 @@ describe('compare reducer', () => {
                 type: types.SELECT_ENTITY
             })
         ).toEqual({
+            columns: undefined,
             selectedSystemIds: [],
-            rows: []
+            rows: [],
+            selectedSystems: []
         });
     });
 
@@ -112,10 +129,12 @@ describe('compare reducer', () => {
                 type: types.SELECT_ENTITY
             })
         ).toEqual({
+            columns: undefined,
             selectedSystemIds: [
                 '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9'
             ],
-            rows: []
+            rows: [],
+            selectedSystems: []
         });
     });
 
@@ -132,8 +151,10 @@ describe('compare reducer', () => {
                 type: types.SELECT_ENTITY
             })
         ).toEqual({
+            columns: undefined,
             selectedSystemIds: [],
-            rows: [{ id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9' }, { id: '9c83bfcc-8t7a-47c7-b4r2-142fg52e89e1' }]
+            rows: [{ id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9' }, { id: '9c83bfcc-8t7a-47c7-b4r2-142fg52e89e1' }],
+            selectedSystems: []
         });
     });
 
@@ -154,8 +175,10 @@ describe('compare reducer', () => {
                 type: types.SELECT_ENTITY
             })
         ).toEqual({
+            columns: undefined,
             selectedSystemIds: [ '2c84bfvc-8t9q-52r9-b4c3-847fg51l09e1' ],
-            rows: [{ id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9' }, { id: '9c83bfcc-8t7a-47c7-b4r2-142fg52e89e1' }]
+            rows: [{ id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9' }, { id: '9c83bfcc-8t7a-47c7-b4r2-142fg52e89e1' }],
+            selectedSystems: []
         });
     });
 
@@ -176,8 +199,10 @@ describe('compare reducer', () => {
                 type: types.SELECT_ENTITY
             })
         ).toEqual({
+            columns: undefined,
             selectedSystemIds: [],
-            rows: [{ id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9' }, { id: '9c83bfcc-8t7a-47c7-b4r2-142fg52e89e1' }]
+            rows: [{ id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9' }, { id: '9c83bfcc-8t7a-47c7-b4r2-142fg52e89e1' }],
+            selectedSystems: []
         });
     });
 });

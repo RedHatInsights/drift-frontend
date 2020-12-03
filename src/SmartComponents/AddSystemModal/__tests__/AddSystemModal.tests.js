@@ -1,3 +1,4 @@
+/*eslint-disable camelcase*/
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { MemoryRouter } from 'react-router-dom';
@@ -6,7 +7,10 @@ import { Provider } from 'react-redux';
 import toJson from 'enzyme-to-json';
 
 import ConnectedAddSystemModal, { AddSystemModal } from '../AddSystemModal';
-import { compareReducerPayload } from '../../modules/__tests__/reducer.fixtures';
+import { compareReducerPayload, systemsPayload, baselinesPayload,
+    historicalProfilesPayload } from '../../modules/__tests__/reducer.fixtures';
+import modalFixtures from '../redux/__tests__/addSystemModalReducer.fixtures';
+
 import { createMiddlewareListener } from '../../../store';
 import { PermissionContext } from '../../../App';
 
@@ -22,14 +26,25 @@ describe('AddSystemModal', () => {
             addSystemModalOpened: true,
             systems: [],
             activeTab: 0,
-            entities: {},
+            entities: { selectedSystemIds: []},
             selectedBaselineIds: [],
             baselines: [],
             selectedHSPIds: [],
             loading: false,
             baselineTableData: [],
             historicalProfiles: [],
-            hasInventoryReadPermissions: true
+            hasInventoryReadPermissions: true,
+            referenceId: undefined,
+            selectedBaselineContent: [],
+            selectedHSPContent: [],
+            selectedSystemContent: [],
+            selectActiveTab: jest.fn(),
+            disableSystemTable: jest.fn(),
+            confirmModal: jest.fn(),
+            toggleAddSystemModal: jest.fn(),
+            handleBaselineSelection: jest.fn(),
+            handleHSPSelection: jest.fn(),
+            handleSystemSelection: jest.fn()
         };
 
         value = {
@@ -49,7 +64,186 @@ describe('AddSystemModal', () => {
             />
         );
 
+        expect(wrapper.state('basketIsVisible')).toEqual(false);
         expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('should toggle basket visible', () => {
+        const wrapper = shallow(
+            <AddSystemModal
+                { ...props }
+                value={ value }
+            />
+        );
+
+        wrapper.instance().toggleBasketVisible();
+
+        expect(wrapper.state('basketIsVisible')).toEqual(true);
+        expect(props.disableSystemTable).toHaveBeenCalledWith(true);
+    });
+
+    it('should handle baseline selection', () => {
+        const event = { currentTarget: {}};
+        const selectBaseline = jest.fn();
+        /*const selectedContent = [
+            { id: 'abcd1234', icon: <BlueprintIcon />, name: 'baseline1' }
+        ];*/
+
+        props.baselineTableData = [
+            [ 'abcd1234', 'baseline1', '1 month ago' ],
+            [ 'efgh5678', 'baseline2', '2 months ago' ]
+        ];
+        const wrapper = shallow(
+            <AddSystemModal
+                { ...props }
+                value={ value }
+                selectBaseline={ selectBaseline }
+            />
+        );
+
+        wrapper.instance().onSelect(event, true, 0);
+        expect(selectBaseline).toHaveBeenCalledWith([ 'abcd1234' ], true, 'COMPARISON');
+        expect(props.handleBaselineSelection).toHaveBeenCalledWith(modalFixtures.baselineContent1, true);
+    });
+
+    it('should handle bulk baseline selection', () => {
+        const event = { currentTarget: {}};
+        const selectBaseline = jest.fn();
+        /*const selectedContent = [
+            { id: 'abcd1234', icon: <BlueprintIcon />, name: 'baseline1' },
+            { id: 'efgh5678', icon: <BlueprintIcon />, name: 'baseline2' }
+        ];*/
+
+        props.baselineTableData = [
+            [ 'abcd1234', 'baseline1', '1 month ago' ],
+            [ 'efgh5678', 'baseline2', '2 months ago' ]
+        ];
+        const wrapper = shallow(
+            <AddSystemModal
+                { ...props }
+                value={ value }
+                selectBaseline={ selectBaseline }
+            />
+        );
+
+        wrapper.instance().onSelect(event, true, -1);
+        expect(selectBaseline).toHaveBeenCalledWith([ 'abcd1234', 'efgh5678' ], true, 'COMPARISON');
+        expect(props.handleBaselineSelection).toHaveBeenCalledWith(modalFixtures.baselineContent2, true);
+    });
+
+    it('should handle onBulkSelect', () => {
+        const selectBaseline = jest.fn();
+        /*const selectedContent = [
+            { id: 'abcd1234', icon: <BlueprintIcon />, name: 'baseline1' },
+            { id: 'efgh5678', icon: <BlueprintIcon />, name: 'baseline2' }
+        ];*/
+
+        props.baselineTableData = [
+            [ 'abcd1234', 'baseline1', '1 month ago' ],
+            [ 'efgh5678', 'baseline2', '2 months ago' ]
+        ];
+        const wrapper = shallow(
+            <AddSystemModal
+                { ...props }
+                value={ value }
+                selectBaseline={ selectBaseline }
+            />
+        );
+
+        wrapper.instance().onBulkSelect(true);
+        expect(selectBaseline).toHaveBeenCalledWith([ 'abcd1234', 'efgh5678' ], true, 'COMPARISON');
+        expect(props.handleBaselineSelection).toHaveBeenCalledWith(modalFixtures.baselineContent2, true);
+    });
+
+    it('should update system basket', () => {
+        const wrapper = shallow(
+            <AddSystemModal
+                { ...props }
+                value={ value }
+            />
+        );
+
+        wrapper.setProps({
+            baselines: baselinesPayload,
+            systems: systemsPayload,
+            historicalProfiles: historicalProfilesPayload
+        });
+        wrapper.instance().componentDidUpdate();
+        expect(props.handleSystemSelection).toHaveBeenCalledWith(modalFixtures.systemContent1, true);
+        expect(props.handleBaselineSelection).toHaveBeenCalledWith(modalFixtures.baselineContent3, true);
+        expect(props.handleHSPSelection).toHaveBeenCalledWith(modalFixtures.hspContent1);
+        expect(props.handleHSPSelection).toHaveBeenCalledWith(modalFixtures.hspContent2);
+    });
+
+    it('should confirm modal', () => {
+        props.entities.selectedSystemIds = [ 'abcd1234' ];
+        props.selectedBaselineIds = [ 'efgh5678' ];
+        props.selectedHSPIds = [ 'ijkl9010' ];
+        props.referenceId = 'efgh5678';
+
+        const wrapper = shallow(
+            <AddSystemModal
+                { ...props }
+                value={ value }
+            />
+        );
+
+        wrapper.instance().confirmModal();
+        expect(props.confirmModal).toHaveBeenCalledWith(
+            [ 'abcd1234' ], [ 'efgh5678' ], [ 'ijkl9010' ], 'efgh5678'
+        );
+        expect(props.toggleAddSystemModal).toHaveBeenCalled();
+    });
+
+    it('should cancel selection', () => {
+        const wrapper = shallow(
+            <AddSystemModal
+                { ...props }
+                value={ value }
+            />
+        );
+
+        wrapper.instance().cancelSelection();
+        expect(props.toggleAddSystemModal).toHaveBeenCalled();
+    });
+
+    it('should change active tab to 1', () => {
+        const event = { currentTarget: {}};
+        const wrapper = shallow(
+            <AddSystemModal
+                { ...props }
+                value={ value }
+            />
+        );
+
+        wrapper.instance().changeActiveTab(event, 1);
+        expect(props.selectActiveTab).toHaveBeenCalledWith(1);
+    });
+
+    it('should select 1 for systemContent', () => {
+        props.entities.rows = modalFixtures.rows;
+        const wrapper = shallow(
+            <AddSystemModal
+                { ...props }
+                value={ value }
+            />
+        );
+
+        wrapper.instance().systemContentSelect(modalFixtures.data1);
+        expect(props.handleSystemSelection).toHaveBeenCalledWith(modalFixtures.systemContent2, modalFixtures.data1.selected);
+    });
+
+    it('should select all for systemContent', () => {
+        props.entities.rows = modalFixtures.rows;
+        const wrapper = shallow(
+            <AddSystemModal
+                { ...props }
+                value={ value }
+            />
+        );
+
+        wrapper.instance().systemContentSelect(modalFixtures.data2);
+        expect(props.handleSystemSelection).toHaveBeenCalledWith(modalFixtures.systemContent1, modalFixtures.data2.selected);
     });
 });
 
@@ -65,7 +259,10 @@ describe('ConnectedAddSystemModal', () => {
             addSystemModalState: {
                 addSystemModalOpened: true,
                 activeTab: 0,
-                selectedSystemIds: []
+                selectedSystemIds: [],
+                selectedBaselineContent: [],
+                selectedHSPContent: [],
+                selectedSystemContent: []
             },
             compareState: {
                 systems: compareReducerPayload.systems,
@@ -77,6 +274,9 @@ describe('ConnectedAddSystemModal', () => {
                     selectedBaselineIds: [],
                     loading: false,
                     baselineTableData: []
+                },
+                checkboxTable: {
+                    totalBaselines: 0
                 }
             },
             historicProfilesState: {
@@ -234,6 +434,12 @@ describe('ConnectedAddSystemModal', () => {
 
     it.skip('should confirm modal with one baseline selected', () => {
         const confirmModal = jest.fn();
+        initialState.baselinesTableState.comparisonTable.baselineTableData = [
+            [ 'abcd1234', 'baseline1', '1 month ago' ],
+            [ 'efgh5678', 'baseline2', '2 months ago' ]
+        ];
+
+        initialState.baselinesTableState.comparisonTable.baselineTableData[0].selected = true;
         initialState.baselinesTableState.comparisonTable.selectedBaselineIds = [ 'abcd1234' ];
         const store = mockStore(initialState);
 
@@ -335,3 +541,4 @@ describe('ConnectedAddSystemModal', () => {
         expect(initialState.addSystemModalActions.toggleAddSystemModal).toHaveBeenCalled();
     });
 });
+/*eslint-enable camelcase*/

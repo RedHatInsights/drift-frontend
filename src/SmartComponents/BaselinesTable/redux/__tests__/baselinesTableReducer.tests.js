@@ -7,7 +7,7 @@ describe('baselines table reducer', () => {
 
     it('should return initial state', () => {
         expect(checkboxTableReducer(undefined, {})).toEqual({
-            loading: false,
+            loading: true,
             baselineTableData: [],
             selectedBaselineIds: [],
             IdToDelete: '',

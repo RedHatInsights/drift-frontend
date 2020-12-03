@@ -2610,6 +2610,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                   expandId="expandable-toggle"
                                   gridBreakPoint="grid-md"
                                   isStickyHeader={false}
+                                  isTreeTable={false}
                                   ouiaSafe={true}
                                   role="grid"
                                   rowLabeledBy="simple-node"
@@ -2794,6 +2795,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                     data-ouia-component-id="baselines-table"
                                     gridBreakPoint="grid-md"
                                     isStickyHeader={false}
+                                    isTreeTable={false}
                                     ouiaSafe={true}
                                     renderers={
                                       Object {
@@ -2817,6 +2819,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                       data-ouia-component-id="baselines-table"
                                       gridBreakPoint="grid-md"
                                       isStickyHeader={false}
+                                      isTreeTable={false}
                                       ouiaSafe={true}
                                       role="grid"
                                       variant={null}
@@ -2829,6 +2832,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                         gridBreakPoint="grid-md"
                                         innerRef={null}
                                         isStickyHeader={false}
+                                        isTreeTable={false}
                                         ouiaSafe={true}
                                         role="grid"
                                         variant={null}
@@ -3435,7 +3439,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                         data-key={2}
                                                                         data-label=""
                                                                         onMouseEnter={[Function]}
-                                                                        scope=""
+                                                                        scope={null}
                                                                       />
                                                                     </ThBase>
                                                                   </Th>

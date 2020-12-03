@@ -44,7 +44,8 @@ describe('ConnectedBaselinesTable', () => {
             ],
             selectedBaselineIds: [],
             hasReadPermissions: true,
-            hasWritePermissions: true
+            hasWritePermissions: true,
+            basketIsVisible: false
         };
     });
 
@@ -167,6 +168,23 @@ describe('ConnectedBaselinesTable', () => {
         const store = mockStore(initialState);
         props.tableData[0].selected = true;
         props.selectedBaselineIds = [ '1234' ];
+        const wrapper = mount(
+            <MemoryRouter keyLength={ 0 }>
+                <Provider store={ store }>
+                    <ConnectedBaselinesTable
+                        { ...props }
+                    />
+                </Provider>
+            </MemoryRouter>
+        );
+
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('should render disabled when selected basket is visible', () => {
+        const store = mockStore(initialState);
+        props.tableData[0].selected = true;
+        props.basketIsVisible = true;
         const wrapper = mount(
             <MemoryRouter keyLength={ 0 }>
                 <Provider store={ store }>

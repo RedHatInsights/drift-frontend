@@ -20,8 +20,32 @@ function setSelectedSystemIds(selectedSystemIds) {
     };
 }
 
+function handleSystemSelection(content, isSelected) {
+    return {
+        type: types.HANDLE_SYSTEM_SELECTION,
+        payload: { content, isSelected }
+    };
+}
+
+function handleBaselineSelection(content, isSelected) {
+    return {
+        type: types.HANDLE_BASELINE_SELECTION,
+        payload: { content, isSelected }
+    };
+}
+
+function handleHSPSelection(content) {
+    return {
+        type: types.HANDLE_HSP_SELECTION,
+        payload: content
+    };
+}
+
 export default {
     toggleAddSystemModal,
     selectActiveTab,
-    setSelectedSystemIds
+    setSelectedSystemIds,
+    handleSystemSelection,
+    handleBaselineSelection,
+    handleHSPSelection
 };

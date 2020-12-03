@@ -1,0 +1,201 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectedBasket should not be visible with selected count 1`] = `
+<Fragment>
+  <span>
+    <Popover
+      bodyContent={
+        <div
+          style={
+            Object {
+              "maxHeight": "350px",
+              "overflowY": "scroll",
+            }
+          }
+        >
+          <SelectedTable
+            findType={[Function]}
+            selectedBaselineContent={
+              Array [
+                Object {
+                  "icon": <BlueprintIcon
+                    color="currentColor"
+                    noVerticalAlign={false}
+                    size="sm"
+                  />,
+                  "id": "abcd1234",
+                  "name": "baseline",
+                },
+              ]
+            }
+            selectedHSPContent={
+              Array [
+                Object {
+                  "captured_date": "2021-03-03T06:40:32+00:00",
+                  "icon": <ClockIcon
+                    color="currentColor"
+                    noVerticalAlign={false}
+                    size="sm"
+                  />,
+                  "id": "ijkl9101",
+                  "system_id": "efgh5678",
+                },
+              ]
+            }
+            selectedSystemContent={
+              Array [
+                Object {
+                  "icon": <ServerIcon
+                    color="currentColor"
+                    noVerticalAlign={false}
+                    size="sm"
+                  />,
+                  "id": "efgh5678",
+                  "name": "system",
+                },
+              ]
+            }
+          />
+        </div>
+      }
+      headerContent={
+        <div>
+          Selected items
+        </div>
+      }
+      id="selected-basket"
+      position="bottom"
+      shouldClose={[Function]}
+    >
+      <a
+        onClick={[Function]}
+      >
+        Selected (
+        3
+        )
+      </a>
+    </Popover>
+  </span>
+</Fragment>
+`;
+
+exports[`SelectedBasket should render empty 1`] = `
+<Fragment>
+  <span>
+    <Popover
+      bodyContent={
+        <div
+          style={
+            Object {
+              "maxHeight": "350px",
+              "overflowY": "scroll",
+            }
+          }
+        >
+          <SelectedTable
+            findType={[Function]}
+            selectedBaselineContent={Array []}
+            selectedHSPContent={Array []}
+            selectedSystemContent={Array []}
+          />
+        </div>
+      }
+      headerContent={
+        <div>
+          Selected items
+        </div>
+      }
+      id="selected-basket"
+      position="bottom"
+      shouldClose={[Function]}
+    >
+      <a
+        onClick={[Function]}
+      >
+        Selected (
+        0
+        )
+      </a>
+    </Popover>
+  </span>
+</Fragment>
+`;
+
+exports[`SelectedBasket should toggle to visible with system, baseline and hsp 1`] = `
+<Fragment>
+  <span>
+    <Popover
+      bodyContent={
+        <div
+          style={
+            Object {
+              "maxHeight": "350px",
+              "overflowY": "scroll",
+            }
+          }
+        >
+          <SelectedTable
+            findType={[Function]}
+            selectedBaselineContent={
+              Array [
+                Object {
+                  "icon": <BlueprintIcon
+                    color="currentColor"
+                    noVerticalAlign={false}
+                    size="sm"
+                  />,
+                  "id": "abcd1234",
+                  "name": "baseline",
+                },
+              ]
+            }
+            selectedHSPContent={
+              Array [
+                Object {
+                  "captured_date": "2021-03-03T06:40:32+00:00",
+                  "icon": <ClockIcon
+                    color="currentColor"
+                    noVerticalAlign={false}
+                    size="sm"
+                  />,
+                  "id": "ijkl9101",
+                  "system_id": "efgh5678",
+                },
+              ]
+            }
+            selectedSystemContent={
+              Array [
+                Object {
+                  "icon": <ServerIcon
+                    color="currentColor"
+                    noVerticalAlign={false}
+                    size="sm"
+                  />,
+                  "id": "efgh5678",
+                  "name": "system",
+                },
+              ]
+            }
+          />
+        </div>
+      }
+      headerContent={
+        <div>
+          Selected items
+        </div>
+      }
+      id="selected-basket"
+      position="bottom"
+      shouldClose={[Function]}
+    >
+      <a
+        onClick={[Function]}
+      >
+        Selected (
+        3
+        )
+      </a>
+    </Popover>
+  </span>
+</Fragment>
+`;

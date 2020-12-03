@@ -1,5 +1,7 @@
+/*eslint-disable camelcase*/
 import types from '../types';
 import { addSystemModalActions } from '../index';
+import { BlueprintIcon, ClockIcon, ServerIcon } from '@patternfly/react-icons';
 
 describe('add system modal actions', () => {
     it('toggleAddSystemModal', () => {
@@ -21,4 +23,53 @@ describe('add system modal actions', () => {
             payload: 0
         });
     });
+
+    it('handleSystemSelection true', () => {
+        expect(addSystemModalActions.handleSystemSelection(
+            [{ id: 'abcd1234', name: 'system', icon: <ServerIcon /> }],
+            true
+        )).toEqual({
+            type: types.HANDLE_SYSTEM_SELECTION,
+            payload: {
+                content: [{ id: 'abcd1234', name: 'system', icon: <ServerIcon /> }],
+                isSelected: true
+            }
+        });
+    });
+
+    it('handleBaselineSelection true', () => {
+        expect(addSystemModalActions.handleBaselineSelection(
+            [{ id: 'abcd1234', name: 'baseline', icon: <BlueprintIcon /> }],
+            true
+        )).toEqual({
+            type: types.HANDLE_BASELINE_SELECTION,
+            payload: {
+                content: [{ id: 'abcd1234', name: 'baseline', icon: <BlueprintIcon /> }],
+                isSelected: true
+            }
+        });
+    });
+
+    it('handleBaselineSelection false', () => {
+        expect(addSystemModalActions.handleBaselineSelection(
+            [{ id: 'abcd1234', name: 'baseline', icon: <BlueprintIcon /> }],
+            false
+        )).toEqual({
+            type: types.HANDLE_BASELINE_SELECTION,
+            payload: {
+                content: [{ id: 'abcd1234', name: 'baseline', icon: <BlueprintIcon /> }],
+                isSelected: false
+            }
+        });
+    });
+
+    it('handleHSPSelection true', () => {
+        expect(addSystemModalActions.handleHSPSelection(
+            [{ id: 'abcd1234', system_id: 'efgh5678', icon: <ClockIcon />, captured_date: '2021-03-03T06:40:32+00:00' }]
+        )).toEqual({
+            type: types.HANDLE_HSP_SELECTION,
+            payload: [{ id: 'abcd1234', system_id: 'efgh5678', icon: <ClockIcon />, captured_date: '2021-03-03T06:40:32+00:00' }]
+        });
+    });
 });
+/*eslint-enable camelcase*/

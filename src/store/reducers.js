@@ -4,6 +4,7 @@ import { mergeArraysByKey } from '@redhat-cloud-services/frontend-components-uti
 import { applyReducerHash } from '@redhat-cloud-services/frontend-components-utilities/files/ReducerRegistry';
 import HistoricalProfilesPopover from '../SmartComponents/HistoricalProfilesPopover/HistoricalProfilesPopover';
 import SystemKebab from '../SmartComponents/BaselinesPage/EditBaselinePage/SystemNotification/SystemKebab/SystemKebab';
+import { ServerIcon } from '@patternfly/react-icons';
 
 import types from '../SmartComponents/modules/types';
 import helpers from '../SmartComponents/helpers';
@@ -64,6 +65,7 @@ function selectedReducer(
                             badgeCount={ badgeCount }
                             hasMultiSelect={ hasMultiSelect }
                             selectHistoricProfiles={ selectHistoricProfiles }
+                            systemName={ row.display_name }
                         />
                     </React.Fragment>;
                 });
@@ -171,6 +173,7 @@ function selectedReducer(
             let selected = action.payload.selected;
             let { selectedSystemIds } = state;
             let newRows = [];
+            let selectedSystems = [];
 
             if (id === 0) {
                 if (createBaselineModal) {
@@ -220,9 +223,18 @@ function selectedReducer(
                 selectSystemsToAdd(selectedSystemIds);
             }
 
+            if (newRows.length === 0) {
+                state.rows.forEach(function(row) {
+                    if (row.selected) {
+                        selectedSystems.push({ id: row.id, name: row.display_name, icon: <ServerIcon /> });
+                    }
+                });
+            }
+
             return {
                 ...state,
                 selectedSystemIds,
+                selectedSystems,
                 rows: newRows.length > 0 ? newRows : state.rows,
                 columns: newColumns
             };
@@ -257,6 +269,15 @@ function selectedReducer(
                     ? []
                     : state.selectedSystemIds,
                 selectedHSP: action.payload
+            };
+        },
+        [types.DISABLE_SYSTEM_TABLE]: (state, action) => {
+            state.rows.forEach(function(row) {
+                row.disableSelection = action.payload;
+            });
+
+            return {
+                ...state
             };
         }
     });

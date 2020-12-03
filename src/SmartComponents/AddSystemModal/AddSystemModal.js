@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Button, Modal, Tab, Tabs } from '@patternfly/react-core';
+import { Button, Modal, Tab, Tabs, Toolbar, ToolbarContent, ToolbarItem } from '@patternfly/react-core';
+import { BlueprintIcon, ServerIcon } from '@patternfly/react-icons';
 import { connect } from 'react-redux';
 import { sortable, cellWidth } from '@patternfly/react-table';
+import { addNewListener } from '../../store';
 
 import SystemsTable from '../SystemsTable/SystemsTable';
 import BaselinesTable from '../BaselinesTable/BaselinesTable';
 import GlobalFilterAlert from '../GlobalFilterAlert/GlobalFilterAlert';
+import SelectedBasket from './SelectedBasket/SelectedBasket';
 import { addSystemModalActions } from './redux';
 import { baselinesTableActions } from '../BaselinesTable/redux';
 import { historicProfilesActions } from '../HistoricalProfilesPopover/redux';
@@ -23,28 +26,89 @@ export class AddSystemModal extends Component {
             columns: [
                 { title: 'Name', transforms: [ sortable ]},
                 { title: 'Last updated', transforms: [ sortable, cellWidth(20) ]}
-            ]
+            ],
+            basketIsVisible: false
         };
     }
 
     async componentDidMount() {
         await window.insights.chrome.auth.getUser();
         this.props.updateColumns('display_name');
+
+        window.entityListener = addNewListener({
+            actionType: 'SELECT_ENTITY',
+            callback: ({ data }) => {
+                this.props.addSystemModalOpened ? this.systemContentSelect(data) : null;
+            }
+        });
+    }
+
+    /*eslint-disable camelcase*/
+    componentDidUpdate() {
+        const { baselines, handleBaselineSelection, handleHSPSelection, handleSystemSelection, historicalProfiles,
+            selectedBaselineContent, selectedHSPContent, selectedSystemContent, systems } = this.props;
+        let newSelectedSystems = [];
+        let newSelectedBaselines = [];
+
+        if ((baselines.length || historicalProfiles.length || systems.length)
+            && (!selectedBaselineContent.length && !selectedHSPContent.length && !selectedSystemContent.length)) {
+            newSelectedSystems = systems.map(function(system) {
+                return { id: system.id, icon: <ServerIcon />, name: system.display_name };
+            });
+
+            handleSystemSelection(newSelectedSystems, true);
+
+            newSelectedBaselines = baselines.map(function(baseline) {
+                return { id: baseline.id, icon: <BlueprintIcon />, name: baseline.display_name };
+            });
+
+            handleBaselineSelection(newSelectedBaselines, true);
+
+            historicalProfiles.forEach(function(hsp) {
+                let content = {
+                    system_name: hsp.display_name,
+                    captured_date: hsp.updated,
+                    id: hsp.id,
+                    system_id: hsp.system_id
+                };
+
+                handleHSPSelection(content);
+            });
+        }
+    }
+    /*eslint-enable camelcase*/
+
+    toggleBasketVisible = () => {
+        const { basketIsVisible } = this.state;
+        const { disableSystemTable } = this.props;
+
+        disableSystemTable(!basketIsVisible);
+        this.setState({ basketIsVisible: !basketIsVisible });
     }
 
     onSelect = (event, isSelected, rowId) => {
-        const { baselineTableData, selectBaseline } = this.props;
+        const { baselineTableData, handleBaselineSelection, selectBaseline } = this.props;
         let ids;
+        let selectedContent = [];
 
         if (rowId === -1) {
             ids = baselineTableData.map(function(item) {
                 return item[0];
             });
+
+            selectedContent = baselineTableData.map(function(item) {
+                return { id: item[0], icon: <BlueprintIcon />, name: item[1] };
+            });
         } else {
             ids = [ baselineTableData[rowId][0] ];
+
+            selectedContent.push({
+                id: baselineTableData[rowId][0], icon: <BlueprintIcon />, name: baselineTableData[rowId][1]
+            });
         }
 
         selectBaseline(ids, isSelected, 'COMPARISON');
+        handleBaselineSelection(selectedContent, isSelected);
     }
 
     confirmModal() {
@@ -72,21 +136,47 @@ export class AddSystemModal extends Component {
     }
 
     onBulkSelect = (isSelected) => {
-        const { baselineTableData, selectBaseline } = this.props;
+        const { baselineTableData, handleBaselineSelection, selectBaseline } = this.props;
         let ids = [];
+        let selectedContent = [];
 
         baselineTableData.forEach(function(baseline) {
             ids.push(baseline[0]);
         });
 
+        selectedContent = baselineTableData.map(function(baseline) {
+            return { id: baseline[0], icon: <BlueprintIcon />, name: baseline[1] };
+        });
+
         selectBaseline(ids, isSelected, 'COMPARISON');
+        handleBaselineSelection(selectedContent, isSelected);
     }
 
+    systemContentSelect = (data) => {
+        const { entities, handleSystemSelection } = this.props;
+        let selectedSystems = [];
+
+        if (data.id === 0) {
+            selectedSystems = entities.rows.map(function(row) {
+                return { id: row.id, name: row.display_name, icon: <ServerIcon /> };
+            });
+        } else {
+            entities.rows.forEach(function(row) {
+                if (row.id === data.id) {
+                    selectedSystems.push({ id: row.id, name: row.display_name, icon: <ServerIcon /> });
+                }
+            });
+        }
+
+        handleSystemSelection(selectedSystems, data.selected);
+    };
+
     render() {
-        const { activeTab, addSystemModalOpened, baselineTableData, globalFilterState, hasBaselinesReadPermissions,
-            hasBaselinesWritePermissions, hasInventoryReadPermissions, historicalProfiles, loading, entities, selectedBaselineIds,
-            selectedHSPIds, selectedSystemIds, setSelectedSystemIds, totalBaselines } = this.props;
-        const { columns } = this.state;
+        const { activeTab, addSystemModalOpened, baselineTableData, globalFilterState, handleBaselineSelection, handleHSPSelection,
+            hasBaselinesReadPermissions, hasBaselinesWritePermissions, hasInventoryReadPermissions, historicalProfiles, loading, entities,
+            selectEntity, selectHistoricProfiles, selectedBaselineIds, selectedBaselineContent, selectedHSPContent, selectedHSPIds,
+            selectBaseline, selectedSystemContent, selectedSystemIds, setSelectedSystemIds, totalBaselines } = this.props;
+        const { columns, basketIsVisible } = this.state;
 
         return (
             <React.Fragment>
@@ -102,9 +192,10 @@ export class AddSystemModal extends Component {
                             key="confirm"
                             variant="primary"
                             onClick={ this.confirmModal }
-                            isDisabled={ entities?.selectedSystemIds?.length === 0 &&
+                            isDisabled={ (entities?.selectedSystemIds?.length === 0 &&
                                 selectedBaselineIds.length === 0 &&
-                                selectedHSPIds.length === 0 }
+                                selectedHSPIds.length === 0)
+                                || basketIsVisible }
                             ouiaId="add-to-comparison-submit-button"
                         >
                             Submit
@@ -113,14 +204,33 @@ export class AddSystemModal extends Component {
                             key="cancel"
                             variant="link"
                             onClick={ this.cancelSelection }
+                            isDisabled={ basketIsVisible }
                             ouiaId="add-to-comparison-cancel-button"
                         >
                             Cancel
                         </Button>
                     ] }
                 >
-
                     <GlobalFilterAlert globalFilterState={ globalFilterState } />
+                    <Toolbar style={{ padding: '0px' }}>
+                        <ToolbarContent>
+                            <ToolbarItem variant='pagination'>
+                                <SelectedBasket
+                                    entities={ entities }
+                                    handleBaselineSelection={ handleBaselineSelection }
+                                    handleHSPSelection={ handleHSPSelection }
+                                    isVisible={ basketIsVisible }
+                                    selectBaseline={ selectBaseline }
+                                    selectedBaselineContent={ selectedBaselineContent }
+                                    selectedHSPContent={ selectedHSPContent }
+                                    selectedSystemContent={ selectedSystemContent }
+                                    selectEntity={ selectEntity }
+                                    selectHistoricProfiles={ selectHistoricProfiles }
+                                    toggleBasketVisible={ this.toggleBasketVisible }
+                                />
+                            </ToolbarItem>
+                        </ToolbarContent>
+                    </Toolbar>
                     <Tabs
                         activeKey={ activeTab }
                         onSelect={ this.changeActiveTab }
@@ -161,6 +271,7 @@ export class AddSystemModal extends Component {
                                 hasReadPermissions={ hasBaselinesReadPermissions }
                                 hasWritePermissions={ hasBaselinesWritePermissions }
                                 kebab={ false }
+                                basketIsVisible={ basketIsVisible }
                             />
                         </Tab>
                     </Tabs>
@@ -196,7 +307,15 @@ AddSystemModal.propTypes = {
     selectedSystemIds: PropTypes.array,
     setSelectedSystemIds: PropTypes.func,
     selectHistoricProfiles: PropTypes.func,
-    updateColumns: PropTypes.func
+    updateColumns: PropTypes.func,
+    selectedSystemContent: PropTypes.array,
+    selectedBaselineContent: PropTypes.array,
+    selectedHSPContent: PropTypes.array,
+    handleSystemSelection: PropTypes.func,
+    handleBaselineSelection: PropTypes.func,
+    handleHSPSelection: PropTypes.func,
+    selectEntity: PropTypes.func,
+    disableSystemTable: PropTypes.func
 };
 
 function mapStateToProps(state) {
@@ -211,8 +330,11 @@ function mapStateToProps(state) {
         loading: state.baselinesTableState.comparisonTable.loading,
         baselineTableData: state.baselinesTableState.comparisonTable.baselineTableData,
         historicalProfiles: state.compareState.historicalProfiles,
-        totalBaselines: state.baselinesTableState.comparisonTable.totalBaselines,
-        globalFilterState: state.globalFilterState
+        totalBaselines: state.baselinesTableState.checkboxTable.totalBaselines,
+        globalFilterState: state.globalFilterState,
+        selectedHSPContent: state.addSystemModalState.selectedHSPContent,
+        selectedBaselineContent: state.addSystemModalState.selectedBaselineContent,
+        selectedSystemContent: state.addSystemModalState.selectedSystemContent
     };
 }
 
@@ -220,9 +342,14 @@ function mapDispatchToProps(dispatch) {
     return {
         toggleAddSystemModal: () => dispatch(addSystemModalActions.toggleAddSystemModal()),
         selectActiveTab: (newActiveTab) => dispatch(addSystemModalActions.selectActiveTab(newActiveTab)),
+        handleSystemSelection: (content, isSelected) => dispatch(addSystemModalActions.handleSystemSelection(content, isSelected)),
+        handleBaselineSelection: (content, isSelected) => dispatch(addSystemModalActions.handleBaselineSelection(content, isSelected)),
+        handleHSPSelection: (content) => dispatch(addSystemModalActions.handleHSPSelection(content)),
         selectBaseline: (id, isSelected, tableId) => dispatch(baselinesTableActions.selectBaseline(id, isSelected, tableId)),
         selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds)),
+        selectEntity: (id, isSelected) => dispatch({ type: 'SELECT_ENTITY', payload: { id, isSelected }}),
         setSelectedSystemIds: (selectedSystemIds) => dispatch(addSystemModalActions.setSelectedSystemIds(selectedSystemIds)),
+        disableSystemTable: (isDisabled) => dispatch(systemsTableActions.disableSystemTable(isDisabled)),
         updateColumns: (key) => dispatch(systemsTableActions.updateColumns(key))
     };
 }

@@ -20,8 +20,16 @@ function clearAllFilters() {
     };
 }
 
+function disableSystemTable(isDisabled) {
+    return {
+        type: types.DISABLE_SYSTEM_TABLE,
+        payload: isDisabled
+    };
+}
+
 export default {
     selectSingleHSP,
     updateColumns,
-    clearAllFilters
+    clearAllFilters,
+    disableSystemTable
 };
