@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Table, TableBody, TableHeader } from '@patternfly/react-table';
+import { RowSelectVariant, Table, TableBody, TableHeader } from '@patternfly/react-table';
 import { EmptyTable, SkeletonTable } from '@redhat-cloud-services/frontend-components';
-import { Radio, Toolbar, ToolbarGroup, ToolbarItem } from '@patternfly/react-core';
+import { Toolbar, ToolbarGroup, ToolbarItem } from '@patternfly/react-core';
 import { LockIcon } from '@patternfly/react-icons';
 
 import BaselineTableKebab from './BaselineTableKebab/BaselineTableKebab';
@@ -88,34 +88,12 @@ export class BaselinesTable extends Component {
         this.fetchWithParams({ page: pagination.page, perPage: pagination.perPage });
     }
 
-    renderRadioButton = (data) => {
-        const { onSelect } = this.props;
-
-        return (
-            <React.Fragment>
-                <Radio
-                    aria-label={ 'radio' + data[1] }
-                    isChecked={ data.selected }
-                    onChange={ onSelect }
-                    name={ data[1] }
-                    id={ data[0] }
-                />
-            </React.Fragment>
-        );
-    }
-
     renderRows(hasWritePermissions) {
-        const { tableData, kebab, onClick, tableId, hasMultiSelect } = this.props;
+        const { tableData, kebab, onClick, tableId } = this.props;
         let table = [];
 
         tableData.forEach((baseline) => {
             let row = [];
-
-            if (!hasMultiSelect) {
-                row.push(
-                    <td className='pf-c-table__check'>{ this.renderRadioButton(baseline) }</td>
-                );
-            }
 
             if (onClick) {
                 let link = <div>
@@ -152,7 +130,7 @@ export class BaselinesTable extends Component {
     }
 
     renderTable(hasWritePermissions, hasReadPermissions) {
-        const { columns, createButton, hasMultiSelect, kebab, loading, onSelect, tableData } = this.props;
+        const { columns, createButton, hasMultiSelect, kebab, loading, onSelect, tableData, tableId } = this.props;
         const { emptyStateMessage } = this.state;
         let tableRows = [];
         let table;
@@ -197,7 +175,7 @@ export class BaselinesTable extends Component {
                         aria-label="Baselines Table"
                         onSort={ this.onSort }
                         onSelect={
-                            hasMultiSelect && (hasWritePermissions) || (!hasWritePermissions && !kebab)
+                            hasWritePermissions || (tableId === 'CHECKBOX' && !kebab)
                                 ? onSelect
                                 : false
                         }
@@ -205,6 +183,7 @@ export class BaselinesTable extends Component {
                         cells={ columns }
                         rows={ tableRows }
                         canSelectAll={ false }
+                        selectVariant={ !hasMultiSelect ? RowSelectVariant.radio : RowSelectVariant.checkbox }
                     >
                         <TableHeader />
                         <TableBody />

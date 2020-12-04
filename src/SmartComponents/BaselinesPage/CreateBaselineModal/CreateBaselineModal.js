@@ -22,7 +22,6 @@ export class CreateBaselineModal extends Component {
             copyBaselineChecked: false,
             copySystemChecked: false,
             columns: [
-                { title: '' },
                 { title: 'Name', transforms: [ sortable ]},
                 { title: 'Last updated', transforms: [ sortable, cellWidth(40) ]}
             ]
@@ -80,11 +79,10 @@ export class CreateBaselineModal extends Component {
         /*eslint-enable camelcase*/
     }
 
-    onSelect = (_, event) => {
-        const { selectBaseline } = this.props;
+    onSelect = (event, isSelected, rowId) => {
+        const { baselineTableData, selectBaseline } = this.props;
 
-        let id = [ event.currentTarget.id ];
-        let isSelected = event.currentTarget.checked;
+        let id = [ baselineTableData[rowId][0] ];
         selectBaseline(id, isSelected, 'RADIO');
     }
 

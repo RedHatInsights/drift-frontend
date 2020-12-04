@@ -29,6 +29,8 @@ exports[`EditBaselineNameModal should render correctly 1`] = `
   ouiaSafe={true}
   showClose={true}
   title="Edit name"
+  titleIconVariant={null}
+  titleLabel=""
   variant="small"
 >
   <div
@@ -43,7 +45,7 @@ exports[`EditBaselineNameModal should render correctly 1`] = `
         onKeyPress={[Function]}
         validated={null}
       >
-        <ForwardRef
+        <TextInput
           aria-label="baseline name"
           onChange={[Function]}
           type="text"
@@ -150,6 +152,8 @@ exports[`EditBaselineNameModal should render mount correctly 1`] = `
     ouiaSafe={true}
     showClose={true}
     title="Edit name"
+    titleIconVariant={null}
+    titleLabel=""
     variant="small"
   >
     <Portal
@@ -166,7 +170,7 @@ exports[`EditBaselineNameModal should render mount correctly 1`] = `
                 aria-labelledby="pf-modal-part-1"
                 aria-modal="true"
                 class="pf-c-modal-box pf-m-sm"
-                data-ouia-component-id="0"
+                data-ouia-component-id="OUIA-Generated-Modal-small-1"
                 data-ouia-component-type="PF4/ModalContent"
                 data-ouia-safe="true"
                 id="pf-modal-part-0"
@@ -176,7 +180,7 @@ exports[`EditBaselineNameModal should render mount correctly 1`] = `
                   aria-disabled="false"
                   aria-label="Close"
                   class="pf-c-button pf-m-plain"
-                  data-ouia-component-id="1"
+                  data-ouia-component-id="OUIA-Generated-Button-plain-1"
                   data-ouia-component-type="PF4/Button"
                   data-ouia-safe="true"
                   type="button"
@@ -199,10 +203,15 @@ exports[`EditBaselineNameModal should render mount correctly 1`] = `
                   class="pf-c-modal-box__header"
                 >
                   <h1
-                    class="pf-c-modal-box__title pf-c-modal-box__title"
+                    class="pf-c-modal-box__title"
                     id="pf-modal-part-1"
                   >
-                    Edit name
+                    
+                    <span
+                      class="pf-c-modal-box__title-text"
+                    >
+                      Edit name
+                    </span>
                   </h1>
                 </header>
                 <div
@@ -263,7 +272,7 @@ exports[`EditBaselineNameModal should render mount correctly 1`] = `
                   <button
                     aria-disabled="false"
                     class="pf-c-button pf-m-primary"
-                    data-ouia-component-id="2"
+                    data-ouia-component-id="OUIA-Generated-Button-primary-1"
                     data-ouia-component-type="PF4/Button"
                     data-ouia-safe="true"
                     type="button"
@@ -273,7 +282,7 @@ exports[`EditBaselineNameModal should render mount correctly 1`] = `
                   <button
                     aria-disabled="false"
                     class="pf-c-button pf-m-link"
-                    data-ouia-component-id="3"
+                    data-ouia-component-id="OUIA-Generated-Button-link-1"
                     data-ouia-component-type="PF4/Button"
                     data-ouia-safe="true"
                     type="button"
@@ -314,9 +323,12 @@ exports[`EditBaselineNameModal should render mount correctly 1`] = `
         isOpen={true}
         labelId="pf-modal-part-1"
         onClose={[Function]}
+        ouiaId="OUIA-Generated-Modal-small-1"
         ouiaSafe={true}
         showClose={true}
         title="Edit name"
+        titleIconVariant={null}
+        titleLabel=""
         variant="small"
       >
         <Backdrop>
@@ -341,7 +353,7 @@ exports[`EditBaselineNameModal should render mount correctly 1`] = `
                   aria-label=""
                   aria-labelledby="pf-modal-part-1"
                   className=""
-                  data-ouia-component-id={0}
+                  data-ouia-component-id="OUIA-Generated-Modal-small-1"
                   data-ouia-component-type="PF4/ModalContent"
                   data-ouia-safe={true}
                   id="pf-modal-part-0"
@@ -354,7 +366,7 @@ exports[`EditBaselineNameModal should render mount correctly 1`] = `
                     aria-labelledby="pf-modal-part-1"
                     aria-modal="true"
                     className="pf-c-modal-box pf-m-sm"
-                    data-ouia-component-id={0}
+                    data-ouia-component-id="OUIA-Generated-Modal-small-1"
                     data-ouia-component-type="PF4/ModalContent"
                     data-ouia-safe={true}
                     id="pf-modal-part-0"
@@ -374,11 +386,12 @@ exports[`EditBaselineNameModal should render mount correctly 1`] = `
                           aria-disabled={false}
                           aria-label="Close"
                           className="pf-c-button pf-m-plain"
-                          data-ouia-component-id={1}
+                          data-ouia-component-id="OUIA-Generated-Button-plain-1"
                           data-ouia-component-type="PF4/Button"
                           data-ouia-safe={true}
                           disabled={false}
                           onClick={[Function]}
+                          role={null}
                           type="button"
                         >
                           <TimesIcon
@@ -408,20 +421,27 @@ exports[`EditBaselineNameModal should render mount correctly 1`] = `
                         </button>
                       </Button>
                     </ModalBoxCloseButton>
-                    <ModalBoxHeader>
+                    <ModalBoxHeader
+                      help={null}
+                    >
                       <header
                         className="pf-c-modal-box__header"
                       >
                         <ModalBoxTitle
-                          className="pf-c-modal-box__title"
                           id="pf-modal-part-1"
                           title="Edit name"
+                          titleIconVariant={null}
+                          titleLabel=""
                         >
                           <h1
-                            className="pf-c-modal-box__title pf-c-modal-box__title"
+                            className="pf-c-modal-box__title"
                             id="pf-modal-part-1"
                           >
-                            Edit name
+                            <span
+                              className="pf-c-modal-box__title-text"
+                            >
+                              Edit name
+                            </span>
                           </h1>
                         </ModalBoxTitle>
                       </header>
@@ -478,7 +498,7 @@ exports[`EditBaselineNameModal should render mount correctly 1`] = `
                                   <div
                                     className="pf-c-form__group-control"
                                   >
-                                    <ForwardRef
+                                    <TextInput
                                       aria-label="baseline name"
                                       onChange={[Function]}
                                       type="text"
@@ -512,7 +532,7 @@ exports[`EditBaselineNameModal should render mount correctly 1`] = `
                                           value="lotr-baseline"
                                         />
                                       </TextInputBase>
-                                    </ForwardRef>
+                                    </TextInput>
                                   </div>
                                 </div>
                               </FormGroup>
@@ -534,11 +554,12 @@ exports[`EditBaselineNameModal should render mount correctly 1`] = `
                             aria-disabled={false}
                             aria-label={null}
                             className="pf-c-button pf-m-primary"
-                            data-ouia-component-id={2}
+                            data-ouia-component-id="OUIA-Generated-Button-primary-1"
                             data-ouia-component-type="PF4/Button"
                             data-ouia-safe={true}
                             disabled={false}
                             onClick={[Function]}
+                            role={null}
                             type="button"
                           >
                             Save
@@ -553,11 +574,12 @@ exports[`EditBaselineNameModal should render mount correctly 1`] = `
                             aria-disabled={false}
                             aria-label={null}
                             className="pf-c-button pf-m-link"
-                            data-ouia-component-id={3}
+                            data-ouia-component-id="OUIA-Generated-Button-link-1"
                             data-ouia-component-type="PF4/Button"
                             data-ouia-safe={true}
                             disabled={false}
                             onClick={[Function]}
+                            role={null}
                             type="button"
                           >
                             Cancel

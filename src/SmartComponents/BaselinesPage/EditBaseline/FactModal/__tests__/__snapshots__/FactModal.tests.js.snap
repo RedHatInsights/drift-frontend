@@ -141,6 +141,8 @@ exports[`ConnectedFactModal should render correctly 1`] = `
             ouiaSafe={true}
             showClose={true}
             title="Add fact"
+            titleIconVariant={null}
+            titleLabel=""
             variant="small"
           >
             <Portal
@@ -157,7 +159,7 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                         aria-labelledby="pf-modal-part-1"
                         aria-modal="true"
                         class="pf-c-modal-box pf-m-sm"
-                        data-ouia-component-id="0"
+                        data-ouia-component-id="OUIA-Generated-Modal-small-1"
                         data-ouia-component-type="PF4/ModalContent"
                         data-ouia-safe="true"
                         id="pf-modal-part-0"
@@ -167,7 +169,7 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                           aria-disabled="false"
                           aria-label="Close"
                           class="pf-c-button pf-m-plain"
-                          data-ouia-component-id="1"
+                          data-ouia-component-id="OUIA-Generated-Button-plain-1"
                           data-ouia-component-type="PF4/Button"
                           data-ouia-safe="true"
                           type="button"
@@ -190,10 +192,15 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                           class="pf-c-modal-box__header"
                         >
                           <h1
-                            class="pf-c-modal-box__title pf-c-modal-box__title"
+                            class="pf-c-modal-box__title"
                             id="pf-modal-part-1"
                           >
-                            Add fact
+                            
+                            <span
+                              class="pf-c-modal-box__title-text"
+                            >
+                              Add fact
+                            </span>
                           </h1>
                         </header>
                         <div
@@ -317,7 +324,7 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                           <button
                             aria-disabled="false"
                             class="pf-c-button pf-m-primary"
-                            data-ouia-component-id="2"
+                            data-ouia-component-id="OUIA-Generated-Button-primary-1"
                             data-ouia-component-type="PF4/Button"
                             data-ouia-safe="true"
                             type="button"
@@ -327,7 +334,7 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                           <button
                             aria-disabled="false"
                             class="pf-c-button pf-m-link"
-                            data-ouia-component-id="3"
+                            data-ouia-component-id="OUIA-Generated-Button-link-1"
                             data-ouia-component-type="PF4/Button"
                             data-ouia-safe="true"
                             type="button"
@@ -368,9 +375,12 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                 isOpen={true}
                 labelId="pf-modal-part-1"
                 onClose={[Function]}
+                ouiaId="OUIA-Generated-Modal-small-1"
                 ouiaSafe={true}
                 showClose={true}
                 title="Add fact"
+                titleIconVariant={null}
+                titleLabel=""
                 variant="small"
               >
                 <Backdrop>
@@ -395,7 +405,7 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                           aria-label=""
                           aria-labelledby="pf-modal-part-1"
                           className=""
-                          data-ouia-component-id={0}
+                          data-ouia-component-id="OUIA-Generated-Modal-small-1"
                           data-ouia-component-type="PF4/ModalContent"
                           data-ouia-safe={true}
                           id="pf-modal-part-0"
@@ -408,7 +418,7 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                             aria-labelledby="pf-modal-part-1"
                             aria-modal="true"
                             className="pf-c-modal-box pf-m-sm"
-                            data-ouia-component-id={0}
+                            data-ouia-component-id="OUIA-Generated-Modal-small-1"
                             data-ouia-component-type="PF4/ModalContent"
                             data-ouia-safe={true}
                             id="pf-modal-part-0"
@@ -428,11 +438,12 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                                   aria-disabled={false}
                                   aria-label="Close"
                                   className="pf-c-button pf-m-plain"
-                                  data-ouia-component-id={1}
+                                  data-ouia-component-id="OUIA-Generated-Button-plain-1"
                                   data-ouia-component-type="PF4/Button"
                                   data-ouia-safe={true}
                                   disabled={false}
                                   onClick={[Function]}
+                                  role={null}
                                   type="button"
                                 >
                                   <TimesIcon
@@ -462,20 +473,27 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                                 </button>
                               </Button>
                             </ModalBoxCloseButton>
-                            <ModalBoxHeader>
+                            <ModalBoxHeader
+                              help={null}
+                            >
                               <header
                                 className="pf-c-modal-box__header"
                               >
                                 <ModalBoxTitle
-                                  className="pf-c-modal-box__title"
                                   id="pf-modal-part-1"
                                   title="Add fact"
+                                  titleIconVariant={null}
+                                  titleLabel=""
                                 >
                                   <h1
-                                    className="pf-c-modal-box__title pf-c-modal-box__title"
+                                    className="pf-c-modal-box__title"
                                     id="pf-modal-part-1"
                                   >
-                                    Add fact
+                                    <span
+                                      className="pf-c-modal-box__title-text"
+                                    >
+                                      Add fact
+                                    </span>
                                   </h1>
                                 </ModalBoxTitle>
                               </header>
@@ -566,7 +584,7 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                                           <div
                                             className="pf-c-form__group-control"
                                           >
-                                            <ForwardRef
+                                            <TextInput
                                               aria-label="fact name"
                                               onChange={[Function]}
                                               placeholder="Name"
@@ -603,7 +621,7 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                                                   value=""
                                                 />
                                               </TextInputBase>
-                                            </ForwardRef>
+                                            </TextInput>
                                           </div>
                                         </div>
                                       </FormGroup>
@@ -648,7 +666,7 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                                           <div
                                             className="pf-c-form__group-control"
                                           >
-                                            <ForwardRef
+                                            <TextInput
                                               aria-label="value"
                                               onChange={[Function]}
                                               placeholder="Value"
@@ -685,7 +703,7 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                                                   value=""
                                                 />
                                               </TextInputBase>
-                                            </ForwardRef>
+                                            </TextInput>
                                           </div>
                                         </div>
                                       </FormGroup>
@@ -707,11 +725,12 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                                     aria-disabled={false}
                                     aria-label={null}
                                     className="pf-c-button pf-m-primary"
-                                    data-ouia-component-id={2}
+                                    data-ouia-component-id="OUIA-Generated-Button-primary-1"
                                     data-ouia-component-type="PF4/Button"
                                     data-ouia-safe={true}
                                     disabled={false}
                                     onClick={[Function]}
+                                    role={null}
                                     type="button"
                                   >
                                     Save
@@ -726,11 +745,12 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                                     aria-disabled={false}
                                     aria-label={null}
                                     className="pf-c-button pf-m-link"
-                                    data-ouia-component-id={3}
+                                    data-ouia-component-id="OUIA-Generated-Button-link-1"
                                     data-ouia-component-type="PF4/Button"
                                     data-ouia-safe={true}
                                     disabled={false}
                                     onClick={[Function]}
+                                    role={null}
                                     type="button"
                                   >
                                     Cancel
@@ -783,6 +803,8 @@ exports[`FactModal should render category correctly 1`] = `
   ouiaSafe={true}
   showClose={true}
   title="Edit category"
+  titleIconVariant={null}
+  titleLabel=""
   variant="small"
 >
   <div />
@@ -809,7 +831,7 @@ exports[`FactModal should render category correctly 1`] = `
         onKeyPress={[Function]}
         validated={null}
       >
-        <ForwardRef
+        <TextInput
           aria-label="fact name"
           onChange={[Function]}
           placeholder="Name"
@@ -852,6 +874,8 @@ exports[`FactModal should render empty correctly 1`] = `
   ouiaSafe={true}
   showClose={true}
   title="Add fact"
+  titleIconVariant={null}
+  titleLabel=""
   variant="small"
 >
   <div />
@@ -878,7 +902,7 @@ exports[`FactModal should render empty correctly 1`] = `
         onKeyPress={[Function]}
         validated={null}
       >
-        <ForwardRef
+        <TextInput
           aria-label="fact name"
           onChange={[Function]}
           placeholder="Name"
@@ -899,7 +923,7 @@ exports[`FactModal should render empty correctly 1`] = `
         onKeyPress={[Function]}
         validated={null}
       >
-        <ForwardRef
+        <TextInput
           aria-label="value"
           onChange={[Function]}
           placeholder="Value"
@@ -942,6 +966,8 @@ exports[`FactModal should render fact name and value correctly 1`] = `
   ouiaSafe={true}
   showClose={true}
   title="Edit fact"
+  titleIconVariant={null}
+  titleLabel=""
   variant="small"
 >
   <div />
@@ -957,7 +983,7 @@ exports[`FactModal should render fact name and value correctly 1`] = `
         onKeyPress={[Function]}
         validated={null}
       >
-        <ForwardRef
+        <TextInput
           aria-label="fact name"
           onChange={[Function]}
           placeholder="Name"
@@ -978,7 +1004,7 @@ exports[`FactModal should render fact name and value correctly 1`] = `
         onKeyPress={[Function]}
         validated={null}
       >
-        <ForwardRef
+        <TextInput
           aria-label="value"
           onChange={[Function]}
           placeholder="Value"
@@ -1021,6 +1047,8 @@ exports[`FactModal should render sub fact correctly 1`] = `
   ouiaSafe={true}
   showClose={true}
   title="Edit sub fact"
+  titleIconVariant={null}
+  titleLabel=""
   variant="small"
 >
   <div />
@@ -1036,7 +1064,7 @@ exports[`FactModal should render sub fact correctly 1`] = `
         onKeyPress={[Function]}
         validated={null}
       >
-        <ForwardRef
+        <TextInput
           aria-label="fact name"
           onChange={[Function]}
           placeholder="Name"
@@ -1057,7 +1085,7 @@ exports[`FactModal should render sub fact correctly 1`] = `
         onKeyPress={[Function]}
         validated={null}
       >
-        <ForwardRef
+        <TextInput
           aria-label="value"
           onChange={[Function]}
           placeholder="Value"
