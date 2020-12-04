@@ -43,7 +43,7 @@ describe('EditBaselineNameModal', () => {
                 <EditBaselineNameModal { ...props }/>
             );
 
-            wrapper.find('ForwardRef').simulate('change', 'new-lotr-baseline');
+            wrapper.find('TextInput').simulate('change', 'new-lotr-baseline');
             expect(wrapper.state('baselineName')).toEqual('new-lotr-baseline');
         });
 

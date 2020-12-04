@@ -1099,6 +1099,8 @@ exports[`ConnectedDeleteBaselinesModal should render correctly 1`] = `
             ouiaSafe={true}
             showClose={true}
             title="Delete baselines"
+            titleIconVariant={null}
+            titleLabel=""
             variant="small"
           >
             <Portal
@@ -1115,7 +1117,7 @@ exports[`ConnectedDeleteBaselinesModal should render correctly 1`] = `
                         aria-labelledby="pf-modal-part-6"
                         aria-modal="true"
                         class="pf-c-modal-box pf-m-sm"
-                        data-ouia-component-id="20"
+                        data-ouia-component-id="OUIA-Generated-Modal-small-6"
                         data-ouia-component-type="PF4/ModalContent"
                         data-ouia-safe="true"
                         id="pf-modal-part-5"
@@ -1125,7 +1127,7 @@ exports[`ConnectedDeleteBaselinesModal should render correctly 1`] = `
                           aria-disabled="false"
                           aria-label="Close"
                           class="pf-c-button pf-m-plain"
-                          data-ouia-component-id="21"
+                          data-ouia-component-id="OUIA-Generated-Button-plain-6"
                           data-ouia-component-type="PF4/Button"
                           data-ouia-safe="true"
                           type="button"
@@ -1148,10 +1150,15 @@ exports[`ConnectedDeleteBaselinesModal should render correctly 1`] = `
                           class="pf-c-modal-box__header"
                         >
                           <h1
-                            class="pf-c-modal-box__title pf-c-modal-box__title"
+                            class="pf-c-modal-box__title"
                             id="pf-modal-part-6"
                           >
-                            Delete baselines
+                            
+                            <span
+                              class="pf-c-modal-box__title-text"
+                            >
+                              Delete baselines
+                            </span>
                           </h1>
                         </header>
                         <div
@@ -1166,7 +1173,7 @@ exports[`ConnectedDeleteBaselinesModal should render correctly 1`] = `
                           <button
                             aria-disabled="false"
                             class="pf-c-button pf-m-danger"
-                            data-ouia-component-id="22"
+                            data-ouia-component-id="OUIA-Generated-Button-danger-6"
                             data-ouia-component-type="PF4/Button"
                             data-ouia-safe="true"
                             type="button"
@@ -1176,7 +1183,7 @@ exports[`ConnectedDeleteBaselinesModal should render correctly 1`] = `
                           <button
                             aria-disabled="false"
                             class="pf-c-button pf-m-link"
-                            data-ouia-component-id="23"
+                            data-ouia-component-id="OUIA-Generated-Button-link-6"
                             data-ouia-component-type="PF4/Button"
                             data-ouia-safe="true"
                             type="button"
@@ -1216,9 +1223,12 @@ exports[`ConnectedDeleteBaselinesModal should render correctly 1`] = `
                 isOpen={true}
                 labelId="pf-modal-part-6"
                 onClose={[Function]}
+                ouiaId="OUIA-Generated-Modal-small-6"
                 ouiaSafe={true}
                 showClose={true}
                 title="Delete baselines"
+                titleIconVariant={null}
+                titleLabel=""
                 variant="small"
               >
                 <Backdrop>
@@ -1243,7 +1253,7 @@ exports[`ConnectedDeleteBaselinesModal should render correctly 1`] = `
                           aria-label=""
                           aria-labelledby="pf-modal-part-6"
                           className=""
-                          data-ouia-component-id={20}
+                          data-ouia-component-id="OUIA-Generated-Modal-small-6"
                           data-ouia-component-type="PF4/ModalContent"
                           data-ouia-safe={true}
                           id="pf-modal-part-5"
@@ -1256,7 +1266,7 @@ exports[`ConnectedDeleteBaselinesModal should render correctly 1`] = `
                             aria-labelledby="pf-modal-part-6"
                             aria-modal="true"
                             className="pf-c-modal-box pf-m-sm"
-                            data-ouia-component-id={20}
+                            data-ouia-component-id="OUIA-Generated-Modal-small-6"
                             data-ouia-component-type="PF4/ModalContent"
                             data-ouia-safe={true}
                             id="pf-modal-part-5"
@@ -1276,11 +1286,12 @@ exports[`ConnectedDeleteBaselinesModal should render correctly 1`] = `
                                   aria-disabled={false}
                                   aria-label="Close"
                                   className="pf-c-button pf-m-plain"
-                                  data-ouia-component-id={21}
+                                  data-ouia-component-id="OUIA-Generated-Button-plain-6"
                                   data-ouia-component-type="PF4/Button"
                                   data-ouia-safe={true}
                                   disabled={false}
                                   onClick={[Function]}
+                                  role={null}
                                   type="button"
                                 >
                                   <TimesIcon
@@ -1310,20 +1321,27 @@ exports[`ConnectedDeleteBaselinesModal should render correctly 1`] = `
                                 </button>
                               </Button>
                             </ModalBoxCloseButton>
-                            <ModalBoxHeader>
+                            <ModalBoxHeader
+                              help={null}
+                            >
                               <header
                                 className="pf-c-modal-box__header"
                               >
                                 <ModalBoxTitle
-                                  className="pf-c-modal-box__title"
                                   id="pf-modal-part-6"
                                   title="Delete baselines"
+                                  titleIconVariant={null}
+                                  titleLabel=""
                                 >
                                   <h1
-                                    className="pf-c-modal-box__title pf-c-modal-box__title"
+                                    className="pf-c-modal-box__title"
                                     id="pf-modal-part-6"
                                   >
-                                    Delete baselines
+                                    <span
+                                      className="pf-c-modal-box__title-text"
+                                    >
+                                      Delete baselines
+                                    </span>
                                   </h1>
                                 </ModalBoxTitle>
                               </header>
@@ -1351,11 +1369,12 @@ exports[`ConnectedDeleteBaselinesModal should render correctly 1`] = `
                                     aria-disabled={false}
                                     aria-label={null}
                                     className="pf-c-button pf-m-danger"
-                                    data-ouia-component-id={22}
+                                    data-ouia-component-id="OUIA-Generated-Button-danger-6"
                                     data-ouia-component-type="PF4/Button"
                                     data-ouia-safe={true}
                                     disabled={false}
                                     onClick={[Function]}
+                                    role={null}
                                     type="button"
                                   >
                                     Delete baselines
@@ -1369,10 +1388,11 @@ exports[`ConnectedDeleteBaselinesModal should render correctly 1`] = `
                                     aria-disabled={false}
                                     aria-label={null}
                                     className="pf-c-button pf-m-link"
-                                    data-ouia-component-id={23}
+                                    data-ouia-component-id="OUIA-Generated-Button-link-6"
                                     data-ouia-component-type="PF4/Button"
                                     data-ouia-safe={true}
                                     disabled={false}
+                                    role={null}
                                     type="button"
                                   >
                                     Cancel
@@ -1425,6 +1445,8 @@ exports[`DeleteBaselinesModal should render Delete baseline with baselineId 1`] 
   ouiaSafe={true}
   showClose={true}
   title="Delete baseline"
+  titleIconVariant={null}
+  titleLabel=""
   variant="small"
 >
   Deleting a baseline is permanent and cannot be undone.
@@ -1460,6 +1482,8 @@ exports[`DeleteBaselinesModal should render correctly 1`] = `
   ouiaSafe={true}
   showClose={true}
   title="Delete baselines"
+  titleIconVariant={null}
+  titleLabel=""
   variant="small"
 >
   Deleting a baseline is permanent and cannot be undone.
@@ -1503,6 +1527,8 @@ exports[`DeleteBaselinesModal should render mount correctly 1`] = `
     ouiaSafe={true}
     showClose={true}
     title="Delete baselines"
+    titleIconVariant={null}
+    titleLabel=""
     variant="small"
   >
     <Portal
@@ -1519,7 +1545,7 @@ exports[`DeleteBaselinesModal should render mount correctly 1`] = `
                 aria-labelledby="pf-modal-part-1"
                 aria-modal="true"
                 class="pf-c-modal-box pf-m-sm"
-                data-ouia-component-id="0"
+                data-ouia-component-id="OUIA-Generated-Modal-small-1"
                 data-ouia-component-type="PF4/ModalContent"
                 data-ouia-safe="true"
                 id="pf-modal-part-0"
@@ -1529,7 +1555,7 @@ exports[`DeleteBaselinesModal should render mount correctly 1`] = `
                   aria-disabled="false"
                   aria-label="Close"
                   class="pf-c-button pf-m-plain"
-                  data-ouia-component-id="1"
+                  data-ouia-component-id="OUIA-Generated-Button-plain-1"
                   data-ouia-component-type="PF4/Button"
                   data-ouia-safe="true"
                   type="button"
@@ -1552,10 +1578,15 @@ exports[`DeleteBaselinesModal should render mount correctly 1`] = `
                   class="pf-c-modal-box__header"
                 >
                   <h1
-                    class="pf-c-modal-box__title pf-c-modal-box__title"
+                    class="pf-c-modal-box__title"
                     id="pf-modal-part-1"
                   >
-                    Delete baselines
+                    
+                    <span
+                      class="pf-c-modal-box__title-text"
+                    >
+                      Delete baselines
+                    </span>
                   </h1>
                 </header>
                 <div
@@ -1570,7 +1601,7 @@ exports[`DeleteBaselinesModal should render mount correctly 1`] = `
                   <button
                     aria-disabled="false"
                     class="pf-c-button pf-m-danger"
-                    data-ouia-component-id="2"
+                    data-ouia-component-id="OUIA-Generated-Button-danger-1"
                     data-ouia-component-type="PF4/Button"
                     data-ouia-safe="true"
                     type="button"
@@ -1580,7 +1611,7 @@ exports[`DeleteBaselinesModal should render mount correctly 1`] = `
                   <button
                     aria-disabled="false"
                     class="pf-c-button pf-m-link"
-                    data-ouia-component-id="3"
+                    data-ouia-component-id="OUIA-Generated-Button-link-1"
                     data-ouia-component-type="PF4/Button"
                     data-ouia-safe="true"
                     type="button"
@@ -1621,9 +1652,12 @@ exports[`DeleteBaselinesModal should render mount correctly 1`] = `
         isOpen={true}
         labelId="pf-modal-part-1"
         onClose={[MockFunction]}
+        ouiaId="OUIA-Generated-Modal-small-1"
         ouiaSafe={true}
         showClose={true}
         title="Delete baselines"
+        titleIconVariant={null}
+        titleLabel=""
         variant="small"
       >
         <Backdrop>
@@ -1648,7 +1682,7 @@ exports[`DeleteBaselinesModal should render mount correctly 1`] = `
                   aria-label=""
                   aria-labelledby="pf-modal-part-1"
                   className=""
-                  data-ouia-component-id={0}
+                  data-ouia-component-id="OUIA-Generated-Modal-small-1"
                   data-ouia-component-type="PF4/ModalContent"
                   data-ouia-safe={true}
                   id="pf-modal-part-0"
@@ -1661,7 +1695,7 @@ exports[`DeleteBaselinesModal should render mount correctly 1`] = `
                     aria-labelledby="pf-modal-part-1"
                     aria-modal="true"
                     className="pf-c-modal-box pf-m-sm"
-                    data-ouia-component-id={0}
+                    data-ouia-component-id="OUIA-Generated-Modal-small-1"
                     data-ouia-component-type="PF4/ModalContent"
                     data-ouia-safe={true}
                     id="pf-modal-part-0"
@@ -1681,11 +1715,12 @@ exports[`DeleteBaselinesModal should render mount correctly 1`] = `
                           aria-disabled={false}
                           aria-label="Close"
                           className="pf-c-button pf-m-plain"
-                          data-ouia-component-id={1}
+                          data-ouia-component-id="OUIA-Generated-Button-plain-1"
                           data-ouia-component-type="PF4/Button"
                           data-ouia-safe={true}
                           disabled={false}
                           onClick={[MockFunction]}
+                          role={null}
                           type="button"
                         >
                           <TimesIcon
@@ -1715,20 +1750,27 @@ exports[`DeleteBaselinesModal should render mount correctly 1`] = `
                         </button>
                       </Button>
                     </ModalBoxCloseButton>
-                    <ModalBoxHeader>
+                    <ModalBoxHeader
+                      help={null}
+                    >
                       <header
                         className="pf-c-modal-box__header"
                       >
                         <ModalBoxTitle
-                          className="pf-c-modal-box__title"
                           id="pf-modal-part-1"
                           title="Delete baselines"
+                          titleIconVariant={null}
+                          titleLabel=""
                         >
                           <h1
-                            className="pf-c-modal-box__title pf-c-modal-box__title"
+                            className="pf-c-modal-box__title"
                             id="pf-modal-part-1"
                           >
-                            Delete baselines
+                            <span
+                              className="pf-c-modal-box__title-text"
+                            >
+                              Delete baselines
+                            </span>
                           </h1>
                         </ModalBoxTitle>
                       </header>
@@ -1756,11 +1798,12 @@ exports[`DeleteBaselinesModal should render mount correctly 1`] = `
                             aria-disabled={false}
                             aria-label={null}
                             className="pf-c-button pf-m-danger"
-                            data-ouia-component-id={2}
+                            data-ouia-component-id="OUIA-Generated-Button-danger-1"
                             data-ouia-component-type="PF4/Button"
                             data-ouia-safe={true}
                             disabled={false}
                             onClick={[Function]}
+                            role={null}
                             type="button"
                           >
                             Delete baselines
@@ -1775,11 +1818,12 @@ exports[`DeleteBaselinesModal should render mount correctly 1`] = `
                             aria-disabled={false}
                             aria-label={null}
                             className="pf-c-button pf-m-link"
-                            data-ouia-component-id={3}
+                            data-ouia-component-id="OUIA-Generated-Button-link-1"
                             data-ouia-component-type="PF4/Button"
                             data-ouia-safe={true}
                             disabled={false}
                             onClick={[MockFunction]}
+                            role={null}
                             type="button"
                           >
                             Cancel
