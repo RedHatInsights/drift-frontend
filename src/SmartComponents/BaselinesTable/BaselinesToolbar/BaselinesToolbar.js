@@ -138,7 +138,7 @@ export class BaselinesToolbar extends Component {
                             <ToolbarFilter
                                 chips={ nameSearch !== '' ? [ nameSearch ] : [] }
                                 deleteChip={ this.clearFilters }
-                                categoryName="Fact name"
+                                categoryName="Baseline name"
                             >
                                 <ConditionalFilter
                                     placeholder="Filter by name"
