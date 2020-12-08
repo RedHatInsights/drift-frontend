@@ -41,24 +41,25 @@ function getState(state, stateFilters) {
     return isStateSelected;
 }
 
-function setTooltip (data, stateFilter, referenceId) {
+function setTooltip (data, stateFilters, referenceId) {
     let type = data.comparisons ? 'category' : 'row';
+    let state = getState(data.state, stateFilters);
 
-    if (stateFilter.filter === 'SAME') {
-        data.tooltip = stateFilter.display +
+    if (data.state === 'SAME') {
+        data.tooltip = state.display +
         ' - ' +
         'All system facts in this ' + type + ' are the same.';
-    } else if (stateFilter.filter === 'INCOMPLETE_DATA') {
-        data.tooltip = stateFilter.display +
+    } else if (data.state === 'INCOMPLETE_DATA') {
+        data.tooltip = state.display +
         ' - ' +
         'At least one system fact value in this ' + type + ' is missing.';
     } else {
         if (referenceId) {
-            data.tooltip = stateFilter.display +
+            data.tooltip = state.display +
             ' - ' +
             'At least one system fact value in this ' + type + ' differs from the reference.';
         } else {
-            data.tooltip = stateFilter.display +
+            data.tooltip = state.display +
             ' - ' +
             'At least one system fact value in this ' + type + ' differs.';
         }
@@ -79,7 +80,7 @@ function filterCompareData(data, stateFilters, factFilter, referenceId) {
 
         if (data[i].comparisons) {
             if (data[i].name === factFilter) {
-                setTooltip(data[i], getState(data[i].state, stateFilters), referenceId);
+                setTooltip(data[i], stateFilters, referenceId);
                 filteredComparisons = filterComparisons(data[i].comparisons, stateFilters, '', referenceId);
                 filteredFacts.push({
                     name: data[i].name,
@@ -91,10 +92,10 @@ function filterCompareData(data, stateFilters, factFilter, referenceId) {
                 break;
             }
 
-            filteredComparisons = filterComparisons(data[i].comparisons, stateFilters, factFilter);
+            filteredComparisons = filterComparisons(data[i].comparisons, stateFilters, factFilter, referenceId);
 
             if (filteredComparisons.length) {
-                setTooltip(data[i], isStateSelected, referenceId);
+                setTooltip(data[i], stateFilters, referenceId);
                 filteredFacts.push({
                     name: data[i].name,
                     state: data[i].state,
@@ -105,7 +106,7 @@ function filterCompareData(data, stateFilters, factFilter, referenceId) {
         } else {
             if (data[i].name.includes(factFilter)) {
                 if (isStateSelected) {
-                    setTooltip(data[i], isStateSelected, referenceId);
+                    setTooltip(data[i], stateFilters, referenceId);
                     filteredFacts.push(data[i]);
                 }
             }
@@ -124,7 +125,7 @@ function filterComparisons(comparisons, stateFilters, factFilter, referenceId) {
 
         if (comparisons[i].name.includes(factFilter)) {
             if (isStateSelected) {
-                setTooltip(comparisons[i], isStateSelected, referenceId);
+                setTooltip(comparisons[i], stateFilters, referenceId);
                 filteredComparisons.push(comparisons[i]);
             }
         }
@@ -361,6 +362,9 @@ function updateStateFilters(stateFilters, updatedStateFilter) {
 
 export default {
     paginateData,
+    getStateSelected,
+    getState,
+    setTooltip,
     filterCompareData,
     sortData,
     downloadCSV,
