@@ -278,21 +278,22 @@ export class DriftTable extends Component {
     }
 
     renderRow(fact) {
+        const { expandedRows, stateSort } = this.props;
         let row = [];
         let rows = [];
 
         if (fact.comparisons) {
             row.push(
                 <td className={
-                    this.props.expandedRows.includes(fact.name) ?
+                    expandedRows.includes(fact.name) ?
                         'nested-fact sticky-column fixed-column-1' :
                         'sticky-column fixed-column-1' }>
-                    { this.renderExpandableRowButton(this.props.expandedRows, fact.name) } { fact.name }
+                    { this.renderExpandableRowButton(expandedRows, fact.name) } { fact.name }
                 </td>
             );
             row.push(
                 <td className="fact-state sticky-column fixed-column-2">
-                    <StateIcon fact={ fact }/>
+                    <StateIcon fact={ fact } stateSort={ stateSort }/>
                 </td>
             );
 
@@ -302,7 +303,7 @@ export class DriftTable extends Component {
 
             rows.push(<tr>{ row }</tr>);
 
-            if (this.props.expandedRows.includes(fact.name)) {
+            if (expandedRows.includes(fact.name)) {
                 fact.comparisons.forEach(comparison => {
                     row = this.renderRowChild(comparison);
                     rows.push(<tr className={ comparison.state === 'DIFFERENT' ? 'unexpected-row' : '' }>{ row }</tr>);
@@ -312,7 +313,7 @@ export class DriftTable extends Component {
             row.push(<td className="sticky-column fixed-column-1">{ fact.name }</td>);
             row.push(
                 <td className="fact-state sticky-column fixed-column-2">
-                    <StateIcon fact={ fact }/>
+                    <StateIcon fact={ fact } stateSort={ stateSort }/>
                 </td>
             );
 

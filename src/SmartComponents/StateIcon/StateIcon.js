@@ -23,11 +23,14 @@ class StateIcon extends Component {
     };
 
     render() {
+        const { fact, stateSort } = this.props;
+
         return (
             <Tooltip
+                key={ fact.name + '-' + stateSort }
                 position="top"
                 content={
-                    <div>{ this.props.fact.tooltip }</div>
+                    <div>{ fact.tooltip }</div>
                 }
             >
                 { this.icon() }
@@ -37,7 +40,8 @@ class StateIcon extends Component {
 }
 
 StateIcon.propTypes = {
-    fact: PropTypes.object
+    fact: PropTypes.object,
+    stateSort: PropTypes.string
 };
 
 export default StateIcon;
