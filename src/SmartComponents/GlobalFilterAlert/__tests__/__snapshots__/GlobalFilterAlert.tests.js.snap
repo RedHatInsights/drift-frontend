@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GlobalFilterAlert should not render when empty 1`] = `<Fragment />`;
+
+exports[`GlobalFilterAlert should not render with all workloads 1`] = `<Fragment />`;
+
+exports[`GlobalFilterAlert should render with SAP 1`] = `
+<Fragment>
+  <Alert
+    actionClose={
+      <AlertActionCloseButton
+        onClose={[Function]}
+      />
+    }
+    isInline={true}
+    title="Your systems are pre-filtered by the global context selector."
+    variant="info"
+  >
+    <p>
+      Workloads: SAP. 
+    </p>
+  </Alert>
+</Fragment>
+`;
+
+exports[`GlobalFilterAlert should render with SAP and filters 1`] = `
+<Fragment>
+  <Alert
+    actionClose={
+      <AlertActionCloseButton
+        onClose={[Function]}
+      />
+    }
+    isInline={true}
+    title="Your systems are pre-filtered by the global context selector."
+    variant="info"
+  >
+    <p>
+      Workloads: SAP. SAP ID (SID): AB1, XY1. Tags: patch: rest=patchman-engine, dev=patchman-engine. insights-client: group=XmygroupX. 
+    </p>
+  </Alert>
+</Fragment>
+`;

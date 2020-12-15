@@ -6,6 +6,7 @@ import { sortable, cellWidth } from '@patternfly/react-table';
 
 import SystemsTable from '../SystemsTable/SystemsTable';
 import BaselinesTable from '../BaselinesTable/BaselinesTable';
+import GlobalFilterAlert from '../GlobalFilterAlert/GlobalFilterAlert';
 import { addSystemModalActions } from './redux';
 import { baselinesTableActions } from '../BaselinesTable/redux';
 
@@ -87,9 +88,9 @@ export class AddSystemModal extends Component {
     }
 
     render() {
-        const { activeTab, addSystemModalOpened, baselineTableData, hasBaselinesReadPermissions, hasBaselinesWritePermissions,
-            hasInventoryReadPermissions, historicalProfiles, loading, entities, selectedBaselineIds, selectedHSPIds,
-            totalBaselines } = this.props;
+        const { activeTab, addSystemModalOpened, baselineTableData, globalFilterState, hasBaselinesReadPermissions,
+            hasBaselinesWritePermissions, hasInventoryReadPermissions, historicalProfiles, loading, entities, selectedBaselineIds,
+            selectedHSPIds, totalBaselines } = this.props;
         const { columns } = this.state;
 
         return (
@@ -121,6 +122,8 @@ export class AddSystemModal extends Component {
                         </Button>
                     ] }
                 >
+
+                    <GlobalFilterAlert globalFilterState={ globalFilterState } />
                     <Tabs
                         activeKey={ activeTab }
                         onSelect={ this.changeActiveTab }
@@ -188,7 +191,8 @@ AddSystemModal.propTypes = {
     totalBaselines: PropTypes.number,
     hasInventoryReadPermissions: PropTypes.bool,
     hasBaselinesReadPermissions: PropTypes.bool,
-    hasBaselinesWritePermissions: PropTypes.bool
+    hasBaselinesWritePermissions: PropTypes.bool,
+    globalFilterState: PropTypes.object
 };
 
 function mapStateToProps(state) {
@@ -203,7 +207,8 @@ function mapStateToProps(state) {
         loading: state.baselinesTableState.checkboxTable.loading,
         baselineTableData: state.baselinesTableState.checkboxTable.baselineTableData,
         historicalProfiles: state.compareState.historicalProfiles,
-        totalBaselines: state.baselinesTableState.checkboxTable.totalBaselines
+        totalBaselines: state.baselinesTableState.checkboxTable.totalBaselines,
+        globalFilterState: state.globalFilterState
     };
 }
 

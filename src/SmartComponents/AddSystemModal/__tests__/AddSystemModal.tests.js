@@ -86,6 +86,11 @@ describe('ConnectedAddSystemModal', () => {
             },
             addSystemModalActions: {
                 toggleAddSystemModal: jest.fn()
+            },
+            globalFilterState: {
+                sidsFilter: [],
+                tagsFilter: [],
+                workloadsFilter: {}
             }
         };
 
@@ -166,6 +171,39 @@ describe('ConnectedAddSystemModal', () => {
         );
 
         expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('should render GlobalFilterAlert', () => {
+        initialState.globalFilterState.workloadsFilter = {
+            SAP: {
+                group: {
+                    name: 'Workloads'
+                },
+                item: {
+                    value: 'SAP'
+                }
+            }
+        };
+
+        initialState.globalFilterState.sidsFilter = [ 'AB1', 'XY1' ];
+        initialState.globalFilterState.tagsFilter = [
+            'patch/rest=patchman-engine', 'patch/dev=patchman-engine', 'insights-client/group=XmygroupX'
+        ];
+        const store = mockStore(initialState);
+
+        const wrapper = mount(
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedAddSystemModal { ...props } />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
+        );
+
+        expect(wrapper.find('.pf-c-alert__description').text()).toBe(
+            'Workloads: SAP. SAP ID (SID): AB1, XY1. Tags: patch: rest=patchman-engine, dev=patchman-engine. insights-client: group=XmygroupX. '
+        );
     });
 
     it.skip('should confirm modal with one system selected', () => {

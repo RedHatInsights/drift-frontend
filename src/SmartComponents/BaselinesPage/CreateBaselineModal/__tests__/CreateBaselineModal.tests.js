@@ -98,6 +98,23 @@ describe('CreateBaselineModal', () => {
             wrapper.find('.pf-c-button').at(1).simulate('click');
             expect(createBaseline).toHaveBeenCalledTimes(1);
         });
+
+        it('should render global filter alert', () => {
+            const event = { currentTarget: { value: 'copySystemChecked' }};
+            props.createBaselineModalOpened = true;
+            const wrapper = shallow(
+                <CreateBaselineModal { ...props }/>
+            );
+
+            expect(wrapper.find('GlobalFilterAlert')).toHaveLength(0);
+
+            /*eslint-disable no-undef*/
+            event.currentTarget.value = 'copySystemChecked';
+            wrapper.find('[id="copy system"]').simulate('change', _, event);
+            /*eslint-enable no-undef*/
+
+            expect(wrapper.find('GlobalFilterAlert')).toHaveLength(1);
+        });
     });
 
     it('should cancelModal', () => {

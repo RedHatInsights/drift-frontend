@@ -36,6 +36,7 @@ exports[`AddSystemModal should render correctly 1`] = `
     variant="default"
     width="950px"
   >
+    <GlobalFilterAlert />
     <Tabs
       activeKey={0}
       component="div"
@@ -9326,6 +9327,13 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
               "selectedSystemIds": Array [],
             }
           }
+          globalFilterState={
+            Object {
+              "sidsFilter": Array [],
+              "tagsFilter": Array [],
+              "workloadsFilter": Object {},
+            }
+          }
           hasInventoryReadPermissions={true}
           historicalProfiles={Array []}
           loading={false}
@@ -10423,6 +10431,15 @@ Try changing your filter settings.
                                 className="pf-c-modal-box__body"
                                 id="pf-modal-part-8"
                               >
+                                <GlobalFilterAlert
+                                  globalFilterState={
+                                    Object {
+                                      "sidsFilter": Array [],
+                                      "tagsFilter": Array [],
+                                      "workloadsFilter": Object {},
+                                    }
+                                  }
+                                />
                                 <Tabs
                                   activeKey={1}
                                   component="div"
@@ -14758,6 +14775,13 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
               "selectedSystemIds": Array [],
             }
           }
+          globalFilterState={
+            Object {
+              "sidsFilter": Array [],
+              "tagsFilter": Array [],
+              "workloadsFilter": Object {},
+            }
+          }
           hasInventoryReadPermissions={true}
           historicalProfiles={Array []}
           loading={false}
@@ -15855,6 +15879,15 @@ Try changing your filter settings.
                                 className="pf-c-modal-box__body"
                                 id="pf-modal-part-2"
                               >
+                                <GlobalFilterAlert
+                                  globalFilterState={
+                                    Object {
+                                      "sidsFilter": Array [],
+                                      "tagsFilter": Array [],
+                                      "workloadsFilter": Object {},
+                                    }
+                                  }
+                                />
                                 <Tabs
                                   activeKey={0}
                                   component="div"
@@ -20190,6 +20223,13 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
               "selectedSystemIds": Array [],
             }
           }
+          globalFilterState={
+            Object {
+              "sidsFilter": Array [],
+              "tagsFilter": Array [],
+              "workloadsFilter": Object {},
+            }
+          }
           hasInventoryReadPermissions={false}
           historicalProfiles={Array []}
           loading={false}
@@ -21305,6 +21345,15 @@ Try changing your filter settings.
                                 className="pf-c-modal-box__body"
                                 id="pf-modal-part-4"
                               >
+                                <GlobalFilterAlert
+                                  globalFilterState={
+                                    Object {
+                                      "sidsFilter": Array [],
+                                      "tagsFilter": Array [],
+                                      "workloadsFilter": Object {},
+                                    }
+                                  }
+                                />
                                 <Tabs
                                   activeKey={0}
                                   component="div"
