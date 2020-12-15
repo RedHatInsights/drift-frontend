@@ -7,6 +7,7 @@ import { sortable, cellWidth } from '@patternfly/react-table';
 
 import SystemsTable from '../../SystemsTable/SystemsTable';
 import BaselinesTable from '../../BaselinesTable/BaselinesTable';
+import GlobalFilterAlert from '../../GlobalFilterAlert/GlobalFilterAlert';
 import { createBaselineModalActions } from './redux';
 import { baselinesTableActions } from '../../BaselinesTable/redux';
 
@@ -263,7 +264,8 @@ export class CreateBaselineModal extends Component {
     }
 
     render() {
-        const { createBaselineError, createBaselineModalOpened } = this.props;
+        const { createBaselineError, createBaselineModalOpened, globalFilterState } = this.props;
+        const { copySystemChecked } = this.state;
 
         return (
             <Modal
@@ -273,6 +275,10 @@ export class CreateBaselineModal extends Component {
                 onClose={ this.cancelModal }
                 actions={ this.renderActions() }
             >
+                { copySystemChecked
+                    ? <GlobalFilterAlert globalFilterState={ globalFilterState }/>
+                    : null
+                }
                 { createBaselineError.status
                     ? <Alert
                         variant='danger'
@@ -310,7 +316,8 @@ CreateBaselineModal.propTypes = {
     selectedHSPIds: PropTypes.array,
     hasInventoryReadPermissions: PropTypes.bool,
     hasReadPermissions: PropTypes.bool,
-    hasWritePermissions: PropTypes.bool
+    hasWritePermissions: PropTypes.bool,
+    globalFilterState: PropTypes.object
 };
 
 function mapStateToProps(state) {
@@ -325,7 +332,8 @@ function mapStateToProps(state) {
         baselineTableData: state.baselinesTableState.radioTable.baselineTableData,
         totalBaselines: state.baselinesTableState.radioTable.totalBaselines,
         historicalProfiles: state.compareState.historicalProfiles,
-        selectedHSPIds: state.historicProfilesState.selectedHSPIds
+        selectedHSPIds: state.historicProfilesState.selectedHSPIds,
+        globalFilterState: state.globalFilterState
     };
 }
 
