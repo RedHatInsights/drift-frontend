@@ -109,6 +109,7 @@ export class AddSystemModal extends Component {
                                 selectedBaselineIds.length === 0 &&
                                 selectedHSPIds.length === 0
                             }
+                            ouiaId="submit"
                         >
                             Submit
                         </Button>,
@@ -116,6 +117,7 @@ export class AddSystemModal extends Component {
                             key="cancel"
                             variant="link"
                             onClick={ this.cancelSelection }
+                            ouiaId="cancel"
                         >
                             Cancel
                         </Button>
