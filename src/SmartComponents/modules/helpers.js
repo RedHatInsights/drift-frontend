@@ -235,6 +235,25 @@ function sortFacts(filteredFacts, factSort, stateSort) {
     return filteredFacts;
 }
 
+function addRow(fact) {
+    let columnDelimiter = ',';
+    let value = '';
+    let result = '';
+
+    result += fact.name + columnDelimiter;
+    result += fact.tooltip + columnDelimiter;
+
+    if (fact.systems) {
+        fact.systems.forEach(function(system) {
+            value = system.value ? system.value.replace(/,/g, '') : '';
+            result += value;
+            result += columnDelimiter;
+        });
+    }
+
+    return result;
+}
+
 function convertFactsToCSV(data, systems) {
     if (data === null || !data.length) {
         return null;
@@ -257,56 +276,17 @@ function convertFactsToCSV(data, systems) {
     systemUpdates = systemUpdates.join(columnDelimiter);
     result += columnDelimiter + columnDelimiter + systemUpdates + lineDelimiter;
 
-    let comparisons;
-
     data.forEach(function(fact) {
-        let keys = Object.keys(fact);
-        keys.forEach(function(key, index) {
-            if (index > 0) {
-                result += columnDelimiter;
-            }
+        result += addRow(fact);
+        result += lineDelimiter;
 
-            if (key === 'systems') {
-                fact[key].forEach(function(system) {
-                    let value = system.value ? system.value.replace(/,/g, '') : '';
-                    result += value;
-                    result += columnDelimiter;
-                });
+        if (fact.comparisons) {
+            fact.comparisons.forEach(function(subFact) {
+                result += '     ';
+                result += addRow(subFact);
                 result += lineDelimiter;
-            } else if (key === 'comparisons') {
-                if (fact.comparisons.length) {
-                    result += lineDelimiter;
-                    comparisons = fact.comparisons;
-                    comparisons.forEach(function(fact) {
-                        keys = Object.keys(fact);
-                        keys.forEach(function(key, index) {
-                            if (index > 0) {
-                                result += columnDelimiter;
-                            }
-
-                            if (key === 'systems') {
-                                fact[key].forEach(function(system) {
-                                    let value = system.value ? system.value.replace(/,/g, '') : '';
-                                    result += value;
-                                    result += columnDelimiter;
-                                });
-                                result += lineDelimiter;
-                            } else {
-                                if (key === 'name') {
-                                    result += '    ';
-                                }
-
-                                result += fact[key];
-                            }
-                        });
-                    });
-                } else {
-                    result += lineDelimiter;
-                }
-            } else {
-                result += fact[key];
-            }
-        });
+            });
+        }
     });
 
     return result;
