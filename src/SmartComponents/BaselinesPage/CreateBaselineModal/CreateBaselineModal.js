@@ -232,13 +232,17 @@ export class CreateBaselineModal extends Component {
                 <Button
                     key="confirm"
                     variant="primary"
-                    isDisabled>
+                    isDisabled
+                    ouiaId="create_baseline"
+                >
                     Create baseline
                 </Button>,
                 <Button
                     key="cancel"
                     variant="link"
-                    onClick={ this.cancelModal }>
+                    onClick={ this.cancelModal }
+                    ouiaId="cancel"
+                >
                     Cancel
                 </Button>
             ];
@@ -247,13 +251,17 @@ export class CreateBaselineModal extends Component {
                 <Button
                     key="confirm"
                     variant="primary"
-                    onClick={ this.submitBaselineName }>
+                    onClick={ this.submitBaselineName }
+                    ouiaId="create_baseline"
+                >
                     Create baseline
                 </Button>,
                 <Button
                     key="cancel"
                     variant="link"
-                    onClick={ this.cancelModal }>
+                    onClick={ this.cancelModal }
+                    ouiaId="cancel"
+                >
                     Cancel
                 </Button>
             ];
@@ -278,6 +286,7 @@ export class CreateBaselineModal extends Component {
                         variant='danger'
                         isInline
                         title={ 'Status: ' + createBaselineError.status }
+                        ouiaId="status"
                     >
                         <p>
                             { createBaselineError.detail }

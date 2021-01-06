@@ -221,6 +221,7 @@ export class HistoricalProfilesPopover extends Component {
                         footerContent={ hasCompareButton
                             ? <Button
                                 variant='primary'
+                                ouiaId="compare"
                                 onClick={ () => this.fetchCompare() }>
                                 Compare
                             </Button>

@@ -31,6 +31,7 @@ class ActionKebab extends Component {
                 style={ { float: 'left' } }
                 toggle={ <KebabToggle onToggle={ this.toggleKebab } /> }
                 isOpen={ kebabOpened }
+                ouiaId="action"
                 dropdownItems={ dropdownItems }
                 isPlain
             />

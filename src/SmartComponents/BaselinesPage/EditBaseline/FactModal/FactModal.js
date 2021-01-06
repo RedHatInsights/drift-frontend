@@ -224,12 +224,14 @@ export class FactModal extends Component {
                     <Button
                         key="confirm"
                         variant="primary"
+                        ouiaId="save"
                         onClick={ this.confirmModal }>
                         Save
                     </Button>,
                     <Button
                         key="cancel"
                         variant="link"
+                        ouiaId="cancel"
                         onClick={ this.cancelFact }>
                         Cancel
                     </Button>

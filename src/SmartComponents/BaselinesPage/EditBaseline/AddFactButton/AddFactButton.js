@@ -32,7 +32,9 @@ class AddFactButton extends Component {
                             <Button
                                 variant='primary'
                                 isDisabled
-                                onClick={ this.handleAddFact }>
+                                onClick={ this.handleAddFact }
+                                ouiaId="add_fact"
+                            >
                                 Add fact or category
                             </Button>
                         </div>
@@ -40,7 +42,9 @@ class AddFactButton extends Component {
                     : <Button
                         variant='primary'
                         isDisabled={ isDisabled }
-                        onClick={ this.handleAddFact }>
+                        onClick={ this.handleAddFact }
+                        ouiaId="add_fact"
+                    >
                         Add fact or category
                     </Button>
                 }
