@@ -1077,11 +1077,13 @@ exports[`ConnectedDeleteBaselinesModal should render correctly 1`] = `
               Array [
                 <Button
                   onClick={[Function]}
+                  ouiaId="delete"
                   variant="danger"
                 >
                   Delete baselines
                 </Button>,
                 <Button
+                  ouiaId="cancel"
                   variant="link"
                 >
                   Cancel
@@ -1173,7 +1175,7 @@ exports[`ConnectedDeleteBaselinesModal should render correctly 1`] = `
                           <button
                             aria-disabled="false"
                             class="pf-c-button pf-m-danger"
-                            data-ouia-component-id="OUIA-Generated-Button-danger-6"
+                            data-ouia-component-id="delete"
                             data-ouia-component-type="PF4/Button"
                             data-ouia-safe="true"
                             type="button"
@@ -1183,7 +1185,7 @@ exports[`ConnectedDeleteBaselinesModal should render correctly 1`] = `
                           <button
                             aria-disabled="false"
                             class="pf-c-button pf-m-link"
-                            data-ouia-component-id="OUIA-Generated-Button-link-6"
+                            data-ouia-component-id="cancel"
                             data-ouia-component-type="PF4/Button"
                             data-ouia-safe="true"
                             type="button"
@@ -1202,11 +1204,13 @@ exports[`ConnectedDeleteBaselinesModal should render correctly 1`] = `
                   Array [
                     <Button
                       onClick={[Function]}
+                      ouiaId="delete"
                       variant="danger"
                     >
                       Delete baselines
                     </Button>,
                     <Button
+                      ouiaId="cancel"
                       variant="link"
                     >
                       Cancel
@@ -1363,13 +1367,14 @@ exports[`ConnectedDeleteBaselinesModal should render correctly 1`] = `
                                 <Button
                                   key="confirm"
                                   onClick={[Function]}
+                                  ouiaId="delete"
                                   variant="danger"
                                 >
                                   <button
                                     aria-disabled={false}
                                     aria-label={null}
                                     className="pf-c-button pf-m-danger"
-                                    data-ouia-component-id="OUIA-Generated-Button-danger-6"
+                                    data-ouia-component-id="delete"
                                     data-ouia-component-type="PF4/Button"
                                     data-ouia-safe={true}
                                     disabled={false}
@@ -1382,13 +1387,14 @@ exports[`ConnectedDeleteBaselinesModal should render correctly 1`] = `
                                 </Button>
                                 <Button
                                   key="cancel"
+                                  ouiaId="cancel"
                                   variant="link"
                                 >
                                   <button
                                     aria-disabled={false}
                                     aria-label={null}
                                     className="pf-c-button pf-m-link"
-                                    data-ouia-component-id="OUIA-Generated-Button-link-6"
+                                    data-ouia-component-id="cancel"
                                     data-ouia-component-type="PF4/Button"
                                     data-ouia-safe={true}
                                     disabled={false}
@@ -1422,12 +1428,14 @@ exports[`DeleteBaselinesModal should render Delete baseline with baselineId 1`] 
     Array [
       <Button
         onClick={[Function]}
+        ouiaId="delete"
         variant="danger"
       >
         Delete baseline
       </Button>,
       <Button
         onClick={[MockFunction]}
+        ouiaId="cancel"
         variant="link"
       >
         Cancel
@@ -1459,12 +1467,14 @@ exports[`DeleteBaselinesModal should render correctly 1`] = `
     Array [
       <Button
         onClick={[Function]}
+        ouiaId="delete"
         variant="danger"
       >
         Delete baselines
       </Button>,
       <Button
         onClick={[MockFunction]}
+        ouiaId="cancel"
         variant="link"
       >
         Cancel
@@ -1504,12 +1514,14 @@ exports[`DeleteBaselinesModal should render mount correctly 1`] = `
       Array [
         <Button
           onClick={[Function]}
+          ouiaId="delete"
           variant="danger"
         >
           Delete baselines
         </Button>,
         <Button
           onClick={[MockFunction]}
+          ouiaId="cancel"
           variant="link"
         >
           Cancel
@@ -1601,7 +1613,7 @@ exports[`DeleteBaselinesModal should render mount correctly 1`] = `
                   <button
                     aria-disabled="false"
                     class="pf-c-button pf-m-danger"
-                    data-ouia-component-id="OUIA-Generated-Button-danger-1"
+                    data-ouia-component-id="delete"
                     data-ouia-component-type="PF4/Button"
                     data-ouia-safe="true"
                     type="button"
@@ -1611,7 +1623,7 @@ exports[`DeleteBaselinesModal should render mount correctly 1`] = `
                   <button
                     aria-disabled="false"
                     class="pf-c-button pf-m-link"
-                    data-ouia-component-id="OUIA-Generated-Button-link-1"
+                    data-ouia-component-id="cancel"
                     data-ouia-component-type="PF4/Button"
                     data-ouia-safe="true"
                     type="button"
@@ -1630,12 +1642,14 @@ exports[`DeleteBaselinesModal should render mount correctly 1`] = `
           Array [
             <Button
               onClick={[Function]}
+              ouiaId="delete"
               variant="danger"
             >
               Delete baselines
             </Button>,
             <Button
               onClick={[MockFunction]}
+              ouiaId="cancel"
               variant="link"
             >
               Cancel
@@ -1792,13 +1806,14 @@ exports[`DeleteBaselinesModal should render mount correctly 1`] = `
                         <Button
                           key="confirm"
                           onClick={[Function]}
+                          ouiaId="delete"
                           variant="danger"
                         >
                           <button
                             aria-disabled={false}
                             aria-label={null}
                             className="pf-c-button pf-m-danger"
-                            data-ouia-component-id="OUIA-Generated-Button-danger-1"
+                            data-ouia-component-id="delete"
                             data-ouia-component-type="PF4/Button"
                             data-ouia-safe={true}
                             disabled={false}
@@ -1812,13 +1827,14 @@ exports[`DeleteBaselinesModal should render mount correctly 1`] = `
                         <Button
                           key="cancel"
                           onClick={[MockFunction]}
+                          ouiaId="cancel"
                           variant="link"
                         >
                           <button
                             aria-disabled={false}
                             aria-label={null}
                             className="pf-c-button pf-m-link"
-                            data-ouia-component-id="OUIA-Generated-Button-link-1"
+                            data-ouia-component-id="cancel"
                             data-ouia-component-type="PF4/Button"
                             data-ouia-safe={true}
                             disabled={false}

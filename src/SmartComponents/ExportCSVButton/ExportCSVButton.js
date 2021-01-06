@@ -23,6 +23,7 @@ class ExportCSVButton extends Component {
                 isPlain
                 position={ DropdownPosition.left }
                 dropdownItems={ dropdownItems }
+                ouiaId="export"
             />
         );
     }

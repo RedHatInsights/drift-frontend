@@ -94,6 +94,7 @@ class EditBaselineKebab extends Component {
                     isOpen={ kebabOpened }
                     dropdownItems={ dropdownItems }
                     isPlain
+                    ouiaId="actions"
                 />
             </React.Fragment>
         );

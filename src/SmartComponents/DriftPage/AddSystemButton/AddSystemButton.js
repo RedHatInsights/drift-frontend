@@ -18,6 +18,7 @@ export class AddSystemButton extends Component {
                 variant='primary'
                 onClick={ toggleAddSystemModal }
                 isDisabled={ loading ? true : false }
+                ouiaId="add"
             >
                 { isTable ? 'Add' : 'Add to comparison' }
             </Button>
