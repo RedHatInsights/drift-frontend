@@ -40,6 +40,7 @@ export class BaselinesPage extends Component {
 
     async componentDidMount() {
         await window.insights.chrome.auth.getUser();
+        await window.insights?.chrome?.appAction?.('baseline-list');
     }
 
     fetchBaseline = (baselineId) => {
