@@ -44,6 +44,12 @@ export class DriftTable extends Component {
         }
     }
 
+    async shouldComponentUpdate(nextProps) {
+        if (!nextProps.emptyState) {
+            await window.insights?.chrome?.appAction?.('comparison-view');
+        }
+    }
+
     shiftReferenceToFront = (masterList) => {
         let index;
         let systemToMove;

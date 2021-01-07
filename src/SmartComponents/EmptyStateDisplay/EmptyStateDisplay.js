@@ -8,6 +8,10 @@ export class EmptyStateDisplay extends Component {
         super(props);
     }
 
+    async componentDidMount() {
+        await window.insights?.chrome?.appAction?.('comparison-list');
+    }
+
     render() {
         const { button, color, error, icon, isSmall, text, title } = this.props;
 

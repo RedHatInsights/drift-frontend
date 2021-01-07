@@ -54,7 +54,11 @@ export class EditBaseline extends Component {
     }
 
     async componentDidMount() {
+        const { match: { params }} = this.props;
+
         await window.insights.chrome.auth.getUser();
+        await window.insights?.chrome?.appAction?.('baseline-view');
+        await window.insights?.chrome?.appObjectId(params.id);
     }
 
     componentDidUpdate() {
