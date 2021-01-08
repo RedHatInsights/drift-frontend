@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchBar should render correctly 1`] = `
+<Fragment>
+  <Form>
+    <FormGroup
+      fieldId="filter"
+      isRequired={true}
+      onKeyPress={[Function]}
+      type="text"
+    >
+      <TextInput
+        aria-label="filter by fact"
+        id="filterByFact"
+        onChange={[Function]}
+        placeholder="Filter by fact"
+        value=""
+      />
+    </FormGroup>
+  </Form>
+</Fragment>
+`;
+
+exports[`SearchBar should update fact filter 1`] = `
+<Fragment>
+  <Form>
+    <FormGroup
+      fieldId="filter"
+      isRequired={true}
+      onKeyPress={[Function]}
+      type="text"
+    >
+      <TextInput
+        aria-label="filter by fact"
+        id="filterByFact"
+        onChange={[Function]}
+        placeholder="Filter by fact"
+        value="dubbel"
+      />
+    </FormGroup>
+  </Form>
+</Fragment>
+`;
+
+exports[`SearchBar should update state fact filter on componentDidUpdate 1`] = `
+<Fragment>
+  <Form>
+    <FormGroup
+      fieldId="filter"
+      isRequired={true}
+      onKeyPress={[Function]}
+      type="text"
+    >
+      <TextInput
+        aria-label="filter by fact"
+        id="filterByFact"
+        onChange={[Function]}
+        placeholder="Filter by fact"
+        value=""
+      />
+    </FormGroup>
+  </Form>
+</Fragment>
+`;

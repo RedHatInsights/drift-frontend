@@ -74,6 +74,19 @@ function filterByFact(filter) {
     };
 }
 
+function handleFactFilter(filter) {
+    return {
+        type: types.HANDLE_FACT_FILTER,
+        payload: filter
+    };
+}
+
+function clearAllFactFilters() {
+    return {
+        type: types.CLEAR_ALL_FACT_FILTERS
+    };
+}
+
 function updatePagination(pagination) {
     return {
         type: types.UPDATE_DRIFT_PAGINATION,
@@ -132,6 +145,8 @@ export default {
     addStateFilter,
     toggleStateSort,
     filterByFact,
+    handleFactFilter,
+    clearAllFactFilters,
     updatePagination,
     exportToCSV,
     expandRow,

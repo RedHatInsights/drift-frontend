@@ -1,10 +1,11 @@
-import { compareReducer } from '../reducers';
+import { compareReducer, globalFilterReducer } from '../reducers';
 import types from '../types';
 import { ASC, DESC } from '../../../constants';
 
-import { compareReducerPayload, compareReducerState, sortedDesc,
-    paginatedStatePageOne, paginatedStatePageTwo } from './reducer.fixtures';
-import { factFilteredStateOne, factFilteredStateTwo } from './reducer.fact-filter-fixtures';
+import { compareReducerPayload, compareReducerPayloadWithCategory, compareReducerState,
+    sortedDesc, paginatedStatePageOne, paginatedStatePageTwo } from './reducer.fixtures';
+import { factFilteredStateOne, factFilteredStateTwo, activeFactFilteredStateOne,
+    activeFactFilteredStateTwo } from './reducer.fact-filter-fixtures';
 import stateFilteredFixtures from './reducer.state-filter-fixtures';
 import stateFilters from './state-filter.fixtures';
 
@@ -15,6 +16,7 @@ describe('compare reducer', () => {
                 fullCompareData: [],
                 sortedFilteredFacts: [],
                 factFilter: '',
+                activeFactFilters: [],
                 stateFilters: stateFilters.allStatesTrue,
                 factSort: ASC,
                 stateSort: DESC,
@@ -56,6 +58,7 @@ describe('compare reducer', () => {
             sortedFilteredFacts: [],
             referenceId: undefined,
             factFilter: 'dog',
+            activeFactFilters: [],
             stateFilters: stateFilters.diffStateTrue,
             factSort: DESC,
             stateSort: ASC,
@@ -90,7 +93,8 @@ describe('compare reducer', () => {
                 factSort: DESC,
                 stateSort: ASC,
                 stateFilters: stateFilters.diffStateTrue,
-                factFilter: 'dog' }, {
+                factFilter: 'dog',
+                activeFactFilters: [ 'cat', 'mouse' ]}, {
                 type: `${types.CLEAR_COMPARISON_FILTERS}` })
         ).toEqual({
             baselines: [],
@@ -98,6 +102,7 @@ describe('compare reducer', () => {
             sortedFilteredFacts: [],
             referenceId: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9',
             factFilter: '',
+            activeFactFilters: [],
             stateFilters: stateFilters.allStatesFalse,
             factSort: DESC,
             stateSort: ASC,
@@ -731,6 +736,179 @@ describe('compare reducer', () => {
         });
     });
 
+    it('should handle FILTER_BY_FACT with activeFactFilters and state: SAME', () => {
+        expect(
+            compareReducer({
+                page: 1,
+                perPage: 50,
+                fullCompareData: compareReducerPayloadWithCategory.facts,
+                systems: compareReducerPayloadWithCategory.systems,
+                factFilter: '',
+                activeFactFilters: [ 'bios' ],
+                stateFilters: stateFilters.sameStateTrue },
+            {
+                payload: 'adx',
+                type: `${types.FILTER_BY_FACT}`
+            })
+        ).toEqual({
+            fullCompareData: compareReducerPayloadWithCategory.facts,
+            factFilter: 'adx',
+            activeFactFilters: [ 'bios' ],
+            filteredCompareData: factFilteredStateTwo.facts,
+            sortedFilteredFacts: factFilteredStateTwo.facts,
+            systems: factFilteredStateTwo.systems,
+            page: 1,
+            perPage: 50,
+            stateFilters: stateFilters.sameStateTrue,
+            totalFacts: 1
+        });
+    });
+
+    it('should handle FILTER_BY_FACT with activeFactFilters, all states True', () => {
+        expect(
+            compareReducer({
+                page: 1,
+                perPage: 50,
+                fullCompareData: compareReducerPayloadWithCategory.facts,
+                systems: compareReducerPayloadWithCategory.systems,
+                factFilter: '',
+                activeFactFilters: [ 'bios' ],
+                stateFilters: stateFilters.allStatesTrue },
+            {
+                payload: 'abm',
+                type: `${types.FILTER_BY_FACT}`
+            })
+        ).toEqual({
+            fullCompareData: compareReducerPayloadWithCategory.facts,
+            factFilter: 'abm',
+            activeFactFilters: [ 'bios' ],
+            filteredCompareData: activeFactFilteredStateTwo.facts,
+            sortedFilteredFacts: activeFactFilteredStateTwo.facts,
+            systems: activeFactFilteredStateTwo.systems,
+            page: 1,
+            perPage: 50,
+            stateFilters: stateFilters.allStatesTrue,
+            totalFacts: 2
+        });
+    });
+
+    it('should handle HANDLE_FACT_FILTER no active filters, all states true', () => {
+        expect(
+            compareReducer({
+                page: 1,
+                perPage: 50,
+                fullCompareData: compareReducerPayloadWithCategory.facts,
+                systems: compareReducerPayloadWithCategory.systems,
+                factFilter: 'bios',
+                activeFactFilters: [],
+                stateFilters: stateFilters.allStatesTrue },
+            {
+                payload: 'bios',
+                type: `${types.HANDLE_FACT_FILTER}`
+            })
+        ).toEqual({
+            fullCompareData: compareReducerPayloadWithCategory.facts,
+            factFilter: '',
+            activeFactFilters: [ 'bios' ],
+            filteredCompareData: activeFactFilteredStateOne.facts,
+            sortedFilteredFacts: activeFactFilteredStateOne.facts,
+            systems: activeFactFilteredStateOne.systems,
+            page: 1,
+            perPage: 50,
+            stateFilters: stateFilters.allStatesTrue,
+            totalFacts: 1
+        });
+    });
+
+    it('should handle HANDLE_FACT_FILTER no active filters, all states different', () => {
+        expect(
+            compareReducer({
+                page: 1,
+                perPage: 50,
+                fullCompareData: compareReducerPayloadWithCategory.facts,
+                systems: compareReducerPayloadWithCategory.systems,
+                factFilter: 'bios',
+                activeFactFilters: [],
+                stateFilters: stateFilters.allStatesFalse },
+            {
+                payload: 'bios',
+                type: `${types.HANDLE_FACT_FILTER}`
+            })
+        ).toEqual({
+            fullCompareData: compareReducerPayloadWithCategory.facts,
+            factFilter: '',
+            activeFactFilters: [ 'bios' ],
+            filteredCompareData: [],
+            sortedFilteredFacts: [],
+            systems: activeFactFilteredStateOne.systems,
+            page: 1,
+            perPage: 50,
+            stateFilters: stateFilters.allStatesFalse,
+            totalFacts: 0
+        });
+    });
+
+    it('should handle HANDLE_FACT_FILTER remove active fact filter, all states true', () => {
+        expect(
+            compareReducer({
+                page: 1,
+                perPage: 50,
+                fullCompareData: compareReducerPayloadWithCategory.facts,
+                filteredCompareData: activeFactFilteredStateOne.facts,
+                sortedFilteredFacts: activeFactFilteredStateOne.facts,
+                systems: compareReducerPayloadWithCategory.systems,
+                factFilter: '',
+                activeFactFilters: [ 'bios' ],
+                stateFilters: stateFilters.allStatesTrue,
+                totalFacts: 1 },
+            {
+                payload: 'bios',
+                type: `${types.HANDLE_FACT_FILTER}`
+            })
+        ).toEqual({
+            fullCompareData: compareReducerPayloadWithCategory.facts,
+            factFilter: '',
+            activeFactFilters: [],
+            filteredCompareData: compareReducerPayloadWithCategory.facts,
+            sortedFilteredFacts: compareReducerPayloadWithCategory.facts,
+            systems: compareReducerPayloadWithCategory.systems,
+            page: 1,
+            perPage: 50,
+            stateFilters: stateFilters.allStatesTrue,
+            totalFacts: 4
+        });
+    });
+
+    it('should handle CLEAR_ALL_FACT_FILTERS', () => {
+        expect(
+            compareReducer({
+                page: 1,
+                perPage: 50,
+                fullCompareData: compareReducerPayloadWithCategory.facts,
+                filteredCompareData: activeFactFilteredStateTwo.facts,
+                sortedFilteredFacts: activeFactFilteredStateTwo.facts,
+                systems: compareReducerPayloadWithCategory.systems,
+                factFilter: 'abm',
+                activeFactFilters: [ 'bios' ],
+                stateFilters: stateFilters.allStatesTrue,
+                totalFacts: 2 },
+            {
+                type: `${types.CLEAR_ALL_FACT_FILTERS}`
+            })
+        ).toEqual({
+            fullCompareData: compareReducerPayloadWithCategory.facts,
+            factFilter: '',
+            activeFactFilters: [],
+            filteredCompareData: compareReducerPayloadWithCategory.facts,
+            sortedFilteredFacts: compareReducerPayloadWithCategory.facts,
+            systems: compareReducerPayloadWithCategory.systems,
+            page: 1,
+            perPage: 50,
+            stateFilters: stateFilters.allStatesTrue,
+            totalFacts: 4
+        });
+    });
+
     it('should handle TOGGLE_FACT_SORT DESC', () => {
         expect(
             compareReducer({
@@ -936,6 +1114,7 @@ describe('compare reducer', () => {
                 fullCompareData: [],
                 sortedFilteredFacts: [],
                 factFilter: '',
+                activeFactFilters: [],
                 stateFilters: stateFilters.allStatesTrue,
                 factSort: ASC,
                 stateSort: DESC,
@@ -949,7 +1128,8 @@ describe('compare reducer', () => {
                 loading: false,
                 expandedRows: [],
                 error: {},
-                emptyState: true
+                emptyState: true,
+                referenceId: undefined
             }
         );
     });
@@ -965,6 +1145,53 @@ describe('compare reducer', () => {
         ).toEqual(
             {
                 referenceId: 'abcd-1234-efgh-5678'
+            }
+        );
+    });
+});
+
+describe('compare reducer', () => {
+    it('should handle SET_GLOBAL_FILTER_TAGS', () => {
+        expect(
+            globalFilterReducer({
+                tagsFilter: []},
+            {
+                payload: [ 'tag1', 'tag2' ],
+                type: `${types.SET_GLOBAL_FILTER_TAGS}`
+            })
+        ).toEqual(
+            {
+                tagsFilter: [ 'tag1', 'tag2' ]
+            }
+        );
+    });
+
+    it('should handle SET_GLOBAL_FILTER_WORKLOADS', () => {
+        expect(
+            globalFilterReducer({
+                workloadsFilter: []},
+            {
+                payload: [ 'workload1', 'workload2' ],
+                type: `${types.SET_GLOBAL_FILTER_WORKLOADS}`
+            })
+        ).toEqual(
+            {
+                workloadsFilter: [ 'workload1', 'workload2' ]
+            }
+        );
+    });
+
+    it('should handle SET_GLOBAL_FILTER_SIDS', () => {
+        expect(
+            globalFilterReducer({
+                sidsFilter: []},
+            {
+                payload: [ 'SID1', 'SID2' ],
+                type: `${types.SET_GLOBAL_FILTER_SIDS}`
+            })
+        ).toEqual(
+            {
+                sidsFilter: [ 'SID1', 'SID2' ]
             }
         );
     });

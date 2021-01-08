@@ -155,6 +155,19 @@ describe('compare actions', () => {
         });
     });
 
+    it('handles handleFactFilter', () => {
+        expect(compareActions.handleFactFilter('filter')).toEqual({
+            type: types.HANDLE_FACT_FILTER,
+            payload: 'filter'
+        });
+    });
+
+    it('handles clearAllFactFilters', () => {
+        expect(compareActions.clearAllFactFilters()).toEqual({
+            type: types.CLEAR_ALL_FACT_FILTERS
+        });
+    });
+
     it('handles updatePagination', () => {
         let pagination = {
             page: 1,
@@ -177,6 +190,48 @@ describe('compare actions', () => {
         expect(compareActions.expandRow('arch')).toEqual({
             type: types.EXPAND_ROW,
             payload: 'arch'
+        });
+    });
+
+    it('handles setGlobalFilterTags', () => {
+        expect(compareActions.setGlobalFilterTags([ 'tag1', 'tag2' ])).toEqual({
+            type: types.SET_GLOBAL_FILTER_TAGS,
+            payload: [ 'tag1', 'tag2' ]
+        });
+    });
+
+    it('handles setGlobalFilterTags empty', () => {
+        expect(compareActions.setGlobalFilterTags()).toEqual({
+            type: types.SET_GLOBAL_FILTER_TAGS,
+            payload: []
+        });
+    });
+
+    it('handles setGlobalFilterWorkloads', () => {
+        expect(compareActions.setGlobalFilterWorkloads([ 'workload1', 'workload2' ])).toEqual({
+            type: types.SET_GLOBAL_FILTER_WORKLOADS,
+            payload: [ 'workload1', 'workload2' ]
+        });
+    });
+
+    it('handles setGlobalFilterWorkloads empty', () => {
+        expect(compareActions.setGlobalFilterWorkloads()).toEqual({
+            type: types.SET_GLOBAL_FILTER_WORKLOADS,
+            payload: []
+        });
+    });
+
+    it('handles setGlobalFilterSIDs', () => {
+        expect(compareActions.setGlobalFilterSIDs([ 'SID1', 'SID2' ])).toEqual({
+            type: types.SET_GLOBAL_FILTER_SIDS,
+            payload: [ 'SID1', 'SID2' ]
+        });
+    });
+
+    it('handles setGlobalFilterSIDs empty', () => {
+        expect(compareActions.setGlobalFilterSIDs()).toEqual({
+            type: types.SET_GLOBAL_FILTER_SIDS,
+            payload: []
         });
     });
 });
