@@ -15,15 +15,140 @@ exports[`DriftToolbar should render correctly 1`] = `
       >
         <ToolbarFilter
           categoryName="Fact name"
+          chips={Array []}
+          deleteChip={[Function]}
+          deleteChipGroup={[Function]}
+          showToolbarItem={true}
+        >
+          <SearchBar
+            activeFactFilters={Array []}
+            factFilter=""
+            filterByFact={[MockFunction]}
+            handleFactFilter={[MockFunction]}
+          />
+        </ToolbarFilter>
+        <ToolbarFilter
+          categoryName="State"
           chips={
             Array [
-              undefined,
+              "Same",
+              "Different",
+              "Incomplete data",
             ]
           }
           deleteChip={[Function]}
+          deleteChipGroup={[Function]}
           showToolbarItem={true}
         >
-          <Connect(SearchBar) />
+          <Connect(FilterDropDown) />
+        </ToolbarFilter>
+      </ForwardRef>
+      <ForwardRef
+        variant="button-group"
+      >
+        <ToolbarItem>
+          <Connect(AddSystemButton)
+            loading={false}
+          />
+        </ToolbarItem>
+      </ForwardRef>
+      <ForwardRef
+        variant="icon-button-group"
+      >
+        <ToolbarItem>
+          <ExportCSVButton
+            dropdownItems={
+              Array [
+                <DropdownItem
+                  component="button"
+                  onClick={[Function]}
+                >
+                  Export to CSV
+                </DropdownItem>,
+              ]
+            }
+            isOpen={false}
+            onToggle={[Function]}
+          />
+        </ToolbarItem>
+        <ToolbarItem>
+          <ActionKebab
+            dropdownItems={
+              Array [
+                <DropdownItem
+                  component="button"
+                  onClick={[Function]}
+                >
+                  Clear all comparisons
+                </DropdownItem>,
+              ]
+            }
+          />
+        </ToolbarItem>
+      </ForwardRef>
+      <ToolbarItem
+        align={
+          Object {
+            "default": "alignRight",
+          }
+        }
+        variant="pagination"
+      >
+        <TablePagination
+          isCompact={true}
+          page={1}
+          perPage={50}
+          total={30}
+          updatePagination={[MockFunction]}
+          variant="top"
+          widgetId="drift-pagination-top"
+        />
+      </ToolbarItem>
+      <ForwardRef
+        variant="filter-group"
+      />
+    </ToolbarContent>
+  </Toolbar>
+</Fragment>
+`;
+
+exports[`DriftToolbar should render with fact filter chips 1`] = `
+<Fragment>
+  <Toolbar
+    className="drift-toolbar"
+    clearAllFilters={[Function]}
+  >
+    <ToolbarContent
+      isExpanded={false}
+      showClearFiltersButton={false}
+    >
+      <ForwardRef
+        variant="filter-group"
+      >
+        <ToolbarFilter
+          categoryName="Fact name"
+          chips={
+            Array [
+              "cat",
+              "mouse",
+              "dog",
+            ]
+          }
+          deleteChip={[Function]}
+          deleteChipGroup={[Function]}
+          showToolbarItem={true}
+        >
+          <SearchBar
+            activeFactFilters={
+              Array [
+                "cat",
+                "mouse",
+              ]
+            }
+            factFilter="dog"
+            filterByFact={[MockFunction]}
+            handleFactFilter={[MockFunction]}
+          />
         </ToolbarFilter>
         <ToolbarFilter
           categoryName="State"

@@ -34,6 +34,27 @@ export class DriftToolbar extends Component {
         };
     }
 
+    setFactFilterChips = () => {
+        const { activeFactFilters, factFilter } = this.props;
+        let factFilterChips = [ ...activeFactFilters ];
+
+        if (factFilter.length && !activeFactFilters.includes(factFilter)) {
+            factFilterChips.push(factFilter);
+        }
+
+        return factFilterChips;
+    }
+
+    async clearAllFactChips() {
+        const { activeFactFilters, filterByFact, handleFactFilter } = this.props;
+
+        await activeFactFilters.forEach(function (filter) {
+            handleFactFilter(filter);
+        });
+
+        filterByFact('');
+    }
+
     setStateChips = (stateFilters) => {
         let stateChips = [];
 
@@ -56,7 +77,7 @@ export class DriftToolbar extends Component {
     }
 
     removeChip = (type = '', id = '') => {
-        const { addStateFilter, filterByFact, stateFilters } = this.props;
+        const { activeFactFilters, addStateFilter, clearAllFactFilters, filterByFact, handleFactFilter, stateFilters } = this.props;
 
         if (type) {
             if (type === 'State') {
@@ -70,11 +91,17 @@ export class DriftToolbar extends Component {
                     });
                 }
             } else {
-                filterByFact('');
+                if (id === '') {
+                    clearAllFactFilters();
+                } else if (activeFactFilters.includes(id)) {
+                    handleFactFilter(id);
+                } else {
+                    filterByFact('');
+                }
             }
         } else {
             this.clearAllStateChips();
-            filterByFact('');
+            this.clearAllFactChips();
         }
     }
 
@@ -107,7 +134,8 @@ export class DriftToolbar extends Component {
     }
 
     render() {
-        const { factFilter, loading, page, perPage, stateFilters, totalFacts, updatePagination } = this.props;
+        const { activeFactFilters, factFilter, filterByFact, handleFactFilter,
+            loading, page, perPage, stateFilters, totalFacts, updatePagination } = this.props;
         const { actionKebabItems, dropdownItems, dropdownOpen, isEmpty } = this.state;
 
         return (
@@ -116,11 +144,17 @@ export class DriftToolbar extends Component {
                     <ToolbarContent>
                         <ToolbarGroup variant='filter-group'>
                             <ToolbarFilter
-                                chips={ factFilter !== '' ? [ factFilter ] : [] }
+                                chips={ this.setFactFilterChips() }
                                 deleteChip={ this.removeChip }
+                                deleteChipGroup={ this.removeChip }
                                 categoryName="Fact name"
                             >
-                                <SearchBar />
+                                <SearchBar
+                                    factFilter={ factFilter }
+                                    activeFactFilters={ activeFactFilters }
+                                    handleFactFilter={ handleFactFilter }
+                                    filterByFact={ filterByFact }
+                                />
                             </ToolbarFilter>
                             <ToolbarFilter
                                 chips={ this.setStateChips(stateFilters) }
@@ -192,7 +226,10 @@ DriftToolbar.propTypes = {
     factFilter: PropTypes.string,
     filterByFact: PropTypes.func,
     stateFilters: PropTypes.array,
-    addStateFilter: PropTypes.func
+    addStateFilter: PropTypes.func,
+    activeFactFilters: PropTypes.array,
+    handleFactFilter: PropTypes.func,
+    clearAllFactFilters: PropTypes.func
 };
 
 export default DriftToolbar;

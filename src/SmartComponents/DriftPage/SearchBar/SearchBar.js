@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { TextInput } from '@patternfly/react-core';
+import { Form, FormGroup, TextInput } from '@patternfly/react-core';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-
-import { compareActions } from '../../modules';
 
 export class SearchBar extends Component {
     constructor(props) {
@@ -29,39 +26,50 @@ export class SearchBar extends Component {
     }
 
     setFactFilter = _.debounce(function(filter) {
-        this.props.changeFactFilter(filter);
+        this.props.filterByFact(filter);
     }, 250);
+
+    checkKeyPress = (event) => {
+        const { activeFactFilters, handleFactFilter } = this.props;
+        const { filter } = this.state;
+
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            if (!activeFactFilters.includes(filter)) {
+                handleFactFilter(filter);
+            }
+        }
+    }
 
     render() {
         return (
             <React.Fragment>
-                <TextInput
-                    value={ this.state.filter }
-                    id="filterByFact"
-                    placeholder="Filter by fact"
-                    onChange={ this.updateFactFilter }
-                    aria-label="filter by fact"
-                />
+                <Form>
+                    <FormGroup
+                        isRequired
+                        type="text"
+                        fieldId="filter"
+                        onKeyPress={ this.checkKeyPress }
+                    >
+                        <TextInput
+                            value={ this.state.filter }
+                            id="filterByFact"
+                            placeholder="Filter by fact"
+                            onChange={ this.updateFactFilter }
+                            aria-label="filter by fact"
+                        />
+                    </FormGroup>
+                </Form>
             </React.Fragment>
         );
     }
 }
 
 SearchBar.propTypes = {
-    changeFactFilter: PropTypes.func,
-    factFilter: PropTypes.string
+    filterByFact: PropTypes.func,
+    factFilter: PropTypes.string,
+    handleFactFilter: PropTypes.func,
+    activeFactFilters: PropTypes.array
 };
 
-function mapStateToProps(state) {
-    return {
-        factFilter: state.compareState.factFilter
-    };
-}
-
-function mapDispatchToProps(dispatch) {
-    return {
-        changeFactFilter: (factFilter) => dispatch(compareActions.filterByFact(factFilter))
-    };
-}
-
-export default (connect(mapStateToProps, mapDispatchToProps)(SearchBar));
+export default SearchBar;

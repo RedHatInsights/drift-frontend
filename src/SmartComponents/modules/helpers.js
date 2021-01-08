@@ -66,7 +66,7 @@ function setTooltip (data, stateFilters, referenceId) {
     }
 }
 
-function filterCompareData(data, stateFilters, factFilter, referenceId) {
+function filterCompareData(data, stateFilters, factFilter, referenceId, activeFactFilters) {
     let filteredFacts = [];
     let filteredComparisons = [];
     let isStateSelected;
@@ -79,9 +79,9 @@ function filterCompareData(data, stateFilters, factFilter, referenceId) {
         isStateSelected = getStateSelected(data[i].state, stateFilters);
 
         if (data[i].comparisons) {
-            if (data[i].name === factFilter) {
+            if (data[i].name === factFilter || activeFactFilters?.includes(data[i].name)) {
                 setTooltip(data[i], stateFilters, referenceId);
-                filteredComparisons = filterComparisons(data[i].comparisons, stateFilters, '', referenceId);
+                filteredComparisons = filterComparisons(data[i].comparisons, stateFilters, '', referenceId, []);
                 filteredFacts.push({
                     name: data[i].name,
                     state: data[i].state,
@@ -92,7 +92,7 @@ function filterCompareData(data, stateFilters, factFilter, referenceId) {
                 break;
             }
 
-            filteredComparisons = filterComparisons(data[i].comparisons, stateFilters, factFilter, referenceId);
+            filteredComparisons = filterComparisons(data[i].comparisons, stateFilters, factFilter, referenceId, activeFactFilters);
 
             if (filteredComparisons.length) {
                 setTooltip(data[i], stateFilters, referenceId);
@@ -104,11 +104,9 @@ function filterCompareData(data, stateFilters, factFilter, referenceId) {
                 });
             }
         } else {
-            if (data[i].name.includes(factFilter)) {
-                if (isStateSelected) {
-                    setTooltip(data[i], stateFilters, referenceId);
-                    filteredFacts.push(data[i]);
-                }
+            if (isStateSelected && filterFact(data[i].name, factFilter, activeFactFilters)) {
+                setTooltip(data[i], stateFilters, referenceId);
+                filteredFacts.push(data[i]);
             }
         }
     }
@@ -116,22 +114,40 @@ function filterCompareData(data, stateFilters, factFilter, referenceId) {
     return filteredFacts;
 }
 
-function filterComparisons(comparisons, stateFilters, factFilter, referenceId) {
+function filterComparisons(comparisons, stateFilters, factFilter, referenceId, activeFactFilters) {
     let filteredComparisons = [];
     let isStateSelected;
 
     for (let i = 0; i < comparisons.length; i++) {
         isStateSelected = getStateSelected(comparisons[i].state, stateFilters);
-
-        if (comparisons[i].name.includes(factFilter)) {
-            if (isStateSelected) {
-                setTooltip(comparisons[i], stateFilters, referenceId);
-                filteredComparisons.push(comparisons[i]);
-            }
+        if (isStateSelected && filterFact(comparisons[i].name, factFilter, activeFactFilters)) {
+            setTooltip(comparisons[i], stateFilters, referenceId);
+            filteredComparisons.push(comparisons[i]);
         }
     }
 
     return filteredComparisons;
+}
+
+function filterFact(factName, factFilter, activeFactFilters) {
+    let isFiltered = false;
+
+    if (activeFactFilters?.length > 0) {
+        activeFactFilters.forEach(function(filter) {
+            if (factName.includes(filter)) {
+                isFiltered = true;
+            }
+        });
+
+        if (!isFiltered && factFilter.length && factName.includes(factFilter)) {
+            isFiltered = true;
+        }
+
+    } else if (factName.includes(factFilter)) {
+        isFiltered = true;
+    }
+
+    return isFiltered;
 }
 
 function sortData(filteredFacts, factSort, stateSort) {
@@ -340,14 +356,20 @@ function updateStateFilters(stateFilters, updatedStateFilter) {
     return newStateFilters;
 }
 
+function findFilterIndex(filter, activeFactFilters) {
+    return activeFactFilters.indexOf(filter);
+}
+
 export default {
     paginateData,
     getStateSelected,
     getState,
     setTooltip,
     filterCompareData,
+    filterFact,
     sortData,
     downloadCSV,
     toggleExpandedRow,
-    updateStateFilters
+    updateStateFilters,
+    findFilterIndex
 };

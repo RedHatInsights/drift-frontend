@@ -14,6 +14,8 @@ describe('DriftToolbar', () => {
             page: 1,
             perPage: 50,
             totalFacts: 30,
+            factFilter: '',
+            activeFactFilters: [],
             clearSelectedBaselines: jest.fn(),
             clearComparison: jest.fn(),
             clearComparisonFilters: jest.fn(),
@@ -23,11 +25,24 @@ describe('DriftToolbar', () => {
             history: { push: jest.fn() },
             stateFilters: stateFilters.allStatesTrue,
             addStateFilter: jest.fn(),
-            filterByFact: jest.fn()
+            filterByFact: jest.fn(),
+            handleFactFilter: jest.fn(),
+            clearAllFactFilters: jest.fn()
         };
     });
 
     it('should render correctly', () => {
+        const wrapper = shallow(
+            <DriftToolbar { ...props } />
+        );
+
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('should render with fact filter chips', () => {
+        props.factFilter = 'dog';
+        props.activeFactFilters = [ 'cat', 'mouse' ];
+
         const wrapper = shallow(
             <DriftToolbar { ...props } />
         );
@@ -104,7 +119,7 @@ describe('DriftToolbar', () => {
         );
     });
 
-    it('should remove filter chip', () => {
+    it('should remove fact filter chip', () => {
         const wrapper = shallow(
             <DriftToolbar { ...props } />
         );
@@ -113,13 +128,32 @@ describe('DriftToolbar', () => {
         expect(props.filterByFact).toHaveBeenCalledWith('');
     });
 
-    it('should clear all filters', () => {
+    it('should remove active fact filter chip', () => {
+        props.activeFactFilters = [ 'cat', 'mouse' ];
+        const wrapper = shallow(
+            <DriftToolbar { ...props } />
+        );
+        wrapper.instance().removeChip('Fact name', 'cat');
+
+        expect(props.handleFactFilter).toHaveBeenCalledWith('cat');
+    });
+
+    it('should remove all fact filter chips', () => {
+        const wrapper = shallow(
+            <DriftToolbar { ...props } />
+        );
+        wrapper.instance().removeChip('Fact name', '');
+
+        expect(props.clearAllFactFilters).toHaveBeenCalled();
+    });
+
+    it('should clear all filters', async () => {
+        props.activeFactFilters = [ 'dog', 'cat' ];
         const wrapper = shallow(
             <DriftToolbar { ...props } />
         );
         wrapper.instance().removeChip();
 
-        expect(props.filterByFact).toHaveBeenCalledWith('');
         expect(props.addStateFilter).toHaveBeenCalledWith(
             { filter: 'SAME', display: 'Same', selected: true }
         );
@@ -129,6 +163,9 @@ describe('DriftToolbar', () => {
         expect(props.addStateFilter).toHaveBeenCalledWith(
             { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
         );
+        await expect(props.handleFactFilter).toHaveBeenCalledWith('dog');
+        await expect(props.handleFactFilter).toHaveBeenCalledWith('cat');
+        await expect(props.filterByFact).toHaveBeenCalledWith('');
     });
 
     it('should call clearFilters', () => {

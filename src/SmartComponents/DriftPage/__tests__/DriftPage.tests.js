@@ -80,7 +80,8 @@ describe('ConnectedDriftPage', () => {
                     { filter: 'DIFFERENT', display: 'Different', selected: true },
                     { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
                 ],
-                factFilter: ''
+                factFilter: '',
+                activeFactFilters: []
             },
             addSystemModalState: {
                 addSystemModalOpened: false
@@ -100,7 +101,9 @@ describe('ConnectedDriftPage', () => {
                 selectedHSPIds: []
             },
             compareActions: {
-                clearComparisonFilters: jest.fn()
+                clearComparisonFilters: jest.fn(),
+                handleFactFilter: jest.fn(),
+                clearAllFactFilters: jest.fn()
             }
         };
 

@@ -98,7 +98,9 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
           }
         >
           <DriftPage
+            activeFactFilters={Array []}
             addStateFilter={[Function]}
+            clearAllFactFilters={[Function]}
             clearComparison={[Function]}
             clearComparisonFilters={[Function]}
             clearSelectedBaselines={[Function]}
@@ -107,6 +109,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
             exportToCSV={[Function]}
             factFilter=""
             filterByFact={[Function]}
+            handleFactFilter={[Function]}
             history={
               Object {
                 "action": "POP",
@@ -239,13 +242,16 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                         >
                           <div>
                             <DriftToolbar
+                              activeFactFilters={Array []}
                               addStateFilter={[Function]}
+                              clearAllFactFilters={[Function]}
                               clearComparison={[Function]}
                               clearComparisonFilters={[Function]}
                               clearSelectedBaselines={[Function]}
                               exportToCSV={[Function]}
                               factFilter=""
                               filterByFact={[Function]}
+                              handleFactFilter={[Function]}
                               history={
                                 Object {
                                   "action": "POP",
@@ -335,58 +341,83 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                   categoryName="Fact name"
                                                   chips={Array []}
                                                   deleteChip={[Function]}
+                                                  deleteChipGroup={[Function]}
                                                   showToolbarItem={true}
                                                 >
                                                   <ToolbarItem>
                                                     <div
                                                       className="pf-c-toolbar__item"
                                                     >
-                                                      <Connect(SearchBar)>
-                                                        <SearchBar
-                                                          changeFactFilter={[Function]}
-                                                          factFilter=""
-                                                        >
-                                                          <TextInput
-                                                            aria-label="filter by fact"
-                                                            id="filterByFact"
-                                                            onChange={[Function]}
-                                                            placeholder="Filter by fact"
-                                                            value=""
+                                                      <SearchBar
+                                                        activeFactFilters={Array []}
+                                                        factFilter=""
+                                                        filterByFact={[Function]}
+                                                        handleFactFilter={[Function]}
+                                                      >
+                                                        <Form>
+                                                          <form
+                                                            className="pf-c-form"
+                                                            noValidate={true}
                                                           >
-                                                            <TextInputBase
-                                                              aria-label="filter by fact"
-                                                              className=""
-                                                              id="filterByFact"
-                                                              innerRef={null}
-                                                              isDisabled={false}
-                                                              isLeftTruncated={false}
-                                                              isReadOnly={false}
-                                                              isRequired={false}
-                                                              onChange={[Function]}
-                                                              placeholder="Filter by fact"
+                                                            <FormGroup
+                                                              fieldId="filter"
+                                                              isRequired={true}
+                                                              onKeyPress={[Function]}
                                                               type="text"
-                                                              validated="default"
-                                                              value=""
                                                             >
-                                                              <input
-                                                                aria-invalid={false}
-                                                                aria-label="filter by fact"
-                                                                className="pf-c-form-control"
-                                                                disabled={false}
-                                                                id="filterByFact"
-                                                                onBlur={[Function]}
-                                                                onChange={[Function]}
-                                                                onFocus={[Function]}
-                                                                placeholder="Filter by fact"
-                                                                readOnly={false}
-                                                                required={false}
+                                                              <div
+                                                                className="pf-c-form__group"
+                                                                onKeyPress={[Function]}
                                                                 type="text"
-                                                                value=""
-                                                              />
-                                                            </TextInputBase>
-                                                          </TextInput>
-                                                        </SearchBar>
-                                                      </Connect(SearchBar)>
+                                                              >
+                                                                <div
+                                                                  className="pf-c-form__group-control"
+                                                                >
+                                                                  <TextInput
+                                                                    aria-label="filter by fact"
+                                                                    id="filterByFact"
+                                                                    onChange={[Function]}
+                                                                    placeholder="Filter by fact"
+                                                                    value=""
+                                                                  >
+                                                                    <TextInputBase
+                                                                      aria-label="filter by fact"
+                                                                      className=""
+                                                                      id="filterByFact"
+                                                                      innerRef={null}
+                                                                      isDisabled={false}
+                                                                      isLeftTruncated={false}
+                                                                      isReadOnly={false}
+                                                                      isRequired={false}
+                                                                      onChange={[Function]}
+                                                                      placeholder="Filter by fact"
+                                                                      type="text"
+                                                                      validated="default"
+                                                                      value=""
+                                                                    >
+                                                                      <input
+                                                                        aria-invalid={false}
+                                                                        aria-label="filter by fact"
+                                                                        className="pf-c-form-control"
+                                                                        disabled={false}
+                                                                        id="filterByFact"
+                                                                        onBlur={[Function]}
+                                                                        onChange={[Function]}
+                                                                        onFocus={[Function]}
+                                                                        placeholder="Filter by fact"
+                                                                        readOnly={false}
+                                                                        required={false}
+                                                                        type="text"
+                                                                        value=""
+                                                                      />
+                                                                    </TextInputBase>
+                                                                  </TextInput>
+                                                                </div>
+                                                              </div>
+                                                            </FormGroup>
+                                                          </form>
+                                                        </Form>
+                                                      </SearchBar>
                                                     </div>
                                                   </ToolbarItem>
                                                   <Portal
@@ -4303,7 +4334,9 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
           }
         >
           <DriftPage
+            activeFactFilters={Array []}
             addStateFilter={[Function]}
+            clearAllFactFilters={[Function]}
             clearComparison={[Function]}
             clearComparisonFilters={[Function]}
             clearSelectedBaselines={[Function]}
@@ -4316,6 +4349,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
             exportToCSV={[Function]}
             factFilter=""
             filterByFact={[Function]}
+            handleFactFilter={[Function]}
             history={
               Object {
                 "action": "POP",
@@ -4456,13 +4490,16 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                         >
                           <div>
                             <DriftToolbar
+                              activeFactFilters={Array []}
                               addStateFilter={[Function]}
+                              clearAllFactFilters={[Function]}
                               clearComparison={[Function]}
                               clearComparisonFilters={[Function]}
                               clearSelectedBaselines={[Function]}
                               exportToCSV={[Function]}
                               factFilter=""
                               filterByFact={[Function]}
+                              handleFactFilter={[Function]}
                               history={
                                 Object {
                                   "action": "POP",
@@ -4552,58 +4589,83 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                   categoryName="Fact name"
                                                   chips={Array []}
                                                   deleteChip={[Function]}
+                                                  deleteChipGroup={[Function]}
                                                   showToolbarItem={true}
                                                 >
                                                   <ToolbarItem>
                                                     <div
                                                       className="pf-c-toolbar__item"
                                                     >
-                                                      <Connect(SearchBar)>
-                                                        <SearchBar
-                                                          changeFactFilter={[Function]}
-                                                          factFilter=""
-                                                        >
-                                                          <TextInput
-                                                            aria-label="filter by fact"
-                                                            id="filterByFact"
-                                                            onChange={[Function]}
-                                                            placeholder="Filter by fact"
-                                                            value=""
+                                                      <SearchBar
+                                                        activeFactFilters={Array []}
+                                                        factFilter=""
+                                                        filterByFact={[Function]}
+                                                        handleFactFilter={[Function]}
+                                                      >
+                                                        <Form>
+                                                          <form
+                                                            className="pf-c-form"
+                                                            noValidate={true}
                                                           >
-                                                            <TextInputBase
-                                                              aria-label="filter by fact"
-                                                              className=""
-                                                              id="filterByFact"
-                                                              innerRef={null}
-                                                              isDisabled={false}
-                                                              isLeftTruncated={false}
-                                                              isReadOnly={false}
-                                                              isRequired={false}
-                                                              onChange={[Function]}
-                                                              placeholder="Filter by fact"
+                                                            <FormGroup
+                                                              fieldId="filter"
+                                                              isRequired={true}
+                                                              onKeyPress={[Function]}
                                                               type="text"
-                                                              validated="default"
-                                                              value=""
                                                             >
-                                                              <input
-                                                                aria-invalid={false}
-                                                                aria-label="filter by fact"
-                                                                className="pf-c-form-control"
-                                                                disabled={false}
-                                                                id="filterByFact"
-                                                                onBlur={[Function]}
-                                                                onChange={[Function]}
-                                                                onFocus={[Function]}
-                                                                placeholder="Filter by fact"
-                                                                readOnly={false}
-                                                                required={false}
+                                                              <div
+                                                                className="pf-c-form__group"
+                                                                onKeyPress={[Function]}
                                                                 type="text"
-                                                                value=""
-                                                              />
-                                                            </TextInputBase>
-                                                          </TextInput>
-                                                        </SearchBar>
-                                                      </Connect(SearchBar)>
+                                                              >
+                                                                <div
+                                                                  className="pf-c-form__group-control"
+                                                                >
+                                                                  <TextInput
+                                                                    aria-label="filter by fact"
+                                                                    id="filterByFact"
+                                                                    onChange={[Function]}
+                                                                    placeholder="Filter by fact"
+                                                                    value=""
+                                                                  >
+                                                                    <TextInputBase
+                                                                      aria-label="filter by fact"
+                                                                      className=""
+                                                                      id="filterByFact"
+                                                                      innerRef={null}
+                                                                      isDisabled={false}
+                                                                      isLeftTruncated={false}
+                                                                      isReadOnly={false}
+                                                                      isRequired={false}
+                                                                      onChange={[Function]}
+                                                                      placeholder="Filter by fact"
+                                                                      type="text"
+                                                                      validated="default"
+                                                                      value=""
+                                                                    >
+                                                                      <input
+                                                                        aria-invalid={false}
+                                                                        aria-label="filter by fact"
+                                                                        className="pf-c-form-control"
+                                                                        disabled={false}
+                                                                        id="filterByFact"
+                                                                        onBlur={[Function]}
+                                                                        onChange={[Function]}
+                                                                        onFocus={[Function]}
+                                                                        placeholder="Filter by fact"
+                                                                        readOnly={false}
+                                                                        required={false}
+                                                                        type="text"
+                                                                        value=""
+                                                                      />
+                                                                    </TextInputBase>
+                                                                  </TextInput>
+                                                                </div>
+                                                              </div>
+                                                            </FormGroup>
+                                                          </form>
+                                                        </Form>
+                                                      </SearchBar>
                                                     </div>
                                                   </ToolbarItem>
                                                   <Portal
