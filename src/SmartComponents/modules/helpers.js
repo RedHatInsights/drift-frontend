@@ -241,7 +241,7 @@ function addRow(fact) {
     let result = '';
 
     result += fact.name + columnDelimiter;
-    result += fact.tooltip + columnDelimiter;
+    result += fact.state + columnDelimiter;
 
     if (fact.systems) {
         fact.systems.forEach(function(system) {
