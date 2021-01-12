@@ -145,6 +145,8 @@ class ComparisonHeader extends Component {
                     key='fact-header'
                     id={ factSort }
                     onClick={ () => this.toggleSort('fact', factSort) }
+                    data-ouia-component-type="button"
+                    data-ouia-component-id="fact-sort-button"
                 >
                     <div className="active-blue">Fact { this.renderSortButton(factSort) }</div>
                 </th>
