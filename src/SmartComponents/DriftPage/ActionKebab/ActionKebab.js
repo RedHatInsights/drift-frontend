@@ -28,7 +28,7 @@ class ActionKebab extends Component {
             <Dropdown
                 id='action-kebab'
                 aria-label='action-kebab'
-                style={ { float: 'left' } }
+                style={{ float: 'left' }}
                 toggle={ <KebabToggle onToggle={ this.toggleKebab } /> }
                 isOpen={ kebabOpened }
                 ouiaId="action"

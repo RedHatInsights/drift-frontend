@@ -148,7 +148,7 @@ export class DriftToolbar extends Component {
                                 <ActionKebab dropdownItems={ actionKebabItems } />
                             </ToolbarItem>
                         </ToolbarGroup>
-                        <ToolbarItem variant='pagination' align={ { default: 'alignRight' } }>
+                        <ToolbarItem variant='pagination' align={{ default: 'alignRight' }}>
                             <TablePagination
                                 page={ page }
                                 perPage={ perPage }

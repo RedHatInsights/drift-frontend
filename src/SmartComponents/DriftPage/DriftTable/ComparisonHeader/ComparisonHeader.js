@@ -79,11 +79,9 @@ class ComparisonHeader extends Component {
                 <th
                     header-id={ item.id }
                     key={ item.id }
-                    className={
-                        item.id === referenceId
-                            ? 'drift-header reference-header'
-                            : `drift-header ${item.type}-header`
-                    }
+                    className={ item.id === referenceId
+                        ? 'drift-header reference-header'
+                        : `drift-header ${item.type}-header` }
                 >
                     <div>
                         <a onClick={ () => removeSystem(item) } className="remove-system-icon">
@@ -104,9 +102,7 @@ class ComparisonHeader extends Component {
                             { item.system_profile_exists === false ?
                                 <Tooltip
                                     position='top'
-                                    content={
-                                        <div>System profile does not exist. Please run insights-client on system to upload archive.</div>
-                                    }
+                                    content={ <div>System profile does not exist. Please run insights-client on system to upload archive.</div> }
                                 >
                                     <ExclamationTriangleIcon color="#f0ab00"/>
                                 </Tooltip> : ''

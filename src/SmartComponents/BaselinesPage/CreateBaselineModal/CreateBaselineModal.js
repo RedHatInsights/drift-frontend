@@ -195,9 +195,9 @@ export class CreateBaselineModal extends Component {
                         label='Baseline name'
                         isRequired
                         type="text"
-                        helperTextInvalid={ createBaselineError.hasOwnProperty('detail') ? createBaselineError.detail : null }
+                        helperTextInvalid={ Object.prototype.hasOwnProperty.call(createBaselineError, 'detail') ? createBaselineError.detail : null }
                         fieldId="name"
-                        validated={ createBaselineError.hasOwnProperty('status') ? 'error' : null }
+                        validated={ Object.prototype.hasOwnProperty.call(createBaselineError, 'status') ? 'error' : null }
                         onKeyPress={ this.checkKeyPress }
                     >
                         <TextInput
@@ -206,7 +206,7 @@ export class CreateBaselineModal extends Component {
                             value={ baselineName }
                             type="text"
                             onChange={ this.updateBaselineName }
-                            validated={ createBaselineError.hasOwnProperty('status') ? ValidatedOptions.error : null }
+                            validated={ Object.prototype.hasOwnProperty.call(createBaselineError, 'status') ? ValidatedOptions.error : null }
                             aria-label="baseline name"
                         />
                     </FormGroup>

@@ -117,8 +117,8 @@ export class FactModal extends Component {
                 <FormGroup
                     label={ isCategory ? 'Category name' : 'Fact name' }
                     isRequired
-                    helperTextInvalid={ inlineError.hasOwnProperty('detail') ? inlineError.detail : null }
-                    validated={ inlineError.hasOwnProperty('status') ? 'error' : null }
+                    helperTextInvalid={ Object.prototype.hasOwnProperty.call(inlineError, 'detail') ? inlineError.detail : null }
+                    validated={ Object.prototype.hasOwnProperty.call(inlineError, 'status') ? 'error' : null }
                     fieldId='fact name'
                     onKeyPress={ this.checkKeyPress }
                 >
@@ -127,7 +127,7 @@ export class FactModal extends Component {
                         type="text"
                         placeholder="Name"
                         onChange={ this.handleNewName }
-                        validated={ inlineError.hasOwnProperty('status') ? ValidatedOptions.error : null }
+                        validated={ Object.prototype.hasOwnProperty.call(inlineError, 'status') ? ValidatedOptions.error : null }
                         aria-label="fact name"
                     />
                 </FormGroup>
@@ -144,8 +144,8 @@ export class FactModal extends Component {
                 <FormGroup
                     label='Value'
                     isRequired
-                    helperTextInvalid={ inlineError.hasOwnProperty('detail') ? inlineError.detail : null }
-                    validated={ inlineError.hasOwnProperty('status') ? 'error' : null }
+                    helperTextInvalid={ Object.prototype.hasOwnProperty.call(inlineError, 'detail') ? inlineError.detail : null }
+                    validated={ Object.prototype.hasOwnProperty.call(inlineError, 'status') ? 'error' : null }
                     fieldId='fact value'
                     onKeyPress={ this.checkKeyPress }
                 >
@@ -154,7 +154,7 @@ export class FactModal extends Component {
                         type="text"
                         placeholder="Value"
                         onChange={ this.handleNewValue }
-                        validated={ inlineError.hasOwnProperty('status') ? ValidatedOptions.error : null }
+                        validated={ Object.prototype.hasOwnProperty.call(inlineError, 'status') ? ValidatedOptions.error : null }
                         aria-label="value"
                     />
                 </FormGroup>

@@ -48,8 +48,7 @@ export class HistoricalProfilesCheckbox extends Component {
                 <Checkbox
                     label={ profile.captured_date === 'Latest'
                         ? profile.captured_date
-                        : moment.utc(profile.captured_date).format('DD MMM YYYY, HH:mm UTC')
-                    }
+                        : moment.utc(profile.captured_date).format('DD MMM YYYY, HH:mm UTC') }
                     isChecked={ checked }
                     onChange={ this.handleChange }
                     aria-label={ profile.id }
