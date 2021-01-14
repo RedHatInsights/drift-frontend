@@ -60,9 +60,7 @@ export class DriftPage extends Component {
                 color='#c9190b'
                 title={ 'Comparison cannot be displayed' }
                 text={ emptyStateMessage }
-                error={
-                    'Error ' + error.status + ': ' + error.detail
-                }
+                error={ 'Error ' + error.status + ': ' + error.detail }
                 button={ <AddSystemButton isTable={ false }/> }
             />;
         } else {

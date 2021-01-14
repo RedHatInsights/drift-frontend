@@ -174,11 +174,9 @@ export class BaselinesTable extends Component {
                     table = <Table
                         aria-label="Baselines Table"
                         onSort={ this.onSort }
-                        onSelect={
-                            hasWritePermissions || (tableId === 'CHECKBOX' && !kebab)
-                                ? onSelect
-                                : false
-                        }
+                        onSelect={ hasWritePermissions || (tableId === 'CHECKBOX' && !kebab)
+                            ? onSelect
+                            : false }
                         sortBy={ this.state.sortBy }
                         cells={ columns }
                         rows={ tableRows }

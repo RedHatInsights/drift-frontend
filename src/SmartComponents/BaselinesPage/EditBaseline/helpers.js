@@ -185,7 +185,7 @@ function makeAddFactPatch(newFactData, originalAPIBody) {
     let value = newFactData;
     let index;
 
-    if (newFactData.hasOwnProperty('values') && newFactData.values.length > 0) {
+    if (Object.prototype.hasOwnProperty.call(newFactData, 'values') && newFactData.values.length > 0) {
         value = newFactData.values[newFactData.values.length - 1];
 
         for (let i = 0; i < originalAPIBody.baseline_facts.length; i += 1) {

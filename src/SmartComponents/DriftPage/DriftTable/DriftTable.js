@@ -88,7 +88,7 @@ export class DriftTable extends Component {
         });
 
         historicalProfiles.forEach(function(hsp) {
-            if (historicalGroups.hasOwnProperty(hsp.system_id)) {
+            if (Object.prototype.hasOwnProperty.call(historicalGroups, hsp.system_id)) {
                 historicalGroups[hsp.system_id].push(hsp);
             } else {
                 historicalGroups[hsp.system_id] = [ hsp ];
@@ -97,6 +97,7 @@ export class DriftTable extends Component {
 
         fullHistoricalSystemList = systems;
 
+        // eslint-disable-next-line no-unused-vars
         for (const [ system_id, hsps ] of Object.entries(historicalGroups)) {
             let system = systems.find(item => system_id === item.id);
             let index;
@@ -290,10 +291,9 @@ export class DriftTable extends Component {
 
         if (fact.comparisons) {
             row.push(
-                <td className={
-                    expandedRows.includes(fact.name) ?
-                        'nested-fact sticky-column fixed-column-1' :
-                        'sticky-column fixed-column-1' }>
+                <td className={ expandedRows.includes(fact.name) ?
+                    'nested-fact sticky-column fixed-column-1' :
+                    'sticky-column fixed-column-1' }>
                     { this.renderExpandableRowButton(expandedRows, fact.name) } { fact.name }
                 </td>
             );

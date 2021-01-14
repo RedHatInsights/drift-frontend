@@ -120,8 +120,7 @@ export class BaselinesPage extends Component {
                 button={ <CreateBaselineButton
                     emptyState={ emptyState }
                     hasWritePermissions={ hasBaselinesWritePermissions }
-                    loading={ loading } />
-                }
+                    loading={ loading } /> }
             />;
         } else if (baselineError.status !== 200 && baselineError.status !== undefined) {
             return <EmptyStateDisplay
@@ -129,15 +128,11 @@ export class BaselinesPage extends Component {
                 color='#c9190b'
                 title={ 'Baselines cannot be displayed' }
                 text={ errorMessage }
-                error={
-                    'Error ' + baselineError.status + ': ' + baselineError.detail
-                }
-                button={
-                    <a onClick={ () => revertBaselineFetch('CHECKBOX') }>
-                        <UndoIcon className='reload-button' />
+                error={ 'Error ' + baselineError.status + ': ' + baselineError.detail }
+                button={ <a onClick={ () => revertBaselineFetch('CHECKBOX') }>
+                    <UndoIcon className='reload-button' />
                         Retry
-                    </a>
-                }
+                </a> }
             />;
         }
     }
