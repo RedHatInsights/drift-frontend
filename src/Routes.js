@@ -10,9 +10,19 @@ const EditBaseline = asyncComponent(() => import ('./SmartComponents/BaselinesPa
 
 const InsightsRoute = ({ component: Component, rootClass, title, ...rest }) => {
     title ? document.title = title : null;
+    /**
+     * @deprecated
+     * Mutating chrome root element is deprecated.
+     * Please add custom classes on different elements exclusive to vulnerability UI DOM.
+     * This functionality will no longer exist in chrome 2 to prevent global styling issues
+     */
     const root = document.getElementById('root');
     root.removeAttribute('class');
-    root.classList.add(`page__${rootClass}`, 'pf-l-page__main', 'pf-c-page__main');
+    /**
+     * Adding root class to root element to scope the CSS classes.
+     * Chrome 2 will add this class automatically to root element.
+     */
+    root.classList.add(`page__${rootClass}`, 'pf-l-page__main', 'pf-c-page__main', 'drift');
     root.setAttribute('role', 'main');
 
     return (<Route { ...rest } component={ Component } />);

@@ -31,7 +31,7 @@ export function init (...middleware) {
     registry = getRegistry({}, [
         promiseMiddleware(),
         middlewareListener.getMiddleware(),
-        ...middleware
+        ...middleware.filter(item => typeof item !== 'undefined')
     ]);
 
     registry.register({
