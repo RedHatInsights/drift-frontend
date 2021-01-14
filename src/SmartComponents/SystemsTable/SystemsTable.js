@@ -1,13 +1,11 @@
 /* eslint-disable camelcase */
-import React, { Fragment, useState, useEffect } from 'react';
-import * as reactRouterDom from 'react-router-dom';
-import * as ReactRedux from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import * as reactIcons from '@patternfly/react-icons';
-import * as reactCore from '@patternfly/react-core';
 import { getRegistry } from '@redhat-cloud-services/frontend-components-utilities/files/Registry';
 import { connect } from 'react-redux';
-import * as pfReactTable from '@patternfly/react-table';
+import { InventoryTable } from '@redhat-cloud-services/frontend-components/components/esm/Inventory';
+import { LockIcon } from '@patternfly/react-icons';
 
 import selectedReducer from '../../store/reducers';
 import { addNewListener } from '../../store';
@@ -32,11 +30,9 @@ export const SystemsTable = ({
     selectEntities,
     selectVariant
 }) => {
-    const [ InventoryCmp, setInventoryCmp ] = useState(null);
-    const tagsFilter = ReactRedux.useSelector(({ globalFilterState }) => globalFilterState?.tagsFilter);
-    const workloadsFilter = ReactRedux.useSelector(({ globalFilterState }) => globalFilterState?.workloadsFilter);
-    const sidsFilter = ReactRedux.useSelector(({ globalFilterState }) => globalFilterState?.sidsFilter);
-    const store = ReactRedux.useStore();
+    const tagsFilter = useSelector(({ globalFilterState }) => globalFilterState?.tagsFilter);
+    const workloadsFilter = useSelector(({ globalFilterState }) => globalFilterState?.workloadsFilter);
+    const sidsFilter = useSelector(({ globalFilterState }) => globalFilterState?.sidsFilter);
 
     const deselectHistoricalProfiles = () => {
         if (!hasMultiSelect) {
@@ -64,30 +60,6 @@ export const SystemsTable = ({
         selectEntities(toSelect);
     };
 
-    const fetchInventory = async () => {
-        const { inventoryConnector, mergeWithEntities, INVENTORY_ACTION_TYPES } = await insights.loadInventory({
-            ReactRedux,
-            react: React,
-            reactRouterDom,
-            reactCore,
-            reactIcons,
-            pfReactTable,
-            pfReact: reactCore
-        });
-
-        driftClearFilters();
-
-        getRegistry().register(mergeWithEntities(
-            selectedReducer(
-                INVENTORY_ACTION_TYPES, createBaselineModal, historicalProfiles,
-                hasMultiSelect, hasHistoricalDropdown, deselectHistoricalProfiles
-            )
-        ));
-
-        setInventoryCmp(inventoryConnector(store).InventoryTable);
-        setSelectedSystemIds(selectedSystemIds);
-    };
-
     useEffect(() => {
         window.entityListener = addNewListener({
             actionType: 'SELECT_ENTITY',
@@ -95,58 +67,62 @@ export const SystemsTable = ({
                 !hasMultiSelect ? deselectHistoricalProfiles() : null;
             }
         });
-
-        fetchInventory();
     }, []);
 
     return (
-        hasInventoryReadPermissions
-            ? <Fragment>
-                { InventoryCmp ?
-                    <InventoryCmp
-                        showTags
-                        noDetail
-                        customFilters={ {
-                            tags: tagsFilter,
-                            filter: {
-                                system_profile: {
-                                    ...workloadsFilter?.SAP?.isSelected && { sap_system: true },
-                                    ...sidsFilter?.length > 0 && { sap_sids: sidsFilter }
-                                }
-                            }
-                        } }
-                        tableProps={ {
-                            canSelectAll: false,
-                            selectVariant
-                        } }
-                        total={ entities.total }
-                        bulkSelect={ onSelect && {
-                            isDisabled: !hasMultiSelect,
-                            count: entities && entities.selectedSystemIds ? entities.selectedSystemIds.length : 0,
-                            items: [{
-                                title: `Select none (0)`,
-                                onClick: () => {
-                                    onSelect('none');
-                                }
-                            }, {
-                                title: `Select page (${ entities.count })`,
-                                onClick: () => {
-                                    onSelect('page');
-                                }
-                            }],
-                            onSelect: (value) => {
-                                value ? onSelect('page') : onSelect('none');
-                            },
-                            checked: entities && entities.selectedSystemIds
-                                ? helpers.findCheckedValue(entities.total, entities.selectedSystemIds.length)
-                                : null
-                        } }
-                    />
-                    : <reactCore.Spinner size="lg" />
-                }
-            </Fragment>
+        hasInventoryReadPermissions ? (
+            <InventoryTable
+                onLoad={ ({ mergeWithEntities, INVENTORY_ACTION_TYPES }) => {
+                    driftClearFilters();
+                    getRegistry().register(mergeWithEntities(
+                        selectedReducer(
+                            INVENTORY_ACTION_TYPES, createBaselineModal, historicalProfiles,
+                            hasMultiSelect, hasHistoricalDropdown, deselectHistoricalProfiles
+                        )
+                    ));
+                    setSelectedSystemIds(selectedSystemIds);
+                } }
+                showTags
+                noDetail
+                customFilters={{
+                    tags: tagsFilter,
+                    filter: {
+                        system_profile: {
+                            ...workloadsFilter?.SAP?.isSelected && { sap_system: true },
+                            ...sidsFilter?.length > 0 && { sap_sids: sidsFilter }
+                        }
+                    }
+                }}
+                tableProps={{
+                    canSelectAll: false,
+                    selectVariant
+                }}
+                total={ entities?.total }
+                bulkSelect={ onSelect && {
+                    isDisabled: !hasMultiSelect,
+                    count: entities && entities.selectedSystemIds ? entities.selectedSystemIds.length : 0,
+                    items: [{
+                        title: `Select none (0)`,
+                        onClick: () => {
+                            onSelect('none');
+                        }
+                    }, {
+                        title: `Select page (${ entities?.count || 0 })`,
+                        onClick: () => {
+                            onSelect('page');
+                        }
+                    }],
+                    onSelect: (value) => {
+                        value ? onSelect('page') : onSelect('none');
+                    },
+                    checked: entities && entities.selectedSystemIds
+                        ? helpers.findCheckedValue(entities?.total, entities?.selectedSystemIds.length)
+                        : null
+                } }
+            />
+        )
             : <EmptyStateDisplay
-                icon={ reactIcons.LockIcon }
+                icon={ LockIcon }
                 color='#6a6e73'
                 title={ 'You do not have access to the inventory' }
                 text={ [ 'Contact your organization administrator(s) for more information.' ] }
