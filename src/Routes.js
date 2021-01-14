@@ -13,7 +13,7 @@ const InsightsRoute = ({ component: Component, rootClass, title, ...rest }) => {
     /**
      * @deprecated
      * Mutating chrome root element is deprecated.
-     * Please add custom classes on different elements exclusive to vulnerability UI DOM.
+     * Please add custom classes on different elements exclusive to drift UI DOM.
      * This functionality will no longer exist in chrome 2 to prevent global styling issues
      */
     const root = document.getElementById('root');
