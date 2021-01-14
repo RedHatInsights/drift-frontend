@@ -9545,21 +9545,25 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                             role="tabpanel"
                             tabindex="0"
                           >
-                            <span
-                              aria-valuetext="Loading..."
-                              class="pf-c-spinner pf-m-lg"
-                              role="progressbar"
+                            <div
+                              class="pf-l-bullseye"
                             >
                               <span
-                                class="pf-c-spinner__clipper"
-                              />
-                              <span
-                                class="pf-c-spinner__lead-ball"
-                              />
-                              <span
-                                class="pf-c-spinner__tail-ball"
-                              />
-                            </span>
+                                aria-valuetext="Loading..."
+                                class="pf-c-spinner pf-m-xl"
+                                role="progressbar"
+                              >
+                                <span
+                                  class="pf-c-spinner__clipper"
+                                />
+                                <span
+                                  class="pf-c-spinner__lead-ball"
+                                />
+                                <span
+                                  class="pf-c-spinner__tail-ball"
+                                />
+                              </span>
+                            </div>
                           </section>
                           <section
                             aria-labelledby="pf-tab-1-baselines-tab"
@@ -10695,25 +10699,453 @@ Try changing your filter settings.
                                             setSelectedSystemIds={[Function]}
                                             updateColumns={[Function]}
                                           >
-                                            <Spinner
-                                              size="lg"
+                                            <ForwardRef
+                                              bulkSelect={
+                                                Object {
+                                                  "checked": false,
+                                                  "count": 0,
+                                                  "isDisabled": false,
+                                                  "items": Array [
+                                                    Object {
+                                                      "onClick": [Function],
+                                                      "title": "Select none (0)",
+                                                    },
+                                                    Object {
+                                                      "onClick": [Function],
+                                                      "title": "Select page (0)",
+                                                    },
+                                                  ],
+                                                  "onSelect": [Function],
+                                                }
+                                              }
+                                              customFilters={
+                                                Object {
+                                                  "filter": Object {
+                                                    "system_profile": Object {},
+                                                  },
+                                                  "tags": Array [],
+                                                }
+                                              }
+                                              fallback={
+                                                <Bullseye>
+                                                  <Spinner
+                                                    size="xl"
+                                                  />
+                                                </Bullseye>
+                                              }
+                                              noDetail={true}
+                                              onLoad={[Function]}
+                                              showTags={true}
+                                              tableProps={
+                                                Object {
+                                                  "canSelectAll": false,
+                                                  "selectVariant": "checkbox",
+                                                }
+                                              }
                                             >
-                                              <span
-                                                aria-valuetext="Loading..."
-                                                className="pf-c-spinner pf-m-lg"
-                                                role="progressbar"
+                                              <BaseInvTable
+                                                bulkSelect={
+                                                  Object {
+                                                    "checked": false,
+                                                    "count": 0,
+                                                    "isDisabled": false,
+                                                    "items": Array [
+                                                      Object {
+                                                        "onClick": [Function],
+                                                        "title": "Select none (0)",
+                                                      },
+                                                      Object {
+                                                        "onClick": [Function],
+                                                        "title": "Select page (0)",
+                                                      },
+                                                    ],
+                                                    "onSelect": [Function],
+                                                  }
+                                                }
+                                                customFilters={
+                                                  Object {
+                                                    "filter": Object {
+                                                      "system_profile": Object {},
+                                                    },
+                                                    "tags": Array [],
+                                                  }
+                                                }
+                                                fallback={
+                                                  <Bullseye>
+                                                    <Spinner
+                                                      size="xl"
+                                                    />
+                                                  </Bullseye>
+                                                }
+                                                innerRef={null}
+                                                noDetail={true}
+                                                onLoad={[Function]}
+                                                showTags={true}
+                                                tableProps={
+                                                  Object {
+                                                    "canSelectAll": false,
+                                                    "selectVariant": "checkbox",
+                                                  }
+                                                }
                                               >
-                                                <span
-                                                  className="pf-c-spinner__clipper"
-                                                />
-                                                <span
-                                                  className="pf-c-spinner__lead-ball"
-                                                />
-                                                <span
-                                                  className="pf-c-spinner__tail-ball"
-                                                />
-                                              </span>
-                                            </Spinner>
+                                                <Suspense
+                                                  fallback={
+                                                    <Bullseye>
+                                                      <Spinner
+                                                        size="xl"
+                                                      />
+                                                    </Bullseye>
+                                                  }
+                                                >
+                                                  <ForwardRef
+                                                    ErrorComponent={
+                                                      <UNDEFINED
+                                                        bulkSelect={
+                                                          Object {
+                                                            "checked": false,
+                                                            "count": 0,
+                                                            "isDisabled": false,
+                                                            "items": Array [
+                                                              Object {
+                                                                "onClick": [Function],
+                                                                "title": "Select none (0)",
+                                                              },
+                                                              Object {
+                                                                "onClick": [Function],
+                                                                "title": "Select page (0)",
+                                                              },
+                                                            ],
+                                                            "onSelect": [Function],
+                                                          }
+                                                        }
+                                                        component="InventoryTable"
+                                                        customFilters={
+                                                          Object {
+                                                            "filter": Object {
+                                                              "system_profile": Object {},
+                                                            },
+                                                            "tags": Array [],
+                                                          }
+                                                        }
+                                                        fallback={
+                                                          <Bullseye>
+                                                            <Spinner
+                                                              size="xl"
+                                                            />
+                                                          </Bullseye>
+                                                        }
+                                                        innerRef={null}
+                                                        noDetail={true}
+                                                        onLoad={[Function]}
+                                                        showTags={true}
+                                                        tableProps={
+                                                          Object {
+                                                            "canSelectAll": false,
+                                                            "selectVariant": "checkbox",
+                                                          }
+                                                        }
+                                                      />
+                                                    }
+                                                    appName="chrome"
+                                                    bulkSelect={
+                                                      Object {
+                                                        "checked": false,
+                                                        "count": 0,
+                                                        "isDisabled": false,
+                                                        "items": Array [
+                                                          Object {
+                                                            "onClick": [Function],
+                                                            "title": "Select none (0)",
+                                                          },
+                                                          Object {
+                                                            "onClick": [Function],
+                                                            "title": "Select page (0)",
+                                                          },
+                                                        ],
+                                                        "onSelect": [Function],
+                                                      }
+                                                    }
+                                                    customFilters={
+                                                      Object {
+                                                        "filter": Object {
+                                                          "system_profile": Object {},
+                                                        },
+                                                        "tags": Array [],
+                                                      }
+                                                    }
+                                                    fallback={
+                                                      <Bullseye>
+                                                        <Spinner
+                                                          size="xl"
+                                                        />
+                                                      </Bullseye>
+                                                    }
+                                                    history={
+                                                      Object {
+                                                        "action": "POP",
+                                                        "block": [Function],
+                                                        "canGo": [Function],
+                                                        "createHref": [Function],
+                                                        "entries": Array [
+                                                          Object {
+                                                            "hash": "",
+                                                            "pathname": "/",
+                                                            "search": "",
+                                                            "state": undefined,
+                                                          },
+                                                        ],
+                                                        "go": [Function],
+                                                        "goBack": [Function],
+                                                        "goForward": [Function],
+                                                        "index": 0,
+                                                        "length": 1,
+                                                        "listen": [Function],
+                                                        "location": Object {
+                                                          "hash": "",
+                                                          "pathname": "/",
+                                                          "search": "",
+                                                          "state": undefined,
+                                                        },
+                                                        "push": [Function],
+                                                        "replace": [Function],
+                                                      }
+                                                    }
+                                                    innerRef={null}
+                                                    module="./InventoryTable"
+                                                    noDetail={true}
+                                                    onLoad={[Function]}
+                                                    scope="chrome"
+                                                    showTags={true}
+                                                    store={
+                                                      Object {
+                                                        "clearActions": [Function],
+                                                        "dispatch": [Function],
+                                                        "getActions": [Function],
+                                                        "getState": [Function],
+                                                        "replaceReducer": [Function],
+                                                        "subscribe": [Function],
+                                                      }
+                                                    }
+                                                    tableProps={
+                                                      Object {
+                                                        "canSelectAll": false,
+                                                        "selectVariant": "checkbox",
+                                                      }
+                                                    }
+                                                  >
+                                                    <BaseScalprumComponent
+                                                      ErrorComponent={
+                                                        <UNDEFINED
+                                                          bulkSelect={
+                                                            Object {
+                                                              "checked": false,
+                                                              "count": 0,
+                                                              "isDisabled": false,
+                                                              "items": Array [
+                                                                Object {
+                                                                  "onClick": [Function],
+                                                                  "title": "Select none (0)",
+                                                                },
+                                                                Object {
+                                                                  "onClick": [Function],
+                                                                  "title": "Select page (0)",
+                                                                },
+                                                              ],
+                                                              "onSelect": [Function],
+                                                            }
+                                                          }
+                                                          component="InventoryTable"
+                                                          customFilters={
+                                                            Object {
+                                                              "filter": Object {
+                                                                "system_profile": Object {},
+                                                              },
+                                                              "tags": Array [],
+                                                            }
+                                                          }
+                                                          fallback={
+                                                            <Bullseye>
+                                                              <Spinner
+                                                                size="xl"
+                                                              />
+                                                            </Bullseye>
+                                                          }
+                                                          innerRef={null}
+                                                          noDetail={true}
+                                                          onLoad={[Function]}
+                                                          showTags={true}
+                                                          tableProps={
+                                                            Object {
+                                                              "canSelectAll": false,
+                                                              "selectVariant": "checkbox",
+                                                            }
+                                                          }
+                                                        />
+                                                      }
+                                                      appName="chrome"
+                                                      bulkSelect={
+                                                        Object {
+                                                          "checked": false,
+                                                          "count": 0,
+                                                          "isDisabled": false,
+                                                          "items": Array [
+                                                            Object {
+                                                              "onClick": [Function],
+                                                              "title": "Select none (0)",
+                                                            },
+                                                            Object {
+                                                              "onClick": [Function],
+                                                              "title": "Select page (0)",
+                                                            },
+                                                          ],
+                                                          "onSelect": [Function],
+                                                        }
+                                                      }
+                                                      customFilters={
+                                                        Object {
+                                                          "filter": Object {
+                                                            "system_profile": Object {},
+                                                          },
+                                                          "tags": Array [],
+                                                        }
+                                                      }
+                                                      fallback={
+                                                        <Bullseye>
+                                                          <Spinner
+                                                            size="xl"
+                                                          />
+                                                        </Bullseye>
+                                                      }
+                                                      history={
+                                                        Object {
+                                                          "action": "POP",
+                                                          "block": [Function],
+                                                          "canGo": [Function],
+                                                          "createHref": [Function],
+                                                          "entries": Array [
+                                                            Object {
+                                                              "hash": "",
+                                                              "pathname": "/",
+                                                              "search": "",
+                                                              "state": undefined,
+                                                            },
+                                                          ],
+                                                          "go": [Function],
+                                                          "goBack": [Function],
+                                                          "goForward": [Function],
+                                                          "index": 0,
+                                                          "length": 1,
+                                                          "listen": [Function],
+                                                          "location": Object {
+                                                            "hash": "",
+                                                            "pathname": "/",
+                                                            "search": "",
+                                                            "state": undefined,
+                                                          },
+                                                          "push": [Function],
+                                                          "replace": [Function],
+                                                        }
+                                                      }
+                                                      innerRef={null}
+                                                      module="./InventoryTable"
+                                                      noDetail={true}
+                                                      onLoad={[Function]}
+                                                      scope="chrome"
+                                                      showTags={true}
+                                                      store={
+                                                        Object {
+                                                          "clearActions": [Function],
+                                                          "dispatch": [Function],
+                                                          "getActions": [Function],
+                                                          "getState": [Function],
+                                                          "replaceReducer": [Function],
+                                                          "subscribe": [Function],
+                                                        }
+                                                      }
+                                                      tableProps={
+                                                        Object {
+                                                          "canSelectAll": false,
+                                                          "selectVariant": "checkbox",
+                                                        }
+                                                      }
+                                                    >
+                                                      <AsyncInventory
+                                                        bulkSelect={
+                                                          Object {
+                                                            "checked": false,
+                                                            "count": 0,
+                                                            "isDisabled": false,
+                                                            "items": Array [
+                                                              Object {
+                                                                "onClick": [Function],
+                                                                "title": "Select none (0)",
+                                                              },
+                                                              Object {
+                                                                "onClick": [Function],
+                                                                "title": "Select page (0)",
+                                                              },
+                                                            ],
+                                                            "onSelect": [Function],
+                                                          }
+                                                        }
+                                                        component="InventoryTable"
+                                                        customFilters={
+                                                          Object {
+                                                            "filter": Object {
+                                                              "system_profile": Object {},
+                                                            },
+                                                            "tags": Array [],
+                                                          }
+                                                        }
+                                                        fallback={
+                                                          <Bullseye>
+                                                            <Spinner
+                                                              size="xl"
+                                                            />
+                                                          </Bullseye>
+                                                        }
+                                                        innerRef={null}
+                                                        noDetail={true}
+                                                        onLoad={[Function]}
+                                                        showTags={true}
+                                                        tableProps={
+                                                          Object {
+                                                            "canSelectAll": false,
+                                                            "selectVariant": "checkbox",
+                                                          }
+                                                        }
+                                                      >
+                                                        <Bullseye>
+                                                          <div
+                                                            className="pf-l-bullseye"
+                                                          >
+                                                            <Spinner
+                                                              size="xl"
+                                                            >
+                                                              <span
+                                                                aria-valuetext="Loading..."
+                                                                className="pf-c-spinner pf-m-xl"
+                                                                role="progressbar"
+                                                              >
+                                                                <span
+                                                                  className="pf-c-spinner__clipper"
+                                                                />
+                                                                <span
+                                                                  className="pf-c-spinner__lead-ball"
+                                                                />
+                                                                <span
+                                                                  className="pf-c-spinner__tail-ball"
+                                                                />
+                                                              </span>
+                                                            </Spinner>
+                                                          </div>
+                                                        </Bullseye>
+                                                      </AsyncInventory>
+                                                    </BaseScalprumComponent>
+                                                  </ForwardRef>
+                                                </Suspense>
+                                              </BaseInvTable>
+                                            </ForwardRef>
                                           </SystemsTable>
                                         </Connect(SystemsTable)>
                                       </section>
@@ -15002,21 +15434,25 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                             role="tabpanel"
                             tabindex="0"
                           >
-                            <span
-                              aria-valuetext="Loading..."
-                              class="pf-c-spinner pf-m-lg"
-                              role="progressbar"
+                            <div
+                              class="pf-l-bullseye"
                             >
                               <span
-                                class="pf-c-spinner__clipper"
-                              />
-                              <span
-                                class="pf-c-spinner__lead-ball"
-                              />
-                              <span
-                                class="pf-c-spinner__tail-ball"
-                              />
-                            </span>
+                                aria-valuetext="Loading..."
+                                class="pf-c-spinner pf-m-xl"
+                                role="progressbar"
+                              >
+                                <span
+                                  class="pf-c-spinner__clipper"
+                                />
+                                <span
+                                  class="pf-c-spinner__lead-ball"
+                                />
+                                <span
+                                  class="pf-c-spinner__tail-ball"
+                                />
+                              </span>
+                            </div>
                           </section>
                           <section
                             aria-labelledby="pf-tab-1-baselines-tab"
@@ -16153,25 +16589,405 @@ Try changing your filter settings.
                                             setSelectedSystemIds={[Function]}
                                             updateColumns={[Function]}
                                           >
-                                            <Spinner
-                                              size="lg"
+                                            <ForwardRef
+                                              bulkSelect={
+                                                Object {
+                                                  "checked": false,
+                                                  "count": 0,
+                                                  "isDisabled": false,
+                                                  "items": Array [
+                                                    Object {
+                                                      "onClick": [Function],
+                                                      "title": "Select none (0)",
+                                                    },
+                                                    Object {
+                                                      "onClick": [Function],
+                                                      "title": "Select page (0)",
+                                                    },
+                                                  ],
+                                                  "onSelect": [Function],
+                                                }
+                                              }
+                                              customFilters={
+                                                Object {
+                                                  "filter": Object {
+                                                    "system_profile": Object {},
+                                                  },
+                                                  "tags": Array [],
+                                                }
+                                              }
+                                              fallback={
+                                                <Bullseye>
+                                                  <Spinner
+                                                    size="xl"
+                                                  />
+                                                </Bullseye>
+                                              }
+                                              noDetail={true}
+                                              onLoad={[Function]}
+                                              showTags={true}
+                                              tableProps={
+                                                Object {
+                                                  "canSelectAll": false,
+                                                  "selectVariant": "checkbox",
+                                                }
+                                              }
                                             >
-                                              <span
-                                                aria-valuetext="Loading..."
-                                                className="pf-c-spinner pf-m-lg"
-                                                role="progressbar"
+                                              <BaseInvTable
+                                                bulkSelect={
+                                                  Object {
+                                                    "checked": false,
+                                                    "count": 0,
+                                                    "isDisabled": false,
+                                                    "items": Array [
+                                                      Object {
+                                                        "onClick": [Function],
+                                                        "title": "Select none (0)",
+                                                      },
+                                                      Object {
+                                                        "onClick": [Function],
+                                                        "title": "Select page (0)",
+                                                      },
+                                                    ],
+                                                    "onSelect": [Function],
+                                                  }
+                                                }
+                                                customFilters={
+                                                  Object {
+                                                    "filter": Object {
+                                                      "system_profile": Object {},
+                                                    },
+                                                    "tags": Array [],
+                                                  }
+                                                }
+                                                fallback={
+                                                  <Bullseye>
+                                                    <Spinner
+                                                      size="xl"
+                                                    />
+                                                  </Bullseye>
+                                                }
+                                                innerRef={null}
+                                                noDetail={true}
+                                                onLoad={[Function]}
+                                                showTags={true}
+                                                tableProps={
+                                                  Object {
+                                                    "canSelectAll": false,
+                                                    "selectVariant": "checkbox",
+                                                  }
+                                                }
                                               >
-                                                <span
-                                                  className="pf-c-spinner__clipper"
-                                                />
-                                                <span
-                                                  className="pf-c-spinner__lead-ball"
-                                                />
-                                                <span
-                                                  className="pf-c-spinner__tail-ball"
-                                                />
-                                              </span>
-                                            </Spinner>
+                                                <Suspense
+                                                  fallback={
+                                                    <Bullseye>
+                                                      <Spinner
+                                                        size="xl"
+                                                      />
+                                                    </Bullseye>
+                                                  }
+                                                >
+                                                  <ForwardRef
+                                                    ErrorComponent={
+                                                      <UNDEFINED
+                                                        bulkSelect={
+                                                          Object {
+                                                            "checked": false,
+                                                            "count": 0,
+                                                            "isDisabled": false,
+                                                            "items": Array [
+                                                              Object {
+                                                                "onClick": [Function],
+                                                                "title": "Select none (0)",
+                                                              },
+                                                              Object {
+                                                                "onClick": [Function],
+                                                                "title": "Select page (0)",
+                                                              },
+                                                            ],
+                                                            "onSelect": [Function],
+                                                          }
+                                                        }
+                                                        component="InventoryTable"
+                                                        customFilters={
+                                                          Object {
+                                                            "filter": Object {
+                                                              "system_profile": Object {},
+                                                            },
+                                                            "tags": Array [],
+                                                          }
+                                                        }
+                                                        fallback={
+                                                          <Bullseye>
+                                                            <Spinner
+                                                              size="xl"
+                                                            />
+                                                          </Bullseye>
+                                                        }
+                                                        innerRef={null}
+                                                        noDetail={true}
+                                                        onLoad={[Function]}
+                                                        showTags={true}
+                                                        tableProps={
+                                                          Object {
+                                                            "canSelectAll": false,
+                                                            "selectVariant": "checkbox",
+                                                          }
+                                                        }
+                                                      />
+                                                    }
+                                                    appName="chrome"
+                                                    bulkSelect={
+                                                      Object {
+                                                        "checked": false,
+                                                        "count": 0,
+                                                        "isDisabled": false,
+                                                        "items": Array [
+                                                          Object {
+                                                            "onClick": [Function],
+                                                            "title": "Select none (0)",
+                                                          },
+                                                          Object {
+                                                            "onClick": [Function],
+                                                            "title": "Select page (0)",
+                                                          },
+                                                        ],
+                                                        "onSelect": [Function],
+                                                      }
+                                                    }
+                                                    customFilters={
+                                                      Object {
+                                                        "filter": Object {
+                                                          "system_profile": Object {},
+                                                        },
+                                                        "tags": Array [],
+                                                      }
+                                                    }
+                                                    fallback={
+                                                      <Bullseye>
+                                                        <Spinner
+                                                          size="xl"
+                                                        />
+                                                      </Bullseye>
+                                                    }
+                                                    history={
+                                                      Object {
+                                                        "action": "POP",
+                                                        "block": [Function],
+                                                        "canGo": [Function],
+                                                        "createHref": [Function],
+                                                        "entries": Array [
+                                                          Object {
+                                                            "hash": "",
+                                                            "pathname": "/",
+                                                            "search": "",
+                                                            "state": undefined,
+                                                          },
+                                                        ],
+                                                        "go": [Function],
+                                                        "goBack": [Function],
+                                                        "goForward": [Function],
+                                                        "index": 0,
+                                                        "length": 1,
+                                                        "listen": [Function],
+                                                        "location": Object {
+                                                          "hash": "",
+                                                          "pathname": "/",
+                                                          "search": "",
+                                                          "state": undefined,
+                                                        },
+                                                        "push": [Function],
+                                                        "replace": [Function],
+                                                      }
+                                                    }
+                                                    innerRef={null}
+                                                    module="./InventoryTable"
+                                                    noDetail={true}
+                                                    onLoad={[Function]}
+                                                    scope="chrome"
+                                                    showTags={true}
+                                                    store={
+                                                      Object {
+                                                        "clearActions": [Function],
+                                                        "dispatch": [Function],
+                                                        "getActions": [Function],
+                                                        "getState": [Function],
+                                                        "replaceReducer": [Function],
+                                                        "subscribe": [Function],
+                                                      }
+                                                    }
+                                                    tableProps={
+                                                      Object {
+                                                        "canSelectAll": false,
+                                                        "selectVariant": "checkbox",
+                                                      }
+                                                    }
+                                                  >
+                                                    <BaseScalprumComponent
+                                                      ErrorComponent={
+                                                        <UNDEFINED
+                                                          bulkSelect={
+                                                            Object {
+                                                              "checked": false,
+                                                              "count": 0,
+                                                              "isDisabled": false,
+                                                              "items": Array [
+                                                                Object {
+                                                                  "onClick": [Function],
+                                                                  "title": "Select none (0)",
+                                                                },
+                                                                Object {
+                                                                  "onClick": [Function],
+                                                                  "title": "Select page (0)",
+                                                                },
+                                                              ],
+                                                              "onSelect": [Function],
+                                                            }
+                                                          }
+                                                          component="InventoryTable"
+                                                          customFilters={
+                                                            Object {
+                                                              "filter": Object {
+                                                                "system_profile": Object {},
+                                                              },
+                                                              "tags": Array [],
+                                                            }
+                                                          }
+                                                          fallback={
+                                                            <Bullseye>
+                                                              <Spinner
+                                                                size="xl"
+                                                              />
+                                                            </Bullseye>
+                                                          }
+                                                          innerRef={null}
+                                                          noDetail={true}
+                                                          onLoad={[Function]}
+                                                          showTags={true}
+                                                          tableProps={
+                                                            Object {
+                                                              "canSelectAll": false,
+                                                              "selectVariant": "checkbox",
+                                                            }
+                                                          }
+                                                        />
+                                                      }
+                                                      appName="chrome"
+                                                      bulkSelect={
+                                                        Object {
+                                                          "checked": false,
+                                                          "count": 0,
+                                                          "isDisabled": false,
+                                                          "items": Array [
+                                                            Object {
+                                                              "onClick": [Function],
+                                                              "title": "Select none (0)",
+                                                            },
+                                                            Object {
+                                                              "onClick": [Function],
+                                                              "title": "Select page (0)",
+                                                            },
+                                                          ],
+                                                          "onSelect": [Function],
+                                                        }
+                                                      }
+                                                      customFilters={
+                                                        Object {
+                                                          "filter": Object {
+                                                            "system_profile": Object {},
+                                                          },
+                                                          "tags": Array [],
+                                                        }
+                                                      }
+                                                      fallback={
+                                                        <Bullseye>
+                                                          <Spinner
+                                                            size="xl"
+                                                          />
+                                                        </Bullseye>
+                                                      }
+                                                      history={
+                                                        Object {
+                                                          "action": "POP",
+                                                          "block": [Function],
+                                                          "canGo": [Function],
+                                                          "createHref": [Function],
+                                                          "entries": Array [
+                                                            Object {
+                                                              "hash": "",
+                                                              "pathname": "/",
+                                                              "search": "",
+                                                              "state": undefined,
+                                                            },
+                                                          ],
+                                                          "go": [Function],
+                                                          "goBack": [Function],
+                                                          "goForward": [Function],
+                                                          "index": 0,
+                                                          "length": 1,
+                                                          "listen": [Function],
+                                                          "location": Object {
+                                                            "hash": "",
+                                                            "pathname": "/",
+                                                            "search": "",
+                                                            "state": undefined,
+                                                          },
+                                                          "push": [Function],
+                                                          "replace": [Function],
+                                                        }
+                                                      }
+                                                      innerRef={null}
+                                                      module="./InventoryTable"
+                                                      noDetail={true}
+                                                      onLoad={[Function]}
+                                                      scope="chrome"
+                                                      showTags={true}
+                                                      store={
+                                                        Object {
+                                                          "clearActions": [Function],
+                                                          "dispatch": [Function],
+                                                          "getActions": [Function],
+                                                          "getState": [Function],
+                                                          "replaceReducer": [Function],
+                                                          "subscribe": [Function],
+                                                        }
+                                                      }
+                                                      tableProps={
+                                                        Object {
+                                                          "canSelectAll": false,
+                                                          "selectVariant": "checkbox",
+                                                        }
+                                                      }
+                                                    />
+                                                  </ForwardRef>
+                                                  <Bullseye>
+                                                    <div
+                                                      className="pf-l-bullseye"
+                                                    >
+                                                      <Spinner
+                                                        size="xl"
+                                                      >
+                                                        <span
+                                                          aria-valuetext="Loading..."
+                                                          className="pf-c-spinner pf-m-xl"
+                                                          role="progressbar"
+                                                        >
+                                                          <span
+                                                            className="pf-c-spinner__clipper"
+                                                          />
+                                                          <span
+                                                            className="pf-c-spinner__lead-ball"
+                                                          />
+                                                          <span
+                                                            className="pf-c-spinner__tail-ball"
+                                                          />
+                                                        </span>
+                                                      </Spinner>
+                                                    </div>
+                                                  </Bullseye>
+                                                </Suspense>
+                                              </BaseInvTable>
+                                            </ForwardRef>
                                           </SystemsTable>
                                         </Connect(SystemsTable)>
                                       </section>
