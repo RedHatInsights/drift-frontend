@@ -1,7 +1,9 @@
 import helpers from '../helpers';
 import stateFiltersFixtures from './state-filter.fixtures';
-import { compareReducerPayloadWithCategory } from './reducer.fixtures';
+import { compareReducerPayloadWithCategory, compareReducerPayloadWithMultiFact,
+    sortedPayloadWithMultiFactAscDesc, sortedPayloadWithMultiFactAscAsc } from './reducer.fixtures';
 import { filteredCategory, filteredCategoryAndFact } from './reducer.fact-filter-fixtures';
+import { multivalues, comparisonsWithMultivalues, multivaluesWithTooltips, comparisonsWithMultivaluesTooltips } from './multiFact-filter-fixtures';
 
 describe('helpers', () => {
     it('should return SAME filter selected true getStateSelected', () => {
@@ -71,6 +73,28 @@ describe('helpers', () => {
         ).toEqual(filteredCategoryAndFact);
     });
 
+    it('should filterComparisons with multivalues with all states true', () => {
+        const comparisons = comparisonsWithMultivalues;
+        const stateFilters = stateFiltersFixtures.allStatesTrue;
+        const factFilter = '';
+        const referenceId = undefined;
+        const activeFactFilters = [];
+
+        expect(
+            helpers.filterComparisons(comparisons, stateFilters, factFilter, referenceId, activeFactFilters)
+        ).toEqual(comparisonsWithMultivaluesTooltips);
+    });
+
+    it('should filterMultiFacts with all states true', () => {
+        const multivalueItems = multivalues;
+        const stateFilters = stateFiltersFixtures.allStatesTrue;
+        const referenceId = undefined;
+
+        expect(
+            helpers.filterMultiFacts(multivalueItems, stateFilters, referenceId)
+        ).toEqual(multivaluesWithTooltips);
+    });
+
     it('should return true if fact is in activeFactFilters', () => {
         const fact = 'baltic_porter';
         const factFilter = '';
@@ -119,6 +143,26 @@ describe('helpers', () => {
         expect(
             helpers.filterFact(fact, factFilter, activeFactFilters)
         ).toEqual(true);
+    });
+
+    it('should sort data with multifacts ASC, DESC', () => {
+        const filteredFacts = compareReducerPayloadWithMultiFact.facts;
+        const factSort = 'asc';
+        const stateSort = 'desc';
+
+        expect(
+            helpers.sortData(filteredFacts, factSort, stateSort)
+        ).toEqual(sortedPayloadWithMultiFactAscDesc);
+    });
+
+    it('should sort data with multifacts ASC, ASC', () => {
+        const filteredFacts = compareReducerPayloadWithMultiFact.facts;
+        const factSort = 'asc';
+        const stateSort = 'asc';
+
+        expect(
+            helpers.sortData(filteredFacts, factSort, stateSort)
+        ).toEqual(sortedPayloadWithMultiFactAscAsc);
     });
 });
 /*eslint-enable camelcase*/

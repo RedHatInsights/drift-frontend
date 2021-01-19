@@ -7,6 +7,8 @@ export const DESC = 'desc';
 export const FACT_ID = 0;
 export const FACT_NAME = 1;
 export const FACT_VALUE = 2;
+export const COLUMN_DELIMITER = ',';
+export const LINE_DELIMITER = '\n';
 
 export const API_HEADERS = {
     'X-Insights-Drift': version,

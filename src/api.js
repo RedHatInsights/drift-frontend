@@ -1,9 +1,11 @@
 import axios from 'axios';
 import { DRIFT_API_ROOT, BASELINE_API_ROOT, HISTORICAL_PROFILES_API_ROOT } from './constants';
+//import { mockMultiValueFacts } from './SmartComponents/modules/__tests__/reducer.fixtures';
 
 async function post(path, body = {}) {
     const request = await axios.post(DRIFT_API_ROOT.concat(path), body);
     return request.data;
+    //return mockMultiValueFacts;
 }
 
 async function getBaselines(path, getParams = {}) {

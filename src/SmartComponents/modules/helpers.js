@@ -1,4 +1,4 @@
-import { ASC, DESC } from '../../constants';
+import { ASC, DESC, COLUMN_DELIMITER, LINE_DELIMITER } from '../../constants';
 import moment from 'moment';
 
 function paginateData(data, selectedPage, factsPerPage) {
@@ -46,7 +46,7 @@ function getState(state, stateFilters) {
 }
 
 function setTooltip (data, stateFilters, referenceId) {
-    let type = data.comparisons ? 'category' : 'row';
+    let type = data.comparisons || data.multivalues ? 'category' : 'row';
     let state = getState(data.state, stateFilters);
 
     if (data.state === 'SAME') {
@@ -122,19 +122,48 @@ function filterCompareData(data, stateFilters, factFilter, referenceId, activeFa
     return filteredFacts;
 }
 
+/*eslint-disable camelcase*/
 function filterComparisons(comparisons, stateFilters, factFilter, referenceId, activeFactFilters) {
     let filteredComparisons = [];
+    let filteredMultivalueItems = [];
     let isStateSelected;
 
     for (let i = 0; i < comparisons.length; i++) {
-        isStateSelected = getStateSelected(comparisons[i].state, stateFilters);
-        if (isStateSelected && filterFact(comparisons[i].name, factFilter, activeFactFilters)) {
-            setTooltip(comparisons[i], stateFilters, referenceId);
-            filteredComparisons.push(comparisons[i]);
+        if (comparisons[i].multivalues) {
+            filteredMultivalueItems = filterMultiFacts(comparisons[i].multivalues, stateFilters, referenceId);
+            if (filteredMultivalueItems.length && filterFact(comparisons[i].name, factFilter, activeFactFilters)) {
+                setTooltip(comparisons[i], stateFilters, referenceId);
+                filteredComparisons.push({
+                    name: comparisons[i].name,
+                    state: comparisons[i].state,
+                    multivalues: filteredMultivalueItems,
+                    tooltip: comparisons[i].tooltip
+                });
+            }
+        } else {
+            isStateSelected = getStateSelected(comparisons[i].state, stateFilters);
+            if (isStateSelected && filterFact(comparisons[i].name, factFilter, activeFactFilters)) {
+                setTooltip(comparisons[i], stateFilters, referenceId);
+                filteredComparisons.push(comparisons[i]);
+            }
         }
     }
 
     return filteredComparisons;
+}
+/*eslint-enable camelcase*/
+
+function filterMultiFacts(multivalueItems, stateFilters, referenceId) {
+    let filteredMultivalueItems = [];
+
+    for (let i = 0; i < multivalueItems.length; i++) {
+        if (getStateSelected(multivalueItems[i].state, stateFilters)) {
+            setTooltip(multivalueItems[i], stateFilters, referenceId);
+            filteredMultivalueItems.push(multivalueItems[i]);
+        }
+    }
+
+    return filteredMultivalueItems;
 }
 
 function filterFact(factName, factFilter, activeFactFilters) {
@@ -158,21 +187,32 @@ function filterFact(factName, factFilter, activeFactFilters) {
     return isFiltered;
 }
 
+/*eslint-disable camelcase*/
 function sortData(filteredFacts, factSort, stateSort) {
     let filteredSubfacts;
     let newFilteredFacts;
+    let filteredValues;
 
     newFilteredFacts = sortFacts(filteredFacts, factSort, stateSort);
 
     newFilteredFacts.forEach(function(fact) {
         if (fact.comparisons !== undefined && fact.comparisons.length > 0) {
             filteredSubfacts = sortFacts(fact.comparisons, factSort, stateSort);
+
+            filteredSubfacts.forEach(function(subFact) {
+                if (subFact.multivalues?.length > 0) {
+                    filteredValues = sortFacts(subFact.multivalues, factSort, stateSort);
+                    subFact.multivalues = filteredValues;
+                }
+            });
+
             fact.comparisons = filteredSubfacts;
         }
     });
 
     return newFilteredFacts;
 }
+/*eslint-enable camelcase*/
 
 function sortFacts(filteredFacts, factSort, stateSort) {
     if (stateSort === ASC) {
@@ -206,10 +246,10 @@ function sortFacts(filteredFacts, factSort, stateSort) {
     if (factSort === ASC) {
         filteredFacts.sort(function(a, b) {
             if (stateSort === '') {
-                if (a.name.toLowerCase() > b.name.toLowerCase()) {
+                if (a.name?.toLowerCase() > b.name?.toLowerCase()) {
                     return 1;
                 }
-                else if (a.name.toLowerCase() < b.name.toLowerCase()) {
+                else if (a.name?.toLowerCase() < b.name?.toLowerCase()) {
                     return -1;
                 }
                 else {
@@ -217,10 +257,10 @@ function sortFacts(filteredFacts, factSort, stateSort) {
                 }
             }
             else {
-                if ((a.name.toLowerCase() > b.name.toLowerCase()) && (a.state === b.state)) {
+                if ((a.name?.toLowerCase() > b.name?.toLowerCase()) && (a.state === b.state)) {
                     return 1;
                 }
-                else if ((a.name.toLowerCase() < b.name.toLowerCase()) && (a.state === b.state)) {
+                else if ((a.name?.toLowerCase() < b.name?.toLowerCase()) && (a.state === b.state)) {
                     return -1;
                 }
                 else {
@@ -232,10 +272,10 @@ function sortFacts(filteredFacts, factSort, stateSort) {
     else if (factSort === DESC) {
         filteredFacts.sort(function(a, b) {
             if (stateSort === '') {
-                if (b.name.toLowerCase() > a.name.toLowerCase()) {
+                if (b.name?.toLowerCase() > a.name?.toLowerCase()) {
                     return 1;
                 }
-                else if (b.name.toLowerCase() < a.name.toLowerCase()) {
+                else if (b.name?.toLowerCase() < a.name?.toLowerCase()) {
                     return -1;
                 }
                 else {
@@ -243,10 +283,10 @@ function sortFacts(filteredFacts, factSort, stateSort) {
                 }
             }
             else {
-                if ((b.name.toLowerCase() > a.name.toLowerCase()) && (a.state === b.state)) {
+                if ((b.name?.toLowerCase() > a.name?.toLowerCase()) && (a.state === b.state)) {
                     return 1;
                 }
-                else if ((b.name.toLowerCase() < a.name.toLowerCase()) && (a.state === b.state)) {
+                else if ((b.name?.toLowerCase() < a.name?.toLowerCase()) && (a.state === b.state)) {
                     return -1;
                 }
                 else {
@@ -260,18 +300,23 @@ function sortFacts(filteredFacts, factSort, stateSort) {
 }
 
 function addRow(fact) {
-    let columnDelimiter = ',';
+    let factName = fact.name ? fact.name : '';
     let value = '';
     let result = '';
 
-    result += fact.name + columnDelimiter;
-    result += fact.state + columnDelimiter;
+    result += factName + COLUMN_DELIMITER;
+    result += fact.state + COLUMN_DELIMITER;
 
     if (fact.systems) {
         fact.systems.forEach(function(system) {
             value = system.value ? system.value.replace(/,/g, '') : '';
             result += value;
-            result += columnDelimiter;
+            result += COLUMN_DELIMITER;
+        });
+    } else if (fact.multivalues) {
+        fact.multivalues.forEach(function(value) {
+            result += LINE_DELIMITER;
+            result += addRow(value);
         });
     }
 
@@ -283,9 +328,6 @@ function convertFactsToCSV(data, systems) {
         return null;
     }
 
-    let columnDelimiter = data.columnDelimiter || ',';
-    let lineDelimiter = data.lineDelimiter || '\n';
-
     let systemNames = systems.map(system => system.display_name);
     let mappedDates = systems.map(system => system.last_updated ? system.last_updated : system.updated);
     let systemUpdates = [];
@@ -294,21 +336,21 @@ function convertFactsToCSV(data, systems) {
     });
 
     let headers = 'Fact,State,';
-    systemNames = systemNames.join(columnDelimiter);
-    let result = headers + systemNames + lineDelimiter;
+    systemNames = systemNames.join(COLUMN_DELIMITER);
+    let result = headers + systemNames + LINE_DELIMITER;
 
-    systemUpdates = systemUpdates.join(columnDelimiter);
-    result += columnDelimiter + columnDelimiter + systemUpdates + lineDelimiter;
+    systemUpdates = systemUpdates.join(COLUMN_DELIMITER);
+    result += COLUMN_DELIMITER + COLUMN_DELIMITER + systemUpdates + LINE_DELIMITER;
 
     data.forEach(function(fact) {
         result += addRow(fact);
-        result += lineDelimiter;
+        result += LINE_DELIMITER;
 
         if (fact.comparisons) {
             fact.comparisons.forEach(function(subFact) {
                 result += '     ';
                 result += addRow(subFact);
-                result += lineDelimiter;
+                result += LINE_DELIMITER;
             });
         }
     });
@@ -374,6 +416,8 @@ export default {
     getState,
     setTooltip,
     filterCompareData,
+    filterComparisons,
+    filterMultiFacts,
     filterFact,
     sortData,
     downloadCSV,
