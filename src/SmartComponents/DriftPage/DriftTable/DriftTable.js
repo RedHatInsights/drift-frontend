@@ -269,7 +269,7 @@ export class DriftTable extends Component {
             });
 
             if (this.props.referenceId) {
-                if (system.is_obfuscated) {
+                if (system?.is_obfuscated) {
                     className.push('obfuscated');
                 } else {
                     if (system.state === 'DIFFERENT') {
@@ -278,7 +278,7 @@ export class DriftTable extends Component {
                     }
                 }
             } else {
-                if (system.is_obfuscated) {
+                if (system?.is_obfuscated) {
                     className.push('obfuscated');
                 }
                 else if (fact.state === 'DIFFERENT') {
@@ -287,8 +287,8 @@ export class DriftTable extends Component {
             }
 
             row.push(<td className={ className.join(' ') }>
-                { system.value === null ? 'No Data' : system.value }
-                { system.is_obfuscated ?
+                { system?.value === null ? 'No Data' : system?.value }
+                { system?.is_obfuscated ?
                     <span
                         style={{ float: 'right' }}
                     >
@@ -306,6 +306,22 @@ export class DriftTable extends Component {
         return row;
     }
 
+    renderFact(factName, className, isMultiFact) {
+        const { expandedRows } = this.props;
+
+        return <td className={ className }>
+            { this.renderExpandableRowButton(expandedRows, factName, isMultiFact) } { factName }
+        </td>;
+    }
+
+    renderState(fact, className) {
+        const { stateSort } = this.props;
+
+        return <td className={ className }>
+            <StateIcon fact={ fact } stateSort={ stateSort ? stateSort : null } />
+        </td>;
+    }
+
     renderRow(fact) {
         const { expandedRows, stateSort } = this.props;
         let row = [];
@@ -313,16 +329,15 @@ export class DriftTable extends Component {
 
         if (fact.comparisons) {
             row.push(
-                <td className={ expandedRows.includes(fact.name) ?
-                    'nested-fact sticky-column fixed-column-1' :
-                    'sticky-column fixed-column-1' }>
-                    { this.renderExpandableRowButton(expandedRows, fact.name) } { fact.name }
-                </td>
+                this.renderFact(
+                    fact.name,
+                    expandedRows.includes(fact.name)
+                        ? 'nested-fact sticky-column fixed-column-1'
+                        : 'sticky-column fixed-column-1'
+                )
             );
             row.push(
-                <td className="fact-state sticky-column fixed-column-2">
-                    <StateIcon fact={ fact } stateSort={ stateSort }/>
-                </td>
+                this.renderState(fact, 'fact-state sticky-column fixed-column-2')
             );
 
             this.masterList.forEach(() => {
@@ -335,6 +350,14 @@ export class DriftTable extends Component {
                 fact.comparisons.forEach(comparison => {
                     row = this.renderRowChild(comparison);
                     rows.push(<tr className={ comparison.state === 'DIFFERENT' ? 'unexpected-row' : '' }>{ row }</tr>);
+                    if (comparison.multivalues) {
+                        if (expandedRows.includes(comparison.name)) {
+                            comparison.multivalues.forEach(subFactItem => {
+                                row = this.renderRowChild(subFactItem);
+                                rows.push(<tr className={ subFactItem.state === 'DIFFERENT' ? 'unexpected-row' : '' }>{ row }</tr>);
+                            });
+                        }
+                    }
                 });
             }
         } else {
@@ -354,25 +377,52 @@ export class DriftTable extends Component {
     }
 
     renderRowChild(fact) {
+        const { expandedRows } = this.props;
         let row = [];
 
-        row.push(<td className="nested-fact sticky-column fixed-column-1">
-            <p className="child-row">{ fact.name }</p>
-        </td>);
-        row.push(<td className="fact-state sticky-column fixed-column-2"><StateIcon fact={ fact }/></td>);
+        if (fact.multivalues) {
+            row.push(
+                this.renderFact(
+                    fact.name,
+                    expandedRows.includes(fact.name)
+                        ? 'nested-fact sticky-column fixed-column-1'
+                        : 'sticky-column fixed-column-1',
+                    true
+                )
+            );
 
-        row = row.concat(this.findSystem(fact));
+            row.push(
+                this.renderState(fact, 'fact-state sticky-column fixed-column-2')
+            );
+
+            this.masterList.forEach(() => {
+                row.push(<td className="comparison-cell"></td>);
+            });
+        } else {
+            row.push(<td className="nested-fact sticky-column fixed-column-1">
+                <p className="child-row">{ fact.name }</p>
+            </td>);
+            row.push(<td className="fact-state sticky-column fixed-column-2"><StateIcon fact={ fact }/></td>);
+
+            row = row.concat(this.findSystem(fact));
+        }
 
         return row;
     }
 
-    renderExpandableRowButton(expandedRows, factName) {
+    renderExpandableRowButton(expandedRows, factName, isMultiFact) {
         let expandIcon;
 
         if (expandedRows.includes(factName)) {
-            expandIcon = <AngleDownIcon className="carat-margin pointer active-blue" onClick={ () => this.props.expandRow(factName) } />;
+            expandIcon = <AngleDownIcon
+                className={ 'carat-margin pointer active-blue' + (isMultiFact ? ' child-row' : null) }
+                onClick={ () => this.props.expandRow(factName) }
+            />;
         } else {
-            expandIcon = <AngleRightIcon className="carat-margin pointer" onClick={ () => this.props.expandRow(factName) } />;
+            expandIcon = <AngleRightIcon
+                className={ 'carat-margin pointer' + (isMultiFact ? ' child-row' : null) }
+                onClick={ () => this.props.expandRow(factName) }
+            />;
         }
 
         return expandIcon;
