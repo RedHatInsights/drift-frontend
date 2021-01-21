@@ -89,7 +89,7 @@ function filterCompareData(data, stateFilters, factFilter, referenceId, activeFa
                     tooltip: data[i].tooltip
                 });
 
-                break;
+                continue;
             }
 
             filteredComparisons = filterComparisons(data[i].comparisons, stateFilters, factFilter, referenceId, activeFactFilters);
