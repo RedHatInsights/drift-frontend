@@ -22,22 +22,22 @@ Ensure the following entry is in your `/etc/hosts` file:
 
 # how to run with CI drift-backend
 
-Ensure insights-proxy repo exists in the same parent directory that contains `/drift-frontend`
-https://github.com/RedHatInsights/insights-proxy
+Ensure insights-proxy repo (https://github.com/RedHatInsights/insights-proxy) exists in the same parent directory that contains `/drift-frontend`
 
-In terminal
-```
-cd drift-frontend
-SPANDX_CONFIG=profiles/local-frontend.js  bash ../insights-proxy/scripts/run.sh
-```
+Make sure to run these commands in 2 different terminals at the sametime.
 
-In another terminal
+In terminal 1:
 ```
-cd drift-frontend
-npm run start
+    cd drift-frontend
+    SPANDX_CONFIG=profiles/local-frontend.js  bash ../insights-proxy/scripts/run.sh
 ```
 
-If you see `ℹ ｢wdm｣: Compiled successfully.`, you are in good shape.
+In terminal 2:
+```
+    cd drift-frontend
+    npm run start
+```
+Note: If you see `ℹ ｢wdm｣: Compiled successfully.`, you are in good shape.
 
 Finally, hit the following URL in your browser. If you are not logged in, you will be prompted to do so.
 
@@ -46,16 +46,23 @@ https://ci.foo.redhat.com:1337/insights/drift
 
 # how to run with local drift-backend
 
-There is already a `local-drift-backend.js` file in the drift-backend git repo.
+Ensure drift-backend repo (https://github.com/RedHatInsights/drift-backend) exists in the same parent directory that contains `/drift-frontend`. There is already a `local-drift-backend.js` file in the drift-backend git repo.
 
-Simply run the command below in place of the SPANDX_CONFIG above:
+Make sure to run these commands in 2 different terminals at the sametime.
 
-`SPANDX_CONFIG=drift-backend/local-drift-backend.js bash insights-proxy/scripts/run.sh`
+In terminal 1:
 
-And run the follwing command in another terminal:
+```
+    cd drift-frontend
+    SPANDX_CONFIG=drift-backend/local-drift-backend.js bash insights-proxy/scripts/run.sh
+```
 
-`npm run start`
+In terminal 2:
 
+```
+    cd drift-frontend
+    npm run start
+```
 
 # troubleshooting
 
