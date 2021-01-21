@@ -57,6 +57,24 @@ And run the follwing command in another terminal:
 `npm run start`
 
 
+# how to run with [drift-dev-setup](https://github.com/RedHatInsights/drift-dev-setup)
+
+In terminal
+```
+cd drift-frontend
+SPANDX_PORT=1338 SPANDX_CONFIG=profiles/local-drift-dev-setup.js bash ../insights-proxy/scripts/run.sh
+```
+Note that `SPANDX_PORT` should be different from the port used for [drift-dev-setup](https://github.com/RedHatInsights/drift-dev-setup) which is `1337` by default.
+
+In another terminal
+```
+cd drift-frontend
+npm run start -- --port 8001 # value set in profiles/local-drift-dev-setup.js
+```
+
+This way we can have running both frontend from container via [drift-dev-setup](https://github.com/RedHatInsights/drift-dev-setup) and one from local source each running on different port.
+
+
 # troubleshooting
 
 If you are updating the drift-frontend app after a long period of time away, your node_modules folder may not be up to date with the packages outlined in the `package.json` file. The easiest way to update this quickly and efficiently is to fun the following commands in a terminal window.
