@@ -248,6 +248,36 @@ describe('compare reducer', () => {
         });
     });
 
+    it('should keep activeFactFilters FETCH_COMPARE_FULFILLED', () => {
+        expect(
+            compareReducer({
+                perPage: 50,
+                page: 1,
+                stateFilters: stateFilters.allStatesTrue,
+                factFilter: '',
+                activeFactFilters: [ 'bios' ]},
+            {
+                payload: compareReducerPayload,
+                type: `${types.FETCH_COMPARE}_FULFILLED`
+            })
+        ).toEqual({
+            baselines: [],
+            historicalProfiles: [],
+            fullCompareData: compareReducerState.facts,
+            loading: false,
+            factFilter: '',
+            activeFactFilters: [ 'bios' ],
+            filteredCompareData: factFilteredStateTwo.facts,
+            sortedFilteredFacts: factFilteredStateTwo.facts,
+            systems: factFilteredStateTwo.systems,
+            page: 1,
+            perPage: 50,
+            stateFilters: stateFilters.allStatesTrue,
+            totalFacts: 1,
+            emptyState: false
+        });
+    });
+
     it('should handle fullCompareData undefined', () => {
         expect(
             compareReducer({
