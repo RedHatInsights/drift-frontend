@@ -103,7 +103,7 @@ export function compareReducer(state = initialState, action) {
             };
         case `${types.FETCH_COMPARE}_FULFILLED`:
             filteredFacts = reducerHelpers.filterCompareData(
-                action.payload.facts, state.stateFilters, state.factFilter, state.referenceId, state.newActiveFactFilters
+                action.payload.facts, state.stateFilters, state.factFilter, state.referenceId, state.activeFactFilters
             );
             sortedFacts = reducerHelpers.sortData(filteredFacts, state.factSort, state.stateSort);
             paginatedFacts = reducerHelpers.paginateData(sortedFacts, 1, state.perPage);
