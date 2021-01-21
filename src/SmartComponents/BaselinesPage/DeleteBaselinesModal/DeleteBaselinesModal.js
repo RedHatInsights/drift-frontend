@@ -48,6 +48,7 @@ export class DeleteBaselinesModal extends Component {
 
         return (
             <Modal
+                className="drift"
                 variant={ ModalVariant.small }
                 title={ deleteMessage }
                 isOpen={ modalOpened }

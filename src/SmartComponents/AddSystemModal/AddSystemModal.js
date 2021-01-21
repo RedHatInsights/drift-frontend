@@ -96,6 +96,7 @@ export class AddSystemModal extends Component {
         return (
             <React.Fragment>
                 <Modal
+                    className="drift"
                     width={ '950px' }
                     title="Add to comparison"
                     isOpen={ addSystemModalOpened }
