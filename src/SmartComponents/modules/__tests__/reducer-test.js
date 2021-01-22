@@ -50,6 +50,7 @@ describe('compare reducer', () => {
                 stateSort: ASC,
                 stateFilters: stateFilters.diffStateTrue,
                 factFilter: 'dog',
+                activeFactFilters: [ 'cat', 'mouse' ],
                 expandedRows: [ 'something', 'something-else' ]}, {
                 type: `${types.CLEAR_COMPARISON}` })
         ).toEqual({
@@ -58,7 +59,7 @@ describe('compare reducer', () => {
             sortedFilteredFacts: [],
             referenceId: undefined,
             factFilter: 'dog',
-            activeFactFilters: [],
+            activeFactFilters: [ 'cat', 'mouse' ],
             stateFilters: stateFilters.diffStateTrue,
             factSort: DESC,
             stateSort: ASC,

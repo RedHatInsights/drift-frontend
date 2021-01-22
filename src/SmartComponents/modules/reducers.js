@@ -61,6 +61,7 @@ export function compareReducer(state = initialState, action) {
                 ...initialState,
                 stateFilters: state.stateFilters,
                 factFilter: state.factFilter,
+                activeFactFilters: state.activeFactFilters,
                 factSort: state.factSort,
                 stateSort: state.stateSort,
                 perPage: state.perPage,
