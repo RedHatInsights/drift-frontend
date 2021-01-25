@@ -56,11 +56,13 @@ rules:
       ImportDeclaration: 1
       ObjectExpression: 1
   react/jsx-curly-spacing:
-  - error
-  - always
-  - allowMultiline: false
-    spacing:
-      objectLiterals: never
+    - error
+    - always
+    - children: true
+    - allowMultiline: false
+    - spacing:
+      - objectLiterals:
+        - never
   key-spacing: 2
   keyword-spacing: 2
   linebreak-style:
