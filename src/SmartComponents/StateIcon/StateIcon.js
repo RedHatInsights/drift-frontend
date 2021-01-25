@@ -29,7 +29,9 @@ class StateIcon extends Component {
             <Tooltip
                 key={ fact.name + '-' + stateSort }
                 position="top"
-                content={ <div>{ fact.tooltip }</div> }
+                content={
+                    <div>{ fact.tooltip }</div>
+                }
             >
                 { this.icon() }
             </Tooltip>

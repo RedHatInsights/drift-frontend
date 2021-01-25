@@ -126,9 +126,9 @@ export class BaselinesToolbar extends Component {
                                         items={ bulkSelectItems }
                                         checked={ helpers.findCheckedValue(tableData.length, selected) }
                                         onSelect={ () => onBulkSelect(!selected > 0) }
-                                        isDisabled={ tableData.length === 0
-                                            || (!hasWritePermissions && kebab)
-                                            || (!hasReadPermissions && !createButton) }
+                                        isDisabled={
+                                            tableData.length === 0 || (!hasWritePermissions && kebab) || (!hasReadPermissions && !createButton)
+                                        }
                                     />
                                 </ToolbarItem>
                             </ToolbarGroup>

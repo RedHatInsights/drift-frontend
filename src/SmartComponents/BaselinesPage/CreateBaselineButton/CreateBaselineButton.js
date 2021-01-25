@@ -33,7 +33,9 @@ export class CreateBaselineButton extends Component {
             <React.Fragment>
                 { !hasWritePermissions && hasWritePermissions !== undefined
                     ? <Tooltip
-                        content={ <div>You do not have permissions to perform this action</div> }
+                        content={
+                            <div>You do not have permissions to perform this action</div>
+                        }
                     >
                         <div className={ emptyState ? 'tooltip-button-margin' : null }>
                             <Button

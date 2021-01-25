@@ -25,7 +25,8 @@ class FilterDropDown extends Component {
                     label={ stateFilter.display }
                     isChecked={ stateFilter.selected }
                     onChange={ () =>
-                        this.props.addStateFilter(stateFilter) }
+                        this.props.addStateFilter(stateFilter)
+                    }
                 />
             </DropdownItem>;
         return dropdownItem;

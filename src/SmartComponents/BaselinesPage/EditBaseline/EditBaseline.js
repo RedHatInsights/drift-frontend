@@ -348,11 +348,15 @@ export class EditBaseline extends Component {
                 color='#c9190b'
                 title={ 'Baseline cannot be displayed' }
                 text={ errorMessage }
-                error={ 'Error ' + editBaselineError.status + ': ' + editBaselineError.detail }
-                button={ <a onClick={ () => this.retryBaselineFetch() }>
-                    <UndoIcon className='reload-button' />
+                error={
+                    'Error ' + editBaselineError.status + ': ' + editBaselineError.detail
+                }
+                button={
+                    <a onClick={ () => this.retryBaselineFetch() }>
+                        <UndoIcon className='reload-button' />
                         Retry
-                </a> }
+                    </a>
+                }
             />;
         } else {
             return <EmptyStateDisplay

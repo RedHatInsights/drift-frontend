@@ -24,7 +24,9 @@ class AddFactButton extends Component {
             <React.Fragment>
                 { !hasWritePermissions && hasWritePermissions !== undefined
                     ? <Tooltip
-                        content={ <div>You do not have permissions to perform this action</div> }
+                        content={
+                            <div>You do not have permissions to perform this action</div>
+                        }
                     >
                         <div className={ editBaselineEmptyState ? 'tooltip-button-margin' : null }>
                             <Button

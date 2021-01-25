@@ -127,7 +127,7 @@ class FactKebab extends Component {
                 /> : null }
                 <Dropdown
                     position={ DropdownPosition.right }
-                    style={{ float: 'right' }}
+                    style={ { float: 'right' } }
                     className={ 'baseline-fact-kebab' }
                     toggle={ <KebabToggle onToggle={ (isOpen) => this.onKebabToggle(isOpen) } /> }
                     isOpen={ isOpen }

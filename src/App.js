@@ -79,14 +79,14 @@ const App = (props) => {
     return (
         arePermissionsLoaded
             ? <PermissionContext.Provider
-                value={{
+                value={ {
                     permissions: {
                         compareRead: hasCompareReadPermissions,
                         baselinesRead: hasBaselinesReadPermissions,
                         baselinesWrite: hasBaselinesWritePermissions,
                         inventoryRead: hasInventoryReadPermissions
                     }
-                }}>
+                } }>
                 <NotificationsPortal />
                 <Routes childProps={ props } />
             </PermissionContext.Provider>

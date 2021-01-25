@@ -105,9 +105,11 @@ export class AddSystemModal extends Component {
                             key="confirm"
                             variant="primary"
                             onClick={ this.confirmModal }
-                            isDisabled={ ((entities && entities.selectedSystemIds && entities.selectedSystemIds.length === 0) || !entities) &&
+                            isDisabled={
+                                ((entities && entities.selectedSystemIds && entities.selectedSystemIds.length === 0) || !entities) &&
                                 selectedBaselineIds.length === 0 &&
-                                selectedHSPIds.length === 0 }
+                                selectedHSPIds.length === 0
+                            }
                             ouiaId="submit"
                         >
                             Submit

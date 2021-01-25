@@ -1,3 +1,4 @@
+/*global describe, it, expect*/
 import getBaseName from './Utilities/getBaseName';
 
 describe('Utilities/getBaseName', () => {

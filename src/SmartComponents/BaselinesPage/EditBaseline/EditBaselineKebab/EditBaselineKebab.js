@@ -89,7 +89,7 @@ class EditBaselineKebab extends Component {
                     factMessage={ factMessage }
                 /> : null }
                 <Dropdown
-                    style={{ float: 'left' }}
+                    style={ { float: 'left' } }
                     toggle={ <KebabToggle onToggle={ this.toggleKebab } /> }
                     isOpen={ kebabOpened }
                     dropdownItems={ dropdownItems }

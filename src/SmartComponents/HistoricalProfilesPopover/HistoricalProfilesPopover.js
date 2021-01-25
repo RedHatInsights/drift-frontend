@@ -148,10 +148,12 @@ export class HistoricalProfilesPopover extends Component {
                     color='#c9190b'
                     title={ 'Cannot get historical check-ins' }
                     error={ error.status + ': ' + error.message }
-                    button={ <a onClick={ () => this.retryFetch() }>
-                        <UndoIcon className='reload-button' />
+                    button={
+                        <a onClick={ () => this.retryFetch() }>
+                            <UndoIcon className='reload-button' />
                             Retry
-                    </a> }
+                        </a>
+                    }
                 />
             );
         } else {
@@ -223,7 +225,8 @@ export class HistoricalProfilesPopover extends Component {
                                 onClick={ () => this.fetchCompare() }>
                                 Compare
                             </Button>
-                            : null }
+                            : null
+                        }
                     >
                         <HistoryIcon className='hsp-dropdown-icon' onClick={ () => this.onToggle() } />
                     </Popover>

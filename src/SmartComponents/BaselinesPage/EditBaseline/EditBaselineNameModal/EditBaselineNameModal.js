@@ -54,7 +54,7 @@ export class EditBaselineNameModal extends Component {
     renderModalBody() {
         const { baselineName } = this.state;
         const { error } = this.props;
-        const hasError = Object.prototype.hasOwnProperty.call(error, 'status')  ? ValidatedOptions.error : null;
+        const hasError = error.hasOwnProperty('status') ? ValidatedOptions.error : null;
 
         return (<div className='fact-value'>
             <Form>
@@ -62,7 +62,7 @@ export class EditBaselineNameModal extends Component {
                     label='Baseline title'
                     isRequired
                     fieldId='baseline name'
-                    helperTextInvalid={ Object.prototype.hasOwnProperty.call(error, 'detail') ? error.detail : null }
+                    helperTextInvalid={ error.hasOwnProperty('detail') ? error.detail : null }
                     validated={ hasError }
                     onKeyPress={ this.checkKeyPress }
                 >
