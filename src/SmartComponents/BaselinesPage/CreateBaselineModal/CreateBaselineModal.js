@@ -277,8 +277,7 @@ export class CreateBaselineModal extends Component {
 
         return (
             <Modal
-                className="drift"
-                width="1200px"
+                width={ '1200px' }
                 title="Create baseline"
                 isOpen={ createBaselineModalOpened }
                 onClose={ this.cancelModal }

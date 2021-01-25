@@ -83,7 +83,6 @@ export class EditBaselineNameModal extends Component {
 
         return (
             <Modal
-                className="drift"
                 variant={ ModalVariant.small }
                 title="Edit name"
                 isOpen={ modalOpened }

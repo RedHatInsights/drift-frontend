@@ -30,7 +30,6 @@ class DeleteFactModal extends Component {
 
         return (
             <Modal
-                className="drift"
                 variant={ ModalVariant.small }
                 title="Delete facts"
                 isOpen={ modalOpened }

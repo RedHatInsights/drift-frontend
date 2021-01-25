@@ -216,7 +216,6 @@ export class FactModal extends Component {
 
         return (
             <Modal
-                className="drift"
                 variant={ ModalVariant.small }
                 title={ this.title() }
                 isOpen={ factModalOpened }
