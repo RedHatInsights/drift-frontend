@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import queryString from 'query-string';
-import { AngleDownIcon, AngleRightIcon } from '@patternfly/react-icons';
+import { Tooltip } from '@patternfly/react-core';
+import { AngleDownIcon, AngleRightIcon, LockIcon } from '@patternfly/react-icons';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
 
 import AddSystemModal from '../../AddSystemModal/AddSystemModal';
@@ -268,17 +269,38 @@ export class DriftTable extends Component {
             });
 
             if (this.props.referenceId) {
-                if (system.state === 'DIFFERENT') {
-                    className.push('highlight');
-                    className.push('different-fact-cell');
+                if (system.is_obfuscated) {
+                    className.push('obfuscated');
+                } else {
+                    if (system.state === 'DIFFERENT') {
+                        className.push('highlight');
+                        className.push('different-fact-cell');
+                    }
                 }
             } else {
-                if (fact.state === 'DIFFERENT') {
+                if (system.is_obfuscated) {
+                    className.push('obfuscated');
+                }
+                else if (fact.state === 'DIFFERENT') {
                     className.push('highlight');
                 }
             }
 
-            row.push(<td className={ className.join(' ') }>{ system.value === null ? 'No Data' : system.value }</td>);
+            row.push(<td className={ className.join(' ') }>
+                { system.value === null ? 'No Data' : system.value }
+                { system.is_obfuscated ?
+                    <span
+                        style={{ float: 'right' }}
+                    >
+                        <Tooltip
+                            position='top'
+                            content={ <div>This data has been redacted from the insights-client upload.</div> }
+                        >
+                            <LockIcon color="#737679"/>
+                        </Tooltip>
+                    </span> : ''
+                }
+            </td>);
         });
 
         return row;
