@@ -23,6 +23,8 @@ function getStateSelected(state, stateFilters) {
     isStateSelected = stateFilters.find(function(stateFilter) {
         if (stateFilter.filter === state) {
             return stateFilter.selected;
+        } else if (state === 'INCOMPLETE_DATA_OBFUSCATED') {
+            return getState('INCOMPLETE_DATA', stateFilters).selected;
         }
     });
 
@@ -35,6 +37,8 @@ function getState(state, stateFilters) {
     isStateSelected = stateFilters.find(function(stateFilter) {
         if (stateFilter.filter === state) {
             return stateFilter;
+        } else if (state === 'INCOMPLETE_DATA_OBFUSCATED') {
+            return getState('INCOMPLETE_DATA', stateFilters);
         }
     });
 
@@ -53,6 +57,10 @@ function setTooltip (data, stateFilters, referenceId) {
         data.tooltip = state.display +
         ' - ' +
         'At least one system fact value in this ' + type + ' is missing.';
+    } else if (data.state === 'INCOMPLETE_DATA_OBFUSCATED') {
+        data.tooltip = state.display +
+        ' - ' +
+        'At least one system fact value in this ' + type + ' is redacted.';
     } else {
         if (referenceId) {
             data.tooltip = state.display +
