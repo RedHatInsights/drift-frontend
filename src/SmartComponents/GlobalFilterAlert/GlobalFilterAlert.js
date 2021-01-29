@@ -74,7 +74,7 @@ export class GlobalFilterAlert extends Component {
 
         return (
             <React.Fragment>
-                { isOpen && (workloadsFilter.SAP || sidsFilter.length > 0 || tagsFilter.length > 0)
+                { isOpen && (workloadsFilter.SAP?.isSelected || sidsFilter.length > 0 || tagsFilter.length > 0)
                     ? <Alert
                         variant='info'
                         title='Your systems are pre-filtered by the global context selector.'
