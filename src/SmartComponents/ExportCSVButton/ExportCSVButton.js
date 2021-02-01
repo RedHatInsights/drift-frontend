@@ -34,7 +34,7 @@ ExportCSVButton.propTypes = {
     dropdownItems: PropTypes.array,
     isOpen: PropTypes.bool,
     onToggle: PropTypes.func,
-    ouiaId: PropTypes.func
+    ouiaId: PropTypes.string
 };
 
 export default ExportCSVButton;
