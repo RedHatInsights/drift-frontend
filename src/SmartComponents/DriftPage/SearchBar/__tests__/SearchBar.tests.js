@@ -12,7 +12,8 @@ describe('SearchBar', () => {
             factFilter: '',
             activeFactFilters: [],
             handleFactFilter: jest.fn(),
-            changeFactFilter: jest.fn()
+            changeFactFilter: jest.fn(),
+            setHistory: jest.fn()
         };
     });
 
@@ -48,7 +49,7 @@ describe('SearchBar', () => {
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 
-    it('should catch Enter on keypress', () => {
+    it('should catch Enter on keypress', async() => {
         props.factFilter = 'quadrupel';
         const event = { key: 'Enter', preventDefault: jest.fn() };
         const wrapper = shallow(
@@ -57,6 +58,7 @@ describe('SearchBar', () => {
 
         wrapper.find('FormGroup').simulate('keypress', event);
 
-        expect(props.handleFactFilter).toHaveBeenCalledWith('quadrupel');
+        await expect(props.handleFactFilter).toHaveBeenCalledWith('quadrupel');
+        expect(props.setHistory).toHaveBeenCalled();
     });
 });

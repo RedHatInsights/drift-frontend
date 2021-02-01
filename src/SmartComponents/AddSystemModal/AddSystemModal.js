@@ -63,11 +63,7 @@ export class AddSystemModal extends Component {
     }
 
     selectedSystemIds() {
-        let ids = this.props.systems.map(function (system) {
-            return system.id;
-        });
-
-        return ids ? ids : [];
+        return this.props.systems?.map(({ id }) => id) || [];
     }
 
     changeActiveTab(event, tabIndex) {

@@ -37,6 +37,19 @@ export class DriftPage extends Component {
         await window.insights.chrome.auth.getUser();
     }
 
+    setHistory = () => {
+        const { activeFactFilters, baselines, factFilter, factSort, historicalProfiles, history, referenceId, stateFilters,
+            stateSort, systems } = this.props;
+
+        let systemIds = systems.map(system => system.id);
+        let baselineIds = baselines.map(baseline => baseline.id);
+        let HSPIds = historicalProfiles.map(hsp => hsp.id);
+
+        setHistory(
+            history, systemIds, baselineIds, HSPIds, referenceId, activeFactFilters, factFilter, stateFilters, factSort, stateSort
+        );
+    }
+
     setIsFirstReference = (value) => {
         this.setState({
             isFirstReference: value
@@ -75,9 +88,9 @@ export class DriftPage extends Component {
     }
 
     render() {
-        const { activeFactFilters, addStateFilter, clearAllFactFilters, clearComparison, clearComparisonFilters, clearSelectedBaselines,
-            emptyState, error, exportToCSV, factFilter, filterByFact, handleFactFilter, history, loading, page, perPage, stateFilters,
-            totalFacts, updatePagination, updateReferenceId } = this.props;
+        const { activeFactFilters, addStateFilter, baselines, clearAllFactFilters, clearComparison, clearComparisonFilters, clearSelectedBaselines,
+            emptyState, error, exportToCSV, factFilter, factSort, filterByFact, handleFactFilter, historicalProfiles, history, loading, page, perPage,
+            referenceId, stateFilters, stateSort, systems, totalFacts, updatePagination, updateReferenceId } = this.props;
         const { isFirstReference } = this.state;
 
         return (
@@ -128,6 +141,7 @@ export class DriftPage extends Component {
                                                         activeFactFilters={ activeFactFilters }
                                                         handleFactFilter={ handleFactFilter }
                                                         clearAllFactFilters={ clearAllFactFilters }
+                                                        setHistory={ this.setHistory }
                                                     />
                                                     : null
                                                 }
@@ -140,6 +154,18 @@ export class DriftPage extends Component {
                                                     hasBaselinesReadPermissions={ value.permissions.baselinesRead }
                                                     hasBaselinesWritePermissions={ value.permissions.baselinesWrite }
                                                     hasInventoryReadPermissions={ value.permissions.inventoryRead }
+                                                    handleFactFilter={ handleFactFilter }
+                                                    addStateFilter={ addStateFilter }
+                                                    stateFilters={ stateFilters }
+                                                    activeFactFilters={ activeFactFilters }
+                                                    factFilter={ factFilter }
+                                                    setHistory={ this.setHistory }
+                                                    factSort={ factSort }
+                                                    stateSort={ stateSort }
+                                                    referenceId={ referenceId }
+                                                    systems={ systems }
+                                                    baselines={ baselines }
+                                                    historicalProfiles={ historicalProfiles }
                                                 />
                                                 { !emptyState && !loading ?
                                                     <Toolbar className="drift-toolbar">
@@ -185,6 +211,7 @@ DriftPage.propTypes = {
     clearComparison: PropTypes.func,
     clearComparisonFilters: PropTypes.func,
     history: PropTypes.object,
+    location: PropTypes.object,
     selectHistoricProfiles: PropTypes.func,
     selectedHSPIds: PropTypes.array,
     revertCompareData: PropTypes.func,
@@ -196,7 +223,13 @@ DriftPage.propTypes = {
     filterByFact: PropTypes.func,
     stateFilters: PropTypes.array,
     addStateFilter: PropTypes.func,
-    clearAllFactFilters: PropTypes.func
+    clearAllFactFilters: PropTypes.func,
+    factSort: PropTypes.string,
+    stateSort: PropTypes.string,
+    referenceId: PropTypes.number,
+    systems: PropTypes.array,
+    baselines: PropTypes.array,
+    historicalProfiles: PropTypes.array
 };
 
 function mapDispatchToProps(dispatch) {
@@ -228,7 +261,13 @@ function mapStateToProps(state) {
         previousStateSystems: state.compareState.previousStateSystems,
         factFilter: state.compareState.factFilter,
         stateFilters: state.compareState.stateFilters,
-        activeFactFilters: state.compareState.activeFactFilters
+        activeFactFilters: state.compareState.activeFactFilters,
+        factSort: state.compareState.factSort,
+        stateSort: state.compareState.stateSort,
+        referenceId: state.compareState.referenceId,
+        systems: state.compareState.systems,
+        baselines: state.compareState.baselines,
+        historicalProfiles: state.compareState.historicalProfiles
     };
 }
 

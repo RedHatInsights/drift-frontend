@@ -20,23 +20,31 @@ export class SearchBar extends Component {
         }
     }
 
+    async addToActiveFactFilters(filter) {
+        const { handleFactFilter, setHistory } = this.props;
+
+        await handleFactFilter(filter);
+        setHistory();
+    }
+
     updateFactFilter = (filter) => {
         this.setState({ filter });
         this.setFactFilter(filter);
     }
 
-    setFactFilter = _.debounce(function(filter) {
-        this.props.filterByFact(filter);
+    setFactFilter = _.debounce(async function(filter) {
+        await this.props.filterByFact(filter);
+        this.props.setHistory();
     }, 250);
 
     checkKeyPress = (event) => {
-        const { activeFactFilters, handleFactFilter } = this.props;
+        const { activeFactFilters } = this.props;
         const { filter } = this.state;
 
         if (event.key === 'Enter') {
             event.preventDefault();
             if (!activeFactFilters.includes(filter)) {
-                handleFactFilter(filter);
+                this.addToActiveFactFilters(filter);
             }
         }
     }
@@ -71,7 +79,8 @@ SearchBar.propTypes = {
     filterByFact: PropTypes.func,
     factFilter: PropTypes.string,
     handleFactFilter: PropTypes.func,
-    activeFactFilters: PropTypes.array
+    activeFactFilters: PropTypes.array,
+    setHistory: PropTypes.func
 };
 
 export default SearchBar;

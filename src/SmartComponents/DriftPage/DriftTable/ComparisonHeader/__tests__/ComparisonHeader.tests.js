@@ -19,7 +19,8 @@ describe('ComparisonHeader', () => {
             systemIds: [],
             toggleFactSort: jest.fn(),
             toggleStateSort: jest.fn(),
-            updateReferenceId: jest.fn()
+            updateReferenceId: jest.fn(),
+            setHistory: jest.fn()
         };
     });
 
@@ -73,7 +74,7 @@ describe('ComparisonHeader', () => {
         );
 
         wrapper.find('th').first().simulate('click');
-        expect(wrapper.find('LongArrowAltUpIcon').length).toEqual(1);
+        expect(props.toggleFactSort).toHaveBeenCalledWith('asc');
     });
 
     it('should render fact sort asc on click', () => {
@@ -83,7 +84,7 @@ describe('ComparisonHeader', () => {
         );
 
         wrapper.find('th').first().simulate('click');
-        expect(wrapper.find('LongArrowAltDownIcon').length).toEqual(1);
+        expect(props.toggleFactSort).toHaveBeenCalledWith('desc');
     });
 
     it('should render state sort none on click', () => {
@@ -93,7 +94,27 @@ describe('ComparisonHeader', () => {
         );
 
         wrapper.find('th').at(1).simulate('click');
-        expect(wrapper.find('ArrowsAltVIcon').length).toEqual(1);
+        expect(props.toggleStateSort).toHaveBeenCalledWith('desc');
+    });
+
+    it('should render state sort asc on click', () => {
+        props.stateSort = '';
+        const wrapper = shallow(
+            <ComparisonHeader { ...props }/>
+        );
+
+        wrapper.find('th').at(1).simulate('click');
+        expect(props.toggleStateSort).toHaveBeenCalledWith('');
+    });
+
+    it('should render state sort desc on click', () => {
+        props.stateSort = 'asc';
+        const wrapper = shallow(
+            <ComparisonHeader { ...props }/>
+        );
+
+        wrapper.find('th').at(1).simulate('click');
+        expect(props.toggleStateSort).toHaveBeenCalledWith('asc');
     });
 
     it('should remove a system', () => {
@@ -114,5 +135,25 @@ describe('ComparisonHeader', () => {
 
         wrapper.find('a').simulate('click');
         expect(props.removeSystem).toHaveBeenCalled();
+    });
+
+    it('should call setHistory on toggleFactSort', async () => {
+        props.factSort = 'desc';
+        const wrapper = shallow(
+            <ComparisonHeader { ...props }/>
+        );
+
+        await wrapper.instance().toggleSort('fact', 'desc');
+        expect(props.setHistory).toHaveBeenCalled();
+    });
+
+    it('should call setHistory on toggleStateSort', async () => {
+        props.stateSort = 'desc';
+        const wrapper = shallow(
+            <ComparisonHeader { ...props }/>
+        );
+
+        await wrapper.instance().toggleSort('state', 'desc');
+        expect(props.setHistory).toHaveBeenCalled();
     });
 });

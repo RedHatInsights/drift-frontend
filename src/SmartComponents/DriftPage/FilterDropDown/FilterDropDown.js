@@ -17,6 +17,13 @@ class FilterDropDown extends Component {
         this.props.toggleDropDown();
     }
 
+    addStateFilter = async (stateFilter) => {
+        const { addStateFilter, setHistory } = this.props;
+
+        await addStateFilter(stateFilter);
+        setHistory();
+    }
+
     createDropdownItem(stateFilter) {
         let dropdownItem =
             <DropdownItem
@@ -27,8 +34,7 @@ class FilterDropDown extends Component {
                     data-ouia-component-id={ 'state-filter-option-checkbox-' + stateFilter.display }
                     label={ stateFilter.display }
                     isChecked={ stateFilter.selected }
-                    onChange={ () =>
-                        this.props.addStateFilter(stateFilter) }
+                    onChange={ () => this.addStateFilter(stateFilter) }
                 />
             </DropdownItem>;
         return dropdownItem;
@@ -95,7 +101,8 @@ FilterDropDown.propTypes = {
     toggleDropDown: PropTypes.func,
     filterDropdownOpened: PropTypes.bool,
     stateFilters: PropTypes.array,
-    addStateFilter: PropTypes.func
+    addStateFilter: PropTypes.func,
+    setHistory: PropTypes.func
 };
 
 function mapStateToProps(state) {

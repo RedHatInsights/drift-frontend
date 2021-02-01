@@ -27,7 +27,8 @@ describe('DriftToolbar', () => {
             addStateFilter: jest.fn(),
             filterByFact: jest.fn(),
             handleFactFilter: jest.fn(),
-            clearAllFactFilters: jest.fn()
+            clearAllFactFilters: jest.fn(),
+            setHistory: jest.fn()
         };
     });
 
@@ -100,6 +101,7 @@ describe('DriftToolbar', () => {
         expect(props.addStateFilter).toHaveBeenCalledWith(
             { filter: 'SAME', display: 'Same', selected: true }
         );
+        expect(props.setHistory).toHaveBeenCalled();
     });
 
     it('should remove all state chips', () => {
@@ -119,13 +121,14 @@ describe('DriftToolbar', () => {
         );
     });
 
-    it('should remove fact filter chip', () => {
+    it('should remove fact filter chip', async () => {
         const wrapper = shallow(
             <DriftToolbar { ...props } />
         );
         wrapper.instance().removeChip('Fact name', 'blah');
 
-        expect(props.filterByFact).toHaveBeenCalledWith('');
+        await expect(props.filterByFact).toHaveBeenCalledWith('');
+        expect(props.setHistory).toHaveBeenCalled();
     });
 
     it('should remove active fact filter chip', () => {

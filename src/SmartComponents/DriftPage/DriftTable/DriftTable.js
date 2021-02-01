@@ -2,15 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import queryString from 'query-string';
 import { Tooltip } from '@patternfly/react-core';
 import { AngleDownIcon, AngleRightIcon, LockIcon } from '@patternfly/react-icons';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
+import { ASC, DESC } from '../../../constants';
 
 import AddSystemModal from '../../AddSystemModal/AddSystemModal';
 import StateIcon from '../../StateIcon/StateIcon';
 import ComparisonHeader from './ComparisonHeader/ComparisonHeader';
-import { setHistory } from '../../../Utilities/SetHistory';
 
 import { compareActions } from '../../modules';
 import { baselinesTableActions } from '../../BaselinesTable/redux';
@@ -33,6 +32,8 @@ export class DriftTable extends Component {
         this.setBaselineIds();
         this.setHSPIds();
         this.setReferenceId();
+        this.setFilters();
+        this.setSort();
         this.fetchCompare = this.fetchCompare.bind(this);
         this.removeSystem = this.removeSystem.bind(this);
     }
@@ -125,23 +126,29 @@ export class DriftTable extends Component {
         return masterList;
     }
 
+    /*eslint-disable*/
     setSystemIds() {
-        this.systemIds = queryString.parse(this.props.location.search).system_ids;
+        let searchParams = new URLSearchParams(this.props.location.search);
+
+        this.systemIds = searchParams.getAll('system_ids');
         this.systemIds = Array.isArray(this.systemIds) ? this.systemIds : [ this.systemIds ];
         this.systemIds = this.systemIds.filter(item => item !== undefined);
     }
 
     setBaselineIds() {
-        this.baselineIds = queryString.parse(this.props.location.search).baseline_ids;
+        let searchParams = new URLSearchParams(this.props.location.search);
+
+        this.baselineIds = searchParams.getAll('baseline_ids');
         this.baselineIds = Array.isArray(this.baselineIds) ? this.baselineIds : [ this.baselineIds ];
         this.baselineIds = this.baselineIds.filter(item => item !== undefined);
         this.props.setSelectedBaselines(this.baselineIds, 'CHECKBOX');
     }
 
     setHSPIds() {
-        const { selectHistoricProfiles } = this.props;
+        const { location, selectHistoricProfiles } = this.props;
+        let searchParams = new URLSearchParams(location.search);
 
-        this.HSPIds = queryString.parse(this.props.location.search).hsp_ids;
+        this.HSPIds = searchParams.getAll('hsp_ids');
         this.HSPIds = Array.isArray(this.HSPIds) ? this.HSPIds : [ this.HSPIds ];
         this.HSPIds = this.HSPIds.filter(item => item !== undefined);
         selectHistoricProfiles(this.HSPIds);
@@ -149,7 +156,60 @@ export class DriftTable extends Component {
 
     setReferenceId() {
         const { location, updateReferenceId } = this.props;
-        updateReferenceId(queryString.parse(location.search).reference_id);
+        let searchParams = new URLSearchParams(location.search);
+        let referenceId = searchParams.get('reference_id');
+
+        updateReferenceId(referenceId === null ? undefined : referenceId);
+    }
+
+    setFilters() {
+        const { addStateFilter, handleFactFilter, location, stateFilters } = this.props;
+        let searchParams = new URLSearchParams(location.search);
+
+        searchParams.get('filter[name]')?.split(',').forEach(function(factFilter) {
+            handleFactFilter(factFilter);
+        });
+
+        let newStateFilters = searchParams.get('filter[state]')?.split(',');
+
+        if (newStateFilters?.length > 0) {
+            stateFilters.forEach(function(stateFilter) {
+                let filter = { ...stateFilter };
+
+                if (newStateFilters?.includes(stateFilter.filter.toLowerCase())) {
+                    filter.selected = false;
+                }
+
+                addStateFilter(filter);
+            });
+        }
+    }
+
+    setSort() {
+        const { location, toggleFactSort, toggleStateSort } = this.props;
+        let searchParams = new URLSearchParams(location.search);
+
+        let sort = searchParams.get('sort')?.split(',');
+
+        sort?.forEach(function(sort) {
+            if (sort.includes('fact')) {
+                if (sort[0] === '-') {
+                    toggleFactSort(ASC);
+                } else {
+                    toggleFactSort(DESC);
+                }
+            } else {
+                if (sort[0] === '-') {
+                    toggleStateSort(ASC);
+                } else if (sort === 'state') {
+                    toggleStateSort('');
+                }
+            }
+        });
+
+        if (sort?.length === 1 && sort[0]?.includes('fact')) {
+            toggleStateSort(DESC);
+        }
     }
 
     updateReferenceId = (id) => {
@@ -197,11 +257,12 @@ export class DriftTable extends Component {
             setIsFirstReference(true);
         }
 
+        
         this.fetchCompare(this.systemIds, this.baselineIds, this.HSPIds, newReferenceId);
     }
 
-    fetchCompare(systemIds, baselineIds, HSPIds, referenceId) {
-        const { clearComparison, fetchCompare, isFirstReference, setIsFirstReference, setSelectedBaselines, updateReferenceId } = this.props;
+    async fetchCompare(systemIds, baselineIds, HSPIds, referenceId) {
+        const { clearComparison, fetchCompare, isFirstReference, setHistory, setIsFirstReference, setSelectedBaselines, updateReferenceId } = this.props;
         let reference;
 
         this.systemIds = systemIds;
@@ -218,17 +279,19 @@ export class DriftTable extends Component {
             reference = referenceId;
         }
 
-        setHistory(this.props.history, systemIds, baselineIds, HSPIds, reference);
         setSelectedBaselines(this.baselineIds, 'CHECKBOX');
         updateReferenceId(reference);
 
         if (systemIds.length || baselineIds.length || HSPIds.length || reference) {
-            fetchCompare(systemIds, baselineIds, HSPIds, reference);
-            setIsFirstReference(false);
+            await fetchCompare(systemIds, baselineIds, HSPIds, reference);
+            await setIsFirstReference(false);
         } else {
-            clearComparison();
+            await clearComparison();
         }
+
+        setHistory();
     }
+    /*eslint-enable*/
 
     renderRows(facts) {
         let rows = [];
@@ -448,7 +511,7 @@ export class DriftTable extends Component {
     }
 
     renderTable(compareData, loading) {
-        const { factSort, referenceId, stateSort, toggleFactSort, toggleStateSort } = this.props;
+        const { factSort, referenceId, setHistory, stateSort, toggleFactSort, toggleStateSort } = this.props;
 
         return (
             <React.Fragment>
@@ -469,6 +532,7 @@ export class DriftTable extends Component {
                                 toggleFactSort={ toggleFactSort }
                                 toggleStateSort={ toggleStateSort }
                                 updateReferenceId={ this.updateReferenceId }
+                                setHistory={ setHistory }
                             />
                         </thead>
                         <tbody>
@@ -511,14 +575,8 @@ function mapStateToProps(state) {
         fullCompareData: state.compareState.fullCompareData,
         filteredCompareData: state.compareState.filteredCompareData,
         loading: state.compareState.loading,
-        systems: state.compareState.systems,
-        baselines: state.compareState.baselines,
-        historicalProfiles: state.compareState.historicalProfiles,
-        factSort: state.compareState.factSort,
-        stateSort: state.compareState.stateSort,
         expandedRows: state.compareState.expandedRows,
-        emptyState: state.compareState.emptyState,
-        referenceId: state.compareState.referenceId
+        emptyState: state.compareState.emptyState
     };
 }
 
@@ -565,7 +623,13 @@ DriftTable.propTypes = {
     clearComparison: PropTypes.func,
     hasInventoryReadPermissions: PropTypes.bool,
     hasBaselinesReadPermissions: PropTypes.bool,
-    hasBaselinesWritePermissions: PropTypes.bool
+    hasBaselinesWritePermissions: PropTypes.bool,
+    stateFilters: PropTypes.object,
+    addStateFilter: PropTypes.func,
+    handleFactFilter: PropTypes.func,
+    activeFactFilters: PropTypes.array,
+    factFilter: PropTypes.string,
+    setHistory: PropTypes.func
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DriftTable));
