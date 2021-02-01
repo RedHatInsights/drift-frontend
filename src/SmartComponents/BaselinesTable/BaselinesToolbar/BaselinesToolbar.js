@@ -169,6 +169,7 @@ export class BaselinesToolbar extends Component {
                                         ouiaId='export-dropdown-baselines'
                                         isOpen={ dropdownOpen }
                                         onToggle={ this.onToggle }
+                                        ouiaId='baselines-export-dropdown'
                                     />
                                 </ToolbarItem>
                                 : null
