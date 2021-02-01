@@ -10,20 +10,21 @@ class ExportCSVButton extends Component {
     }
 
     render() {
-        const { dropdownItems, isOpen, onToggle } = this.props;
+        const { dropdownItems, isOpen, onToggle, ouiaId } = this.props;
 
         return (
             <Dropdown
                 toggle={ <DropdownToggle
                     toggleIndicator={ null }
-                    onToggle={ onToggle }>
+                    onToggle={ onToggle }
+                    ouiaId={ (ouiaId ? ouiaId : 'export-dropdown') + '-toggle' }>
                     <ExportIcon className='pointer not-active'/>
                 </DropdownToggle> }
                 isOpen={ isOpen }
                 isPlain
                 position={ DropdownPosition.left }
                 dropdownItems={ dropdownItems }
-                ouiaId="export"
+                ouiaId={ ouiaId ? ouiaId : 'export-dropdown' }
             />
         );
     }
@@ -32,7 +33,8 @@ class ExportCSVButton extends Component {
 ExportCSVButton.propTypes = {
     dropdownItems: PropTypes.array,
     isOpen: PropTypes.bool,
-    onToggle: PropTypes.func
+    onToggle: PropTypes.func,
+    ouiaId: PropTypes.func
 };
 
 export default ExportCSVButton;
