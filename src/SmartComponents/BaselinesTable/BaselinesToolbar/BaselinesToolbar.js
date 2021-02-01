@@ -34,6 +34,7 @@ export class BaselinesToolbar extends Component {
                 <DropdownItem
                     key='export-to-CSV'
                     component='button'
+                    ouiaId='baselines-export-to-csv'
                     onClick={ () => this.props.exportToCSV(this.props.tableData) }
                 >
                     Export to CSV
@@ -166,6 +167,7 @@ export class BaselinesToolbar extends Component {
                                         dropdownItems={ dropdownItems }
                                         isOpen={ dropdownOpen }
                                         onToggle={ this.onToggle }
+                                        ouiaId='baselines-export-dropdown'
                                     />
                                 </ToolbarItem>
                                 : null
