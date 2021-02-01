@@ -49,7 +49,10 @@ exports[`ConnectedDriftTable should render correctly 1`] = `
       }
     >
       <withRouter(Connect(DriftTable))
+        baselines={Array []}
         error={Object {}}
+        historicalProfiles={Array []}
+        systems={Array []}
         updateReferenceId={
           [MockFunction] {
             "calls": Array [
@@ -67,7 +70,9 @@ exports[`ConnectedDriftTable should render correctly 1`] = `
         }
       >
         <Connect(DriftTable)
+          baselines={Array []}
           error={Object {}}
+          historicalProfiles={Array []}
           history={
             Object {
               "action": "POP",
@@ -114,6 +119,7 @@ exports[`ConnectedDriftTable should render correctly 1`] = `
               "url": "/",
             }
           }
+          systems={Array []}
           updateReferenceId={
             [MockFunction] {
               "calls": Array [
@@ -214,15 +220,12 @@ exports[`ConnectedDriftTable should render correctly 1`] = `
             >
               <AddSystemModal
                 addSystemModalOpened={false}
-                baselines={Array []}
                 confirmModal={[Function]}
-                historicalProfiles={Array []}
                 selectActiveTab={[Function]}
                 selectBaseline={[Function]}
                 selectedBaselineIds={Array []}
                 selectedHSPIds={Array []}
                 selectedSystemIds={Array []}
-                systems={Array []}
                 toggleAddSystemModal={[Function]}
               >
                 <Modal
@@ -472,7 +475,10 @@ exports[`ConnectedDriftTable should render loading rows 1`] = `
       }
     >
       <withRouter(Connect(DriftTable))
+        baselines={Array []}
         error={Object {}}
+        historicalProfiles={Array []}
+        systems={Array []}
         updateReferenceId={
           [MockFunction] {
             "calls": Array [
@@ -490,7 +496,9 @@ exports[`ConnectedDriftTable should render loading rows 1`] = `
         }
       >
         <Connect(DriftTable)
+          baselines={Array []}
           error={Object {}}
+          historicalProfiles={Array []}
           history={
             Object {
               "action": "POP",
@@ -537,6 +545,7 @@ exports[`ConnectedDriftTable should render loading rows 1`] = `
               "url": "/",
             }
           }
+          systems={Array []}
           updateReferenceId={
             [MockFunction] {
               "calls": Array [
@@ -637,15 +646,12 @@ exports[`ConnectedDriftTable should render loading rows 1`] = `
             >
               <AddSystemModal
                 addSystemModalOpened={false}
-                baselines={Array []}
                 confirmModal={[Function]}
-                historicalProfiles={Array []}
                 selectActiveTab={[Function]}
                 selectBaseline={[Function]}
                 selectedBaselineIds={Array []}
                 selectedHSPIds={Array []}
                 selectedSystemIds={Array []}
-                systems={Array []}
                 toggleAddSystemModal={[Function]}
               >
                 <Modal
@@ -1276,6 +1282,56 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
       }
     >
       <withRouter(Connect(DriftTable))
+        baselines={
+          Array [
+            Object {
+              "display_name": "baseline1",
+              "id": "9bbbefcc-8f23-4d97-07f2-142asdl234e9",
+              "last_updated": "2019-01-15T14:53:15.886891Z",
+              "type": "baseline",
+            },
+            Object {
+              "display_name": "baseline2",
+              "id": "fdmk59dj-fn42-dfjk-alv3-bmn2854mnn29",
+              "last_updated": "2019-01-15T15:25:16.304899Z",
+              "type": "baseline",
+            },
+          ]
+        }
+        historicalProfiles={
+          Array [
+            Object {
+              "display_name": "system1",
+              "id": "9bbbefcc-8f23-4d97-07f2-142asdl234e8",
+              "last_updated": "2019-01-15T14:53:15.886891Z",
+              "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+              "type": "historical-system-profile",
+            },
+            Object {
+              "display_name": "system1",
+              "id": "edmk59dj-fn42-dfjk-alv3-bmn2854mnn27",
+              "last_updated": "2019-01-15T15:25:16.304899Z",
+              "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+              "type": "historical-system-profile",
+            },
+          ]
+        }
+        systems={
+          Array [
+            Object {
+              "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+              "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+              "last_updated": "2019-01-15T14:53:15.886891Z",
+              "type": "system",
+            },
+            Object {
+              "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+              "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+              "last_updated": "2019-01-15T15:25:16.304899Z",
+              "type": "system",
+            },
+          ]
+        }
         updateReferenceId={
           [MockFunction] {
             "calls": Array [
@@ -1293,6 +1349,40 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
         }
       >
         <Connect(DriftTable)
+          baselines={
+            Array [
+              Object {
+                "display_name": "baseline1",
+                "id": "9bbbefcc-8f23-4d97-07f2-142asdl234e9",
+                "last_updated": "2019-01-15T14:53:15.886891Z",
+                "type": "baseline",
+              },
+              Object {
+                "display_name": "baseline2",
+                "id": "fdmk59dj-fn42-dfjk-alv3-bmn2854mnn29",
+                "last_updated": "2019-01-15T15:25:16.304899Z",
+                "type": "baseline",
+              },
+            ]
+          }
+          historicalProfiles={
+            Array [
+              Object {
+                "display_name": "system1",
+                "id": "9bbbefcc-8f23-4d97-07f2-142asdl234e8",
+                "last_updated": "2019-01-15T14:53:15.886891Z",
+                "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                "type": "historical-system-profile",
+              },
+              Object {
+                "display_name": "system1",
+                "id": "edmk59dj-fn42-dfjk-alv3-bmn2854mnn27",
+                "last_updated": "2019-01-15T15:25:16.304899Z",
+                "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                "type": "historical-system-profile",
+              },
+            ]
+          }
           history={
             Object {
               "action": "POP",
@@ -1338,6 +1428,22 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
               "path": "/",
               "url": "/",
             }
+          }
+          systems={
+            Array [
+              Object {
+                "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                "last_updated": "2019-01-15T14:53:15.886891Z",
+                "type": "system",
+              },
+              Object {
+                "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                "last_updated": "2019-01-15T15:25:16.304899Z",
+                "type": "system",
+              },
+            ]
           }
           updateReferenceId={
             [MockFunction] {
@@ -1972,41 +2078,7 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
             >
               <AddSystemModal
                 addSystemModalOpened={false}
-                baselines={
-                  Array [
-                    Object {
-                      "display_name": "baseline1",
-                      "id": "9bbbefcc-8f23-4d97-07f2-142asdl234e9",
-                      "last_updated": "2019-01-15T14:53:15.886891Z",
-                      "type": "baseline",
-                    },
-                    Object {
-                      "display_name": "baseline2",
-                      "id": "fdmk59dj-fn42-dfjk-alv3-bmn2854mnn29",
-                      "last_updated": "2019-01-15T15:25:16.304899Z",
-                      "type": "baseline",
-                    },
-                  ]
-                }
                 confirmModal={[Function]}
-                historicalProfiles={
-                  Array [
-                    Object {
-                      "display_name": "system1",
-                      "id": "9bbbefcc-8f23-4d97-07f2-142asdl234e8",
-                      "last_updated": "2019-01-15T14:53:15.886891Z",
-                      "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
-                      "type": "historical-system-profile",
-                    },
-                    Object {
-                      "display_name": "system1",
-                      "id": "edmk59dj-fn42-dfjk-alv3-bmn2854mnn27",
-                      "last_updated": "2019-01-15T15:25:16.304899Z",
-                      "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
-                      "type": "historical-system-profile",
-                    },
-                  ]
-                }
                 selectActiveTab={[Function]}
                 selectBaseline={[Function]}
                 selectedBaselineIds={Array []}
@@ -2015,22 +2087,6 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                   Array [
                     "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                     "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
-                  ]
-                }
-                systems={
-                  Array [
-                    Object {
-                      "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
-                      "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
-                      "last_updated": "2019-01-15T14:53:15.886891Z",
-                      "type": "system",
-                    },
-                    Object {
-                      "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
-                      "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
-                      "last_updated": "2019-01-15T15:25:16.304899Z",
-                      "type": "system",
-                    },
                   ]
                 }
                 toggleAddSystemModal={[Function]}
@@ -7326,6 +7382,56 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
       }
     >
       <withRouter(Connect(DriftTable))
+        baselines={
+          Array [
+            Object {
+              "display_name": "baseline1",
+              "id": "9bbbefcc-8f23-4d97-07f2-142asdl234e9",
+              "last_updated": "2019-01-15T14:53:15.886891Z",
+              "type": "baseline",
+            },
+            Object {
+              "display_name": "baseline2",
+              "id": "fdmk59dj-fn42-dfjk-alv3-bmn2854mnn29",
+              "last_updated": "2019-01-15T15:25:16.304899Z",
+              "type": "baseline",
+            },
+          ]
+        }
+        historicalProfiles={
+          Array [
+            Object {
+              "display_name": "system1",
+              "id": "9bbbefcc-8f23-4d97-07f2-142asdl234e8",
+              "last_updated": "2019-01-15T14:53:15.886891Z",
+              "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+              "type": "historical-system-profile",
+            },
+            Object {
+              "display_name": "system1",
+              "id": "edmk59dj-fn42-dfjk-alv3-bmn2854mnn27",
+              "last_updated": "2019-01-15T15:25:16.304899Z",
+              "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+              "type": "historical-system-profile",
+            },
+          ]
+        }
+        systems={
+          Array [
+            Object {
+              "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+              "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+              "last_updated": "2019-01-15T14:53:15.886891Z",
+              "type": "system",
+            },
+            Object {
+              "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+              "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+              "last_updated": "2019-01-15T15:25:16.304899Z",
+              "type": "system",
+            },
+          ]
+        }
         updateReferenceId={
           [MockFunction] {
             "calls": Array [
@@ -7343,6 +7449,40 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
         }
       >
         <Connect(DriftTable)
+          baselines={
+            Array [
+              Object {
+                "display_name": "baseline1",
+                "id": "9bbbefcc-8f23-4d97-07f2-142asdl234e9",
+                "last_updated": "2019-01-15T14:53:15.886891Z",
+                "type": "baseline",
+              },
+              Object {
+                "display_name": "baseline2",
+                "id": "fdmk59dj-fn42-dfjk-alv3-bmn2854mnn29",
+                "last_updated": "2019-01-15T15:25:16.304899Z",
+                "type": "baseline",
+              },
+            ]
+          }
+          historicalProfiles={
+            Array [
+              Object {
+                "display_name": "system1",
+                "id": "9bbbefcc-8f23-4d97-07f2-142asdl234e8",
+                "last_updated": "2019-01-15T14:53:15.886891Z",
+                "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                "type": "historical-system-profile",
+              },
+              Object {
+                "display_name": "system1",
+                "id": "edmk59dj-fn42-dfjk-alv3-bmn2854mnn27",
+                "last_updated": "2019-01-15T15:25:16.304899Z",
+                "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                "type": "historical-system-profile",
+              },
+            ]
+          }
           history={
             Object {
               "action": "POP",
@@ -7388,6 +7528,22 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
               "path": "/",
               "url": "/",
             }
+          }
+          systems={
+            Array [
+              Object {
+                "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                "last_updated": "2019-01-15T14:53:15.886891Z",
+                "type": "system",
+              },
+              Object {
+                "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                "last_updated": "2019-01-15T15:25:16.304899Z",
+                "type": "system",
+              },
+            ]
           }
           updateReferenceId={
             [MockFunction] {
@@ -7633,41 +7789,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
             >
               <AddSystemModal
                 addSystemModalOpened={false}
-                baselines={
-                  Array [
-                    Object {
-                      "display_name": "baseline1",
-                      "id": "9bbbefcc-8f23-4d97-07f2-142asdl234e9",
-                      "last_updated": "2019-01-15T14:53:15.886891Z",
-                      "type": "baseline",
-                    },
-                    Object {
-                      "display_name": "baseline2",
-                      "id": "fdmk59dj-fn42-dfjk-alv3-bmn2854mnn29",
-                      "last_updated": "2019-01-15T15:25:16.304899Z",
-                      "type": "baseline",
-                    },
-                  ]
-                }
                 confirmModal={[Function]}
-                historicalProfiles={
-                  Array [
-                    Object {
-                      "display_name": "system1",
-                      "id": "9bbbefcc-8f23-4d97-07f2-142asdl234e8",
-                      "last_updated": "2019-01-15T14:53:15.886891Z",
-                      "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
-                      "type": "historical-system-profile",
-                    },
-                    Object {
-                      "display_name": "system1",
-                      "id": "edmk59dj-fn42-dfjk-alv3-bmn2854mnn27",
-                      "last_updated": "2019-01-15T15:25:16.304899Z",
-                      "system_id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
-                      "type": "historical-system-profile",
-                    },
-                  ]
-                }
                 selectActiveTab={[Function]}
                 selectBaseline={[Function]}
                 selectedBaselineIds={Array []}
@@ -7676,22 +7798,6 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                   Array [
                     "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                     "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
-                  ]
-                }
-                systems={
-                  Array [
-                    Object {
-                      "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
-                      "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
-                      "last_updated": "2019-01-15T14:53:15.886891Z",
-                      "type": "system",
-                    },
-                    Object {
-                      "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
-                      "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
-                      "last_updated": "2019-01-15T15:25:16.304899Z",
-                      "type": "system",
-                    },
                   ]
                 }
                 toggleAddSystemModal={[Function]}
@@ -11570,11 +11676,12 @@ exports[`DriftTable should render correctly 1`] = `
     >
       <thead>
         <ComparisonHeader
-          factSort=""
+          factSort="asc"
           fetchCompare={[Function]}
           masterList={Array []}
           removeSystem={[Function]}
-          stateSort=""
+          setHistory={[MockFunction]}
+          stateSort="desc"
           systemIds={Array []}
           toggleFactSort={[MockFunction]}
           toggleStateSort={[MockFunction]}

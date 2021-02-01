@@ -6,7 +6,11 @@ import { Provider } from 'react-redux';
 import toJson from 'enzyme-to-json';
 
 import ConnectedDriftPage, { DriftPage } from '../DriftPage';
-import { compareReducerPayload, baselinesPayload } from '../../modules/__tests__/reducer.fixtures';
+import { compareReducerPayload, systemsPayload, baselinesPayload, historicalProfilesPayload } from '../../modules/__tests__/reducer.fixtures';
+import { systemIds, baselineIds, HSPIds } from './fixtures/DriftPage.fixtures';
+import { allStatesTrue } from '../../modules/__tests__/state-filter.fixtures';
+import { ASC, DESC } from '../../../constants';
+import * as setHistory from '../../../Utilities/SetHistory';
 import { PermissionContext } from '../../../App';
 
 describe('DriftPage', () => {
@@ -18,14 +22,21 @@ describe('DriftPage', () => {
             loading: false,
             systems: [],
             baselines: [],
+            historicalProfiles: [],
             emptyState: false,
+            factFilter: '',
+            activeFactFilters: [],
+            factSort: DESC,
+            stateSort: ASC,
+            referenceId: undefined,
+            stateFilters: allStatesTrue,
+            history: { location: { search: '' }, push: jest.fn() },
             clearSelectedBaselines: jest.fn(),
             toggleErrorAlert: jest.fn(),
             clearComparison: jest.fn(),
             clearComparisonFilters: jest.fn(),
             selectHistoricProfiles: jest.fn(),
             updateReferenceId: jest.fn(),
-            history: { push: jest.fn() },
             revertCompareData: jest.fn()
         };
     });
@@ -55,6 +66,38 @@ describe('DriftPage', () => {
 
         wrapper.instance().onClose();
         expect(props.revertCompareData).toHaveBeenCalled();
+    });
+
+    it('should call setHistory', async () => {
+        props.systems = systemsPayload;
+        props.baselines = baselinesPayload;
+        props.historicalProfiles = historicalProfilesPayload;
+        const setHistorySpy = jest.spyOn(setHistory, 'setHistory');
+
+        const wrapper = shallow(
+            <DriftPage { ...props } />
+        );
+
+        await wrapper.instance().setHistory();
+        await expect(setHistorySpy).toHaveBeenCalledWith(
+            props.history, systemIds, baselineIds, HSPIds, undefined, [], '', allStatesTrue, DESC, ASC
+        );
+    });
+
+    it('should call setHistory', async () => {
+        props.systems = systemsPayload;
+        props.baselines = baselinesPayload;
+        props.historicalProfiles = historicalProfilesPayload;
+        const setHistorySpy = jest.spyOn(setHistory, 'setHistory');
+
+        const wrapper = shallow(
+            <DriftPage { ...props } />
+        );
+
+        await wrapper.instance().setHistory();
+        await expect(setHistorySpy).toHaveBeenCalledWith(
+            props.history, systemIds, baselineIds, HSPIds, undefined, [], '', allStatesTrue, DESC, ASC
+        );
     });
 });
 

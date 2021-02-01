@@ -9,7 +9,6 @@ import SearchBar from '../SearchBar/SearchBar';
 import ActionKebab from '../ActionKebab/ActionKebab';
 import AddSystemButton from '../AddSystemButton/AddSystemButton';
 import ExportCSVButton from '../../ExportCSVButton/ExportCSVButton';
-import { setHistory } from '../../../Utilities/SetHistory';
 import { TablePagination } from '../../Pagination/Pagination';
 
 export class DriftToolbar extends Component {
@@ -81,33 +80,35 @@ export class DriftToolbar extends Component {
         });
     }
 
-    removeChip = (type = '', id = '') => {
-        const { activeFactFilters, addStateFilter, clearAllFactFilters, filterByFact, handleFactFilter, stateFilters } = this.props;
+    removeChip = async (type = '', id = '') => {
+        const { activeFactFilters, addStateFilter, clearAllFactFilters, filterByFact, handleFactFilter, setHistory, stateFilters } = this.props;
 
         if (type) {
             if (type === 'State') {
                 if (id === '') {
                     this.clearAllStateChips();
                 } else {
-                    stateFilters.forEach(function(stateFilter) {
+                    stateFilters.forEach(async function(stateFilter) {
                         if (stateFilter.display === id) {
-                            addStateFilter(stateFilter);
+                            await addStateFilter(stateFilter);
                         }
                     });
                 }
             } else {
                 if (id === '') {
-                    clearAllFactFilters();
+                    await clearAllFactFilters();
                 } else if (activeFactFilters.includes(id)) {
-                    handleFactFilter(id);
+                    await handleFactFilter(id);
                 } else {
-                    filterByFact('');
+                    await filterByFact('');
                 }
             }
         } else {
             this.clearAllStateChips();
             this.clearAllFactChips();
         }
+
+        setHistory();
     }
 
     setIsEmpty = (isEmpty) => {
@@ -128,19 +129,20 @@ export class DriftToolbar extends Component {
         clearComparisonFilters();
     }
 
-    clearComparison = () => {
-        const { history, clearComparison, clearSelectedBaselines, setIsFirstReference, updateReferenceId } = this.props;
+    clearComparison = async () => {
+        const { clearComparison, clearSelectedBaselines, setHistory, setIsFirstReference, updateReferenceId } = this.props;
 
-        clearComparison();
-        clearSelectedBaselines('CHECKBOX');
-        setIsFirstReference(true);
-        updateReferenceId();
-        setHistory(history, []);
+        await clearComparison();
+        await clearSelectedBaselines('CHECKBOX');
+        await setIsFirstReference(true);
+        await updateReferenceId();
+        setHistory();
+
     }
 
     render() {
-        const { activeFactFilters, factFilter, filterByFact, handleFactFilter,
-            loading, page, perPage, stateFilters, totalFacts, updatePagination } = this.props;
+        const { activeFactFilters, factFilter, filterByFact, handleFactFilter, loading,
+            page, perPage, setHistory, stateFilters, totalFacts, updatePagination } = this.props;
         const { actionKebabItems, dropdownItems, dropdownOpen, isEmpty } = this.state;
 
         return (
@@ -159,6 +161,7 @@ export class DriftToolbar extends Component {
                                     activeFactFilters={ activeFactFilters }
                                     handleFactFilter={ handleFactFilter }
                                     filterByFact={ filterByFact }
+                                    setHistory={ setHistory }
                                 />
                             </ToolbarFilter>
                             <ToolbarFilter
@@ -167,7 +170,7 @@ export class DriftToolbar extends Component {
                                 deleteChipGroup={ this.removeChip }
                                 categoryName="State"
                             >
-                                <FilterDropDown />
+                                <FilterDropDown setHistory={ setHistory } />
                             </ToolbarFilter>
                         </ToolbarGroup>
                         <ToolbarGroup variant='button-group'>
@@ -238,7 +241,8 @@ DriftToolbar.propTypes = {
     addStateFilter: PropTypes.func,
     activeFactFilters: PropTypes.array,
     handleFactFilter: PropTypes.func,
-    clearAllFactFilters: PropTypes.func
+    clearAllFactFilters: PropTypes.func,
+    setHistory: PropTypes.func
 };
 
 export default DriftToolbar;

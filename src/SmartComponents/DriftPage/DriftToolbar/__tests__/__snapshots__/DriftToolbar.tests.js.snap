@@ -25,6 +25,7 @@ exports[`DriftToolbar should render correctly 1`] = `
             factFilter=""
             filterByFact={[MockFunction]}
             handleFactFilter={[MockFunction]}
+            setHistory={[MockFunction]}
           />
         </ToolbarFilter>
         <ToolbarFilter
@@ -40,7 +41,9 @@ exports[`DriftToolbar should render correctly 1`] = `
           deleteChipGroup={[Function]}
           showToolbarItem={true}
         >
-          <Connect(FilterDropDown) />
+          <Connect(FilterDropDown)
+            setHistory={[MockFunction]}
+          />
         </ToolbarFilter>
       </ForwardRef>
       <ForwardRef
@@ -153,6 +156,7 @@ exports[`DriftToolbar should render with fact filter chips 1`] = `
             factFilter="dog"
             filterByFact={[MockFunction]}
             handleFactFilter={[MockFunction]}
+            setHistory={[MockFunction]}
           />
         </ToolbarFilter>
         <ToolbarFilter
@@ -168,7 +172,9 @@ exports[`DriftToolbar should render with fact filter chips 1`] = `
           deleteChipGroup={[Function]}
           showToolbarItem={true}
         >
-          <Connect(FilterDropDown) />
+          <Connect(FilterDropDown)
+            setHistory={[MockFunction]}
+          />
         </ToolbarFilter>
       </ForwardRef>
       <ForwardRef

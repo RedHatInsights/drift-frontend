@@ -100,6 +100,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
           <DriftPage
             activeFactFilters={Array []}
             addStateFilter={[Function]}
+            baselines={Array []}
             clearAllFactFilters={[Function]}
             clearComparison={[Function]}
             clearComparisonFilters={[Function]}
@@ -110,6 +111,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
             factFilter=""
             filterByFact={[Function]}
             handleFactFilter={[Function]}
+            historicalProfiles={Array []}
             history={
               Object {
                 "action": "POP",
@@ -180,6 +182,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                 },
               ]
             }
+            systems={Array []}
             updatePagination={[Function]}
             updateReferenceId={[Function]}
           >
@@ -283,6 +286,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                 }
                               }
                               loading={false}
+                              setHistory={[Function]}
                               setIsFirstReference={[Function]}
                               stateFilters={
                                 Array [
@@ -353,6 +357,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                         factFilter=""
                                                         filterByFact={[Function]}
                                                         handleFactFilter={[Function]}
+                                                        setHistory={[Function]}
                                                       >
                                                         <Form>
                                                           <form
@@ -634,9 +639,12 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                     <div
                                                       className="pf-c-toolbar__item"
                                                     >
-                                                      <Connect(FilterDropDown)>
+                                                      <Connect(FilterDropDown)
+                                                        setHistory={[Function]}
+                                                      >
                                                         <FilterDropDown
                                                           addStateFilter={[Function]}
+                                                          setHistory={[Function]}
                                                           stateFilters={
                                                             Array [
                                                               Object {
@@ -3137,15 +3145,48 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                               </Toolbar>
                             </DriftToolbar>
                             <withRouter(Connect(DriftTable))
+                              activeFactFilters={Array []}
+                              addStateFilter={[Function]}
+                              baselines={Array []}
                               clearComparison={[Function]}
                               error={Object {}}
+                              factFilter=""
+                              handleFactFilter={[Function]}
+                              historicalProfiles={Array []}
                               isFirstReference={true}
+                              setHistory={[Function]}
                               setIsFirstReference={[Function]}
+                              stateFilters={
+                                Array [
+                                  Object {
+                                    "display": "Same",
+                                    "filter": "SAME",
+                                    "selected": true,
+                                  },
+                                  Object {
+                                    "display": "Different",
+                                    "filter": "DIFFERENT",
+                                    "selected": true,
+                                  },
+                                  Object {
+                                    "display": "Incomplete data",
+                                    "filter": "INCOMPLETE_DATA",
+                                    "selected": true,
+                                  },
+                                ]
+                              }
+                              systems={Array []}
                               updateReferenceId={[Function]}
                             >
                               <Connect(DriftTable)
+                                activeFactFilters={Array []}
+                                addStateFilter={[Function]}
+                                baselines={Array []}
                                 clearComparison={[Function]}
                                 error={Object {}}
+                                factFilter=""
+                                handleFactFilter={[Function]}
+                                historicalProfiles={Array []}
                                 history={
                                   Object {
                                     "action": "POP",
@@ -3193,18 +3234,43 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                     "url": "/",
                                   }
                                 }
+                                setHistory={[Function]}
                                 setIsFirstReference={[Function]}
+                                stateFilters={
+                                  Array [
+                                    Object {
+                                      "display": "Same",
+                                      "filter": "SAME",
+                                      "selected": true,
+                                    },
+                                    Object {
+                                      "display": "Different",
+                                      "filter": "DIFFERENT",
+                                      "selected": true,
+                                    },
+                                    Object {
+                                      "display": "Incomplete data",
+                                      "filter": "INCOMPLETE_DATA",
+                                      "selected": true,
+                                    },
+                                  ]
+                                }
+                                systems={Array []}
                                 updateReferenceId={[Function]}
                               >
                                 <DriftTable
+                                  activeFactFilters={Array []}
+                                  addStateFilter={[Function]}
                                   addSystemModalOpened={false}
                                   baselines={Array []}
                                   clearComparison={[Function]}
                                   emptyState={false}
                                   error={Object {}}
                                   expandRow={[Function]}
+                                  factFilter=""
                                   fetchCompare={[Function]}
                                   fullCompareData={Array []}
+                                  handleFactFilter={[Function]}
                                   historicalProfiles={Array []}
                                   history={
                                     Object {
@@ -3255,8 +3321,28 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                     }
                                   }
                                   selectHistoricProfiles={[Function]}
+                                  setHistory={[Function]}
                                   setIsFirstReference={[Function]}
                                   setSelectedBaselines={[Function]}
+                                  stateFilters={
+                                    Array [
+                                      Object {
+                                        "display": "Same",
+                                        "filter": "SAME",
+                                        "selected": true,
+                                      },
+                                      Object {
+                                        "display": "Different",
+                                        "filter": "DIFFERENT",
+                                        "selected": true,
+                                      },
+                                      Object {
+                                        "display": "Incomplete data",
+                                        "filter": "INCOMPLETE_DATA",
+                                        "selected": true,
+                                      },
+                                    ]
+                                  }
                                   systems={Array []}
                                   toggleFactSort={[Function]}
                                   toggleStateSort={[Function]}
@@ -3374,6 +3460,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                           fetchCompare={[Function]}
                                           masterList={Array []}
                                           removeSystem={[Function]}
+                                          setHistory={[Function]}
                                           systemIds={Array []}
                                           toggleFactSort={[Function]}
                                           toggleStateSort={[Function]}
@@ -4407,6 +4494,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
           <DriftPage
             activeFactFilters={Array []}
             addStateFilter={[Function]}
+            baselines={Array []}
             clearAllFactFilters={[Function]}
             clearComparison={[Function]}
             clearComparisonFilters={[Function]}
@@ -4421,6 +4509,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
             factFilter=""
             filterByFact={[Function]}
             handleFactFilter={[Function]}
+            historicalProfiles={Array []}
             history={
               Object {
                 "action": "POP",
@@ -4491,6 +4580,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                 },
               ]
             }
+            systems={Array []}
             updatePagination={[Function]}
             updateReferenceId={[Function]}
           >
@@ -4602,6 +4692,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                 }
                               }
                               loading={false}
+                              setHistory={[Function]}
                               setIsFirstReference={[Function]}
                               stateFilters={
                                 Array [
@@ -4672,6 +4763,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                         factFilter=""
                                                         filterByFact={[Function]}
                                                         handleFactFilter={[Function]}
+                                                        setHistory={[Function]}
                                                       >
                                                         <Form>
                                                           <form
@@ -4953,9 +5045,12 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                     <div
                                                       className="pf-c-toolbar__item"
                                                     >
-                                                      <Connect(FilterDropDown)>
+                                                      <Connect(FilterDropDown)
+                                                        setHistory={[Function]}
+                                                      >
                                                         <FilterDropDown
                                                           addStateFilter={[Function]}
+                                                          setHistory={[Function]}
                                                           stateFilters={
                                                             Array [
                                                               Object {
@@ -7456,23 +7551,56 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                               </Toolbar>
                             </DriftToolbar>
                             <withRouter(Connect(DriftTable))
+                              activeFactFilters={Array []}
+                              addStateFilter={[Function]}
+                              baselines={Array []}
                               clearComparison={[Function]}
                               error={
                                 Object {
                                   "detail": "something",
                                 }
                               }
+                              factFilter=""
+                              handleFactFilter={[Function]}
+                              historicalProfiles={Array []}
                               isFirstReference={true}
+                              setHistory={[Function]}
                               setIsFirstReference={[Function]}
+                              stateFilters={
+                                Array [
+                                  Object {
+                                    "display": "Same",
+                                    "filter": "SAME",
+                                    "selected": true,
+                                  },
+                                  Object {
+                                    "display": "Different",
+                                    "filter": "DIFFERENT",
+                                    "selected": true,
+                                  },
+                                  Object {
+                                    "display": "Incomplete data",
+                                    "filter": "INCOMPLETE_DATA",
+                                    "selected": true,
+                                  },
+                                ]
+                              }
+                              systems={Array []}
                               updateReferenceId={[Function]}
                             >
                               <Connect(DriftTable)
+                                activeFactFilters={Array []}
+                                addStateFilter={[Function]}
+                                baselines={Array []}
                                 clearComparison={[Function]}
                                 error={
                                   Object {
                                     "detail": "something",
                                   }
                                 }
+                                factFilter=""
+                                handleFactFilter={[Function]}
+                                historicalProfiles={Array []}
                                 history={
                                   Object {
                                     "action": "POP",
@@ -7520,10 +7648,33 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                     "url": "/",
                                   }
                                 }
+                                setHistory={[Function]}
                                 setIsFirstReference={[Function]}
+                                stateFilters={
+                                  Array [
+                                    Object {
+                                      "display": "Same",
+                                      "filter": "SAME",
+                                      "selected": true,
+                                    },
+                                    Object {
+                                      "display": "Different",
+                                      "filter": "DIFFERENT",
+                                      "selected": true,
+                                    },
+                                    Object {
+                                      "display": "Incomplete data",
+                                      "filter": "INCOMPLETE_DATA",
+                                      "selected": true,
+                                    },
+                                  ]
+                                }
+                                systems={Array []}
                                 updateReferenceId={[Function]}
                               >
                                 <DriftTable
+                                  activeFactFilters={Array []}
+                                  addStateFilter={[Function]}
                                   addSystemModalOpened={false}
                                   baselines={Array []}
                                   clearComparison={[Function]}
@@ -7534,8 +7685,10 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                     }
                                   }
                                   expandRow={[Function]}
+                                  factFilter=""
                                   fetchCompare={[Function]}
                                   fullCompareData={Array []}
+                                  handleFactFilter={[Function]}
                                   historicalProfiles={Array []}
                                   history={
                                     Object {
@@ -7586,8 +7739,28 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                     }
                                   }
                                   selectHistoricProfiles={[Function]}
+                                  setHistory={[Function]}
                                   setIsFirstReference={[Function]}
                                   setSelectedBaselines={[Function]}
+                                  stateFilters={
+                                    Array [
+                                      Object {
+                                        "display": "Same",
+                                        "filter": "SAME",
+                                        "selected": true,
+                                      },
+                                      Object {
+                                        "display": "Different",
+                                        "filter": "DIFFERENT",
+                                        "selected": true,
+                                      },
+                                      Object {
+                                        "display": "Incomplete data",
+                                        "filter": "INCOMPLETE_DATA",
+                                        "selected": true,
+                                      },
+                                    ]
+                                  }
                                   systems={Array []}
                                   toggleFactSort={[Function]}
                                   toggleStateSort={[Function]}
@@ -7705,6 +7878,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                           fetchCompare={[Function]}
                                           masterList={Array []}
                                           removeSystem={[Function]}
+                                          setHistory={[Function]}
                                           systemIds={Array []}
                                           toggleFactSort={[Function]}
                                           toggleStateSort={[Function]}

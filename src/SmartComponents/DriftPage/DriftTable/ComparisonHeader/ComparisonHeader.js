@@ -35,14 +35,16 @@ class ComparisonHeader extends Component {
         return sortIcon;
     }
 
-    toggleSort(sortType, sort) {
-        const { toggleFactSort, toggleStateSort } = this.props;
+    async toggleSort(sortType, sort) {
+        const { setHistory, toggleFactSort, toggleStateSort } = this.props;
 
         if (sortType === 'fact') {
-            toggleFactSort(sort);
+            await toggleFactSort(sort);
         } else {
-            toggleStateSort(sort);
+            await toggleStateSort(sort);
         }
+
+        setHistory();
     }
 
     renderSystemHeaders() {
@@ -187,7 +189,8 @@ ComparisonHeader.propTypes = {
     systemIds: PropTypes.array,
     toggleFactSort: PropTypes.func,
     toggleStateSort: PropTypes.func,
-    updateReferenceId: PropTypes.func
+    updateReferenceId: PropTypes.func,
+    setHistory: PropTypes.func
 };
 
 export default ComparisonHeader;
