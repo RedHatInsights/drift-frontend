@@ -375,6 +375,8 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                 >
                                                                   <TextInput
                                                                     aria-label="filter by fact"
+                                                                    data-ouia-component-id="fact-filter-input-comparison"
+                                                                    data-ouia-component-type="PF4/TextInput"
                                                                     id="filterByFact"
                                                                     onChange={[Function]}
                                                                     placeholder="Filter by fact"
@@ -383,6 +385,8 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                     <TextInputBase
                                                                       aria-label="filter by fact"
                                                                       className=""
+                                                                      data-ouia-component-id="fact-filter-input-comparison"
+                                                                      data-ouia-component-type="PF4/TextInput"
                                                                       id="filterByFact"
                                                                       innerRef={null}
                                                                       isDisabled={false}
@@ -399,6 +403,8 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                         aria-invalid={false}
                                                                         aria-label="filter by fact"
                                                                         className="pf-c-form-control"
+                                                                        data-ouia-component-id="fact-filter-input-comparison"
+                                                                        data-ouia-component-type="PF4/TextInput"
                                                                         disabled={false}
                                                                         id="filterByFact"
                                                                         onBlur={[Function]}
@@ -655,9 +661,13 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                           <Dropdown
                                                             dropdownItems={
                                                               Array [
-                                                                <DropdownItem>
+                                                                <DropdownItem
+                                                                  data-ouia-component-id="state-filter-option-Same"
+                                                                >
                                                                   <Checkbox
                                                                     className=""
+                                                                    data-ouia-component-id="state-filter-option-checkbox-Same"
+                                                                    data-ouia-component-type="PF4/Checkbox"
                                                                     id="Same"
                                                                     isChecked={true}
                                                                     isDisabled={false}
@@ -666,9 +676,13 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                     onChange={[Function]}
                                                                   />
                                                                 </DropdownItem>,
-                                                                <DropdownItem>
+                                                                <DropdownItem
+                                                                  data-ouia-component-id="state-filter-option-Different"
+                                                                >
                                                                   <Checkbox
                                                                     className=""
+                                                                    data-ouia-component-id="state-filter-option-checkbox-Different"
+                                                                    data-ouia-component-type="PF4/Checkbox"
                                                                     id="Different"
                                                                     isChecked={true}
                                                                     isDisabled={false}
@@ -677,9 +691,13 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                     onChange={[Function]}
                                                                   />
                                                                 </DropdownItem>,
-                                                                <DropdownItem>
+                                                                <DropdownItem
+                                                                  data-ouia-component-id="state-filter-option-Incomplete data"
+                                                                >
                                                                   <Checkbox
                                                                     className=""
+                                                                    data-ouia-component-id="state-filter-option-checkbox-Incomplete data"
+                                                                    data-ouia-component-type="PF4/Checkbox"
                                                                     id="Incomplete data"
                                                                     isChecked={true}
                                                                     isDisabled={false}
@@ -690,9 +708,11 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                 </DropdownItem>,
                                                               ]
                                                             }
+                                                            ouiaId="state-filter-dropdown"
                                                             toggle={
                                                               <DropdownToggle
                                                                 onToggle={[Function]}
+                                                                ouiaId="state-filter-dropdown-toggle"
                                                               >
                                                                 View: 
                                                                 Same, Different, Incomplete data
@@ -705,9 +725,13 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                               direction="down"
                                                               dropdownItems={
                                                                 Array [
-                                                                  <DropdownItem>
+                                                                  <DropdownItem
+                                                                    data-ouia-component-id="state-filter-option-Same"
+                                                                  >
                                                                     <Checkbox
                                                                       className=""
+                                                                      data-ouia-component-id="state-filter-option-checkbox-Same"
+                                                                      data-ouia-component-type="PF4/Checkbox"
                                                                       id="Same"
                                                                       isChecked={true}
                                                                       isDisabled={false}
@@ -716,9 +740,13 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                       onChange={[Function]}
                                                                     />
                                                                   </DropdownItem>,
-                                                                  <DropdownItem>
+                                                                  <DropdownItem
+                                                                    data-ouia-component-id="state-filter-option-Different"
+                                                                  >
                                                                     <Checkbox
                                                                       className=""
+                                                                      data-ouia-component-id="state-filter-option-checkbox-Different"
+                                                                      data-ouia-component-type="PF4/Checkbox"
                                                                       id="Different"
                                                                       isChecked={true}
                                                                       isDisabled={false}
@@ -727,9 +755,13 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                       onChange={[Function]}
                                                                     />
                                                                   </DropdownItem>,
-                                                                  <DropdownItem>
+                                                                  <DropdownItem
+                                                                    data-ouia-component-id="state-filter-option-Incomplete data"
+                                                                  >
                                                                     <Checkbox
                                                                       className=""
+                                                                      data-ouia-component-id="state-filter-option-checkbox-Incomplete data"
+                                                                      data-ouia-component-type="PF4/Checkbox"
                                                                       id="Incomplete data"
                                                                       isChecked={true}
                                                                       isDisabled={false}
@@ -749,6 +781,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                               toggle={
                                                                 <DropdownToggle
                                                                   onToggle={[Function]}
+                                                                  ouiaId="state-filter-dropdown-toggle"
                                                                 >
                                                                   View: 
                                                                   Same, Different, Incomplete data
@@ -757,7 +790,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                             >
                                                               <div
                                                                 className="pf-c-dropdown"
-                                                                data-ouia-component-id="OUIA-Generated-Dropdown-2"
+                                                                data-ouia-component-id="state-filter-dropdown"
                                                                 data-ouia-component-type="PF4/Dropdown"
                                                                 data-ouia-safe={true}
                                                               >
@@ -770,11 +803,12 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                   key=".0"
                                                                   onEnter={[Function]}
                                                                   onToggle={[Function]}
+                                                                  ouiaId="state-filter-dropdown-toggle"
                                                                   parentRef={
                                                                     Object {
                                                                       "current": <div
                                                                         class="pf-c-dropdown"
-                                                                        data-ouia-component-id="OUIA-Generated-Dropdown-2"
+                                                                        data-ouia-component-id="state-filter-dropdown"
                                                                         data-ouia-component-type="PF4/Dropdown"
                                                                         data-ouia-safe="true"
                                                                       >
@@ -782,7 +816,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                           aria-expanded="false"
                                                                           aria-haspopup="true"
                                                                           class="pf-c-dropdown__toggle"
-                                                                          data-ouia-component-id="OUIA-Generated-DropdownToggle-4"
+                                                                          data-ouia-component-id="state-filter-dropdown-toggle"
                                                                           data-ouia-component-type="PF4/DropdownToggle"
                                                                           data-ouia-safe="true"
                                                                           id="pf-dropdown-toggle-id-5"
@@ -820,7 +854,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                     aria-haspopup={true}
                                                                     bubbleEvent={false}
                                                                     className=""
-                                                                    data-ouia-component-id="OUIA-Generated-DropdownToggle-4"
+                                                                    data-ouia-component-id="state-filter-dropdown-toggle"
                                                                     data-ouia-component-type="PF4/DropdownToggle"
                                                                     data-ouia-safe={true}
                                                                     getMenuRef={[Function]}
@@ -837,7 +871,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                       Object {
                                                                         "current": <div
                                                                           class="pf-c-dropdown"
-                                                                          data-ouia-component-id="OUIA-Generated-Dropdown-2"
+                                                                          data-ouia-component-id="state-filter-dropdown"
                                                                           data-ouia-component-type="PF4/Dropdown"
                                                                           data-ouia-safe="true"
                                                                         >
@@ -845,7 +879,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                             aria-expanded="false"
                                                                             aria-haspopup="true"
                                                                             class="pf-c-dropdown__toggle"
-                                                                            data-ouia-component-id="OUIA-Generated-DropdownToggle-4"
+                                                                            data-ouia-component-id="state-filter-dropdown-toggle"
                                                                             data-ouia-component-type="PF4/DropdownToggle"
                                                                             data-ouia-safe="true"
                                                                             id="pf-dropdown-toggle-id-5"
@@ -883,7 +917,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                       aria-expanded={false}
                                                                       aria-haspopup={true}
                                                                       className="pf-c-dropdown__toggle"
-                                                                      data-ouia-component-id="OUIA-Generated-DropdownToggle-4"
+                                                                      data-ouia-component-id="state-filter-dropdown-toggle"
                                                                       data-ouia-component-type="PF4/DropdownToggle"
                                                                       data-ouia-safe={true}
                                                                       disabled={false}
@@ -2301,7 +2335,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                       aria-expanded="false"
                                                                       aria-label="Items per page"
                                                                       class="  pf-c-options-menu__toggle-button"
-                                                                      data-ouia-component-id="OUIA-Generated-DropdownToggle-2"
+                                                                      data-ouia-component-id="OUIA-Generated-DropdownToggle-1"
                                                                       data-ouia-component-type="PF4/DropdownToggle"
                                                                       data-ouia-safe="true"
                                                                       disabled=""
@@ -2397,7 +2431,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                           aria-expanded="false"
                                                                           aria-label="Items per page"
                                                                           class="  pf-c-options-menu__toggle-button"
-                                                                          data-ouia-component-id="OUIA-Generated-DropdownToggle-2"
+                                                                          data-ouia-component-id="OUIA-Generated-DropdownToggle-1"
                                                                           data-ouia-component-type="PF4/DropdownToggle"
                                                                           data-ouia-safe="true"
                                                                           disabled=""
@@ -2431,7 +2465,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                   aria-label="Items per page"
                                                                   bubbleEvent={false}
                                                                   className="pf-c-options-menu__toggle-button"
-                                                                  data-ouia-component-id="OUIA-Generated-DropdownToggle-2"
+                                                                  data-ouia-component-id="OUIA-Generated-DropdownToggle-1"
                                                                   data-ouia-component-type="PF4/DropdownToggle"
                                                                   data-ouia-safe={true}
                                                                   getMenuRef={null}
@@ -2474,7 +2508,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                             aria-expanded="false"
                                                                             aria-label="Items per page"
                                                                             class="  pf-c-options-menu__toggle-button"
-                                                                            data-ouia-component-id="OUIA-Generated-DropdownToggle-2"
+                                                                            data-ouia-component-id="OUIA-Generated-DropdownToggle-1"
                                                                             data-ouia-component-type="PF4/DropdownToggle"
                                                                             data-ouia-safe="true"
                                                                             disabled=""
@@ -2508,7 +2542,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                     aria-expanded={false}
                                                                     aria-label="Items per page"
                                                                     className="  pf-c-options-menu__toggle-button"
-                                                                    data-ouia-component-id="OUIA-Generated-DropdownToggle-2"
+                                                                    data-ouia-component-id="OUIA-Generated-DropdownToggle-1"
                                                                     data-ouia-component-type="PF4/DropdownToggle"
                                                                     data-ouia-safe={true}
                                                                     disabled={true}
@@ -3676,7 +3710,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                     aria-expanded="false"
                                                                     aria-label="Items per page"
                                                                     class="  pf-c-options-menu__toggle-button"
-                                                                    data-ouia-component-id="OUIA-Generated-DropdownToggle-3"
+                                                                    data-ouia-component-id="OUIA-Generated-DropdownToggle-2"
                                                                     data-ouia-component-type="PF4/DropdownToggle"
                                                                     data-ouia-safe="true"
                                                                     disabled=""
@@ -3772,7 +3806,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                         aria-expanded="false"
                                                                         aria-label="Items per page"
                                                                         class="  pf-c-options-menu__toggle-button"
-                                                                        data-ouia-component-id="OUIA-Generated-DropdownToggle-3"
+                                                                        data-ouia-component-id="OUIA-Generated-DropdownToggle-2"
                                                                         data-ouia-component-type="PF4/DropdownToggle"
                                                                         data-ouia-safe="true"
                                                                         disabled=""
@@ -3806,7 +3840,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                 aria-label="Items per page"
                                                                 bubbleEvent={false}
                                                                 className="pf-c-options-menu__toggle-button"
-                                                                data-ouia-component-id="OUIA-Generated-DropdownToggle-3"
+                                                                data-ouia-component-id="OUIA-Generated-DropdownToggle-2"
                                                                 data-ouia-component-type="PF4/DropdownToggle"
                                                                 data-ouia-safe={true}
                                                                 getMenuRef={null}
@@ -3849,7 +3883,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                           aria-expanded="false"
                                                                           aria-label="Items per page"
                                                                           class="  pf-c-options-menu__toggle-button"
-                                                                          data-ouia-component-id="OUIA-Generated-DropdownToggle-3"
+                                                                          data-ouia-component-id="OUIA-Generated-DropdownToggle-2"
                                                                           data-ouia-component-type="PF4/DropdownToggle"
                                                                           data-ouia-safe="true"
                                                                           disabled=""
@@ -3883,7 +3917,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                   aria-expanded={false}
                                                                   aria-label="Items per page"
                                                                   className="  pf-c-options-menu__toggle-button"
-                                                                  data-ouia-component-id="OUIA-Generated-DropdownToggle-3"
+                                                                  data-ouia-component-id="OUIA-Generated-DropdownToggle-2"
                                                                   data-ouia-component-type="PF4/DropdownToggle"
                                                                   data-ouia-safe={true}
                                                                   disabled={true}
@@ -4632,6 +4666,8 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                 >
                                                                   <TextInput
                                                                     aria-label="filter by fact"
+                                                                    data-ouia-component-id="fact-filter-input-comparison"
+                                                                    data-ouia-component-type="PF4/TextInput"
                                                                     id="filterByFact"
                                                                     onChange={[Function]}
                                                                     placeholder="Filter by fact"
@@ -4640,6 +4676,8 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                     <TextInputBase
                                                                       aria-label="filter by fact"
                                                                       className=""
+                                                                      data-ouia-component-id="fact-filter-input-comparison"
+                                                                      data-ouia-component-type="PF4/TextInput"
                                                                       id="filterByFact"
                                                                       innerRef={null}
                                                                       isDisabled={false}
@@ -4656,6 +4694,8 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                         aria-invalid={false}
                                                                         aria-label="filter by fact"
                                                                         className="pf-c-form-control"
+                                                                        data-ouia-component-id="fact-filter-input-comparison"
+                                                                        data-ouia-component-type="PF4/TextInput"
                                                                         disabled={false}
                                                                         id="filterByFact"
                                                                         onBlur={[Function]}
@@ -4912,9 +4952,13 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                           <Dropdown
                                                             dropdownItems={
                                                               Array [
-                                                                <DropdownItem>
+                                                                <DropdownItem
+                                                                  data-ouia-component-id="state-filter-option-Same"
+                                                                >
                                                                   <Checkbox
                                                                     className=""
+                                                                    data-ouia-component-id="state-filter-option-checkbox-Same"
+                                                                    data-ouia-component-type="PF4/Checkbox"
                                                                     id="Same"
                                                                     isChecked={true}
                                                                     isDisabled={false}
@@ -4923,9 +4967,13 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                     onChange={[Function]}
                                                                   />
                                                                 </DropdownItem>,
-                                                                <DropdownItem>
+                                                                <DropdownItem
+                                                                  data-ouia-component-id="state-filter-option-Different"
+                                                                >
                                                                   <Checkbox
                                                                     className=""
+                                                                    data-ouia-component-id="state-filter-option-checkbox-Different"
+                                                                    data-ouia-component-type="PF4/Checkbox"
                                                                     id="Different"
                                                                     isChecked={true}
                                                                     isDisabled={false}
@@ -4934,9 +4982,13 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                     onChange={[Function]}
                                                                   />
                                                                 </DropdownItem>,
-                                                                <DropdownItem>
+                                                                <DropdownItem
+                                                                  data-ouia-component-id="state-filter-option-Incomplete data"
+                                                                >
                                                                   <Checkbox
                                                                     className=""
+                                                                    data-ouia-component-id="state-filter-option-checkbox-Incomplete data"
+                                                                    data-ouia-component-type="PF4/Checkbox"
                                                                     id="Incomplete data"
                                                                     isChecked={true}
                                                                     isDisabled={false}
@@ -4947,9 +4999,11 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                 </DropdownItem>,
                                                               ]
                                                             }
+                                                            ouiaId="state-filter-dropdown"
                                                             toggle={
                                                               <DropdownToggle
                                                                 onToggle={[Function]}
+                                                                ouiaId="state-filter-dropdown-toggle"
                                                               >
                                                                 View: 
                                                                 Same, Different, Incomplete data
@@ -4962,9 +5016,13 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                               direction="down"
                                                               dropdownItems={
                                                                 Array [
-                                                                  <DropdownItem>
+                                                                  <DropdownItem
+                                                                    data-ouia-component-id="state-filter-option-Same"
+                                                                  >
                                                                     <Checkbox
                                                                       className=""
+                                                                      data-ouia-component-id="state-filter-option-checkbox-Same"
+                                                                      data-ouia-component-type="PF4/Checkbox"
                                                                       id="Same"
                                                                       isChecked={true}
                                                                       isDisabled={false}
@@ -4973,9 +5031,13 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                       onChange={[Function]}
                                                                     />
                                                                   </DropdownItem>,
-                                                                  <DropdownItem>
+                                                                  <DropdownItem
+                                                                    data-ouia-component-id="state-filter-option-Different"
+                                                                  >
                                                                     <Checkbox
                                                                       className=""
+                                                                      data-ouia-component-id="state-filter-option-checkbox-Different"
+                                                                      data-ouia-component-type="PF4/Checkbox"
                                                                       id="Different"
                                                                       isChecked={true}
                                                                       isDisabled={false}
@@ -4984,9 +5046,13 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                       onChange={[Function]}
                                                                     />
                                                                   </DropdownItem>,
-                                                                  <DropdownItem>
+                                                                  <DropdownItem
+                                                                    data-ouia-component-id="state-filter-option-Incomplete data"
+                                                                  >
                                                                     <Checkbox
                                                                       className=""
+                                                                      data-ouia-component-id="state-filter-option-checkbox-Incomplete data"
+                                                                      data-ouia-component-type="PF4/Checkbox"
                                                                       id="Incomplete data"
                                                                       isChecked={true}
                                                                       isDisabled={false}
@@ -5006,6 +5072,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                               toggle={
                                                                 <DropdownToggle
                                                                   onToggle={[Function]}
+                                                                  ouiaId="state-filter-dropdown-toggle"
                                                                 >
                                                                   View: 
                                                                   Same, Different, Incomplete data
@@ -5014,7 +5081,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                             >
                                                               <div
                                                                 className="pf-c-dropdown"
-                                                                data-ouia-component-id="OUIA-Generated-Dropdown-4"
+                                                                data-ouia-component-id="state-filter-dropdown"
                                                                 data-ouia-component-type="PF4/Dropdown"
                                                                 data-ouia-safe={true}
                                                               >
@@ -5027,11 +5094,12 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                   key=".0"
                                                                   onEnter={[Function]}
                                                                   onToggle={[Function]}
+                                                                  ouiaId="state-filter-dropdown-toggle"
                                                                   parentRef={
                                                                     Object {
                                                                       "current": <div
                                                                         class="pf-c-dropdown"
-                                                                        data-ouia-component-id="OUIA-Generated-Dropdown-4"
+                                                                        data-ouia-component-id="state-filter-dropdown"
                                                                         data-ouia-component-type="PF4/Dropdown"
                                                                         data-ouia-safe="true"
                                                                       >
@@ -5039,7 +5107,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                           aria-expanded="false"
                                                                           aria-haspopup="true"
                                                                           class="pf-c-dropdown__toggle"
-                                                                          data-ouia-component-id="OUIA-Generated-DropdownToggle-8"
+                                                                          data-ouia-component-id="state-filter-dropdown-toggle"
                                                                           data-ouia-component-type="PF4/DropdownToggle"
                                                                           data-ouia-safe="true"
                                                                           id="pf-dropdown-toggle-id-11"
@@ -5077,7 +5145,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                     aria-haspopup={true}
                                                                     bubbleEvent={false}
                                                                     className=""
-                                                                    data-ouia-component-id="OUIA-Generated-DropdownToggle-8"
+                                                                    data-ouia-component-id="state-filter-dropdown-toggle"
                                                                     data-ouia-component-type="PF4/DropdownToggle"
                                                                     data-ouia-safe={true}
                                                                     getMenuRef={[Function]}
@@ -5094,7 +5162,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                       Object {
                                                                         "current": <div
                                                                           class="pf-c-dropdown"
-                                                                          data-ouia-component-id="OUIA-Generated-Dropdown-4"
+                                                                          data-ouia-component-id="state-filter-dropdown"
                                                                           data-ouia-component-type="PF4/Dropdown"
                                                                           data-ouia-safe="true"
                                                                         >
@@ -5102,7 +5170,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                             aria-expanded="false"
                                                                             aria-haspopup="true"
                                                                             class="pf-c-dropdown__toggle"
-                                                                            data-ouia-component-id="OUIA-Generated-DropdownToggle-8"
+                                                                            data-ouia-component-id="state-filter-dropdown-toggle"
                                                                             data-ouia-component-type="PF4/DropdownToggle"
                                                                             data-ouia-safe="true"
                                                                             id="pf-dropdown-toggle-id-11"
@@ -5140,7 +5208,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                       aria-expanded={false}
                                                                       aria-haspopup={true}
                                                                       className="pf-c-dropdown__toggle"
-                                                                      data-ouia-component-id="OUIA-Generated-DropdownToggle-8"
+                                                                      data-ouia-component-id="state-filter-dropdown-toggle"
                                                                       data-ouia-component-type="PF4/DropdownToggle"
                                                                       data-ouia-safe={true}
                                                                       disabled={false}
@@ -6558,7 +6626,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                       aria-expanded="false"
                                                                       aria-label="Items per page"
                                                                       class="  pf-c-options-menu__toggle-button"
-                                                                      data-ouia-component-id="OUIA-Generated-DropdownToggle-6"
+                                                                      data-ouia-component-id="OUIA-Generated-DropdownToggle-3"
                                                                       data-ouia-component-type="PF4/DropdownToggle"
                                                                       data-ouia-safe="true"
                                                                       disabled=""
@@ -6654,7 +6722,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                           aria-expanded="false"
                                                                           aria-label="Items per page"
                                                                           class="  pf-c-options-menu__toggle-button"
-                                                                          data-ouia-component-id="OUIA-Generated-DropdownToggle-6"
+                                                                          data-ouia-component-id="OUIA-Generated-DropdownToggle-3"
                                                                           data-ouia-component-type="PF4/DropdownToggle"
                                                                           data-ouia-safe="true"
                                                                           disabled=""
@@ -6688,7 +6756,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                   aria-label="Items per page"
                                                                   bubbleEvent={false}
                                                                   className="pf-c-options-menu__toggle-button"
-                                                                  data-ouia-component-id="OUIA-Generated-DropdownToggle-6"
+                                                                  data-ouia-component-id="OUIA-Generated-DropdownToggle-3"
                                                                   data-ouia-component-type="PF4/DropdownToggle"
                                                                   data-ouia-safe={true}
                                                                   getMenuRef={null}
@@ -6731,7 +6799,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                             aria-expanded="false"
                                                                             aria-label="Items per page"
                                                                             class="  pf-c-options-menu__toggle-button"
-                                                                            data-ouia-component-id="OUIA-Generated-DropdownToggle-6"
+                                                                            data-ouia-component-id="OUIA-Generated-DropdownToggle-3"
                                                                             data-ouia-component-type="PF4/DropdownToggle"
                                                                             data-ouia-safe="true"
                                                                             disabled=""
@@ -6765,7 +6833,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                     aria-expanded={false}
                                                                     aria-label="Items per page"
                                                                     className="  pf-c-options-menu__toggle-button"
-                                                                    data-ouia-component-id="OUIA-Generated-DropdownToggle-6"
+                                                                    data-ouia-component-id="OUIA-Generated-DropdownToggle-3"
                                                                     data-ouia-component-type="PF4/DropdownToggle"
                                                                     data-ouia-safe={true}
                                                                     disabled={true}
@@ -7945,7 +8013,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                     aria-expanded="false"
                                                                     aria-label="Items per page"
                                                                     class="  pf-c-options-menu__toggle-button"
-                                                                    data-ouia-component-id="OUIA-Generated-DropdownToggle-7"
+                                                                    data-ouia-component-id="OUIA-Generated-DropdownToggle-4"
                                                                     data-ouia-component-type="PF4/DropdownToggle"
                                                                     data-ouia-safe="true"
                                                                     disabled=""
@@ -8041,7 +8109,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                         aria-expanded="false"
                                                                         aria-label="Items per page"
                                                                         class="  pf-c-options-menu__toggle-button"
-                                                                        data-ouia-component-id="OUIA-Generated-DropdownToggle-7"
+                                                                        data-ouia-component-id="OUIA-Generated-DropdownToggle-4"
                                                                         data-ouia-component-type="PF4/DropdownToggle"
                                                                         data-ouia-safe="true"
                                                                         disabled=""
@@ -8075,7 +8143,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                 aria-label="Items per page"
                                                                 bubbleEvent={false}
                                                                 className="pf-c-options-menu__toggle-button"
-                                                                data-ouia-component-id="OUIA-Generated-DropdownToggle-7"
+                                                                data-ouia-component-id="OUIA-Generated-DropdownToggle-4"
                                                                 data-ouia-component-type="PF4/DropdownToggle"
                                                                 data-ouia-safe={true}
                                                                 getMenuRef={null}
@@ -8118,7 +8186,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                           aria-expanded="false"
                                                                           aria-label="Items per page"
                                                                           class="  pf-c-options-menu__toggle-button"
-                                                                          data-ouia-component-id="OUIA-Generated-DropdownToggle-7"
+                                                                          data-ouia-component-id="OUIA-Generated-DropdownToggle-4"
                                                                           data-ouia-component-type="PF4/DropdownToggle"
                                                                           data-ouia-safe="true"
                                                                           disabled=""
@@ -8152,7 +8220,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                   aria-expanded={false}
                                                                   aria-label="Items per page"
                                                                   className="  pf-c-options-menu__toggle-button"
-                                                                  data-ouia-component-id="OUIA-Generated-DropdownToggle-7"
+                                                                  data-ouia-component-id="OUIA-Generated-DropdownToggle-4"
                                                                   data-ouia-component-type="PF4/DropdownToggle"
                                                                   data-ouia-safe={true}
                                                                   disabled={true}
