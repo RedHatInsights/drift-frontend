@@ -21,7 +21,10 @@ export class GlobalFilterAlert extends Component {
 
     buildBody = () => {
         const { sidsFilter, tagsFilter, workloadsFilter } = this.props.globalFilterState;
-        let filters = 'Workloads: ' + Object.keys(workloadsFilter)[0] + '. ';
+
+        let filters = Object.keys(workloadsFilter).length
+            ? 'Workloads: ' + Object.keys(workloadsFilter)[0] + '. '
+            : '';
 
         if (sidsFilter.length) {
             filters += 'SAP ID (SID): ';
