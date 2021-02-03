@@ -54,6 +54,8 @@ export class HistoricalProfilesCheckbox extends Component {
                     aria-label={ profile.id }
                     id={ profile.id }
                     name={ profile.id }
+                    data-ouia-component-id={ 'hsp-popover-option-checkbox-' + profile.id }
+                    data-ouia-component-type='PF4/Checkbox'
                 />
             </React.Fragment>
         );

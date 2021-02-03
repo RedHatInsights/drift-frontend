@@ -209,7 +209,9 @@ export class HistoricalProfilesPopover extends Component {
         return (
             <React.Fragment>
                 <span
-                    className='hsp-icon-padding historical-system-profile-popover' >
+                    className='hsp-icon-padding historical-system-profile-popover'
+                    data-ouia-component-id='hsp-popover-toggle'
+                    data-ouia-component-type='PF4/Button' >
                     <Popover
                         id={ 'hsp-popover-' + id }
                         isVisible={ isVisible }
@@ -219,7 +221,7 @@ export class HistoricalProfilesPopover extends Component {
                         footerContent={ hasCompareButton
                             ? <Button
                                 variant='primary'
-                                ouiaId="compare"
+                                ouiaId="hsp-popover-compare"
                                 onClick={ () => this.fetchCompare() }>
                                 Compare
                             </Button>
