@@ -57,6 +57,8 @@ export class SearchBar extends Component {
                             placeholder="Filter by fact"
                             onChange={ this.updateFactFilter }
                             aria-label="filter by fact"
+                            data-ouia-component-type="PF4/TextInput"
+                            data-ouia-component-id="fact-filter-input-comparison"
                         />
                     </FormGroup>
                 </Form>

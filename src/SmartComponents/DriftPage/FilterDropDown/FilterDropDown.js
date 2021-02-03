@@ -19,9 +19,12 @@ class FilterDropDown extends Component {
 
     createDropdownItem(stateFilter) {
         let dropdownItem =
-            <DropdownItem>
+            <DropdownItem
+                data-ouia-component-id={ 'state-filter-option-' + stateFilter.display } >
                 <Checkbox
                     id={ stateFilter.display }
+                    data-ouia-component-type='PF4/Checkbox'
+                    data-ouia-component-id={ 'state-filter-option-checkbox-' + stateFilter.display }
                     label={ stateFilter.display }
                     isChecked={ stateFilter.selected }
                     onChange={ () =>
@@ -74,8 +77,11 @@ class FilterDropDown extends Component {
         return (
             <React.Fragment>
                 <Dropdown
-                    toggle={ <DropdownToggle onToggle={ this.onToggle }>
-                        View: { selectedViews }
+                    ouiaId='state-filter-dropdown'
+                    toggle={ <DropdownToggle
+                        onToggle={ this.onToggle }
+                        ouiaId='state-filter-dropdown-toggle' >
+                                    View: { selectedViews }
                     </DropdownToggle> }
                     isOpen={ this.props.filterDropdownOpened }
                     dropdownItems={ dropdownItems }
