@@ -97,7 +97,10 @@ export class BaselinesTable extends Component {
 
             if (onClick) {
                 let link = <div>
-                    <a className="pointer active-blue"
+                    <a
+                        className="pointer active-blue"
+                        data-ouia-component-type='PF4/Button'
+                        data-ouia-component-id={ 'baseline-details-' + baseline[1] }
                         onClick={ () => onClick(baseline[0]) }
                     >
                         { baseline[1] }
@@ -115,6 +118,7 @@ export class BaselinesTable extends Component {
                     tableId={ tableId }
                     baselineRowData={ baseline }
                     fetchWithParams={ this.fetchWithParams }
+                    baselineName={ baseline[1] }
                 />;
                 row.push(<div>{ kebab }</div>);
             }
@@ -153,6 +157,7 @@ export class BaselinesTable extends Component {
 
                 table = <Table
                     aria-label="Baselines Table"
+                    data-ouia-component-id='baselines-table'
                     cells={ columns }
                     rows={ tableRows }
                     canSelectAll={ false }
@@ -173,6 +178,7 @@ export class BaselinesTable extends Component {
 
                     table = <Table
                         aria-label="Baselines Table"
+                        data-ouia-component-id='baselines-table'
                         onSort={ this.onSort }
                         onSelect={ hasWritePermissions || (tableId === 'CHECKBOX' && !kebab)
                             ? onSelect

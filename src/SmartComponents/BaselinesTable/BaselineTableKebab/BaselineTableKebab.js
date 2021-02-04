@@ -38,16 +38,18 @@ export class BaselineTableKebab extends Component {
 
     render() {
         const { isOpen, modalOpened } = this.state;
-        const { baselineRowData, fetchWithParams, tableId } = this.props;
+        const { baselineRowData, fetchWithParams, tableId, baselineName } = this.props;
         const dropdownItems = [
             <DropdownItem
                 key="edit"
+                data-ouia-component-id={ 'edit-baseline-dropdown-item-' + baselineName }
                 component="button"
                 onClick={ this.fetchBaseline }>
                 Edit
             </DropdownItem>,
             <DropdownItem
                 key="delete"
+                data-ouia-component-id={ 'delete-baseline-dropdown-item-' + baselineName }
                 component="button"
                 onClick={ this.toggleModal }>
                 Delete
@@ -69,7 +71,11 @@ export class BaselineTableKebab extends Component {
                 <Dropdown
                     style={{ float: 'right' }}
                     className={ 'baseline-table-kebab' }
-                    toggle={ <KebabToggle onToggle={ (isOpen) => this.onKebabToggle(isOpen) } /> }
+                    ouiaId={ 'baseline-kebab-dropdown-' + baselineName }
+                    toggle={ <KebabToggle
+                        data-ouia-component-id={ 'baseline-kebab-dropdown-toggle-' + baselineName }
+                        data-ouia-component-type='PF4/DropdownToggle'
+                        onToggle={ (isOpen) => this.onKebabToggle(isOpen) } /> }
                     isOpen={ isOpen }
                     dropdownItems={ dropdownItems }
                     isPlain
@@ -83,7 +89,8 @@ BaselineTableKebab.propTypes = {
     baselineRowData: PropTypes.array,
     history: PropTypes.object,
     tableId: PropTypes.string,
-    fetchWithParams: PropTypes.func
+    fetchWithParams: PropTypes.func,
+    baselineName: PropTypes.string
 };
 
 export default withRouter(BaselineTableKebab);
