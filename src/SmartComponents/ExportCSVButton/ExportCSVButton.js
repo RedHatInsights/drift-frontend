@@ -17,8 +17,7 @@ class ExportCSVButton extends Component {
                 toggle={ <DropdownToggle
                     ouiaId={ ouiaId ? ouiaId + '-toggle' : 'action-kebab-toggle' }
                     toggleIndicator={ null }
-                    onToggle={ onToggle }
-                    ouiaId={ (ouiaId ? ouiaId : 'export-dropdown') + '-toggle' }>
+                    onToggle={ onToggle }>
                     <ExportIcon className='pointer not-active'/>
                 </DropdownToggle> }
                 isOpen={ isOpen }
