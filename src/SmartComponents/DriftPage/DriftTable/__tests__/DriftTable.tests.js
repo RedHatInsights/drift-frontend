@@ -9,7 +9,8 @@ import { EmptyState } from '@patternfly/react-core';
 import { Skeleton } from '@redhat-cloud-services/frontend-components';
 
 import ConnectedDriftTable, { DriftTable } from '../DriftTable';
-import { compareReducerPayload, baselinesPayload, historicalProfilesPayload } from '../../../modules/__tests__/reducer.fixtures';
+import { compareReducerPayload, compareReducerPayloadWithMultiFact, baselinesPayload,
+    historicalProfilesPayload } from '../../../modules/__tests__/reducer.fixtures';
 import ReferenceSelector from '../ReferenceSelector/ReferenceSelector';
 
 describe('DriftTable', () => {
@@ -113,7 +114,8 @@ describe('ConnectedDriftTable', () => {
                     { filter: 'DIFFERENT', display: 'Different', selected: true },
                     { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
                 ],
-                emptyState: false
+                emptyState: false,
+                expandedRows: []
             },
             addSystemModalState: { addSystemModalOpened: false },
             baselinesTableState: { checkboxTable: {
@@ -144,6 +146,7 @@ describe('ConnectedDriftTable', () => {
 
     it('should render systems, baselines and historicalProfiles', () => {
         initialState.compareState.fullCompareData = compareReducerPayload.facts;
+        initialState.compareState.filteredCompareData = compareReducerPayload.facts;
         initialState.compareState.systems = compareReducerPayload.systems;
         initialState.compareState.baselines = baselinesPayload;
         initialState.compareState.historicalProfiles = historicalProfilesPayload;
@@ -160,7 +163,32 @@ describe('ConnectedDriftTable', () => {
         );
 
         expect(wrapper.find('table')).toHaveLength(1);
-        expect(wrapper.find('tr')).toHaveLength(1);
+        expect(wrapper.find('tr')).toHaveLength(4);
+        expect(wrapper.find(EmptyState)).toHaveLength(0);
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('should render multi fact values', () => {
+        initialState.compareState.fullCompareData = compareReducerPayloadWithMultiFact.facts;
+        initialState.compareState.filteredCompareData = compareReducerPayloadWithMultiFact.facts;
+        initialState.compareState.systems = compareReducerPayloadWithMultiFact.systems;
+        initialState.compareState.baselines = baselinesPayload;
+        initialState.compareState.historicalProfiles = historicalProfilesPayload;
+        initialState.compareState.loading = false;
+        initialState.compareState.expandedRows = [ 'cpu_flags', 'abc' ];
+
+        const store = mockStore(initialState);
+
+        const wrapper = mount(
+            <MemoryRouter keyLength={ 0 }>
+                <Provider store={ store }>
+                    <ConnectedDriftTable updateReferenceId={ updateReferenceId } />
+                </Provider>
+            </MemoryRouter>
+        );
+
+        expect(wrapper.find('table')).toHaveLength(1);
+        expect(wrapper.find('tr')).toHaveLength(10);
         expect(wrapper.find(EmptyState)).toHaveLength(0);
         expect(toJson(wrapper)).toMatchSnapshot();
     });

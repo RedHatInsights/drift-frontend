@@ -53,7 +53,30 @@ describe('GlobalFilterAlert', () => {
                 },
                 item: {
                     value: 'SAP'
-                }
+                },
+                isSelected: true
+            }
+        };
+
+        const wrapper = shallow(
+            <GlobalFilterAlert
+                { ...props }
+            />
+        );
+
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('should NOT render with not selected SAP', () => {
+        props.globalFilterState.workloadsFilter = {
+            SAP: {
+                group: {
+                    name: 'Workloads'
+                },
+                item: {
+                    value: 'SAP'
+                },
+                isSelected: false
             }
         };
 
@@ -74,7 +97,8 @@ describe('GlobalFilterAlert', () => {
                 },
                 item: {
                     value: 'SAP'
-                }
+                },
+                isSelected: true
             }
         };
 
@@ -92,7 +116,9 @@ describe('GlobalFilterAlert', () => {
 
     it('should close alert', () => {
         props.globalFilterState.workloadsFilter = {
-            SAP: {}
+            SAP: {
+                isSelected: true
+            }
         };
 
         const wrapper = mount(

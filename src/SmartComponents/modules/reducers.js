@@ -155,7 +155,7 @@ export function compareReducer(state = initialState, action) {
         case `${types.ADD_STATE_FILTER}`:
             updatedStateFilters = reducerHelpers.updateStateFilters(state.stateFilters, action.payload);
             filteredFacts = reducerHelpers.filterCompareData(
-                state.fullCompareData, updatedStateFilters, state.factFilter, state.referenceId, newActiveFactFilters
+                state.fullCompareData, updatedStateFilters, state.factFilter, state.referenceId, /*newActiveFactFilters*/state.activeFactFilters
             );
             sortedFacts = reducerHelpers.sortData(filteredFacts, state.factSort, state.stateSort);
             paginatedFacts = reducerHelpers.paginateData(sortedFacts, 1, state.perPage);
