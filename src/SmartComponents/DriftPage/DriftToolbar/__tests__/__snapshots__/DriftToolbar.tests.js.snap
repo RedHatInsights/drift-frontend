@@ -61,8 +61,8 @@ exports[`DriftToolbar should render correctly 1`] = `
               Array [
                 <DropdownItem
                   component="button"
+                  data-ouia-component-id="export-to-csv-dropdown-item-comparison"
                   onClick={[Function]}
-                  ouiaId="comparison-export-to-csv"
                 >
                   Export to CSV
                 </DropdownItem>,
@@ -70,7 +70,7 @@ exports[`DriftToolbar should render correctly 1`] = `
             }
             isOpen={false}
             onToggle={[Function]}
-            ouiaId="comparison-export-dropdown"
+            ouiaId="export-dropdown-comparison"
           />
         </ToolbarItem>
         <ToolbarItem>
@@ -79,12 +79,14 @@ exports[`DriftToolbar should render correctly 1`] = `
               Array [
                 <DropdownItem
                   component="button"
+                  data-ouia-component-id="clear-all-comparisons-dropdown-item"
                   onClick={[Function]}
                 >
                   Clear all comparisons
                 </DropdownItem>,
               ]
             }
+            ouiaId="clear-comparison-dropdown"
           />
         </ToolbarItem>
       </ForwardRef>
@@ -186,8 +188,8 @@ exports[`DriftToolbar should render with fact filter chips 1`] = `
               Array [
                 <DropdownItem
                   component="button"
+                  data-ouia-component-id="export-to-csv-dropdown-item-comparison"
                   onClick={[Function]}
-                  ouiaId="comparison-export-to-csv"
                 >
                   Export to CSV
                 </DropdownItem>,
@@ -195,7 +197,7 @@ exports[`DriftToolbar should render with fact filter chips 1`] = `
             }
             isOpen={false}
             onToggle={[Function]}
-            ouiaId="comparison-export-dropdown"
+            ouiaId="export-dropdown-comparison"
           />
         </ToolbarItem>
         <ToolbarItem>
@@ -204,12 +206,14 @@ exports[`DriftToolbar should render with fact filter chips 1`] = `
               Array [
                 <DropdownItem
                   component="button"
+                  data-ouia-component-id="clear-all-comparisons-dropdown-item"
                   onClick={[Function]}
                 >
                   Clear all comparisons
                 </DropdownItem>,
               ]
             }
+            ouiaId="clear-comparison-dropdown"
           />
         </ToolbarItem>
       </ForwardRef>
