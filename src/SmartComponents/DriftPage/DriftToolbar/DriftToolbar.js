@@ -18,14 +18,18 @@ export class DriftToolbar extends Component {
 
         this.state = {
             actionKebabItems: [
-                <DropdownItem key="remove-systems" component="button" onClick={ this.clearComparison }>Clear all comparisons</DropdownItem>
+                <DropdownItem
+                    key="remove-systems"
+                    component="button"
+                    data-ouia-component-id='clear-all-comparisons-dropdown-item'
+                    onClick={ this.clearComparison }>Clear all comparisons</DropdownItem>
             ],
             dropdownItems: [
                 <DropdownItem
                     key='export-to-CSV'
                     component='button'
+                    data-ouia-component-id='export-to-csv-dropdown-item-comparison'
                     onClick={ () => this.props.exportToCSV() }
-                    ouiaId='comparison-export-to-csv'
                 >
                     Export to CSV
                 </DropdownItem>
@@ -175,13 +179,15 @@ export class DriftToolbar extends Component {
                             <ToolbarItem>
                                 <ExportCSVButton
                                     dropdownItems={ dropdownItems }
+                                    ouiaId='export-dropdown-comparison'
                                     isOpen={ dropdownOpen }
                                     onToggle={ this.onToggle }
-                                    ouiaId='comparison-export-dropdown'
                                 />
                             </ToolbarItem>
                             <ToolbarItem>
-                                <ActionKebab dropdownItems={ actionKebabItems } />
+                                <ActionKebab
+                                    ouiaId='clear-comparison-dropdown'
+                                    dropdownItems={ actionKebabItems } />
                             </ToolbarItem>
                         </ToolbarGroup>
                         <ToolbarItem variant='pagination' align={{ default: 'alignRight' }}>

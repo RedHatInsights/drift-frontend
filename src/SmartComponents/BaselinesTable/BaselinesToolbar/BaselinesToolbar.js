@@ -34,7 +34,7 @@ export class BaselinesToolbar extends Component {
                 <DropdownItem
                     key='export-to-CSV'
                     component='button'
-                    ouiaId='baselines-export-to-csv'
+                    data-ouia-component-id='export-to-csv-dropdown-item-baselines'
                     onClick={ () => this.props.exportToCSV(this.props.tableData) }
                 >
                     Export to CSV
@@ -70,6 +70,7 @@ export class BaselinesToolbar extends Component {
 
         actionKebabItems.push(<DropdownItem
             key="multi-delete"
+            data-ouia-component-id='delete-baselines-dropdown-item'
             component="button"
             onClick={ this.toggleModal }
             isDisabled={ isDeleteDisabled }
@@ -165,16 +166,18 @@ export class BaselinesToolbar extends Component {
                                 <ToolbarItem>
                                     <ExportCSVButton
                                         dropdownItems={ dropdownItems }
+                                        ouiaId='export-dropdown-baselines'
                                         isOpen={ dropdownOpen }
                                         onToggle={ this.onToggle }
-                                        ouiaId='baselines-export-dropdown'
                                     />
                                 </ToolbarItem>
                                 : null
                             }
                             { kebab ?
                                 <ToolbarItem>
-                                    <ActionKebab dropdownItems={ this.buildDropdownList() } />
+                                    <ActionKebab
+                                        ouiaId='delete-baselines-dropdown'
+                                        dropdownItems={ this.buildDropdownList() } />
                                 </ToolbarItem>
                                 : null
                             }
