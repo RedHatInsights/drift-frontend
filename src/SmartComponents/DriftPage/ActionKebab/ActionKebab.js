@@ -21,7 +21,7 @@ class ActionKebab extends Component {
     }
 
     render() {
-        const { dropdownItems } = this.props;
+        const { dropdownItems, ouiaId } = this.props;
         const { kebabOpened } = this.state;
 
         return (
@@ -29,9 +29,12 @@ class ActionKebab extends Component {
                 id='action-kebab'
                 aria-label='action-kebab'
                 style={{ float: 'left' }}
-                toggle={ <KebabToggle onToggle={ this.toggleKebab } /> }
+                ouiaId = { ouiaId || 'action-kebab' }
+                toggle={ <KebabToggle
+                    data-ouia-component-type='PF4/DropdownToggle'
+                    data-ouia-component-id={ ouiaId ? ouiaId + '-toggle' : 'action-kebab-toggle' }
+                    onToggle={ this.toggleKebab } /> }
                 isOpen={ kebabOpened }
-                ouiaId="action"
                 dropdownItems={ dropdownItems }
                 isPlain
             />
@@ -40,7 +43,8 @@ class ActionKebab extends Component {
 }
 
 ActionKebab.propTypes = {
-    dropdownItems: PropTypes.array
+    dropdownItems: PropTypes.array,
+    ouiaId: PropTypes.string
 };
 
 export default ActionKebab;
