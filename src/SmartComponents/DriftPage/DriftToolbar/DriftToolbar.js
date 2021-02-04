@@ -30,7 +30,6 @@ export class DriftToolbar extends Component {
                     component='button'
                     data-ouia-component-id='export-to-csv-dropdown-item-comparison'
                     onClick={ () => this.props.exportToCSV() }
-                    ouiaId='comparison-export-to-csv'
                 >
                     Export to CSV
                 </DropdownItem>
@@ -183,7 +182,6 @@ export class DriftToolbar extends Component {
                                     ouiaId='export-dropdown-comparison'
                                     isOpen={ dropdownOpen }
                                     onToggle={ this.onToggle }
-                                    ouiaId='comparison-export-dropdown'
                                 />
                             </ToolbarItem>
                             <ToolbarItem>

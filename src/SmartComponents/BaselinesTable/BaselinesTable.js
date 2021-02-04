@@ -116,7 +116,6 @@ export class BaselinesTable extends Component {
             if (kebab && hasWritePermissions) {
                 let kebab = <BaselineTableKebab
                     tableId={ tableId }
-                    baselineRowData={ baseline }
                     fetchWithParams={ this.fetchWithParams }
                     baselineName={ baseline[1] }
                 />;
