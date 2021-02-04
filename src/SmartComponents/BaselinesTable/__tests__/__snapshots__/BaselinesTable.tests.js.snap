@@ -446,7 +446,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                       >
                                         <div
                                           className="pf-c-dropdown ins-c-bulk-select"
-                                          data-ouia-component-id="OUIA-Generated-Dropdown-10"
+                                          data-ouia-component-id="OUIA-Generated-Dropdown-6"
                                           data-ouia-component-type="PF4/Dropdown"
                                           data-ouia-safe={true}
                                         >
@@ -464,7 +464,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                               Object {
                                                 "current": <div
                                                   class="pf-c-dropdown ins-c-bulk-select"
-                                                  data-ouia-component-id="OUIA-Generated-Dropdown-10"
+                                                  data-ouia-component-id="OUIA-Generated-Dropdown-6"
                                                   data-ouia-component-type="PF4/Dropdown"
                                                   data-ouia-safe="true"
                                                 >
@@ -602,7 +602,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                   Object {
                                                     "current": <div
                                                       class="pf-c-dropdown ins-c-bulk-select"
-                                                      data-ouia-component-id="OUIA-Generated-Dropdown-10"
+                                                      data-ouia-component-id="OUIA-Generated-Dropdown-6"
                                                       data-ouia-component-type="PF4/Dropdown"
                                                       data-ouia-safe="true"
                                                     >
@@ -2284,6 +2284,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
             }
             className=""
             contentId="expanded-content"
+            data-ouia-component-id="baselines-table"
             dropdownDirection="down"
             dropdownPosition="right"
             expandId="expandable-toggle"
@@ -2300,6 +2301,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                   "2 years ago",
                   <div>
                     <withRouter(BaselineTableKebab)
+                      baselineName="beavs baseline"
                       baselineRowData={
                         Array [
                           "1234",
@@ -2317,6 +2319,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                   "2 years ago",
                   <div>
                     <withRouter(BaselineTableKebab)
+                      baselineName="micjohns baseline"
                       baselineRowData={
                         Array [
                           "abcd",
@@ -2497,6 +2500,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                   },
                 ]
               }
+              data-ouia-component-id="baselines-table"
               gridBreakPoint="grid-md"
               isStickyHeader={false}
               ouiaSafe={true}
@@ -2519,6 +2523,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                 aria-label="Baselines Table"
                 borders={true}
                 className=""
+                data-ouia-component-id="baselines-table"
                 gridBreakPoint="grid-md"
                 isStickyHeader={false}
                 ouiaSafe={true}
@@ -2529,6 +2534,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                   aria-label="Baselines Table"
                   borders={true}
                   className=""
+                  data-ouia-component-id="baselines-table"
                   gridBreakPoint="grid-md"
                   innerRef={null}
                   isStickyHeader={false}
@@ -2539,7 +2545,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                   <table
                     aria-label="Baselines Table"
                     className="pf-c-table pf-m-grid-md"
-                    data-ouia-component-id="OUIA-Generated-Table-14"
+                    data-ouia-component-id="baselines-table"
                     data-ouia-component-type="PF4/Table"
                     data-ouia-safe={true}
                     role="grid"
@@ -3334,6 +3340,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                               "2 years ago",
                               <div>
                                 <withRouter(BaselineTableKebab)
+                                  baselineName="beavs baseline"
                                   baselineRowData={
                                     Array [
                                       "1234",
@@ -3351,6 +3358,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                               "2 years ago",
                               <div>
                                 <withRouter(BaselineTableKebab)
+                                  baselineName="micjohns baseline"
                                   baselineRowData={
                                     Array [
                                       "abcd",
@@ -3376,6 +3384,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                 "1": "2 years ago",
                                 "2": <div>
                                   <withRouter(BaselineTableKebab)
+                                    baselineName="beavs baseline"
                                     baselineRowData={
                                       Array [
                                         "1234",
@@ -3391,6 +3400,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                   "formatters": Array [],
                                   "props": Object {
                                     "children": <withRouter(BaselineTableKebab)
+                                      baselineName="beavs baseline"
                                       baselineRowData={
                                         Array [
                                           "1234",
@@ -3433,6 +3443,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                 "1": "2 years ago",
                                 "2": <div>
                                   <withRouter(BaselineTableKebab)
+                                    baselineName="micjohns baseline"
                                     baselineRowData={
                                       Array [
                                         "abcd",
@@ -3448,6 +3459,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                   "formatters": Array [],
                                   "props": Object {
                                     "children": <withRouter(BaselineTableKebab)
+                                      baselineName="micjohns baseline"
                                       baselineRowData={
                                         Array [
                                           "abcd",
@@ -3495,6 +3507,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                 "1": "2 years ago",
                                 "2": <div>
                                   <withRouter(BaselineTableKebab)
+                                    baselineName="beavs baseline"
                                     baselineRowData={
                                       Array [
                                         "1234",
@@ -3510,6 +3523,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                   "formatters": Array [],
                                   "props": Object {
                                     "children": <withRouter(BaselineTableKebab)
+                                      baselineName="beavs baseline"
                                       baselineRowData={
                                         Array [
                                           "1234",
@@ -3552,6 +3566,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                 "1": "2 years ago",
                                 "2": <div>
                                   <withRouter(BaselineTableKebab)
+                                    baselineName="micjohns baseline"
                                     baselineRowData={
                                       Array [
                                         "abcd",
@@ -3567,6 +3582,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                   "formatters": Array [],
                                   "props": Object {
                                     "children": <withRouter(BaselineTableKebab)
+                                      baselineName="micjohns baseline"
                                       baselineRowData={
                                         Array [
                                           "abcd",
@@ -3769,6 +3785,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                   "1": "2 years ago",
                                   "2": <div>
                                     <withRouter(BaselineTableKebab)
+                                      baselineName="beavs baseline"
                                       baselineRowData={
                                         Array [
                                           "1234",
@@ -3784,6 +3801,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                     "formatters": Array [],
                                     "props": Object {
                                       "children": <withRouter(BaselineTableKebab)
+                                        baselineName="beavs baseline"
                                         baselineRowData={
                                           Array [
                                             "1234",
@@ -3826,6 +3844,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                   "1": "2 years ago",
                                   "2": <div>
                                     <withRouter(BaselineTableKebab)
+                                      baselineName="micjohns baseline"
                                       baselineRowData={
                                         Array [
                                           "abcd",
@@ -3841,6 +3860,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                     "formatters": Array [],
                                     "props": Object {
                                       "children": <withRouter(BaselineTableKebab)
+                                        baselineName="micjohns baseline"
                                         baselineRowData={
                                           Array [
                                             "abcd",
@@ -3915,6 +3935,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                   "1": "2 years ago",
                                   "2": <div>
                                     <withRouter(BaselineTableKebab)
+                                      baselineName="beavs baseline"
                                       baselineRowData={
                                         Array [
                                           "1234",
@@ -3930,6 +3951,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                     "formatters": Array [],
                                     "props": Object {
                                       "children": <withRouter(BaselineTableKebab)
+                                        baselineName="beavs baseline"
                                         baselineRowData={
                                           Array [
                                             "1234",
@@ -3972,6 +3994,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                   "1": "2 years ago",
                                   "2": <div>
                                     <withRouter(BaselineTableKebab)
+                                      baselineName="micjohns baseline"
                                       baselineRowData={
                                         Array [
                                           "abcd",
@@ -3987,6 +4010,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                     "formatters": Array [],
                                     "props": Object {
                                       "children": <withRouter(BaselineTableKebab)
+                                        baselineName="micjohns baseline"
                                         baselineRowData={
                                           Array [
                                             "abcd",
@@ -4036,6 +4060,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                     "1": "2 years ago",
                                     "2": <div>
                                       <withRouter(BaselineTableKebab)
+                                        baselineName="beavs baseline"
                                         baselineRowData={
                                           Array [
                                             "1234",
@@ -4051,6 +4076,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                       "formatters": Array [],
                                       "props": Object {
                                         "children": <withRouter(BaselineTableKebab)
+                                          baselineName="beavs baseline"
                                           baselineRowData={
                                             Array [
                                               "1234",
@@ -4093,6 +4119,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                     "1": "2 years ago",
                                     "2": <div>
                                       <withRouter(BaselineTableKebab)
+                                        baselineName="micjohns baseline"
                                         baselineRowData={
                                           Array [
                                             "abcd",
@@ -4108,6 +4135,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                       "formatters": Array [],
                                       "props": Object {
                                         "children": <withRouter(BaselineTableKebab)
+                                          baselineName="micjohns baseline"
                                           baselineRowData={
                                             Array [
                                               "abcd",
@@ -4327,6 +4355,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                           "1": "2 years ago",
                                           "2": <div>
                                             <withRouter(BaselineTableKebab)
+                                              baselineName="beavs baseline"
                                               baselineRowData={
                                                 Array [
                                                   "1234",
@@ -4342,6 +4371,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                             "formatters": Array [],
                                             "props": Object {
                                               "children": <withRouter(BaselineTableKebab)
+                                                baselineName="beavs baseline"
                                                 baselineRowData={
                                                   Array [
                                                     "1234",
@@ -4392,6 +4422,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                             "1": "2 years ago",
                                             "2": <div>
                                               <withRouter(BaselineTableKebab)
+                                                baselineName="beavs baseline"
                                                 baselineRowData={
                                                   Array [
                                                     "1234",
@@ -4407,6 +4438,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                               "formatters": Array [],
                                               "props": Object {
                                                 "children": <withRouter(BaselineTableKebab)
+                                                  baselineName="beavs baseline"
                                                   baselineRowData={
                                                     Array [
                                                       "1234",
@@ -4567,6 +4599,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                       onMouseEnter={[Function]}
                                                     >
                                                       <withRouter(BaselineTableKebab)
+                                                        baselineName="beavs baseline"
                                                         baselineRowData={
                                                           Array [
                                                             "1234",
@@ -4578,6 +4611,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                         tableId="CHECKBOX"
                                                       >
                                                         <BaselineTableKebab
+                                                          baselineName="beavs baseline"
                                                           baselineRowData={
                                                             Array [
                                                               "1234",
@@ -4640,12 +4674,14 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                               Array [
                                                                 <DropdownItem
                                                                   component="button"
+                                                                  data-ouia-component-id="edit-baseline-dropdown-item-beavs baseline"
                                                                   onClick={[Function]}
                                                                 >
                                                                   Edit
                                                                 </DropdownItem>,
                                                                 <DropdownItem
                                                                   component="button"
+                                                                  data-ouia-component-id="delete-baseline-dropdown-item-beavs baseline"
                                                                   onClick={[Function]}
                                                                 >
                                                                   Delete
@@ -4654,6 +4690,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                             }
                                                             isOpen={false}
                                                             isPlain={true}
+                                                            ouiaId="baseline-kebab-dropdown-beavs baseline"
                                                             style={
                                                               Object {
                                                                 "float": "right",
@@ -4661,6 +4698,8 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                             }
                                                             toggle={
                                                               <KebabToggle
+                                                                data-ouia-component-id="baseline-kebab-dropdown-toggle-beavs baseline"
+                                                                data-ouia-component-type="PF4/DropdownToggle"
                                                                 onToggle={[Function]}
                                                               />
                                                             }
@@ -4673,12 +4712,14 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                                 Array [
                                                                   <DropdownItem
                                                                     component="button"
+                                                                    data-ouia-component-id="edit-baseline-dropdown-item-beavs baseline"
                                                                     onClick={[Function]}
                                                                   >
                                                                     Edit
                                                                   </DropdownItem>,
                                                                   <DropdownItem
                                                                     component="button"
+                                                                    data-ouia-component-id="delete-baseline-dropdown-item-beavs baseline"
                                                                     onClick={[Function]}
                                                                   >
                                                                     Delete
@@ -4698,13 +4739,15 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                               }
                                                               toggle={
                                                                 <KebabToggle
+                                                                  data-ouia-component-id="baseline-kebab-dropdown-toggle-beavs baseline"
+                                                                  data-ouia-component-type="PF4/DropdownToggle"
                                                                   onToggle={[Function]}
                                                                 />
                                                               }
                                                             >
                                                               <div
                                                                 className="pf-c-dropdown baseline-table-kebab"
-                                                                data-ouia-component-id="OUIA-Generated-Dropdown-11"
+                                                                data-ouia-component-id="baseline-kebab-dropdown-beavs baseline"
                                                                 data-ouia-component-type="PF4/Dropdown"
                                                                 data-ouia-safe={true}
                                                                 style={
@@ -4715,6 +4758,8 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                               >
                                                                 <KebabToggle
                                                                   aria-haspopup={true}
+                                                                  data-ouia-component-id="baseline-kebab-dropdown-toggle-beavs baseline"
+                                                                  data-ouia-component-type="PF4/DropdownToggle"
                                                                   getMenuRef={[Function]}
                                                                   id="pf-dropdown-toggle-id-37"
                                                                   isOpen={false}
@@ -4726,7 +4771,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                                     Object {
                                                                       "current": <div
                                                                         class="pf-c-dropdown baseline-table-kebab"
-                                                                        data-ouia-component-id="OUIA-Generated-Dropdown-11"
+                                                                        data-ouia-component-id="baseline-kebab-dropdown-beavs baseline"
                                                                         data-ouia-component-type="PF4/Dropdown"
                                                                         data-ouia-safe="true"
                                                                         style="float: right;"
@@ -4736,6 +4781,8 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                                           aria-haspopup="true"
                                                                           aria-label="Actions"
                                                                           class="pf-c-dropdown__toggle pf-m-plain"
+                                                                          data-ouia-component-id="baseline-kebab-dropdown-toggle-beavs baseline"
+                                                                          data-ouia-component-type="PF4/DropdownToggle"
                                                                           id="pf-dropdown-toggle-id-37"
                                                                           type="button"
                                                                         >
@@ -4762,6 +4809,8 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                                     aria-label="Actions"
                                                                     bubbleEvent={false}
                                                                     className=""
+                                                                    data-ouia-component-id="baseline-kebab-dropdown-toggle-beavs baseline"
+                                                                    data-ouia-component-type="PF4/DropdownToggle"
                                                                     getMenuRef={[Function]}
                                                                     id="pf-dropdown-toggle-id-37"
                                                                     isActive={false}
@@ -4776,7 +4825,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                                       Object {
                                                                         "current": <div
                                                                           class="pf-c-dropdown baseline-table-kebab"
-                                                                          data-ouia-component-id="OUIA-Generated-Dropdown-11"
+                                                                          data-ouia-component-id="baseline-kebab-dropdown-beavs baseline"
                                                                           data-ouia-component-type="PF4/Dropdown"
                                                                           data-ouia-safe="true"
                                                                           style="float: right;"
@@ -4786,6 +4835,8 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                                             aria-haspopup="true"
                                                                             aria-label="Actions"
                                                                             class="pf-c-dropdown__toggle pf-m-plain"
+                                                                            data-ouia-component-id="baseline-kebab-dropdown-toggle-beavs baseline"
+                                                                            data-ouia-component-type="PF4/DropdownToggle"
                                                                             id="pf-dropdown-toggle-id-37"
                                                                             type="button"
                                                                           >
@@ -4812,6 +4863,8 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                                       aria-haspopup={true}
                                                                       aria-label="Actions"
                                                                       className="pf-c-dropdown__toggle pf-m-plain"
+                                                                      data-ouia-component-id="baseline-kebab-dropdown-toggle-beavs baseline"
+                                                                      data-ouia-component-type="PF4/DropdownToggle"
                                                                       disabled={false}
                                                                       id="pf-dropdown-toggle-id-37"
                                                                       onClick={[Function]}
@@ -5028,6 +5081,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                           "1": "2 years ago",
                                           "2": <div>
                                             <withRouter(BaselineTableKebab)
+                                              baselineName="micjohns baseline"
                                               baselineRowData={
                                                 Array [
                                                   "abcd",
@@ -5043,6 +5097,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                             "formatters": Array [],
                                             "props": Object {
                                               "children": <withRouter(BaselineTableKebab)
+                                                baselineName="micjohns baseline"
                                                 baselineRowData={
                                                   Array [
                                                     "abcd",
@@ -5092,6 +5147,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                             "1": "2 years ago",
                                             "2": <div>
                                               <withRouter(BaselineTableKebab)
+                                                baselineName="micjohns baseline"
                                                 baselineRowData={
                                                   Array [
                                                     "abcd",
@@ -5107,6 +5163,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                               "formatters": Array [],
                                               "props": Object {
                                                 "children": <withRouter(BaselineTableKebab)
+                                                  baselineName="micjohns baseline"
                                                   baselineRowData={
                                                     Array [
                                                       "abcd",
@@ -5266,6 +5323,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                       onMouseEnter={[Function]}
                                                     >
                                                       <withRouter(BaselineTableKebab)
+                                                        baselineName="micjohns baseline"
                                                         baselineRowData={
                                                           Array [
                                                             "abcd",
@@ -5277,6 +5335,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                         tableId="CHECKBOX"
                                                       >
                                                         <BaselineTableKebab
+                                                          baselineName="micjohns baseline"
                                                           baselineRowData={
                                                             Array [
                                                               "abcd",
@@ -5339,12 +5398,14 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                               Array [
                                                                 <DropdownItem
                                                                   component="button"
+                                                                  data-ouia-component-id="edit-baseline-dropdown-item-micjohns baseline"
                                                                   onClick={[Function]}
                                                                 >
                                                                   Edit
                                                                 </DropdownItem>,
                                                                 <DropdownItem
                                                                   component="button"
+                                                                  data-ouia-component-id="delete-baseline-dropdown-item-micjohns baseline"
                                                                   onClick={[Function]}
                                                                 >
                                                                   Delete
@@ -5353,6 +5414,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                             }
                                                             isOpen={false}
                                                             isPlain={true}
+                                                            ouiaId="baseline-kebab-dropdown-micjohns baseline"
                                                             style={
                                                               Object {
                                                                 "float": "right",
@@ -5360,6 +5422,8 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                             }
                                                             toggle={
                                                               <KebabToggle
+                                                                data-ouia-component-id="baseline-kebab-dropdown-toggle-micjohns baseline"
+                                                                data-ouia-component-type="PF4/DropdownToggle"
                                                                 onToggle={[Function]}
                                                               />
                                                             }
@@ -5372,12 +5436,14 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                                 Array [
                                                                   <DropdownItem
                                                                     component="button"
+                                                                    data-ouia-component-id="edit-baseline-dropdown-item-micjohns baseline"
                                                                     onClick={[Function]}
                                                                   >
                                                                     Edit
                                                                   </DropdownItem>,
                                                                   <DropdownItem
                                                                     component="button"
+                                                                    data-ouia-component-id="delete-baseline-dropdown-item-micjohns baseline"
                                                                     onClick={[Function]}
                                                                   >
                                                                     Delete
@@ -5397,13 +5463,15 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                               }
                                                               toggle={
                                                                 <KebabToggle
+                                                                  data-ouia-component-id="baseline-kebab-dropdown-toggle-micjohns baseline"
+                                                                  data-ouia-component-type="PF4/DropdownToggle"
                                                                   onToggle={[Function]}
                                                                 />
                                                               }
                                                             >
                                                               <div
                                                                 className="pf-c-dropdown baseline-table-kebab"
-                                                                data-ouia-component-id="OUIA-Generated-Dropdown-12"
+                                                                data-ouia-component-id="baseline-kebab-dropdown-micjohns baseline"
                                                                 data-ouia-component-type="PF4/Dropdown"
                                                                 data-ouia-safe={true}
                                                                 style={
@@ -5414,6 +5482,8 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                               >
                                                                 <KebabToggle
                                                                   aria-haspopup={true}
+                                                                  data-ouia-component-id="baseline-kebab-dropdown-toggle-micjohns baseline"
+                                                                  data-ouia-component-type="PF4/DropdownToggle"
                                                                   getMenuRef={[Function]}
                                                                   id="pf-dropdown-toggle-id-38"
                                                                   isOpen={false}
@@ -5425,7 +5495,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                                     Object {
                                                                       "current": <div
                                                                         class="pf-c-dropdown baseline-table-kebab"
-                                                                        data-ouia-component-id="OUIA-Generated-Dropdown-12"
+                                                                        data-ouia-component-id="baseline-kebab-dropdown-micjohns baseline"
                                                                         data-ouia-component-type="PF4/Dropdown"
                                                                         data-ouia-safe="true"
                                                                         style="float: right;"
@@ -5435,6 +5505,8 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                                           aria-haspopup="true"
                                                                           aria-label="Actions"
                                                                           class="pf-c-dropdown__toggle pf-m-plain"
+                                                                          data-ouia-component-id="baseline-kebab-dropdown-toggle-micjohns baseline"
+                                                                          data-ouia-component-type="PF4/DropdownToggle"
                                                                           id="pf-dropdown-toggle-id-38"
                                                                           type="button"
                                                                         >
@@ -5461,6 +5533,8 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                                     aria-label="Actions"
                                                                     bubbleEvent={false}
                                                                     className=""
+                                                                    data-ouia-component-id="baseline-kebab-dropdown-toggle-micjohns baseline"
+                                                                    data-ouia-component-type="PF4/DropdownToggle"
                                                                     getMenuRef={[Function]}
                                                                     id="pf-dropdown-toggle-id-38"
                                                                     isActive={false}
@@ -5475,7 +5549,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                                       Object {
                                                                         "current": <div
                                                                           class="pf-c-dropdown baseline-table-kebab"
-                                                                          data-ouia-component-id="OUIA-Generated-Dropdown-12"
+                                                                          data-ouia-component-id="baseline-kebab-dropdown-micjohns baseline"
                                                                           data-ouia-component-type="PF4/Dropdown"
                                                                           data-ouia-safe="true"
                                                                           style="float: right;"
@@ -5485,6 +5559,8 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                                             aria-haspopup="true"
                                                                             aria-label="Actions"
                                                                             class="pf-c-dropdown__toggle pf-m-plain"
+                                                                            data-ouia-component-id="baseline-kebab-dropdown-toggle-micjohns baseline"
+                                                                            data-ouia-component-type="PF4/DropdownToggle"
                                                                             id="pf-dropdown-toggle-id-38"
                                                                             type="button"
                                                                           >
@@ -5511,6 +5587,8 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                                       aria-haspopup={true}
                                                                       aria-label="Actions"
                                                                       className="pf-c-dropdown__toggle pf-m-plain"
+                                                                      data-ouia-component-id="baseline-kebab-dropdown-toggle-micjohns baseline"
+                                                                      data-ouia-component-type="PF4/DropdownToggle"
                                                                       disabled={false}
                                                                       id="pf-dropdown-toggle-id-38"
                                                                       onClick={[Function]}
@@ -6836,7 +6914,7 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                                       >
                                         <div
                                           className="pf-c-dropdown ins-c-bulk-select"
-                                          data-ouia-component-id="OUIA-Generated-Dropdown-9"
+                                          data-ouia-component-id="OUIA-Generated-Dropdown-5"
                                           data-ouia-component-type="PF4/Dropdown"
                                           data-ouia-safe={true}
                                         >
@@ -6854,7 +6932,7 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                                               Object {
                                                 "current": <div
                                                   class="pf-c-dropdown ins-c-bulk-select"
-                                                  data-ouia-component-id="OUIA-Generated-Dropdown-9"
+                                                  data-ouia-component-id="OUIA-Generated-Dropdown-5"
                                                   data-ouia-component-type="PF4/Dropdown"
                                                   data-ouia-safe="true"
                                                 >
@@ -6979,7 +7057,7 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                                                   Object {
                                                     "current": <div
                                                       class="pf-c-dropdown ins-c-bulk-select"
-                                                      data-ouia-component-id="OUIA-Generated-Dropdown-9"
+                                                      data-ouia-component-id="OUIA-Generated-Dropdown-5"
                                                       data-ouia-component-type="PF4/Dropdown"
                                                       data-ouia-safe="true"
                                                     >
@@ -29831,7 +29909,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                       >
                                         <div
                                           className="pf-c-dropdown ins-c-bulk-select"
-                                          data-ouia-component-id="OUIA-Generated-Dropdown-5"
+                                          data-ouia-component-id="OUIA-Generated-Dropdown-3"
                                           data-ouia-component-type="PF4/Dropdown"
                                           data-ouia-safe={true}
                                         >
@@ -29849,7 +29927,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                               Object {
                                                 "current": <div
                                                   class="pf-c-dropdown ins-c-bulk-select"
-                                                  data-ouia-component-id="OUIA-Generated-Dropdown-5"
+                                                  data-ouia-component-id="OUIA-Generated-Dropdown-3"
                                                   data-ouia-component-type="PF4/Dropdown"
                                                   data-ouia-safe="true"
                                                 >
@@ -29974,7 +30052,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                                   Object {
                                                     "current": <div
                                                       class="pf-c-dropdown ins-c-bulk-select"
-                                                      data-ouia-component-id="OUIA-Generated-Dropdown-5"
+                                                      data-ouia-component-id="OUIA-Generated-Dropdown-3"
                                                       data-ouia-component-type="PF4/Dropdown"
                                                       data-ouia-safe="true"
                                                     >
@@ -31650,6 +31728,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
             }
             className=""
             contentId="expanded-content"
+            data-ouia-component-id="baselines-table"
             dropdownDirection="down"
             dropdownPosition="right"
             expandId="expandable-toggle"
@@ -31666,6 +31745,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                   "2 years ago",
                   <div>
                     <withRouter(BaselineTableKebab)
+                      baselineName="beavs baseline"
                       baselineRowData={
                         Array [
                           "1234",
@@ -31683,6 +31763,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                   "2 years ago",
                   <div>
                     <withRouter(BaselineTableKebab)
+                      baselineName="micjohns baseline"
                       baselineRowData={
                         Array [
                           "abcd",
@@ -31863,6 +31944,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                   },
                 ]
               }
+              data-ouia-component-id="baselines-table"
               gridBreakPoint="grid-md"
               isStickyHeader={false}
               ouiaSafe={true}
@@ -31885,6 +31967,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                 aria-label="Baselines Table"
                 borders={true}
                 className=""
+                data-ouia-component-id="baselines-table"
                 gridBreakPoint="grid-md"
                 isStickyHeader={false}
                 ouiaSafe={true}
@@ -31895,6 +31978,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                   aria-label="Baselines Table"
                   borders={true}
                   className=""
+                  data-ouia-component-id="baselines-table"
                   gridBreakPoint="grid-md"
                   innerRef={null}
                   isStickyHeader={false}
@@ -31905,7 +31989,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                   <table
                     aria-label="Baselines Table"
                     className="pf-c-table pf-m-grid-md"
-                    data-ouia-component-id="OUIA-Generated-Table-6"
+                    data-ouia-component-id="baselines-table"
                     data-ouia-component-type="PF4/Table"
                     data-ouia-safe={true}
                     role="grid"
@@ -32700,6 +32784,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                               "2 years ago",
                               <div>
                                 <withRouter(BaselineTableKebab)
+                                  baselineName="beavs baseline"
                                   baselineRowData={
                                     Array [
                                       "1234",
@@ -32717,6 +32802,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                               "2 years ago",
                               <div>
                                 <withRouter(BaselineTableKebab)
+                                  baselineName="micjohns baseline"
                                   baselineRowData={
                                     Array [
                                       "abcd",
@@ -32742,6 +32828,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                 "1": "2 years ago",
                                 "2": <div>
                                   <withRouter(BaselineTableKebab)
+                                    baselineName="beavs baseline"
                                     baselineRowData={
                                       Array [
                                         "1234",
@@ -32757,6 +32844,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                   "formatters": Array [],
                                   "props": Object {
                                     "children": <withRouter(BaselineTableKebab)
+                                      baselineName="beavs baseline"
                                       baselineRowData={
                                         Array [
                                           "1234",
@@ -32798,6 +32886,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                 "1": "2 years ago",
                                 "2": <div>
                                   <withRouter(BaselineTableKebab)
+                                    baselineName="micjohns baseline"
                                     baselineRowData={
                                       Array [
                                         "abcd",
@@ -32813,6 +32902,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                   "formatters": Array [],
                                   "props": Object {
                                     "children": <withRouter(BaselineTableKebab)
+                                      baselineName="micjohns baseline"
                                       baselineRowData={
                                         Array [
                                           "abcd",
@@ -32860,6 +32950,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                 "1": "2 years ago",
                                 "2": <div>
                                   <withRouter(BaselineTableKebab)
+                                    baselineName="beavs baseline"
                                     baselineRowData={
                                       Array [
                                         "1234",
@@ -32875,6 +32966,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                   "formatters": Array [],
                                   "props": Object {
                                     "children": <withRouter(BaselineTableKebab)
+                                      baselineName="beavs baseline"
                                       baselineRowData={
                                         Array [
                                           "1234",
@@ -32916,6 +33008,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                 "1": "2 years ago",
                                 "2": <div>
                                   <withRouter(BaselineTableKebab)
+                                    baselineName="micjohns baseline"
                                     baselineRowData={
                                       Array [
                                         "abcd",
@@ -32931,6 +33024,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                   "formatters": Array [],
                                   "props": Object {
                                     "children": <withRouter(BaselineTableKebab)
+                                      baselineName="micjohns baseline"
                                       baselineRowData={
                                         Array [
                                           "abcd",
@@ -33133,6 +33227,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                   "1": "2 years ago",
                                   "2": <div>
                                     <withRouter(BaselineTableKebab)
+                                      baselineName="beavs baseline"
                                       baselineRowData={
                                         Array [
                                           "1234",
@@ -33148,6 +33243,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                     "formatters": Array [],
                                     "props": Object {
                                       "children": <withRouter(BaselineTableKebab)
+                                        baselineName="beavs baseline"
                                         baselineRowData={
                                           Array [
                                             "1234",
@@ -33189,6 +33285,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                   "1": "2 years ago",
                                   "2": <div>
                                     <withRouter(BaselineTableKebab)
+                                      baselineName="micjohns baseline"
                                       baselineRowData={
                                         Array [
                                           "abcd",
@@ -33204,6 +33301,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                     "formatters": Array [],
                                     "props": Object {
                                       "children": <withRouter(BaselineTableKebab)
+                                        baselineName="micjohns baseline"
                                         baselineRowData={
                                           Array [
                                             "abcd",
@@ -33278,6 +33376,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                   "1": "2 years ago",
                                   "2": <div>
                                     <withRouter(BaselineTableKebab)
+                                      baselineName="beavs baseline"
                                       baselineRowData={
                                         Array [
                                           "1234",
@@ -33293,6 +33392,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                     "formatters": Array [],
                                     "props": Object {
                                       "children": <withRouter(BaselineTableKebab)
+                                        baselineName="beavs baseline"
                                         baselineRowData={
                                           Array [
                                             "1234",
@@ -33334,6 +33434,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                   "1": "2 years ago",
                                   "2": <div>
                                     <withRouter(BaselineTableKebab)
+                                      baselineName="micjohns baseline"
                                       baselineRowData={
                                         Array [
                                           "abcd",
@@ -33349,6 +33450,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                     "formatters": Array [],
                                     "props": Object {
                                       "children": <withRouter(BaselineTableKebab)
+                                        baselineName="micjohns baseline"
                                         baselineRowData={
                                           Array [
                                             "abcd",
@@ -33398,6 +33500,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                     "1": "2 years ago",
                                     "2": <div>
                                       <withRouter(BaselineTableKebab)
+                                        baselineName="beavs baseline"
                                         baselineRowData={
                                           Array [
                                             "1234",
@@ -33413,6 +33516,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                       "formatters": Array [],
                                       "props": Object {
                                         "children": <withRouter(BaselineTableKebab)
+                                          baselineName="beavs baseline"
                                           baselineRowData={
                                             Array [
                                               "1234",
@@ -33454,6 +33558,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                     "1": "2 years ago",
                                     "2": <div>
                                       <withRouter(BaselineTableKebab)
+                                        baselineName="micjohns baseline"
                                         baselineRowData={
                                           Array [
                                             "abcd",
@@ -33469,6 +33574,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                       "formatters": Array [],
                                       "props": Object {
                                         "children": <withRouter(BaselineTableKebab)
+                                          baselineName="micjohns baseline"
                                           baselineRowData={
                                             Array [
                                               "abcd",
@@ -33688,6 +33794,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                           "1": "2 years ago",
                                           "2": <div>
                                             <withRouter(BaselineTableKebab)
+                                              baselineName="beavs baseline"
                                               baselineRowData={
                                                 Array [
                                                   "1234",
@@ -33703,6 +33810,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                             "formatters": Array [],
                                             "props": Object {
                                               "children": <withRouter(BaselineTableKebab)
+                                                baselineName="beavs baseline"
                                                 baselineRowData={
                                                   Array [
                                                     "1234",
@@ -33752,6 +33860,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                             "1": "2 years ago",
                                             "2": <div>
                                               <withRouter(BaselineTableKebab)
+                                                baselineName="beavs baseline"
                                                 baselineRowData={
                                                   Array [
                                                     "1234",
@@ -33767,6 +33876,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                               "formatters": Array [],
                                               "props": Object {
                                                 "children": <withRouter(BaselineTableKebab)
+                                                  baselineName="beavs baseline"
                                                   baselineRowData={
                                                     Array [
                                                       "1234",
@@ -33926,6 +34036,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                                       onMouseEnter={[Function]}
                                                     >
                                                       <withRouter(BaselineTableKebab)
+                                                        baselineName="beavs baseline"
                                                         baselineRowData={
                                                           Array [
                                                             "1234",
@@ -33937,6 +34048,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                                         tableId="CHECKBOX"
                                                       >
                                                         <BaselineTableKebab
+                                                          baselineName="beavs baseline"
                                                           baselineRowData={
                                                             Array [
                                                               "1234",
@@ -33999,12 +34111,14 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                                               Array [
                                                                 <DropdownItem
                                                                   component="button"
+                                                                  data-ouia-component-id="edit-baseline-dropdown-item-beavs baseline"
                                                                   onClick={[Function]}
                                                                 >
                                                                   Edit
                                                                 </DropdownItem>,
                                                                 <DropdownItem
                                                                   component="button"
+                                                                  data-ouia-component-id="delete-baseline-dropdown-item-beavs baseline"
                                                                   onClick={[Function]}
                                                                 >
                                                                   Delete
@@ -34013,6 +34127,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                                             }
                                                             isOpen={false}
                                                             isPlain={true}
+                                                            ouiaId="baseline-kebab-dropdown-beavs baseline"
                                                             style={
                                                               Object {
                                                                 "float": "right",
@@ -34020,6 +34135,8 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                                             }
                                                             toggle={
                                                               <KebabToggle
+                                                                data-ouia-component-id="baseline-kebab-dropdown-toggle-beavs baseline"
+                                                                data-ouia-component-type="PF4/DropdownToggle"
                                                                 onToggle={[Function]}
                                                               />
                                                             }
@@ -34032,12 +34149,14 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                                                 Array [
                                                                   <DropdownItem
                                                                     component="button"
+                                                                    data-ouia-component-id="edit-baseline-dropdown-item-beavs baseline"
                                                                     onClick={[Function]}
                                                                   >
                                                                     Edit
                                                                   </DropdownItem>,
                                                                   <DropdownItem
                                                                     component="button"
+                                                                    data-ouia-component-id="delete-baseline-dropdown-item-beavs baseline"
                                                                     onClick={[Function]}
                                                                   >
                                                                     Delete
@@ -34057,13 +34176,15 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                                               }
                                                               toggle={
                                                                 <KebabToggle
+                                                                  data-ouia-component-id="baseline-kebab-dropdown-toggle-beavs baseline"
+                                                                  data-ouia-component-type="PF4/DropdownToggle"
                                                                   onToggle={[Function]}
                                                                 />
                                                               }
                                                             >
                                                               <div
                                                                 className="pf-c-dropdown baseline-table-kebab"
-                                                                data-ouia-component-id="OUIA-Generated-Dropdown-6"
+                                                                data-ouia-component-id="baseline-kebab-dropdown-beavs baseline"
                                                                 data-ouia-component-type="PF4/Dropdown"
                                                                 data-ouia-safe={true}
                                                                 style={
@@ -34074,6 +34195,8 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                                               >
                                                                 <KebabToggle
                                                                   aria-haspopup={true}
+                                                                  data-ouia-component-id="baseline-kebab-dropdown-toggle-beavs baseline"
+                                                                  data-ouia-component-type="PF4/DropdownToggle"
                                                                   getMenuRef={[Function]}
                                                                   id="pf-dropdown-toggle-id-16"
                                                                   isOpen={false}
@@ -34085,7 +34208,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                                                     Object {
                                                                       "current": <div
                                                                         class="pf-c-dropdown baseline-table-kebab"
-                                                                        data-ouia-component-id="OUIA-Generated-Dropdown-6"
+                                                                        data-ouia-component-id="baseline-kebab-dropdown-beavs baseline"
                                                                         data-ouia-component-type="PF4/Dropdown"
                                                                         data-ouia-safe="true"
                                                                         style="float: right;"
@@ -34095,6 +34218,8 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                                                           aria-haspopup="true"
                                                                           aria-label="Actions"
                                                                           class="pf-c-dropdown__toggle pf-m-plain"
+                                                                          data-ouia-component-id="baseline-kebab-dropdown-toggle-beavs baseline"
+                                                                          data-ouia-component-type="PF4/DropdownToggle"
                                                                           id="pf-dropdown-toggle-id-16"
                                                                           type="button"
                                                                         >
@@ -34121,6 +34246,8 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                                                     aria-label="Actions"
                                                                     bubbleEvent={false}
                                                                     className=""
+                                                                    data-ouia-component-id="baseline-kebab-dropdown-toggle-beavs baseline"
+                                                                    data-ouia-component-type="PF4/DropdownToggle"
                                                                     getMenuRef={[Function]}
                                                                     id="pf-dropdown-toggle-id-16"
                                                                     isActive={false}
@@ -34135,7 +34262,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                                                       Object {
                                                                         "current": <div
                                                                           class="pf-c-dropdown baseline-table-kebab"
-                                                                          data-ouia-component-id="OUIA-Generated-Dropdown-6"
+                                                                          data-ouia-component-id="baseline-kebab-dropdown-beavs baseline"
                                                                           data-ouia-component-type="PF4/Dropdown"
                                                                           data-ouia-safe="true"
                                                                           style="float: right;"
@@ -34145,6 +34272,8 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                                                             aria-haspopup="true"
                                                                             aria-label="Actions"
                                                                             class="pf-c-dropdown__toggle pf-m-plain"
+                                                                            data-ouia-component-id="baseline-kebab-dropdown-toggle-beavs baseline"
+                                                                            data-ouia-component-type="PF4/DropdownToggle"
                                                                             id="pf-dropdown-toggle-id-16"
                                                                             type="button"
                                                                           >
@@ -34171,6 +34300,8 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                                                       aria-haspopup={true}
                                                                       aria-label="Actions"
                                                                       className="pf-c-dropdown__toggle pf-m-plain"
+                                                                      data-ouia-component-id="baseline-kebab-dropdown-toggle-beavs baseline"
+                                                                      data-ouia-component-type="PF4/DropdownToggle"
                                                                       disabled={false}
                                                                       id="pf-dropdown-toggle-id-16"
                                                                       onClick={[Function]}
@@ -34387,6 +34518,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                           "1": "2 years ago",
                                           "2": <div>
                                             <withRouter(BaselineTableKebab)
+                                              baselineName="micjohns baseline"
                                               baselineRowData={
                                                 Array [
                                                   "abcd",
@@ -34402,6 +34534,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                             "formatters": Array [],
                                             "props": Object {
                                               "children": <withRouter(BaselineTableKebab)
+                                                baselineName="micjohns baseline"
                                                 baselineRowData={
                                                   Array [
                                                     "abcd",
@@ -34451,6 +34584,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                             "1": "2 years ago",
                                             "2": <div>
                                               <withRouter(BaselineTableKebab)
+                                                baselineName="micjohns baseline"
                                                 baselineRowData={
                                                   Array [
                                                     "abcd",
@@ -34466,6 +34600,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                               "formatters": Array [],
                                               "props": Object {
                                                 "children": <withRouter(BaselineTableKebab)
+                                                  baselineName="micjohns baseline"
                                                   baselineRowData={
                                                     Array [
                                                       "abcd",
@@ -34625,6 +34760,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                                       onMouseEnter={[Function]}
                                                     >
                                                       <withRouter(BaselineTableKebab)
+                                                        baselineName="micjohns baseline"
                                                         baselineRowData={
                                                           Array [
                                                             "abcd",
@@ -34636,6 +34772,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                                         tableId="CHECKBOX"
                                                       >
                                                         <BaselineTableKebab
+                                                          baselineName="micjohns baseline"
                                                           baselineRowData={
                                                             Array [
                                                               "abcd",
@@ -34698,12 +34835,14 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                                               Array [
                                                                 <DropdownItem
                                                                   component="button"
+                                                                  data-ouia-component-id="edit-baseline-dropdown-item-micjohns baseline"
                                                                   onClick={[Function]}
                                                                 >
                                                                   Edit
                                                                 </DropdownItem>,
                                                                 <DropdownItem
                                                                   component="button"
+                                                                  data-ouia-component-id="delete-baseline-dropdown-item-micjohns baseline"
                                                                   onClick={[Function]}
                                                                 >
                                                                   Delete
@@ -34712,6 +34851,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                                             }
                                                             isOpen={false}
                                                             isPlain={true}
+                                                            ouiaId="baseline-kebab-dropdown-micjohns baseline"
                                                             style={
                                                               Object {
                                                                 "float": "right",
@@ -34719,6 +34859,8 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                                             }
                                                             toggle={
                                                               <KebabToggle
+                                                                data-ouia-component-id="baseline-kebab-dropdown-toggle-micjohns baseline"
+                                                                data-ouia-component-type="PF4/DropdownToggle"
                                                                 onToggle={[Function]}
                                                               />
                                                             }
@@ -34731,12 +34873,14 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                                                 Array [
                                                                   <DropdownItem
                                                                     component="button"
+                                                                    data-ouia-component-id="edit-baseline-dropdown-item-micjohns baseline"
                                                                     onClick={[Function]}
                                                                   >
                                                                     Edit
                                                                   </DropdownItem>,
                                                                   <DropdownItem
                                                                     component="button"
+                                                                    data-ouia-component-id="delete-baseline-dropdown-item-micjohns baseline"
                                                                     onClick={[Function]}
                                                                   >
                                                                     Delete
@@ -34756,13 +34900,15 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                                               }
                                                               toggle={
                                                                 <KebabToggle
+                                                                  data-ouia-component-id="baseline-kebab-dropdown-toggle-micjohns baseline"
+                                                                  data-ouia-component-type="PF4/DropdownToggle"
                                                                   onToggle={[Function]}
                                                                 />
                                                               }
                                                             >
                                                               <div
                                                                 className="pf-c-dropdown baseline-table-kebab"
-                                                                data-ouia-component-id="OUIA-Generated-Dropdown-7"
+                                                                data-ouia-component-id="baseline-kebab-dropdown-micjohns baseline"
                                                                 data-ouia-component-type="PF4/Dropdown"
                                                                 data-ouia-safe={true}
                                                                 style={
@@ -34773,6 +34919,8 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                                               >
                                                                 <KebabToggle
                                                                   aria-haspopup={true}
+                                                                  data-ouia-component-id="baseline-kebab-dropdown-toggle-micjohns baseline"
+                                                                  data-ouia-component-type="PF4/DropdownToggle"
                                                                   getMenuRef={[Function]}
                                                                   id="pf-dropdown-toggle-id-17"
                                                                   isOpen={false}
@@ -34784,7 +34932,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                                                     Object {
                                                                       "current": <div
                                                                         class="pf-c-dropdown baseline-table-kebab"
-                                                                        data-ouia-component-id="OUIA-Generated-Dropdown-7"
+                                                                        data-ouia-component-id="baseline-kebab-dropdown-micjohns baseline"
                                                                         data-ouia-component-type="PF4/Dropdown"
                                                                         data-ouia-safe="true"
                                                                         style="float: right;"
@@ -34794,6 +34942,8 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                                                           aria-haspopup="true"
                                                                           aria-label="Actions"
                                                                           class="pf-c-dropdown__toggle pf-m-plain"
+                                                                          data-ouia-component-id="baseline-kebab-dropdown-toggle-micjohns baseline"
+                                                                          data-ouia-component-type="PF4/DropdownToggle"
                                                                           id="pf-dropdown-toggle-id-17"
                                                                           type="button"
                                                                         >
@@ -34820,6 +34970,8 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                                                     aria-label="Actions"
                                                                     bubbleEvent={false}
                                                                     className=""
+                                                                    data-ouia-component-id="baseline-kebab-dropdown-toggle-micjohns baseline"
+                                                                    data-ouia-component-type="PF4/DropdownToggle"
                                                                     getMenuRef={[Function]}
                                                                     id="pf-dropdown-toggle-id-17"
                                                                     isActive={false}
@@ -34834,7 +34986,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                                                       Object {
                                                                         "current": <div
                                                                           class="pf-c-dropdown baseline-table-kebab"
-                                                                          data-ouia-component-id="OUIA-Generated-Dropdown-7"
+                                                                          data-ouia-component-id="baseline-kebab-dropdown-micjohns baseline"
                                                                           data-ouia-component-type="PF4/Dropdown"
                                                                           data-ouia-safe="true"
                                                                           style="float: right;"
@@ -34844,6 +34996,8 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                                                             aria-haspopup="true"
                                                                             aria-label="Actions"
                                                                             class="pf-c-dropdown__toggle pf-m-plain"
+                                                                            data-ouia-component-id="baseline-kebab-dropdown-toggle-micjohns baseline"
+                                                                            data-ouia-component-type="PF4/DropdownToggle"
                                                                             id="pf-dropdown-toggle-id-17"
                                                                             type="button"
                                                                           >
@@ -34870,6 +35024,8 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                                                       aria-haspopup={true}
                                                                       aria-label="Actions"
                                                                       className="pf-c-dropdown__toggle pf-m-plain"
+                                                                      data-ouia-component-id="baseline-kebab-dropdown-toggle-micjohns baseline"
+                                                                      data-ouia-component-type="PF4/DropdownToggle"
                                                                       disabled={false}
                                                                       id="pf-dropdown-toggle-id-17"
                                                                       onClick={[Function]}
@@ -36156,7 +36312,7 @@ exports[`ConnectedBaselinesTable should render no matching baselines 1`] = `
                                       >
                                         <div
                                           className="pf-c-dropdown ins-c-bulk-select"
-                                          data-ouia-component-id="OUIA-Generated-Dropdown-8"
+                                          data-ouia-component-id="OUIA-Generated-Dropdown-4"
                                           data-ouia-component-type="PF4/Dropdown"
                                           data-ouia-safe={true}
                                         >
@@ -36174,7 +36330,7 @@ exports[`ConnectedBaselinesTable should render no matching baselines 1`] = `
                                               Object {
                                                 "current": <div
                                                   class="pf-c-dropdown ins-c-bulk-select"
-                                                  data-ouia-component-id="OUIA-Generated-Dropdown-8"
+                                                  data-ouia-component-id="OUIA-Generated-Dropdown-4"
                                                   data-ouia-component-type="PF4/Dropdown"
                                                   data-ouia-safe="true"
                                                 >
@@ -36300,7 +36456,7 @@ exports[`ConnectedBaselinesTable should render no matching baselines 1`] = `
                                                   Object {
                                                     "current": <div
                                                       class="pf-c-dropdown ins-c-bulk-select"
-                                                      data-ouia-component-id="OUIA-Generated-Dropdown-8"
+                                                      data-ouia-component-id="OUIA-Generated-Dropdown-4"
                                                       data-ouia-component-type="PF4/Dropdown"
                                                       data-ouia-safe="true"
                                                     >
@@ -37977,6 +38133,7 @@ exports[`ConnectedBaselinesTable should render no matching baselines 1`] = `
             }
             className=""
             contentId="expanded-content"
+            data-ouia-component-id="baselines-table"
             dropdownDirection="down"
             dropdownPosition="right"
             expandId="expandable-toggle"
@@ -38160,6 +38317,7 @@ exports[`ConnectedBaselinesTable should render no matching baselines 1`] = `
                   },
                 ]
               }
+              data-ouia-component-id="baselines-table"
               gridBreakPoint="grid-md"
               isStickyHeader={false}
               ouiaSafe={true}
@@ -38182,6 +38340,7 @@ exports[`ConnectedBaselinesTable should render no matching baselines 1`] = `
                 aria-label="Baselines Table"
                 borders={true}
                 className=""
+                data-ouia-component-id="baselines-table"
                 gridBreakPoint="grid-md"
                 isStickyHeader={false}
                 ouiaSafe={true}
@@ -38192,6 +38351,7 @@ exports[`ConnectedBaselinesTable should render no matching baselines 1`] = `
                   aria-label="Baselines Table"
                   borders={true}
                   className=""
+                  data-ouia-component-id="baselines-table"
                   gridBreakPoint="grid-md"
                   innerRef={null}
                   isStickyHeader={false}
@@ -38202,7 +38362,7 @@ exports[`ConnectedBaselinesTable should render no matching baselines 1`] = `
                   <table
                     aria-label="Baselines Table"
                     className="pf-c-table pf-m-grid-md"
-                    data-ouia-component-id="OUIA-Generated-Table-8"
+                    data-ouia-component-id="baselines-table"
                     data-ouia-component-type="PF4/Table"
                     data-ouia-safe={true}
                     role="grid"
@@ -42999,6 +43159,7 @@ exports[`ConnectedBaselinesTable should render no table kebabs with no write per
             }
             className=""
             contentId="expanded-content"
+            data-ouia-component-id="baselines-table"
             dropdownDirection="down"
             dropdownPosition="right"
             expandId="expandable-toggle"
@@ -43187,6 +43348,7 @@ exports[`ConnectedBaselinesTable should render no table kebabs with no write per
                   },
                 ]
               }
+              data-ouia-component-id="baselines-table"
               gridBreakPoint="grid-md"
               isStickyHeader={false}
               ouiaSafe={true}
@@ -43209,6 +43371,7 @@ exports[`ConnectedBaselinesTable should render no table kebabs with no write per
                 aria-label="Baselines Table"
                 borders={true}
                 className=""
+                data-ouia-component-id="baselines-table"
                 gridBreakPoint="grid-md"
                 isStickyHeader={false}
                 ouiaSafe={true}
@@ -43219,6 +43382,7 @@ exports[`ConnectedBaselinesTable should render no table kebabs with no write per
                   aria-label="Baselines Table"
                   borders={true}
                   className=""
+                  data-ouia-component-id="baselines-table"
                   gridBreakPoint="grid-md"
                   innerRef={null}
                   isStickyHeader={false}
@@ -43229,7 +43393,7 @@ exports[`ConnectedBaselinesTable should render no table kebabs with no write per
                   <table
                     aria-label="Baselines Table"
                     className="pf-c-table pf-m-grid-md"
-                    data-ouia-component-id="OUIA-Generated-Table-2"
+                    data-ouia-component-id="baselines-table"
                     data-ouia-component-type="PF4/Table"
                     data-ouia-safe={true}
                     role="grid"
