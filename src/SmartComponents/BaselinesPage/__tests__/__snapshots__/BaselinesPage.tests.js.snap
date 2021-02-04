@@ -273,14 +273,14 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                       Array [
                         <Button
                           isDisabled={true}
-                          ouiaId="create_baseline"
+                          ouiaId="create-baseline-modal-create-button"
                           variant="primary"
                         >
                           Create baseline
                         </Button>,
                         <Button
                           onClick={[Function]}
-                          ouiaId="cancel"
+                          ouiaId="create-baseline-modal-cancel-button"
                           variant="link"
                         >
                           Cancel
@@ -311,14 +311,14 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                           Array [
                             <Button
                               isDisabled={true}
-                              ouiaId="create_baseline"
+                              ouiaId="create-baseline-modal-create-button"
                               variant="primary"
                             >
                               Create baseline
                             </Button>,
                             <Button
                               onClick={[Function]}
-                              ouiaId="cancel"
+                              ouiaId="create-baseline-modal-cancel-button"
                               variant="link"
                             >
                               Cancel
@@ -1268,14 +1268,14 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                 id="create-baseline-button"
                                                                 isDisabled={false}
                                                                 onClick={[Function]}
-                                                                ouiaId="create"
+                                                                ouiaId="create-baseline-button"
                                                                 variant="primary"
                                                               >
                                                                 <button
                                                                   aria-disabled={false}
                                                                   aria-label={null}
                                                                   className="pf-c-button pf-m-primary"
-                                                                  data-ouia-component-id="create"
+                                                                  data-ouia-component-id="create-baseline-button"
                                                                   data-ouia-component-type="PF4/Button"
                                                                   data-ouia-safe={true}
                                                                   disabled={false}
@@ -1592,7 +1592,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                             id="action-kebab"
                                                             isOpen={false}
                                                             isPlain={true}
-                                                            ouiaId="action"
+                                                            ouiaId="delete-baselines-dropdown"
                                                             style={
                                                               Object {
                                                                 "float": "left",
@@ -1600,6 +1600,8 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                             }
                                                             toggle={
                                                               <KebabToggle
+                                                                data-ouia-component-id="delete-baselines-dropdown-toggle"
+                                                                data-ouia-component-type="PF4/DropdownToggle"
                                                                 onToggle={[Function]}
                                                               />
                                                             }
@@ -1635,6 +1637,8 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                               }
                                                               toggle={
                                                                 <KebabToggle
+                                                                  data-ouia-component-id="delete-baselines-dropdown-toggle"
+                                                                  data-ouia-component-type="PF4/DropdownToggle"
                                                                   onToggle={[Function]}
                                                                 />
                                                               }
@@ -1642,7 +1646,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                               <div
                                                                 aria-label="action-kebab"
                                                                 className="pf-c-dropdown"
-                                                                data-ouia-component-id="action"
+                                                                data-ouia-component-id="delete-baselines-dropdown"
                                                                 data-ouia-component-type="PF4/Dropdown"
                                                                 data-ouia-safe={true}
                                                                 id="action-kebab"
@@ -1654,6 +1658,8 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                               >
                                                                 <KebabToggle
                                                                   aria-haspopup={true}
+                                                                  data-ouia-component-id="delete-baselines-dropdown-toggle"
+                                                                  data-ouia-component-type="PF4/DropdownToggle"
                                                                   getMenuRef={[Function]}
                                                                   id="pf-dropdown-toggle-id-2"
                                                                   isOpen={false}
@@ -1666,7 +1672,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                       "current": <div
                                                                         aria-label="action-kebab"
                                                                         class="pf-c-dropdown"
-                                                                        data-ouia-component-id="action"
+                                                                        data-ouia-component-id="delete-baselines-dropdown"
                                                                         data-ouia-component-type="PF4/Dropdown"
                                                                         data-ouia-safe="true"
                                                                         id="action-kebab"
@@ -1677,6 +1683,8 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                           aria-haspopup="true"
                                                                           aria-label="Actions"
                                                                           class="pf-c-dropdown__toggle pf-m-plain"
+                                                                          data-ouia-component-id="delete-baselines-dropdown-toggle"
+                                                                          data-ouia-component-type="PF4/DropdownToggle"
                                                                           id="pf-dropdown-toggle-id-2"
                                                                           type="button"
                                                                         >
@@ -1703,6 +1711,8 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                     aria-label="Actions"
                                                                     bubbleEvent={false}
                                                                     className=""
+                                                                    data-ouia-component-id="delete-baselines-dropdown-toggle"
+                                                                    data-ouia-component-type="PF4/DropdownToggle"
                                                                     getMenuRef={[Function]}
                                                                     id="pf-dropdown-toggle-id-2"
                                                                     isActive={false}
@@ -1718,7 +1728,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                         "current": <div
                                                                           aria-label="action-kebab"
                                                                           class="pf-c-dropdown"
-                                                                          data-ouia-component-id="action"
+                                                                          data-ouia-component-id="delete-baselines-dropdown"
                                                                           data-ouia-component-type="PF4/Dropdown"
                                                                           data-ouia-safe="true"
                                                                           id="action-kebab"
@@ -1729,6 +1739,8 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                             aria-haspopup="true"
                                                                             aria-label="Actions"
                                                                             class="pf-c-dropdown__toggle pf-m-plain"
+                                                                            data-ouia-component-id="delete-baselines-dropdown-toggle"
+                                                                            data-ouia-component-type="PF4/DropdownToggle"
                                                                             id="pf-dropdown-toggle-id-2"
                                                                             type="button"
                                                                           >
@@ -1755,6 +1767,8 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                       aria-haspopup={true}
                                                                       aria-label="Actions"
                                                                       className="pf-c-dropdown__toggle pf-m-plain"
+                                                                      data-ouia-component-id="delete-baselines-dropdown-toggle"
+                                                                      data-ouia-component-type="PF4/DropdownToggle"
                                                                       disabled={false}
                                                                       id="pf-dropdown-toggle-id-2"
                                                                       onClick={[Function]}
@@ -5559,14 +5573,14 @@ exports[`ConnectedBaselinesPage should render empty state 1`] = `
                       Array [
                         <Button
                           isDisabled={true}
-                          ouiaId="create_baseline"
+                          ouiaId="create-baseline-modal-create-button"
                           variant="primary"
                         >
                           Create baseline
                         </Button>,
                         <Button
                           onClick={[Function]}
-                          ouiaId="cancel"
+                          ouiaId="create-baseline-modal-cancel-button"
                           variant="link"
                         >
                           Cancel
@@ -5597,14 +5611,14 @@ exports[`ConnectedBaselinesPage should render empty state 1`] = `
                           Array [
                             <Button
                               isDisabled={true}
-                              ouiaId="create_baseline"
+                              ouiaId="create-baseline-modal-create-button"
                               variant="primary"
                             >
                               Create baseline
                             </Button>,
                             <Button
                               onClick={[Function]}
-                              ouiaId="cancel"
+                              ouiaId="create-baseline-modal-cancel-button"
                               variant="link"
                             >
                               Cancel
@@ -5859,14 +5873,14 @@ Create a baseline to use in your Comparison analysis.
                                   id="create-baseline-button"
                                   isDisabled={false}
                                   onClick={[Function]}
-                                  ouiaId="create"
+                                  ouiaId="create-baseline-button"
                                   variant="primary"
                                 >
                                   <button
                                     aria-disabled={false}
                                     aria-label={null}
                                     className="pf-c-button pf-m-primary"
-                                    data-ouia-component-id="create"
+                                    data-ouia-component-id="create-baseline-button"
                                     data-ouia-component-type="PF4/Button"
                                     data-ouia-safe={true}
                                     disabled={false}

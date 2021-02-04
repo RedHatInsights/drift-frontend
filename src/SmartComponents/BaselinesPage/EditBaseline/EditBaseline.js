@@ -92,7 +92,7 @@ export class EditBaseline extends Component {
         let breadcrumb;
 
         /*eslint-disable camelcase*/
-        breadcrumb = <Breadcrumb>
+        breadcrumb = <Breadcrumb ouiaId='edit-baseline-breadcrumb'>
             <BreadcrumbItem>
                 <a onClick={ () => this.goToBaselinesList() }>
                     Baselines
@@ -120,7 +120,11 @@ export class EditBaseline extends Component {
                         { !_.isEmpty(baselineData) ? baselineData.display_name : null }
                     </span>
                     <span>
-                        { <EditAltIcon className='pointer not-active edit-icon-margin' onClick={ () => this.toggleEditNameModal() } /> }
+                        { <EditAltIcon
+                            className='pointer not-active edit-icon-margin'
+                            data-ouia-component-id='edit-baseline-name-button'
+                            data-ouia-component-type='PF4/Button'
+                            onClick={ () => this.toggleEditNameModal() } /> }
                     </span>
                 </React.Fragment>;
             } else {

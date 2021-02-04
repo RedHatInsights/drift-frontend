@@ -102,6 +102,7 @@ export class CreateBaselineModal extends Component {
             <Radio
                 isChecked={ fromScratchChecked }
                 id='create baseline'
+                ouiaId='create-baseline-from-scratch-radio'
                 name='baseline-create-options'
                 label='Create baseline from scratch'
                 value='fromScratchChecked'
@@ -110,6 +111,7 @@ export class CreateBaselineModal extends Component {
             <Radio
                 isChecked={ copyBaselineChecked }
                 id='copy baseline'
+                ouiaId='create-baseline-copy-baseline-radio'
                 name='baseline-create-options'
                 label='Copy an existing baseline'
                 value='copyBaselineChecked'
@@ -118,6 +120,7 @@ export class CreateBaselineModal extends Component {
             <Radio
                 isChecked={ copySystemChecked }
                 id='copy system'
+                ouiaId='create-baseline-copy-system-radio'
                 name='baseline-create-options'
                 label='Copy an existing system'
                 value='copySystemChecked'
@@ -234,7 +237,7 @@ export class CreateBaselineModal extends Component {
                     key="confirm"
                     variant="primary"
                     isDisabled
-                    ouiaId="create_baseline"
+                    ouiaId="create-baseline-modal-create-button"
                 >
                     Create baseline
                 </Button>,
@@ -242,7 +245,7 @@ export class CreateBaselineModal extends Component {
                     key="cancel"
                     variant="link"
                     onClick={ this.cancelModal }
-                    ouiaId="cancel"
+                    ouiaId="create-baseline-modal-cancel-button"
                 >
                     Cancel
                 </Button>
@@ -253,7 +256,7 @@ export class CreateBaselineModal extends Component {
                     key="confirm"
                     variant="primary"
                     onClick={ this.submitBaselineName }
-                    ouiaId="create_baseline"
+                    ouiaId="create-baseline-modal-create-button"
                 >
                     Create baseline
                 </Button>,
@@ -261,7 +264,7 @@ export class CreateBaselineModal extends Component {
                     key="cancel"
                     variant="link"
                     onClick={ this.cancelModal }
-                    ouiaId="cancel"
+                    ouiaId="create-baseline-modal-cancel-button"
                 >
                     Cancel
                 </Button>

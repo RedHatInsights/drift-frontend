@@ -41,7 +41,7 @@ export class CreateBaselineButton extends Component {
                                 variant='primary'
                                 onClick={ this.createBaseline }
                                 isDisabled
-                                ouiaId="create"
+                                ouiaId='create-baseline-button'
                             >
                                 Create baseline
                             </Button>
@@ -51,7 +51,7 @@ export class CreateBaselineButton extends Component {
                         id='create-baseline-button'
                         variant='primary'
                         onClick={ this.createBaseline }
-                        ouiaId="create"
+                        ouiaId='create-baseline-button'
                         isDisabled={ loading }>
                         Create baseline
                     </Button>
