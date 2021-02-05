@@ -100,6 +100,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                             ]
                           }
                           onSelect={[Function]}
+                          ouiaId="edit-baseline-bulk-selector-dropdown"
                         >
                           <Dropdown
                             className="ins-c-bulk-select"
@@ -121,6 +122,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                             }
                             isOpen={false}
                             onSelect={[Function]}
+                            ouiaId="edit-baseline-bulk-selector-dropdown"
                             toggle={
                               <DropdownToggle
                                 isDisabled={false}
@@ -197,7 +199,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                             >
                               <div
                                 className="pf-c-dropdown ins-c-bulk-select"
-                                data-ouia-component-id="OUIA-Generated-Dropdown-1"
+                                data-ouia-component-id="edit-baseline-bulk-selector-dropdown"
                                 data-ouia-component-type="PF4/Dropdown"
                                 data-ouia-safe={true}
                               >
@@ -215,7 +217,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                     Object {
                                       "current": <div
                                         class="pf-c-dropdown ins-c-bulk-select"
-                                        data-ouia-component-id="OUIA-Generated-Dropdown-1"
+                                        data-ouia-component-id="edit-baseline-bulk-selector-dropdown"
                                         data-ouia-component-type="PF4/Dropdown"
                                         data-ouia-safe="true"
                                       >
@@ -340,7 +342,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                         Object {
                                           "current": <div
                                             class="pf-c-dropdown ins-c-bulk-select"
-                                            data-ouia-component-id="OUIA-Generated-Dropdown-1"
+                                            data-ouia-component-id="edit-baseline-bulk-selector-dropdown"
                                             data-ouia-component-type="PF4/Dropdown"
                                             data-ouia-safe="true"
                                           >
@@ -465,14 +467,14 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                             <Button
                               isDisabled={false}
                               onClick={[Function]}
-                              ouiaId="add_fact"
+                              ouiaId="add-fact-or-category-button"
                               variant="primary"
                             >
                               <button
                                 aria-disabled={false}
                                 aria-label={null}
                                 className="pf-c-button pf-m-primary"
-                                data-ouia-component-id="add_fact"
+                                data-ouia-component-id="add-fact-or-category-button"
                                 data-ouia-component-type="PF4/Button"
                                 data-ouia-safe={true}
                                 disabled={false}
@@ -826,6 +828,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                       Array [
                                         <DropdownItem
                                           component="button"
+                                          data-ouia-component-id="delete-facts-dropdown-item"
                                           isDisabled={true}
                                           onClick={[Function]}
                                         >
@@ -835,7 +838,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                     }
                                     isOpen={false}
                                     isPlain={true}
-                                    ouiaId="actions"
+                                    ouiaId="delete-facts-dropdown"
                                     style={
                                       Object {
                                         "float": "left",
@@ -843,6 +846,8 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                     }
                                     toggle={
                                       <KebabToggle
+                                        data-ouia-component-id="delete-facts-dropdown-toggle"
+                                        data-ouia-component-type="PF4/DropdownToggle"
                                         onToggle={[Function]}
                                       />
                                     }
@@ -855,6 +860,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                         Array [
                                           <DropdownItem
                                             component="button"
+                                            data-ouia-component-id="delete-facts-dropdown-item"
                                             isDisabled={true}
                                             onClick={[Function]}
                                           >
@@ -875,13 +881,15 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                       }
                                       toggle={
                                         <KebabToggle
+                                          data-ouia-component-id="delete-facts-dropdown-toggle"
+                                          data-ouia-component-type="PF4/DropdownToggle"
                                           onToggle={[Function]}
                                         />
                                       }
                                     >
                                       <div
                                         className="pf-c-dropdown"
-                                        data-ouia-component-id="actions"
+                                        data-ouia-component-id="delete-facts-dropdown"
                                         data-ouia-component-type="PF4/Dropdown"
                                         data-ouia-safe={true}
                                         style={
@@ -892,6 +900,8 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                       >
                                         <KebabToggle
                                           aria-haspopup={true}
+                                          data-ouia-component-id="delete-facts-dropdown-toggle"
+                                          data-ouia-component-type="PF4/DropdownToggle"
                                           getMenuRef={[Function]}
                                           id="pf-dropdown-toggle-id-2"
                                           isOpen={false}
@@ -903,7 +913,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                             Object {
                                               "current": <div
                                                 class="pf-c-dropdown"
-                                                data-ouia-component-id="actions"
+                                                data-ouia-component-id="delete-facts-dropdown"
                                                 data-ouia-component-type="PF4/Dropdown"
                                                 data-ouia-safe="true"
                                                 style="float: left;"
@@ -913,6 +923,8 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                                   aria-haspopup="true"
                                                   aria-label="Actions"
                                                   class="pf-c-dropdown__toggle pf-m-plain"
+                                                  data-ouia-component-id="delete-facts-dropdown-toggle"
+                                                  data-ouia-component-type="PF4/DropdownToggle"
                                                   id="pf-dropdown-toggle-id-2"
                                                   type="button"
                                                 >
@@ -939,6 +951,8 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                             aria-label="Actions"
                                             bubbleEvent={false}
                                             className=""
+                                            data-ouia-component-id="delete-facts-dropdown-toggle"
+                                            data-ouia-component-type="PF4/DropdownToggle"
                                             getMenuRef={[Function]}
                                             id="pf-dropdown-toggle-id-2"
                                             isActive={false}
@@ -953,7 +967,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                               Object {
                                                 "current": <div
                                                   class="pf-c-dropdown"
-                                                  data-ouia-component-id="actions"
+                                                  data-ouia-component-id="delete-facts-dropdown"
                                                   data-ouia-component-type="PF4/Dropdown"
                                                   data-ouia-safe="true"
                                                   style="float: left;"
@@ -963,6 +977,8 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                                     aria-haspopup="true"
                                                     aria-label="Actions"
                                                     class="pf-c-dropdown__toggle pf-m-plain"
+                                                    data-ouia-component-id="delete-facts-dropdown-toggle"
+                                                    data-ouia-component-type="PF4/DropdownToggle"
                                                     id="pf-dropdown-toggle-id-2"
                                                     type="button"
                                                   >
@@ -989,6 +1005,8 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                               aria-haspopup={true}
                                               aria-label="Actions"
                                               className="pf-c-dropdown__toggle pf-m-plain"
+                                              data-ouia-component-id="delete-facts-dropdown-toggle"
+                                              data-ouia-component-type="PF4/DropdownToggle"
                                               disabled={false}
                                               id="pf-dropdown-toggle-id-2"
                                               onClick={[Function]}
@@ -1148,6 +1166,7 @@ exports[`EditBaselineToolbar should render correctly 1`] = `
           ]
         }
         onSelect={[Function]}
+        ouiaId="edit-baseline-bulk-selector-dropdown"
       />
     </ToolbarItem>
     <ToolbarItem>

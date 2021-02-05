@@ -86,13 +86,14 @@ class FactKebab extends Component {
 
     render() {
         const { isOpen, modalOpened } = this.state;
-        const { isCategory } = this.props;
+        const { isCategory, factName } = this.props;
         const dropdownItems = [];
 
         if (isCategory === true) {
             dropdownItems.push(
                 <DropdownItem
                     key="add fact"
+                    data-ouia-component-id={ 'add-subfact-dropdown-item-' + factName }
                     component="button"
                     onClick={ this.addFact }>
                     Add sub fact
@@ -104,12 +105,14 @@ class FactKebab extends Component {
             <DropdownItem
                 key="edit"
                 component="button"
+                data-ouia-component-id={ 'edit-fact-dropdown-item-' + factName }
                 onClick={ this.editFact }>
                 { isCategory ? 'Edit category' : 'Edit fact' }
             </DropdownItem>,
             <DropdownItem
                 key="delete"
                 component="button"
+                data-ouia-component-id={ 'delete-fact-dropdown-item-' + factName }
                 onClick={ this.toggleModalOpened }>
                 { isCategory ? 'Delete category' : 'Delete fact' }
             </DropdownItem>
@@ -129,7 +132,11 @@ class FactKebab extends Component {
                     position={ DropdownPosition.right }
                     style={{ float: 'right' }}
                     className={ 'baseline-fact-kebab' }
-                    toggle={ <KebabToggle onToggle={ (isOpen) => this.onKebabToggle(isOpen) } /> }
+                    ouiaId={ 'fact-dropdown-' + factName }
+                    toggle={ <KebabToggle
+                        data-ouia-component-id={ 'fact-dropdown-toggle-' + factName }
+                        data-ouia-compoent-type='PF4/DropdownToggle'
+                        onToggle={ (isOpen) => this.onKebabToggle(isOpen) } /> }
                     isOpen={ isOpen }
                     dropdownItems={ dropdownItems }
                     isPlain

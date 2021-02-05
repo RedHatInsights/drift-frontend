@@ -175,7 +175,10 @@ export class EditBaseline extends Component {
 
     renderHeaderRow(hasWritePermissions) {
         return (
-            <tr key='edit-baseline-table-header'>
+            <tr
+                key='edit-baseline-table-header'
+                data-ouia-component-type='PF4/TableHeaderRow'
+                data-ouia-component-id='edit-baseline-table-header-row'>
                 { hasWritePermissions ? <th></th> : null }
                 <th className="edit-baseline-header"><div>Fact</div></th>
                 <th className="edit-baseline-header"><div>Value</div></th>
@@ -201,9 +204,17 @@ export class EditBaseline extends Component {
         let expandIcon;
 
         if (expandedRows.includes(factName)) {
-            expandIcon = <AngleDownIcon className="pointer active-blue" onClick={ () => this.props.expandRow(factName) } />;
+            expandIcon = <AngleDownIcon
+                className="pointer active-blue"
+                data-ouia-component-type='PF4/Button'
+                data-ouia-component-id={ 'expand-category-button-' + factName }
+                onClick={ () => this.props.expandRow(factName) } />;
         } else {
-            expandIcon = <AngleRightIcon className="pointer" onClick={ () => this.props.expandRow(factName) } />;
+            expandIcon = <AngleRightIcon
+                className="pointer"
+                data-ouia-component-type='PF4/Button'
+                data-ouia-component-id={ 'expand-category-button-' + factName }
+                onClick={ () => this.props.expandRow(factName) } />;
         }
 
         return expandIcon;
@@ -265,6 +276,8 @@ export class EditBaseline extends Component {
 
         return (
             <Checkbox
+                data-ouia-component-type='PF4/Checkbox'
+                data-ouia-component-id={ 'checkbox-' + fact[FACT_NAME] }
                 isChecked={ fact.selected }
                 onChange={ this.onSelect }
                 id={ id }
@@ -294,7 +307,10 @@ export class EditBaseline extends Component {
                 { this.renderExpandableRowButton(fact[FACT_NAME]) } { fact[FACT_NAME] }</td>);
             row.push(<td></td>);
             row.push(editBaselineHelpers.renderKebab({ factName: fact[FACT_NAME], factData, isCategory: true, hasWritePermissions }));
-            rows.push(<tr key={ fact[FACT_NAME] }>{ row }</tr>);
+            rows.push(<tr
+                data-ouia-component-type='PF4/TableRow'
+                data-ouia-component-id={ 'edit-baseline-table-row-' + factData.name }
+                key={ fact[FACT_NAME] }>{ row }</tr>);
 
             if (expandedRows.includes(fact[FACT_NAME])) {
                 editBaselineHelpers.baselineSubFacts(fact).forEach((subFact) => {
@@ -313,14 +329,21 @@ export class EditBaseline extends Component {
                         isSubFact: true,
                         hasWritePermissions
                     }));
-                    rows.push(<tr key={ subFact[FACT_NAME] }>{ row }</tr>);
+                    rows.push(<tr
+                        data-ouia-component-type='PF4/TableRow'
+                        data-ouia-component-id={ 'edit-baseline-table-row-' + subFact[FACT_NAME] }
+                        category={ factData.name }
+                        key={ subFact[FACT_NAME] }>{ row }</tr>);
                 });
             }
         } else {
             row.push(<td>{ fact[FACT_NAME] }</td>);
             row.push(<td>{ fact[FACT_VALUE] }</td>);
             row.push(editBaselineHelpers.renderKebab({ factName: fact[FACT_NAME], factValue: fact[FACT_VALUE], factData, hasWritePermissions }));
-            rows.push(<tr key={ fact[FACT_NAME] }>{ row }</tr>);
+            rows.push(<tr
+                data-ouia-component-type='PF4/TableRow'
+                data-ouia-component-id={ 'edit-baseline-table-row-' + factData.name }
+                key={ fact[FACT_NAME] }>{ row }</tr>);
         }
 
         return rows;
