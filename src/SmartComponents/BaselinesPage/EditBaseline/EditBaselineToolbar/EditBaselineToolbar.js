@@ -59,6 +59,7 @@ export class EditBaselineToolbar extends Component {
                             checked={ helpers.findCheckedValue(totalFacts, selected) }
                             onSelect={ () => onBulkSelect(!selected > 0) }
                             isDisabled={ isDisabled }
+                            ouiaId='edit-baseline-bulk-selector-dropdown'
                         />
                     </ToolbarItem>
                     <ToolbarItem>

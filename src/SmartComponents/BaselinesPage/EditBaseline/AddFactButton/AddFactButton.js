@@ -31,7 +31,7 @@ class AddFactButton extends Component {
                                 variant='primary'
                                 isDisabled
                                 onClick={ this.handleAddFact }
-                                ouiaId="add_fact"
+                                ouiaId='add-fact-or-category-button'
                             >
                                 Add fact or category
                             </Button>
@@ -41,7 +41,7 @@ class AddFactButton extends Component {
                         variant='primary'
                         isDisabled={ isDisabled }
                         onClick={ this.handleAddFact }
-                        ouiaId="add_fact"
+                        ouiaId='add-fact-or-category-button'
                     >
                         Add fact or category
                     </Button>

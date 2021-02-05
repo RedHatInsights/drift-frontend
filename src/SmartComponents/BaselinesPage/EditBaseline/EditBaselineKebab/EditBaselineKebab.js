@@ -73,6 +73,7 @@ class EditBaselineKebab extends Component {
             <DropdownItem
                 key="multi-delete"
                 component="button"
+                data-ouia-component-id='delete-facts-dropdown-item'
                 onClick={ this.toggleModalOpened }
                 isDisabled={ editBaselineTableData.length > 0 ? this.isDisabled() : true }
             >
@@ -90,11 +91,14 @@ class EditBaselineKebab extends Component {
                 /> : null }
                 <Dropdown
                     style={{ float: 'left' }}
-                    toggle={ <KebabToggle onToggle={ this.toggleKebab } /> }
+                    toggle={ <KebabToggle
+                        data-ouia-component-id='delete-facts-dropdown-toggle'
+                        data-ouia-component-type='PF4/DropdownToggle'
+                        onToggle={ this.toggleKebab } /> }
                     isOpen={ kebabOpened }
                     dropdownItems={ dropdownItems }
                     isPlain
-                    ouiaId="actions"
+                    ouiaId='delete-facts-dropdown'
                 />
             </React.Fragment>
         );
