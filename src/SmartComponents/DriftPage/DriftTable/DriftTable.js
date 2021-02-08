@@ -344,12 +344,22 @@ export class DriftTable extends Component {
                 row.push(<td className="comparison-cell"></td>);
             });
 
-            rows.push(<tr>{ row }</tr>);
+            rows.push(<tr
+                data-ouia-component-type='PF4/TableRow'
+                data-ouia-component-id={ 'comparison-table-row-' + fact.name }>
+                { row }
+            </tr>);
 
             if (expandedRows.includes(fact.name)) {
                 fact.comparisons.forEach(comparison => {
                     row = this.renderRowChild(comparison);
-                    rows.push(<tr className={ comparison.state === 'DIFFERENT' ? 'unexpected-row' : '' }>{ row }</tr>);
+                    rows.push(<tr
+                        data-ouia-component-type='PF4/TableRow'
+                        data-ouia-component-id={ 'comparison-table-row-' + comparison.name }
+                        category={ fact.name }
+                        className={ comparison.state === 'DIFFERENT' ? 'unexpected-row' : '' }>
+                        { row }
+                    </tr>);
                     if (comparison.multivalues) {
                         if (expandedRows.includes(comparison.name)) {
                             comparison.multivalues.forEach(subFactItem => {
@@ -370,7 +380,12 @@ export class DriftTable extends Component {
 
             row = row.concat(this.findSystem(fact));
 
-            rows.push(<tr className={ fact.state === 'DIFFERENT' ? 'unexpected-row' : '' }>{ row }</tr>);
+            rows.push(<tr
+                data-ouia-component-type='PF4/TableRow'
+                data-ouia-component-id={ 'comparison-table-row-' + fact.name }
+                className={ fact.state === 'DIFFERENT' ? 'unexpected-row' : '' }>
+                { row }
+            </tr>);
         }
 
         return rows;
@@ -416,11 +431,15 @@ export class DriftTable extends Component {
         if (expandedRows.includes(factName)) {
             expandIcon = <AngleDownIcon
                 className={ 'carat-margin pointer active-blue' + (isMultiFact ? ' child-row' : null) }
+                data-ouia-component-type='PF4/Button'
+                data-ouia-component-id={ 'expand-category-button-' + factName }
                 onClick={ () => this.props.expandRow(factName) }
             />;
         } else {
             expandIcon = <AngleRightIcon
                 className={ 'carat-margin pointer' + (isMultiFact ? ' child-row' : null) }
+                data-ouia-component-type='PF4/Button'
+                data-ouia-component-id={ 'expand-category-button-' + factName }
                 onClick={ () => this.props.expandRow(factName) }
             />;
         }
@@ -434,7 +453,10 @@ export class DriftTable extends Component {
         return (
             <React.Fragment>
                 <div className="drift-table-wrapper">
-                    <table className="pf-c-table pf-m-compact drift-table">
+                    <table
+                        className="pf-c-table pf-m-compact drift-table"
+                        data-ouia-component-type='PF4/Table'
+                        data-ouia-component-id='comparison-table'>
                         <thead>
                             <ComparisonHeader
                                 factSort={ factSort }

@@ -84,7 +84,11 @@ class ComparisonHeader extends Component {
                         : `drift-header ${item.type}-header` }
                 >
                     <div>
-                        <a onClick={ () => removeSystem(item) } className="remove-system-icon">
+                        <a
+                            onClick={ () => removeSystem(item) }
+                            className="remove-system-icon"
+                            data-ouia-component-type='PF4/Button'
+                            data-ouia-component-id={ 'remove-system-button-' + item.id } >
                             <TimesIcon/>
                         </a>
                     </div>
@@ -135,7 +139,7 @@ class ComparisonHeader extends Component {
         const { factSort, stateSort } = this.props;
 
         return (
-            <tr className="sticky-column-header">
+            <tr className="sticky-column-header" data-ouia-component-type='PF4/TableRow' data-ouia-component-id='comparison-table-header-row'>
                 <th
                     className="fact-header sticky-column fixed-column-1 pointer"
                     key='fact-header'
@@ -150,6 +154,8 @@ class ComparisonHeader extends Component {
                     className="state-header sticky-column fixed-column-2 pointer"
                     key='state-header'
                     id={ stateSort || 'disabled' }
+                    data-ouia-component-type='PF4/Button'
+                    data-ouia-component-id='state-sort-button'
                     onClick={ () => this.toggleSort('state', stateSort) }
                 >
                     { stateSort !== ''

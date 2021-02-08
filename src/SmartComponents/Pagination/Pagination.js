@@ -32,7 +32,7 @@ export class TablePagination extends Component {
     }
 
     render() {
-        const { total, page, perPage, isCompact, widgetId, variant } = this.props;
+        const { total, page, perPage, isCompact, widgetId, variant, ouiaId } = this.props;
 
         return (
             <Pagination
@@ -44,6 +44,7 @@ export class TablePagination extends Component {
                 onSetPage={ this.onSetPage }
                 onPerPageSelect={ this.onPerPageSelect }
                 isCompact={ isCompact }
+                ouiaId={ ouiaId }
             />
         );
     }
@@ -57,7 +58,8 @@ TablePagination.propTypes = {
     isCompact: PropTypes.bool,
     tableId: PropTypes.string,
     widgetId: PropTypes.string,
-    variant: PropTypes.any
+    variant: PropTypes.any,
+    ouiaId: PropTypes.string
 };
 
 export default TablePagination;

@@ -20,10 +20,14 @@ class ReferenceSelector extends Component {
             isReference
                 ? <StarIcon
                     className='reference-selector pointer'
+                    data-ouia-component-type='PF4/Button'
+                    data-ouia-component-id={ 'reference-selector-' + item.id }
                     onClick={ () => updateReferenceId() }
                 />
                 : <OutlinedStarIcon
                     className='reference-selector pointer'
+                    data-ouia-component-type='PF4/Button'
+                    data-ouia-component-id={ 'reference-selector-' + item.id }
                     onClick={ () => updateReferenceId(item.id) }
                 />
         );

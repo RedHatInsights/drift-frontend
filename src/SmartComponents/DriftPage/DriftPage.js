@@ -152,6 +152,7 @@ export class DriftPage extends Component {
                                                                     isCompact={ false }
                                                                     updatePagination={ updatePagination }
                                                                     widgetId='drift-pagination-bottom'
+                                                                    ouiaId='drift-pagination-bottom'
                                                                     variant={ PaginationVariant.bottom }
                                                                 />
                                                             </ToolbarItem>
