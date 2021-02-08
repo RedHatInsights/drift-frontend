@@ -71,14 +71,14 @@ exports[`ConnectedFactModal should render correctly 1`] = `
               Array [
                 <Button
                   onClick={[Function]}
-                  ouiaId="save"
+                  ouiaId="fact-modal-save-button"
                   variant="primary"
                 >
                   Save
                 </Button>,
                 <Button
                   onClick={[Function]}
-                  ouiaId="cancel"
+                  ouiaId="fact-modal-cancel-button"
                   variant="link"
                 >
                   Cancel
@@ -93,6 +93,7 @@ exports[`ConnectedFactModal should render correctly 1`] = `
             hasNoBodyWrapper={false}
             isOpen={true}
             onClose={[Function]}
+            ouiaId="add-fact-modal"
             ouiaSafe={true}
             showClose={true}
             title="Add fact"
@@ -114,7 +115,7 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                         aria-labelledby="pf-modal-part-1"
                         aria-modal="true"
                         class="pf-c-modal-box drift pf-m-sm"
-                        data-ouia-component-id="OUIA-Generated-Modal-small-1"
+                        data-ouia-component-id="add-fact-modal"
                         data-ouia-component-type="PF4/ModalContent"
                         data-ouia-safe="true"
                         id="pf-modal-part-0"
@@ -170,6 +171,8 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                               aria-invalid="false"
                               aria-label="controlled checkbox example"
                               class="pf-c-check__input"
+                              data-ouia-component-id="category-checkbox"
+                              data-ouia-component-type="PF4/Checkbox"
                               id="isCategory"
                               name="isCategory"
                               type="checkbox"
@@ -220,6 +223,8 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                                     aria-invalid="false"
                                     aria-label="fact name"
                                     class="pf-c-form-control"
+                                    data-ouia-component-id="fact-name-input"
+                                    data-ouia-component-type="PF4/TextInput"
                                     placeholder="Name"
                                     type="text"
                                     value=""
@@ -263,6 +268,8 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                                     aria-invalid="false"
                                     aria-label="value"
                                     class="pf-c-form-control"
+                                    data-ouia-component-id="value-input"
+                                    data-ouia-component-type="PF4/TextInput"
                                     placeholder="Value"
                                     type="text"
                                     value=""
@@ -279,7 +286,7 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                           <button
                             aria-disabled="false"
                             class="pf-c-button pf-m-primary"
-                            data-ouia-component-id="save"
+                            data-ouia-component-id="fact-modal-save-button"
                             data-ouia-component-type="PF4/Button"
                             data-ouia-safe="true"
                             type="button"
@@ -289,7 +296,7 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                           <button
                             aria-disabled="false"
                             class="pf-c-button pf-m-link"
-                            data-ouia-component-id="cancel"
+                            data-ouia-component-id="fact-modal-cancel-button"
                             data-ouia-component-type="PF4/Button"
                             data-ouia-safe="true"
                             type="button"
@@ -308,14 +315,14 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                   Array [
                     <Button
                       onClick={[Function]}
-                      ouiaId="save"
+                      ouiaId="fact-modal-save-button"
                       variant="primary"
                     >
                       Save
                     </Button>,
                     <Button
                       onClick={[Function]}
-                      ouiaId="cancel"
+                      ouiaId="fact-modal-cancel-button"
                       variant="link"
                     >
                       Cancel
@@ -332,7 +339,7 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                 isOpen={true}
                 labelId="pf-modal-part-1"
                 onClose={[Function]}
-                ouiaId="OUIA-Generated-Modal-small-1"
+                ouiaId="add-fact-modal"
                 ouiaSafe={true}
                 showClose={true}
                 title="Add fact"
@@ -362,7 +369,7 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                           aria-label=""
                           aria-labelledby="pf-modal-part-1"
                           className="drift"
-                          data-ouia-component-id="OUIA-Generated-Modal-small-1"
+                          data-ouia-component-id="add-fact-modal"
                           data-ouia-component-type="PF4/ModalContent"
                           data-ouia-safe={true}
                           id="pf-modal-part-0"
@@ -375,7 +382,7 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                             aria-labelledby="pf-modal-part-1"
                             aria-modal="true"
                             className="pf-c-modal-box drift pf-m-sm"
-                            data-ouia-component-id="OUIA-Generated-Modal-small-1"
+                            data-ouia-component-id="add-fact-modal"
                             data-ouia-component-type="PF4/ModalContent"
                             data-ouia-safe={true}
                             id="pf-modal-part-0"
@@ -466,6 +473,8 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                                 <Checkbox
                                   aria-label="controlled checkbox example"
                                   className="sm-padding-bottom"
+                                  data-ouia-component-id="category-checkbox"
+                                  data-ouia-component-type="PF4/Checkbox"
                                   id="isCategory"
                                   isChecked={false}
                                   isDisabled={false}
@@ -482,6 +491,8 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                                       aria-label="controlled checkbox example"
                                       checked={false}
                                       className="pf-c-check__input"
+                                      data-ouia-component-id="category-checkbox"
+                                      data-ouia-component-type="PF4/Checkbox"
                                       disabled={false}
                                       id="isCategory"
                                       name="isCategory"
@@ -543,6 +554,8 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                                           >
                                             <TextInput
                                               aria-label="fact name"
+                                              data-ouia-component-id="fact-name-input"
+                                              data-ouia-component-type="PF4/TextInput"
                                               onChange={[Function]}
                                               placeholder="Name"
                                               type="text"
@@ -552,6 +565,8 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                                               <TextInputBase
                                                 aria-label="fact name"
                                                 className=""
+                                                data-ouia-component-id="fact-name-input"
+                                                data-ouia-component-type="PF4/TextInput"
                                                 innerRef={null}
                                                 isDisabled={false}
                                                 isLeftTruncated={false}
@@ -567,6 +582,8 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                                                   aria-invalid={false}
                                                   aria-label="fact name"
                                                   className="pf-c-form-control"
+                                                  data-ouia-component-id="fact-name-input"
+                                                  data-ouia-component-type="PF4/TextInput"
                                                   disabled={false}
                                                   onBlur={[Function]}
                                                   onChange={[Function]}
@@ -625,6 +642,8 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                                           >
                                             <TextInput
                                               aria-label="value"
+                                              data-ouia-component-id="value-input"
+                                              data-ouia-component-type="PF4/TextInput"
                                               onChange={[Function]}
                                               placeholder="Value"
                                               type="text"
@@ -634,6 +653,8 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                                               <TextInputBase
                                                 aria-label="value"
                                                 className=""
+                                                data-ouia-component-id="value-input"
+                                                data-ouia-component-type="PF4/TextInput"
                                                 innerRef={null}
                                                 isDisabled={false}
                                                 isLeftTruncated={false}
@@ -649,6 +670,8 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                                                   aria-invalid={false}
                                                   aria-label="value"
                                                   className="pf-c-form-control"
+                                                  data-ouia-component-id="value-input"
+                                                  data-ouia-component-type="PF4/TextInput"
                                                   disabled={false}
                                                   onBlur={[Function]}
                                                   onChange={[Function]}
@@ -676,14 +699,14 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                                 <Button
                                   key="confirm"
                                   onClick={[Function]}
-                                  ouiaId="save"
+                                  ouiaId="fact-modal-save-button"
                                   variant="primary"
                                 >
                                   <button
                                     aria-disabled={false}
                                     aria-label={null}
                                     className="pf-c-button pf-m-primary"
-                                    data-ouia-component-id="save"
+                                    data-ouia-component-id="fact-modal-save-button"
                                     data-ouia-component-type="PF4/Button"
                                     data-ouia-safe={true}
                                     disabled={false}
@@ -697,14 +720,14 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                                 <Button
                                   key="cancel"
                                   onClick={[Function]}
-                                  ouiaId="cancel"
+                                  ouiaId="fact-modal-cancel-button"
                                   variant="link"
                                 >
                                   <button
                                     aria-disabled={false}
                                     aria-label={null}
                                     className="pf-c-button pf-m-link"
-                                    data-ouia-component-id="cancel"
+                                    data-ouia-component-id="fact-modal-cancel-button"
                                     data-ouia-component-type="PF4/Button"
                                     data-ouia-safe={true}
                                     disabled={false}
@@ -739,14 +762,14 @@ exports[`FactModal should render category correctly 1`] = `
     Array [
       <Button
         onClick={[Function]}
-        ouiaId="save"
+        ouiaId="fact-modal-save-button"
         variant="primary"
       >
         Save
       </Button>,
       <Button
         onClick={[Function]}
-        ouiaId="cancel"
+        ouiaId="fact-modal-cancel-button"
         variant="link"
       >
         Cancel
@@ -761,6 +784,7 @@ exports[`FactModal should render category correctly 1`] = `
   hasNoBodyWrapper={false}
   isOpen={true}
   onClose={[Function]}
+  ouiaId="add-fact-modal"
   ouiaSafe={true}
   showClose={true}
   title="Edit category"
@@ -772,6 +796,8 @@ exports[`FactModal should render category correctly 1`] = `
   <Checkbox
     aria-label="controlled checkbox example"
     className="sm-padding-bottom"
+    data-ouia-component-id="category-checkbox"
+    data-ouia-component-type="PF4/Checkbox"
     id="isCategory"
     isChecked={true}
     isDisabled={true}
@@ -794,6 +820,8 @@ exports[`FactModal should render category correctly 1`] = `
       >
         <TextInput
           aria-label="fact name"
+          data-ouia-component-id="fact-name-input"
+          data-ouia-component-type="PF4/TextInput"
           onChange={[Function]}
           placeholder="Name"
           type="text"
@@ -812,14 +840,14 @@ exports[`FactModal should render empty correctly 1`] = `
     Array [
       <Button
         onClick={[Function]}
-        ouiaId="save"
+        ouiaId="fact-modal-save-button"
         variant="primary"
       >
         Save
       </Button>,
       <Button
         onClick={[Function]}
-        ouiaId="cancel"
+        ouiaId="fact-modal-cancel-button"
         variant="link"
       >
         Cancel
@@ -834,6 +862,7 @@ exports[`FactModal should render empty correctly 1`] = `
   hasNoBodyWrapper={false}
   isOpen={true}
   onClose={[Function]}
+  ouiaId="add-fact-modal"
   ouiaSafe={true}
   showClose={true}
   title="Add fact"
@@ -845,6 +874,8 @@ exports[`FactModal should render empty correctly 1`] = `
   <Checkbox
     aria-label="controlled checkbox example"
     className="sm-padding-bottom"
+    data-ouia-component-id="category-checkbox"
+    data-ouia-component-type="PF4/Checkbox"
     id="isCategory"
     isChecked={false}
     isDisabled={false}
@@ -867,6 +898,8 @@ exports[`FactModal should render empty correctly 1`] = `
       >
         <TextInput
           aria-label="fact name"
+          data-ouia-component-id="fact-name-input"
+          data-ouia-component-type="PF4/TextInput"
           onChange={[Function]}
           placeholder="Name"
           type="text"
@@ -888,6 +921,8 @@ exports[`FactModal should render empty correctly 1`] = `
       >
         <TextInput
           aria-label="value"
+          data-ouia-component-id="value-input"
+          data-ouia-component-type="PF4/TextInput"
           onChange={[Function]}
           placeholder="Value"
           type="text"
@@ -906,14 +941,14 @@ exports[`FactModal should render fact name and value correctly 1`] = `
     Array [
       <Button
         onClick={[Function]}
-        ouiaId="save"
+        ouiaId="fact-modal-save-button"
         variant="primary"
       >
         Save
       </Button>,
       <Button
         onClick={[Function]}
-        ouiaId="cancel"
+        ouiaId="fact-modal-cancel-button"
         variant="link"
       >
         Cancel
@@ -928,6 +963,7 @@ exports[`FactModal should render fact name and value correctly 1`] = `
   hasNoBodyWrapper={false}
   isOpen={true}
   onClose={[Function]}
+  ouiaId="add-fact-modal"
   ouiaSafe={true}
   showClose={true}
   title="Edit fact"
@@ -950,6 +986,8 @@ exports[`FactModal should render fact name and value correctly 1`] = `
       >
         <TextInput
           aria-label="fact name"
+          data-ouia-component-id="fact-name-input"
+          data-ouia-component-type="PF4/TextInput"
           onChange={[Function]}
           placeholder="Name"
           type="text"
@@ -971,6 +1009,8 @@ exports[`FactModal should render fact name and value correctly 1`] = `
       >
         <TextInput
           aria-label="value"
+          data-ouia-component-id="value-input"
+          data-ouia-component-type="PF4/TextInput"
           onChange={[Function]}
           placeholder="Value"
           type="text"
@@ -989,14 +1029,14 @@ exports[`FactModal should render sub fact correctly 1`] = `
     Array [
       <Button
         onClick={[Function]}
-        ouiaId="save"
+        ouiaId="fact-modal-save-button"
         variant="primary"
       >
         Save
       </Button>,
       <Button
         onClick={[Function]}
-        ouiaId="cancel"
+        ouiaId="fact-modal-cancel-button"
         variant="link"
       >
         Cancel
@@ -1011,6 +1051,7 @@ exports[`FactModal should render sub fact correctly 1`] = `
   hasNoBodyWrapper={false}
   isOpen={true}
   onClose={[Function]}
+  ouiaId="add-fact-modal"
   ouiaSafe={true}
   showClose={true}
   title="Edit sub fact"
@@ -1033,6 +1074,8 @@ exports[`FactModal should render sub fact correctly 1`] = `
       >
         <TextInput
           aria-label="fact name"
+          data-ouia-component-id="fact-name-input"
+          data-ouia-component-type="PF4/TextInput"
           onChange={[Function]}
           placeholder="Name"
           type="text"
@@ -1054,6 +1097,8 @@ exports[`FactModal should render sub fact correctly 1`] = `
       >
         <TextInput
           aria-label="value"
+          data-ouia-component-id="value-input"
+          data-ouia-component-type="PF4/TextInput"
           onChange={[Function]}
           placeholder="Value"
           type="text"

@@ -31,6 +31,7 @@ class DeleteFactModal extends Component {
         return (
             <Modal
                 className="drift"
+                ouiaId='delete-fact-modal'
                 variant={ ModalVariant.small }
                 title="Delete facts"
                 isOpen={ modalOpened }
@@ -38,6 +39,7 @@ class DeleteFactModal extends Component {
                 actions = { [
                     <Button
                         key="confirm"
+                        ouiaId='delete-fact-button'
                         variant="danger"
                         onClick={ deleteFact ? deleteFact : this.deleteFacts }
                     >
@@ -45,6 +47,7 @@ class DeleteFactModal extends Component {
                     </Button>,
                     <Button
                         key="cancel"
+                        ouiaId='delete-fact-cancel-button'
                         variant="link"
                         onClick={ this.props.toggleModal }
                     >
