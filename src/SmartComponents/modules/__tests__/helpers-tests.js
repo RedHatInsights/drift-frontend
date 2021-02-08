@@ -30,11 +30,23 @@ describe('helpers', () => {
         expect(helpers.getState(state, stateFilters)).toEqual(stateFiltersFixtures.sameStateFalse[0]);
     });
 
+    it('should return INCOMPLETE_DATA filter on obfuscated getState', () => {
+        const state = 'INCOMPLETE_DATA_OBFUSCATED';
+        const stateFilters = stateFiltersFixtures.allStatesTrue;
+        expect(helpers.getState(state, stateFilters)).toEqual(stateFiltersFixtures.allStatesTrue[2]);
+    });
+
     it('should set tooltip when reference set', () => {
         const data = { name: 'system1', state: 'DIFFERENT' };
         const referenceId = 'abcd-1234-efgh-5678';
         helpers.setTooltip(data, stateFiltersFixtures.allStatesTrue, referenceId);
         expect(data.tooltip).toEqual('Different - At least one system fact value in this row differs from the reference.');
+    });
+
+    it('should set tooltip obfuscated', () => {
+        const data = { name: 'system1', state: 'INCOMPLETE_DATA_OBFUSCATED' };
+        helpers.setTooltip(data, stateFiltersFixtures.allStatesTrue);
+        expect(data.tooltip).toEqual('Incomplete data - At least one system fact value in this row is redacted.');
     });
 
     it('should return full category when filtered by full category name', () => {
