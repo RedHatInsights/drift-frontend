@@ -34,11 +34,11 @@ function getStateSelected(state, stateFilters) {
 function getState(state, stateFilters) {
     let isStateSelected;
 
-    isStateSelected = stateFilters.find(function(stateFilter) {
+    stateFilters.find(function(stateFilter) {
         if (stateFilter.filter === state) {
-            return stateFilter;
+            isStateSelected = stateFilter;
         } else if (state === 'INCOMPLETE_DATA_OBFUSCATED') {
-            return getState('INCOMPLETE_DATA', stateFilters);
+            isStateSelected = getState('INCOMPLETE_DATA', stateFilters);
         }
     });
 
