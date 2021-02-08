@@ -2093,6 +2093,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                             >
                                               <TablePagination
                                                 isCompact={true}
+                                                ouiaId="comparison-pagination-top"
                                                 updatePagination={[Function]}
                                                 variant="top"
                                                 widgetId="drift-pagination-top"
@@ -2115,6 +2116,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                   onPerPageSelect={[Function]}
                                                   onPreviousClick={[Function]}
                                                   onSetPage={[Function]}
+                                                  ouiaId="comparison-pagination-top"
                                                   ouiaSafe={true}
                                                   page={0}
                                                   perPage={10}
@@ -2159,7 +2161,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                 >
                                                   <div
                                                     className="pf-c-pagination pf-m-compact"
-                                                    data-ouia-component-id="OUIA-Generated-Pagination-top-1"
+                                                    data-ouia-component-id="comparison-pagination-top"
                                                     data-ouia-component-type="PF4/Pagination"
                                                     data-ouia-safe={true}
                                                     id="drift-pagination-top-0"
@@ -3364,6 +3366,8 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                   >
                                     <table
                                       className="pf-c-table pf-m-compact drift-table"
+                                      data-ouia-component-id="comparison-table"
+                                      data-ouia-component-type="PF4/Table"
                                     >
                                       <thead>
                                         <ComparisonHeader
@@ -3377,6 +3381,8 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                         >
                                           <tr
                                             className="sticky-column-header"
+                                            data-ouia-component-id="comparison-table-header-row"
+                                            data-ouia-component-type="PF4/TableRow"
                                           >
                                             <th
                                               className="fact-header sticky-column fixed-column-1 pointer"
@@ -3419,6 +3425,8 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                             </th>
                                             <th
                                               className="state-header sticky-column fixed-column-2 pointer"
+                                              data-ouia-component-id="state-sort-button"
+                                              data-ouia-component-type="PF4/Button"
                                               id="disabled"
                                               key="state-header"
                                               onClick={[Function]}
@@ -3490,6 +3498,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                           >
                                             <TablePagination
                                               isCompact={false}
+                                              ouiaId="drift-pagination-bottom"
                                               updatePagination={[Function]}
                                               variant="bottom"
                                               widgetId="drift-pagination-bottom"
@@ -3512,6 +3521,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                 onPerPageSelect={[Function]}
                                                 onPreviousClick={[Function]}
                                                 onSetPage={[Function]}
+                                                ouiaId="drift-pagination-bottom"
                                                 ouiaSafe={true}
                                                 page={0}
                                                 perPage={10}
@@ -3556,7 +3566,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                               >
                                                 <div
                                                   className="pf-c-pagination pf-m-bottom"
-                                                  data-ouia-component-id="OUIA-Generated-Pagination-bottom-1"
+                                                  data-ouia-component-id="drift-pagination-bottom"
                                                   data-ouia-component-type="PF4/Pagination"
                                                   data-ouia-safe={true}
                                                   id="drift-pagination-bottom-1"
@@ -6402,6 +6412,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                             >
                                               <TablePagination
                                                 isCompact={true}
+                                                ouiaId="comparison-pagination-top"
                                                 updatePagination={[Function]}
                                                 variant="top"
                                                 widgetId="drift-pagination-top"
@@ -6424,6 +6435,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                   onPerPageSelect={[Function]}
                                                   onPreviousClick={[Function]}
                                                   onSetPage={[Function]}
+                                                  ouiaId="comparison-pagination-top"
                                                   ouiaSafe={true}
                                                   page={0}
                                                   perPage={10}
@@ -6468,7 +6480,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                 >
                                                   <div
                                                     className="pf-c-pagination pf-m-compact"
-                                                    data-ouia-component-id="OUIA-Generated-Pagination-top-2"
+                                                    data-ouia-component-id="comparison-pagination-top"
                                                     data-ouia-component-type="PF4/Pagination"
                                                     data-ouia-safe={true}
                                                     id="drift-pagination-top-2"
@@ -7685,6 +7697,8 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                   >
                                     <table
                                       className="pf-c-table pf-m-compact drift-table"
+                                      data-ouia-component-id="comparison-table"
+                                      data-ouia-component-type="PF4/Table"
                                     >
                                       <thead>
                                         <ComparisonHeader
@@ -7698,6 +7712,8 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                         >
                                           <tr
                                             className="sticky-column-header"
+                                            data-ouia-component-id="comparison-table-header-row"
+                                            data-ouia-component-type="PF4/TableRow"
                                           >
                                             <th
                                               className="fact-header sticky-column fixed-column-1 pointer"
@@ -7740,6 +7756,8 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                             </th>
                                             <th
                                               className="state-header sticky-column fixed-column-2 pointer"
+                                              data-ouia-component-id="state-sort-button"
+                                              data-ouia-component-type="PF4/Button"
                                               id="disabled"
                                               key="state-header"
                                               onClick={[Function]}
@@ -7811,6 +7829,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                           >
                                             <TablePagination
                                               isCompact={false}
+                                              ouiaId="drift-pagination-bottom"
                                               updatePagination={[Function]}
                                               variant="bottom"
                                               widgetId="drift-pagination-bottom"
@@ -7833,6 +7852,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                 onPerPageSelect={[Function]}
                                                 onPreviousClick={[Function]}
                                                 onSetPage={[Function]}
+                                                ouiaId="drift-pagination-bottom"
                                                 ouiaSafe={true}
                                                 page={0}
                                                 perPage={10}
@@ -7877,7 +7897,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                               >
                                                 <div
                                                   className="pf-c-pagination pf-m-bottom"
-                                                  data-ouia-component-id="OUIA-Generated-Pagination-bottom-2"
+                                                  data-ouia-component-id="drift-pagination-bottom"
                                                   data-ouia-component-type="PF4/Pagination"
                                                   data-ouia-safe={true}
                                                   id="drift-pagination-bottom-3"

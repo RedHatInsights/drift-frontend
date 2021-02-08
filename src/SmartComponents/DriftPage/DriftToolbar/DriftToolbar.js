@@ -198,6 +198,7 @@ export class DriftToolbar extends Component {
                                 isCompact={ true }
                                 updatePagination={ updatePagination }
                                 widgetId='drift-pagination-top'
+                                ouiaId='comparison-pagination-top'
                                 variant={ PaginationVariant.top }
                             />
                         </ToolbarItem>
