@@ -90,6 +90,8 @@ export class FactModal extends Component {
         const { isCategory, isEditFact } = this.state;
 
         return <Checkbox
+            data-ouia-component-type='PF4/Checkbox'
+            data-ouia-component-id='category-checkbox'
             className="sm-padding-bottom"
             aria-label="controlled checkbox example"
             label="This is a category"
@@ -123,6 +125,8 @@ export class FactModal extends Component {
                     onKeyPress={ this.checkKeyPress }
                 >
                     <TextInput
+                        data-ouia-component-type='PF4/TextInput'
+                        data-ouia-component-id='fact-name-input'
                         value={ factName }
                         type="text"
                         placeholder="Name"
@@ -150,6 +154,8 @@ export class FactModal extends Component {
                     onKeyPress={ this.checkKeyPress }
                 >
                     <TextInput
+                        data-ouia-component-type='PF4/TextInput'
+                        data-ouia-component-id='value-input'
                         value={ factValue }
                         type="text"
                         placeholder="Value"
@@ -217,6 +223,7 @@ export class FactModal extends Component {
         return (
             <Modal
                 className="drift"
+                ouiaId='add-fact-modal'
                 variant={ ModalVariant.small }
                 title={ this.title() }
                 isOpen={ factModalOpened }
@@ -225,14 +232,14 @@ export class FactModal extends Component {
                     <Button
                         key="confirm"
                         variant="primary"
-                        ouiaId="save"
+                        ouiaId="fact-modal-save-button"
                         onClick={ this.confirmModal }>
                         Save
                     </Button>,
                     <Button
                         key="cancel"
                         variant="link"
-                        ouiaId="cancel"
+                        ouiaId="fact-modal-cancel-button"
                         onClick={ this.cancelFact }>
                         Cancel
                     </Button>
