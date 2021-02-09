@@ -22,10 +22,12 @@ export class BaselinesToolbar extends Component {
                 {
                     title: 'Select all',
                     key: 'select-all',
+                    ouiaId: 'select-all',
                     onClick: () => this.props.onBulkSelect(true)
                 }, {
                     title: 'Select none',
                     key: 'select-none',
+                    ouiaId: 'select-none',
                     onClick: () => this.props.onBulkSelect(false)
                 }
             ],
@@ -145,6 +147,8 @@ export class BaselinesToolbar extends Component {
                                 <ConditionalFilter
                                     placeholder="Filter by name"
                                     value={ nameSearch }
+                                    data-ouia-component-type='PF4/TextInput'
+                                    data-ouia-component-id='filter-by-name-baselines-table'
                                     onChange={ (event, value) => this.setTextFilter(value) }
                                     isDisabled={ !hasReadPermissions || !hasWritePermissions }
                                 />

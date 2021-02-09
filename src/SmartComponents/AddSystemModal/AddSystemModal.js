@@ -99,6 +99,7 @@ export class AddSystemModal extends Component {
                     className="drift"
                     width={ '950px' }
                     title="Add to comparison"
+                    ouiaId='add-to-comparison-modal'
                     isOpen={ addSystemModalOpened }
                     onClose={ this.cancelSelection }
                     actions={ [
@@ -109,7 +110,7 @@ export class AddSystemModal extends Component {
                             isDisabled={ ((entities && entities.selectedSystemIds && entities.selectedSystemIds.length === 0) || !entities) &&
                                 selectedBaselineIds.length === 0 &&
                                 selectedHSPIds.length === 0 }
-                            ouiaId="submit"
+                            ouiaId="add-to-comparison-submit-button"
                         >
                             Submit
                         </Button>,
@@ -117,7 +118,7 @@ export class AddSystemModal extends Component {
                             key="cancel"
                             variant="link"
                             onClick={ this.cancelSelection }
-                            ouiaId="cancel"
+                            ouiaId="add-to-comparison-cancel-button"
                         >
                             Cancel
                         </Button>
@@ -133,6 +134,7 @@ export class AddSystemModal extends Component {
                             eventKey={ 0 }
                             title="Systems"
                             id='systems-tab'
+                            data-ouia-component-id='systems-tab-button'
                         >
                             <SystemsTable
                                 selectedSystemIds={ this.selectedSystemIds() }
@@ -148,6 +150,7 @@ export class AddSystemModal extends Component {
                             eventKey={ 1 }
                             title="Baselines"
                             id='baselines-tab'
+                            data-ouia-component-id='baselines-tab-button'
                         >
                             <BaselinesTable
                                 tableId='CHECKBOX'

@@ -95,7 +95,8 @@ export const SystemsTable = ({
                 }}
                 tableProps={{
                     canSelectAll: false,
-                    selectVariant
+                    selectVariant,
+                    ouiaId: 'systems-table'
                 }}
                 total={ entities?.total }
                 bulkSelect={ onSelect && {
