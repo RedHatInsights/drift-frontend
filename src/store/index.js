@@ -22,10 +22,6 @@ export const createMiddlewareListener = () => {
 };
 
 export function init (...middleware) {
-    if (registry) {
-        throw new Error('store already initialized');
-    }
-
     createMiddlewareListener();
 
     registry = getRegistry({}, [
