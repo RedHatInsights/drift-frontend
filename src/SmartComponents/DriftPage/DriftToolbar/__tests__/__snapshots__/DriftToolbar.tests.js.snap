@@ -1,5 +1,126 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`DriftToolbar should call clearFilters 1`] = `
+<Fragment>
+  <Toolbar
+    className="drift-toolbar"
+    clearAllFilters={[Function]}
+  >
+    <ToolbarContent
+      isExpanded={false}
+      showClearFiltersButton={false}
+    >
+      <ForwardRef
+        variant="filter-group"
+      >
+        <ToolbarFilter
+          categoryName="Fact name"
+          chips={
+            Array [
+              "blah",
+            ]
+          }
+          deleteChip={[Function]}
+          deleteChipGroup={[Function]}
+          showToolbarItem={true}
+        >
+          <SearchBar
+            activeFactFilters={Array []}
+            factFilter="blah"
+            filterByFact={[MockFunction]}
+            handleFactFilter={[MockFunction]}
+            setHistory={[MockFunction]}
+          />
+        </ToolbarFilter>
+        <ToolbarFilter
+          categoryName="State"
+          chips={
+            Array [
+              "Same",
+              "Different",
+              "Incomplete data",
+            ]
+          }
+          deleteChip={[Function]}
+          deleteChipGroup={[Function]}
+          showToolbarItem={true}
+        >
+          <Connect(FilterDropDown)
+            setHistory={[MockFunction]}
+          />
+        </ToolbarFilter>
+      </ForwardRef>
+      <ForwardRef
+        variant="button-group"
+      >
+        <ToolbarItem>
+          <Connect(AddSystemButton)
+            loading={false}
+          />
+        </ToolbarItem>
+      </ForwardRef>
+      <ForwardRef
+        variant="icon-button-group"
+      >
+        <ToolbarItem>
+          <ExportCSVButton
+            dropdownItems={
+              Array [
+                <DropdownItem
+                  component="button"
+                  data-ouia-component-id="export-to-csv-dropdown-item-comparison"
+                  onClick={[Function]}
+                >
+                  Export to CSV
+                </DropdownItem>,
+              ]
+            }
+            isOpen={false}
+            onToggle={[Function]}
+            ouiaId="export-dropdown-comparison"
+          />
+        </ToolbarItem>
+        <ToolbarItem>
+          <ActionKebab
+            dropdownItems={
+              Array [
+                <DropdownItem
+                  component="button"
+                  data-ouia-component-id="clear-all-comparisons-dropdown-item"
+                  onClick={[Function]}
+                >
+                  Clear all comparisons
+                </DropdownItem>,
+              ]
+            }
+            ouiaId="clear-comparison-dropdown"
+          />
+        </ToolbarItem>
+      </ForwardRef>
+      <ToolbarItem
+        align={
+          Object {
+            "default": "alignRight",
+          }
+        }
+        variant="pagination"
+      >
+        <TablePagination
+          isCompact={true}
+          ouiaId="comparison-pagination-top"
+          page={1}
+          perPage={50}
+          total={30}
+          updatePagination={[MockFunction]}
+          variant="top"
+          widgetId="drift-pagination-top"
+        />
+      </ToolbarItem>
+    </ToolbarContent>
+  </Toolbar>
+</Fragment>
+`;
+
 exports[`DriftToolbar should render correctly 1`] = `
 <Fragment>
   <Toolbar
@@ -112,9 +233,6 @@ exports[`DriftToolbar should render correctly 1`] = `
           widgetId="drift-pagination-top"
         />
       </ToolbarItem>
-      <ForwardRef
-        variant="filter-group"
-      />
     </ToolbarContent>
   </Toolbar>
 </Fragment>
@@ -243,9 +361,6 @@ exports[`DriftToolbar should render with fact filter chips 1`] = `
           widgetId="drift-pagination-top"
         />
       </ToolbarItem>
-      <ForwardRef
-        variant="filter-group"
-      />
     </ToolbarContent>
   </Toolbar>
 </Fragment>
