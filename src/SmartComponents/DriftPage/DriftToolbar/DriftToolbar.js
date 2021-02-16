@@ -71,7 +71,7 @@ export class DriftToolbar extends Component {
         return stateChips;
     }
 
-    clearAllStateChips = () => {
+    clearAllStateChips = async () => {
         const { addStateFilter, stateFilters } = this.props;
 
         stateFilters.forEach(function(stateFilter) {
@@ -104,8 +104,8 @@ export class DriftToolbar extends Component {
                 }
             }
         } else {
-            this.clearAllStateChips();
-            this.clearAllFactChips();
+            await this.clearAllStateChips();
+            await this.clearAllFactChips();
         }
 
         setHistory();
@@ -123,10 +123,11 @@ export class DriftToolbar extends Component {
         });
     }
 
-    clearFilters = () => {
-        const { clearComparisonFilters } = this.props;
+    clearFilters = async () => {
+        const { clearComparisonFilters, setHistory } = this.props;
 
-        clearComparisonFilters();
+        await clearComparisonFilters();
+        setHistory();
     }
 
     clearComparison = async () => {
@@ -143,7 +144,7 @@ export class DriftToolbar extends Component {
     render() {
         const { activeFactFilters, factFilter, filterByFact, handleFactFilter, loading,
             page, perPage, setHistory, stateFilters, totalFacts, updatePagination } = this.props;
-        const { actionKebabItems, dropdownItems, dropdownOpen, isEmpty } = this.state;
+        const { actionKebabItems, dropdownItems, dropdownOpen/*, isEmpty*/ } = this.state;
 
         return (
             <React.Fragment>
@@ -205,16 +206,6 @@ export class DriftToolbar extends Component {
                                 variant={ PaginationVariant.top }
                             />
                         </ToolbarItem>
-                        <ToolbarGroup variant="filter-group">
-                            { !isEmpty
-                                ? <ToolbarItem>
-                                    <a onClick={ () => this.clearFilters() } >
-                                        Clear filters
-                                    </a>
-                                </ToolbarItem>
-                                : null
-                            }
-                        </ToolbarGroup>
                     </ToolbarContent>
                 </Toolbar>
             </React.Fragment>

@@ -157,13 +157,13 @@ describe('DriftToolbar', () => {
         );
         wrapper.instance().removeChip();
 
-        expect(props.addStateFilter).toHaveBeenCalledWith(
+        await expect(props.addStateFilter).toHaveBeenCalledWith(
             { filter: 'SAME', display: 'Same', selected: true }
         );
-        expect(props.addStateFilter).toHaveBeenCalledWith(
+        await expect(props.addStateFilter).toHaveBeenCalledWith(
             { filter: 'DIFFERENT', display: 'Different', selected: true }
         );
-        expect(props.addStateFilter).toHaveBeenCalledWith(
+        await expect(props.addStateFilter).toHaveBeenCalledWith(
             { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
         );
         await expect(props.handleFactFilter).toHaveBeenCalledWith('dog');
@@ -171,12 +171,12 @@ describe('DriftToolbar', () => {
         await expect(props.filterByFact).toHaveBeenCalledWith('');
     });
 
-    it('should call clearFilters', () => {
+    it.skip('should call clearFilters', () => {
+        props.factFilter = 'blah';
         const wrapper = shallow(
             <DriftToolbar { ...props } />
         );
-        wrapper.setState({ isEmpty: false });
-        wrapper.find('a').simulate('click');
+        wrapper.find('.pf-c-button').simulate('click');
         expect(props.clearComparisonFilters).toHaveBeenCalled();
     });
 

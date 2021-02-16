@@ -4,7 +4,7 @@ import { ASC, DESC } from '../constants';
 export function setHistory(
     history, systemIds = [], baselineIds = [], hspIds = [], referenceId, activeFactFilters = [], factFilter, stateFilters, factSort, stateSort
 ) {
-    let nameFilters = [ ...activeFactFilters, ...factFilter ? [ factFilter ] : [] ];
+    let nameFilters = [ ...activeFactFilters, ...factFilter && !activeFactFilters.includes(factFilter) ? [ factFilter ] : [] ];
     let filterState = [ ...stateFilters?.filter(({ selected }) => selected)?.map(({ filter }) => filter?.toLowerCase()) || [] ];
     let sort = [
         ...[ ASC, DESC ].includes(stateSort) ? [ `${ stateSort === DESC ? '-' : '' }state` ] : [],
