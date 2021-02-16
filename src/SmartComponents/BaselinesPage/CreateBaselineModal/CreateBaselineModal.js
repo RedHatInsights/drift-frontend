@@ -46,6 +46,21 @@ export class CreateBaselineModal extends Component {
         };
     }
 
+    findSelectedRadio() {
+        const { copyBaselineChecked, copySystemChecked, fromScratchChecked } = this.state;
+        const radioChecked = { copyBaselineChecked, copySystemChecked, fromScratchChecked };
+        let keys = Object.keys(radioChecked);
+        let selectedKey;
+
+        keys.forEach(function(key) {
+            if (radioChecked[key]) {
+                selectedKey = key.substring(0, key.length - 7).toLowerCase();
+            }
+        });
+
+        return selectedKey;
+    }
+
     async submitBaselineName() {
         const { baselineName, fromScratchChecked, copyBaselineChecked, copySystemChecked } = this.state;
         const { createBaseline, toggleCreateBaselineModal, selectedBaselineIds,
@@ -237,7 +252,7 @@ export class CreateBaselineModal extends Component {
                     key="confirm"
                     variant="primary"
                     isDisabled
-                    ouiaId="create-baseline-modal-create-button"
+                    ouiaId={ 'create-baseline-button-' + this.findSelectedRadio() }
                 >
                     Create baseline
                 </Button>,
@@ -256,7 +271,7 @@ export class CreateBaselineModal extends Component {
                     key="confirm"
                     variant="primary"
                     onClick={ this.submitBaselineName }
-                    ouiaId="create-baseline-modal-create-button"
+                    ouiaId={ 'create-baseline-button-' + this.findSelectedRadio() }
                 >
                     Create baseline
                 </Button>,
