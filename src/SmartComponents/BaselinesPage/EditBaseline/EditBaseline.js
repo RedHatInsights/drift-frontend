@@ -342,7 +342,7 @@ export class EditBaseline extends Component {
             row.push(editBaselineHelpers.renderKebab({ factName: fact[FACT_NAME], factValue: fact[FACT_VALUE], factData, hasWritePermissions }));
             rows.push(<tr
                 data-ouia-component-type='PF4/TableRow'
-                data-ouia-component-id={ 'edit-baseline-table-row-' + factData.name }
+                data-ouia-component-id={ 'edit-baseline-table-row-' + factData?.name }
                 key={ fact[FACT_NAME] }>{ row }</tr>);
         }
 
