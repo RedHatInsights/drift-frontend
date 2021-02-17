@@ -309,7 +309,7 @@ export class EditBaseline extends Component {
             row.push(editBaselineHelpers.renderKebab({ factName: fact[FACT_NAME], factData, isCategory: true, hasWritePermissions }));
             rows.push(<tr
                 data-ouia-component-type='PF4/TableRow'
-                data-ouia-component-id={ 'edit-baseline-table-row-' + factData.name }
+                data-ouia-component-id={ 'edit-baseline-table-row-' + factData?.name }
                 key={ fact[FACT_NAME] }>{ row }</tr>);
 
             if (expandedRows.includes(fact[FACT_NAME])) {
@@ -332,7 +332,7 @@ export class EditBaseline extends Component {
                     rows.push(<tr
                         data-ouia-component-type='PF4/TableRow'
                         data-ouia-component-id={ 'edit-baseline-table-row-' + subFact[FACT_NAME] }
-                        category={ factData.name }
+                        category={ factData?.name }
                         key={ subFact[FACT_NAME] }>{ row }</tr>);
                 });
             }
