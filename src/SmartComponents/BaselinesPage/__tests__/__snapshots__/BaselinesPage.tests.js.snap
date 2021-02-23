@@ -152,11 +152,15 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
             }
             revertBaselineFetch={[Function]}
             selectBaseline={[Function]}
+            selectHistoricProfiles={[Function]}
             selectedBaselineIds={Array []}
+            setSelectedSystemIds={[Function]}
           >
             <withRouter(Connect(CreateBaselineModal))
               hasReadPermissions={true}
               hasWritePermissions={true}
+              selectHistoricProfiles={[Function]}
+              setSelectedSystemIds={[Function]}
             >
               <Connect(CreateBaselineModal)
                 hasReadPermissions={true}
@@ -207,6 +211,8 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                     "url": "/",
                   }
                 }
+                selectHistoricProfiles={[Function]}
+                setSelectedSystemIds={[Function]}
               >
                 <CreateBaselineModal
                   clearSelectedBaselines={[Function]}
@@ -264,8 +270,10 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                     }
                   }
                   selectBaseline={[Function]}
+                  selectHistoricProfiles={[Function]}
                   selectedBaselineIds={Array []}
                   selectedHSPIds={Array []}
+                  setSelectedSystemIds={[Function]}
                   toggleCreateBaselineModal={[Function]}
                 >
                   <Modal
@@ -5468,11 +5476,15 @@ exports[`ConnectedBaselinesPage should render empty state 1`] = `
             }
             revertBaselineFetch={[Function]}
             selectBaseline={[Function]}
+            selectHistoricProfiles={[Function]}
             selectedBaselineIds={Array []}
+            setSelectedSystemIds={[Function]}
           >
             <withRouter(Connect(CreateBaselineModal))
               hasReadPermissions={true}
               hasWritePermissions={true}
+              selectHistoricProfiles={[Function]}
+              setSelectedSystemIds={[Function]}
             >
               <Connect(CreateBaselineModal)
                 hasReadPermissions={true}
@@ -5523,6 +5535,8 @@ exports[`ConnectedBaselinesPage should render empty state 1`] = `
                     "url": "/",
                   }
                 }
+                selectHistoricProfiles={[Function]}
+                setSelectedSystemIds={[Function]}
               >
                 <CreateBaselineModal
                   clearSelectedBaselines={[Function]}
@@ -5580,8 +5594,10 @@ exports[`ConnectedBaselinesPage should render empty state 1`] = `
                     }
                   }
                   selectBaseline={[Function]}
+                  selectHistoricProfiles={[Function]}
                   selectedBaselineIds={Array []}
                   selectedHSPIds={Array []}
+                  setSelectedSystemIds={[Function]}
                   toggleCreateBaselineModal={[Function]}
                 >
                   <Modal

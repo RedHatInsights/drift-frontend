@@ -13,7 +13,15 @@ function selectActiveTab(newActiveTab) {
     };
 }
 
+function setSelectedSystemIds(selectedSystemIds) {
+    return {
+        type: types.SET_SELECTED_SYSTEMS_COMPARISON,
+        payload: selectedSystemIds
+    };
+}
+
 export default {
     toggleAddSystemModal,
-    selectActiveTab
+    selectActiveTab,
+    setSelectedSystemIds
 };

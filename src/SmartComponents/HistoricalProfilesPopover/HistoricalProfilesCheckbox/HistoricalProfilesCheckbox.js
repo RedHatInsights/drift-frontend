@@ -21,7 +21,7 @@ export class HistoricalProfilesCheckbox extends Component {
             checked = entities.selectedSystemIds.some(id => id === profile.id);
             updateBadgeCount(checked);
         } else {
-            checked = selectedHSPIds.some(id => id === profile.id);
+            checked = selectedHSPIds?.some(id => id === profile.id);
         }
 
         return checked;
@@ -75,7 +75,6 @@ HistoricalProfilesCheckbox.propTypes = {
 
 function mapStateToProps(state) {
     return {
-        selectedHSPIds: state.historicProfilesState.selectedHSPIds,
         entities: state.entities
     };
 }

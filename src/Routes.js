@@ -6,7 +6,7 @@ import asyncComponent from './Utilities/asyncComponent';
 
 const DriftPage = asyncComponent(() => import ('./SmartComponents/DriftPage/DriftPage'));
 const BaselinesPage = asyncComponent(() => import ('./SmartComponents/BaselinesPage/BaselinesPage'));
-const EditBaseline = asyncComponent(() => import ('./SmartComponents/BaselinesPage/EditBaseline/EditBaseline'));
+const EditBaselinePage = asyncComponent(() => import ('./SmartComponents/BaselinesPage/EditBaselinePage/EditBaselinePage'));
 
 const InsightsRoute = ({ component: Component, title, ...rest }) => {
     title ? document.title = title : null;
@@ -27,7 +27,7 @@ export const Routes = () => {
                 component={ BaselinesPage }
                 title='Baselines - Drift | Red Hat Insights'
             />
-            <InsightsRoute path='/baselines/:id' component={ EditBaseline } />
+            <InsightsRoute path='/baselines/:id' component={ EditBaselinePage } />
             <InsightsRoute
                 exact path='/'
                 component={ DriftPage }

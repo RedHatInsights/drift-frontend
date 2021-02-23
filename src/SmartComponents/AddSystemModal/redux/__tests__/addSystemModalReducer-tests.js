@@ -5,7 +5,8 @@ describe('add system modal reducer', () => {
     it('should return initial state', () => {
         expect(addSystemModalReducer(undefined, {})).toEqual({
             addSystemModalOpened: false,
-            activeTab: 0 }
+            activeTab: 0,
+            selectedSystemIds: []}
         );
     });
 

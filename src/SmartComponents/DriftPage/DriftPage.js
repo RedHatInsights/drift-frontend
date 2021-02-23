@@ -90,7 +90,7 @@ export class DriftPage extends Component {
     render() {
         const { activeFactFilters, addStateFilter, baselines, clearAllFactFilters, clearComparison, clearComparisonFilters, clearSelectedBaselines,
             emptyState, error, exportToCSV, factFilter, factSort, filterByFact, handleFactFilter, historicalProfiles, history, loading, page, perPage,
-            referenceId, stateFilters, stateSort, systems, totalFacts, updatePagination, updateReferenceId } = this.props;
+            referenceId, selectedHSPIds, stateFilters, stateSort, systems, totalFacts, updatePagination, updateReferenceId } = this.props;
         const { isFirstReference } = this.state;
 
         return (
@@ -166,6 +166,7 @@ export class DriftPage extends Component {
                                                     systems={ systems }
                                                     baselines={ baselines }
                                                     historicalProfiles={ historicalProfiles }
+                                                    selectedHSPIds={ selectedHSPIds }
                                                 />
                                                 { !emptyState && !loading ?
                                                     <Toolbar className="drift-toolbar">

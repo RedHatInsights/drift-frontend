@@ -144,7 +144,7 @@ export class DriftToolbar extends Component {
     render() {
         const { activeFactFilters, factFilter, filterByFact, handleFactFilter, loading,
             page, perPage, setHistory, stateFilters, totalFacts, updatePagination } = this.props;
-        const { actionKebabItems, dropdownItems, dropdownOpen/*, isEmpty*/ } = this.state;
+        const { actionKebabItems, dropdownItems, dropdownOpen } = this.state;
 
         return (
             <React.Fragment>

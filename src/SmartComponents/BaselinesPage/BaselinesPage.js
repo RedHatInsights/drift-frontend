@@ -13,8 +13,10 @@ import CreateBaselineButton from './CreateBaselineButton/CreateBaselineButton';
 import CreateBaselineModal from './CreateBaselineModal/CreateBaselineModal';
 import EmptyStateDisplay from '../EmptyStateDisplay/EmptyStateDisplay';
 import ErrorAlert from '../ErrorAlert/ErrorAlert';
+import { addSystemModalActions } from '../AddSystemModal/redux';
 import { baselinesTableActions } from '../BaselinesTable/redux';
-import { editBaselineActions } from './EditBaseline/redux';
+import { editBaselineActions } from './EditBaselinePage/redux';
+import { historicProfilesActions } from '../HistoricalProfilesPopover/redux';
 import { PermissionContext } from '../../App';
 
 export class BaselinesPage extends Component {
@@ -138,7 +140,7 @@ export class BaselinesPage extends Component {
     }
 
     render() {
-        const { baselineError, emptyState, loading, revertBaselineFetch } = this.props;
+        const { baselineError, emptyState, loading, revertBaselineFetch, selectHistoricProfiles, setSelectedSystemIds } = this.props;
 
         return (
             <PermissionContext.Consumer>
@@ -148,6 +150,8 @@ export class BaselinesPage extends Component {
                             hasInventoryReadPermissions={ value.permissions.inventoryRead }
                             hasReadPermissions={ value.permissions.baselinesRead }
                             hasWritePermissions={ value.permissions.baselinesWrite }
+                            selectHistoricProfiles={ selectHistoricProfiles }
+                            setSelectedSystemIds={ setSelectedSystemIds }
                         />
                         <PageHeader>
                             <PageHeaderTitle title='Baselines'/>
@@ -194,7 +198,9 @@ BaselinesPage.propTypes = {
     revertBaselineFetch: PropTypes.func,
     clearEditBaselineData: PropTypes.func,
     selectedBaselineIds: PropTypes.array,
-    totalBaselines: PropTypes.number
+    totalBaselines: PropTypes.number,
+    selectHistoricProfiles: PropTypes.func,
+    setSelectedSystemIds: PropTypes.func
 };
 
 function mapStateToProps(state) {
@@ -213,7 +219,9 @@ function mapDispatchToProps(dispatch) {
     return {
         selectBaseline: (id, isSelected, tableId) => dispatch(baselinesTableActions.selectBaseline(id, isSelected, tableId)),
         revertBaselineFetch: (tableId) => dispatch(baselinesTableActions.revertBaselineFetch(tableId)),
-        clearEditBaselineData: () => dispatch(editBaselineActions.clearEditBaselineData())
+        clearEditBaselineData: () => dispatch(editBaselineActions.clearEditBaselineData()),
+        selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds)),
+        setSelectedSystemIds: (selectedSystemIds) => dispatch(addSystemModalActions.setSelectedSystemIds(selectedSystemIds))
     };
 }
 

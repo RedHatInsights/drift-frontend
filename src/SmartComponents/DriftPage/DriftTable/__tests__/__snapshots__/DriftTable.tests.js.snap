@@ -223,9 +223,11 @@ exports[`ConnectedDriftTable should render correctly 1`] = `
                 confirmModal={[Function]}
                 selectActiveTab={[Function]}
                 selectBaseline={[Function]}
+                selectHistoricProfiles={[Function]}
                 selectedBaselineIds={Array []}
                 selectedHSPIds={Array []}
                 selectedSystemIds={Array []}
+                setSelectedSystemIds={[Function]}
                 toggleAddSystemModal={[Function]}
               >
                 <Modal
@@ -324,6 +326,7 @@ exports[`ConnectedDriftTable should render correctly 1`] = `
                     fetchCompare={[Function]}
                     masterList={Array []}
                     removeSystem={[Function]}
+                    selectHistoricProfiles={[Function]}
                     systemIds={Array []}
                     toggleFactSort={[Function]}
                     toggleStateSort={[Function]}
@@ -650,9 +653,11 @@ exports[`ConnectedDriftTable should render loading rows 1`] = `
                 confirmModal={[Function]}
                 selectActiveTab={[Function]}
                 selectBaseline={[Function]}
+                selectHistoricProfiles={[Function]}
                 selectedBaselineIds={Array []}
                 selectedHSPIds={Array []}
                 selectedSystemIds={Array []}
+                setSelectedSystemIds={[Function]}
                 toggleAddSystemModal={[Function]}
               >
                 <Modal
@@ -751,6 +756,7 @@ exports[`ConnectedDriftTable should render loading rows 1`] = `
                     fetchCompare={[Function]}
                     masterList={Array []}
                     removeSystem={[Function]}
+                    selectHistoricProfiles={[Function]}
                     systemIds={Array []}
                     toggleFactSort={[Function]}
                     toggleStateSort={[Function]}
@@ -2083,6 +2089,7 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                 confirmModal={[Function]}
                 selectActiveTab={[Function]}
                 selectBaseline={[Function]}
+                selectHistoricProfiles={[Function]}
                 selectedBaselineIds={Array []}
                 selectedHSPIds={Array []}
                 selectedSystemIds={
@@ -2091,13 +2098,14 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                     "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                   ]
                 }
+                setSelectedSystemIds={[Function]}
                 toggleAddSystemModal={[Function]}
               >
                 <Modal
                   actions={
                     Array [
                       <Button
-                        isDisabled={true}
+                        isDisabled={false}
                         onClick={[Function]}
                         ouiaId="add-to-comparison-submit-button"
                         variant="primary"
@@ -2137,7 +2145,7 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                       actions={
                         Array [
                           <Button
-                            isDisabled={true}
+                            isDisabled={false}
                             onClick={[Function]}
                             ouiaId="add-to-comparison-submit-button"
                             variant="primary"
@@ -2230,6 +2238,7 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                       ]
                     }
                     removeSystem={[Function]}
+                    selectHistoricProfiles={[Function]}
                     systemIds={Array []}
                     toggleFactSort={[Function]}
                     toggleStateSort={[Function]}
@@ -3214,6 +3223,7 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                               fetchCompare={[Function]}
                               hasCompareButton={true}
                               hasMultiSelect={true}
+                              selectHistoricProfiles={[Function]}
                               system={
                                 Object {
                                   "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
@@ -3274,6 +3284,7 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                     "url": "/",
                                   }
                                 }
+                                selectHistoricProfiles={[Function]}
                                 system={
                                   Object {
                                     "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
@@ -3846,6 +3857,7 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                               fetchCompare={[Function]}
                               hasCompareButton={true}
                               hasMultiSelect={true}
+                              selectHistoricProfiles={[Function]}
                               system={
                                 Object {
                                   "display_name": "system1",
@@ -3907,6 +3919,7 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                     "url": "/",
                                   }
                                 }
+                                selectHistoricProfiles={[Function]}
                                 system={
                                   Object {
                                     "display_name": "system1",
@@ -4481,6 +4494,7 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                               fetchCompare={[Function]}
                               hasCompareButton={true}
                               hasMultiSelect={true}
+                              selectHistoricProfiles={[Function]}
                               system={
                                 Object {
                                   "display_name": "system1",
@@ -4542,6 +4556,7 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                     "url": "/",
                                   }
                                 }
+                                selectHistoricProfiles={[Function]}
                                 system={
                                   Object {
                                     "display_name": "system1",
@@ -5115,6 +5130,7 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                               fetchCompare={[Function]}
                               hasCompareButton={true}
                               hasMultiSelect={true}
+                              selectHistoricProfiles={[Function]}
                               system={
                                 Object {
                                   "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
@@ -5175,6 +5191,7 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                     "url": "/",
                                   }
                                 }
+                                selectHistoricProfiles={[Function]}
                                 system={
                                   Object {
                                     "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
@@ -7799,6 +7816,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                 confirmModal={[Function]}
                 selectActiveTab={[Function]}
                 selectBaseline={[Function]}
+                selectHistoricProfiles={[Function]}
                 selectedBaselineIds={Array []}
                 selectedHSPIds={Array []}
                 selectedSystemIds={
@@ -7807,13 +7825,14 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                     "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                   ]
                 }
+                setSelectedSystemIds={[Function]}
                 toggleAddSystemModal={[Function]}
               >
                 <Modal
                   actions={
                     Array [
                       <Button
-                        isDisabled={true}
+                        isDisabled={false}
                         onClick={[Function]}
                         ouiaId="add-to-comparison-submit-button"
                         variant="primary"
@@ -7853,7 +7872,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                       actions={
                         Array [
                           <Button
-                            isDisabled={true}
+                            isDisabled={false}
                             onClick={[Function]}
                             ouiaId="add-to-comparison-submit-button"
                             variant="primary"
@@ -7946,6 +7965,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                       ]
                     }
                     removeSystem={[Function]}
+                    selectHistoricProfiles={[Function]}
                     systemIds={Array []}
                     toggleFactSort={[Function]}
                     toggleStateSort={[Function]}
@@ -8930,6 +8950,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                               fetchCompare={[Function]}
                               hasCompareButton={true}
                               hasMultiSelect={true}
+                              selectHistoricProfiles={[Function]}
                               system={
                                 Object {
                                   "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
@@ -8990,6 +9011,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                     "url": "/",
                                   }
                                 }
+                                selectHistoricProfiles={[Function]}
                                 system={
                                   Object {
                                     "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
@@ -9562,6 +9584,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                               fetchCompare={[Function]}
                               hasCompareButton={true}
                               hasMultiSelect={true}
+                              selectHistoricProfiles={[Function]}
                               system={
                                 Object {
                                   "display_name": "system1",
@@ -9623,6 +9646,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                     "url": "/",
                                   }
                                 }
+                                selectHistoricProfiles={[Function]}
                                 system={
                                   Object {
                                     "display_name": "system1",
@@ -10197,6 +10221,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                               fetchCompare={[Function]}
                               hasCompareButton={true}
                               hasMultiSelect={true}
+                              selectHistoricProfiles={[Function]}
                               system={
                                 Object {
                                   "display_name": "system1",
@@ -10258,6 +10283,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                     "url": "/",
                                   }
                                 }
+                                selectHistoricProfiles={[Function]}
                                 system={
                                   Object {
                                     "display_name": "system1",
@@ -10831,6 +10857,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                               fetchCompare={[Function]}
                               hasCompareButton={true}
                               hasMultiSelect={true}
+                              selectHistoricProfiles={[Function]}
                               system={
                                 Object {
                                   "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
@@ -10891,6 +10918,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                     "url": "/",
                                   }
                                 }
+                                selectHistoricProfiles={[Function]}
                                 system={
                                   Object {
                                     "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
@@ -11688,6 +11716,21 @@ exports[`DriftTable should render correctly 1`] = `
           fetchCompare={[Function]}
           masterList={Array []}
           removeSystem={[Function]}
+          selectHistoricProfiles={
+            [MockFunction] {
+              "calls": Array [
+                Array [
+                  Array [],
+                ],
+              ],
+              "results": Array [
+                Object {
+                  "type": "return",
+                  "value": undefined,
+                },
+              ],
+            }
+          }
           setHistory={[MockFunction]}
           stateSort="desc"
           systemIds={Array []}

@@ -80,7 +80,6 @@ HistoricalProfilesRadio.propTypes = {
 
 function mapStateToProps(state) {
     return {
-        selectedHSPIds: state.historicProfilesState.selectedHSPIds,
         entities: state.entities
     };
 }

@@ -127,7 +127,8 @@ describe('ConnectedDriftPage', () => {
                 activeFactFilters: []
             },
             addSystemModalState: {
-                addSystemModalOpened: false
+                addSystemModalOpened: false,
+                selectedSystemIds: []
             },
             baselinesTableState: {
                 checkboxTable: {

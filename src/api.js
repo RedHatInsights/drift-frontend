@@ -1,3 +1,4 @@
+/*eslint-disable camelcase*/
 import axios from 'axios';
 import { DRIFT_API_ROOT, BASELINE_API_ROOT, HISTORICAL_PROFILES_API_ROOT } from './constants';
 
@@ -14,6 +15,16 @@ async function getBaselines(path, getParams = {}) {
 async function getBaseline(path) {
     const request = await axios.get(BASELINE_API_ROOT.concat(path));
     return request.data.data[0];
+}
+
+async function getNotificationSystems(path) {
+    const request = await axios.get(BASELINE_API_ROOT.concat(path));
+    return request.data.system_ids;
+}
+
+async function postSystemNotifications(path, body = {}) {
+    const request = await axios.post(BASELINE_API_ROOT.concat(path), body);
+    return request.data;
 }
 
 async function patchBaseline(path, body = {}) {
@@ -63,14 +74,12 @@ function getCompare(systemIds = [], baselineIds = [], historicalSystemProfileIds
         historicalSystemProfileIds = [ historicalSystemProfileIds ];
     }
 
-    /*eslint-disable camelcase*/
     return post('/comparison_report', {
         system_ids: systemIds,
         baseline_ids: baselineIds,
         historical_system_profile_ids: historicalSystemProfileIds,
         reference_id: referenceId
     });
-    /*eslint-enable camelcase*/
 }
 
 function getBaselineList(params = {}) {
@@ -110,6 +119,25 @@ function fetchHistoricalData(systemId) {
     return getHistoricalData(path.concat(systemId));
 }
 
+function getBaselineNotification(baselineId) {
+    let path = `/baselines/${baselineId}/systems`;
+    return getNotificationSystems(path);
+}
+
+function addSystemNotification(baselineId, systems) {
+    let path = `/baselines/${baselineId}/systems`;
+    let body = { system_ids: systems };
+
+    return postSystemNotifications(path, body);
+}
+
+function deleteSystemNotifications(baselineId, systems) {
+    let path = `/baselines/${baselineId}/systems/deletion_request`;
+    let body = { system_ids: systems };
+
+    return postSystemNotifications(path, body);
+}
+
 export default {
     getCompare,
     getBaselineList,
@@ -117,5 +145,9 @@ export default {
     patchBaselineData,
     deleteBaselinesData,
     postNewBaseline,
-    fetchHistoricalData
+    fetchHistoricalData,
+    getBaselineNotification,
+    addSystemNotification,
+    deleteSystemNotifications
 };
+/*eslint-enable camelcase*/

@@ -9,6 +9,7 @@ import BaselinesTable from '../BaselinesTable/BaselinesTable';
 import GlobalFilterAlert from '../GlobalFilterAlert/GlobalFilterAlert';
 import { addSystemModalActions } from './redux';
 import { baselinesTableActions } from '../BaselinesTable/redux';
+import { historicProfilesActions } from '../HistoricalProfilesPopover/redux';
 
 export class AddSystemModal extends Component {
     constructor(props) {
@@ -62,10 +63,6 @@ export class AddSystemModal extends Component {
         toggleAddSystemModal();
     }
 
-    selectedSystemIds() {
-        return this.props.systems?.map(({ id }) => id) || [];
-    }
-
     changeActiveTab(event, tabIndex) {
         const { selectActiveTab } = this.props;
 
@@ -86,7 +83,7 @@ export class AddSystemModal extends Component {
     render() {
         const { activeTab, addSystemModalOpened, baselineTableData, globalFilterState, hasBaselinesReadPermissions,
             hasBaselinesWritePermissions, hasInventoryReadPermissions, historicalProfiles, loading, entities, selectedBaselineIds,
-            selectedHSPIds, totalBaselines } = this.props;
+            selectedHSPIds, selectedSystemIds, setSelectedSystemIds, totalBaselines } = this.props;
         const { columns } = this.state;
 
         return (
@@ -103,7 +100,7 @@ export class AddSystemModal extends Component {
                             key="confirm"
                             variant="primary"
                             onClick={ this.confirmModal }
-                            isDisabled={ ((entities && entities.selectedSystemIds && entities.selectedSystemIds.length === 0) || !entities) &&
+                            isDisabled={ selectedSystemIds?.length === 0 &&
                                 selectedBaselineIds.length === 0 &&
                                 selectedHSPIds.length === 0 }
                             ouiaId="add-to-comparison-submit-button"
@@ -133,13 +130,14 @@ export class AddSystemModal extends Component {
                             data-ouia-component-id='systems-tab-button'
                         >
                             <SystemsTable
-                                selectedSystemIds={ this.selectedSystemIds() }
+                                selectedSystemIds={ selectedSystemIds }
                                 hasHistoricalDropdown={ true }
                                 historicalProfiles={ historicalProfiles }
                                 hasMultiSelect={ true }
                                 hasInventoryReadPermissions={ hasInventoryReadPermissions }
                                 entities={ entities }
                                 selectVariant='checkbox'
+                                onSystemSelect={ setSelectedSystemIds }
                             />
                         </Tab>
                         <Tab
@@ -192,7 +190,10 @@ AddSystemModal.propTypes = {
     hasInventoryReadPermissions: PropTypes.bool,
     hasBaselinesReadPermissions: PropTypes.bool,
     hasBaselinesWritePermissions: PropTypes.bool,
-    globalFilterState: PropTypes.object
+    globalFilterState: PropTypes.object,
+    selectedSystemIds: PropTypes.array,
+    setSelectedSystemIds: PropTypes.func,
+    selectHistoricProfiles: PropTypes.func
 };
 
 function mapStateToProps(state) {
@@ -216,7 +217,9 @@ function mapDispatchToProps(dispatch) {
     return {
         toggleAddSystemModal: () => dispatch(addSystemModalActions.toggleAddSystemModal()),
         selectActiveTab: (newActiveTab) => dispatch(addSystemModalActions.selectActiveTab(newActiveTab)),
-        selectBaseline: (id, isSelected, tableId) => dispatch(baselinesTableActions.selectBaseline(id, isSelected, tableId))
+        selectBaseline: (id, isSelected, tableId) => dispatch(baselinesTableActions.selectBaseline(id, isSelected, tableId)),
+        selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds)),
+        setSelectedSystemIds: (selectedSystemIds) => dispatch(addSystemModalActions.setSelectedSystemIds(selectedSystemIds))
     };
 }
 

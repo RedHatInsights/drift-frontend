@@ -175,7 +175,7 @@ describe('ConnectedDriftTable', () => {
                 emptyState: false,
                 expandedRows: []
             },
-            addSystemModalState: { addSystemModalOpened: false },
+            addSystemModalState: { addSystemModalOpened: false, selectedSystemIds: []},
             baselinesTableState: { checkboxTable: {
                 selectedBaselineIds: []
             }},

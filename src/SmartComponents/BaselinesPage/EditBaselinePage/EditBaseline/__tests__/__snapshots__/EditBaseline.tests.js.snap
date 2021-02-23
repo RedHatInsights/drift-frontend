@@ -1,0 +1,1546 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditBaseline should render correctly 1`] = `
+<Fragment>
+  <div />
+  <Connect(ErrorAlert)
+    error={Object {}}
+  />
+  <Card
+    className="pf-t-light pf-m-opaque-100"
+  >
+    <CardBody>
+      <EditBaselineToolbar
+        baselineData={Array []}
+        hasWritePermissions={true}
+        isDisabled={true}
+        onBulkSelect={[Function]}
+        selected={0}
+        tableData={Array []}
+        totalFacts={0}
+      />
+      <table
+        className="pf-c-table ins-c-table pf-m-grid-md ins-entity-table"
+      >
+        <thead>
+          <tr
+            data-ouia-component-id="edit-baseline-table-header-row"
+            data-ouia-component-type="PF4/TableHeaderRow"
+            key="edit-baseline-table-header"
+          >
+            <th />
+            <th
+              className="edit-baseline-header"
+            >
+              <div>
+                Fact
+              </div>
+            </th>
+            <th
+              className="edit-baseline-header"
+            >
+              <div>
+                Value
+              </div>
+            </th>
+            <th />
+          </tr>
+        </thead>
+        <tbody
+          key="edit-baseline-table"
+        />
+      </table>
+    </CardBody>
+  </Card>
+</Fragment>
+`;
+
+exports[`EditBaseline should render empty baseline 1`] = `
+<Fragment>
+  <div />
+  <Connect(ErrorAlert)
+    error={Object {}}
+  />
+  <EmptyStateDisplay
+    button={
+      <Memo(Connect(AddFactButton))
+        editBaselineEmptyState={true}
+        hasWritePermissions={true}
+      />
+    }
+    text={
+      Array [
+        "No facts or categories have been added to this baseline yet.",
+      ]
+    }
+    title="No facts"
+  />
+</Fragment>
+`;
+
+exports[`EditBaseline should render expandable rows closed 1`] = `
+<Fragment>
+  <div />
+  <Connect(ErrorAlert)
+    error={Object {}}
+  />
+  <Card
+    className="pf-t-light pf-m-opaque-100"
+  >
+    <CardBody>
+      <EditBaselineToolbar
+        baselineData={
+          Object {
+            "baseline_facts": Array [
+              Object {
+                "name": "Sauron",
+                "value": "the Dark Lord",
+              },
+              Object {
+                "name": "Galadriel",
+                "value": "the Elven Queen",
+              },
+              Object {
+                "name": "The Fellowship of the Ring",
+                "values": Array [
+                  Object {
+                    "name": "Frodo",
+                    "value": "Baggins",
+                  },
+                  Object {
+                    "name": "Samwise",
+                    "value": "Gamgee",
+                  },
+                  Object {
+                    "name": "Gandalf",
+                    "value": "the Grey",
+                  },
+                  Object {
+                    "name": "Meriadoc",
+                    "value": "Brandybuck",
+                  },
+                  Object {
+                    "name": "Peregrin",
+                    "value": "Took",
+                  },
+                  Object {
+                    "name": "Gimli",
+                    "value": "song of Gloin",
+                  },
+                  Object {
+                    "name": "Legolas",
+                    "value": "Greenleaf",
+                  },
+                  Object {
+                    "name": "Boromir",
+                    "value": "son of Denethor",
+                  },
+                  Object {
+                    "name": "Aragorn",
+                    "value": "son of Arathorn",
+                  },
+                ],
+              },
+            ],
+            "display_name": "lotr_baseline",
+            "id": "38gnw73l-fn36-5829-1287-2m5ghs46801c",
+          }
+        }
+        hasWritePermissions={true}
+        isDisabled={false}
+        onBulkSelect={[Function]}
+        selected={0}
+        tableData={
+          Array [
+            Array [
+              0,
+              "Sauron",
+              "the Dark Lord",
+            ],
+            Array [
+              1,
+              "Galadriel",
+              "the Elven Queen",
+            ],
+            Array [
+              2,
+              "The Fellowship of the Ring",
+              Array [
+                Array [
+                  3,
+                  "Frodo",
+                  "Baggins",
+                ],
+                Array [
+                  4,
+                  "Samwise",
+                  "Gamgee",
+                ],
+                Array [
+                  5,
+                  "Gandalf",
+                  "the Grey",
+                ],
+                Array [
+                  6,
+                  "Meriadoc",
+                  "Brandybuck",
+                ],
+                Array [
+                  7,
+                  "Peregrin",
+                  "Took",
+                ],
+                Array [
+                  8,
+                  "Gimli",
+                  "son of Gloin",
+                ],
+                Array [
+                  9,
+                  "Legolas",
+                  "Greenleaf",
+                ],
+                Array [
+                  10,
+                  "Boromir",
+                  "son of Denethor",
+                ],
+                Array [
+                  11,
+                  "Aragorn",
+                  "son of Arathorn",
+                ],
+              ],
+            ],
+          ]
+        }
+        totalFacts={11}
+      />
+      <table
+        className="pf-c-table ins-c-table pf-m-grid-md ins-entity-table"
+      >
+        <thead>
+          <tr
+            data-ouia-component-id="edit-baseline-table-header-row"
+            data-ouia-component-type="PF4/TableHeaderRow"
+            key="edit-baseline-table-header"
+          >
+            <th />
+            <th
+              className="edit-baseline-header"
+            >
+              <div>
+                Fact
+              </div>
+            </th>
+            <th
+              className="edit-baseline-header"
+            >
+              <div>
+                Value
+              </div>
+            </th>
+            <th />
+          </tr>
+        </thead>
+        <tbody
+          key="edit-baseline-table"
+        >
+          <tr
+            data-ouia-component-id="edit-baseline-table-row-Sauron"
+            data-ouia-component-type="PF4/TableRow"
+            key="Sauron"
+          >
+            <td
+              className="pf-c-table__check"
+            >
+              <Checkbox
+                className=""
+                data-ouia-component-id="checkbox-Sauron"
+                data-ouia-component-type="PF4/Checkbox"
+                id="fact-0"
+                isChecked={false}
+                isDisabled={false}
+                isValid={true}
+                name={0}
+                onChange={[Function]}
+              />
+            </td>
+            <td>
+              Sauron
+            </td>
+            <td>
+              the Dark Lord
+            </td>
+            <td>
+              <Connect(FactKebab)
+                fact={
+                  Object {
+                    "name": "Sauron",
+                    "value": "the Dark Lord",
+                  }
+                }
+                factName="Sauron"
+                factValue="the Dark Lord"
+              />
+            </td>
+          </tr>
+          <tr
+            data-ouia-component-id="edit-baseline-table-row-Galadriel"
+            data-ouia-component-type="PF4/TableRow"
+            key="Galadriel"
+          >
+            <td
+              className="pf-c-table__check"
+            >
+              <Checkbox
+                className=""
+                data-ouia-component-id="checkbox-Galadriel"
+                data-ouia-component-type="PF4/Checkbox"
+                id="fact-1"
+                isChecked={false}
+                isDisabled={false}
+                isValid={true}
+                name={1}
+                onChange={[Function]}
+              />
+            </td>
+            <td>
+              Galadriel
+            </td>
+            <td>
+              the Elven Queen
+            </td>
+            <td>
+              <Connect(FactKebab)
+                fact={
+                  Object {
+                    "name": "Galadriel",
+                    "value": "the Elven Queen",
+                  }
+                }
+                factName="Galadriel"
+                factValue="the Elven Queen"
+              />
+            </td>
+          </tr>
+          <tr
+            data-ouia-component-id="edit-baseline-table-row-The Fellowship of the Ring"
+            data-ouia-component-type="PF4/TableRow"
+            key="The Fellowship of the Ring"
+          >
+            <td
+              className="pf-c-table__check"
+            >
+              <Checkbox
+                className=""
+                data-ouia-component-id="checkbox-The Fellowship of the Ring"
+                data-ouia-component-type="PF4/Checkbox"
+                id="category-2"
+                isChecked={false}
+                isDisabled={false}
+                isValid={true}
+                name={2}
+                onChange={[Function]}
+              />
+            </td>
+            <td>
+              <AngleRightIcon
+                className="pointer"
+                color="currentColor"
+                data-ouia-component-id="expand-category-button-The Fellowship of the Ring"
+                data-ouia-component-type="PF4/Button"
+                noVerticalAlign={false}
+                onClick={[Function]}
+                size="sm"
+              />
+               
+              The Fellowship of the Ring
+            </td>
+            <td />
+            <td>
+              <Connect(FactKebab)
+                fact={
+                  Object {
+                    "name": "The Fellowship of the Ring",
+                    "values": Array [
+                      Object {
+                        "name": "Frodo",
+                        "value": "Baggins",
+                      },
+                      Object {
+                        "name": "Samwise",
+                        "value": "Gamgee",
+                      },
+                      Object {
+                        "name": "Gandalf",
+                        "value": "the Grey",
+                      },
+                      Object {
+                        "name": "Meriadoc",
+                        "value": "Brandybuck",
+                      },
+                      Object {
+                        "name": "Peregrin",
+                        "value": "Took",
+                      },
+                      Object {
+                        "name": "Gimli",
+                        "value": "song of Gloin",
+                      },
+                      Object {
+                        "name": "Legolas",
+                        "value": "Greenleaf",
+                      },
+                      Object {
+                        "name": "Boromir",
+                        "value": "son of Denethor",
+                      },
+                      Object {
+                        "name": "Aragorn",
+                        "value": "son of Arathorn",
+                      },
+                    ],
+                  }
+                }
+                factName="The Fellowship of the Ring"
+                isCategory={true}
+              />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </CardBody>
+  </Card>
+</Fragment>
+`;
+
+exports[`EditBaseline should render expandable rows opened 1`] = `
+<Fragment>
+  <div />
+  <Connect(ErrorAlert)
+    error={Object {}}
+  />
+  <Card
+    className="pf-t-light pf-m-opaque-100"
+  >
+    <CardBody>
+      <EditBaselineToolbar
+        baselineData={
+          Object {
+            "baseline_facts": Array [
+              Object {
+                "name": "Sauron",
+                "value": "the Dark Lord",
+              },
+              Object {
+                "name": "Galadriel",
+                "value": "the Elven Queen",
+              },
+              Object {
+                "name": "The Fellowship of the Ring",
+                "values": Array [
+                  Object {
+                    "name": "Frodo",
+                    "value": "Baggins",
+                  },
+                  Object {
+                    "name": "Samwise",
+                    "value": "Gamgee",
+                  },
+                  Object {
+                    "name": "Gandalf",
+                    "value": "the Grey",
+                  },
+                  Object {
+                    "name": "Meriadoc",
+                    "value": "Brandybuck",
+                  },
+                  Object {
+                    "name": "Peregrin",
+                    "value": "Took",
+                  },
+                  Object {
+                    "name": "Gimli",
+                    "value": "song of Gloin",
+                  },
+                  Object {
+                    "name": "Legolas",
+                    "value": "Greenleaf",
+                  },
+                  Object {
+                    "name": "Boromir",
+                    "value": "son of Denethor",
+                  },
+                  Object {
+                    "name": "Aragorn",
+                    "value": "son of Arathorn",
+                  },
+                ],
+              },
+            ],
+            "display_name": "lotr_baseline",
+            "id": "38gnw73l-fn36-5829-1287-2m5ghs46801c",
+          }
+        }
+        hasWritePermissions={true}
+        isDisabled={false}
+        onBulkSelect={[Function]}
+        selected={0}
+        tableData={
+          Array [
+            Array [
+              0,
+              "Sauron",
+              "the Dark Lord",
+            ],
+            Array [
+              1,
+              "Galadriel",
+              "the Elven Queen",
+            ],
+            Array [
+              2,
+              "The Fellowship of the Ring",
+              Array [
+                Array [
+                  3,
+                  "Frodo",
+                  "Baggins",
+                ],
+                Array [
+                  4,
+                  "Samwise",
+                  "Gamgee",
+                ],
+                Array [
+                  5,
+                  "Gandalf",
+                  "the Grey",
+                ],
+                Array [
+                  6,
+                  "Meriadoc",
+                  "Brandybuck",
+                ],
+                Array [
+                  7,
+                  "Peregrin",
+                  "Took",
+                ],
+                Array [
+                  8,
+                  "Gimli",
+                  "son of Gloin",
+                ],
+                Array [
+                  9,
+                  "Legolas",
+                  "Greenleaf",
+                ],
+                Array [
+                  10,
+                  "Boromir",
+                  "son of Denethor",
+                ],
+                Array [
+                  11,
+                  "Aragorn",
+                  "son of Arathorn",
+                ],
+              ],
+            ],
+          ]
+        }
+        totalFacts={11}
+      />
+      <table
+        className="pf-c-table ins-c-table pf-m-grid-md ins-entity-table"
+      >
+        <thead>
+          <tr
+            data-ouia-component-id="edit-baseline-table-header-row"
+            data-ouia-component-type="PF4/TableHeaderRow"
+            key="edit-baseline-table-header"
+          >
+            <th />
+            <th
+              className="edit-baseline-header"
+            >
+              <div>
+                Fact
+              </div>
+            </th>
+            <th
+              className="edit-baseline-header"
+            >
+              <div>
+                Value
+              </div>
+            </th>
+            <th />
+          </tr>
+        </thead>
+        <tbody
+          key="edit-baseline-table"
+        >
+          <tr
+            data-ouia-component-id="edit-baseline-table-row-Sauron"
+            data-ouia-component-type="PF4/TableRow"
+            key="Sauron"
+          >
+            <td
+              className="pf-c-table__check"
+            >
+              <Checkbox
+                className=""
+                data-ouia-component-id="checkbox-Sauron"
+                data-ouia-component-type="PF4/Checkbox"
+                id="fact-0"
+                isChecked={false}
+                isDisabled={false}
+                isValid={true}
+                name={0}
+                onChange={[Function]}
+              />
+            </td>
+            <td>
+              Sauron
+            </td>
+            <td>
+              the Dark Lord
+            </td>
+            <td>
+              <Connect(FactKebab)
+                fact={
+                  Object {
+                    "name": "Sauron",
+                    "value": "the Dark Lord",
+                  }
+                }
+                factName="Sauron"
+                factValue="the Dark Lord"
+              />
+            </td>
+          </tr>
+          <tr
+            data-ouia-component-id="edit-baseline-table-row-Galadriel"
+            data-ouia-component-type="PF4/TableRow"
+            key="Galadriel"
+          >
+            <td
+              className="pf-c-table__check"
+            >
+              <Checkbox
+                className=""
+                data-ouia-component-id="checkbox-Galadriel"
+                data-ouia-component-type="PF4/Checkbox"
+                id="fact-1"
+                isChecked={false}
+                isDisabled={false}
+                isValid={true}
+                name={1}
+                onChange={[Function]}
+              />
+            </td>
+            <td>
+              Galadriel
+            </td>
+            <td>
+              the Elven Queen
+            </td>
+            <td>
+              <Connect(FactKebab)
+                fact={
+                  Object {
+                    "name": "Galadriel",
+                    "value": "the Elven Queen",
+                  }
+                }
+                factName="Galadriel"
+                factValue="the Elven Queen"
+              />
+            </td>
+          </tr>
+          <tr
+            data-ouia-component-id="edit-baseline-table-row-The Fellowship of the Ring"
+            data-ouia-component-type="PF4/TableRow"
+            key="The Fellowship of the Ring"
+          >
+            <td
+              className="pf-c-table__check nested-fact"
+            >
+              <Checkbox
+                className=""
+                data-ouia-component-id="checkbox-The Fellowship of the Ring"
+                data-ouia-component-type="PF4/Checkbox"
+                id="category-2"
+                isChecked={false}
+                isDisabled={false}
+                isValid={true}
+                name={2}
+                onChange={[Function]}
+              />
+            </td>
+            <td>
+              <AngleDownIcon
+                className="pointer active-blue"
+                color="currentColor"
+                data-ouia-component-id="expand-category-button-The Fellowship of the Ring"
+                data-ouia-component-type="PF4/Button"
+                noVerticalAlign={false}
+                onClick={[Function]}
+                size="sm"
+              />
+               
+              The Fellowship of the Ring
+            </td>
+            <td />
+            <td>
+              <Connect(FactKebab)
+                fact={
+                  Object {
+                    "name": "The Fellowship of the Ring",
+                    "values": Array [
+                      Object {
+                        "name": "Frodo",
+                        "value": "Baggins",
+                      },
+                      Object {
+                        "name": "Samwise",
+                        "value": "Gamgee",
+                      },
+                      Object {
+                        "name": "Gandalf",
+                        "value": "the Grey",
+                      },
+                      Object {
+                        "name": "Meriadoc",
+                        "value": "Brandybuck",
+                      },
+                      Object {
+                        "name": "Peregrin",
+                        "value": "Took",
+                      },
+                      Object {
+                        "name": "Gimli",
+                        "value": "song of Gloin",
+                      },
+                      Object {
+                        "name": "Legolas",
+                        "value": "Greenleaf",
+                      },
+                      Object {
+                        "name": "Boromir",
+                        "value": "son of Denethor",
+                      },
+                      Object {
+                        "name": "Aragorn",
+                        "value": "son of Arathorn",
+                      },
+                    ],
+                  }
+                }
+                factName="The Fellowship of the Ring"
+                isCategory={true}
+              />
+            </td>
+          </tr>
+          <tr
+            category="The Fellowship of the Ring"
+            data-ouia-component-id="edit-baseline-table-row-Frodo"
+            data-ouia-component-type="PF4/TableRow"
+            key="Frodo"
+          >
+            <td
+              className="pf-c-table__check nested-fact"
+            >
+              <Checkbox
+                className=""
+                data-ouia-component-id="checkbox-Frodo"
+                data-ouia-component-type="PF4/Checkbox"
+                id="fact-3"
+                isChecked={false}
+                isDisabled={false}
+                isValid={true}
+                name={3}
+                onChange={[Function]}
+              />
+            </td>
+            <td>
+              <p
+                className="child-row"
+              >
+                Frodo
+              </p>
+            </td>
+            <td>
+              Baggins
+            </td>
+            <td>
+              <Connect(FactKebab)
+                fact={
+                  Object {
+                    "name": "The Fellowship of the Ring",
+                    "values": Array [
+                      Object {
+                        "name": "Frodo",
+                        "value": "Baggins",
+                      },
+                      Object {
+                        "name": "Samwise",
+                        "value": "Gamgee",
+                      },
+                      Object {
+                        "name": "Gandalf",
+                        "value": "the Grey",
+                      },
+                      Object {
+                        "name": "Meriadoc",
+                        "value": "Brandybuck",
+                      },
+                      Object {
+                        "name": "Peregrin",
+                        "value": "Took",
+                      },
+                      Object {
+                        "name": "Gimli",
+                        "value": "song of Gloin",
+                      },
+                      Object {
+                        "name": "Legolas",
+                        "value": "Greenleaf",
+                      },
+                      Object {
+                        "name": "Boromir",
+                        "value": "son of Denethor",
+                      },
+                      Object {
+                        "name": "Aragorn",
+                        "value": "son of Arathorn",
+                      },
+                    ],
+                  }
+                }
+                factName="Frodo"
+                factValue="Baggins"
+                isSubFact={true}
+              />
+            </td>
+          </tr>
+          <tr
+            category="The Fellowship of the Ring"
+            data-ouia-component-id="edit-baseline-table-row-Samwise"
+            data-ouia-component-type="PF4/TableRow"
+            key="Samwise"
+          >
+            <td
+              className="pf-c-table__check nested-fact"
+            >
+              <Checkbox
+                className=""
+                data-ouia-component-id="checkbox-Samwise"
+                data-ouia-component-type="PF4/Checkbox"
+                id="fact-4"
+                isChecked={false}
+                isDisabled={false}
+                isValid={true}
+                name={4}
+                onChange={[Function]}
+              />
+            </td>
+            <td>
+              <p
+                className="child-row"
+              >
+                Samwise
+              </p>
+            </td>
+            <td>
+              Gamgee
+            </td>
+            <td>
+              <Connect(FactKebab)
+                fact={
+                  Object {
+                    "name": "The Fellowship of the Ring",
+                    "values": Array [
+                      Object {
+                        "name": "Frodo",
+                        "value": "Baggins",
+                      },
+                      Object {
+                        "name": "Samwise",
+                        "value": "Gamgee",
+                      },
+                      Object {
+                        "name": "Gandalf",
+                        "value": "the Grey",
+                      },
+                      Object {
+                        "name": "Meriadoc",
+                        "value": "Brandybuck",
+                      },
+                      Object {
+                        "name": "Peregrin",
+                        "value": "Took",
+                      },
+                      Object {
+                        "name": "Gimli",
+                        "value": "song of Gloin",
+                      },
+                      Object {
+                        "name": "Legolas",
+                        "value": "Greenleaf",
+                      },
+                      Object {
+                        "name": "Boromir",
+                        "value": "son of Denethor",
+                      },
+                      Object {
+                        "name": "Aragorn",
+                        "value": "son of Arathorn",
+                      },
+                    ],
+                  }
+                }
+                factName="Samwise"
+                factValue="Gamgee"
+                isSubFact={true}
+              />
+            </td>
+          </tr>
+          <tr
+            category="The Fellowship of the Ring"
+            data-ouia-component-id="edit-baseline-table-row-Gandalf"
+            data-ouia-component-type="PF4/TableRow"
+            key="Gandalf"
+          >
+            <td
+              className="pf-c-table__check nested-fact"
+            >
+              <Checkbox
+                className=""
+                data-ouia-component-id="checkbox-Gandalf"
+                data-ouia-component-type="PF4/Checkbox"
+                id="fact-5"
+                isChecked={false}
+                isDisabled={false}
+                isValid={true}
+                name={5}
+                onChange={[Function]}
+              />
+            </td>
+            <td>
+              <p
+                className="child-row"
+              >
+                Gandalf
+              </p>
+            </td>
+            <td>
+              the Grey
+            </td>
+            <td>
+              <Connect(FactKebab)
+                fact={
+                  Object {
+                    "name": "The Fellowship of the Ring",
+                    "values": Array [
+                      Object {
+                        "name": "Frodo",
+                        "value": "Baggins",
+                      },
+                      Object {
+                        "name": "Samwise",
+                        "value": "Gamgee",
+                      },
+                      Object {
+                        "name": "Gandalf",
+                        "value": "the Grey",
+                      },
+                      Object {
+                        "name": "Meriadoc",
+                        "value": "Brandybuck",
+                      },
+                      Object {
+                        "name": "Peregrin",
+                        "value": "Took",
+                      },
+                      Object {
+                        "name": "Gimli",
+                        "value": "song of Gloin",
+                      },
+                      Object {
+                        "name": "Legolas",
+                        "value": "Greenleaf",
+                      },
+                      Object {
+                        "name": "Boromir",
+                        "value": "son of Denethor",
+                      },
+                      Object {
+                        "name": "Aragorn",
+                        "value": "son of Arathorn",
+                      },
+                    ],
+                  }
+                }
+                factName="Gandalf"
+                factValue="the Grey"
+                isSubFact={true}
+              />
+            </td>
+          </tr>
+          <tr
+            category="The Fellowship of the Ring"
+            data-ouia-component-id="edit-baseline-table-row-Meriadoc"
+            data-ouia-component-type="PF4/TableRow"
+            key="Meriadoc"
+          >
+            <td
+              className="pf-c-table__check nested-fact"
+            >
+              <Checkbox
+                className=""
+                data-ouia-component-id="checkbox-Meriadoc"
+                data-ouia-component-type="PF4/Checkbox"
+                id="fact-6"
+                isChecked={false}
+                isDisabled={false}
+                isValid={true}
+                name={6}
+                onChange={[Function]}
+              />
+            </td>
+            <td>
+              <p
+                className="child-row"
+              >
+                Meriadoc
+              </p>
+            </td>
+            <td>
+              Brandybuck
+            </td>
+            <td>
+              <Connect(FactKebab)
+                fact={
+                  Object {
+                    "name": "The Fellowship of the Ring",
+                    "values": Array [
+                      Object {
+                        "name": "Frodo",
+                        "value": "Baggins",
+                      },
+                      Object {
+                        "name": "Samwise",
+                        "value": "Gamgee",
+                      },
+                      Object {
+                        "name": "Gandalf",
+                        "value": "the Grey",
+                      },
+                      Object {
+                        "name": "Meriadoc",
+                        "value": "Brandybuck",
+                      },
+                      Object {
+                        "name": "Peregrin",
+                        "value": "Took",
+                      },
+                      Object {
+                        "name": "Gimli",
+                        "value": "song of Gloin",
+                      },
+                      Object {
+                        "name": "Legolas",
+                        "value": "Greenleaf",
+                      },
+                      Object {
+                        "name": "Boromir",
+                        "value": "son of Denethor",
+                      },
+                      Object {
+                        "name": "Aragorn",
+                        "value": "son of Arathorn",
+                      },
+                    ],
+                  }
+                }
+                factName="Meriadoc"
+                factValue="Brandybuck"
+                isSubFact={true}
+              />
+            </td>
+          </tr>
+          <tr
+            category="The Fellowship of the Ring"
+            data-ouia-component-id="edit-baseline-table-row-Peregrin"
+            data-ouia-component-type="PF4/TableRow"
+            key="Peregrin"
+          >
+            <td
+              className="pf-c-table__check nested-fact"
+            >
+              <Checkbox
+                className=""
+                data-ouia-component-id="checkbox-Peregrin"
+                data-ouia-component-type="PF4/Checkbox"
+                id="fact-7"
+                isChecked={false}
+                isDisabled={false}
+                isValid={true}
+                name={7}
+                onChange={[Function]}
+              />
+            </td>
+            <td>
+              <p
+                className="child-row"
+              >
+                Peregrin
+              </p>
+            </td>
+            <td>
+              Took
+            </td>
+            <td>
+              <Connect(FactKebab)
+                fact={
+                  Object {
+                    "name": "The Fellowship of the Ring",
+                    "values": Array [
+                      Object {
+                        "name": "Frodo",
+                        "value": "Baggins",
+                      },
+                      Object {
+                        "name": "Samwise",
+                        "value": "Gamgee",
+                      },
+                      Object {
+                        "name": "Gandalf",
+                        "value": "the Grey",
+                      },
+                      Object {
+                        "name": "Meriadoc",
+                        "value": "Brandybuck",
+                      },
+                      Object {
+                        "name": "Peregrin",
+                        "value": "Took",
+                      },
+                      Object {
+                        "name": "Gimli",
+                        "value": "song of Gloin",
+                      },
+                      Object {
+                        "name": "Legolas",
+                        "value": "Greenleaf",
+                      },
+                      Object {
+                        "name": "Boromir",
+                        "value": "son of Denethor",
+                      },
+                      Object {
+                        "name": "Aragorn",
+                        "value": "son of Arathorn",
+                      },
+                    ],
+                  }
+                }
+                factName="Peregrin"
+                factValue="Took"
+                isSubFact={true}
+              />
+            </td>
+          </tr>
+          <tr
+            category="The Fellowship of the Ring"
+            data-ouia-component-id="edit-baseline-table-row-Gimli"
+            data-ouia-component-type="PF4/TableRow"
+            key="Gimli"
+          >
+            <td
+              className="pf-c-table__check nested-fact"
+            >
+              <Checkbox
+                className=""
+                data-ouia-component-id="checkbox-Gimli"
+                data-ouia-component-type="PF4/Checkbox"
+                id="fact-8"
+                isChecked={false}
+                isDisabled={false}
+                isValid={true}
+                name={8}
+                onChange={[Function]}
+              />
+            </td>
+            <td>
+              <p
+                className="child-row"
+              >
+                Gimli
+              </p>
+            </td>
+            <td>
+              son of Gloin
+            </td>
+            <td>
+              <Connect(FactKebab)
+                fact={
+                  Object {
+                    "name": "The Fellowship of the Ring",
+                    "values": Array [
+                      Object {
+                        "name": "Frodo",
+                        "value": "Baggins",
+                      },
+                      Object {
+                        "name": "Samwise",
+                        "value": "Gamgee",
+                      },
+                      Object {
+                        "name": "Gandalf",
+                        "value": "the Grey",
+                      },
+                      Object {
+                        "name": "Meriadoc",
+                        "value": "Brandybuck",
+                      },
+                      Object {
+                        "name": "Peregrin",
+                        "value": "Took",
+                      },
+                      Object {
+                        "name": "Gimli",
+                        "value": "song of Gloin",
+                      },
+                      Object {
+                        "name": "Legolas",
+                        "value": "Greenleaf",
+                      },
+                      Object {
+                        "name": "Boromir",
+                        "value": "son of Denethor",
+                      },
+                      Object {
+                        "name": "Aragorn",
+                        "value": "son of Arathorn",
+                      },
+                    ],
+                  }
+                }
+                factName="Gimli"
+                factValue="son of Gloin"
+                isSubFact={true}
+              />
+            </td>
+          </tr>
+          <tr
+            category="The Fellowship of the Ring"
+            data-ouia-component-id="edit-baseline-table-row-Legolas"
+            data-ouia-component-type="PF4/TableRow"
+            key="Legolas"
+          >
+            <td
+              className="pf-c-table__check nested-fact"
+            >
+              <Checkbox
+                className=""
+                data-ouia-component-id="checkbox-Legolas"
+                data-ouia-component-type="PF4/Checkbox"
+                id="fact-9"
+                isChecked={false}
+                isDisabled={false}
+                isValid={true}
+                name={9}
+                onChange={[Function]}
+              />
+            </td>
+            <td>
+              <p
+                className="child-row"
+              >
+                Legolas
+              </p>
+            </td>
+            <td>
+              Greenleaf
+            </td>
+            <td>
+              <Connect(FactKebab)
+                fact={
+                  Object {
+                    "name": "The Fellowship of the Ring",
+                    "values": Array [
+                      Object {
+                        "name": "Frodo",
+                        "value": "Baggins",
+                      },
+                      Object {
+                        "name": "Samwise",
+                        "value": "Gamgee",
+                      },
+                      Object {
+                        "name": "Gandalf",
+                        "value": "the Grey",
+                      },
+                      Object {
+                        "name": "Meriadoc",
+                        "value": "Brandybuck",
+                      },
+                      Object {
+                        "name": "Peregrin",
+                        "value": "Took",
+                      },
+                      Object {
+                        "name": "Gimli",
+                        "value": "song of Gloin",
+                      },
+                      Object {
+                        "name": "Legolas",
+                        "value": "Greenleaf",
+                      },
+                      Object {
+                        "name": "Boromir",
+                        "value": "son of Denethor",
+                      },
+                      Object {
+                        "name": "Aragorn",
+                        "value": "son of Arathorn",
+                      },
+                    ],
+                  }
+                }
+                factName="Legolas"
+                factValue="Greenleaf"
+                isSubFact={true}
+              />
+            </td>
+          </tr>
+          <tr
+            category="The Fellowship of the Ring"
+            data-ouia-component-id="edit-baseline-table-row-Boromir"
+            data-ouia-component-type="PF4/TableRow"
+            key="Boromir"
+          >
+            <td
+              className="pf-c-table__check nested-fact"
+            >
+              <Checkbox
+                className=""
+                data-ouia-component-id="checkbox-Boromir"
+                data-ouia-component-type="PF4/Checkbox"
+                id="fact-10"
+                isChecked={false}
+                isDisabled={false}
+                isValid={true}
+                name={10}
+                onChange={[Function]}
+              />
+            </td>
+            <td>
+              <p
+                className="child-row"
+              >
+                Boromir
+              </p>
+            </td>
+            <td>
+              son of Denethor
+            </td>
+            <td>
+              <Connect(FactKebab)
+                fact={
+                  Object {
+                    "name": "The Fellowship of the Ring",
+                    "values": Array [
+                      Object {
+                        "name": "Frodo",
+                        "value": "Baggins",
+                      },
+                      Object {
+                        "name": "Samwise",
+                        "value": "Gamgee",
+                      },
+                      Object {
+                        "name": "Gandalf",
+                        "value": "the Grey",
+                      },
+                      Object {
+                        "name": "Meriadoc",
+                        "value": "Brandybuck",
+                      },
+                      Object {
+                        "name": "Peregrin",
+                        "value": "Took",
+                      },
+                      Object {
+                        "name": "Gimli",
+                        "value": "song of Gloin",
+                      },
+                      Object {
+                        "name": "Legolas",
+                        "value": "Greenleaf",
+                      },
+                      Object {
+                        "name": "Boromir",
+                        "value": "son of Denethor",
+                      },
+                      Object {
+                        "name": "Aragorn",
+                        "value": "son of Arathorn",
+                      },
+                    ],
+                  }
+                }
+                factName="Boromir"
+                factValue="son of Denethor"
+                isSubFact={true}
+              />
+            </td>
+          </tr>
+          <tr
+            category="The Fellowship of the Ring"
+            data-ouia-component-id="edit-baseline-table-row-Aragorn"
+            data-ouia-component-type="PF4/TableRow"
+            key="Aragorn"
+          >
+            <td
+              className="pf-c-table__check nested-fact"
+            >
+              <Checkbox
+                className=""
+                data-ouia-component-id="checkbox-Aragorn"
+                data-ouia-component-type="PF4/Checkbox"
+                id="fact-11"
+                isChecked={false}
+                isDisabled={false}
+                isValid={true}
+                name={11}
+                onChange={[Function]}
+              />
+            </td>
+            <td>
+              <p
+                className="child-row"
+              >
+                Aragorn
+              </p>
+            </td>
+            <td>
+              son of Arathorn
+            </td>
+            <td>
+              <Connect(FactKebab)
+                fact={
+                  Object {
+                    "name": "The Fellowship of the Ring",
+                    "values": Array [
+                      Object {
+                        "name": "Frodo",
+                        "value": "Baggins",
+                      },
+                      Object {
+                        "name": "Samwise",
+                        "value": "Gamgee",
+                      },
+                      Object {
+                        "name": "Gandalf",
+                        "value": "the Grey",
+                      },
+                      Object {
+                        "name": "Meriadoc",
+                        "value": "Brandybuck",
+                      },
+                      Object {
+                        "name": "Peregrin",
+                        "value": "Took",
+                      },
+                      Object {
+                        "name": "Gimli",
+                        "value": "song of Gloin",
+                      },
+                      Object {
+                        "name": "Legolas",
+                        "value": "Greenleaf",
+                      },
+                      Object {
+                        "name": "Boromir",
+                        "value": "son of Denethor",
+                      },
+                      Object {
+                        "name": "Aragorn",
+                        "value": "son of Arathorn",
+                      },
+                    ],
+                  }
+                }
+                factName="Aragorn"
+                factValue="son of Arathorn"
+                isSubFact={true}
+              />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </CardBody>
+  </Card>
+</Fragment>
+`;
+
+exports[`EditBaseline should render loading rows 1`] = `
+<Fragment>
+  <div />
+  <Connect(ErrorAlert)
+    error={Object {}}
+  />
+  <Card
+    className="pf-t-light pf-m-opaque-100"
+  >
+    <CardBody>
+      <EditBaselineToolbar
+        hasWritePermissions={true}
+        isDisabled={true}
+        onBulkSelect={[Function]}
+        selected={0}
+        tableData={Array []}
+        totalFacts={0}
+      />
+      <SkeletonTable
+        canSelectAll={false}
+        columns={
+          Array [
+            Object {
+              "title": "Fact",
+              "transforms": Array [
+                [Function],
+              ],
+            },
+            Object {
+              "title": "Value",
+              "transforms": Array [
+                [Function],
+              ],
+            },
+            Object {
+              "title": "",
+              "transforms": Array [
+                [Function],
+              ],
+            },
+          ]
+        }
+        hasRadio={false}
+        isSelectable={true}
+        onSelect={true}
+        paddingColumnSize={0}
+        rowSize={8}
+      />
+    </CardBody>
+  </Card>
+</Fragment>
+`;

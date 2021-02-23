@@ -3142,6 +3142,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                               handleFactFilter={[Function]}
                               historicalProfiles={Array []}
                               isFirstReference={true}
+                              selectedHSPIds={Array []}
                               setHistory={[Function]}
                               setIsFirstReference={[Function]}
                               stateFilters={
@@ -3222,6 +3223,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                     "url": "/",
                                   }
                                 }
+                                selectedHSPIds={Array []}
                                 setHistory={[Function]}
                                 setIsFirstReference={[Function]}
                                 stateFilters={
@@ -3309,6 +3311,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                     }
                                   }
                                   selectHistoricProfiles={[Function]}
+                                  selectedHSPIds={Array []}
                                   setHistory={[Function]}
                                   setIsFirstReference={[Function]}
                                   setSelectedBaselines={[Function]}
@@ -3347,9 +3350,11 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                       historicalProfiles={Array []}
                                       selectActiveTab={[Function]}
                                       selectBaseline={[Function]}
+                                      selectHistoricProfiles={[Function]}
                                       selectedBaselineIds={Array []}
                                       selectedHSPIds={Array []}
                                       selectedSystemIds={Array []}
+                                      setSelectedSystemIds={[Function]}
                                       systems={Array []}
                                       toggleAddSystemModal={[Function]}
                                     >
@@ -3449,6 +3454,8 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                           fetchCompare={[Function]}
                                           masterList={Array []}
                                           removeSystem={[Function]}
+                                          selectHistoricProfiles={[Function]}
+                                          selectedHSPIds={Array []}
                                           setHistory={[Function]}
                                           systemIds={Array []}
                                           toggleFactSort={[Function]}
@@ -7541,6 +7548,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                               handleFactFilter={[Function]}
                               historicalProfiles={Array []}
                               isFirstReference={true}
+                              selectedHSPIds={Array []}
                               setHistory={[Function]}
                               setIsFirstReference={[Function]}
                               stateFilters={
@@ -7625,6 +7633,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                     "url": "/",
                                   }
                                 }
+                                selectedHSPIds={Array []}
                                 setHistory={[Function]}
                                 setIsFirstReference={[Function]}
                                 stateFilters={
@@ -7716,6 +7725,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                     }
                                   }
                                   selectHistoricProfiles={[Function]}
+                                  selectedHSPIds={Array []}
                                   setHistory={[Function]}
                                   setIsFirstReference={[Function]}
                                   setSelectedBaselines={[Function]}
@@ -7754,9 +7764,11 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                       historicalProfiles={Array []}
                                       selectActiveTab={[Function]}
                                       selectBaseline={[Function]}
+                                      selectHistoricProfiles={[Function]}
                                       selectedBaselineIds={Array []}
                                       selectedHSPIds={Array []}
                                       selectedSystemIds={Array []}
+                                      setSelectedSystemIds={[Function]}
                                       systems={Array []}
                                       toggleAddSystemModal={[Function]}
                                     >
@@ -7856,6 +7868,8 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                           fetchCompare={[Function]}
                                           masterList={Array []}
                                           removeSystem={[Function]}
+                                          selectHistoricProfiles={[Function]}
+                                          selectedHSPIds={Array []}
                                           setHistory={[Function]}
                                           systemIds={Array []}
                                           toggleFactSort={[Function]}

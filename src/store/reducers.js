@@ -2,14 +2,18 @@ import React from 'react';
 import { mergeArraysByKey } from '@redhat-cloud-services/frontend-components-utilities/files/helpers';
 import { applyReducerHash } from '@redhat-cloud-services/frontend-components-utilities/files/ReducerRegistry';
 import HistoricalProfilesPopover from '../SmartComponents/HistoricalProfilesPopover/HistoricalProfilesPopover';
+import SystemKebab from '../SmartComponents/BaselinesPage/EditBaselinePage/SystemNotification/SystemKebab/SystemKebab';
 
 import types from '../SmartComponents/modules/types';
 import helpers from '../SmartComponents/helpers';
 
 function selectedReducer(
-    INVENTORY_ACTIONS, createBaselineModal, historicalProfiles, hasMultiSelect, hasHistoricalDropdown, deselectHistoricalProfiles
+    INVENTORY_ACTIONS, baselineId, createBaselineModal, historicalProfiles, hasMultiSelect, hasHistoricalDropdown,
+    deselectHistoricalProfiles, isAddSystemNotifications, selectHistoricProfiles, systemNotificationIds, selectSystemsToAdd,
+    deleteNotifications
 ) {
     let newColumns;
+    let systemIds;
 
     return applyReducerHash({
         [INVENTORY_ACTIONS.LOAD_ENTITIES_FULFILLED]: (state, action) => {
@@ -36,6 +40,10 @@ function selectedReducer(
                     });
                 }
 
+                if (newColumns.find(({ key }) => key === 'system_notification')) {
+                    newColumns.splice(newColumns.findIndex(({ key }) => key === 'system_notification'), 1);
+                }
+
                 rows.forEach(function(row) {
                     let badgeCount = 0;
                     let systemInfo = {
@@ -55,11 +63,49 @@ function selectedReducer(
                             hasBadge={ true }
                             badgeCount={ badgeCount }
                             hasMultiSelect={ hasMultiSelect }
+                            selectHistoricProfiles={ selectHistoricProfiles }
                         />
                     </React.Fragment>;
                 });
-                /*eslint-enable camelcase*/
             }
+
+            if (isAddSystemNotifications) {
+                rows.forEach(function(row) {
+                    if (systemNotificationIds.includes(row.id)) {
+                        row.selected = true;
+                        row.disableSelection = true;
+                    }
+                });
+            }
+
+            if (baselineId && !isAddSystemNotifications) {
+                if (!newColumns.find(({ key }) => key === 'system_notification')) {
+                    newColumns.push({
+                        key: 'system_notification',
+                        title: '',
+                        props: {
+                            isStatic: true
+                        }
+                    });
+                }
+
+                if (newColumns.find(({ key }) => key === 'historical_profiles')) {
+                    newColumns.splice(newColumns.findIndex(({ key }) => key === 'historical_profiles'), 1);
+                }
+
+                rows.forEach(function(row) {
+                    systemIds = [ row.id ];
+
+                    row.system_notification = <React.Fragment>
+                        <SystemKebab
+                            systemIds={ systemIds }
+                            systemName={ row.display_name }
+                            deleteNotifications={ deleteNotifications }
+                        />
+                    </React.Fragment>;
+                });
+            }
+            /*eslint-enable camelcase*/
 
             /* Hide link on systems table */
             newColumns.forEach(function(column, index) {
@@ -67,14 +113,18 @@ function selectedReducer(
                     column.props = {};
                 }
 
-                if (column.key === 'display_name' || column.key === 'display_selected_hsp') {
-                    column.props.width = 20;
-                    if (newColumns.find(({ key }) => key === 'display_selected_hsp')) {
-                        let displaySelectedHSP = newColumns.splice(newColumns.findIndex(({ key }) => key === 'display_selected_hsp'), 1);
-                        newColumns.splice(index, 1, displaySelectedHSP[0]);
+                if (hasHistoricalDropdown) {
+                    if (column.key === 'display_name' || column.key === 'display_selected_hsp') {
+                        column.props.width = 20;
+                        if (newColumns.find(({ key }) => key === 'display_selected_hsp')) {
+                            let displaySelectedHSP = newColumns.splice(newColumns.findIndex(({ key }) => key === 'display_selected_hsp'), 1);
+                            newColumns.splice(index, 1, displaySelectedHSP[0]);
+                        }
+                    } else {
+                        column.props.width = 10;
                     }
                 } else {
-                    column.props.width = 10;
+                    column.props.width = null;
                 }
 
                 if (column.composed) {
@@ -157,6 +207,10 @@ function selectedReducer(
                 selectedSystemIds.push(id);
             } else {
                 selectedSystemIds = selectedSystemIds.filter(item => item !== id);
+            }
+
+            if (isAddSystemNotifications) {
+                selectSystemsToAdd(selectedSystemIds);
             }
 
             return {

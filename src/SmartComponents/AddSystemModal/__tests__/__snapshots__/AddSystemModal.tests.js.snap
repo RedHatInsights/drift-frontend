@@ -68,7 +68,6 @@ exports[`AddSystemModal should render correctly 1`] = `
           hasMultiSelect={true}
           historicalProfiles={Array []}
           selectVariant="checkbox"
-          selectedSystemIds={Array []}
         />
       </Tab>
       <Tab
@@ -9321,6 +9320,9 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
     >
       <Connect(AddSystemModal)
         hasInventoryReadPermissions={true}
+        selectedBaselineIds={Array []}
+        selectedHSPIds={Array []}
+        selectedSystemIds={Array []}
       >
         <AddSystemModal
           activeTab={1}
@@ -9344,8 +9346,11 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
           loading={false}
           selectActiveTab={[Function]}
           selectBaseline={[Function]}
+          selectHistoricProfiles={[Function]}
           selectedBaselineIds={Array []}
           selectedHSPIds={Array []}
+          selectedSystemIds={Array []}
+          setSelectedSystemIds={[Function]}
           systems={
             Array [
               Object {
@@ -10617,13 +10622,9 @@ Try changing your filter settings.
                                           hasInventoryReadPermissions={true}
                                           hasMultiSelect={true}
                                           historicalProfiles={Array []}
+                                          onSystemSelect={[Function]}
                                           selectVariant="checkbox"
-                                          selectedSystemIds={
-                                            Array [
-                                              "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
-                                              "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
-                                            ]
-                                          }
+                                          selectedSystemIds={Array []}
                                         />
                                       </Tab>
                                     }
@@ -10649,13 +10650,9 @@ Try changing your filter settings.
                                             hasInventoryReadPermissions={true}
                                             hasMultiSelect={true}
                                             historicalProfiles={Array []}
+                                            onSystemSelect={[Function]}
                                             selectVariant="checkbox"
-                                            selectedSystemIds={
-                                              Array [
-                                                "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
-                                                "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
-                                              ]
-                                            }
+                                            selectedSystemIds={Array []}
                                           />
                                         </Tab>
                                       }
@@ -10682,13 +10679,9 @@ Try changing your filter settings.
                                           hasInventoryReadPermissions={true}
                                           hasMultiSelect={true}
                                           historicalProfiles={Array []}
+                                          onSystemSelect={[Function]}
                                           selectVariant="checkbox"
-                                          selectedSystemIds={
-                                            Array [
-                                              "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
-                                              "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
-                                            ]
-                                          }
+                                          selectedSystemIds={Array []}
                                         >
                                           <SystemsTable
                                             driftClearFilters={[Function]}
@@ -10701,15 +10694,11 @@ Try changing your filter settings.
                                             hasInventoryReadPermissions={true}
                                             hasMultiSelect={true}
                                             historicalProfiles={Array []}
+                                            onSystemSelect={[Function]}
                                             selectEntities={[Function]}
                                             selectHistoricProfiles={[Function]}
                                             selectVariant="checkbox"
-                                            selectedSystemIds={
-                                              Array [
-                                                "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
-                                                "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
-                                              ]
-                                            }
+                                            selectedSystemIds={Array []}
                                             setSelectedSystemIds={[Function]}
                                             updateColumns={[Function]}
                                           >
@@ -10747,6 +10736,7 @@ Try changing your filter settings.
                                                   />
                                                 </Bullseye>
                                               }
+                                              getEntities={[Function]}
                                               noDetail={true}
                                               onLoad={[Function]}
                                               showTags={true}
@@ -10792,6 +10782,7 @@ Try changing your filter settings.
                                                     />
                                                   </Bullseye>
                                                 }
+                                                getEntities={[Function]}
                                                 innerRef={null}
                                                 noDetail={true}
                                                 onLoad={[Function]}
@@ -10850,6 +10841,7 @@ Try changing your filter settings.
                                                             />
                                                           </Bullseye>
                                                         }
+                                                        getEntities={[Function]}
                                                         innerRef={null}
                                                         noDetail={true}
                                                         onLoad={[Function]}
@@ -10897,6 +10889,7 @@ Try changing your filter settings.
                                                         />
                                                       </Bullseye>
                                                     }
+                                                    getEntities={[Function]}
                                                     history={
                                                       Object {
                                                         "action": "POP",
@@ -10988,6 +10981,7 @@ Try changing your filter settings.
                                                               />
                                                             </Bullseye>
                                                           }
+                                                          getEntities={[Function]}
                                                           innerRef={null}
                                                           noDetail={true}
                                                           onLoad={[Function]}
@@ -11035,6 +11029,7 @@ Try changing your filter settings.
                                                           />
                                                         </Bullseye>
                                                       }
+                                                      getEntities={[Function]}
                                                       history={
                                                         Object {
                                                           "action": "POP",
@@ -11124,6 +11119,7 @@ Try changing your filter settings.
                                                             />
                                                           </Bullseye>
                                                         }
+                                                        getEntities={[Function]}
                                                         innerRef={null}
                                                         noDetail={true}
                                                         onLoad={[Function]}
@@ -15272,6 +15268,9 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
     >
       <Connect(AddSystemModal)
         hasInventoryReadPermissions={true}
+        selectedBaselineIds={Array []}
+        selectedHSPIds={Array []}
+        selectedSystemIds={Array []}
       >
         <AddSystemModal
           activeTab={0}
@@ -15295,8 +15294,11 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
           loading={false}
           selectActiveTab={[Function]}
           selectBaseline={[Function]}
+          selectHistoricProfiles={[Function]}
           selectedBaselineIds={Array []}
           selectedHSPIds={Array []}
+          selectedSystemIds={Array []}
+          setSelectedSystemIds={[Function]}
           systems={
             Array [
               Object {
@@ -16568,13 +16570,9 @@ Try changing your filter settings.
                                           hasInventoryReadPermissions={true}
                                           hasMultiSelect={true}
                                           historicalProfiles={Array []}
+                                          onSystemSelect={[Function]}
                                           selectVariant="checkbox"
-                                          selectedSystemIds={
-                                            Array [
-                                              "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
-                                              "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
-                                            ]
-                                          }
+                                          selectedSystemIds={Array []}
                                         />
                                       </Tab>
                                     }
@@ -16600,13 +16598,9 @@ Try changing your filter settings.
                                             hasInventoryReadPermissions={true}
                                             hasMultiSelect={true}
                                             historicalProfiles={Array []}
+                                            onSystemSelect={[Function]}
                                             selectVariant="checkbox"
-                                            selectedSystemIds={
-                                              Array [
-                                                "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
-                                                "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
-                                              ]
-                                            }
+                                            selectedSystemIds={Array []}
                                           />
                                         </Tab>
                                       }
@@ -16633,13 +16627,9 @@ Try changing your filter settings.
                                           hasInventoryReadPermissions={true}
                                           hasMultiSelect={true}
                                           historicalProfiles={Array []}
+                                          onSystemSelect={[Function]}
                                           selectVariant="checkbox"
-                                          selectedSystemIds={
-                                            Array [
-                                              "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
-                                              "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
-                                            ]
-                                          }
+                                          selectedSystemIds={Array []}
                                         >
                                           <SystemsTable
                                             driftClearFilters={[Function]}
@@ -16652,15 +16642,11 @@ Try changing your filter settings.
                                             hasInventoryReadPermissions={true}
                                             hasMultiSelect={true}
                                             historicalProfiles={Array []}
+                                            onSystemSelect={[Function]}
                                             selectEntities={[Function]}
                                             selectHistoricProfiles={[Function]}
                                             selectVariant="checkbox"
-                                            selectedSystemIds={
-                                              Array [
-                                                "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
-                                                "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
-                                              ]
-                                            }
+                                            selectedSystemIds={Array []}
                                             setSelectedSystemIds={[Function]}
                                             updateColumns={[Function]}
                                           >
@@ -16698,6 +16684,7 @@ Try changing your filter settings.
                                                   />
                                                 </Bullseye>
                                               }
+                                              getEntities={[Function]}
                                               noDetail={true}
                                               onLoad={[Function]}
                                               showTags={true}
@@ -16743,6 +16730,7 @@ Try changing your filter settings.
                                                     />
                                                   </Bullseye>
                                                 }
+                                                getEntities={[Function]}
                                                 innerRef={null}
                                                 noDetail={true}
                                                 onLoad={[Function]}
@@ -16801,6 +16789,7 @@ Try changing your filter settings.
                                                             />
                                                           </Bullseye>
                                                         }
+                                                        getEntities={[Function]}
                                                         innerRef={null}
                                                         noDetail={true}
                                                         onLoad={[Function]}
@@ -16848,6 +16837,7 @@ Try changing your filter settings.
                                                         />
                                                       </Bullseye>
                                                     }
+                                                    getEntities={[Function]}
                                                     history={
                                                       Object {
                                                         "action": "POP",
@@ -16939,6 +16929,7 @@ Try changing your filter settings.
                                                               />
                                                             </Bullseye>
                                                           }
+                                                          getEntities={[Function]}
                                                           innerRef={null}
                                                           noDetail={true}
                                                           onLoad={[Function]}
@@ -16986,6 +16977,7 @@ Try changing your filter settings.
                                                           />
                                                         </Bullseye>
                                                       }
+                                                      getEntities={[Function]}
                                                       history={
                                                         Object {
                                                           "action": "POP",
@@ -21174,6 +21166,9 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
     >
       <Connect(AddSystemModal)
         hasInventoryReadPermissions={false}
+        selectedBaselineIds={Array []}
+        selectedHSPIds={Array []}
+        selectedSystemIds={Array []}
       >
         <AddSystemModal
           activeTab={0}
@@ -21197,8 +21192,11 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
           loading={false}
           selectActiveTab={[Function]}
           selectBaseline={[Function]}
+          selectHistoricProfiles={[Function]}
           selectedBaselineIds={Array []}
           selectedHSPIds={Array []}
+          selectedSystemIds={Array []}
+          setSelectedSystemIds={[Function]}
           systems={
             Array [
               Object {
@@ -22484,13 +22482,9 @@ Try changing your filter settings.
                                           hasInventoryReadPermissions={false}
                                           hasMultiSelect={true}
                                           historicalProfiles={Array []}
+                                          onSystemSelect={[Function]}
                                           selectVariant="checkbox"
-                                          selectedSystemIds={
-                                            Array [
-                                              "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
-                                              "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
-                                            ]
-                                          }
+                                          selectedSystemIds={Array []}
                                         />
                                       </Tab>
                                     }
@@ -22516,13 +22510,9 @@ Try changing your filter settings.
                                             hasInventoryReadPermissions={false}
                                             hasMultiSelect={true}
                                             historicalProfiles={Array []}
+                                            onSystemSelect={[Function]}
                                             selectVariant="checkbox"
-                                            selectedSystemIds={
-                                              Array [
-                                                "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
-                                                "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
-                                              ]
-                                            }
+                                            selectedSystemIds={Array []}
                                           />
                                         </Tab>
                                       }
@@ -22549,13 +22539,9 @@ Try changing your filter settings.
                                           hasInventoryReadPermissions={false}
                                           hasMultiSelect={true}
                                           historicalProfiles={Array []}
+                                          onSystemSelect={[Function]}
                                           selectVariant="checkbox"
-                                          selectedSystemIds={
-                                            Array [
-                                              "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
-                                              "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
-                                            ]
-                                          }
+                                          selectedSystemIds={Array []}
                                         >
                                           <SystemsTable
                                             driftClearFilters={[Function]}
@@ -22568,15 +22554,11 @@ Try changing your filter settings.
                                             hasInventoryReadPermissions={false}
                                             hasMultiSelect={true}
                                             historicalProfiles={Array []}
+                                            onSystemSelect={[Function]}
                                             selectEntities={[Function]}
                                             selectHistoricProfiles={[Function]}
                                             selectVariant="checkbox"
-                                            selectedSystemIds={
-                                              Array [
-                                                "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
-                                                "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
-                                              ]
-                                            }
+                                            selectedSystemIds={Array []}
                                             setSelectedSystemIds={[Function]}
                                             updateColumns={[Function]}
                                           >

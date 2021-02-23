@@ -2,7 +2,8 @@ import types from './types';
 
 const initialState = {
     addSystemModalOpened: false,
-    activeTab: 0
+    activeTab: 0,
+    selectedSystemIds: []
 };
 
 export function addSystemModalReducer(state = initialState, action) {
@@ -16,6 +17,11 @@ export function addSystemModalReducer(state = initialState, action) {
             return {
                 ...state,
                 activeTab: action.payload
+            };
+        case `${types.SET_SELECTED_SYSTEMS_COMPARISON}`:
+            return {
+                ...state,
+                selectedSystemIds: action.payload
             };
 
         default:

@@ -41,14 +41,12 @@ describe('ConnectedHistoricalProfilesCheckbox', () => {
     beforeEach(() => {
         mockStore = configureStore();
         initialState = {
-            historicProfilesState: {
-                selectedHSPIds: []
-            },
             entities: {}
         };
 
         props = {
-            profile: { id: '1234', captured_date: '03 May 2020, 18:20 UTC' }
+            profile: { id: '1234', captured_date: '03 May 2020, 18:20 UTC' },
+            selectedHSPIds: []
         };
     });
 
