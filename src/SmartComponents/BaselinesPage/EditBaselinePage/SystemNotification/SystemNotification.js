@@ -7,6 +7,10 @@ import NotificationsSystemsTable from '../../../SystemsTable/NotificationsSystem
 import SystemsTable from '../../../SystemsTable/SystemsTable';
 import DeleteNotificationModal from './DeleteNotificationModal/DeleteNotificationModal';
 import { systemNotificationsActions } from './redux';
+<<<<<<< HEAD
+=======
+import api from '../../../../api';
+>>>>>>> 652874e... [DRFT-248] Add notifications to baselines
 
 export class SystemNotification extends Component {
     constructor(props) {
@@ -18,10 +22,15 @@ export class SystemNotification extends Component {
         };
 
         this.toggleModal = () => {
+<<<<<<< HEAD
             const { setSelectedSystemIds } = this.props;
             const { modalOpened } = this.state;
 
             setSelectedSystemIds([]);
+=======
+            const { modalOpened } = this.state;
+
+>>>>>>> 652874e... [DRFT-248] Add notifications to baselines
             this.setState({ modalOpened: !modalOpened });
         };
     }
@@ -34,20 +43,30 @@ export class SystemNotification extends Component {
     }
 
     selectSystemsToAdd = (systemIds) => {
+<<<<<<< HEAD
         const { systemNotificationIds } = this.props;
         let array = [ ...systemNotificationIds ];
 
         const newIds = systemIds.filter((newId) => !array.some((existingId) => existingId === newId));
 
         this.setState({ systemsToAdd: newIds });
+=======
+        this.setState({ systemsToAdd: systemIds });
+>>>>>>> 652874e... [DRFT-248] Add notifications to baselines
     }
 
     addNotification = async () => {
         const { systemsToAdd } = this.state;
+<<<<<<< HEAD
         const { addNotifications, baselineId } = this.props;
 
         await addNotifications(baselineId, systemsToAdd);
         this.setState({ systemsToAdd: []});
+=======
+        const { baselineId } = this.props;
+
+        await api.addSystemNotification(baselineId, systemsToAdd);
+>>>>>>> 652874e... [DRFT-248] Add notifications to baselines
 
         this.toggleModal();
         this.fetchSystems(baselineId);
