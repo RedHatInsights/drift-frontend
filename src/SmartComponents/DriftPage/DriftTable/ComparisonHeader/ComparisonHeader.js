@@ -48,7 +48,7 @@ class ComparisonHeader extends Component {
     }
 
     renderSystemHeaders() {
-        const { fetchCompare, masterList, referenceId, removeSystem, selectedHSPIds,
+        const { fetchCompare, masterList, referenceId, removeSystem, selectedBaselineIds, selectedHSPIds,
             selectHistoricProfiles, systemIds, updateReferenceId } = this.props;
 
         let row = [];
@@ -128,6 +128,7 @@ class ComparisonHeader extends Component {
                                     hasMultiSelect={ true }
                                     selectedHSPIds={ selectedHSPIds }
                                     selectHistoricProfiles={ selectHistoricProfiles }
+                                    selectedBaselineIds={ selectedBaselineIds }
                                 />
                                 : null
                             }
@@ -195,7 +196,8 @@ ComparisonHeader.propTypes = {
     updateReferenceId: PropTypes.func,
     setHistory: PropTypes.func,
     selectedHSPIds: PropTypes.array,
-    selectHistoricProfiles: PropTypes.func
+    selectHistoricProfiles: PropTypes.func,
+    selectedBaselineIds: PropTypes.array
 };
 
 export default ComparisonHeader;

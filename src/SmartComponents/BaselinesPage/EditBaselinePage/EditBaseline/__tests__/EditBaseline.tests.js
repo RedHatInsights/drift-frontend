@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import toJson from 'enzyme-to-json';
 import helpersFixtures from './helpers.fixtures';
 
-import editBaselineFixtures from './helpers.fixtures';
+//import editBaselineFixtures from './helpers.fixtures';
 import EditBaseline from '../EditBaseline';
 //import api from '../../../../../api';
 import { PermissionContext } from '../../../../../App';
@@ -119,6 +119,24 @@ describe('EditBaseline', () => {
         );
 
         expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('should render with baseline facts', () => {
+        initialState.editBaselineState.baselineData = editBaselineFixtures.mockBaselineData1;
+        initialState.editBaselineState.editBaselineTableData = editBaselineFixtures.mockBaselineTableData1;
+        const store = mockStore(initialState);
+        const wrapper = mount(
+            <PermissionContext.Provider value={ value }>
+                <MemoryRouter keyLength={ 0 }>
+                    <Provider store={ store }>
+                        <ConnectedEditBaseline />
+                    </Provider>
+                </MemoryRouter>
+            </PermissionContext.Provider>
+        );
+
+        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(wrapper.find('#edit-baseline-title').text()).toEqual('lotr-baseline');
     });*/
 
     it('should render expandable rows closed', () => {
@@ -370,8 +388,9 @@ describe('EditBaseline', () => {
     });*/
 
     it.skip('should render toggle edit name modal', () => {
-        props.baselineData = editBaselineFixtures.mockBaselineData1;
+        //props.baselineData = editBaselineFixtures.mockBaselineData1;
         //const clearErrorData = jest.fn();
+        //initialState.editBaselineState.baselineData = editBaselineFixtures.mockBaselineData1;
         const store = mockStore(initialState);
 
         const wrapper = mount(
@@ -386,7 +405,6 @@ describe('EditBaseline', () => {
 
         wrapper.find('[className="pointer not-active edit-icon-margin"]').at(1).simulate('click');
         wrapper.update();
-        //expect(initialState.clearErrorData).toHaveBeenCalled();
         expect(wrapper.instance().state.modalOpened).toBe(true);
     });
 });

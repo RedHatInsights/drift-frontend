@@ -44,14 +44,6 @@ describe('HistoricalProfilesPopover', () => {
     });
 
     describe('API', () => {
-        /*it('should render DropdownDirection.up', () => {
-            props.dropdownDirection = DropdownDirection.up;
-            const wrapper = shallow(
-                <HistoricalProfilesPopover { ...props }/>
-            );
-            expect(wrapper.find('Dropdown').prop('direction')).toBe('up');
-        });*/
-
         it('should set badgeCount to 0', () => {
             props.selectedHSPIds = [ 'abcd1234' ];
             props.badgeCount = 1;

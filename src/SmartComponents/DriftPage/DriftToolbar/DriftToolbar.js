@@ -134,7 +134,7 @@ export class DriftToolbar extends Component {
         const { clearComparison, clearSelectedBaselines, setHistory, setIsFirstReference, updateReferenceId } = this.props;
 
         await clearComparison();
-        await clearSelectedBaselines('CHECKBOX');
+        await clearSelectedBaselines('COMPARISON');
         await setIsFirstReference(true);
         await updateReferenceId();
         setHistory();

@@ -55,12 +55,12 @@ describe('table pagination', () => {
             <TablePagination
                 { ...props }
                 updatePagination={ updatePagination }
-                tableId={ 'CHECKBOX' }
+                tableId={ 'COMPARISON' }
             />
         );
 
         wrapper.find('.pf-c-button').at(2).simulate('click');
-        expect(updatePagination).toHaveBeenCalledWith({ page: 2, perPage: 50 }, 'CHECKBOX');
+        expect(updatePagination).toHaveBeenCalledWith({ page: 2, perPage: 50 }, 'COMPARISON');
     });
 
     it('should call updatePagination with page: 1 perPage 10', () => {
@@ -85,12 +85,12 @@ describe('table pagination', () => {
             <TablePagination
                 { ...props }
                 updatePagination={ updatePagination }
-                tableId={ 'CHECKBOX' }
+                tableId={ 'COMPARISON' }
             />
         );
 
         wrapper.find('.pf-c-options-menu__toggle-button').at(0).simulate('click');
         wrapper.find('.pf-c-options-menu__menu-item').at(0).simulate('click');
-        expect(updatePagination).toHaveBeenCalledWith({ page: 1, perPage: 10 }, 'CHECKBOX');
+        expect(updatePagination).toHaveBeenCalledWith({ page: 1, perPage: 10 }, 'COMPARISON');
     });
 });

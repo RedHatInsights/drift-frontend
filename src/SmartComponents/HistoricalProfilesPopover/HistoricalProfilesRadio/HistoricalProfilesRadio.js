@@ -14,23 +14,23 @@ export class HistoricalProfilesRadio extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        const { profile, selectedHSPIds } = this.props;
+        const { entities, profile } = this.props;
 
-        if (prevProps.selectedHSPIds !== selectedHSPIds) {
+        if (prevProps.entities?.selectedHSP !== entities?.selectedHSP) {
             this.setState({
-                checked: selectedHSPIds.includes(profile.id)
+                checked: entities.selectedHSP?.id === profile.id
             });
         }
     }
 
     findChecked = () => {
-        const { profile, selectedHSPIds, entities } = this.props;
+        const { profile, entities } = this.props;
         let checked;
 
         if (profile.captured_date === 'Latest') {
             checked = entities.selectedSystemIds.some(id => id === profile.id);
         } else {
-            checked = selectedHSPIds.some(id => id === profile.id);
+            checked = entities?.selectedHSP?.id === profile.id;
         }
 
         return checked;
@@ -72,7 +72,6 @@ export class HistoricalProfilesRadio extends Component {
 
 HistoricalProfilesRadio.propTypes = {
     profile: PropTypes.object,
-    selectedHSPIds: PropTypes.array,
     entities: PropTypes.object,
     onSingleSelect: PropTypes.func,
     checked: PropTypes.bool

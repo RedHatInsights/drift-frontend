@@ -105,19 +105,14 @@ describe('ConnectedDeleteBaselinesModal', () => {
 
     beforeEach(() => {
         mockStore = configureStore();
-        initialState = {
-            baselinesTableState: {
-                checkboxTable: {
-                    selectedBaselineIds: []
-                }
-            }
-        };
+
         props = {
             modalOpened: true,
             tableId: 'CHECKBOX',
             clearSelectedBaselines: jest.fn(),
             deleteSelectedBaselines: jest.fn(),
-            fetchWithParams: jest.fn()
+            fetchWithParams: jest.fn(),
+            selectedBaselineIds: []
         };
     });
 
@@ -135,7 +130,7 @@ describe('ConnectedDeleteBaselinesModal', () => {
     });
 
     it.skip('should dispatch actions', async () => {
-        initialState.baselinesTableState.checkboxTable.selectedBaselineIds = [ 'abcd', 'efgh' ];
+        props.selectedBaselineIds = [ 'abcd', 'efgh' ];
         const store = mockStore(initialState);
         props.deleteSelectedBaselines
         .mockReturnValue({

@@ -90,12 +90,6 @@ DeleteBaselinesModal.propTypes = {
     revertBaselineFetch: PropTypes.func
 };
 
-function mapStateToProps(state) {
-    return {
-        selectedBaselineIds: state.baselinesTableState.checkboxTable.selectedBaselineIds
-    };
-}
-
 function mapDispatchToProps(dispatch) {
     return {
         deleteSelectedBaselines: (apiBody, tableId) => dispatch(baselinesTableActions.deleteSelectedBaselines(apiBody, tableId)),
@@ -104,4 +98,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DeleteBaselinesModal);
+export default connect(null, mapDispatchToProps)(DeleteBaselinesModal);

@@ -66,7 +66,7 @@ const baselinesTableReducer = (tableId = '') => {
                 if (action.payload.ids.length === 0) {
                     selectedBaselines = [];
                 } else if (action.payload.isSelected) {
-                    if (tableId === 'CHECKBOX') {
+                    if (tableId === 'CHECKBOX' || tableId === 'COMPARISON') {
                         selectedBaselines = union(selectedBaselines.concat(action.payload.ids));
                     } else if (tableId === 'RADIO') {
                         selectedBaselines.pop();
@@ -100,7 +100,7 @@ const baselinesTableReducer = (tableId = '') => {
                 return {
                     ...state,
                     baselineTableData: rows,
-                    selectedBaselineIds: action.payload
+                    selectedBaselineIds: action.payload.length ? action.payload : state.selectedBaselineIds
                 };
             case `CLEAR_SELECTED_BASELINES_${tableId}`:
                 return {

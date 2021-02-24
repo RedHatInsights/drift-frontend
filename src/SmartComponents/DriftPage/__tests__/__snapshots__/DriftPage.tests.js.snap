@@ -142,6 +142,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                 "replace": [Function],
               }
             }
+            loadEntities={[Function]}
             loading={false}
             location={
               Object {
@@ -162,6 +163,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
             previousStateSystems={Array []}
             revertCompareData={[Function]}
             selectHistoricProfiles={[Function]}
+            selectedBaselineIds={Array []}
             selectedHSPIds={Array []}
             stateFilters={
               Array [
@@ -3142,6 +3144,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                               handleFactFilter={[Function]}
                               historicalProfiles={Array []}
                               isFirstReference={true}
+                              selectedBaselineIds={Array []}
                               selectedHSPIds={Array []}
                               setHistory={[Function]}
                               setIsFirstReference={[Function]}
@@ -3223,6 +3226,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                     "url": "/",
                                   }
                                 }
+                                selectedBaselineIds={Array []}
                                 selectedHSPIds={Array []}
                                 setHistory={[Function]}
                                 setIsFirstReference={[Function]}
@@ -3311,6 +3315,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                     }
                                   }
                                   selectHistoricProfiles={[Function]}
+                                  selectedBaselineIds={Array []}
                                   selectedHSPIds={Array []}
                                   setHistory={[Function]}
                                   setIsFirstReference={[Function]}
@@ -3357,12 +3362,13 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                       setSelectedSystemIds={[Function]}
                                       systems={Array []}
                                       toggleAddSystemModal={[Function]}
+                                      updateColumns={[Function]}
                                     >
                                       <Modal
                                         actions={
                                           Array [
                                             <Button
-                                              isDisabled={true}
+                                              isDisabled={false}
                                               onClick={[Function]}
                                               ouiaId="add-to-comparison-submit-button"
                                               variant="primary"
@@ -3402,7 +3408,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                             actions={
                                               Array [
                                                 <Button
-                                                  isDisabled={true}
+                                                  isDisabled={false}
                                                   onClick={[Function]}
                                                   ouiaId="add-to-comparison-submit-button"
                                                   variant="primary"
@@ -3455,6 +3461,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                           masterList={Array []}
                                           removeSystem={[Function]}
                                           selectHistoricProfiles={[Function]}
+                                          selectedBaselineIds={Array []}
                                           selectedHSPIds={Array []}
                                           setHistory={[Function]}
                                           systemIds={Array []}
@@ -4536,6 +4543,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                 "replace": [Function],
               }
             }
+            loadEntities={[Function]}
             loading={false}
             location={
               Object {
@@ -4556,6 +4564,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
             previousStateSystems={Array []}
             revertCompareData={[Function]}
             selectHistoricProfiles={[Function]}
+            selectedBaselineIds={Array []}
             selectedHSPIds={Array []}
             stateFilters={
               Array [
@@ -7548,6 +7557,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                               handleFactFilter={[Function]}
                               historicalProfiles={Array []}
                               isFirstReference={true}
+                              selectedBaselineIds={Array []}
                               selectedHSPIds={Array []}
                               setHistory={[Function]}
                               setIsFirstReference={[Function]}
@@ -7633,6 +7643,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                     "url": "/",
                                   }
                                 }
+                                selectedBaselineIds={Array []}
                                 selectedHSPIds={Array []}
                                 setHistory={[Function]}
                                 setIsFirstReference={[Function]}
@@ -7725,6 +7736,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                     }
                                   }
                                   selectHistoricProfiles={[Function]}
+                                  selectedBaselineIds={Array []}
                                   selectedHSPIds={Array []}
                                   setHistory={[Function]}
                                   setIsFirstReference={[Function]}
@@ -7771,12 +7783,13 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                       setSelectedSystemIds={[Function]}
                                       systems={Array []}
                                       toggleAddSystemModal={[Function]}
+                                      updateColumns={[Function]}
                                     >
                                       <Modal
                                         actions={
                                           Array [
                                             <Button
-                                              isDisabled={true}
+                                              isDisabled={false}
                                               onClick={[Function]}
                                               ouiaId="add-to-comparison-submit-button"
                                               variant="primary"
@@ -7816,7 +7829,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                             actions={
                                               Array [
                                                 <Button
-                                                  isDisabled={true}
+                                                  isDisabled={false}
                                                   onClick={[Function]}
                                                   ouiaId="add-to-comparison-submit-button"
                                                   variant="primary"
@@ -7869,6 +7882,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                           masterList={Array []}
                                           removeSystem={[Function]}
                                           selectHistoricProfiles={[Function]}
+                                          selectedBaselineIds={Array []}
                                           selectedHSPIds={Array []}
                                           setHistory={[Function]}
                                           systemIds={Array []}

@@ -131,6 +131,9 @@ describe('ConnectedDriftPage', () => {
                 selectedSystemIds: []
             },
             baselinesTableState: {
+                comparisonTable: {
+                    selectedBaselineIds: []
+                },
                 checkboxTable: {
                     selectedBaselineIds: []
                 }

@@ -108,7 +108,7 @@ export class BaselinesToolbar extends Component {
     render() {
         const { createButton, exportButton, fetchWithParams, hasMultiSelect, hasReadPermissions,
             hasWritePermissions, kebab, loading, onBulkSelect, tableData, tableId,
-            page, perPage, totalBaselines, updatePagination } = this.props;
+            page, perPage, selectedBaselineIds, totalBaselines, updatePagination } = this.props;
         const { bulkSelectItems, dropdownItems, dropdownOpen, modalOpened, nameSearch } = this.state;
         let selected = tableData.filter(baseline => baseline.selected === true).length;
 
@@ -119,6 +119,7 @@ export class BaselinesToolbar extends Component {
                     tableId={ tableId }
                     fetchWithParams={ fetchWithParams }
                     toggleModal={ this.toggleModal }
+                    selectedBaselineIds={ selectedBaselineIds }
                 />
                 <Toolbar className="drift-toolbar" clearAllFilters={ this.clearFilters }>
                     <ToolbarContent>

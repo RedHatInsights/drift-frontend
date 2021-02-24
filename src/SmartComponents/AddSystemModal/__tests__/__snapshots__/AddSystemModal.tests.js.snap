@@ -101,7 +101,7 @@ exports[`AddSystemModal should render correctly 1`] = `
           onSelect={[Function]}
           selectedBaselineIds={Array []}
           tableData={Array []}
-          tableId="CHECKBOX"
+          tableId="COMPARISON"
         />
       </Tab>
     </Tabs>
@@ -9366,6 +9366,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
             ]
           }
           toggleAddSystemModal={[Function]}
+          updateColumns={[Function]}
         >
           <Modal
             actions={
@@ -10697,6 +10698,7 @@ Try changing your filter settings.
                                             onSystemSelect={[Function]}
                                             selectEntities={[Function]}
                                             selectHistoricProfiles={[Function]}
+                                            selectSingleHSP={[Function]}
                                             selectVariant="checkbox"
                                             selectedSystemIds={Array []}
                                             setSelectedSystemIds={[Function]}
@@ -11202,7 +11204,7 @@ Try changing your filter settings.
                                           onSelect={[Function]}
                                           selectedBaselineIds={Array []}
                                           tableData={Array []}
-                                          tableId="CHECKBOX"
+                                          tableId="COMPARISON"
                                         />
                                       </Tab>
                                     }
@@ -11243,7 +11245,7 @@ Try changing your filter settings.
                                             onSelect={[Function]}
                                             selectedBaselineIds={Array []}
                                             tableData={Array []}
-                                            tableId="CHECKBOX"
+                                            tableId="COMPARISON"
                                           />
                                         </Tab>
                                       }
@@ -11285,7 +11287,7 @@ Try changing your filter settings.
                                           onSelect={[Function]}
                                           selectedBaselineIds={Array []}
                                           tableData={Array []}
-                                          tableId="CHECKBOX"
+                                          tableId="COMPARISON"
                                         >
                                           <BaselinesTable
                                             columns={
@@ -11314,7 +11316,7 @@ Try changing your filter settings.
                                             onSelect={[Function]}
                                             selectedBaselineIds={Array []}
                                             tableData={Array []}
-                                            tableId="CHECKBOX"
+                                            tableId="COMPARISON"
                                           >
                                             <BaselinesToolbar
                                               exportToCSV={[Function]}
@@ -11329,13 +11331,14 @@ Try changing your filter settings.
                                               perPage={20}
                                               selectedBaselineIds={Array []}
                                               tableData={Array []}
-                                              tableId="CHECKBOX"
+                                              tableId="COMPARISON"
                                               updatePagination={[Function]}
                                             >
                                               <Connect(DeleteBaselinesModal)
                                                 fetchWithParams={[Function]}
                                                 modalOpened={false}
-                                                tableId="CHECKBOX"
+                                                selectedBaselineIds={Array []}
+                                                tableId="COMPARISON"
                                                 toggleModal={[Function]}
                                               >
                                                 <DeleteBaselinesModal
@@ -11345,7 +11348,7 @@ Try changing your filter settings.
                                                   modalOpened={false}
                                                   revertBaselineFetch={[Function]}
                                                   selectedBaselineIds={Array []}
-                                                  tableId="CHECKBOX"
+                                                  tableId="COMPARISON"
                                                   toggleModal={[Function]}
                                                 >
                                                   <Modal
@@ -12015,7 +12018,7 @@ Try changing your filter settings.
                                                                 isCompact={true}
                                                                 page={1}
                                                                 perPage={20}
-                                                                tableId="CHECKBOX"
+                                                                tableId="COMPARISON"
                                                                 total={0}
                                                                 updatePagination={[Function]}
                                                               >
@@ -14331,7 +14334,7 @@ Try changing your filter settings.
                                                               isCompact={false}
                                                               page={1}
                                                               perPage={20}
-                                                              tableId="CHECKBOX"
+                                                              tableId="COMPARISON"
                                                               total={0}
                                                               updatePagination={[Function]}
                                                             >
@@ -15314,6 +15317,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
             ]
           }
           toggleAddSystemModal={[Function]}
+          updateColumns={[Function]}
         >
           <Modal
             actions={
@@ -16645,6 +16649,7 @@ Try changing your filter settings.
                                             onSystemSelect={[Function]}
                                             selectEntities={[Function]}
                                             selectHistoricProfiles={[Function]}
+                                            selectSingleHSP={[Function]}
                                             selectVariant="checkbox"
                                             selectedSystemIds={Array []}
                                             setSelectedSystemIds={[Function]}
@@ -17100,7 +17105,7 @@ Try changing your filter settings.
                                           onSelect={[Function]}
                                           selectedBaselineIds={Array []}
                                           tableData={Array []}
-                                          tableId="CHECKBOX"
+                                          tableId="COMPARISON"
                                         />
                                       </Tab>
                                     }
@@ -17141,7 +17146,7 @@ Try changing your filter settings.
                                             onSelect={[Function]}
                                             selectedBaselineIds={Array []}
                                             tableData={Array []}
-                                            tableId="CHECKBOX"
+                                            tableId="COMPARISON"
                                           />
                                         </Tab>
                                       }
@@ -17183,7 +17188,7 @@ Try changing your filter settings.
                                           onSelect={[Function]}
                                           selectedBaselineIds={Array []}
                                           tableData={Array []}
-                                          tableId="CHECKBOX"
+                                          tableId="COMPARISON"
                                         >
                                           <BaselinesTable
                                             columns={
@@ -17212,7 +17217,7 @@ Try changing your filter settings.
                                             onSelect={[Function]}
                                             selectedBaselineIds={Array []}
                                             tableData={Array []}
-                                            tableId="CHECKBOX"
+                                            tableId="COMPARISON"
                                           >
                                             <BaselinesToolbar
                                               exportToCSV={[Function]}
@@ -17227,13 +17232,14 @@ Try changing your filter settings.
                                               perPage={20}
                                               selectedBaselineIds={Array []}
                                               tableData={Array []}
-                                              tableId="CHECKBOX"
+                                              tableId="COMPARISON"
                                               updatePagination={[Function]}
                                             >
                                               <Connect(DeleteBaselinesModal)
                                                 fetchWithParams={[Function]}
                                                 modalOpened={false}
-                                                tableId="CHECKBOX"
+                                                selectedBaselineIds={Array []}
+                                                tableId="COMPARISON"
                                                 toggleModal={[Function]}
                                               >
                                                 <DeleteBaselinesModal
@@ -17243,7 +17249,7 @@ Try changing your filter settings.
                                                   modalOpened={false}
                                                   revertBaselineFetch={[Function]}
                                                   selectedBaselineIds={Array []}
-                                                  tableId="CHECKBOX"
+                                                  tableId="COMPARISON"
                                                   toggleModal={[Function]}
                                                 >
                                                   <Modal
@@ -17913,7 +17919,7 @@ Try changing your filter settings.
                                                                 isCompact={true}
                                                                 page={1}
                                                                 perPage={20}
-                                                                tableId="CHECKBOX"
+                                                                tableId="COMPARISON"
                                                                 total={0}
                                                                 updatePagination={[Function]}
                                                               >
@@ -20229,7 +20235,7 @@ Try changing your filter settings.
                                                               isCompact={false}
                                                               page={1}
                                                               perPage={20}
-                                                              tableId="CHECKBOX"
+                                                              tableId="COMPARISON"
                                                               total={0}
                                                               updatePagination={[Function]}
                                                             >
@@ -21212,6 +21218,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
             ]
           }
           toggleAddSystemModal={[Function]}
+          updateColumns={[Function]}
         >
           <Modal
             actions={
@@ -22557,6 +22564,7 @@ Try changing your filter settings.
                                             onSystemSelect={[Function]}
                                             selectEntities={[Function]}
                                             selectHistoricProfiles={[Function]}
+                                            selectSingleHSP={[Function]}
                                             selectVariant="checkbox"
                                             selectedSystemIds={Array []}
                                             setSelectedSystemIds={[Function]}
@@ -22675,7 +22683,7 @@ Try changing your filter settings.
                                           onSelect={[Function]}
                                           selectedBaselineIds={Array []}
                                           tableData={Array []}
-                                          tableId="CHECKBOX"
+                                          tableId="COMPARISON"
                                         />
                                       </Tab>
                                     }
@@ -22716,7 +22724,7 @@ Try changing your filter settings.
                                             onSelect={[Function]}
                                             selectedBaselineIds={Array []}
                                             tableData={Array []}
-                                            tableId="CHECKBOX"
+                                            tableId="COMPARISON"
                                           />
                                         </Tab>
                                       }
@@ -22758,7 +22766,7 @@ Try changing your filter settings.
                                           onSelect={[Function]}
                                           selectedBaselineIds={Array []}
                                           tableData={Array []}
-                                          tableId="CHECKBOX"
+                                          tableId="COMPARISON"
                                         >
                                           <BaselinesTable
                                             columns={
@@ -22787,7 +22795,7 @@ Try changing your filter settings.
                                             onSelect={[Function]}
                                             selectedBaselineIds={Array []}
                                             tableData={Array []}
-                                            tableId="CHECKBOX"
+                                            tableId="COMPARISON"
                                           >
                                             <BaselinesToolbar
                                               exportToCSV={[Function]}
@@ -22802,13 +22810,14 @@ Try changing your filter settings.
                                               perPage={20}
                                               selectedBaselineIds={Array []}
                                               tableData={Array []}
-                                              tableId="CHECKBOX"
+                                              tableId="COMPARISON"
                                               updatePagination={[Function]}
                                             >
                                               <Connect(DeleteBaselinesModal)
                                                 fetchWithParams={[Function]}
                                                 modalOpened={false}
-                                                tableId="CHECKBOX"
+                                                selectedBaselineIds={Array []}
+                                                tableId="COMPARISON"
                                                 toggleModal={[Function]}
                                               >
                                                 <DeleteBaselinesModal
@@ -22818,7 +22827,7 @@ Try changing your filter settings.
                                                   modalOpened={false}
                                                   revertBaselineFetch={[Function]}
                                                   selectedBaselineIds={Array []}
-                                                  tableId="CHECKBOX"
+                                                  tableId="COMPARISON"
                                                   toggleModal={[Function]}
                                                 >
                                                   <Modal
@@ -23488,7 +23497,7 @@ Try changing your filter settings.
                                                                 isCompact={true}
                                                                 page={1}
                                                                 perPage={20}
-                                                                tableId="CHECKBOX"
+                                                                tableId="COMPARISON"
                                                                 total={0}
                                                                 updatePagination={[Function]}
                                                               >
@@ -25804,7 +25813,7 @@ Try changing your filter settings.
                                                               isCompact={false}
                                                               page={1}
                                                               perPage={20}
-                                                              tableId="CHECKBOX"
+                                                              tableId="COMPARISON"
                                                               total={0}
                                                               updatePagination={[Function]}
                                                             >

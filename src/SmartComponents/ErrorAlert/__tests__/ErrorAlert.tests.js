@@ -36,12 +36,12 @@ describe('ErrorAlert', () => {
     });
 
     it('should call onClose with tableId', () => {
-        props.tableId = 'CHECKBOX';
+        props.tableId = 'COMPARISON';
         const wrapper = mount(
             <ErrorAlert { ...props } />
         );
 
-        expect(props.onClose).toHaveBeenCalledWith('CHECKBOX');
+        expect(props.onClose).toHaveBeenCalledWith('COMPARISON');
     });
     /*eslint-enable no-unused-vars*/
 });

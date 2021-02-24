@@ -116,8 +116,7 @@ describe('jest-tests', () => {
                 },
                 baselinesTableState: {
                     checkboxTable: {
-                        baselineTableData: baselinesTableFixtures.baselineTableDataRows,
-                        selectedBaselineIds: []
+                        baselineTableData: baselinesTableFixtures.baselineTableDataRows
                     }
                 }
             };
@@ -129,7 +128,8 @@ describe('jest-tests', () => {
                 tableId: 'CHECKBOX',
                 hasMultiSelect: true,
                 hasWritePermissions: true,
-                hasReadPermissions: true
+                hasReadPermissions: true,
+                selectedBaselineIds: []
             };
         });
 

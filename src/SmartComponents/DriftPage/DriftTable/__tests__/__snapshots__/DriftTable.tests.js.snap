@@ -53,21 +53,7 @@ exports[`ConnectedDriftTable should render correctly 1`] = `
         error={Object {}}
         historicalProfiles={Array []}
         systems={Array []}
-        updateReferenceId={
-          [MockFunction] {
-            "calls": Array [
-              Array [
-                undefined,
-              ],
-            ],
-            "results": Array [
-              Object {
-                "type": "return",
-                "value": undefined,
-              },
-            ],
-          }
-        }
+        updateReferenceId={[MockFunction]}
       >
         <Connect(DriftTable)
           baselines={Array []}
@@ -120,21 +106,7 @@ exports[`ConnectedDriftTable should render correctly 1`] = `
             }
           }
           systems={Array []}
-          updateReferenceId={
-            [MockFunction] {
-              "calls": Array [
-                Array [
-                  undefined,
-                ],
-              ],
-              "results": Array [
-                Object {
-                  "type": "return",
-                  "value": undefined,
-                },
-              ],
-            }
-          }
+          updateReferenceId={[MockFunction]}
         >
           <DriftTable
             addSystemModalOpened={false}
@@ -198,21 +170,7 @@ exports[`ConnectedDriftTable should render correctly 1`] = `
             systems={Array []}
             toggleFactSort={[Function]}
             toggleStateSort={[Function]}
-            updateReferenceId={
-              [MockFunction] {
-                "calls": Array [
-                  Array [
-                    undefined,
-                  ],
-                ],
-                "results": Array [
-                  Object {
-                    "type": "return",
-                    "value": undefined,
-                  },
-                ],
-              }
-            }
+            updateReferenceId={[MockFunction]}
           >
             <Connect(AddSystemModal)
               confirmModal={[Function]}
@@ -229,12 +187,13 @@ exports[`ConnectedDriftTable should render correctly 1`] = `
                 selectedSystemIds={Array []}
                 setSelectedSystemIds={[Function]}
                 toggleAddSystemModal={[Function]}
+                updateColumns={[Function]}
               >
                 <Modal
                   actions={
                     Array [
                       <Button
-                        isDisabled={true}
+                        isDisabled={false}
                         onClick={[Function]}
                         ouiaId="add-to-comparison-submit-button"
                         variant="primary"
@@ -274,7 +233,7 @@ exports[`ConnectedDriftTable should render correctly 1`] = `
                       actions={
                         Array [
                           <Button
-                            isDisabled={true}
+                            isDisabled={false}
                             onClick={[Function]}
                             ouiaId="add-to-comparison-submit-button"
                             variant="primary"
@@ -483,21 +442,7 @@ exports[`ConnectedDriftTable should render loading rows 1`] = `
         error={Object {}}
         historicalProfiles={Array []}
         systems={Array []}
-        updateReferenceId={
-          [MockFunction] {
-            "calls": Array [
-              Array [
-                undefined,
-              ],
-            ],
-            "results": Array [
-              Object {
-                "type": "return",
-                "value": undefined,
-              },
-            ],
-          }
-        }
+        updateReferenceId={[MockFunction]}
       >
         <Connect(DriftTable)
           baselines={Array []}
@@ -550,21 +495,7 @@ exports[`ConnectedDriftTable should render loading rows 1`] = `
             }
           }
           systems={Array []}
-          updateReferenceId={
-            [MockFunction] {
-              "calls": Array [
-                Array [
-                  undefined,
-                ],
-              ],
-              "results": Array [
-                Object {
-                  "type": "return",
-                  "value": undefined,
-                },
-              ],
-            }
-          }
+          updateReferenceId={[MockFunction]}
         >
           <DriftTable
             addSystemModalOpened={false}
@@ -628,21 +559,7 @@ exports[`ConnectedDriftTable should render loading rows 1`] = `
             systems={Array []}
             toggleFactSort={[Function]}
             toggleStateSort={[Function]}
-            updateReferenceId={
-              [MockFunction] {
-                "calls": Array [
-                  Array [
-                    undefined,
-                  ],
-                ],
-                "results": Array [
-                  Object {
-                    "type": "return",
-                    "value": undefined,
-                  },
-                ],
-              }
-            }
+            updateReferenceId={[MockFunction]}
           >
             <Connect(AddSystemModal)
               confirmModal={[Function]}
@@ -659,12 +576,13 @@ exports[`ConnectedDriftTable should render loading rows 1`] = `
                 selectedSystemIds={Array []}
                 setSelectedSystemIds={[Function]}
                 toggleAddSystemModal={[Function]}
+                updateColumns={[Function]}
               >
                 <Modal
                   actions={
                     Array [
                       <Button
-                        isDisabled={true}
+                        isDisabled={false}
                         onClick={[Function]}
                         ouiaId="add-to-comparison-submit-button"
                         variant="primary"
@@ -704,7 +622,7 @@ exports[`ConnectedDriftTable should render loading rows 1`] = `
                       actions={
                         Array [
                           <Button
-                            isDisabled={true}
+                            isDisabled={false}
                             onClick={[Function]}
                             ouiaId="add-to-comparison-submit-button"
                             variant="primary"
@@ -1340,21 +1258,7 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
             },
           ]
         }
-        updateReferenceId={
-          [MockFunction] {
-            "calls": Array [
-              Array [
-                undefined,
-              ],
-            ],
-            "results": Array [
-              Object {
-                "type": "return",
-                "value": undefined,
-              },
-            ],
-          }
-        }
+        updateReferenceId={[MockFunction]}
       >
         <Connect(DriftTable)
           baselines={
@@ -1453,21 +1357,7 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
               },
             ]
           }
-          updateReferenceId={
-            [MockFunction] {
-              "calls": Array [
-                Array [
-                  undefined,
-                ],
-              ],
-              "results": Array [
-                Object {
-                  "type": "return",
-                  "value": undefined,
-                },
-              ],
-            }
-          }
+          updateReferenceId={[MockFunction]}
         >
           <DriftTable
             addSystemModalOpened={false}
@@ -2059,21 +1949,7 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
             }
             toggleFactSort={[Function]}
             toggleStateSort={[Function]}
-            updateReferenceId={
-              [MockFunction] {
-                "calls": Array [
-                  Array [
-                    undefined,
-                  ],
-                ],
-                "results": Array [
-                  Object {
-                    "type": "return",
-                    "value": undefined,
-                  },
-                ],
-              }
-            }
+            updateReferenceId={[MockFunction]}
           >
             <Connect(AddSystemModal)
               confirmModal={[Function]}
@@ -2100,6 +1976,7 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                 }
                 setSelectedSystemIds={[Function]}
                 toggleAddSystemModal={[Function]}
+                updateColumns={[Function]}
               >
                 <Modal
                   actions={
@@ -2239,7 +2116,12 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                     }
                     removeSystem={[Function]}
                     selectHistoricProfiles={[Function]}
-                    systemIds={Array []}
+                    systemIds={
+                      Array [
+                        "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                        "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                      ]
+                    }
                     toggleFactSort={[Function]}
                     toggleStateSort={[Function]}
                     updateReferenceId={[Function]}
@@ -3232,7 +3114,12 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                   "type": "system",
                                 }
                               }
-                              systemIds={Array []}
+                              systemIds={
+                                Array [
+                                  "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                  "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                ]
+                              }
                             >
                               <Connect(HistoricalProfilesPopover)
                                 fetchCompare={[Function]}
@@ -3293,7 +3180,12 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                     "type": "system",
                                   }
                                 }
-                                systemIds={Array []}
+                                systemIds={
+                                  Array [
+                                    "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                    "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                  ]
+                                }
                               >
                                 <HistoricalProfilesPopover
                                   fetchCompare={[Function]}
@@ -3358,7 +3250,12 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                       "type": "system",
                                     }
                                   }
-                                  systemIds={Array []}
+                                  systemIds={
+                                    Array [
+                                      "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                      "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                    ]
+                                  }
                                   updateColumns={[Function]}
                                 >
                                   <span
@@ -3867,7 +3764,12 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                   "type": "historical-system-profile",
                                 }
                               }
-                              systemIds={Array []}
+                              systemIds={
+                                Array [
+                                  "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                  "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                ]
+                              }
                             >
                               <Connect(HistoricalProfilesPopover)
                                 fetchCompare={[Function]}
@@ -3929,7 +3831,12 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                     "type": "historical-system-profile",
                                   }
                                 }
-                                systemIds={Array []}
+                                systemIds={
+                                  Array [
+                                    "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                    "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                  ]
+                                }
                               >
                                 <HistoricalProfilesPopover
                                   fetchCompare={[Function]}
@@ -3995,7 +3902,12 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                       "type": "historical-system-profile",
                                     }
                                   }
-                                  systemIds={Array []}
+                                  systemIds={
+                                    Array [
+                                      "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                      "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                    ]
+                                  }
                                   updateColumns={[Function]}
                                 >
                                   <span
@@ -4504,7 +4416,12 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                   "type": "historical-system-profile",
                                 }
                               }
-                              systemIds={Array []}
+                              systemIds={
+                                Array [
+                                  "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                  "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                ]
+                              }
                             >
                               <Connect(HistoricalProfilesPopover)
                                 fetchCompare={[Function]}
@@ -4566,7 +4483,12 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                     "type": "historical-system-profile",
                                   }
                                 }
-                                systemIds={Array []}
+                                systemIds={
+                                  Array [
+                                    "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                    "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                  ]
+                                }
                               >
                                 <HistoricalProfilesPopover
                                   fetchCompare={[Function]}
@@ -4632,7 +4554,12 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                       "type": "historical-system-profile",
                                     }
                                   }
-                                  systemIds={Array []}
+                                  systemIds={
+                                    Array [
+                                      "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                      "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                    ]
+                                  }
                                   updateColumns={[Function]}
                                 >
                                   <span
@@ -5139,7 +5066,12 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                   "type": "system",
                                 }
                               }
-                              systemIds={Array []}
+                              systemIds={
+                                Array [
+                                  "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                  "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                ]
+                              }
                             >
                               <Connect(HistoricalProfilesPopover)
                                 fetchCompare={[Function]}
@@ -5200,7 +5132,12 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                     "type": "system",
                                   }
                                 }
-                                systemIds={Array []}
+                                systemIds={
+                                  Array [
+                                    "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                    "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                  ]
+                                }
                               >
                                 <HistoricalProfilesPopover
                                   fetchCompare={[Function]}
@@ -5265,7 +5202,12 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                       "type": "system",
                                     }
                                   }
-                                  systemIds={Array []}
+                                  systemIds={
+                                    Array [
+                                      "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                      "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                    ]
+                                  }
                                   updateColumns={[Function]}
                                 >
                                   <span
@@ -7456,21 +7398,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
             },
           ]
         }
-        updateReferenceId={
-          [MockFunction] {
-            "calls": Array [
-              Array [
-                undefined,
-              ],
-            ],
-            "results": Array [
-              Object {
-                "type": "return",
-                "value": undefined,
-              },
-            ],
-          }
-        }
+        updateReferenceId={[MockFunction]}
       >
         <Connect(DriftTable)
           baselines={
@@ -7569,21 +7497,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
               },
             ]
           }
-          updateReferenceId={
-            [MockFunction] {
-              "calls": Array [
-                Array [
-                  undefined,
-                ],
-              ],
-              "results": Array [
-                Object {
-                  "type": "return",
-                  "value": undefined,
-                },
-              ],
-            }
-          }
+          updateReferenceId={[MockFunction]}
         >
           <DriftTable
             addSystemModalOpened={false}
@@ -7786,21 +7700,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
             }
             toggleFactSort={[Function]}
             toggleStateSort={[Function]}
-            updateReferenceId={
-              [MockFunction] {
-                "calls": Array [
-                  Array [
-                    undefined,
-                  ],
-                ],
-                "results": Array [
-                  Object {
-                    "type": "return",
-                    "value": undefined,
-                  },
-                ],
-              }
-            }
+            updateReferenceId={[MockFunction]}
           >
             <Connect(AddSystemModal)
               confirmModal={[Function]}
@@ -7827,6 +7727,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                 }
                 setSelectedSystemIds={[Function]}
                 toggleAddSystemModal={[Function]}
+                updateColumns={[Function]}
               >
                 <Modal
                   actions={
@@ -7966,7 +7867,12 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                     }
                     removeSystem={[Function]}
                     selectHistoricProfiles={[Function]}
-                    systemIds={Array []}
+                    systemIds={
+                      Array [
+                        "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                        "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                      ]
+                    }
                     toggleFactSort={[Function]}
                     toggleStateSort={[Function]}
                     updateReferenceId={[Function]}
@@ -8959,7 +8865,12 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                   "type": "system",
                                 }
                               }
-                              systemIds={Array []}
+                              systemIds={
+                                Array [
+                                  "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                  "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                ]
+                              }
                             >
                               <Connect(HistoricalProfilesPopover)
                                 fetchCompare={[Function]}
@@ -9020,7 +8931,12 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                     "type": "system",
                                   }
                                 }
-                                systemIds={Array []}
+                                systemIds={
+                                  Array [
+                                    "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                    "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                  ]
+                                }
                               >
                                 <HistoricalProfilesPopover
                                   fetchCompare={[Function]}
@@ -9085,7 +9001,12 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                       "type": "system",
                                     }
                                   }
-                                  systemIds={Array []}
+                                  systemIds={
+                                    Array [
+                                      "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                      "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                    ]
+                                  }
                                   updateColumns={[Function]}
                                 >
                                   <span
@@ -9594,7 +9515,12 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                   "type": "historical-system-profile",
                                 }
                               }
-                              systemIds={Array []}
+                              systemIds={
+                                Array [
+                                  "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                  "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                ]
+                              }
                             >
                               <Connect(HistoricalProfilesPopover)
                                 fetchCompare={[Function]}
@@ -9656,7 +9582,12 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                     "type": "historical-system-profile",
                                   }
                                 }
-                                systemIds={Array []}
+                                systemIds={
+                                  Array [
+                                    "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                    "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                  ]
+                                }
                               >
                                 <HistoricalProfilesPopover
                                   fetchCompare={[Function]}
@@ -9722,7 +9653,12 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                       "type": "historical-system-profile",
                                     }
                                   }
-                                  systemIds={Array []}
+                                  systemIds={
+                                    Array [
+                                      "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                      "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                    ]
+                                  }
                                   updateColumns={[Function]}
                                 >
                                   <span
@@ -10231,7 +10167,12 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                   "type": "historical-system-profile",
                                 }
                               }
-                              systemIds={Array []}
+                              systemIds={
+                                Array [
+                                  "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                  "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                ]
+                              }
                             >
                               <Connect(HistoricalProfilesPopover)
                                 fetchCompare={[Function]}
@@ -10293,7 +10234,12 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                     "type": "historical-system-profile",
                                   }
                                 }
-                                systemIds={Array []}
+                                systemIds={
+                                  Array [
+                                    "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                    "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                  ]
+                                }
                               >
                                 <HistoricalProfilesPopover
                                   fetchCompare={[Function]}
@@ -10359,7 +10305,12 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                       "type": "historical-system-profile",
                                     }
                                   }
-                                  systemIds={Array []}
+                                  systemIds={
+                                    Array [
+                                      "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                      "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                    ]
+                                  }
                                   updateColumns={[Function]}
                                 >
                                   <span
@@ -10866,7 +10817,12 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                   "type": "system",
                                 }
                               }
-                              systemIds={Array []}
+                              systemIds={
+                                Array [
+                                  "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                  "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                ]
+                              }
                             >
                               <Connect(HistoricalProfilesPopover)
                                 fetchCompare={[Function]}
@@ -10927,7 +10883,12 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                     "type": "system",
                                   }
                                 }
-                                systemIds={Array []}
+                                systemIds={
+                                  Array [
+                                    "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                    "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                  ]
+                                }
                               >
                                 <HistoricalProfilesPopover
                                   fetchCompare={[Function]}
@@ -10992,7 +10953,12 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                       "type": "system",
                                     }
                                   }
-                                  systemIds={Array []}
+                                  systemIds={
+                                    Array [
+                                      "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                      "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                    ]
+                                  }
                                   updateColumns={[Function]}
                                 >
                                   <span
@@ -11716,21 +11682,7 @@ exports[`DriftTable should render correctly 1`] = `
           fetchCompare={[Function]}
           masterList={Array []}
           removeSystem={[Function]}
-          selectHistoricProfiles={
-            [MockFunction] {
-              "calls": Array [
-                Array [
-                  Array [],
-                ],
-              ],
-              "results": Array [
-                Object {
-                  "type": "return",
-                  "value": undefined,
-                },
-              ],
-            }
-          }
+          selectHistoricProfiles={[MockFunction]}
           setHistory={[MockFunction]}
           stateSort="desc"
           systemIds={Array []}
