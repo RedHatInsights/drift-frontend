@@ -1,3 +1,4 @@
+/*eslint-disable camelcase*/
 import React from 'react';
 import { mergeArraysByKey } from '@redhat-cloud-services/frontend-components-utilities/files/helpers';
 import { applyReducerHash } from '@redhat-cloud-services/frontend-components-utilities/files/ReducerRegistry';
@@ -28,7 +29,6 @@ function selectedReducer(
             let rows = mergeArraysByKey([ action.payload.results, state.rows ]);
 
             if (historicalProfiles !== undefined) {
-                /*eslint-disable camelcase*/
                 if (!newColumns.find(({ key }) => key === 'historical_profiles') && hasHistoricalDropdown) {
                     newColumns.push({
                         key: 'historical_profiles',
@@ -142,7 +142,7 @@ function selectedReducer(
             return {
                 ...state,
                 columns: newColumns,
-                rows: state.selectedHSP
+                rows: state.selectedHSP && !hasMultiSelect
                     ? helpers.buildSystemsTableWithSelectedHSP(rows, state.selectedHSP, deselectHistoricalProfiles)
                     : rows
             };
@@ -230,15 +230,32 @@ function selectedReducer(
         [types.SET_SELECTED_SYSTEM_IDS]: (state, action) => {
             return {
                 ...state,
+                rows: [],
+                loaded: false,
                 selectedSystemIds: action.payload.selectedSystemIds
             };
         },
         [types.SELECT_SINGLE_HSP]: (state, action) => {
+            if (!action.payload) {
+                newColumns = [ ...state.columns ];
+                newColumns.forEach(function(column) {
+                    if (column.key === 'display_selected_hsp') {
+                        column.key = 'display_name';
+                    }
+                });
+            }
+
             return {
                 ...state,
-                rows: helpers.buildSystemsTableWithSelectedHSP([ ...state.rows ], action.payload, deselectHistoricalProfiles),
-                columns: newColumns,
-                selectedSystemIds: [],
+                rows: action.payload
+                    ? helpers.buildSystemsTableWithSelectedHSP([ ...state.rows ], action.payload, deselectHistoricalProfiles)
+                    : state.rows,
+                columns: action.payload
+                    ? state.columns
+                    : newColumns,
+                selectedSystemIds: action.payload
+                    ? []
+                    : state.selectedSystemIds,
                 selectedHSP: action.payload
             };
         }
@@ -246,3 +263,4 @@ function selectedReducer(
 }
 
 export default selectedReducer;
+/*eslint-enable camelcase*/

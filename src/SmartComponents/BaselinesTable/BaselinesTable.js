@@ -89,7 +89,7 @@ export class BaselinesTable extends Component {
     }
 
     renderRows(hasWritePermissions) {
-        const { tableData, kebab, onClick, tableId } = this.props;
+        const { tableData, kebab, onClick, selectedBaselineIds, tableId } = this.props;
         let table = [];
 
         tableData.forEach((baseline) => {
@@ -119,6 +119,7 @@ export class BaselinesTable extends Component {
                     baselineRowData={ baseline }
                     fetchWithParams={ this.fetchWithParams }
                     baselineName={ baseline[1] }
+                    selectedBaselineIds={ selectedBaselineIds }
                 />;
                 row.push(<div>{ kebab }</div>);
             }
@@ -180,7 +181,7 @@ export class BaselinesTable extends Component {
                         aria-label="Baselines Table"
                         data-ouia-component-id='baselines-table'
                         onSort={ this.onSort }
-                        onSelect={ hasWritePermissions || (tableId === 'CHECKBOX' && !kebab)
+                        onSelect={ hasWritePermissions || ((tableId === 'CHECKBOX' || tableId === 'COMPARISON') && !kebab)
                             ? onSelect
                             : false }
                         sortBy={ this.state.sortBy }

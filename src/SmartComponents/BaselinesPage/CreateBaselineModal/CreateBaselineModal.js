@@ -4,12 +4,14 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Alert, Button, Modal, Radio, TextInput, Form, FormGroup, ValidatedOptions } from '@patternfly/react-core';
 import { sortable, cellWidth } from '@patternfly/react-table';
+import { addNewListener } from '../../../store';
 
 import SystemsTable from '../../SystemsTable/SystemsTable';
 import BaselinesTable from '../../BaselinesTable/BaselinesTable';
 import GlobalFilterAlert from '../../GlobalFilterAlert/GlobalFilterAlert';
 import { createBaselineModalActions } from './redux';
 import { baselinesTableActions } from '../../BaselinesTable/redux';
+import systemsTableActions from '../../SystemsTable/actions';
 
 export class CreateBaselineModal extends Component {
     constructor(props) {
@@ -46,6 +48,22 @@ export class CreateBaselineModal extends Component {
         };
     }
 
+    async componentDidMount() {
+        window.entityListener = addNewListener({
+            actionType: 'SELECT_ENTITY',
+            callback: () => {
+                this.props.createBaselineModalOpened ? this.deselectHistoricalProfiles() : null;
+            }
+        });
+    }
+
+    deselectHistoricalProfiles = async () => {
+        const { selectSingleHSP, updateColumns } = this.props;
+
+        await updateColumns('display_name');
+        selectSingleHSP();
+    };
+
     findSelectedRadio() {
         const { copyBaselineChecked, copySystemChecked, fromScratchChecked } = this.state;
         const radioChecked = { copyBaselineChecked, copySystemChecked, fromScratchChecked };
@@ -64,7 +82,7 @@ export class CreateBaselineModal extends Component {
     async submitBaselineName() {
         const { baselineName, fromScratchChecked, copyBaselineChecked, copySystemChecked } = this.state;
         const { createBaseline, toggleCreateBaselineModal, selectedBaselineIds,
-            history, entities, clearSelectedBaselines, selectedHSPIds } = this.props;
+            history, entities, clearSelectedBaselines, selectSingleHSP } = this.props;
 
         /*eslint-disable camelcase*/
         let newBaselineObject = { display_name: baselineName };
@@ -77,16 +95,17 @@ export class CreateBaselineModal extends Component {
                 } else if (selectedBaselineIds.length === 1 && copyBaselineChecked) {
                     newBaselineObject = { display_name: baselineName };
                     await createBaseline(newBaselineObject, selectedBaselineIds[0]);
-                } else if (entities.selectedSystemIds.length === 1 && copySystemChecked) {
-                    newBaselineObject.inventory_uuid = entities.selectedSystemIds[0];
+                } else if (entities?.selectedSystemIds.length && copySystemChecked) {
+                    newBaselineObject.inventory_uuid = entities?.selectedSystemIds[0];
                     await createBaseline(newBaselineObject);
-                } else if (selectedHSPIds.length === 1 && copySystemChecked) {
-                    newBaselineObject.hsp_uuid = selectedHSPIds[0];
+                } else if (entities?.selectedHSP && copySystemChecked) {
+                    newBaselineObject.hsp_uuid = entities.selectedHSP.id;
                     await createBaseline(newBaselineObject);
                 }
 
                 history.push('baselines/' + this.props.baselineData.id);
                 toggleCreateBaselineModal();
+                selectSingleHSP();
                 clearSelectedBaselines('RADIO');
             }
         } catch (e) {
@@ -103,10 +122,11 @@ export class CreateBaselineModal extends Component {
     }
 
     cancelModal = () => {
-        const { toggleCreateBaselineModal, clearSelectedBaselines } = this.props;
+        const { toggleCreateBaselineModal, clearSelectedBaselines, selectSingleHSP } = this.props;
 
         this.updateBaselineName('');
         clearSelectedBaselines('RADIO');
+        selectSingleHSP();
         toggleCreateBaselineModal();
     }
 
@@ -146,7 +166,8 @@ export class CreateBaselineModal extends Component {
     }
 
     renderCopyBaseline() {
-        const { baselineTableData, createBaselineModalOpened, hasReadPermissions, hasWritePermissions, loading, totalBaselines } = this.props;
+        const { baselineTableData, createBaselineModalOpened, hasReadPermissions, hasWritePermissions, loading,
+            selectedBaselineIds, totalBaselines } = this.props;
         const { columns } = this.state;
 
         return (<React.Fragment>
@@ -162,26 +183,27 @@ export class CreateBaselineModal extends Component {
                 hasReadPermissions={ hasReadPermissions }
                 hasWritePermissions={ hasWritePermissions }
                 hasMultiSelect={ false }
+                selectedBaselineIds={ selectedBaselineIds }
             />
         </React.Fragment>
         );
     }
 
     renderCopySystem() {
-        const { entities, hasInventoryReadPermissions, historicalProfiles } = this.props;
+        const { entities, hasInventoryReadPermissions } = this.props;
 
         return (<React.Fragment>
             <b>Select system to copy from</b>
             <br></br>
             <SystemsTable
-                selectedSystemIds={ [] }
                 createBaselineModal={ true }
                 hasHistoricalDropdown={ true }
                 hasMultiSelect={ false }
-                historicalProfiles={ historicalProfiles }
+                historicalProfiles={ entities?.selectedHSP ? [ entities.selectedHSP ] : [] }
                 hasInventoryReadPermissions={ hasInventoryReadPermissions }
                 entities={ entities }
                 selectVariant='radio'
+                deselectHistoricalProfiles={ this.deselectHistoricalProfiles }
             />
         </React.Fragment>
         );
@@ -236,15 +258,14 @@ export class CreateBaselineModal extends Component {
     }
 
     renderActions() {
-        const { selectedBaselineIds, selectedHSPIds, entities } = this.props;
+        const { selectedBaselineIds, entities } = this.props;
         const { baselineName, copyBaselineChecked, copySystemChecked } = this.state;
         let actions;
-        let selectedSystemIds = entities === undefined || entities.selectedSystemIds === undefined ? [] : entities.selectedSystemIds;
 
         if (baselineName === ''
             || (copyBaselineChecked && selectedBaselineIds.length === 0)
             || (copySystemChecked &&
-                (selectedSystemIds.length === 0 && selectedHSPIds.length === 0)
+                (!entities?.selectedSystemIds.length && !entities?.selectedHSP)
             )
         ) {
             actions = [
@@ -341,13 +362,14 @@ CreateBaselineModal.propTypes = {
     totalBaselines: PropTypes.number,
     updatePagination: PropTypes.func,
     historicalProfiles: PropTypes.array,
-    selectedHSPIds: PropTypes.array,
     hasInventoryReadPermissions: PropTypes.bool,
     hasReadPermissions: PropTypes.bool,
     hasWritePermissions: PropTypes.bool,
     globalFilterState: PropTypes.object,
     selectHistoricProfiles: PropTypes.func,
-    setSelectedSystemIds: PropTypes.func
+    setSelectedSystemIds: PropTypes.func,
+    selectSingleHSP: PropTypes.func,
+    updateColumns: PropTypes.func
 };
 
 function mapStateToProps(state) {
@@ -362,7 +384,6 @@ function mapStateToProps(state) {
         baselineTableData: state.baselinesTableState.radioTable.baselineTableData,
         totalBaselines: state.baselinesTableState.radioTable.totalBaselines,
         historicalProfiles: state.compareState.historicalProfiles,
-        selectedHSPIds: state.historicProfilesState.selectedHSPIds,
         globalFilterState: state.globalFilterState
     };
 }
@@ -372,7 +393,9 @@ function mapDispatchToProps(dispatch) {
         toggleCreateBaselineModal: () => dispatch(createBaselineModalActions.toggleCreateBaselineModal()),
         createBaseline: (newBaselineObject, uuid) => dispatch(createBaselineModalActions.createBaseline(newBaselineObject, uuid)),
         selectBaseline: (id, isSelected, tableId) => dispatch(baselinesTableActions.selectBaseline(id, isSelected, tableId)),
-        clearSelectedBaselines: (tableId) => dispatch(baselinesTableActions.clearSelectedBaselines(tableId))
+        clearSelectedBaselines: (tableId) => dispatch(baselinesTableActions.clearSelectedBaselines(tableId)),
+        selectSingleHSP: (profile) => dispatch(systemsTableActions.selectSingleHSP(profile)),
+        updateColumns: (key) => dispatch(systemsTableActions.updateColumns(key))
     };
 }
 

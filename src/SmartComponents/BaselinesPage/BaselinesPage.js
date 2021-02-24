@@ -200,7 +200,8 @@ BaselinesPage.propTypes = {
     selectedBaselineIds: PropTypes.array,
     totalBaselines: PropTypes.number,
     selectHistoricProfiles: PropTypes.func,
-    setSelectedSystemIds: PropTypes.func
+    setSelectedSystemIds: PropTypes.func,
+    entitiesLoading: PropTypes.func
 };
 
 function mapStateToProps(state) {

@@ -14,7 +14,7 @@ import editBaselineHelpers from './helpers';
 import { FACT_ID, FACT_NAME, FACT_VALUE } from '../../../../constants';
 import EmptyStateDisplay from '../../../EmptyStateDisplay/EmptyStateDisplay';
 
-export class EditBaseline extends Component {
+class EditBaseline extends Component {
     constructor(props) {
         super(props);
 

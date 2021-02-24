@@ -120,13 +120,16 @@ describe('CreateBaselineModal', () => {
     it('should cancelModal', () => {
         props.createBaselineModalOpened = true;
         const toggleCreateBaselineModal = jest.fn();
+        const selectSingleHSP = jest.fn();
         const wrapper = mount(
             <CreateBaselineModal { ...props }
                 toggleCreateBaselineModal={ toggleCreateBaselineModal }
+                selectSingleHSP={ selectSingleHSP }
             />
         );
 
         wrapper.find('.pf-c-button').at(2).simulate('click');
+        expect(selectSingleHSP).toHaveBeenCalledTimes(1);
         expect(toggleCreateBaselineModal).toHaveBeenCalledTimes(1);
     });
 
@@ -203,6 +206,7 @@ describe('ConnectedCreateBaselineModal', () => {
         wrapper.find('.pf-c-button').at(2).simulate('click');
         expect(actions).toEqual([
             { type: 'CLEAR_SELECTED_BASELINES_RADIO' },
+            { type: 'SELECT_SINGLE_HSP', payload: undefined },
             { type: 'TOGGLE_CREATE_BASELINE_MODAL' }
         ]);
     });

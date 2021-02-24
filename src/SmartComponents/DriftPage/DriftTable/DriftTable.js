@@ -131,17 +131,25 @@ export class DriftTable extends Component {
         let searchParams = new URLSearchParams(this.props.location.search);
 
         this.systemIds = searchParams.getAll('system_ids');
-        this.systemIds = Array.isArray(this.systemIds) ? this.systemIds : [ this.systemIds ];
-        this.systemIds = this.systemIds.filter(item => item !== undefined);
+        if (!this.systemIds.length) {
+            this.systemIds = this.props.systems.map(system => system.id);
+        } else {
+            this.systemIds = Array.isArray(this.systemIds) ? this.systemIds : [ this.systemIds ];
+            this.systemIds = this.systemIds.filter(item => item !== undefined);
+        }
     }
 
     setBaselineIds() {
         let searchParams = new URLSearchParams(this.props.location.search);
 
         this.baselineIds = searchParams.getAll('baseline_ids');
-        this.baselineIds = Array.isArray(this.baselineIds) ? this.baselineIds : [ this.baselineIds ];
-        this.baselineIds = this.baselineIds.filter(item => item !== undefined);
-        this.props.setSelectedBaselines(this.baselineIds, 'CHECKBOX');
+        if (!this.baselineIds.length) {
+            this.baselineIds = this.props.baselines.map(baseline => baseline.id);
+        } else {
+            this.baselineIds = Array.isArray(this.baselineIds) ? this.baselineIds : [ this.baselineIds ];
+            this.baselineIds = this.baselineIds.filter(item => item !== undefined);
+            this.props.setSelectedBaselines(this.baselineIds, 'COMPARISON');
+        }
     }
 
     setHSPIds() {
@@ -149,9 +157,13 @@ export class DriftTable extends Component {
         let searchParams = new URLSearchParams(location.search);
 
         this.HSPIds = searchParams.getAll('hsp_ids');
-        this.HSPIds = Array.isArray(this.HSPIds) ? this.HSPIds : [ this.HSPIds ];
-        this.HSPIds = this.HSPIds.filter(item => item !== undefined);
-        selectHistoricProfiles(this.HSPIds);
+        if (!this.HSPIds.length) {
+            this.HSPIds = this.props.historicalProfiles.map(hsp => hsp.id);
+        } else {
+            this.HSPIds = Array.isArray(this.HSPIds) ? this.HSPIds : [ this.HSPIds ];
+            this.HSPIds = this.HSPIds.filter(item => item !== undefined);
+            selectHistoricProfiles(this.HSPIds);
+        }
     }
 
     setReferenceId() {
@@ -159,7 +171,9 @@ export class DriftTable extends Component {
         let searchParams = new URLSearchParams(location.search);
         let referenceId = searchParams.get('reference_id');
 
-        updateReferenceId(referenceId === null ? undefined : referenceId);
+        if (referenceId) {
+            updateReferenceId(referenceId === null ? undefined : referenceId);
+        }
     }
 
     setFilters() {
@@ -257,8 +271,8 @@ export class DriftTable extends Component {
             setIsFirstReference(true);
         }
 
-        
         this.fetchCompare(this.systemIds, this.baselineIds, this.HSPIds, newReferenceId);
+
     }
 
     async fetchCompare(systemIds = [], baselineIds, HSPIds, referenceId) {
@@ -279,7 +293,7 @@ export class DriftTable extends Component {
             reference = referenceId;
         }
 
-        setSelectedBaselines(this.baselineIds, 'CHECKBOX');
+        setSelectedBaselines(this.baselineIds, 'COMPARISON');
         updateReferenceId(reference);
 
         if (systemIds.length || baselineIds.length || HSPIds.length || reference) {
@@ -515,7 +529,8 @@ export class DriftTable extends Component {
     }
 
     renderTable(compareData, loading) {
-        const { factSort, referenceId, selectedHSPIds, selectHistoricProfiles, setHistory, stateSort, toggleFactSort, toggleStateSort } = this.props;
+        const { factSort, referenceId, selectedBaselineIds, selectedHSPIds, selectHistoricProfiles,
+            setHistory, stateSort, toggleFactSort, toggleStateSort } = this.props;
 
         return (
             <React.Fragment>
@@ -539,6 +554,7 @@ export class DriftTable extends Component {
                                 setHistory={ setHistory }
                                 selectedHSPIds={ selectedHSPIds }
                                 selectHistoricProfiles={ selectHistoricProfiles }
+                                selectedBaselineIds={ selectedBaselineIds }
                             />
                         </thead>
                         <tbody>
@@ -636,7 +652,8 @@ DriftTable.propTypes = {
     activeFactFilters: PropTypes.array,
     factFilter: PropTypes.string,
     setHistory: PropTypes.func,
-    selectedHSPIds: PropTypes.array
+    selectedHSPIds: PropTypes.array,
+    selectedBaselineIds: PropTypes.array
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DriftTable));

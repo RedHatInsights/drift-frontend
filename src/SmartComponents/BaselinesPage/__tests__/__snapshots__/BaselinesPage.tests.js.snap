@@ -271,10 +271,11 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                   }
                   selectBaseline={[Function]}
                   selectHistoricProfiles={[Function]}
+                  selectSingleHSP={[Function]}
                   selectedBaselineIds={Array []}
-                  selectedHSPIds={Array []}
                   setSelectedSystemIds={[Function]}
                   toggleCreateBaselineModal={[Function]}
+                  updateColumns={[Function]}
                 >
                   <Modal
                     actions={
@@ -521,6 +522,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                   <Connect(DeleteBaselinesModal)
                                     fetchWithParams={[Function]}
                                     modalOpened={false}
+                                    selectedBaselineIds={Array []}
                                     tableId="CHECKBOX"
                                     toggleModal={[Function]}
                                   >
@@ -5595,10 +5597,11 @@ exports[`ConnectedBaselinesPage should render empty state 1`] = `
                   }
                   selectBaseline={[Function]}
                   selectHistoricProfiles={[Function]}
+                  selectSingleHSP={[Function]}
                   selectedBaselineIds={Array []}
-                  selectedHSPIds={Array []}
                   setSelectedSystemIds={[Function]}
                   toggleCreateBaselineModal={[Function]}
+                  updateColumns={[Function]}
                 >
                   <Modal
                     actions={

@@ -9,7 +9,6 @@ import baselinesReducerHelpers from '../redux/helpers';
 
 import ConnectedBaselinesTable from '../BaselinesTable';
 import { sortable } from '@patternfly/react-table';
-//import { PermissionContext } from '../../../App';
 
 describe('ConnectedBaselinesTable', () => {
     let initialState;

@@ -29,12 +29,11 @@ export class DriftPage extends Component {
             ],
             isFirstReference: true
         };
-
-        this.props.clearSelectedBaselines('CHECKBOX');
     }
 
     async componentDidMount() {
         await window.insights.chrome.auth.getUser();
+        this.props.loadEntities();
     }
 
     setHistory = () => {
@@ -90,7 +89,8 @@ export class DriftPage extends Component {
     render() {
         const { activeFactFilters, addStateFilter, baselines, clearAllFactFilters, clearComparison, clearComparisonFilters, clearSelectedBaselines,
             emptyState, error, exportToCSV, factFilter, factSort, filterByFact, handleFactFilter, historicalProfiles, history, loading, page, perPage,
-            referenceId, selectedHSPIds, stateFilters, stateSort, systems, totalFacts, updatePagination, updateReferenceId } = this.props;
+            referenceId, selectedBaselineIds, selectedHSPIds, stateFilters, stateSort, systems, totalFacts, updatePagination,
+            updateReferenceId } = this.props;
         const { isFirstReference } = this.state;
 
         return (
@@ -167,6 +167,7 @@ export class DriftPage extends Component {
                                                     baselines={ baselines }
                                                     historicalProfiles={ historicalProfiles }
                                                     selectedHSPIds={ selectedHSPIds }
+                                                    selectedBaselineIds={ selectedBaselineIds }
                                                 />
                                                 { !emptyState && !loading ?
                                                     <Toolbar className="drift-toolbar">
@@ -230,7 +231,9 @@ DriftPage.propTypes = {
     referenceId: PropTypes.number,
     systems: PropTypes.array,
     baselines: PropTypes.array,
-    historicalProfiles: PropTypes.array
+    historicalProfiles: PropTypes.array,
+    loadEntities: PropTypes.func,
+    selectedBaselineIds: PropTypes.array
 };
 
 function mapDispatchToProps(dispatch) {
@@ -246,7 +249,8 @@ function mapDispatchToProps(dispatch) {
         filterByFact: (filter) => dispatch(compareActions.filterByFact(filter)),
         addStateFilter: (filter) => dispatch(compareActions.addStateFilter(filter)),
         handleFactFilter: (filter) => dispatch(compareActions.handleFactFilter(filter)),
-        clearAllFactFilters: () => dispatch(compareActions.clearAllFactFilters())
+        clearAllFactFilters: () => dispatch(compareActions.clearAllFactFilters()),
+        loadEntities: () => dispatch({ type: 'LOAD_ENTITIES' })
     };
 }
 
@@ -268,7 +272,8 @@ function mapStateToProps(state) {
         referenceId: state.compareState.referenceId,
         systems: state.compareState.systems,
         baselines: state.compareState.baselines,
-        historicalProfiles: state.compareState.historicalProfiles
+        historicalProfiles: state.compareState.historicalProfiles,
+        selectedBaselineIds: state.baselinesTableState.comparisonTable.selectedBaselineIds
     };
 }
 

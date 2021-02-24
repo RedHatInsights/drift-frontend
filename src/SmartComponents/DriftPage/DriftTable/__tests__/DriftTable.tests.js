@@ -176,9 +176,14 @@ describe('ConnectedDriftTable', () => {
                 expandedRows: []
             },
             addSystemModalState: { addSystemModalOpened: false, selectedSystemIds: []},
-            baselinesTableState: { checkboxTable: {
-                selectedBaselineIds: []
-            }},
+            baselinesTableState: {
+                comparisonTable: {
+                    selectedBaselineIds: []
+                },
+                checkboxTable: {
+                    selectedBaselineIds: []
+                }
+            },
             historicProfilesState: { selectedHSPIds: []}
         };
 
@@ -305,7 +310,5 @@ describe('ConnectedDriftTable', () => {
 
         wrapper.find(ReferenceSelector).first().simulate('click');
         expect(props.updateReferenceId).toHaveBeenCalledWith('9bbbefcc-8f23-4d97-07f2-142asdl234e9');
-        wrapper.find(ReferenceSelector).first().simulate('click');
-        expect(props.updateReferenceId).toHaveBeenCalledWith(undefined);
     });
 });

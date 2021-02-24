@@ -73,7 +73,7 @@ describe('ConnectedAddSystemModal', () => {
                 historicalProfiles: []
             },
             baselinesTableState: {
-                checkboxTable: {
+                comparisonTable: {
                     selectedBaselineIds: [],
                     loading: false,
                     baselineTableData: []
@@ -234,7 +234,7 @@ describe('ConnectedAddSystemModal', () => {
 
     it.skip('should confirm modal with one baseline selected', () => {
         const confirmModal = jest.fn();
-        initialState.baselinesTableState.checkboxTable.selectedBaselineIds = [ 'abcd1234' ];
+        initialState.baselinesTableState.comparisonTable.selectedBaselineIds = [ 'abcd1234' ];
         const store = mockStore(initialState);
 
         const wrapper = mount(

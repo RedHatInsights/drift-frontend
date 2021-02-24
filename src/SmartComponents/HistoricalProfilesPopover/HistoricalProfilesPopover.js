@@ -67,12 +67,10 @@ export class HistoricalProfilesPopover extends Component {
     }
 
     async onSingleSelect(profile) {
-        const { selectHistoricProfiles, selectSystem, selectSingleHSP, updateColumns } = this.props;
+        const { selectSystem, selectSingleHSP, updateColumns } = this.props;
 
         if (profile.captured_date === 'Latest') {
             await selectSystem(profile.id, true);
-        } else {
-            await selectHistoricProfiles([ profile.id ]);
         }
 
         updateColumns('display_selected_hsp');

@@ -10,6 +10,7 @@ import GlobalFilterAlert from '../GlobalFilterAlert/GlobalFilterAlert';
 import { addSystemModalActions } from './redux';
 import { baselinesTableActions } from '../BaselinesTable/redux';
 import { historicProfilesActions } from '../HistoricalProfilesPopover/redux';
+import systemsTableActions from '../SystemsTable/actions';
 
 export class AddSystemModal extends Component {
     constructor(props) {
@@ -28,6 +29,7 @@ export class AddSystemModal extends Component {
 
     async componentDidMount() {
         await window.insights.chrome.auth.getUser();
+        this.props.updateColumns('display_name');
     }
 
     onSelect = (event, isSelected, rowId) => {
@@ -42,7 +44,7 @@ export class AddSystemModal extends Component {
             ids = [ baselineTableData[rowId][0] ];
         }
 
-        selectBaseline(ids, isSelected, 'CHECKBOX');
+        selectBaseline(ids, isSelected, 'COMPARISON');
     }
 
     confirmModal() {
@@ -77,7 +79,7 @@ export class AddSystemModal extends Component {
             ids.push(baseline[0]);
         });
 
-        selectBaseline(ids, isSelected, 'CHECKBOX');
+        selectBaseline(ids, isSelected, 'COMPARISON');
     }
 
     render() {
@@ -100,7 +102,7 @@ export class AddSystemModal extends Component {
                             key="confirm"
                             variant="primary"
                             onClick={ this.confirmModal }
-                            isDisabled={ selectedSystemIds?.length === 0 &&
+                            isDisabled={ entities?.selectedSystemIds?.length === 0 &&
                                 selectedBaselineIds.length === 0 &&
                                 selectedHSPIds.length === 0 }
                             ouiaId="add-to-comparison-submit-button"
@@ -147,7 +149,7 @@ export class AddSystemModal extends Component {
                             data-ouia-component-id='baselines-tab-button'
                         >
                             <BaselinesTable
-                                tableId='CHECKBOX'
+                                tableId='COMPARISON'
                                 hasMultiSelect={ true }
                                 onSelect={ this.onSelect }
                                 tableData={ baselineTableData }
@@ -193,7 +195,8 @@ AddSystemModal.propTypes = {
     globalFilterState: PropTypes.object,
     selectedSystemIds: PropTypes.array,
     setSelectedSystemIds: PropTypes.func,
-    selectHistoricProfiles: PropTypes.func
+    selectHistoricProfiles: PropTypes.func,
+    updateColumns: PropTypes.func
 };
 
 function mapStateToProps(state) {
@@ -202,13 +205,13 @@ function mapStateToProps(state) {
         systems: state.compareState.systems,
         activeTab: state.addSystemModalState.activeTab,
         entities: state.entities,
-        selectedBaselineIds: state.baselinesTableState.checkboxTable.selectedBaselineIds,
+        selectedBaselineIds: state.baselinesTableState.comparisonTable.selectedBaselineIds,
         baselines: state.compareState.baselines,
         selectedHSPIds: state.historicProfilesState.selectedHSPIds,
-        loading: state.baselinesTableState.checkboxTable.loading,
-        baselineTableData: state.baselinesTableState.checkboxTable.baselineTableData,
+        loading: state.baselinesTableState.comparisonTable.loading,
+        baselineTableData: state.baselinesTableState.comparisonTable.baselineTableData,
         historicalProfiles: state.compareState.historicalProfiles,
-        totalBaselines: state.baselinesTableState.checkboxTable.totalBaselines,
+        totalBaselines: state.baselinesTableState.comparisonTable.totalBaselines,
         globalFilterState: state.globalFilterState
     };
 }
@@ -219,7 +222,8 @@ function mapDispatchToProps(dispatch) {
         selectActiveTab: (newActiveTab) => dispatch(addSystemModalActions.selectActiveTab(newActiveTab)),
         selectBaseline: (id, isSelected, tableId) => dispatch(baselinesTableActions.selectBaseline(id, isSelected, tableId)),
         selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds)),
-        setSelectedSystemIds: (selectedSystemIds) => dispatch(addSystemModalActions.setSelectedSystemIds(selectedSystemIds))
+        setSelectedSystemIds: (selectedSystemIds) => dispatch(addSystemModalActions.setSelectedSystemIds(selectedSystemIds)),
+        updateColumns: (key) => dispatch(systemsTableActions.updateColumns(key))
     };
 }
 
