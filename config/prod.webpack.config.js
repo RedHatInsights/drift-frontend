@@ -5,7 +5,8 @@ const { config: webpackConfig, plugins } = config({
     rootFolder: resolve(__dirname, '../'),
     https: false,
     debug: true,
-    ...process.env.BUILD_STABLE && { deployment: 'apps' }
+    ...process.env.BUILD_STABLE && { deployment: 'apps' },
+    ...process.env.BUILD_BETA && { deployment: 'beta/apps' }
 });
 
 plugins.push(
