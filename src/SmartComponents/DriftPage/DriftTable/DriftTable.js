@@ -427,7 +427,11 @@ export class DriftTable extends Component {
                         if (expandedRows.includes(comparison.name)) {
                             comparison.multivalues.forEach(subFactItem => {
                                 row = this.renderRowChild(subFactItem);
-                                rows.push(<tr className={ subFactItem.state === 'DIFFERENT' ? 'unexpected-row' : '' }>{ row }</tr>);
+                                let rowValue = subFactItem.systems.filter(cell => cell.value !== '')[0].value;
+                                rows.push(<tr
+                                    className={ subFactItem.state === 'DIFFERENT' ? 'unexpected-row' : '' }
+                                    data-ouia-component-type='PF4/TableRow'
+                                    data-ouia-component-id={ 'comparison-table-row-multivalue-' + comparison.name + '-' + rowValue }>{ row }</tr>);
                             });
                         }
                     }
