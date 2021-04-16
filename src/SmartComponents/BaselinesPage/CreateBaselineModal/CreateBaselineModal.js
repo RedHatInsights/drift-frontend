@@ -48,6 +48,30 @@ export class CreateBaselineModal extends Component {
         };
     }
 
+    buildSystemColumns = (originalColumns) => {
+        const { permissions } = this.props;
+        let columns = originalColumns.map(function(column) {
+            if (column.key === 'display_name' || column.key === 'display_selected_hsp') {
+                return {
+                    title: 'Name',
+                    key: column.key,
+                    props: { width: 20 },
+                    renderFunc: (value, _id, { display_selected_hsp: selectedHSP }) => {
+                        return selectedHSP || value;
+                    }
+                };
+            } else {
+                return column;
+            }
+        });
+
+        if (permissions.hspRead) {
+            columns.push({ key: 'historical_profiles', props: { width: 10, isStatic: true }, title: 'Historical profiles' });
+        }
+
+        return columns;
+    };
+
     async componentDidMount() {
         window.entityListener = addNewListener({
             actionType: 'SELECT_ENTITY',
@@ -55,6 +79,18 @@ export class CreateBaselineModal extends Component {
                 this.props.createBaselineModalOpened ? this.deselectHistoricalProfiles() : null;
             }
         });
+
+        window.entityListener = addNewListener({
+            actionType: 'SELECT_SINGLE_HSP',
+            callback: () => {
+                this.props.updateColumns('display_selected_hsp');
+            }
+        });
+    }
+
+    async componentWillUnmount() {
+        window.removeEventListener('SELECT_ENTITY', this.deselectHistoricalProfiles);
+        window.removeEventListener('SELECT_SINGLE_HSP', this.props.updateColumns);
     }
 
     deselectHistoricalProfiles = async () => {
@@ -195,12 +231,12 @@ export class CreateBaselineModal extends Component {
             <br></br>
             <SystemsTable
                 createBaselineModal={ true }
-                hasHistoricalDropdown={ permissions.hspRead }
                 hasMultiSelect={ false }
                 historicalProfiles={ entities?.selectedHSP ? [ entities.selectedHSP ] : [] }
                 permissions={ permissions }
                 entities={ entities }
                 selectVariant='radio'
+                systemColumns={ this.buildSystemColumns }
                 deselectHistoricalProfiles={ this.deselectHistoricalProfiles }
             />
         </React.Fragment>

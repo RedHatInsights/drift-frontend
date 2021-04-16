@@ -42,16 +42,11 @@ describe('compare reducer', () => {
 
     it('should handle LOAD_ENTITIES_FULFILLED with historical dropdown', () => {
         reducer = selectedReducer(
-            inventoryActions,
-            undefined,
-            false,
-            [],
-            true,
-            true
+            inventoryActions
         );
         expect(
             reducer({
-                columns: fixtures.columns,
+                columns: fixtures.columnsWithHSP,
                 rows: fixtures.results,
                 selectedSystemIds: []
             }, {
@@ -63,34 +58,6 @@ describe('compare reducer', () => {
         ).toEqual({
             rows: fixtures.results,
             columns: fixtures.columnsWithHSP,
-            selectedSystemIds: [],
-            selectedSystems: []
-        });
-    });
-
-    it('should handle LOAD_ENTITIES_FULFILLED with no hsp read permissions', () => {
-        reducer = selectedReducer(
-            inventoryActions,
-            undefined,
-            false,
-            [],
-            true,
-            false
-        );
-        expect(
-            reducer({
-                columns: fixtures.columns,
-                rows: fixtures.results,
-                selectedSystemIds: []
-            }, {
-                payload: {
-                    results: fixtures.results
-                },
-                type: inventoryActions.LOAD_ENTITIES_FULFILLED
-            })
-        ).toEqual({
-            rows: fixtures.results,
-            columns: fixtures.columns,
             selectedSystemIds: [],
             selectedSystems: []
         });

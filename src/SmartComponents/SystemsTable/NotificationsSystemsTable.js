@@ -21,7 +21,6 @@ function mapDispatchToProps(dispatch) {
     return {
         setSelectedSystemIds: (systemIds) => dispatch(compareActions.setSelectedSystemIds(systemIds)),
         driftClearFilters: () => dispatch(systemsTableActions.clearAllFilters()),
-        updateColumns: (key) => dispatch(systemsTableActions.updateColumns(key)),
         selectEntities: (toSelect) => dispatch({ type: 'SELECT_ENTITY', payload: toSelect })
     };
 }
@@ -31,11 +30,9 @@ export const SystemsTable = connect(null, mapDispatchToProps)(({
     setSelectedSystemIds,
     driftClearFilters,
     createBaselineModal,
-    hasHistoricalDropdown,
     historicalProfiles,
     hasMultiSelect,
     selectHistoricProfiles,
-    updateColumns,
     permissions,
     selectEntities,
     selectVariant,
@@ -46,7 +43,7 @@ export const SystemsTable = connect(null, mapDispatchToProps)(({
     onSystemSelect,
     selectSystemsToAdd,
     deleteNotifications,
-    addNewListener
+    systemColumns
 }) => {
     const tagsFilter = useSelector(({ globalFilterState }) => globalFilterState?.tagsFilter);
     const workloadsFilter = useSelector(({ globalFilterState }) => globalFilterState?.workloadsFilter);
@@ -55,13 +52,6 @@ export const SystemsTable = connect(null, mapDispatchToProps)(({
     const selected = useSelector(({ entities }) => entities?.selectedSystemIds || []);
     const getEntities = useRef(() => undefined);
     const selectedRef = useRef([]);
-
-    const deselectHistoricalProfiles = () => {
-        if (!hasMultiSelect) {
-            updateColumns('display_name');
-            selectHistoricProfiles([]);
-        }
-    };
 
     const onSelect = (event) => {
         let toSelect = [];
@@ -122,15 +112,6 @@ export const SystemsTable = connect(null, mapDispatchToProps)(({
     };
 
     useEffect(() => {
-        window.entityListener = addNewListener({
-            on: 'SELECT_ENTITY',
-            callback: () => {
-                !hasMultiSelect ? deselectHistoricalProfiles() : null;
-            }
-        });
-    });
-
-    useEffect(() => {
         if (!isEqual(selectedRef.current, selected)) {
             selectedRef.current = [ ...selected ];
             onSystemSelect(selected);
@@ -140,14 +121,15 @@ export const SystemsTable = connect(null, mapDispatchToProps)(({
     return (
         permissions.inventoryRead ? (
             <InventoryTable
+                columns={ systemColumns }
                 onLoad={ ({ mergeWithEntities, INVENTORY_ACTION_TYPES, api }) => {
                     getEntities.current = api?.getEntities;
                     driftClearFilters();
                     registry.register(mergeWithEntities(
                         selectedReducer(
                             INVENTORY_ACTION_TYPES, baselineId, createBaselineModal, historicalProfiles,
-                            hasMultiSelect, hasHistoricalDropdown, deselectHistoricalProfiles, isAddSystemNotifications,
-                            selectHistoricProfiles, systemNotificationIds, selectSystemsToAdd, deleteNotifications, permissions
+                            hasMultiSelect, undefined, isAddSystemNotifications, selectHistoricProfiles,
+                            systemNotificationIds, selectSystemsToAdd, deleteNotifications, permissions
                         )
                     ));
                     setSelectedSystemIds(selected);
@@ -226,10 +208,8 @@ SystemsTable.propTypes = {
     selectHistoricProfiles: PropTypes.func,
     createBaselineModal: PropTypes.bool,
     driftClearFilters: PropTypes.func,
-    hasHistoricalDropdown: PropTypes.bool,
     historicalProfiles: PropTypes.array,
     hasMultiSelect: PropTypes.bool,
-    updateColumns: PropTypes.func,
     selectedHSPIds: PropTypes.array,
     permissions: PropTypes.object,
     entities: PropTypes.object,
@@ -242,7 +222,8 @@ SystemsTable.propTypes = {
     registry: PropTypes.shape({
         register: PropTypes.func
     }),
-    onSystemSelect: PropTypes.func
+    onSystemSelect: PropTypes.func,
+    systemColumns: PropTypes.array
 };
 
 SystemsTable.defaultProps = {

@@ -286,6 +286,16 @@ describe('AddSystemModal', () => {
 
         expect(wrapper.instance().findNotInComparison(basketContent, comparedContent)).toEqual(modalFixtures.systemContent2);
     });
+
+    it('should render systemColumns without hsp with no hsp read permissions', () => {
+        props.permissions.hspRead = false;
+
+        const wrapper = shallow(
+            <AddSystemModal { ...props } />
+        );
+
+        expect(wrapper.state('systemColumns')).toEqual(modalFixtures.addSystemModalColumnsNoHSP);
+    });
 });
 
 describe('ConnectedAddSystemModal', () => {
@@ -359,21 +369,6 @@ describe('ConnectedAddSystemModal', () => {
         );
 
         expect(toJson(wrapper)).toMatchSnapshot();
-    });
-
-    it('should render hasHistoricalDropdown false with no hsp read permissions', () => {
-        const store = mockStore(initialState);
-        props.permissions.hspRead = false;
-
-        const wrapper = mount(
-            <MemoryRouter keyLength={ 0 }>
-                <Provider store={ store }>
-                    <ConnectedAddSystemModal { ...props } />
-                </Provider>
-            </MemoryRouter>
-        );
-
-        expect(wrapper.find('SystemsTable').prop('hasHistoricalDropdown')).toBe(false);
     });
 
     it('should render disabled with no inventory permissions', () => {

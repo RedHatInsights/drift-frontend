@@ -19,7 +19,6 @@ export const SystemsTable = ({
     deselectHistoricalProfiles,
     driftClearFilters,
     entities,
-    hasHistoricalDropdown,
     permissions,
     hasMultiSelect,
     historicalProfiles,
@@ -30,7 +29,8 @@ export const SystemsTable = ({
     selectSystemsToAdd,
     selectVariant,
     setSelectedSystemIds,
-    systemNotificationIds
+    systemNotificationIds,
+    systemColumns
 }) => {
     const tagsFilter = useSelector(({ globalFilterState }) => globalFilterState?.tagsFilter);
     const workloadsFilter = useSelector(({ globalFilterState }) => globalFilterState?.workloadsFilter);
@@ -62,13 +62,14 @@ export const SystemsTable = ({
     return (
         permissions.inventoryRead ? (
             <InventoryTable
+                columns={ systemColumns }
                 onLoad={ ({ mergeWithEntities, INVENTORY_ACTION_TYPES, api }) => {
                     getEntities.current = api?.getEntities;
                     driftClearFilters();
                     getRegistry().register(mergeWithEntities(
                         selectedReducer(
                             INVENTORY_ACTION_TYPES, baselineId, createBaselineModal, historicalProfiles,
-                            hasMultiSelect, hasHistoricalDropdown, deselectHistoricalProfiles, isAddSystemNotifications,
+                            hasMultiSelect, deselectHistoricalProfiles, isAddSystemNotifications,
                             selectHistoricProfiles, systemNotificationIds, selectSystemsToAdd
                         )
                     ));
@@ -163,10 +164,8 @@ SystemsTable.propTypes = {
     selectedSystemIds: PropTypes.array,
     createBaselineModal: PropTypes.bool,
     driftClearFilters: PropTypes.func,
-    hasHistoricalDropdown: PropTypes.bool,
     historicalProfiles: PropTypes.array,
     hasMultiSelect: PropTypes.bool,
-    updateColumns: PropTypes.func,
     permissions: PropTypes.object,
     entities: PropTypes.object,
     selectEntities: PropTypes.func,
@@ -177,7 +176,8 @@ SystemsTable.propTypes = {
     selectHistoricProfiles: PropTypes.func,
     selectSystemsToAdd: PropTypes.func,
     selectSingleHSP: PropTypes.func,
-    deselectHistoricalProfiles: PropTypes.func
+    deselectHistoricalProfiles: PropTypes.func,
+    systemColumns: PropTypes.array
 };
 
 function mapDispatchToProps(dispatch) {
@@ -185,7 +185,6 @@ function mapDispatchToProps(dispatch) {
         selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds)),
         setSelectedSystemIds: (systemIds) => dispatch(compareActions.setSelectedSystemIds(systemIds)),
         driftClearFilters: () => dispatch(systemsTableActions.clearAllFilters()),
-        updateColumns: (key) => dispatch(systemsTableActions.updateColumns(key)),
         selectEntities: (toSelect) => dispatch({ type: 'SELECT_ENTITY', payload: toSelect }),
         selectSingleHSP: (profile) => dispatch(systemsTableActions.selectSingleHSP(profile))
     };

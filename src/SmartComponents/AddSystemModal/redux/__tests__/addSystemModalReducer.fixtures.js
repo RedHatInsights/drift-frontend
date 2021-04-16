@@ -158,6 +158,12 @@ const rows = ([
     { id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2', display_name: 'ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com' }
 ]);
 
+const addSystemModalColumnsNoHSP = ([
+    { key: 'display_name', props: { width: 20 }, title: 'Name' },
+    { key: 'tags', props: { width: 10, isStatic: true }, title: 'Tags' },
+    { key: 'updated', props: { width: 10 }, title: 'Last seen' }
+]);
+
 export default {
     systemContent1,
     systemContent2,
@@ -176,6 +182,7 @@ export default {
     data1,
     data2,
     data3,
-    rows
+    rows,
+    addSystemModalColumnsNoHSP
 };
 /* eslint-enable camelcase */
