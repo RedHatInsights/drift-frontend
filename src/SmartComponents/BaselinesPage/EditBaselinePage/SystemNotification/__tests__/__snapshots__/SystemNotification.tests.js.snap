@@ -244,6 +244,32 @@ exports[`ConnectedSystemNotification should render correctly 1`] = `
               }
             }
             selectVariant="checkbox"
+            systemColumns={
+              Array [
+                Object {
+                  "key": "display_name",
+                  "props": Object {
+                    "width": null,
+                  },
+                  "title": "Name",
+                },
+                Object {
+                  "key": "tags",
+                  "props": Object {
+                    "isStatic": true,
+                    "width": null,
+                  },
+                  "title": "Tags",
+                },
+                Object {
+                  "key": "updated",
+                  "props": Object {
+                    "width": null,
+                  },
+                  "title": "Last seen",
+                },
+              ]
+            }
             systemNotificationIds={Array []}
             toolbarButton={
               <Button
@@ -290,6 +316,32 @@ exports[`ConnectedSystemNotification should render correctly 1`] = `
                 }
                 selectVariant="checkbox"
                 selectedSystemIds={Array []}
+                systemColumns={
+                  Array [
+                    Object {
+                      "key": "display_name",
+                      "props": Object {
+                        "width": null,
+                      },
+                      "title": "Name",
+                    },
+                    Object {
+                      "key": "tags",
+                      "props": Object {
+                        "isStatic": true,
+                        "width": null,
+                      },
+                      "title": "Tags",
+                    },
+                    Object {
+                      "key": "updated",
+                      "props": Object {
+                        "width": null,
+                      },
+                      "title": "Last seen",
+                    },
+                  ]
+                }
                 systemNotificationIds={Array []}
                 toolbarButton={
                   <Button
@@ -328,6 +380,32 @@ exports[`ConnectedSystemNotification should render correctly 1`] = `
                   selectVariant="checkbox"
                   selectedSystemIds={Array []}
                   setSelectedSystemIds={[Function]}
+                  systemColumns={
+                    Array [
+                      Object {
+                        "key": "display_name",
+                        "props": Object {
+                          "width": null,
+                        },
+                        "title": "Name",
+                      },
+                      Object {
+                        "key": "tags",
+                        "props": Object {
+                          "isStatic": true,
+                          "width": null,
+                        },
+                        "title": "Tags",
+                      },
+                      Object {
+                        "key": "updated",
+                        "props": Object {
+                          "width": null,
+                        },
+                        "title": "Last seen",
+                      },
+                    ]
+                  }
                   systemNotificationIds={Array []}
                   toolbarButton={
                     <Button
@@ -338,7 +416,6 @@ exports[`ConnectedSystemNotification should render correctly 1`] = `
                       Add associated system
                     </Button>
                   }
-                  updateColumns={[Function]}
                 >
                   <EmptyStateDisplay
                     color="#6a6e73"
@@ -469,9 +546,40 @@ exports[`SystemNotification should render 1`] = `
     <Connect(SystemsTable)
       hasMultiSelect={true}
       isAddSystemNotifications={true}
+      permissions={
+        Object {
+          "notificationsWrite": true,
+        }
+      }
       selectSystemsToAdd={[Function]}
       selectVariant="checkbox"
       selectedSystemIds={Array []}
+      systemColumns={
+        Array [
+          Object {
+            "key": "display_name",
+            "props": Object {
+              "width": 20,
+            },
+            "title": "Name",
+          },
+          Object {
+            "key": "tags",
+            "props": Object {
+              "isStatic": true,
+              "width": 10,
+            },
+            "title": "Tags",
+          },
+          Object {
+            "key": "updated",
+            "props": Object {
+              "width": 10,
+            },
+            "title": "Last seen",
+          },
+        ]
+      }
     />
   </Modal>
   <Bullseye>

@@ -9,7 +9,7 @@ import types from '../SmartComponents/modules/types';
 import helpers from '../SmartComponents/helpers';
 
 function selectedReducer(
-    INVENTORY_ACTIONS, baselineId, createBaselineModal, historicalProfiles, hasMultiSelect, hasHistoricalDropdown,
+    INVENTORY_ACTIONS, baselineId, createBaselineModal, historicalProfiles, hasMultiSelect,
     deselectHistoricalProfiles, isAddSystemNotifications, selectHistoricProfiles, systemNotificationIds, selectSystemsToAdd,
     deleteNotifications, permissions
 ) {
@@ -18,7 +18,6 @@ function selectedReducer(
 
     return applyReducerHash({
         [INVENTORY_ACTIONS.LOAD_ENTITIES_FULFILLED]: (state, action) => {
-            newColumns = [ ...state.columns ];
 
             for (let i = 0; i < action.payload.results.length; i += 1) {
                 if (state.selectedSystemIds.includes(action.payload.results[i].id)) {
@@ -29,21 +28,6 @@ function selectedReducer(
             let rows = mergeArraysByKey([ action.payload.results, state.rows ]);
 
             if (historicalProfiles !== undefined) {
-                if (!newColumns.find(({ key }) => key === 'historical_profiles') && hasHistoricalDropdown) {
-                    newColumns.push({
-                        key: 'historical_profiles',
-                        title: 'Historical profiles',
-                        props: {
-                            isStatic: true,
-                            width: 10
-                        }
-                    });
-                }
-
-                if (newColumns.find(({ key }) => key === 'system_notification')) {
-                    newColumns.splice(newColumns.findIndex(({ key }) => key === 'system_notification'), 1);
-                }
-
                 rows.forEach(function(row) {
                     let badgeCount = 0;
                     let systemInfo = {
@@ -80,28 +64,6 @@ function selectedReducer(
             }
 
             if (baselineId && !isAddSystemNotifications && permissions.notificationsWrite) {
-                if (!newColumns.find(({ key }) => key === 'system_notification')) {
-                    newColumns.push({
-                        key: 'system_notification',
-                        title: '',
-                        props: {
-                            isStatic: true
-                        }
-                    });
-                }
-
-                if (newColumns.find(({ key }) => key === 'historical_profiles')) {
-                    newColumns.splice(newColumns.findIndex(({ key }) => key === 'historical_profiles'), 1);
-                }
-
-                newColumns.forEach(function(column) {
-                    if (column.props) {
-                        column.props.isStatic = true;
-                    } else {
-                        column.props = { isStatic: true };
-                    }
-                });
-
                 rows.forEach(function(row) {
                     systemIds = [ row.id ];
 
@@ -115,34 +77,8 @@ function selectedReducer(
             }
             /*eslint-enable camelcase*/
 
-            /* Hide link on systems table */
-            newColumns.forEach(function(column, index) {
-                if (!column.props) {
-                    column.props = {};
-                }
-
-                if (hasHistoricalDropdown) {
-                    if (column.key === 'display_name' || column.key === 'display_selected_hsp') {
-                        column.props.width = 20;
-                        if (newColumns.find(({ key }) => key === 'display_selected_hsp')) {
-                            let displaySelectedHSP = newColumns.splice(newColumns.findIndex(({ key }) => key === 'display_selected_hsp'), 1);
-                            newColumns.splice(index, 1, displaySelectedHSP[0]);
-                        }
-                    } else {
-                        column.props.width = 10;
-                    }
-                } else {
-                    column.props.width = null;
-                }
-
-                if (column.composed) {
-                    delete column.composed;
-                }
-            });
-
             return {
                 ...state,
-                columns: newColumns,
                 rows: state.selectedHSP && !hasMultiSelect
                     ? helpers.buildSystemsTableWithSelectedHSP(rows, state.selectedHSP, deselectHistoricalProfiles)
                     : rows,
@@ -159,7 +95,7 @@ function selectedReducer(
                 title: 'Name',
                 props: { width: 20 }
             };
-            newColumns = [ ...state.columns ];
+            newColumns = [ ...state.columns || [] ];
             newColumns.shift();
             newColumns.unshift(nameColumn);
 
@@ -231,8 +167,7 @@ function selectedReducer(
                 ...state,
                 selectedSystemIds,
                 selectedSystems,
-                rows: newRows.length > 0 ? newRows : state.rows,
-                columns: newColumns
+                rows: newRows.length > 0 ? newRows : state.rows
             };
         },
         [types.SET_SELECTED_SYSTEM_IDS]: (state, action) => {
@@ -244,23 +179,15 @@ function selectedReducer(
             };
         },
         [types.SELECT_SINGLE_HSP]: (state, action) => {
-            if (!action.payload) {
-                newColumns = [ ...state.columns ];
-                newColumns.forEach(function(column) {
-                    if (column.key === 'display_selected_hsp') {
-                        column.key = 'display_name';
-                    }
-                });
-            }
-
             return {
                 ...state,
                 rows: action.payload
                     ? helpers.buildSystemsTableWithSelectedHSP([ ...state.rows ], action.payload, deselectHistoricalProfiles)
-                    : state.rows,
-                columns: action.payload
-                    ? state.columns
-                    : newColumns,
+                    : state.rows.map((row) => ({
+                        ...row,
+                        // eslint-disable-next-line camelcase
+                        display_selected_hsp: undefined
+                    })),
                 selectedSystemIds: action.payload
                     ? []
                     : state.selectedSystemIds,

@@ -7,10 +7,6 @@ import NotificationsSystemsTable from '../../../SystemsTable/NotificationsSystem
 import SystemsTable from '../../../SystemsTable/SystemsTable';
 import DeleteNotificationModal from './DeleteNotificationModal/DeleteNotificationModal';
 import { systemNotificationsActions } from './redux';
-<<<<<<< HEAD
-=======
-import api from '../../../../api';
->>>>>>> 652874e... [DRFT-248] Add notifications to baselines
 
 export class SystemNotification extends Component {
     constructor(props) {
@@ -22,18 +18,34 @@ export class SystemNotification extends Component {
         };
 
         this.toggleModal = () => {
-<<<<<<< HEAD
             const { setSelectedSystemIds } = this.props;
             const { modalOpened } = this.state;
 
             setSelectedSystemIds([]);
-=======
-            const { modalOpened } = this.state;
-
->>>>>>> 652874e... [DRFT-248] Add notifications to baselines
             this.setState({ modalOpened: !modalOpened });
         };
     }
+
+    buildSystemColumns = (isAddSystemNotifications) => {
+        const { permissions } = this.props;
+        let columns = [
+            { key: 'display_name', props: { width: isAddSystemNotifications ? 20 : null }, title: 'Name' },
+            { key: 'tags', props: { width: isAddSystemNotifications ? 10 : null, isStatic: true }, title: 'Tags' },
+            { key: 'updated', props: { width: isAddSystemNotifications ? 10 : null }, title: 'Last seen' }
+        ];
+
+        if (permissions.notificationsWrite && !isAddSystemNotifications) {
+            columns.push({
+                key: 'system_notification',
+                title: '',
+                props: {
+                    isStatic: true
+                }
+            });
+        }
+
+        return columns;
+    };
 
     deleteNotifications = async (systemIds) => {
         const { setSystemsToDelete, toggleDeleteNotificationsModal } = this.props;
@@ -43,30 +55,20 @@ export class SystemNotification extends Component {
     }
 
     selectSystemsToAdd = (systemIds) => {
-<<<<<<< HEAD
         const { systemNotificationIds } = this.props;
         let array = [ ...systemNotificationIds ];
 
         const newIds = systemIds.filter((newId) => !array.some((existingId) => existingId === newId));
 
         this.setState({ systemsToAdd: newIds });
-=======
-        this.setState({ systemsToAdd: systemIds });
->>>>>>> 652874e... [DRFT-248] Add notifications to baselines
     }
 
     addNotification = async () => {
         const { systemsToAdd } = this.state;
-<<<<<<< HEAD
         const { addNotifications, baselineId } = this.props;
 
         await addNotifications(baselineId, systemsToAdd);
         this.setState({ systemsToAdd: []});
-=======
-        const { baselineId } = this.props;
-
-        await api.addSystemNotification(baselineId, systemsToAdd);
->>>>>>> 652874e... [DRFT-248] Add notifications to baselines
 
         this.toggleModal();
         this.fetchSystems(baselineId);
@@ -96,7 +98,7 @@ export class SystemNotification extends Component {
     render() {
         const { baselineId, baselineName, deleteNotifications, deleteNotificationsModalOpened, driftClearFilters, entities,
             permissions, selectEntities, selectHistoricProfiles, setSelectedSystemIds, systemNotificationIds,
-            systemsToDelete, toggleDeleteNotificationsModal, updateColumns, systemNotificationLoaded } = this.props;
+            systemsToDelete, toggleDeleteNotificationsModal, systemNotificationLoaded } = this.props;
         const { modalOpened } = this.state;
 
         return (
@@ -146,9 +148,9 @@ export class SystemNotification extends Component {
                         driftClearFilters={ driftClearFilters }
                         selectEntities={ selectEntities }
                         selectHistoricProfiles={ selectHistoricProfiles }
-                        updateColumns={ updateColumns }
                         selectSystemsToAdd={ this.selectSystemsToAdd }
                         selectedSystemIds={ entities?.selectedSystemIds || [] }
+                        systemColumns={ this.buildSystemColumns(true) }
                     />
                 </Modal>
                 { systemNotificationLoaded ? <NotificationsSystemsTable
@@ -162,8 +164,8 @@ export class SystemNotification extends Component {
                     selectEntities={ selectEntities }
                     selectHistoricProfiles={ selectHistoricProfiles }
                     onSystemSelect={ setSelectedSystemIds }
-                    updateColumns={ updateColumns }
                     deleteNotifications={ this.deleteNotifications }
+                    systemColumns={ this.buildSystemColumns() }
                 /> : <Bullseye><Spinner size="xl"/></Bullseye> }
             </React.Fragment>
         );
@@ -179,7 +181,6 @@ SystemNotification.propTypes = {
     selectHistoricProfiles: PropTypes.func,
     setSelectedSystemIds: PropTypes.func,
     driftClearFilters: PropTypes.func,
-    updateColumns: PropTypes.func,
     selectEntities: PropTypes.func,
     toggleDeleteNotificationsModal: PropTypes.func,
     setSystemsToDelete: PropTypes.func,

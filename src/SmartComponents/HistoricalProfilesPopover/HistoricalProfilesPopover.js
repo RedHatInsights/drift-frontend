@@ -69,13 +69,12 @@ export class HistoricalProfilesPopover extends Component {
     }
 
     async onSingleSelect(profile) {
-        const { selectSystem, selectSingleHSP, updateColumns } = this.props;
+        const { selectSystem, selectSingleHSP } = this.props;
 
         if (profile.captured_date === 'Latest') {
             await selectSystem(profile.id, true);
         }
 
-        updateColumns('display_selected_hsp');
         selectSingleHSP(profile);
     }
 
@@ -265,7 +264,6 @@ HistoricalProfilesPopover.propTypes = {
     dropdownDirection: PropTypes.string,
     hasMultiSelect: PropTypes.bool,
     selectSingleHSP: PropTypes.func,
-    updateColumns: PropTypes.func,
     handleHSPSelection: PropTypes.func,
     systemName: PropTypes.string
 };
@@ -284,7 +282,6 @@ function mapDispatchToProps(dispatch) {
             payload: { id, selected }
         }),
         selectSingleHSP: (profile) => dispatch(systemsTableActions.selectSingleHSP(profile)),
-        updateColumns: (key) => dispatch(systemsTableActions.updateColumns(key)),
         handleHSPSelection: (content) => dispatch(addSystemModalActions.handleHSPSelection(content))
     };
 }

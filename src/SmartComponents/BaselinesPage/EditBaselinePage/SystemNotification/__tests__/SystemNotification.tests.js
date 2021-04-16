@@ -11,7 +11,9 @@ describe('SystemNotification', () => {
 
     beforeEach(() => {
         props = {
-            hasWritePermissions: true
+            permissions: {
+                notificationsWrite: true
+            }
         };
     });
 

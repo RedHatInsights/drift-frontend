@@ -24,6 +24,7 @@ export class AddSystemModal extends Component {
         this.changeActiveTab = this.changeActiveTab.bind(this);
 
         this.state = {
+            systemColumns: this.buildSystemColumns(this.props.permissions),
             columns: [
                 { title: 'Name', transforms: [ sortable ]},
                 { title: 'Last updated', transforms: [ sortable, cellWidth(20) ]}
@@ -34,7 +35,6 @@ export class AddSystemModal extends Component {
 
     async componentDidMount() {
         await window.insights.chrome.auth.getUser();
-        this.props.updateColumns('display_name');
 
         window.entityListener = addNewListener({
             actionType: 'SELECT_ENTITY',
@@ -42,6 +42,15 @@ export class AddSystemModal extends Component {
                 this.props.addSystemModalOpened ? this.systemContentSelect(data) : null;
             }
         });
+    }
+
+    buildSystemColumns(permissions) {
+        return [
+            { key: 'display_name', props: { width: 20 }, title: 'Name' },
+            { key: 'tags', props: { width: 10, isStatic: true }, title: 'Tags' },
+            { key: 'updated', props: { width: 10 }, title: 'Last seen' },
+            ...permissions.hspRead ? [{ key: 'historical_profiles', props: { width: 10, isStatic: true }, title: 'Historical profiles' }] : []
+        ];
     }
 
     createContent = (id, content, body, name) => {
@@ -232,7 +241,7 @@ export class AddSystemModal extends Component {
             historicalProfiles, loading, entities, permissions, selectEntity, selectHistoricProfiles, selectedBaselineIds, selectedBaselineContent,
             selectedHSPContent, selectedHSPIds, selectBaseline, selectedSystemContent, selectedSystemIds, setSelectedSystemIds,
             totalBaselines } = this.props;
-        const { columns, basketIsVisible } = this.state;
+        const { columns, basketIsVisible, systemColumns } = this.state;
 
         return (
             <React.Fragment>
@@ -299,13 +308,13 @@ export class AddSystemModal extends Component {
                         >
                             <SystemsTable
                                 selectedSystemIds={ selectedSystemIds }
-                                hasHistoricalDropdown={ permissions.hspRead }
                                 historicalProfiles={ historicalProfiles }
                                 hasMultiSelect={ true }
                                 permissions={ permissions }
                                 entities={ entities }
                                 selectVariant='checkbox'
                                 onSystemSelect={ setSelectedSystemIds }
+                                systemColumns={ systemColumns }
                             />
                         </Tab>
                         <Tab
@@ -360,7 +369,6 @@ AddSystemModal.propTypes = {
     selectedSystemIds: PropTypes.array,
     setSelectedSystemIds: PropTypes.func,
     selectHistoricProfiles: PropTypes.func,
-    updateColumns: PropTypes.func,
     selectedSystemContent: PropTypes.array,
     selectedBaselineContent: PropTypes.array,
     selectedHSPContent: PropTypes.array,
@@ -402,8 +410,7 @@ function mapDispatchToProps(dispatch) {
         selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds)),
         selectEntity: (id, isSelected) => dispatch({ type: 'SELECT_ENTITY', payload: { id, isSelected }}),
         setSelectedSystemIds: (selectedSystemIds) => dispatch(addSystemModalActions.setSelectedSystemIds(selectedSystemIds)),
-        disableSystemTable: (isDisabled) => dispatch(systemsTableActions.disableSystemTable(isDisabled)),
-        updateColumns: (key) => dispatch(systemsTableActions.updateColumns(key))
+        disableSystemTable: (isDisabled) => dispatch(systemsTableActions.disableSystemTable(isDisabled))
     };
 }
 

@@ -210,7 +210,7 @@ export class EditBaselinePage extends Component {
     renderMain(permissions) {
         const { baselineData, baselineDataLoading, clearErrorData, driftClearFilters, editBaselineEmptyState, editBaselineError,
             editBaselineTableData, entities, expandRow, expandedRows, exportToCSV, factModalOpened, selectFact,
-            match: { params }, selectEntities, selectHistoricProfiles, setSelectedSystemIds, updateColumns } = this.props;
+            match: { params }, selectEntities, selectHistoricProfiles, setSelectedSystemIds } = this.props;
         const { activeTab } = this.state;
         let body;
 
@@ -240,7 +240,6 @@ export class EditBaselinePage extends Component {
                 selectEntities={ selectEntities }
                 selectHistoricProfiles={ selectHistoricProfiles }
                 setSelectedSystemIds={ setSelectedSystemIds }
-                updateColumns={ updateColumns }
             />;
         }
 
@@ -295,7 +294,6 @@ EditBaselinePage.propTypes = {
     selectHistoricProfiles: PropTypes.func,
     setSelectedSystemIds: PropTypes.func,
     driftClearFilters: PropTypes.func,
-    updateColumns: PropTypes.func,
     selectEntities: PropTypes.func
 };
 
@@ -327,7 +325,6 @@ function mapDispatchToProps(dispatch) {
         selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds)),
         setSelectedSystemIds: (systemIds) => dispatch(compareActions.setSelectedSystemIds(systemIds)),
         driftClearFilters: () => dispatch(systemsTableActions.clearAllFilters()),
-        updateColumns: (key) => dispatch(systemsTableActions.updateColumns(key)),
         selectEntities: (toSelect) => dispatch({ type: 'SELECT_ENTITY', payload: toSelect })
     };
 }
