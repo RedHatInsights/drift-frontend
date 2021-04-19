@@ -178,6 +178,7 @@ export const SystemsTable = connect(null, mapDispatchToProps)(({
                             className='pointer'
                             key="delete-baseline-notification"
                             onClick={ () => deleteNotifications(entities?.selectedSystemIds) }
+                            isDisabled={ !entities?.selectedSystemIds?.length }
                         >
                             { entities?.selectedSystemIds?.length > 1 ? 'Delete notifications' : 'Delete notification' }
                         </div>
