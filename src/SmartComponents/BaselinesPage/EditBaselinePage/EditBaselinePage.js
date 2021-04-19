@@ -188,14 +188,14 @@ export class EditBaselinePage extends Component {
             >
                 <Tab
                     eventKey={ 0 }
-                    title="baseline"
+                    title="Facts"
                     id="baseline-tab"
                     data-ouia-component-id="baseline-tab-button"
                 >
                 </Tab>
                 <Tab
                     eventKey={ 1 }
-                    title="system notifications"
+                    title="Systems"
                     id="system-notifications-tab"
                     data-ouia-component-id=""
                 >
