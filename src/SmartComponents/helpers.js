@@ -2,7 +2,7 @@ import React from 'react';
 import { CloseIcon, HistoryIcon } from '@patternfly/react-icons';
 import moment from 'moment';
 import baselinesTableHelpers from './BaselinesTable/redux/helpers';
-import editBaselineHelpers from './BaselinesPage/EditBaseline/helpers';
+import editBaselineHelpers from './BaselinesPage/EditBaselinePage/EditBaseline/helpers';
 
 function findCheckedValue(total, selected) {
     if (selected === total && total > 0) {

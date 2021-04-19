@@ -168,7 +168,7 @@ export class CreateBaselineModal extends Component {
     }
 
     renderCopySystem() {
-        const { hasInventoryReadPermissions, entities, historicalProfiles } = this.props;
+        const { entities, hasInventoryReadPermissions, historicalProfiles } = this.props;
 
         return (<React.Fragment>
             <b>Select system to copy from</b>
@@ -345,7 +345,9 @@ CreateBaselineModal.propTypes = {
     hasInventoryReadPermissions: PropTypes.bool,
     hasReadPermissions: PropTypes.bool,
     hasWritePermissions: PropTypes.bool,
-    globalFilterState: PropTypes.object
+    globalFilterState: PropTypes.object,
+    selectHistoricProfiles: PropTypes.func,
+    setSelectedSystemIds: PropTypes.func
 };
 
 function mapStateToProps(state) {

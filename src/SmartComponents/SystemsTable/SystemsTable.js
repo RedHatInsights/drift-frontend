@@ -1,12 +1,11 @@
-/* eslint-disable camelcase */
-import React, { useEffect } from 'react';
+/*eslint-disable camelcase*/
+import React, { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getRegistry } from '@redhat-cloud-services/frontend-components-utilities/files/Registry';
 import { connect } from 'react-redux';
+import { getRegistry } from '@redhat-cloud-services/frontend-components-utilities/files/Registry';
 import { InventoryTable } from '@redhat-cloud-services/frontend-components/components/cjs/Inventory';
 import { LockIcon } from '@patternfly/react-icons';
-
 import selectedReducer from '../../store/reducers';
 import { addNewListener } from '../../store';
 import { compareActions } from '../modules';
@@ -28,12 +27,16 @@ export const SystemsTable = ({
     hasInventoryReadPermissions,
     entities,
     selectEntities,
-    selectVariant
+    selectVariant,
+    systemNotificationIds,
+    isAddSystemNotifications,
+    baselineId,
+    selectSystemsToAdd
 }) => {
     const tagsFilter = useSelector(({ globalFilterState }) => globalFilterState?.tagsFilter);
     const workloadsFilter = useSelector(({ globalFilterState }) => globalFilterState?.workloadsFilter);
     const sidsFilter = useSelector(({ globalFilterState }) => globalFilterState?.sidsFilter);
-
+    const getEntities = useRef(() => undefined);
     const deselectHistoricalProfiles = () => {
         if (!hasMultiSelect) {
             updateColumns('display_name');
@@ -46,13 +49,11 @@ export const SystemsTable = ({
         switch (event) {
             case 'none': {
                 toSelect = { id: 0, selected: false, bulk: true };
-
                 break;
             }
 
             case 'page': {
                 toSelect = { id: 0, selected: true };
-
                 break;
             }
         }
@@ -72,12 +73,14 @@ export const SystemsTable = ({
     return (
         hasInventoryReadPermissions ? (
             <InventoryTable
-                onLoad={ ({ mergeWithEntities, INVENTORY_ACTION_TYPES }) => {
+                onLoad={ ({ mergeWithEntities, INVENTORY_ACTION_TYPES, api }) => {
+                    getEntities.current = api?.getEntities;
                     driftClearFilters();
                     getRegistry().register(mergeWithEntities(
                         selectedReducer(
-                            INVENTORY_ACTION_TYPES, createBaselineModal, historicalProfiles,
-                            hasMultiSelect, hasHistoricalDropdown, deselectHistoricalProfiles
+                            INVENTORY_ACTION_TYPES, baselineId, createBaselineModal, historicalProfiles,
+                            hasMultiSelect, hasHistoricalDropdown, deselectHistoricalProfiles, isAddSystemNotifications,
+                            selectHistoricProfiles, systemNotificationIds, selectSystemsToAdd
                         )
                     ));
                     setSelectedSystemIds(selectedSystemIds);
@@ -98,7 +101,34 @@ export const SystemsTable = ({
                     selectVariant,
                     ouiaId: 'systems-table'
                 }}
-                total={ entities?.total }
+                getEntities={ systemNotificationIds && !isAddSystemNotifications
+                    ? async (_items, config) => {
+                        const currIds = (systemNotificationIds || [])
+                        .slice((config.page - 1) * config.per_page, config.page * config.per_page);
+                        const data = await getEntities.current?.(
+                            currIds,
+                            {
+                                ...config,
+                                hasItems: true
+                            },
+                            false
+                        );
+
+                        return {
+                            ...data,
+                            results: data.results.map((system) => ({
+                                ...system,
+                                ...currIds.find(({ uuid }) => uuid === system.id) || {}
+                            })),
+                            total: (systemNotificationIds || []).length,
+                            page: config.page,
+                            per_page: config.per_page
+                        };
+                    }
+                    : async (_items, config) => {
+                        const data = await getEntities.current?.([], config);
+                        return { ...data };
+                    } }
                 bulkSelect={ onSelect && {
                     isDisabled: !hasMultiSelect,
                     count: entities && entities.selectedSystemIds ? entities.selectedSystemIds.length : 0,
@@ -131,16 +161,6 @@ export const SystemsTable = ({
     );
 };
 
-function mapDispatchToProps(dispatch) {
-    return {
-        selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds)),
-        setSelectedSystemIds: (systemIds) => dispatch(compareActions.setSelectedSystemIds(systemIds)),
-        driftClearFilters: () => dispatch(systemsTableActions.clearAllFilters()),
-        updateColumns: (key) => dispatch(systemsTableActions.updateColumns(key)),
-        selectEntities: (toSelect) => dispatch({ type: 'SELECT_ENTITY', payload: toSelect })
-    };
-}
-
 SystemsTable.propTypes = {
     setSelectedSystemIds: PropTypes.func,
     selectedSystemIds: PropTypes.array,
@@ -151,15 +171,29 @@ SystemsTable.propTypes = {
     historicalProfiles: PropTypes.array,
     hasMultiSelect: PropTypes.bool,
     updateColumns: PropTypes.func,
-    selectedHSPIds: PropTypes.array,
     hasInventoryReadPermissions: PropTypes.bool,
     entities: PropTypes.object,
     selectEntities: PropTypes.func,
-    selectVariant: PropTypes.string
+    selectVariant: PropTypes.string,
+    systemNotificationIds: PropTypes.array,
+    isAddSystemNotifications: PropTypes.bool,
+    baselineId: PropTypes.string,
+    selectSystemsToAdd: PropTypes.func
 };
+
+function mapDispatchToProps(dispatch) {
+    return {
+        selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds)),
+        setSelectedSystemIds: (systemIds) => dispatch(compareActions.setSelectedSystemIds(systemIds)),
+        driftClearFilters: () => dispatch(systemsTableActions.clearAllFilters()),
+        updateColumns: (key) => dispatch(systemsTableActions.updateColumns(key)),
+        selectEntities: (toSelect) => dispatch({ type: 'SELECT_ENTITY', payload: toSelect })
+    };
+}
 
 SystemsTable.defaultProps = {
     selectedSystemIds: []
 };
 
 export default connect(null, mapDispatchToProps)(SystemsTable);
+/*eslint-enable camelcase*/

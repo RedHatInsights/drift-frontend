@@ -64,7 +64,8 @@ describe('ConnectedAddSystemModal', () => {
         initialState = {
             addSystemModalState: {
                 addSystemModalOpened: true,
-                activeTab: 0
+                activeTab: 0,
+                selectedSystemIds: []
             },
             compareState: {
                 systems: compareReducerPayload.systems,
@@ -95,7 +96,10 @@ describe('ConnectedAddSystemModal', () => {
         };
 
         props = {
-            hasInventoryReadPermissions: true
+            hasInventoryReadPermissions: true,
+            selectedSystemIds: [],
+            selectedBaselineIds: [],
+            selectedHSPIds: []
         };
 
         value = {

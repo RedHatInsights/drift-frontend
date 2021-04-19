@@ -6,7 +6,6 @@ import { ExclamationCircleIcon, HistoryIcon, UndoIcon } from '@patternfly/react-
 import PropTypes from 'prop-types';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
 
-import { historicProfilesActions } from './redux';
 import systemsTableActions from '../SystemsTable/actions';
 import HistoricalProfilesCheckbox from './HistoricalProfilesCheckbox/HistoricalProfilesCheckbox';
 import api from '../../api';
@@ -42,8 +41,9 @@ export class HistoricalProfilesPopover extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.selectedHSPIds.length !== prevProps.selectedHSPIds.length) {
+        if (this.props.selectedHSPIds !== prevProps.selectedHSPIds) {
             this.updateBadgeCount();
+            this.setState({ dropDownArray: this.createDropdownArray() });
         }
     }
 
@@ -114,7 +114,7 @@ export class HistoricalProfilesPopover extends Component {
     }
 
     createDropdownArray = () => {
-        const { hasMultiSelect } = this.props;
+        const { hasMultiSelect, selectedHSPIds } = this.props;
         const { historicalData, error } = this.state;
 
         let dropdownItems = [];
@@ -131,10 +131,12 @@ export class HistoricalProfilesPopover extends Component {
                                 profile={ profile }
                                 updateBadgeCount={ badgeCountFunc }
                                 onSelect={ onSelectFunc }
+                                selectedHSPIds={ selectedHSPIds }
                             />
                             : <HistoricalProfilesRadio
                                 profile={ profile }
                                 onSingleSelect={ onSingleSelectFunc }
+                                selectedHSPIds={ selectedHSPIds }
                             />
                         }
                     </div>
@@ -237,7 +239,6 @@ export class HistoricalProfilesPopover extends Component {
 }
 
 HistoricalProfilesPopover.propTypes = {
-    entities: PropTypes.object,
     fetchHistoricalData: PropTypes.func,
     system: PropTypes.object,
     fetchCompare: PropTypes.func,
@@ -258,14 +259,13 @@ HistoricalProfilesPopover.propTypes = {
 
 function mapStateToProps(state) {
     return {
-        selectedHSPIds: state.historicProfilesState.selectedHSPIds,
-        selectedBaselineIds: state.baselinesTableState.checkboxTable.selectedBaselineIds
+        selectedHSPIds: state.historicProfilesState?.selectedHSPIds || [],
+        selectedBaselineIds: state.baselinesTableState?.checkboxTable.selectedBaselineIds || []
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds)),
         selectSystem: (id, selected) => dispatch({
             type: 'SELECT_ENTITY',
             payload: { id, selected }

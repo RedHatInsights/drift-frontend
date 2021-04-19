@@ -261,7 +261,7 @@ export class DriftTable extends Component {
         this.fetchCompare(this.systemIds, this.baselineIds, this.HSPIds, newReferenceId);
     }
 
-    async fetchCompare(systemIds, baselineIds, HSPIds, referenceId) {
+    async fetchCompare(systemIds = [], baselineIds, HSPIds, referenceId) {
         const { clearComparison, fetchCompare, isFirstReference, setHistory, setIsFirstReference, setSelectedBaselines, updateReferenceId } = this.props;
         let reference;
 
@@ -515,7 +515,7 @@ export class DriftTable extends Component {
     }
 
     renderTable(compareData, loading) {
-        const { factSort, referenceId, setHistory, stateSort, toggleFactSort, toggleStateSort } = this.props;
+        const { factSort, referenceId, selectedHSPIds, selectHistoricProfiles, setHistory, stateSort, toggleFactSort, toggleStateSort } = this.props;
 
         return (
             <React.Fragment>
@@ -537,6 +537,8 @@ export class DriftTable extends Component {
                                 toggleStateSort={ toggleStateSort }
                                 updateReferenceId={ this.updateReferenceId }
                                 setHistory={ setHistory }
+                                selectedHSPIds={ selectedHSPIds }
+                                selectHistoricProfiles={ selectHistoricProfiles }
                             />
                         </thead>
                         <tbody>
@@ -628,12 +630,13 @@ DriftTable.propTypes = {
     hasInventoryReadPermissions: PropTypes.bool,
     hasBaselinesReadPermissions: PropTypes.bool,
     hasBaselinesWritePermissions: PropTypes.bool,
-    stateFilters: PropTypes.object,
+    stateFilters: PropTypes.array,
     addStateFilter: PropTypes.func,
     handleFactFilter: PropTypes.func,
     activeFactFilters: PropTypes.array,
     factFilter: PropTypes.string,
-    setHistory: PropTypes.func
+    setHistory: PropTypes.func,
+    selectedHSPIds: PropTypes.array
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DriftTable));

@@ -6,8 +6,9 @@ import { addSystemModalReducer } from '../SmartComponents/AddSystemModal/redux/a
 import { baselinesTableRootReducer } from '../SmartComponents/BaselinesTable/redux';
 import { filterDropdownReducer } from '../SmartComponents/DriftPage/FilterDropDown/redux/filterDropdownReducer';
 import { createBaselineModalReducer } from '../SmartComponents/BaselinesPage/CreateBaselineModal/redux/reducers';
-import { editBaselineReducer } from '../SmartComponents/BaselinesPage/EditBaseline/redux/reducers';
+import { editBaselineReducer } from '../SmartComponents/BaselinesPage/EditBaselinePage/redux/reducers';
 import { historicProfilesReducer } from '../SmartComponents/HistoricalProfilesPopover/redux/reducers';
+import { systemNotificationsReducer } from '../SmartComponents/BaselinesPage/EditBaselinePage/SystemNotification/redux/reducer';
 
 import MiddlewareListener from '@redhat-cloud-services/frontend-components-utilities/files/MiddlewareListener';
 import { notifications } from '@redhat-cloud-services/frontend-components-notifications';
@@ -38,6 +39,7 @@ export function init (...middleware) {
         createBaselineModalState: createBaselineModalReducer,
         editBaselineState: editBaselineReducer,
         historicProfilesState: historicProfilesReducer,
+        systemNotificationsState: systemNotificationsReducer,
         notifications,
         globalFilterState: globalFilterReducer
     });

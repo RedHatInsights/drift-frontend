@@ -48,7 +48,8 @@ class ComparisonHeader extends Component {
     }
 
     renderSystemHeaders() {
-        const { fetchCompare, masterList, referenceId, removeSystem, systemIds, updateReferenceId } = this.props;
+        const { fetchCompare, masterList, referenceId, removeSystem, selectedHSPIds,
+            selectHistoricProfiles, systemIds, updateReferenceId } = this.props;
 
         let row = [];
         let typeIcon = '';
@@ -125,6 +126,8 @@ class ComparisonHeader extends Component {
                                     fetchCompare={ fetchCompare }
                                     hasCompareButton={ true }
                                     hasMultiSelect={ true }
+                                    selectedHSPIds={ selectedHSPIds }
+                                    selectHistoricProfiles={ selectHistoricProfiles }
                                 />
                                 : null
                             }
@@ -190,7 +193,9 @@ ComparisonHeader.propTypes = {
     toggleFactSort: PropTypes.func,
     toggleStateSort: PropTypes.func,
     updateReferenceId: PropTypes.func,
-    setHistory: PropTypes.func
+    setHistory: PropTypes.func,
+    selectedHSPIds: PropTypes.array,
+    selectHistoricProfiles: PropTypes.func
 };
 
 export default ComparisonHeader;
