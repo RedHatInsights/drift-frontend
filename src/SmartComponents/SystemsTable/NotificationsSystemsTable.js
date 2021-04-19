@@ -174,7 +174,11 @@ export const SystemsTable = connect(null, mapDispatchToProps)(({
                 actionsConfig={{
                     actions: [
                         toolbarButton,
-                        <div key="delete-baseline-notification" onClick={ () => deleteNotifications(entities?.selectedSystemIds) }>
+                        <div
+                            className='pointer'
+                            key="delete-baseline-notification"
+                            onClick={ () => deleteNotifications(entities?.selectedSystemIds) }
+                        >
                             { entities?.selectedSystemIds?.length > 1 ? 'Delete notifications' : 'Delete notification' }
                         </div>
                     ]
