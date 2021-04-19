@@ -107,7 +107,6 @@ function selectedReducer(
                     row.system_notification = <React.Fragment>
                         <SystemKebab
                             systemIds={ systemIds }
-                            systemName={ row.display_name }
                             deleteNotifications={ deleteNotifications }
                         />
                     </React.Fragment>;

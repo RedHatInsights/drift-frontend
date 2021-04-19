@@ -60,7 +60,6 @@ export class SystemKebab extends Component {
 
 SystemKebab.propTypes = {
     systemIds: PropTypes.array,
-    systemName: PropTypes.string,
     deleteNotifications: PropTypes.func
 };
 
