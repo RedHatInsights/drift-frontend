@@ -108,10 +108,9 @@ export const SystemsTable = ({
                         const data = await getEntities.current?.(
                             currIds,
                             {
-                                ...config,
                                 hasItems: true
                             },
-                            false
+                            true
                         );
 
                         return {
@@ -126,7 +125,7 @@ export const SystemsTable = ({
                         };
                     }
                     : async (_items, config) => {
-                        const data = await getEntities.current?.([], config);
+                        const data = await getEntities.current?.([], config, true);
                         return { ...data };
                     } }
                 bulkSelect={ onSelect && {

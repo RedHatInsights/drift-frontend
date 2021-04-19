@@ -135,10 +135,9 @@ export const SystemsTable = connect(null, mapDispatchToProps)(({
                     const data = await getEntities.current?.(
                         currIds,
                         {
-                            ...config,
                             hasItems: true
                         },
-                        false
+                        true
                     );
                     return {
                         ...data,
