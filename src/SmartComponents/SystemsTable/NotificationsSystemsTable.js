@@ -159,7 +159,7 @@ export const SystemsTable = connect(null, mapDispatchToProps)(({
                             onSelect('none');
                         }
                     }, {
-                        title: `Select page (${ registry.entities?.count || 0 })`,
+                        title: `Select page (${ entities?.count || 0 })`,
                         onClick: () => {
                             onSelect('page');
                         }
