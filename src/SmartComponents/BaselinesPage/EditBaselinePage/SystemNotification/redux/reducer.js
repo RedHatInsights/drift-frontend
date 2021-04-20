@@ -36,6 +36,10 @@ export function systemNotificationsReducer(state = initialState, action) {
                 systemNotificationIds: action.payload,
                 systemNotificationLoaded: true
             };
+        case `${types.ADD_NOTIFICATIONS}_FULFILLED`:
+            return {
+                ...state
+            };
 
         default:
             return {

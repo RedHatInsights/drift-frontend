@@ -7,7 +7,6 @@ import NotificationsSystemsTable from '../../../SystemsTable/NotificationsSystem
 import SystemsTable from '../../../SystemsTable/SystemsTable';
 import DeleteNotificationModal from './DeleteNotificationModal/DeleteNotificationModal';
 import { systemNotificationsActions } from './redux';
-import api from '../../../../api';
 
 export class SystemNotification extends Component {
     constructor(props) {
@@ -35,14 +34,20 @@ export class SystemNotification extends Component {
     }
 
     selectSystemsToAdd = (systemIds) => {
-        this.setState({ systemsToAdd: systemIds });
+        const { systemNotificationIds } = this.props;
+        let array = [ ...systemNotificationIds ];
+
+        const newIds = systemIds.filter((newId) => !array.some((existingId) => existingId === newId));
+
+        this.setState({ systemsToAdd: newIds });
     }
 
     addNotification = async () => {
         const { systemsToAdd } = this.state;
-        const { baselineId } = this.props;
+        const { addNotifications, baselineId } = this.props;
 
-        await api.addSystemNotification(baselineId, systemsToAdd);
+        addNotifications(baselineId, systemsToAdd);
+        this.setState({ systemsToAdd: []});
 
         this.toggleModal();
         this.fetchSystems(baselineId);
@@ -147,6 +152,7 @@ export class SystemNotification extends Component {
 }
 
 SystemNotification.propTypes = {
+    addNotifications: PropTypes.func,
     baselineId: PropTypes.string,
     baselineName: PropTypes.string,
     hasInventoryReadPermissions: PropTypes.bool,
@@ -162,6 +168,7 @@ SystemNotification.propTypes = {
     deleteNotifications: PropTypes.func,
     deleteNotificationsModalOpened: PropTypes.bool,
     getNotifications: PropTypes.func,
+    setSystemsToAdd: PropTypes.func,
     systemNotificationIds: PropTypes.array,
     systemNotificationLoaded: PropTypes.bool
 };
@@ -177,6 +184,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
+        addNotifications: (baselineId, systemsToAdd) => dispatch(systemNotificationsActions.addNotifications(baselineId, systemsToAdd)),
         toggleDeleteNotificationsModal: () => dispatch(systemNotificationsActions.toggleDeleteNotificationsModal()),
         setSystemsToDelete: (systemIds) => dispatch(systemNotificationsActions.setSystemsToDelete(systemIds)),
         deleteNotifications: (baselineId, systemIds) => dispatch(systemNotificationsActions.deleteNotifications(baselineId, systemIds)),

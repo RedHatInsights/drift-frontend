@@ -28,9 +28,17 @@ function getNotifications(baselineId) {
     };
 }
 
+function addNotifications(baselineId, systemsToAdd) {
+    return {
+        type: types.ADD_NOTIFICATIONS,
+        payload: api.addSystemNotification(baselineId, systemsToAdd)
+    };
+}
+
 export default {
     toggleDeleteNotificationsModal,
     setSystemsToDelete,
     deleteNotifications,
-    getNotifications
+    getNotifications,
+    addNotifications
 };
