@@ -128,7 +128,7 @@ export const SystemsTable = ({
                         const data = await getEntities.current?.([], config, true);
                         return { ...data };
                     } }
-                bulkSelect={ onSelect && {
+                bulkSelect={ onSelect && !isAddSystemNotifications && {
                     isDisabled: !hasMultiSelect,
                     count: entities && entities.selectedSystemIds ? entities.selectedSystemIds.length : 0,
                     items: [{
