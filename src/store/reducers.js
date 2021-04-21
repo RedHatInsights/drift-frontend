@@ -93,6 +93,14 @@ function selectedReducer(
                     newColumns.splice(newColumns.findIndex(({ key }) => key === 'historical_profiles'), 1);
                 }
 
+                newColumns.forEach(function(column) {
+                    if (column.props) {
+                        column.props.isStatic = true;
+                    } else {
+                        column.props = { isStatic: true };
+                    }
+                });
+
                 rows.forEach(function(row) {
                     systemIds = [ row.id ];
 
