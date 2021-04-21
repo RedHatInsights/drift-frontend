@@ -46,7 +46,7 @@ export class SystemNotification extends Component {
         const { systemsToAdd } = this.state;
         const { addNotifications, baselineId } = this.props;
 
-        addNotifications(baselineId, systemsToAdd);
+        await addNotifications(baselineId, systemsToAdd);
         this.setState({ systemsToAdd: []});
 
         this.toggleModal();
