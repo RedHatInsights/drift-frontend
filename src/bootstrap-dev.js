@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import logger from 'redux-logger';
-import Drift from './AppEntry';
+import DriftDev from './DevEntry';
 
-ReactDOM.render(<Drift logger={ logger } />, document.getElementById('root'));
+ReactDOM.render(<DriftDev />, document.getElementById('root'));
