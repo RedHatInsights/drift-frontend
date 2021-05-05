@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import ReducerRegistry from '@redhat-cloud-services/frontend-components-utilities/files/ReducerRegistry';
 import { connect } from 'react-redux';
-import { InventoryTable } from '@redhat-cloud-services/frontend-components/components/cjs/Inventory';
+import { InventoryTable } from '@redhat-cloud-services/frontend-components/Inventory';
 import { LockIcon } from '@patternfly/react-icons';
 import promiseMiddleware from 'redux-promise-middleware';
 import { Provider } from 'react-redux';
