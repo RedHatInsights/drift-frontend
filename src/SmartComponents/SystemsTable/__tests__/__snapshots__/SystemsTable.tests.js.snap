@@ -89,7 +89,9 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
               }
             }
             fallback={
-              <Bullseye>
+              <Bullseye
+                className="pf-u-p-lg"
+              >
                 <Spinner
                   size="xl"
                 />
@@ -135,7 +137,9 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
                 }
               }
               fallback={
-                <Bullseye>
+                <Bullseye
+                  className="pf-u-p-lg"
+                >
                   <Spinner
                     size="xl"
                   />
@@ -156,7 +160,9 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
             >
               <Suspense
                 fallback={
-                  <Bullseye>
+                  <Bullseye
+                    className="pf-u-p-lg"
+                  >
                     <Spinner
                       size="xl"
                     />
@@ -194,7 +200,9 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
                         }
                       }
                       fallback={
-                        <Bullseye>
+                        <Bullseye
+                          className="pf-u-p-lg"
+                        >
                           <Spinner
                             size="xl"
                           />
@@ -242,7 +250,9 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
                     }
                   }
                   fallback={
-                    <Bullseye>
+                    <Bullseye
+                      className="pf-u-p-lg"
+                    >
                       <Spinner
                         size="xl"
                       />
@@ -334,7 +344,9 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
                           }
                         }
                         fallback={
-                          <Bullseye>
+                          <Bullseye
+                            className="pf-u-p-lg"
+                          >
                             <Spinner
                               size="xl"
                             />
@@ -382,7 +394,9 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
                       }
                     }
                     fallback={
-                      <Bullseye>
+                      <Bullseye
+                        className="pf-u-p-lg"
+                      >
                         <Spinner
                           size="xl"
                         />
@@ -444,9 +458,11 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
                     }
                   />
                 </ForwardRef>
-                <Bullseye>
+                <Bullseye
+                  className="pf-u-p-lg"
+                >
                   <div
-                    className="pf-l-bullseye"
+                    className="pf-l-bullseye pf-u-p-lg"
                   >
                     <Spinner
                       size="xl"
