@@ -54,11 +54,14 @@ export class SystemNotification extends Component {
     }
 
     buildNotificationsButton = () => {
+        const { permissions } = this.props;
+
         return <Button
             key="add-baseline-notification"
             variant="primary"
             onClick={ this.toggleModal }
             ouiaId="add-baseline-notification-button"
+            isDisabled={ !permissions.baselinesWrite }
         >
             Add system
         </Button>;
@@ -76,7 +79,7 @@ export class SystemNotification extends Component {
 
     render() {
         const { baselineId, baselineName, deleteNotifications, deleteNotificationsModalOpened, driftClearFilters, entities,
-            hasInventoryReadPermissions, selectEntities, selectHistoricProfiles, setSelectedSystemIds, systemNotificationIds,
+            permissions, selectEntities, selectHistoricProfiles, setSelectedSystemIds, systemNotificationIds,
             systemsToDelete, toggleDeleteNotificationsModal, updateColumns, systemNotificationLoaded } = this.props;
         const { modalOpened } = this.state;
 
@@ -118,7 +121,7 @@ export class SystemNotification extends Component {
                 >
                     <SystemsTable
                         hasMultiSelect={ true }
-                        hasInventoryReadPermissions={ hasInventoryReadPermissions }
+                        permissions={ permissions }
                         entities={ entities }
                         selectVariant='checkbox'
                         systemNotificationIds={ systemNotificationIds }
@@ -134,7 +137,7 @@ export class SystemNotification extends Component {
                 </Modal>
                 { systemNotificationLoaded ? <NotificationsSystemsTable
                     hasMultiSelect={ true }
-                    hasInventoryReadPermissions={ hasInventoryReadPermissions }
+                    permissions={ permissions }
                     selectVariant='checkbox'
                     systemNotificationIds={ systemNotificationIds }
                     baselineId={ baselineId }
@@ -155,8 +158,8 @@ SystemNotification.propTypes = {
     addNotifications: PropTypes.func,
     baselineId: PropTypes.string,
     baselineName: PropTypes.string,
-    hasInventoryReadPermissions: PropTypes.bool,
     entities: PropTypes.object,
+    permissions: PropTypes.object,
     selectHistoricProfiles: PropTypes.func,
     setSelectedSystemIds: PropTypes.func,
     driftClearFilters: PropTypes.func,

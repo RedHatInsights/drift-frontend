@@ -166,8 +166,7 @@ export class CreateBaselineModal extends Component {
     }
 
     renderCopyBaseline() {
-        const { baselineTableData, createBaselineModalOpened, hasReadPermissions, hasWritePermissions, loading,
-            selectedBaselineIds, totalBaselines } = this.props;
+        const { baselineTableData, createBaselineModalOpened, loading, permissions, selectedBaselineIds, totalBaselines } = this.props;
         const { columns } = this.state;
 
         return (<React.Fragment>
@@ -180,8 +179,7 @@ export class CreateBaselineModal extends Component {
                 createBaselineModalOpened={ createBaselineModalOpened }
                 columns={ columns }
                 totalBaselines={ totalBaselines }
-                hasReadPermissions={ hasReadPermissions }
-                hasWritePermissions={ hasWritePermissions }
+                permissions={ permissions }
                 hasMultiSelect={ false }
                 selectedBaselineIds={ selectedBaselineIds }
             />
@@ -190,17 +188,17 @@ export class CreateBaselineModal extends Component {
     }
 
     renderCopySystem() {
-        const { entities, hasHSPReadPermissions, hasInventoryReadPermissions } = this.props;
+        const { entities, permissions } = this.props;
 
         return (<React.Fragment>
             <b>Select system to copy from</b>
             <br></br>
             <SystemsTable
                 createBaselineModal={ true }
-                hasHistoricalDropdown={ hasHSPReadPermissions }
+                hasHistoricalDropdown={ permissions.hspRead }
                 hasMultiSelect={ false }
                 historicalProfiles={ entities?.selectedHSP ? [ entities.selectedHSP ] : [] }
-                hasInventoryReadPermissions={ hasInventoryReadPermissions }
+                permissions={ permissions }
                 entities={ entities }
                 selectVariant='radio'
                 deselectHistoricalProfiles={ this.deselectHistoricalProfiles }
@@ -362,10 +360,7 @@ CreateBaselineModal.propTypes = {
     totalBaselines: PropTypes.number,
     updatePagination: PropTypes.func,
     historicalProfiles: PropTypes.array,
-    hasHSPReadPermissions: PropTypes.bool,
-    hasInventoryReadPermissions: PropTypes.bool,
-    hasReadPermissions: PropTypes.bool,
-    hasWritePermissions: PropTypes.bool,
+    permissions: PropTypes.object,
     globalFilterState: PropTypes.object,
     selectHistoricProfiles: PropTypes.func,
     setSelectedSystemIds: PropTypes.func,

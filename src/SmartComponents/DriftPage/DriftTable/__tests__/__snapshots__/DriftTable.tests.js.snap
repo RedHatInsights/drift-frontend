@@ -51,15 +51,18 @@ exports[`ConnectedDriftTable should render correctly 1`] = `
       <withRouter(Connect(DriftTable))
         baselines={Array []}
         error={Object {}}
-        hasHSPReadPermissions={true}
         historicalProfiles={Array []}
+        permissions={
+          Object {
+            "hspRead": true,
+          }
+        }
         systems={Array []}
         updateReferenceId={[MockFunction]}
       >
         <Connect(DriftTable)
           baselines={Array []}
           error={Object {}}
-          hasHSPReadPermissions={true}
           historicalProfiles={Array []}
           history={
             Object {
@@ -107,6 +110,11 @@ exports[`ConnectedDriftTable should render correctly 1`] = `
               "url": "/",
             }
           }
+          permissions={
+            Object {
+              "hspRead": true,
+            }
+          }
           systems={Array []}
           updateReferenceId={[MockFunction]}
         >
@@ -119,7 +127,6 @@ exports[`ConnectedDriftTable should render correctly 1`] = `
             expandedRows={Array []}
             fetchCompare={[Function]}
             fullCompareData={Array []}
-            hasHSPReadPermissions={true}
             historicalProfiles={Array []}
             history={
               Object {
@@ -168,6 +175,11 @@ exports[`ConnectedDriftTable should render correctly 1`] = `
                 "url": "/",
               }
             }
+            permissions={
+              Object {
+                "hspRead": true,
+              }
+            }
             selectHistoricProfiles={[Function]}
             setSelectedBaselines={[Function]}
             systems={Array []}
@@ -177,7 +189,11 @@ exports[`ConnectedDriftTable should render correctly 1`] = `
           >
             <Connect(AddSystemModal)
               confirmModal={[Function]}
-              hasHSPReadPermissions={true}
+              permissions={
+                Object {
+                  "hspRead": true,
+                }
+              }
               selectedSystemIds={Array []}
             >
               <AddSystemModal
@@ -187,7 +203,11 @@ exports[`ConnectedDriftTable should render correctly 1`] = `
                 handleBaselineSelection={[Function]}
                 handleHSPSelection={[Function]}
                 handleSystemSelection={[Function]}
-                hasHSPReadPermissions={true}
+                permissions={
+                  Object {
+                    "hspRead": true,
+                  }
+                }
                 selectActiveTab={[Function]}
                 selectBaseline={[Function]}
                 selectEntity={[Function]}
@@ -295,8 +315,12 @@ exports[`ConnectedDriftTable should render correctly 1`] = `
                 <thead>
                   <ComparisonHeader
                     fetchCompare={[Function]}
-                    hasHSPReadPermissions={true}
                     masterList={Array []}
+                    permissions={
+                      Object {
+                        "hspRead": true,
+                      }
+                    }
                     removeSystem={[Function]}
                     selectHistoricProfiles={[Function]}
                     systemIds={Array []}
@@ -453,15 +477,18 @@ exports[`ConnectedDriftTable should render loading rows 1`] = `
       <withRouter(Connect(DriftTable))
         baselines={Array []}
         error={Object {}}
-        hasHSPReadPermissions={true}
         historicalProfiles={Array []}
+        permissions={
+          Object {
+            "hspRead": true,
+          }
+        }
         systems={Array []}
         updateReferenceId={[MockFunction]}
       >
         <Connect(DriftTable)
           baselines={Array []}
           error={Object {}}
-          hasHSPReadPermissions={true}
           historicalProfiles={Array []}
           history={
             Object {
@@ -509,6 +536,11 @@ exports[`ConnectedDriftTable should render loading rows 1`] = `
               "url": "/",
             }
           }
+          permissions={
+            Object {
+              "hspRead": true,
+            }
+          }
           systems={Array []}
           updateReferenceId={[MockFunction]}
         >
@@ -521,7 +553,6 @@ exports[`ConnectedDriftTable should render loading rows 1`] = `
             expandedRows={Array []}
             fetchCompare={[Function]}
             fullCompareData={Array []}
-            hasHSPReadPermissions={true}
             historicalProfiles={Array []}
             history={
               Object {
@@ -570,6 +601,11 @@ exports[`ConnectedDriftTable should render loading rows 1`] = `
                 "url": "/",
               }
             }
+            permissions={
+              Object {
+                "hspRead": true,
+              }
+            }
             selectHistoricProfiles={[Function]}
             setSelectedBaselines={[Function]}
             systems={Array []}
@@ -579,7 +615,11 @@ exports[`ConnectedDriftTable should render loading rows 1`] = `
           >
             <Connect(AddSystemModal)
               confirmModal={[Function]}
-              hasHSPReadPermissions={true}
+              permissions={
+                Object {
+                  "hspRead": true,
+                }
+              }
               selectedSystemIds={Array []}
             >
               <AddSystemModal
@@ -589,7 +629,11 @@ exports[`ConnectedDriftTable should render loading rows 1`] = `
                 handleBaselineSelection={[Function]}
                 handleHSPSelection={[Function]}
                 handleSystemSelection={[Function]}
-                hasHSPReadPermissions={true}
+                permissions={
+                  Object {
+                    "hspRead": true,
+                  }
+                }
                 selectActiveTab={[Function]}
                 selectBaseline={[Function]}
                 selectEntity={[Function]}
@@ -697,8 +741,12 @@ exports[`ConnectedDriftTable should render loading rows 1`] = `
                 <thead>
                   <ComparisonHeader
                     fetchCompare={[Function]}
-                    hasHSPReadPermissions={true}
                     masterList={Array []}
+                    permissions={
+                      Object {
+                        "hspRead": true,
+                      }
+                    }
                     removeSystem={[Function]}
                     selectHistoricProfiles={[Function]}
                     systemIds={Array []}
@@ -1250,7 +1298,6 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
             },
           ]
         }
-        hasHSPReadPermissions={true}
         historicalProfiles={
           Array [
             Object {
@@ -1268,6 +1315,11 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
               "updated": "2019-01-15T15:25:16.304899Z",
             },
           ]
+        }
+        permissions={
+          Object {
+            "hspRead": true,
+          }
         }
         systems={
           Array [
@@ -1304,7 +1356,6 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
               },
             ]
           }
-          hasHSPReadPermissions={true}
           historicalProfiles={
             Array [
               Object {
@@ -1367,6 +1418,11 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
               "params": Object {},
               "path": "/",
               "url": "/",
+            }
+          }
+          permissions={
+            Object {
+              "hspRead": true,
             }
           }
           systems={
@@ -1892,7 +1948,6 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                 },
               ]
             }
-            hasHSPReadPermissions={true}
             historicalProfiles={
               Array [
                 Object {
@@ -1958,6 +2013,11 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                 "url": "/",
               }
             }
+            permissions={
+              Object {
+                "hspRead": true,
+              }
+            }
             selectHistoricProfiles={[Function]}
             setSelectedBaselines={[Function]}
             systems={
@@ -1982,7 +2042,11 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
           >
             <Connect(AddSystemModal)
               confirmModal={[Function]}
-              hasHSPReadPermissions={true}
+              permissions={
+                Object {
+                  "hspRead": true,
+                }
+              }
               selectedSystemIds={
                 Array [
                   "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
@@ -1997,7 +2061,11 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                 handleBaselineSelection={[Function]}
                 handleHSPSelection={[Function]}
                 handleSystemSelection={[Function]}
-                hasHSPReadPermissions={true}
+                permissions={
+                  Object {
+                    "hspRead": true,
+                  }
+                }
                 selectActiveTab={[Function]}
                 selectBaseline={[Function]}
                 selectEntity={[Function]}
@@ -2110,7 +2178,6 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                 <thead>
                   <ComparisonHeader
                     fetchCompare={[Function]}
-                    hasHSPReadPermissions={true}
                     masterList={
                       Array [
                         Object {
@@ -2152,6 +2219,11 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                           "type": "system",
                         },
                       ]
+                    }
+                    permissions={
+                      Object {
+                        "hspRead": true,
+                      }
                     }
                     removeSystem={[Function]}
                     selectHistoricProfiles={[Function]}
@@ -7483,7 +7555,6 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
             },
           ]
         }
-        hasHSPReadPermissions={true}
         historicalProfiles={
           Array [
             Object {
@@ -7501,6 +7572,11 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
               "updated": "2019-01-15T15:25:16.304899Z",
             },
           ]
+        }
+        permissions={
+          Object {
+            "hspRead": true,
+          }
         }
         systems={
           Array [
@@ -7537,7 +7613,6 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
               },
             ]
           }
-          hasHSPReadPermissions={true}
           historicalProfiles={
             Array [
               Object {
@@ -7600,6 +7675,11 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
               "params": Object {},
               "path": "/",
               "url": "/",
+            }
+          }
+          permissions={
+            Object {
+              "hspRead": true,
             }
           }
           systems={
@@ -7736,7 +7816,6 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                 },
               ]
             }
-            hasHSPReadPermissions={true}
             historicalProfiles={
               Array [
                 Object {
@@ -7802,6 +7881,11 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                 "url": "/",
               }
             }
+            permissions={
+              Object {
+                "hspRead": true,
+              }
+            }
             selectHistoricProfiles={[Function]}
             setSelectedBaselines={[Function]}
             systems={
@@ -7826,7 +7910,11 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
           >
             <Connect(AddSystemModal)
               confirmModal={[Function]}
-              hasHSPReadPermissions={true}
+              permissions={
+                Object {
+                  "hspRead": true,
+                }
+              }
               selectedSystemIds={
                 Array [
                   "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
@@ -7841,7 +7929,11 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                 handleBaselineSelection={[Function]}
                 handleHSPSelection={[Function]}
                 handleSystemSelection={[Function]}
-                hasHSPReadPermissions={true}
+                permissions={
+                  Object {
+                    "hspRead": true,
+                  }
+                }
                 selectActiveTab={[Function]}
                 selectBaseline={[Function]}
                 selectEntity={[Function]}
@@ -7954,7 +8046,6 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                 <thead>
                   <ComparisonHeader
                     fetchCompare={[Function]}
-                    hasHSPReadPermissions={true}
                     masterList={
                       Array [
                         Object {
@@ -7996,6 +8087,11 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                           "type": "system",
                         },
                       ]
+                    }
+                    permissions={
+                      Object {
+                        "hspRead": true,
+                      }
                     }
                     removeSystem={[Function]}
                     selectHistoricProfiles={[Function]}
@@ -11878,7 +11974,11 @@ exports[`DriftTable should render correctly 1`] = `
 <Fragment>
   <Connect(AddSystemModal)
     confirmModal={[Function]}
-    hasHSPReadPermissions={true}
+    permissions={
+      Object {
+        "hspRead": true,
+      }
+    }
     selectedSystemIds={Array []}
   />
   <div
@@ -11893,8 +11993,12 @@ exports[`DriftTable should render correctly 1`] = `
         <ComparisonHeader
           factSort="asc"
           fetchCompare={[Function]}
-          hasHSPReadPermissions={true}
           masterList={Array []}
+          permissions={
+            Object {
+              "hspRead": true,
+            }
+          }
           removeSystem={[Function]}
           selectHistoricProfiles={[MockFunction]}
           setHistory={[MockFunction]}

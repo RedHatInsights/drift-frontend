@@ -100,9 +100,14 @@ exports[`AddSystemModal should render correctly 1`] = `
             }
           }
           hasHistoricalDropdown={true}
-          hasInventoryReadPermissions={true}
           hasMultiSelect={true}
           historicalProfiles={Array []}
+          permissions={
+            Object {
+              "hspRead": true,
+              "inventoryRead": true,
+            }
+          }
           selectVariant="checkbox"
         />
       </Tab>
@@ -136,6 +141,12 @@ exports[`AddSystemModal should render correctly 1`] = `
           loading={false}
           onBulkSelect={[Function]}
           onSelect={[Function]}
+          permissions={
+            Object {
+              "hspRead": true,
+              "inventoryRead": true,
+            }
+          }
           selectedBaselineIds={Array []}
           tableData={Array []}
           tableId="COMPARISON"
@@ -9356,8 +9367,12 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
       }
     >
       <Connect(AddSystemModal)
-        hasHSPReadPermissions={true}
-        hasInventoryReadPermissions={true}
+        permissions={
+          Object {
+            "hspRead": true,
+            "inventoryRead": true,
+          }
+        }
         selectedBaselineIds={Array []}
         selectedHSPIds={Array []}
         selectedSystemIds={Array []}
@@ -9383,10 +9398,14 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
           handleBaselineSelection={[Function]}
           handleHSPSelection={[Function]}
           handleSystemSelection={[Function]}
-          hasHSPReadPermissions={true}
-          hasInventoryReadPermissions={true}
           historicalProfiles={Array []}
           loading={false}
+          permissions={
+            Object {
+              "hspRead": true,
+              "inventoryRead": true,
+            }
+          }
           selectActiveTab={[Function]}
           selectBaseline={[Function]}
           selectEntity={[Function]}
@@ -11001,10 +11020,15 @@ Try changing your filter settings.
                                             }
                                           }
                                           hasHistoricalDropdown={true}
-                                          hasInventoryReadPermissions={true}
                                           hasMultiSelect={true}
                                           historicalProfiles={Array []}
                                           onSystemSelect={[Function]}
+                                          permissions={
+                                            Object {
+                                              "hspRead": true,
+                                              "inventoryRead": true,
+                                            }
+                                          }
                                           selectVariant="checkbox"
                                           selectedSystemIds={Array []}
                                         />
@@ -11029,10 +11053,15 @@ Try changing your filter settings.
                                               }
                                             }
                                             hasHistoricalDropdown={true}
-                                            hasInventoryReadPermissions={true}
                                             hasMultiSelect={true}
                                             historicalProfiles={Array []}
                                             onSystemSelect={[Function]}
+                                            permissions={
+                                              Object {
+                                                "hspRead": true,
+                                                "inventoryRead": true,
+                                              }
+                                            }
                                             selectVariant="checkbox"
                                             selectedSystemIds={Array []}
                                           />
@@ -11058,10 +11087,15 @@ Try changing your filter settings.
                                             }
                                           }
                                           hasHistoricalDropdown={true}
-                                          hasInventoryReadPermissions={true}
                                           hasMultiSelect={true}
                                           historicalProfiles={Array []}
                                           onSystemSelect={[Function]}
+                                          permissions={
+                                            Object {
+                                              "hspRead": true,
+                                              "inventoryRead": true,
+                                            }
+                                          }
                                           selectVariant="checkbox"
                                           selectedSystemIds={Array []}
                                         >
@@ -11073,10 +11107,15 @@ Try changing your filter settings.
                                               }
                                             }
                                             hasHistoricalDropdown={true}
-                                            hasInventoryReadPermissions={true}
                                             hasMultiSelect={true}
                                             historicalProfiles={Array []}
                                             onSystemSelect={[Function]}
+                                            permissions={
+                                              Object {
+                                                "hspRead": true,
+                                                "inventoryRead": true,
+                                              }
+                                            }
                                             selectEntities={[Function]}
                                             selectHistoricProfiles={[Function]}
                                             selectSingleHSP={[Function]}
@@ -11602,6 +11641,12 @@ Try changing your filter settings.
                                           loading={false}
                                           onBulkSelect={[Function]}
                                           onSelect={[Function]}
+                                          permissions={
+                                            Object {
+                                              "hspRead": true,
+                                              "inventoryRead": true,
+                                            }
+                                          }
                                           selectedBaselineIds={Array []}
                                           tableData={Array []}
                                           tableId="COMPARISON"
@@ -11645,6 +11690,12 @@ Try changing your filter settings.
                                             loading={false}
                                             onBulkSelect={[Function]}
                                             onSelect={[Function]}
+                                            permissions={
+                                              Object {
+                                                "hspRead": true,
+                                                "inventoryRead": true,
+                                              }
+                                            }
                                             selectedBaselineIds={Array []}
                                             tableData={Array []}
                                             tableId="COMPARISON"
@@ -11689,6 +11740,12 @@ Try changing your filter settings.
                                           loading={false}
                                           onBulkSelect={[Function]}
                                           onSelect={[Function]}
+                                          permissions={
+                                            Object {
+                                              "hspRead": true,
+                                              "inventoryRead": true,
+                                            }
+                                          }
                                           selectedBaselineIds={Array []}
                                           tableData={Array []}
                                           tableId="COMPARISON"
@@ -11720,6 +11777,12 @@ Try changing your filter settings.
                                             loading={false}
                                             onBulkSelect={[Function]}
                                             onSelect={[Function]}
+                                            permissions={
+                                              Object {
+                                                "hspRead": true,
+                                                "inventoryRead": true,
+                                              }
+                                            }
                                             selectedBaselineIds={Array []}
                                             tableData={Array []}
                                             tableId="COMPARISON"
@@ -11736,6 +11799,12 @@ Try changing your filter settings.
                                               onSearch={[Function]}
                                               page={1}
                                               perPage={20}
+                                              permissions={
+                                                Object {
+                                                  "hspRead": true,
+                                                  "inventoryRead": true,
+                                                }
+                                              }
                                               selectedBaselineIds={Array []}
                                               tableData={Array []}
                                               tableId="COMPARISON"
@@ -15683,8 +15752,12 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
       }
     >
       <Connect(AddSystemModal)
-        hasHSPReadPermissions={true}
-        hasInventoryReadPermissions={true}
+        permissions={
+          Object {
+            "hspRead": true,
+            "inventoryRead": true,
+          }
+        }
         selectedBaselineIds={Array []}
         selectedHSPIds={Array []}
         selectedSystemIds={Array []}
@@ -15710,10 +15783,14 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
           handleBaselineSelection={[Function]}
           handleHSPSelection={[Function]}
           handleSystemSelection={[Function]}
-          hasHSPReadPermissions={true}
-          hasInventoryReadPermissions={true}
           historicalProfiles={Array []}
           loading={false}
+          permissions={
+            Object {
+              "hspRead": true,
+              "inventoryRead": true,
+            }
+          }
           selectActiveTab={[Function]}
           selectBaseline={[Function]}
           selectEntity={[Function]}
@@ -17328,10 +17405,15 @@ Try changing your filter settings.
                                             }
                                           }
                                           hasHistoricalDropdown={true}
-                                          hasInventoryReadPermissions={true}
                                           hasMultiSelect={true}
                                           historicalProfiles={Array []}
                                           onSystemSelect={[Function]}
+                                          permissions={
+                                            Object {
+                                              "hspRead": true,
+                                              "inventoryRead": true,
+                                            }
+                                          }
                                           selectVariant="checkbox"
                                           selectedSystemIds={Array []}
                                         />
@@ -17356,10 +17438,15 @@ Try changing your filter settings.
                                               }
                                             }
                                             hasHistoricalDropdown={true}
-                                            hasInventoryReadPermissions={true}
                                             hasMultiSelect={true}
                                             historicalProfiles={Array []}
                                             onSystemSelect={[Function]}
+                                            permissions={
+                                              Object {
+                                                "hspRead": true,
+                                                "inventoryRead": true,
+                                              }
+                                            }
                                             selectVariant="checkbox"
                                             selectedSystemIds={Array []}
                                           />
@@ -17385,10 +17472,15 @@ Try changing your filter settings.
                                             }
                                           }
                                           hasHistoricalDropdown={true}
-                                          hasInventoryReadPermissions={true}
                                           hasMultiSelect={true}
                                           historicalProfiles={Array []}
                                           onSystemSelect={[Function]}
+                                          permissions={
+                                            Object {
+                                              "hspRead": true,
+                                              "inventoryRead": true,
+                                            }
+                                          }
                                           selectVariant="checkbox"
                                           selectedSystemIds={Array []}
                                         >
@@ -17400,10 +17492,15 @@ Try changing your filter settings.
                                               }
                                             }
                                             hasHistoricalDropdown={true}
-                                            hasInventoryReadPermissions={true}
                                             hasMultiSelect={true}
                                             historicalProfiles={Array []}
                                             onSystemSelect={[Function]}
+                                            permissions={
+                                              Object {
+                                                "hspRead": true,
+                                                "inventoryRead": true,
+                                              }
+                                            }
                                             selectEntities={[Function]}
                                             selectHistoricProfiles={[Function]}
                                             selectSingleHSP={[Function]}
@@ -17877,6 +17974,12 @@ Try changing your filter settings.
                                           loading={false}
                                           onBulkSelect={[Function]}
                                           onSelect={[Function]}
+                                          permissions={
+                                            Object {
+                                              "hspRead": true,
+                                              "inventoryRead": true,
+                                            }
+                                          }
                                           selectedBaselineIds={Array []}
                                           tableData={Array []}
                                           tableId="COMPARISON"
@@ -17920,6 +18023,12 @@ Try changing your filter settings.
                                             loading={false}
                                             onBulkSelect={[Function]}
                                             onSelect={[Function]}
+                                            permissions={
+                                              Object {
+                                                "hspRead": true,
+                                                "inventoryRead": true,
+                                              }
+                                            }
                                             selectedBaselineIds={Array []}
                                             tableData={Array []}
                                             tableId="COMPARISON"
@@ -17964,6 +18073,12 @@ Try changing your filter settings.
                                           loading={false}
                                           onBulkSelect={[Function]}
                                           onSelect={[Function]}
+                                          permissions={
+                                            Object {
+                                              "hspRead": true,
+                                              "inventoryRead": true,
+                                            }
+                                          }
                                           selectedBaselineIds={Array []}
                                           tableData={Array []}
                                           tableId="COMPARISON"
@@ -17995,6 +18110,12 @@ Try changing your filter settings.
                                             loading={false}
                                             onBulkSelect={[Function]}
                                             onSelect={[Function]}
+                                            permissions={
+                                              Object {
+                                                "hspRead": true,
+                                                "inventoryRead": true,
+                                              }
+                                            }
                                             selectedBaselineIds={Array []}
                                             tableData={Array []}
                                             tableId="COMPARISON"
@@ -18011,6 +18132,12 @@ Try changing your filter settings.
                                               onSearch={[Function]}
                                               page={1}
                                               perPage={20}
+                                              permissions={
+                                                Object {
+                                                  "hspRead": true,
+                                                  "inventoryRead": true,
+                                                }
+                                              }
                                               selectedBaselineIds={Array []}
                                               tableData={Array []}
                                               tableId="COMPARISON"
@@ -21958,8 +22085,12 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
       }
     >
       <Connect(AddSystemModal)
-        hasHSPReadPermissions={true}
-        hasInventoryReadPermissions={false}
+        permissions={
+          Object {
+            "hspRead": true,
+            "inventoryRead": false,
+          }
+        }
         selectedBaselineIds={Array []}
         selectedHSPIds={Array []}
         selectedSystemIds={Array []}
@@ -21985,10 +22116,14 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
           handleBaselineSelection={[Function]}
           handleHSPSelection={[Function]}
           handleSystemSelection={[Function]}
-          hasHSPReadPermissions={true}
-          hasInventoryReadPermissions={false}
           historicalProfiles={Array []}
           loading={false}
+          permissions={
+            Object {
+              "hspRead": true,
+              "inventoryRead": false,
+            }
+          }
           selectActiveTab={[Function]}
           selectBaseline={[Function]}
           selectEntity={[Function]}
@@ -23617,10 +23752,15 @@ Try changing your filter settings.
                                             }
                                           }
                                           hasHistoricalDropdown={true}
-                                          hasInventoryReadPermissions={false}
                                           hasMultiSelect={true}
                                           historicalProfiles={Array []}
                                           onSystemSelect={[Function]}
+                                          permissions={
+                                            Object {
+                                              "hspRead": true,
+                                              "inventoryRead": false,
+                                            }
+                                          }
                                           selectVariant="checkbox"
                                           selectedSystemIds={Array []}
                                         />
@@ -23645,10 +23785,15 @@ Try changing your filter settings.
                                               }
                                             }
                                             hasHistoricalDropdown={true}
-                                            hasInventoryReadPermissions={false}
                                             hasMultiSelect={true}
                                             historicalProfiles={Array []}
                                             onSystemSelect={[Function]}
+                                            permissions={
+                                              Object {
+                                                "hspRead": true,
+                                                "inventoryRead": false,
+                                              }
+                                            }
                                             selectVariant="checkbox"
                                             selectedSystemIds={Array []}
                                           />
@@ -23674,10 +23819,15 @@ Try changing your filter settings.
                                             }
                                           }
                                           hasHistoricalDropdown={true}
-                                          hasInventoryReadPermissions={false}
                                           hasMultiSelect={true}
                                           historicalProfiles={Array []}
                                           onSystemSelect={[Function]}
+                                          permissions={
+                                            Object {
+                                              "hspRead": true,
+                                              "inventoryRead": false,
+                                            }
+                                          }
                                           selectVariant="checkbox"
                                           selectedSystemIds={Array []}
                                         >
@@ -23689,10 +23839,15 @@ Try changing your filter settings.
                                               }
                                             }
                                             hasHistoricalDropdown={true}
-                                            hasInventoryReadPermissions={false}
                                             hasMultiSelect={true}
                                             historicalProfiles={Array []}
                                             onSystemSelect={[Function]}
+                                            permissions={
+                                              Object {
+                                                "hspRead": true,
+                                                "inventoryRead": false,
+                                              }
+                                            }
                                             selectEntities={[Function]}
                                             selectHistoricProfiles={[Function]}
                                             selectSingleHSP={[Function]}
@@ -23813,6 +23968,12 @@ Try changing your filter settings.
                                           loading={false}
                                           onBulkSelect={[Function]}
                                           onSelect={[Function]}
+                                          permissions={
+                                            Object {
+                                              "hspRead": true,
+                                              "inventoryRead": false,
+                                            }
+                                          }
                                           selectedBaselineIds={Array []}
                                           tableData={Array []}
                                           tableId="COMPARISON"
@@ -23856,6 +24017,12 @@ Try changing your filter settings.
                                             loading={false}
                                             onBulkSelect={[Function]}
                                             onSelect={[Function]}
+                                            permissions={
+                                              Object {
+                                                "hspRead": true,
+                                                "inventoryRead": false,
+                                              }
+                                            }
                                             selectedBaselineIds={Array []}
                                             tableData={Array []}
                                             tableId="COMPARISON"
@@ -23900,6 +24067,12 @@ Try changing your filter settings.
                                           loading={false}
                                           onBulkSelect={[Function]}
                                           onSelect={[Function]}
+                                          permissions={
+                                            Object {
+                                              "hspRead": true,
+                                              "inventoryRead": false,
+                                            }
+                                          }
                                           selectedBaselineIds={Array []}
                                           tableData={Array []}
                                           tableId="COMPARISON"
@@ -23931,6 +24104,12 @@ Try changing your filter settings.
                                             loading={false}
                                             onBulkSelect={[Function]}
                                             onSelect={[Function]}
+                                            permissions={
+                                              Object {
+                                                "hspRead": true,
+                                                "inventoryRead": false,
+                                              }
+                                            }
                                             selectedBaselineIds={Array []}
                                             tableData={Array []}
                                             tableId="COMPARISON"
@@ -23947,6 +24126,12 @@ Try changing your filter settings.
                                               onSearch={[Function]}
                                               page={1}
                                               perPage={20}
+                                              permissions={
+                                                Object {
+                                                  "hspRead": true,
+                                                  "inventoryRead": false,
+                                                }
+                                              }
                                               selectedBaselineIds={Array []}
                                               tableData={Array []}
                                               tableId="COMPARISON"

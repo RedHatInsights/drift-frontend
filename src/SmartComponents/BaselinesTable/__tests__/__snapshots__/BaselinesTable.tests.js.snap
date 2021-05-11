@@ -72,10 +72,14 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
         createButton={true}
         exportButton={true}
         hasMultiSelect={true}
-        hasReadPermissions={true}
-        hasWritePermissions={true}
         kebab={true}
         loading={false}
+        permissions={
+          Object {
+            "baselinesRead": true,
+            "baselinesWrite": true,
+          }
+        }
         selectedBaselineIds={
           Array [
             "1234",
@@ -123,10 +127,14 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
           exportToCSV={[Function]}
           fetchBaselines={[Function]}
           hasMultiSelect={true}
-          hasReadPermissions={true}
-          hasWritePermissions={true}
           kebab={true}
           loading={false}
+          permissions={
+            Object {
+              "baselinesRead": true,
+              "baselinesWrite": true,
+            }
+          }
           selectedBaselineIds={
             Array [
               "1234",
@@ -154,14 +162,18 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
             exportToCSV={[Function]}
             fetchWithParams={[Function]}
             hasMultiSelect={true}
-            hasReadPermissions={true}
-            hasWritePermissions={true}
             isDeleteDisabled={false}
             kebab={true}
             loading={false}
             onSearch={[Function]}
             page={1}
             perPage={20}
+            permissions={
+              Object {
+                "baselinesRead": true,
+                "baselinesWrite": true,
+              }
+            }
             selectedBaselineIds={
               Array [
                 "1234",
@@ -884,11 +896,15 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                   className="pf-c-toolbar__item"
                                 >
                                   <withRouter(Connect(CreateBaselineButton))
-                                    hasWritePermissions={true}
                                     loading={false}
+                                    permissions={
+                                      Object {
+                                        "baselinesRead": true,
+                                        "baselinesWrite": true,
+                                      }
+                                    }
                                   >
                                     <Connect(CreateBaselineButton)
-                                      hasWritePermissions={true}
                                       history={
                                         Object {
                                           "action": "POP",
@@ -936,10 +952,15 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                           "url": "/",
                                         }
                                       }
+                                      permissions={
+                                        Object {
+                                          "baselinesRead": true,
+                                          "baselinesWrite": true,
+                                        }
+                                      }
                                     >
                                       <CreateBaselineButton
                                         addSystemModalOpened={false}
-                                        hasWritePermissions={true}
                                         history={
                                           Object {
                                             "action": "POP",
@@ -985,6 +1006,12 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                             "params": Object {},
                                             "path": "/",
                                             "url": "/",
+                                          }
+                                        }
+                                        permissions={
+                                          Object {
+                                            "baselinesRead": true,
+                                            "baselinesWrite": true,
                                           }
                                         }
                                         toggleAddSystemModal={[Function]}
@@ -6783,10 +6810,14 @@ exports[`ConnectedBaselinesTable should render disabled when selected basket is 
         createButton={true}
         exportButton={true}
         hasMultiSelect={true}
-        hasReadPermissions={true}
-        hasWritePermissions={true}
         kebab={true}
         loading={false}
+        permissions={
+          Object {
+            "baselinesRead": true,
+            "baselinesWrite": true,
+          }
+        }
         selectedBaselineIds={Array []}
         tableData={
           Array [
@@ -6830,10 +6861,14 @@ exports[`ConnectedBaselinesTable should render disabled when selected basket is 
           exportToCSV={[Function]}
           fetchBaselines={[Function]}
           hasMultiSelect={true}
-          hasReadPermissions={true}
-          hasWritePermissions={true}
           kebab={true}
           loading={false}
+          permissions={
+            Object {
+              "baselinesRead": true,
+              "baselinesWrite": true,
+            }
+          }
           selectedBaselineIds={Array []}
           tableData={
             Array [
@@ -6857,14 +6892,18 @@ exports[`ConnectedBaselinesTable should render disabled when selected basket is 
             exportToCSV={[Function]}
             fetchWithParams={[Function]}
             hasMultiSelect={true}
-            hasReadPermissions={true}
-            hasWritePermissions={true}
             isDeleteDisabled={true}
             kebab={true}
             loading={false}
             onSearch={[Function]}
             page={1}
             perPage={20}
+            permissions={
+              Object {
+                "baselinesRead": true,
+                "baselinesWrite": true,
+              }
+            }
             selectedBaselineIds={Array []}
             tableData={
               Array [
@@ -7575,11 +7614,15 @@ exports[`ConnectedBaselinesTable should render disabled when selected basket is 
                                   className="pf-c-toolbar__item"
                                 >
                                   <withRouter(Connect(CreateBaselineButton))
-                                    hasWritePermissions={true}
                                     loading={false}
+                                    permissions={
+                                      Object {
+                                        "baselinesRead": true,
+                                        "baselinesWrite": true,
+                                      }
+                                    }
                                   >
                                     <Connect(CreateBaselineButton)
-                                      hasWritePermissions={true}
                                       history={
                                         Object {
                                           "action": "POP",
@@ -7627,10 +7670,15 @@ exports[`ConnectedBaselinesTable should render disabled when selected basket is 
                                           "url": "/",
                                         }
                                       }
+                                      permissions={
+                                        Object {
+                                          "baselinesRead": true,
+                                          "baselinesWrite": true,
+                                        }
+                                      }
                                     >
                                       <CreateBaselineButton
                                         addSystemModalOpened={false}
-                                        hasWritePermissions={true}
                                         history={
                                           Object {
                                             "action": "POP",
@@ -7676,6 +7724,12 @@ exports[`ConnectedBaselinesTable should render disabled when selected basket is 
                                             "params": Object {},
                                             "path": "/",
                                             "url": "/",
+                                          }
+                                        }
+                                        permissions={
+                                          Object {
+                                            "baselinesRead": true,
+                                            "baselinesWrite": true,
                                           }
                                         }
                                         toggleAddSystemModal={[Function]}
@@ -13330,10 +13384,14 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
         createButton={true}
         exportButton={true}
         hasMultiSelect={true}
-        hasReadPermissions={true}
-        hasWritePermissions={true}
         kebab={true}
         loading={true}
+        permissions={
+          Object {
+            "baselinesRead": true,
+            "baselinesWrite": true,
+          }
+        }
         selectedBaselineIds={Array []}
         tableData={
           Array [
@@ -13377,10 +13435,14 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
           exportToCSV={[Function]}
           fetchBaselines={[Function]}
           hasMultiSelect={true}
-          hasReadPermissions={true}
-          hasWritePermissions={true}
           kebab={true}
           loading={true}
+          permissions={
+            Object {
+              "baselinesRead": true,
+              "baselinesWrite": true,
+            }
+          }
           selectedBaselineIds={Array []}
           tableData={
             Array [
@@ -13404,14 +13466,18 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
             exportToCSV={[Function]}
             fetchWithParams={[Function]}
             hasMultiSelect={true}
-            hasReadPermissions={true}
-            hasWritePermissions={true}
             isDeleteDisabled={true}
             kebab={true}
             loading={true}
             onSearch={[Function]}
             page={1}
             perPage={20}
+            permissions={
+              Object {
+                "baselinesRead": true,
+                "baselinesWrite": true,
+              }
+            }
             selectedBaselineIds={Array []}
             tableData={
               Array [
@@ -14089,11 +14155,15 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                                   className="pf-c-toolbar__item"
                                 >
                                   <withRouter(Connect(CreateBaselineButton))
-                                    hasWritePermissions={true}
                                     loading={true}
+                                    permissions={
+                                      Object {
+                                        "baselinesRead": true,
+                                        "baselinesWrite": true,
+                                      }
+                                    }
                                   >
                                     <Connect(CreateBaselineButton)
-                                      hasWritePermissions={true}
                                       history={
                                         Object {
                                           "action": "POP",
@@ -14141,10 +14211,15 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                                           "url": "/",
                                         }
                                       }
+                                      permissions={
+                                        Object {
+                                          "baselinesRead": true,
+                                          "baselinesWrite": true,
+                                        }
+                                      }
                                     >
                                       <CreateBaselineButton
                                         addSystemModalOpened={false}
-                                        hasWritePermissions={true}
                                         history={
                                           Object {
                                             "action": "POP",
@@ -14190,6 +14265,12 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                                             "params": Object {},
                                             "path": "/",
                                             "url": "/",
+                                          }
+                                        }
+                                        permissions={
+                                          Object {
+                                            "baselinesRead": true,
+                                            "baselinesWrite": true,
                                           }
                                         }
                                         toggleAddSystemModal={[Function]}
@@ -25036,10 +25117,14 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
         createButton={true}
         exportButton={true}
         hasMultiSelect={false}
-        hasReadPermissions={true}
-        hasWritePermissions={true}
         kebab={true}
         loading={true}
+        permissions={
+          Object {
+            "baselinesRead": true,
+            "baselinesWrite": true,
+          }
+        }
         selectedBaselineIds={Array []}
         tableData={
           Array [
@@ -25083,10 +25168,14 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
           exportToCSV={[Function]}
           fetchBaselines={[Function]}
           hasMultiSelect={false}
-          hasReadPermissions={true}
-          hasWritePermissions={true}
           kebab={true}
           loading={true}
+          permissions={
+            Object {
+              "baselinesRead": true,
+              "baselinesWrite": true,
+            }
+          }
           selectedBaselineIds={Array []}
           tableData={
             Array [
@@ -25110,14 +25199,18 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
             exportToCSV={[Function]}
             fetchWithParams={[Function]}
             hasMultiSelect={false}
-            hasReadPermissions={true}
-            hasWritePermissions={true}
             isDeleteDisabled={true}
             kebab={true}
             loading={true}
             onSearch={[Function]}
             page={1}
             perPage={20}
+            permissions={
+              Object {
+                "baselinesRead": true,
+                "baselinesWrite": true,
+              }
+            }
             selectedBaselineIds={Array []}
             tableData={
               Array [
@@ -25408,11 +25501,15 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
                                   className="pf-c-toolbar__item"
                                 >
                                   <withRouter(Connect(CreateBaselineButton))
-                                    hasWritePermissions={true}
                                     loading={true}
+                                    permissions={
+                                      Object {
+                                        "baselinesRead": true,
+                                        "baselinesWrite": true,
+                                      }
+                                    }
                                   >
                                     <Connect(CreateBaselineButton)
-                                      hasWritePermissions={true}
                                       history={
                                         Object {
                                           "action": "POP",
@@ -25460,10 +25557,15 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
                                           "url": "/",
                                         }
                                       }
+                                      permissions={
+                                        Object {
+                                          "baselinesRead": true,
+                                          "baselinesWrite": true,
+                                        }
+                                      }
                                     >
                                       <CreateBaselineButton
                                         addSystemModalOpened={false}
-                                        hasWritePermissions={true}
                                         history={
                                           Object {
                                             "action": "POP",
@@ -25509,6 +25611,12 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
                                             "params": Object {},
                                             "path": "/",
                                             "url": "/",
+                                          }
+                                        }
+                                        permissions={
+                                          Object {
+                                            "baselinesRead": true,
+                                            "baselinesWrite": true,
                                           }
                                         }
                                         toggleAddSystemModal={[Function]}
@@ -36355,10 +36463,14 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
         createButton={true}
         exportButton={true}
         hasMultiSelect={true}
-        hasReadPermissions={true}
-        hasWritePermissions={true}
         kebab={true}
         loading={false}
+        permissions={
+          Object {
+            "baselinesRead": true,
+            "baselinesWrite": true,
+          }
+        }
         selectedBaselineIds={Array []}
         tableData={
           Array [
@@ -36402,10 +36514,14 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
           exportToCSV={[Function]}
           fetchBaselines={[Function]}
           hasMultiSelect={true}
-          hasReadPermissions={true}
-          hasWritePermissions={true}
           kebab={true}
           loading={false}
+          permissions={
+            Object {
+              "baselinesRead": true,
+              "baselinesWrite": true,
+            }
+          }
           selectedBaselineIds={Array []}
           tableData={
             Array [
@@ -36429,14 +36545,18 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
             exportToCSV={[Function]}
             fetchWithParams={[Function]}
             hasMultiSelect={true}
-            hasReadPermissions={true}
-            hasWritePermissions={true}
             isDeleteDisabled={true}
             kebab={true}
             loading={false}
             onSearch={[Function]}
             page={1}
             perPage={20}
+            permissions={
+              Object {
+                "baselinesRead": true,
+                "baselinesWrite": true,
+              }
+            }
             selectedBaselineIds={Array []}
             tableData={
               Array [
@@ -37114,11 +37234,15 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                   className="pf-c-toolbar__item"
                                 >
                                   <withRouter(Connect(CreateBaselineButton))
-                                    hasWritePermissions={true}
                                     loading={false}
+                                    permissions={
+                                      Object {
+                                        "baselinesRead": true,
+                                        "baselinesWrite": true,
+                                      }
+                                    }
                                   >
                                     <Connect(CreateBaselineButton)
-                                      hasWritePermissions={true}
                                       history={
                                         Object {
                                           "action": "POP",
@@ -37166,10 +37290,15 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                           "url": "/",
                                         }
                                       }
+                                      permissions={
+                                        Object {
+                                          "baselinesRead": true,
+                                          "baselinesWrite": true,
+                                        }
+                                      }
                                     >
                                       <CreateBaselineButton
                                         addSystemModalOpened={false}
-                                        hasWritePermissions={true}
                                         history={
                                           Object {
                                             "action": "POP",
@@ -37215,6 +37344,12 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                             "params": Object {},
                                             "path": "/",
                                             "url": "/",
+                                          }
+                                        }
+                                        permissions={
+                                          Object {
+                                            "baselinesRead": true,
+                                            "baselinesWrite": true,
                                           }
                                         }
                                         toggleAddSystemModal={[Function]}
@@ -42862,10 +42997,14 @@ exports[`ConnectedBaselinesTable should render no matching baselines 1`] = `
         createButton={true}
         exportButton={true}
         hasMultiSelect={true}
-        hasReadPermissions={true}
-        hasWritePermissions={true}
         kebab={true}
         loading={false}
+        permissions={
+          Object {
+            "baselinesRead": true,
+            "baselinesWrite": true,
+          }
+        }
         selectedBaselineIds={Array []}
         tableData={Array []}
         tableId="CHECKBOX"
@@ -42896,10 +43035,14 @@ exports[`ConnectedBaselinesTable should render no matching baselines 1`] = `
           exportToCSV={[Function]}
           fetchBaselines={[Function]}
           hasMultiSelect={true}
-          hasReadPermissions={true}
-          hasWritePermissions={true}
           kebab={true}
           loading={false}
+          permissions={
+            Object {
+              "baselinesRead": true,
+              "baselinesWrite": true,
+            }
+          }
           selectedBaselineIds={Array []}
           tableData={Array []}
           tableId="CHECKBOX"
@@ -42910,14 +43053,18 @@ exports[`ConnectedBaselinesTable should render no matching baselines 1`] = `
             exportToCSV={[Function]}
             fetchWithParams={[Function]}
             hasMultiSelect={true}
-            hasReadPermissions={true}
-            hasWritePermissions={true}
             isDeleteDisabled={true}
             kebab={true}
             loading={false}
             onSearch={[Function]}
             page={1}
             perPage={20}
+            permissions={
+              Object {
+                "baselinesRead": true,
+                "baselinesWrite": true,
+              }
+            }
             selectedBaselineIds={Array []}
             tableData={Array []}
             tableId="CHECKBOX"
@@ -43584,11 +43731,15 @@ exports[`ConnectedBaselinesTable should render no matching baselines 1`] = `
                                   className="pf-c-toolbar__item"
                                 >
                                   <withRouter(Connect(CreateBaselineButton))
-                                    hasWritePermissions={true}
                                     loading={false}
+                                    permissions={
+                                      Object {
+                                        "baselinesRead": true,
+                                        "baselinesWrite": true,
+                                      }
+                                    }
                                   >
                                     <Connect(CreateBaselineButton)
-                                      hasWritePermissions={true}
                                       history={
                                         Object {
                                           "action": "POP",
@@ -43636,10 +43787,15 @@ exports[`ConnectedBaselinesTable should render no matching baselines 1`] = `
                                           "url": "/",
                                         }
                                       }
+                                      permissions={
+                                        Object {
+                                          "baselinesRead": true,
+                                          "baselinesWrite": true,
+                                        }
+                                      }
                                     >
                                       <CreateBaselineButton
                                         addSystemModalOpened={false}
-                                        hasWritePermissions={true}
                                         history={
                                           Object {
                                             "action": "POP",
@@ -43685,6 +43841,12 @@ exports[`ConnectedBaselinesTable should render no matching baselines 1`] = `
                                             "params": Object {},
                                             "path": "/",
                                             "url": "/",
+                                          }
+                                        }
+                                        permissions={
+                                          Object {
+                                            "baselinesRead": true,
+                                            "baselinesWrite": true,
                                           }
                                         }
                                         toggleAddSystemModal={[Function]}
@@ -47771,10 +47933,14 @@ exports[`ConnectedBaselinesTable should render no table kebabs with no write per
         createButton={true}
         exportButton={true}
         hasMultiSelect={true}
-        hasReadPermissions={true}
-        hasWritePermissions={false}
         kebab={true}
         loading={false}
+        permissions={
+          Object {
+            "baselinesRead": true,
+            "baselinesWrite": false,
+          }
+        }
         selectedBaselineIds={Array []}
         tableData={
           Array [
@@ -47818,10 +47984,14 @@ exports[`ConnectedBaselinesTable should render no table kebabs with no write per
           exportToCSV={[Function]}
           fetchBaselines={[Function]}
           hasMultiSelect={true}
-          hasReadPermissions={true}
-          hasWritePermissions={false}
           kebab={true}
           loading={false}
+          permissions={
+            Object {
+              "baselinesRead": true,
+              "baselinesWrite": false,
+            }
+          }
           selectedBaselineIds={Array []}
           tableData={
             Array [
@@ -47845,14 +48015,18 @@ exports[`ConnectedBaselinesTable should render no table kebabs with no write per
             exportToCSV={[Function]}
             fetchWithParams={[Function]}
             hasMultiSelect={true}
-            hasReadPermissions={true}
-            hasWritePermissions={false}
             isDeleteDisabled={true}
             kebab={true}
             loading={false}
             onSearch={[Function]}
             page={1}
             perPage={20}
+            permissions={
+              Object {
+                "baselinesRead": true,
+                "baselinesWrite": false,
+              }
+            }
             selectedBaselineIds={Array []}
             tableData={
               Array [
@@ -48532,11 +48706,15 @@ exports[`ConnectedBaselinesTable should render no table kebabs with no write per
                                   className="pf-c-toolbar__item"
                                 >
                                   <withRouter(Connect(CreateBaselineButton))
-                                    hasWritePermissions={false}
                                     loading={false}
+                                    permissions={
+                                      Object {
+                                        "baselinesRead": true,
+                                        "baselinesWrite": false,
+                                      }
+                                    }
                                   >
                                     <Connect(CreateBaselineButton)
-                                      hasWritePermissions={false}
                                       history={
                                         Object {
                                           "action": "POP",
@@ -48584,10 +48762,15 @@ exports[`ConnectedBaselinesTable should render no table kebabs with no write per
                                           "url": "/",
                                         }
                                       }
+                                      permissions={
+                                        Object {
+                                          "baselinesRead": true,
+                                          "baselinesWrite": false,
+                                        }
+                                      }
                                     >
                                       <CreateBaselineButton
                                         addSystemModalOpened={false}
-                                        hasWritePermissions={false}
                                         history={
                                           Object {
                                             "action": "POP",
@@ -48633,6 +48816,12 @@ exports[`ConnectedBaselinesTable should render no table kebabs with no write per
                                             "params": Object {},
                                             "path": "/",
                                             "url": "/",
+                                          }
+                                        }
+                                        permissions={
+                                          Object {
+                                            "baselinesRead": true,
+                                            "baselinesWrite": false,
                                           }
                                         }
                                         toggleAddSystemModal={[Function]}

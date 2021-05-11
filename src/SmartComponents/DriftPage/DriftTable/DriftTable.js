@@ -538,7 +538,7 @@ export class DriftTable extends Component {
     }
 
     renderTable(compareData, loading) {
-        const { factSort, hasHSPReadPermissions, referenceId, selectedBaselineIds, selectedHSPIds,
+        const { factSort, permissions, referenceId, selectedBaselineIds, selectedHSPIds,
             selectHistoricProfiles, setHistory, stateSort, toggleFactSort, toggleStateSort } = this.props;
 
         return (
@@ -552,7 +552,7 @@ export class DriftTable extends Component {
                             <ComparisonHeader
                                 factSort={ factSort }
                                 fetchCompare={ this.fetchCompare }
-                                hasHSPReadPermissions={ hasHSPReadPermissions }
+                                permissions={ permissions }
                                 masterList={ this.masterList }
                                 referenceId={ referenceId }
                                 removeSystem={ this.removeSystem }
@@ -577,8 +577,7 @@ export class DriftTable extends Component {
     }
 
     render() {
-        const { emptyState, filteredCompareData, systems, baselines, hasBaselinesReadPermissions, hasBaselinesWritePermissions,
-            hasHSPReadPermissions, hasInventoryReadPermissions, historicalProfiles, loading } = this.props;
+        const { emptyState, filteredCompareData, systems, baselines, historicalProfiles, loading, permissions } = this.props;
 
         this.masterList = this.formatEntities(systems, baselines, historicalProfiles);
 
@@ -588,10 +587,7 @@ export class DriftTable extends Component {
                     selectedSystemIds={ systems.map(system => system.id) }
                     confirmModal={ this.fetchCompare }
                     referenceId={ this.props.referenceId }
-                    hasInventoryReadPermissions={ hasInventoryReadPermissions }
-                    hasBaselinesReadPermissions={ hasBaselinesReadPermissions }
-                    hasBaselinesWritePermissions={ hasBaselinesWritePermissions }
-                    hasHSPReadPermissions={ hasHSPReadPermissions }
+                    permissions={ permissions }
                 />
                 { !emptyState
                     ? this.renderTable(filteredCompareData, loading)
@@ -654,9 +650,7 @@ DriftTable.propTypes = {
     isFirstReference: PropTypes.bool,
     setIsFirstReference: PropTypes.func,
     clearComparison: PropTypes.func,
-    hasInventoryReadPermissions: PropTypes.bool,
-    hasBaselinesReadPermissions: PropTypes.bool,
-    hasBaselinesWritePermissions: PropTypes.bool,
+    permissions: PropTypes.object,
     stateFilters: PropTypes.array,
     addStateFilter: PropTypes.func,
     handleFactFilter: PropTypes.func,

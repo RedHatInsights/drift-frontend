@@ -49,10 +49,13 @@ exports[`ConnectedCreateBaselineButton should render correctly 1`] = `
       }
     >
       <withRouter(Connect(CreateBaselineButton))
-        hasWritePermissions={true}
+        permissions={
+          Object {
+            "baselinesWrite": true,
+          }
+        }
       >
         <Connect(CreateBaselineButton)
-          hasWritePermissions={true}
           history={
             Object {
               "action": "POP",
@@ -99,10 +102,14 @@ exports[`ConnectedCreateBaselineButton should render correctly 1`] = `
               "url": "/",
             }
           }
+          permissions={
+            Object {
+              "baselinesWrite": true,
+            }
+          }
         >
           <CreateBaselineButton
             addSystemModalOpened={false}
-            hasWritePermissions={true}
             history={
               Object {
                 "action": "POP",
@@ -147,6 +154,11 @@ exports[`ConnectedCreateBaselineButton should render correctly 1`] = `
                 "params": Object {},
                 "path": "/",
                 "url": "/",
+              }
+            }
+            permissions={
+              Object {
+                "baselinesWrite": true,
               }
             }
             toggleAddSystemModal={[Function]}
@@ -199,8 +211,12 @@ exports[`CreateBaselineButton should render correctly 1`] = `
 exports[`CreateBaselineButton should render mount correctly 1`] = `
 <CreateBaselineButton
   addSystemModalOpened={false}
-  hasWritePermissions={true}
   loading={false}
+  permissions={
+    Object {
+      "baselinesWrite": true,
+    }
+  }
 >
   <Button
     id="create-baseline-button"

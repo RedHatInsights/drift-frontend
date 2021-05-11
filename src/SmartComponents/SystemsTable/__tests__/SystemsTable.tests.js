@@ -44,7 +44,9 @@ describe('ConnectedSystemsTable', () => {
             selectEntities: jest.fn()
         };
         props = {
-            hasInventoryReadPermissions: true
+            permissions: {
+                inventoryRead: true
+            }
         };
 
         global.window.insights = {
@@ -62,6 +64,21 @@ describe('ConnectedSystemsTable', () => {
 
     it('should render correctly', () => {
         const store = mockStore(initialState);
+
+        const wrapper = mount(
+            <MemoryRouter keyLength={ 0 }>
+                <Provider store={ store }>
+                    <ConnectedSystemsTable { ...props } />
+                </Provider>
+            </MemoryRouter>
+        );
+
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('should render correctly with no inventory read permissions', () => {
+        const store = mockStore(initialState);
+        props.permissions.inventoryRead = false;
 
         const wrapper = mount(
             <MemoryRouter keyLength={ 0 }>

@@ -39,13 +39,13 @@ class EditBaseline extends Component {
         this.fetchBaselineId();
     }
 
-    renderHeaderRow(hasWritePermissions) {
+    renderHeaderRow(baselinesWrite) {
         return (
             <tr
                 key='edit-baseline-table-header'
                 data-ouia-component-type='PF4/TableHeaderRow'
                 data-ouia-component-id='edit-baseline-table-header-row'>
-                { hasWritePermissions ? <th></th> : null }
+                { baselinesWrite ? <th></th> : null }
                 <th className="edit-baseline-header"><div>Fact</div></th>
                 <th className="edit-baseline-header"><div>Value</div></th>
                 <th></th>
@@ -152,7 +152,7 @@ class EditBaseline extends Component {
         );
     }
 
-    renderRowData(fact, hasWritePermissions) {
+    renderRowData(fact, baselinesWrite) {
         const { expandedRows, baselineData } = this.props;
         let row = [];
         let rows = [];
@@ -161,7 +161,7 @@ class EditBaseline extends Component {
             return baselineFact.name === fact[FACT_NAME];
         });
 
-        hasWritePermissions
+        baselinesWrite
             ? row.push(<td
                 className={ expandedRows.includes(fact[FACT_NAME]) ? 'pf-c-table__check nested-fact' : 'pf-c-table__check' }>
                 { this.renderCheckbox(fact) }
@@ -172,7 +172,7 @@ class EditBaseline extends Component {
             row.push(<td>
                 { this.renderExpandableRowButton(fact[FACT_NAME]) } { fact[FACT_NAME] }</td>);
             row.push(<td></td>);
-            row.push(editBaselineHelpers.renderKebab({ factName: fact[FACT_NAME], factData, isCategory: true, hasWritePermissions }));
+            row.push(editBaselineHelpers.renderKebab({ factName: fact[FACT_NAME], factData, isCategory: true, baselinesWrite }));
             rows.push(<tr
                 data-ouia-component-type='PF4/TableRow'
                 data-ouia-component-id={ 'edit-baseline-table-row-' + factData?.name }
@@ -181,7 +181,7 @@ class EditBaseline extends Component {
             if (expandedRows.includes(fact[FACT_NAME])) {
                 editBaselineHelpers.baselineSubFacts(fact).forEach((subFact) => {
                     row = [];
-                    hasWritePermissions
+                    baselinesWrite
                         ? row.push(<td className='pf-c-table__check nested-fact'>{ this.renderCheckbox(subFact) }</td>)
                         : null;
                     row.push(<td>
@@ -193,7 +193,7 @@ class EditBaseline extends Component {
                         factValue: subFact[FACT_VALUE],
                         factData,
                         isSubFact: true,
-                        hasWritePermissions
+                        baselinesWrite
                     }));
                     rows.push(<tr
                         data-ouia-component-type='PF4/TableRow'
@@ -205,7 +205,7 @@ class EditBaseline extends Component {
         } else {
             row.push(<td>{ fact[FACT_NAME] }</td>);
             row.push(<td>{ fact[FACT_VALUE] }</td>);
-            row.push(editBaselineHelpers.renderKebab({ factName: fact[FACT_NAME], factValue: fact[FACT_VALUE], factData, hasWritePermissions }));
+            row.push(editBaselineHelpers.renderKebab({ factName: fact[FACT_NAME], factValue: fact[FACT_VALUE], factData, baselinesWrite }));
             rows.push(<tr
                 data-ouia-component-type='PF4/TableRow'
                 data-ouia-component-id={ 'edit-baseline-table-row-' + factData?.name }
@@ -215,7 +215,7 @@ class EditBaseline extends Component {
         return rows;
     }
 
-    renderRows(hasWritePermissions) {
+    renderRows(baselinesWrite) {
         const { editBaselineTableData } = this.props;
         let facts = editBaselineTableData;
         let rows = [];
@@ -223,7 +223,7 @@ class EditBaseline extends Component {
 
         if (facts.length !== 0) {
             for (let i = 0; i < facts.length; i += 1) {
-                rowData = this.renderRowData(facts[i], hasWritePermissions);
+                rowData = this.renderRowData(facts[i], baselinesWrite);
                 rows.push(rowData);
             }
         }
@@ -231,7 +231,7 @@ class EditBaseline extends Component {
         return rows;
     }
 
-    renderEmptyState(hasWritePermissions) {
+    renderEmptyState(permissions) {
         const { editBaselineEmptyState, editBaselineError } = this.props;
         const { errorMessage } = this.state;
 
@@ -252,21 +252,21 @@ class EditBaseline extends Component {
                 title={ 'No facts' }
                 text={ [ 'No facts or categories have been added to this baseline yet.' ] }
                 button={ <AddFactButton
-                    hasWritePermissions={ hasWritePermissions }
+                    permissions={ permissions }
                     editBaselineEmptyState={ editBaselineEmptyState }
                 /> }
             />;
         }
     }
 
-    renderTable(hasWritePermissions) {
+    renderTable({ baselinesWrite }) {
         return (
             <table className="pf-c-table ins-c-table pf-m-grid-md ins-entity-table">
                 <thead>
-                    { this.renderHeaderRow(hasWritePermissions) }
+                    { this.renderHeaderRow(baselinesWrite) }
                 </thead>
                 <tbody key='edit-baseline-table'>
-                    { this.renderRows(hasWritePermissions) }
+                    { this.renderRows(baselinesWrite) }
                 </tbody>
             </table>
         );
@@ -274,7 +274,7 @@ class EditBaseline extends Component {
 
     render() {
         const { baselineData, baselineDataLoading, editBaselineTableData, exportToCSV, factModalOpened,
-            editBaselineEmptyState, editBaselineError, clearErrorData, hasWritePermissions } = this.props;
+            editBaselineEmptyState, editBaselineError, clearErrorData, permissions } = this.props;
         let selected = editBaselineHelpers.findSelected(editBaselineTableData);
 
         return (
@@ -288,22 +288,22 @@ class EditBaseline extends Component {
                     onClose={ clearErrorData }
                 />
                 { editBaselineEmptyState
-                    ? this.renderEmptyState(hasWritePermissions)
+                    ? this.renderEmptyState(permissions)
                     : <Card className='pf-t-light pf-m-opaque-100'>
                         <CardBody>
                             <EditBaselineToolbar
                                 selected={ selected }
                                 onBulkSelect={ this.onBulkSelect }
-                                isDisabled={ editBaselineTableData.length === 0 || !hasWritePermissions }
+                                isDisabled={ editBaselineTableData.length === 0 || !permissions.baselinesWrite }
                                 totalFacts={ editBaselineHelpers.findFactCount(editBaselineTableData) }
                                 baselineData={ baselineData }
                                 exportToCSV={ exportToCSV }
                                 tableData={ editBaselineTableData }
-                                hasWritePermissions={ hasWritePermissions }
+                                permissions={ permissions }
                             />
                             { baselineDataLoading
                                 ? this.renderLoadingRows()
-                                : this.renderTable(hasWritePermissions)
+                                : this.renderTable(permissions)
                             }
                         </CardBody>
                     </Card>
@@ -327,7 +327,7 @@ EditBaseline.propTypes = {
     editBaselineError: PropTypes.object,
     editBaselineEmptyState: PropTypes.bool,
     exportToCSV: PropTypes.func,
-    hasWritePermissions: PropTypes.bool
+    permissions: PropTypes.object
 };
 
 export default EditBaseline;

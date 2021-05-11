@@ -92,7 +92,7 @@ export class EditBaselinePage extends Component {
         this.fetchBaselineId();
     }
 
-    renderBreadcrumb(baselineData, hasReadPermissions) {
+    renderBreadcrumb(baselineData, baselinesRead) {
         let breadcrumb;
 
         /*eslint-disable camelcase*/
@@ -102,7 +102,7 @@ export class EditBaselinePage extends Component {
                     Baselines
                 </a>
             </BreadcrumbItem>
-            { baselineData && hasReadPermissions
+            { baselineData && baselinesRead
                 ? <BreadcrumbHeading>
                     { baselineData.display_name }
                 </BreadcrumbHeading>
@@ -114,11 +114,11 @@ export class EditBaselinePage extends Component {
         return breadcrumb;
     }
 
-    renderPageTitle(baselineData, hasReadPermissions, hasWritePermissions) {
+    renderPageTitle(baselineData, baselinesRead, baselinesWrite) {
         let pageTitle;
 
-        if (hasReadPermissions) {
-            if (hasWritePermissions) {
+        if (baselinesRead) {
+            if (baselinesWrite) {
                 pageTitle = <React.Fragment>
                     <span className='pf-c-title pf-m-2xl'>
                         { !_.isEmpty(baselineData) ? baselineData.display_name : null }
@@ -141,7 +141,7 @@ export class EditBaselinePage extends Component {
         return pageTitle;
     }
 
-    renderPageHeader = (hasReadPermissions, hasWritePermissions) => {
+    renderPageHeader = ({ baselinesRead, baselinesWrite }) => {
         const { modalOpened } = this.state;
         const { baselineData, baselineDataLoading, inlineError } = this.props;
         let pageHeader;
@@ -160,9 +160,9 @@ export class EditBaselinePage extends Component {
                         error={ inlineError }
                     />
                     <PageHeader className='bottom-padding-0'>
-                        { this.renderBreadcrumb(baselineData, hasReadPermissions) }
+                        { this.renderBreadcrumb(baselineData, baselinesRead) }
                         <div id="edit-baseline-title">
-                            { this.renderPageTitle(baselineData, hasReadPermissions, hasWritePermissions) }
+                            { this.renderPageTitle(baselineData, baselinesRead, baselinesWrite) }
                         </div>
                         { this.renderTabs() }
                     </PageHeader>
@@ -204,7 +204,7 @@ export class EditBaselinePage extends Component {
         </div>;
     }
 
-    renderMain(baselinesWrite, inventoryRead) {
+    renderMain(permissions) {
         const { baselineData, baselineDataLoading, clearErrorData, driftClearFilters, editBaselineEmptyState, editBaselineError,
             editBaselineTableData, entities, expandRow, expandedRows, exportToCSV, factModalOpened, selectFact,
             match: { params }, selectEntities, selectHistoricProfiles, setSelectedSystemIds, updateColumns } = this.props;
@@ -223,7 +223,7 @@ export class EditBaselinePage extends Component {
                 expandedRows={ expandedRows }
                 exportToCSV={ exportToCSV }
                 factModalOpened={ factModalOpened }
-                hasWritePermissions={ baselinesWrite }
+                permissions={ permissions }
                 history={ history }
                 selectFact={ selectFact }
             />;
@@ -231,7 +231,7 @@ export class EditBaselinePage extends Component {
             body = <SystemNotification
                 baselineId={ params.id }
                 baselineName={ baselineData?.display_name }
-                hasInventoryReadPermissions={ inventoryRead }
+                permissions={ permissions }
                 entities={ entities }
                 driftClearFilters={ driftClearFilters }
                 selectEntities={ selectEntities }
@@ -250,7 +250,7 @@ export class EditBaselinePage extends Component {
             <PermissionContext.Consumer>
                 { value =>
                     <React.Fragment>
-                        { this.renderPageHeader(value.permissions.baselinesRead, value.permissions.baselinesWrite) }
+                        { this.renderPageHeader(value.permissions) }
                         <Main>
                             { value.permissions.baselinesRead === false
                                 ? <EmptyStateDisplay
@@ -259,7 +259,7 @@ export class EditBaselinePage extends Component {
                                     title={ 'You do not have access to view this Baseline' }
                                     text={ [ 'Contact your organization administrator(s) for more information.' ] }
                                 />
-                                : this.renderMain(value.permissions.baselinesWrite, value.permissions.inventoryRead)
+                                : this.renderMain(value.permissions)
                             }
                         </Main>
                     </React.Fragment>
@@ -287,7 +287,6 @@ EditBaselinePage.propTypes = {
     inlineError: PropTypes.object,
     editBaselineEmptyState: PropTypes.bool,
     exportToCSV: PropTypes.func,
-    hasWritePermissions: PropTypes.bool,
     fetchBaselines: PropTypes.func,
     entities: PropTypes.object,
     selectHistoricProfiles: PropTypes.func,

@@ -14,6 +14,9 @@ describe('ComparisonHeader', () => {
             fetchCompare: jest.fn(),
             hasHSPReadPermissions: true,
             masterList: [],
+            permissions: {
+                hspRead: true
+            },
             referenceId: undefined,
             isFirstReference: true,
             removeSystem: jest.fn(),
@@ -161,7 +164,7 @@ describe('ComparisonHeader', () => {
 
     it('should not render HistoricalProfilesPopover with no hspRead permissions', () => {
         props.masterList = fixtures.masterListAll;
-        props.hasHSPReadPermissions = false;
+        props.permissions.hspRead = false;
         const wrapper = shallow(
             <ComparisonHeader { ...props }/>
         );

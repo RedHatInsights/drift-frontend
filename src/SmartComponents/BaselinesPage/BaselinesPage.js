@@ -77,7 +77,7 @@ export class BaselinesPage extends Component {
         selectBaseline(ids, isSelected, 'CHECKBOX');
     }
 
-    renderTable(hasReadPermissions, hasWritePermissions) {
+    renderTable(permissions) {
         const { baselineTableData, loading, createBaselineModalOpened, clearEditBaselineData, selectedBaselineIds,
             totalBaselines } = this.props;
         const { columns } = this.state;
@@ -102,15 +102,14 @@ export class BaselinesPage extends Component {
                         onBulkSelect={ this.onBulkSelect }
                         selectedBaselineIds={ selectedBaselineIds }
                         totalBaselines={ totalBaselines }
-                        hasReadPermissions={ hasReadPermissions }
-                        hasWritePermissions={ hasWritePermissions }
+                        permissions={ permissions }
                     />
                 </div>
             </CardBody>
         );
     }
 
-    renderEmptyState = (hasBaselinesWritePermissions) => {
+    renderEmptyState = (permissions) => {
         const { baselineError, emptyState, loading, revertBaselineFetch } = this.props;
         const { emptyStateMessage, errorMessage } = this.state;
 
@@ -121,7 +120,7 @@ export class BaselinesPage extends Component {
                 text={ emptyStateMessage }
                 button={ <CreateBaselineButton
                     emptyState={ emptyState }
-                    hasWritePermissions={ hasBaselinesWritePermissions }
+                    permissions={ permissions }
                     loading={ loading } /> }
             />;
         } else if (baselineError.status !== 200 && baselineError.status !== undefined) {
@@ -147,10 +146,7 @@ export class BaselinesPage extends Component {
                 { value =>
                     <React.Fragment>
                         <CreateBaselineModal
-                            hasInventoryReadPermissions={ value.permissions.inventoryRead }
-                            hasHSPReadPermissions={ value.permissions.hspRead }
-                            hasReadPermissions={ value.permissions.baselinesRead }
-                            hasWritePermissions={ value.permissions.baselinesWrite }
+                            permissions={ value.permissions }
                             selectHistoricProfiles={ selectHistoricProfiles }
                             setSelectedSystemIds={ setSelectedSystemIds }
                         />
@@ -166,7 +162,7 @@ export class BaselinesPage extends Component {
                                     text={ [ 'Contact your organization administrator(s) for more information.' ] }
                                 />
                                 : emptyState && !loading
-                                    ? this.renderEmptyState(value.permissions.baselinesWrite)
+                                    ? this.renderEmptyState(value.permissions)
                                     : <React.Fragment>
                                         <ErrorAlert
                                             error={ !emptyState && baselineError ? baselineError : {} }
@@ -175,7 +171,7 @@ export class BaselinesPage extends Component {
                                         />
                                         <Card className='pf-t-light pf-m-opaque-100'>
                                             {
-                                                this.renderTable(value.permissions.baselinesRead, value.permissions.baselinesWrite)
+                                                this.renderTable(value.permissions)
                                             }
                                         </Card>
                                     </React.Fragment>

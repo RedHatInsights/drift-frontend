@@ -952,7 +952,11 @@ exports[`CreateBaselineModal should render mount correctly 1`] = `
   createBaselineModalOpened={false}
   entities={Object {}}
   handleChecked={[MockFunction]}
-  hasHSPReadPermissions={true}
+  permissions={
+    Object {
+      "hspRead": true,
+    }
+  }
   selectedBaselineIds={Array []}
 >
   <Modal

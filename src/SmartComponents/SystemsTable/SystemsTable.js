@@ -20,7 +20,8 @@ export const SystemsTable = ({
     driftClearFilters,
     entities,
     hasHistoricalDropdown,
-    hasInventoryReadPermissions,
+    //hasInventoryReadPermissions,
+    permissions,
     hasMultiSelect,
     historicalProfiles,
     isAddSystemNotifications,
@@ -55,7 +56,7 @@ export const SystemsTable = ({
     };
 
     return (
-        hasInventoryReadPermissions ? (
+        permissions.inventoryRead ? (
             <InventoryTable
                 onLoad={ ({ mergeWithEntities, INVENTORY_ACTION_TYPES, api }) => {
                     getEntities.current = api?.getEntities;
@@ -153,7 +154,8 @@ SystemsTable.propTypes = {
     historicalProfiles: PropTypes.array,
     hasMultiSelect: PropTypes.bool,
     updateColumns: PropTypes.func,
-    hasInventoryReadPermissions: PropTypes.bool,
+    //hasInventoryReadPermissions: PropTypes.bool,
+    permissions: PropTypes.object,
     entities: PropTypes.object,
     selectEntities: PropTypes.func,
     selectVariant: PropTypes.string,
@@ -163,7 +165,6 @@ SystemsTable.propTypes = {
     selectHistoricProfiles: PropTypes.func,
     selectSystemsToAdd: PropTypes.func,
     selectSingleHSP: PropTypes.func,
-    thething: PropTypes.string,
     deselectHistoricalProfiles: PropTypes.func
 };
 

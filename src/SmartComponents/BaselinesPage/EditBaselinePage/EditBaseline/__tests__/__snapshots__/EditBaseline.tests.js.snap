@@ -12,9 +12,13 @@ exports[`EditBaseline should render correctly 1`] = `
     <CardBody>
       <EditBaselineToolbar
         baselineData={Array []}
-        hasWritePermissions={true}
         isDisabled={true}
         onBulkSelect={[Function]}
+        permissions={
+          Object {
+            "baselinesWrite": true,
+          }
+        }
         selected={0}
         tableData={Array []}
         totalFacts={0}
@@ -65,7 +69,11 @@ exports[`EditBaseline should render empty baseline 1`] = `
     button={
       <Memo(Connect(AddFactButton))
         editBaselineEmptyState={true}
-        hasWritePermissions={true}
+        permissions={
+          Object {
+            "baselinesWrite": true,
+          }
+        }
       />
     }
     text={
@@ -146,9 +154,13 @@ exports[`EditBaseline should render expandable rows closed 1`] = `
             "id": "38gnw73l-fn36-5829-1287-2m5ghs46801c",
           }
         }
-        hasWritePermissions={true}
         isDisabled={false}
         onBulkSelect={[Function]}
+        permissions={
+          Object {
+            "baselinesWrite": true,
+          }
+        }
         selected={0}
         tableData={
           Array [
@@ -484,9 +496,13 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
             "id": "38gnw73l-fn36-5829-1287-2m5ghs46801c",
           }
         }
-        hasWritePermissions={true}
         isDisabled={false}
         onBulkSelect={[Function]}
+        permissions={
+          Object {
+            "baselinesWrite": true,
+          }
+        }
         selected={0}
         tableData={
           Array [
@@ -1503,9 +1519,13 @@ exports[`EditBaseline should render loading rows 1`] = `
   >
     <CardBody>
       <EditBaselineToolbar
-        hasWritePermissions={true}
         isDisabled={true}
         onBulkSelect={[Function]}
+        permissions={
+          Object {
+            "baselinesWrite": true,
+          }
+        }
         selected={0}
         tableData={Array []}
         totalFacts={0}

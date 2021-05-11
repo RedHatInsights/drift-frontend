@@ -60,13 +60,13 @@ export class BaselinesTable extends Component {
 
     onSort = (_event, index, direction) => {
         const { search } = this.state;
-        const { hasWritePermissions } = this.props;
+        const { permissions } = this.props;
         let orderBy = '';
 
         if (index === 0) {
             orderBy = 'display_name';
         } else if (index === 1) {
-            orderBy = !hasWritePermissions ? 'updated' : 'display_name';
+            orderBy = !permissions.baselinesWrite ? 'updated' : 'display_name';
         } else if (index === 2) {
             orderBy = 'updated';
         }
@@ -88,7 +88,7 @@ export class BaselinesTable extends Component {
         this.fetchWithParams({ page: pagination.page, perPage: pagination.perPage });
     }
 
-    renderRows(hasWritePermissions) {
+    renderRows(baselinesWrite) {
         const { basketIsVisible, hasMultiSelect, tableData, kebab, onClick, selectedBaselineIds, tableId } = this.props;
         let table = [];
 
@@ -113,7 +113,7 @@ export class BaselinesTable extends Component {
 
             row.push(baseline[2]);
 
-            if (kebab && hasWritePermissions) {
+            if (kebab && baselinesWrite) {
                 let kebab = <BaselineTableKebab
                     tableId={ tableId }
                     baselineRowData={ baseline }
@@ -138,7 +138,7 @@ export class BaselinesTable extends Component {
         return table;
     }
 
-    renderTable(hasWritePermissions, hasReadPermissions) {
+    renderTable({ baselinesWrite, baselinesRead }) {
         const { columns, createButton, hasMultiSelect, kebab, loading, onSelect, tableData, tableId } = this.props;
         const { emptyStateMessage } = this.state;
         let tableRows = [];
@@ -171,7 +171,7 @@ export class BaselinesTable extends Component {
                     <TableBody />
                 </Table>;
             } else {
-                if (!hasReadPermissions && !createButton) {
+                if (!baselinesRead && !createButton) {
                     return <EmptyStateDisplay
                         icon={ LockIcon }
                         color='#6a6e73'
@@ -179,13 +179,13 @@ export class BaselinesTable extends Component {
                         text={ [ 'Contact your organization administrator(s) for more information.' ] }
                     />;
                 } else {
-                    tableRows = this.renderRows(hasWritePermissions);
+                    tableRows = this.renderRows(baselinesWrite);
 
                     table = <Table
                         aria-label="Baselines Table"
                         data-ouia-component-id='baselines-table'
                         onSort={ this.onSort }
-                        onSelect={ hasWritePermissions || ((tableId === 'CHECKBOX' || tableId === 'COMPARISON') && !kebab)
+                        onSelect={ baselinesWrite || ((tableId === 'CHECKBOX' || tableId === 'COMPARISON') && !kebab)
                             ? onSelect
                             : false }
                         sortBy={ this.state.sortBy }
@@ -214,8 +214,8 @@ export class BaselinesTable extends Component {
     }
 
     render() {
-        const { kebab, createButton, exportToCSV, exportButton, hasMultiSelect, loading, onBulkSelect, selectedBaselineIds,
-            tableData, tableId, totalBaselines, hasReadPermissions, hasWritePermissions } = this.props;
+        const { kebab, createButton, exportToCSV, exportButton, hasMultiSelect, loading, onBulkSelect, permissions,
+            selectedBaselineIds, tableData, tableId, totalBaselines } = this.props;
         const { page, perPage } = this.state;
 
         return (
@@ -238,17 +238,16 @@ export class BaselinesTable extends Component {
                     updatePagination={ this.updatePagination }
                     exportToCSV={ exportToCSV }
                     loading={ loading }
-                    hasWritePermissions={ hasWritePermissions }
-                    hasReadPermissions={ hasReadPermissions }
+                    permissions={ permissions }
                 />
-                { this.renderTable(hasWritePermissions, hasReadPermissions) }
+                { this.renderTable(permissions) }
                 <Toolbar>
                     <ToolbarGroup className='pf-c-pagination'>
                         <ToolbarItem>
                             <TablePagination
                                 page={ page }
                                 perPage={ perPage }
-                                total={ !hasReadPermissions ? 0 : totalBaselines }
+                                total={ !permissions.baselinesRead ? 0 : totalBaselines }
                                 isCompact={ false }
                                 updatePagination={ this.updatePagination }
                                 tableId={ tableId }
@@ -277,8 +276,7 @@ BaselinesTable.propTypes = {
     selectedBaselineIds: PropTypes.array,
     totalBaselines: PropTypes.number,
     exportToCSV: PropTypes.func,
-    hasReadPermissions: PropTypes.bool,
-    hasWritePermissions: PropTypes.bool,
+    permissions: PropTypes.object,
     basketIsVisible: PropTypes.bool
 };
 

@@ -3,9 +3,9 @@ import jiff from 'jiff';
 import FactKebab from '../FactKebab/FactKebab';
 
 /*eslint-disable react/prop-types*/
-function renderKebab({ factName, factValue, factData, isCategory, isSubFact, hasWritePermissions } = {}) {
+function renderKebab({ factName, factValue, factData, isCategory, isSubFact, baselinesWrite } = {}) {
     return (
-        hasWritePermissions
+        baselinesWrite
             ? <td>
                 <FactKebab
                     factName={ factName }
