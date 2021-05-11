@@ -1,0 +1,913 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConnectedSystemNotification should disable Add system button 1`] = `
+<MemoryRouter
+  keyLength={0}
+>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Provider
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+    >
+      <Connect(SystemNotification)
+        permissions={
+          Object {
+            "baselinesWrite": false,
+          }
+        }
+      >
+        <SystemNotification
+          addNotifications={[Function]}
+          deleteNotifications={[Function]}
+          deleteNotificationsModalOpened={false}
+          getNotifications={[Function]}
+          permissions={
+            Object {
+              "baselinesWrite": false,
+            }
+          }
+          setSelectedSystemIds={[Function]}
+          setSystemsToDelete={[Function]}
+          systemNotificationIds={Array []}
+          systemNotificationLoaded={true}
+          systemsToDelete={Array []}
+          toggleDeleteNotificationsModal={[Function]}
+        >
+          <DeleteNotificationModal
+            deleteNotifications={[Function]}
+            deleteNotificationsModalOpened={false}
+            fetchSystems={[Function]}
+            systemsToDelete={Array []}
+            toggleDeleteNotificationsModal={[Function]}
+          >
+            <Modal
+              actions={
+                Array [
+                  <Button
+                    onClick={[Function]}
+                    ouiaId="delete-baseline-notification-button"
+                    variant="danger"
+                  >
+                    Delete
+                  </Button>,
+                  <Button
+                    onClick={[Function]}
+                    ouiaId="delete-baseline-notification-cancel-button"
+                    variant="link"
+                  >
+                    Cancel
+                  </Button>,
+                ]
+              }
+              appendTo={[Function]}
+              aria-describedby=""
+              aria-label=""
+              aria-labelledby=""
+              className="drift"
+              hasNoBodyWrapper={false}
+              isOpen={false}
+              onClose={[Function]}
+              ouiaId="delete-baseline-notification-modal"
+              ouiaSafe={true}
+              showClose={true}
+              title="Delete baseline notifications"
+              titleIconVariant={null}
+              titleLabel=""
+              variant="small"
+            >
+              <Portal
+                containerInfo={<div />}
+              >
+                <ModalContent
+                  actions={
+                    Array [
+                      <Button
+                        onClick={[Function]}
+                        ouiaId="delete-baseline-notification-button"
+                        variant="danger"
+                      >
+                        Delete
+                      </Button>,
+                      <Button
+                        onClick={[Function]}
+                        ouiaId="delete-baseline-notification-cancel-button"
+                        variant="link"
+                      >
+                        Cancel
+                      </Button>,
+                    ]
+                  }
+                  aria-describedby=""
+                  aria-label=""
+                  aria-labelledby=""
+                  boxId="pf-modal-part-2"
+                  className="drift"
+                  descriptorId="pf-modal-part-4"
+                  hasNoBodyWrapper={false}
+                  isOpen={false}
+                  labelId="pf-modal-part-3"
+                  onClose={[Function]}
+                  ouiaId="delete-baseline-notification-modal"
+                  ouiaSafe={true}
+                  showClose={true}
+                  title="Delete baseline notifications"
+                  titleIconVariant={null}
+                  titleLabel=""
+                  variant="small"
+                />
+              </Portal>
+            </Modal>
+          </DeleteNotificationModal>
+          <Modal
+            actions={
+              Array [
+                <Button
+                  onClick={[Function]}
+                  ouiaId="add-baseline-notification-button"
+                  variant="primary"
+                >
+                  Submit
+                </Button>,
+                <Button
+                  onClick={[Function]}
+                  ouiaId="add-baseline-notification-cancel-button"
+                  variant="link"
+                >
+                  Cancel
+                </Button>,
+              ]
+            }
+            appendTo={[Function]}
+            aria-describedby=""
+            aria-label=""
+            aria-labelledby=""
+            className="drift"
+            hasNoBodyWrapper={false}
+            isOpen={false}
+            onClose={[Function]}
+            ouiaId="add-baseline-notification-modal"
+            ouiaSafe={true}
+            showClose={true}
+            title="Associate system with undefined"
+            titleIconVariant={null}
+            titleLabel=""
+            variant="medium"
+          >
+            <Portal
+              containerInfo={<div />}
+            >
+              <ModalContent
+                actions={
+                  Array [
+                    <Button
+                      onClick={[Function]}
+                      ouiaId="add-baseline-notification-button"
+                      variant="primary"
+                    >
+                      Submit
+                    </Button>,
+                    <Button
+                      onClick={[Function]}
+                      ouiaId="add-baseline-notification-cancel-button"
+                      variant="link"
+                    >
+                      Cancel
+                    </Button>,
+                  ]
+                }
+                aria-describedby=""
+                aria-label=""
+                aria-labelledby=""
+                boxId="pf-modal-part-3"
+                className="drift"
+                descriptorId="pf-modal-part-5"
+                hasNoBodyWrapper={false}
+                isOpen={false}
+                labelId="pf-modal-part-4"
+                onClose={[Function]}
+                ouiaId="add-baseline-notification-modal"
+                ouiaSafe={true}
+                showClose={true}
+                title="Associate system with undefined"
+                titleIconVariant={null}
+                titleLabel=""
+                variant="medium"
+              />
+            </Portal>
+          </Modal>
+          <SystemsTableWithContext
+            deleteNotifications={[Function]}
+            hasMultiSelect={true}
+            onSystemSelect={[Function]}
+            permissions={
+              Object {
+                "baselinesWrite": false,
+              }
+            }
+            selectVariant="checkbox"
+            systemNotificationIds={Array []}
+            toolbarButton={
+              <Button
+                isDisabled={true}
+                onClick={[Function]}
+                ouiaId="add-baseline-notification-button"
+                variant="primary"
+              >
+                Add system
+              </Button>
+            }
+          >
+            <Provider
+              store={
+                Object {
+                  "@@observable": [Function],
+                  "dispatch": [Function],
+                  "getState": [Function],
+                  "replaceReducer": [Function],
+                  "subscribe": [Function],
+                }
+              }
+            >
+              <Connect(Component)
+                addNewListener={[Function]}
+                deleteNotifications={[Function]}
+                hasMultiSelect={true}
+                onSystemSelect={[Function]}
+                permissions={
+                  Object {
+                    "baselinesWrite": false,
+                  }
+                }
+                registry={
+                  ReducerRegistry {
+                    "reducers": Object {},
+                    "store": Object {
+                      "@@observable": [Function],
+                      "dispatch": [Function],
+                      "getState": [Function],
+                      "replaceReducer": [Function],
+                      "subscribe": [Function],
+                    },
+                  }
+                }
+                selectVariant="checkbox"
+                selectedSystemIds={Array []}
+                systemNotificationIds={Array []}
+                toolbarButton={
+                  <Button
+                    isDisabled={true}
+                    onClick={[Function]}
+                    ouiaId="add-baseline-notification-button"
+                    variant="primary"
+                  >
+                    Add system
+                  </Button>
+                }
+              >
+                <Component
+                  addNewListener={[Function]}
+                  deleteNotifications={[Function]}
+                  driftClearFilters={[Function]}
+                  hasMultiSelect={true}
+                  onSystemSelect={[Function]}
+                  permissions={
+                    Object {
+                      "baselinesWrite": false,
+                    }
+                  }
+                  registry={
+                    ReducerRegistry {
+                      "reducers": Object {},
+                      "store": Object {
+                        "@@observable": [Function],
+                        "dispatch": [Function],
+                        "getState": [Function],
+                        "replaceReducer": [Function],
+                        "subscribe": [Function],
+                      },
+                    }
+                  }
+                  selectEntities={[Function]}
+                  selectVariant="checkbox"
+                  selectedSystemIds={Array []}
+                  setSelectedSystemIds={[Function]}
+                  systemNotificationIds={Array []}
+                  toolbarButton={
+                    <Button
+                      isDisabled={true}
+                      onClick={[Function]}
+                      ouiaId="add-baseline-notification-button"
+                      variant="primary"
+                    >
+                      Add system
+                    </Button>
+                  }
+                  updateColumns={[Function]}
+                >
+                  <EmptyStateDisplay
+                    color="#6a6e73"
+                    icon={[Function]}
+                    text={
+                      Array [
+                        "Contact your organization administrator(s) for more information.",
+                      ]
+                    }
+                    title="You do not have access to the inventory"
+                  >
+                    <EmptyState
+                      variant="large"
+                    >
+                      <div
+                        className="pf-c-empty-state pf-m-lg"
+                      >
+                        <div
+                          className="pf-c-empty-state__content"
+                        >
+                          <EmptyStateIcon
+                            className={null}
+                            color="#6a6e73"
+                            icon={[Function]}
+                          >
+                            <LockIcon
+                              aria-hidden="true"
+                              className="pf-c-empty-state__icon"
+                              color="#6a6e73"
+                              noVerticalAlign={false}
+                              size="sm"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                aria-labelledby={null}
+                                className="pf-c-empty-state__icon"
+                                fill="#6a6e73"
+                                height="1em"
+                                role="img"
+                                style={
+                                  Object {
+                                    "verticalAlign": "-0.125em",
+                                  }
+                                }
+                                viewBox="0 0 448 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"
+                                />
+                              </svg>
+                            </LockIcon>
+                          </EmptyStateIcon>
+                          <br />
+                          <Title
+                            headingLevel="h1"
+                            size="lg"
+                          >
+                            <h1
+                              className="pf-c-title pf-m-lg"
+                            >
+                              You do not have access to the inventory
+                            </h1>
+                          </Title>
+                          <EmptyStateBody>
+                            <div
+                              className="pf-c-empty-state__body"
+                            >
+                              Contact your organization administrator(s) for more information.
+                            </div>
+                          </EmptyStateBody>
+                        </div>
+                      </div>
+                    </EmptyState>
+                  </EmptyStateDisplay>
+                </Component>
+              </Connect(Component)>
+            </Provider>
+          </SystemsTableWithContext>
+        </SystemNotification>
+      </Connect(SystemNotification)>
+    </Provider>
+  </Router>
+</MemoryRouter>
+`;
+
+exports[`ConnectedSystemNotification should render correctly 1`] = `
+<MemoryRouter
+  keyLength={0}
+>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Provider
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+    >
+      <Connect(SystemNotification)
+        permissions={
+          Object {
+            "baselinesWrite": true,
+          }
+        }
+      >
+        <SystemNotification
+          addNotifications={[Function]}
+          deleteNotifications={[Function]}
+          deleteNotificationsModalOpened={false}
+          getNotifications={[Function]}
+          permissions={
+            Object {
+              "baselinesWrite": true,
+            }
+          }
+          setSelectedSystemIds={[Function]}
+          setSystemsToDelete={[Function]}
+          systemNotificationIds={Array []}
+          systemNotificationLoaded={true}
+          systemsToDelete={Array []}
+          toggleDeleteNotificationsModal={[Function]}
+        >
+          <DeleteNotificationModal
+            deleteNotifications={[Function]}
+            deleteNotificationsModalOpened={false}
+            fetchSystems={[Function]}
+            systemsToDelete={Array []}
+            toggleDeleteNotificationsModal={[Function]}
+          >
+            <Modal
+              actions={
+                Array [
+                  <Button
+                    onClick={[Function]}
+                    ouiaId="delete-baseline-notification-button"
+                    variant="danger"
+                  >
+                    Delete
+                  </Button>,
+                  <Button
+                    onClick={[Function]}
+                    ouiaId="delete-baseline-notification-cancel-button"
+                    variant="link"
+                  >
+                    Cancel
+                  </Button>,
+                ]
+              }
+              appendTo={[Function]}
+              aria-describedby=""
+              aria-label=""
+              aria-labelledby=""
+              className="drift"
+              hasNoBodyWrapper={false}
+              isOpen={false}
+              onClose={[Function]}
+              ouiaId="delete-baseline-notification-modal"
+              ouiaSafe={true}
+              showClose={true}
+              title="Delete baseline notifications"
+              titleIconVariant={null}
+              titleLabel=""
+              variant="small"
+            >
+              <Portal
+                containerInfo={<div />}
+              >
+                <ModalContent
+                  actions={
+                    Array [
+                      <Button
+                        onClick={[Function]}
+                        ouiaId="delete-baseline-notification-button"
+                        variant="danger"
+                      >
+                        Delete
+                      </Button>,
+                      <Button
+                        onClick={[Function]}
+                        ouiaId="delete-baseline-notification-cancel-button"
+                        variant="link"
+                      >
+                        Cancel
+                      </Button>,
+                    ]
+                  }
+                  aria-describedby=""
+                  aria-label=""
+                  aria-labelledby=""
+                  boxId="pf-modal-part-0"
+                  className="drift"
+                  descriptorId="pf-modal-part-2"
+                  hasNoBodyWrapper={false}
+                  isOpen={false}
+                  labelId="pf-modal-part-1"
+                  onClose={[Function]}
+                  ouiaId="delete-baseline-notification-modal"
+                  ouiaSafe={true}
+                  showClose={true}
+                  title="Delete baseline notifications"
+                  titleIconVariant={null}
+                  titleLabel=""
+                  variant="small"
+                />
+              </Portal>
+            </Modal>
+          </DeleteNotificationModal>
+          <Modal
+            actions={
+              Array [
+                <Button
+                  onClick={[Function]}
+                  ouiaId="add-baseline-notification-button"
+                  variant="primary"
+                >
+                  Submit
+                </Button>,
+                <Button
+                  onClick={[Function]}
+                  ouiaId="add-baseline-notification-cancel-button"
+                  variant="link"
+                >
+                  Cancel
+                </Button>,
+              ]
+            }
+            appendTo={[Function]}
+            aria-describedby=""
+            aria-label=""
+            aria-labelledby=""
+            className="drift"
+            hasNoBodyWrapper={false}
+            isOpen={false}
+            onClose={[Function]}
+            ouiaId="add-baseline-notification-modal"
+            ouiaSafe={true}
+            showClose={true}
+            title="Associate system with undefined"
+            titleIconVariant={null}
+            titleLabel=""
+            variant="medium"
+          >
+            <Portal
+              containerInfo={<div />}
+            >
+              <ModalContent
+                actions={
+                  Array [
+                    <Button
+                      onClick={[Function]}
+                      ouiaId="add-baseline-notification-button"
+                      variant="primary"
+                    >
+                      Submit
+                    </Button>,
+                    <Button
+                      onClick={[Function]}
+                      ouiaId="add-baseline-notification-cancel-button"
+                      variant="link"
+                    >
+                      Cancel
+                    </Button>,
+                  ]
+                }
+                aria-describedby=""
+                aria-label=""
+                aria-labelledby=""
+                boxId="pf-modal-part-1"
+                className="drift"
+                descriptorId="pf-modal-part-3"
+                hasNoBodyWrapper={false}
+                isOpen={false}
+                labelId="pf-modal-part-2"
+                onClose={[Function]}
+                ouiaId="add-baseline-notification-modal"
+                ouiaSafe={true}
+                showClose={true}
+                title="Associate system with undefined"
+                titleIconVariant={null}
+                titleLabel=""
+                variant="medium"
+              />
+            </Portal>
+          </Modal>
+          <SystemsTableWithContext
+            deleteNotifications={[Function]}
+            hasMultiSelect={true}
+            onSystemSelect={[Function]}
+            permissions={
+              Object {
+                "baselinesWrite": true,
+              }
+            }
+            selectVariant="checkbox"
+            systemNotificationIds={Array []}
+            toolbarButton={
+              <Button
+                isDisabled={false}
+                onClick={[Function]}
+                ouiaId="add-baseline-notification-button"
+                variant="primary"
+              >
+                Add system
+              </Button>
+            }
+          >
+            <Provider
+              store={
+                Object {
+                  "@@observable": [Function],
+                  "dispatch": [Function],
+                  "getState": [Function],
+                  "replaceReducer": [Function],
+                  "subscribe": [Function],
+                }
+              }
+            >
+              <Connect(Component)
+                addNewListener={[Function]}
+                deleteNotifications={[Function]}
+                hasMultiSelect={true}
+                onSystemSelect={[Function]}
+                permissions={
+                  Object {
+                    "baselinesWrite": true,
+                  }
+                }
+                registry={
+                  ReducerRegistry {
+                    "reducers": Object {},
+                    "store": Object {
+                      "@@observable": [Function],
+                      "dispatch": [Function],
+                      "getState": [Function],
+                      "replaceReducer": [Function],
+                      "subscribe": [Function],
+                    },
+                  }
+                }
+                selectVariant="checkbox"
+                selectedSystemIds={Array []}
+                systemNotificationIds={Array []}
+                toolbarButton={
+                  <Button
+                    isDisabled={false}
+                    onClick={[Function]}
+                    ouiaId="add-baseline-notification-button"
+                    variant="primary"
+                  >
+                    Add system
+                  </Button>
+                }
+              >
+                <Component
+                  addNewListener={[Function]}
+                  deleteNotifications={[Function]}
+                  driftClearFilters={[Function]}
+                  hasMultiSelect={true}
+                  onSystemSelect={[Function]}
+                  permissions={
+                    Object {
+                      "baselinesWrite": true,
+                    }
+                  }
+                  registry={
+                    ReducerRegistry {
+                      "reducers": Object {},
+                      "store": Object {
+                        "@@observable": [Function],
+                        "dispatch": [Function],
+                        "getState": [Function],
+                        "replaceReducer": [Function],
+                        "subscribe": [Function],
+                      },
+                    }
+                  }
+                  selectEntities={[Function]}
+                  selectVariant="checkbox"
+                  selectedSystemIds={Array []}
+                  setSelectedSystemIds={[Function]}
+                  systemNotificationIds={Array []}
+                  toolbarButton={
+                    <Button
+                      isDisabled={false}
+                      onClick={[Function]}
+                      ouiaId="add-baseline-notification-button"
+                      variant="primary"
+                    >
+                      Add system
+                    </Button>
+                  }
+                  updateColumns={[Function]}
+                >
+                  <EmptyStateDisplay
+                    color="#6a6e73"
+                    icon={[Function]}
+                    text={
+                      Array [
+                        "Contact your organization administrator(s) for more information.",
+                      ]
+                    }
+                    title="You do not have access to the inventory"
+                  >
+                    <EmptyState
+                      variant="large"
+                    >
+                      <div
+                        className="pf-c-empty-state pf-m-lg"
+                      >
+                        <div
+                          className="pf-c-empty-state__content"
+                        >
+                          <EmptyStateIcon
+                            className={null}
+                            color="#6a6e73"
+                            icon={[Function]}
+                          >
+                            <LockIcon
+                              aria-hidden="true"
+                              className="pf-c-empty-state__icon"
+                              color="#6a6e73"
+                              noVerticalAlign={false}
+                              size="sm"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                aria-labelledby={null}
+                                className="pf-c-empty-state__icon"
+                                fill="#6a6e73"
+                                height="1em"
+                                role="img"
+                                style={
+                                  Object {
+                                    "verticalAlign": "-0.125em",
+                                  }
+                                }
+                                viewBox="0 0 448 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"
+                                />
+                              </svg>
+                            </LockIcon>
+                          </EmptyStateIcon>
+                          <br />
+                          <Title
+                            headingLevel="h1"
+                            size="lg"
+                          >
+                            <h1
+                              className="pf-c-title pf-m-lg"
+                            >
+                              You do not have access to the inventory
+                            </h1>
+                          </Title>
+                          <EmptyStateBody>
+                            <div
+                              className="pf-c-empty-state__body"
+                            >
+                              Contact your organization administrator(s) for more information.
+                            </div>
+                          </EmptyStateBody>
+                        </div>
+                      </div>
+                    </EmptyState>
+                  </EmptyStateDisplay>
+                </Component>
+              </Connect(Component)>
+            </Provider>
+          </SystemsTableWithContext>
+        </SystemNotification>
+      </Connect(SystemNotification)>
+    </Provider>
+  </Router>
+</MemoryRouter>
+`;
+
+exports[`SystemNotification should render 1`] = `
+<Fragment>
+  <DeleteNotificationModal
+    fetchSystems={[Function]}
+  />
+  <Modal
+    actions={
+      Array [
+        <Button
+          onClick={[Function]}
+          ouiaId="add-baseline-notification-button"
+          variant="primary"
+        >
+          Submit
+        </Button>,
+        <Button
+          onClick={[Function]}
+          ouiaId="add-baseline-notification-cancel-button"
+          variant="link"
+        >
+          Cancel
+        </Button>,
+      ]
+    }
+    appendTo={[Function]}
+    aria-describedby=""
+    aria-label=""
+    aria-labelledby=""
+    className="drift"
+    hasNoBodyWrapper={false}
+    isOpen={false}
+    onClose={[Function]}
+    ouiaId="add-baseline-notification-modal"
+    ouiaSafe={true}
+    showClose={true}
+    title="Associate system with undefined"
+    titleIconVariant={null}
+    titleLabel=""
+    variant="medium"
+  >
+    <Connect(SystemsTable)
+      hasMultiSelect={true}
+      isAddSystemNotifications={true}
+      selectSystemsToAdd={[Function]}
+      selectVariant="checkbox"
+      selectedSystemIds={Array []}
+    />
+  </Modal>
+  <Bullseye>
+    <Spinner
+      size="xl"
+    />
+  </Bullseye>
+</Fragment>
+`;

@@ -17,7 +17,9 @@ describe('EditBaselineToolbar', () => {
             totalFacts: 2,
             isDisabled: false,
             selected: 0,
-            hasWritePermissions: true,
+            permissions: {
+                baselinesWrite: true
+            },
             onBulkSelect: jest.fn(),
             exportToCSV: jest.fn()
         };
@@ -48,7 +50,9 @@ describe('ConnectedEditBaselineToolbar', () => {
             totalFacts: 2,
             isDisabled: false,
             selected: 0,
-            hasWritePermissions: true,
+            permissions: {
+                baselinesWrite: true
+            },
             onBulkSelect: jest.fn(),
             exportToCSV: jest.fn()
         };
@@ -68,7 +72,7 @@ describe('ConnectedEditBaselineToolbar', () => {
     });
 
     it('should render disabled with no write permissions', () => {
-        props.hasWritePermissions = false;
+        props.permissions.baselinesWrite = false;
         const store = mockStore(initialState);
         const wrapper = mount(
             <MemoryRouter keyLength={ 0 }>

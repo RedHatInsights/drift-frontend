@@ -16,7 +16,9 @@ describe('CreateBaselineModal', () => {
             createBaselineModalOpened: false,
             baselineData: [],
             entities: {},
-            hasHSPReadPermissions: true,
+            permissions: {
+                hspRead: true
+            },
             selectedBaselineIds: [],
             createBaselineError: {},
             clearSelectedBaselines: jest.fn(),

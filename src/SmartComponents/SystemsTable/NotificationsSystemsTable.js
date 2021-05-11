@@ -36,7 +36,8 @@ export const SystemsTable = connect(null, mapDispatchToProps)(({
     hasMultiSelect,
     selectHistoricProfiles,
     updateColumns,
-    hasInventoryReadPermissions,
+    //hasInventoryReadPermissions,
+    permissions,
     selectEntities,
     selectVariant,
     systemNotificationIds,
@@ -99,7 +100,7 @@ export const SystemsTable = connect(null, mapDispatchToProps)(({
     });
 
     return (
-        hasInventoryReadPermissions ? (
+        /*hasInventoryReadPermissions*/ permissions.inventoryRead ? (
             <InventoryTable
                 onLoad={ ({ mergeWithEntities, INVENTORY_ACTION_TYPES, api }) => {
                     getEntities.current = api?.getEntities;
@@ -206,7 +207,8 @@ SystemsTable.propTypes = {
     hasMultiSelect: PropTypes.bool,
     updateColumns: PropTypes.func,
     selectedHSPIds: PropTypes.array,
-    hasInventoryReadPermissions: PropTypes.bool,
+    //hasInventoryReadPermissions: PropTypes.bool,
+    permissions: PropTypes.object,
     entities: PropTypes.object,
     selectEntities: PropTypes.func,
     selectVariant: PropTypes.string,

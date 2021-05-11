@@ -13,8 +13,10 @@ describe('CreateBaselineButton', () => {
     beforeEach(() => {
         props = {
             addSystemModalOpened: false,
-            hasWritePermissions: true,
-            loading: false
+            loading: false,
+            permissions: {
+                baselinesWrite: true
+            }
         };
     });
 
@@ -28,7 +30,7 @@ describe('CreateBaselineButton', () => {
     });
 
     it('should render disabled with no write permissions', () => {
-        props.hasWritePermissions = false;
+        props.permissions.baselinesWrite = false;
         const wrapper = shallow(
             <CreateBaselineButton { ...props }/>
         );
@@ -98,7 +100,9 @@ describe('ConnectedCreateBaselineButton', () => {
         };
 
         props = {
-            hasWritePermissions: true
+            permissions: {
+                baselinesWrite: true
+            }
         };
     });
 

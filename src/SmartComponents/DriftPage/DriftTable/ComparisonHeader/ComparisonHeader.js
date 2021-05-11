@@ -48,7 +48,7 @@ class ComparisonHeader extends Component {
     }
 
     renderSystemHeaders() {
-        const { fetchCompare, hasHSPReadPermissions, masterList, referenceId, removeSystem, selectedBaselineIds,
+        const { fetchCompare, masterList, permissions, referenceId, removeSystem, selectedBaselineIds,
             selectedHSPIds, selectHistoricProfiles, systemIds, updateReferenceId } = this.props;
 
         let row = [];
@@ -118,7 +118,7 @@ class ComparisonHeader extends Component {
                                 ? this.formatDate(item.last_updated)
                                 : this.formatDate(item.updated)
                             }
-                            { hasHSPReadPermissions &&
+                            { permissions.hspRead &&
                                 (item.type === 'system' || item.type === 'historical-system-profile')
                                 ? <HistoricalProfilesPopover
                                     system={ item }
@@ -190,6 +190,7 @@ ComparisonHeader.propTypes = {
     fetchCompare: PropTypes.func,
     hasHSPReadPermissions: PropTypes.bool,
     masterList: PropTypes.array,
+    permissions: PropTypes.object,
     referenceId: PropTypes.string,
     removeSystem: PropTypes.func,
     stateSort: PropTypes.string,

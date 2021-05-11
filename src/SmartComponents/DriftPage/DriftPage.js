@@ -155,10 +155,7 @@ export class DriftPage extends Component {
                                                     handleBaselineSelection={ handleBaselineSelection }
                                                     handleHSPSelection={ handleHSPSelection }
                                                     handleSystemSelection={ handleSystemSelection }
-                                                    hasBaselinesReadPermissions={ value.permissions.baselinesRead }
-                                                    hasBaselinesWritePermissions={ value.permissions.baselinesWrite }
-                                                    hasInventoryReadPermissions={ value.permissions.inventoryRead }
-                                                    hasHSPReadPermissions={ value.permissions.hspRead }
+                                                    permissions={ value.permissions }
                                                     handleFactFilter={ handleFactFilter }
                                                     addStateFilter={ addStateFilter }
                                                     stateFilters={ stateFilters }

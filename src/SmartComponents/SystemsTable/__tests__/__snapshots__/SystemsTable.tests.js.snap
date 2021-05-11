@@ -49,11 +49,19 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
       }
     >
       <Connect(SystemsTable)
-        hasInventoryReadPermissions={true}
+        permissions={
+          Object {
+            "inventoryRead": true,
+          }
+        }
       >
         <SystemsTable
           driftClearFilters={[Function]}
-          hasInventoryReadPermissions={true}
+          permissions={
+            Object {
+              "inventoryRead": true,
+            }
+          }
           selectEntities={[Function]}
           selectHistoricProfiles={[Function]}
           selectSingleHSP={[Function]}
@@ -488,6 +496,156 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
               </Suspense>
             </BaseInvTable>
           </ForwardRef>
+        </SystemsTable>
+      </Connect(SystemsTable)>
+    </Provider>
+  </Router>
+</MemoryRouter>
+`;
+
+exports[`ConnectedSystemsTable should render correctly with no inventory read permissions 1`] = `
+<MemoryRouter
+  keyLength={0}
+>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Provider
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+    >
+      <Connect(SystemsTable)
+        permissions={
+          Object {
+            "inventoryRead": false,
+          }
+        }
+      >
+        <SystemsTable
+          driftClearFilters={[Function]}
+          permissions={
+            Object {
+              "inventoryRead": false,
+            }
+          }
+          selectEntities={[Function]}
+          selectHistoricProfiles={[Function]}
+          selectSingleHSP={[Function]}
+          selectedSystemIds={Array []}
+          setSelectedSystemIds={[Function]}
+          updateColumns={[Function]}
+        >
+          <EmptyStateDisplay
+            color="#6a6e73"
+            icon={[Function]}
+            text={
+              Array [
+                "Contact your organization administrator(s) for more information.",
+              ]
+            }
+            title="You do not have access to the inventory"
+          >
+            <EmptyState
+              variant="large"
+            >
+              <div
+                className="pf-c-empty-state pf-m-lg"
+              >
+                <div
+                  className="pf-c-empty-state__content"
+                >
+                  <EmptyStateIcon
+                    className={null}
+                    color="#6a6e73"
+                    icon={[Function]}
+                  >
+                    <LockIcon
+                      aria-hidden="true"
+                      className="pf-c-empty-state__icon"
+                      color="#6a6e73"
+                      noVerticalAlign={false}
+                      size="sm"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        aria-labelledby={null}
+                        className="pf-c-empty-state__icon"
+                        fill="#6a6e73"
+                        height="1em"
+                        role="img"
+                        style={
+                          Object {
+                            "verticalAlign": "-0.125em",
+                          }
+                        }
+                        viewBox="0 0 448 512"
+                        width="1em"
+                      >
+                        <path
+                          d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"
+                        />
+                      </svg>
+                    </LockIcon>
+                  </EmptyStateIcon>
+                  <br />
+                  <Title
+                    headingLevel="h1"
+                    size="lg"
+                  >
+                    <h1
+                      className="pf-c-title pf-m-lg"
+                    >
+                      You do not have access to the inventory
+                    </h1>
+                  </Title>
+                  <EmptyStateBody>
+                    <div
+                      className="pf-c-empty-state__body"
+                    >
+                      Contact your organization administrator(s) for more information.
+                    </div>
+                  </EmptyStateBody>
+                </div>
+              </div>
+            </EmptyState>
+          </EmptyStateDisplay>
         </SystemsTable>
       </Connect(SystemsTable)>
     </Provider>

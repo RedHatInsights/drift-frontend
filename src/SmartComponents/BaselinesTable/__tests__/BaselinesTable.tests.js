@@ -43,14 +43,16 @@ describe('ConnectedBaselinesTable', () => {
                 { title: '' }
             ],
             selectedBaselineIds: [],
-            hasReadPermissions: true,
-            hasWritePermissions: true,
+            permissions: {
+                baselinesRead: true,
+                baselinesWrite: true
+            },
             basketIsVisible: false
         };
     });
 
     it('should render no table kebabs with no write permissions', () => {
-        props.hasWritePermissions = false;
+        props.permissions.baselinesWrite = false;
         const store = mockStore(initialState);
         const wrapper = mount(
             <MemoryRouter keyLength={ 0 }>
@@ -67,7 +69,7 @@ describe('ConnectedBaselinesTable', () => {
     });
 
     it('should render no pagination in add system modal with no read permissions', () => {
-        props.hasReadPermissions = false;
+        props.permissions.baselinesRead = false;
         const store = mockStore(initialState);
         const wrapper = mount(
             <MemoryRouter keyLength={ 0 }>

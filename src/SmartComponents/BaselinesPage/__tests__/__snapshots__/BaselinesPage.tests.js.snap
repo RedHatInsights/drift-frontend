@@ -157,14 +157,17 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
             setSelectedSystemIds={[Function]}
           >
             <withRouter(Connect(CreateBaselineModal))
-              hasReadPermissions={true}
-              hasWritePermissions={true}
+              permissions={
+                Object {
+                  "baselinesRead": true,
+                  "baselinesWrite": true,
+                  "compareRead": true,
+                }
+              }
               selectHistoricProfiles={[Function]}
               setSelectedSystemIds={[Function]}
             >
               <Connect(CreateBaselineModal)
-                hasReadPermissions={true}
-                hasWritePermissions={true}
                 history={
                   Object {
                     "action": "POP",
@@ -211,6 +214,13 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                     "url": "/",
                   }
                 }
+                permissions={
+                  Object {
+                    "baselinesRead": true,
+                    "baselinesWrite": true,
+                    "compareRead": true,
+                  }
+                }
                 selectHistoricProfiles={[Function]}
                 setSelectedSystemIds={[Function]}
               >
@@ -220,8 +230,6 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                   createBaselineError={Object {}}
                   createBaselineModalOpened={false}
                   emptyState={false}
-                  hasReadPermissions={true}
-                  hasWritePermissions={true}
                   history={
                     Object {
                       "action": "POP",
@@ -267,6 +275,13 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                       "params": Object {},
                       "path": "/",
                       "url": "/",
+                    }
+                  }
+                  permissions={
+                    Object {
+                      "baselinesRead": true,
+                      "baselinesWrite": true,
+                      "compareRead": true,
                     }
                   }
                   selectBaseline={[Function]}
@@ -446,13 +461,18 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                               createButton={true}
                               exportButton={true}
                               hasMultiSelect={true}
-                              hasReadPermissions={true}
-                              hasWritePermissions={true}
                               kebab={true}
                               loading={false}
                               onBulkSelect={[Function]}
                               onClick={[Function]}
                               onSelect={[Function]}
+                              permissions={
+                                Object {
+                                  "baselinesRead": true,
+                                  "baselinesWrite": true,
+                                  "compareRead": true,
+                                }
+                              }
                               selectedBaselineIds={Array []}
                               tableData={Array []}
                               tableId="CHECKBOX"
@@ -488,13 +508,18 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                 exportToCSV={[Function]}
                                 fetchBaselines={[Function]}
                                 hasMultiSelect={true}
-                                hasReadPermissions={true}
-                                hasWritePermissions={true}
                                 kebab={true}
                                 loading={false}
                                 onBulkSelect={[Function]}
                                 onClick={[Function]}
                                 onSelect={[Function]}
+                                permissions={
+                                  Object {
+                                    "baselinesRead": true,
+                                    "baselinesWrite": true,
+                                    "compareRead": true,
+                                  }
+                                }
                                 selectedBaselineIds={Array []}
                                 tableData={Array []}
                                 tableId="CHECKBOX"
@@ -505,8 +530,6 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                   exportToCSV={[Function]}
                                   fetchWithParams={[Function]}
                                   hasMultiSelect={true}
-                                  hasReadPermissions={true}
-                                  hasWritePermissions={true}
                                   isDeleteDisabled={true}
                                   kebab={true}
                                   loading={false}
@@ -514,6 +537,13 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                   onSearch={[Function]}
                                   page={1}
                                   perPage={20}
+                                  permissions={
+                                    Object {
+                                      "baselinesRead": true,
+                                      "baselinesWrite": true,
+                                      "compareRead": true,
+                                    }
+                                  }
                                   selectedBaselineIds={Array []}
                                   tableData={Array []}
                                   tableId="CHECKBOX"
@@ -1180,11 +1210,16 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                         className="pf-c-toolbar__item"
                                                       >
                                                         <withRouter(Connect(CreateBaselineButton))
-                                                          hasWritePermissions={true}
                                                           loading={false}
+                                                          permissions={
+                                                            Object {
+                                                              "baselinesRead": true,
+                                                              "baselinesWrite": true,
+                                                              "compareRead": true,
+                                                            }
+                                                          }
                                                         >
                                                           <Connect(CreateBaselineButton)
-                                                            hasWritePermissions={true}
                                                             history={
                                                               Object {
                                                                 "action": "POP",
@@ -1232,10 +1267,16 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                 "url": "/",
                                                               }
                                                             }
+                                                            permissions={
+                                                              Object {
+                                                                "baselinesRead": true,
+                                                                "baselinesWrite": true,
+                                                                "compareRead": true,
+                                                              }
+                                                            }
                                                           >
                                                             <CreateBaselineButton
                                                               addSystemModalOpened={false}
-                                                              hasWritePermissions={true}
                                                               history={
                                                                 Object {
                                                                   "action": "POP",
@@ -1281,6 +1322,13 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                   "params": Object {},
                                                                   "path": "/",
                                                                   "url": "/",
+                                                                }
+                                                              }
+                                                              permissions={
+                                                                Object {
+                                                                  "baselinesRead": true,
+                                                                  "baselinesWrite": true,
+                                                                  "compareRead": true,
                                                                 }
                                                               }
                                                               toggleAddSystemModal={[Function]}
@@ -5487,14 +5535,17 @@ exports[`ConnectedBaselinesPage should render empty state 1`] = `
             setSelectedSystemIds={[Function]}
           >
             <withRouter(Connect(CreateBaselineModal))
-              hasReadPermissions={true}
-              hasWritePermissions={true}
+              permissions={
+                Object {
+                  "baselinesRead": true,
+                  "baselinesWrite": true,
+                  "compareRead": true,
+                }
+              }
               selectHistoricProfiles={[Function]}
               setSelectedSystemIds={[Function]}
             >
               <Connect(CreateBaselineModal)
-                hasReadPermissions={true}
-                hasWritePermissions={true}
                 history={
                   Object {
                     "action": "POP",
@@ -5541,6 +5592,13 @@ exports[`ConnectedBaselinesPage should render empty state 1`] = `
                     "url": "/",
                   }
                 }
+                permissions={
+                  Object {
+                    "baselinesRead": true,
+                    "baselinesWrite": true,
+                    "compareRead": true,
+                  }
+                }
                 selectHistoricProfiles={[Function]}
                 setSelectedSystemIds={[Function]}
               >
@@ -5550,8 +5608,6 @@ exports[`ConnectedBaselinesPage should render empty state 1`] = `
                   createBaselineError={Object {}}
                   createBaselineModalOpened={false}
                   emptyState={false}
-                  hasReadPermissions={true}
-                  hasWritePermissions={true}
                   history={
                     Object {
                       "action": "POP",
@@ -5597,6 +5653,13 @@ exports[`ConnectedBaselinesPage should render empty state 1`] = `
                       "params": Object {},
                       "path": "/",
                       "url": "/",
+                    }
+                  }
+                  permissions={
+                    Object {
+                      "baselinesRead": true,
+                      "baselinesWrite": true,
+                      "compareRead": true,
                     }
                   }
                   selectBaseline={[Function]}
@@ -5724,8 +5787,14 @@ exports[`ConnectedBaselinesPage should render empty state 1`] = `
                     button={
                       <withRouter(Connect(CreateBaselineButton))
                         emptyState={true}
-                        hasWritePermissions={true}
                         loading={false}
+                        permissions={
+                          Object {
+                            "baselinesRead": true,
+                            "baselinesWrite": true,
+                            "compareRead": true,
+                          }
+                        }
                       />
                     }
                     icon={[Function]}
@@ -5800,12 +5869,17 @@ Create a baseline to use in your Comparison analysis.
                           </EmptyStateBody>
                           <withRouter(Connect(CreateBaselineButton))
                             emptyState={true}
-                            hasWritePermissions={true}
                             loading={false}
+                            permissions={
+                              Object {
+                                "baselinesRead": true,
+                                "baselinesWrite": true,
+                                "compareRead": true,
+                              }
+                            }
                           >
                             <Connect(CreateBaselineButton)
                               emptyState={true}
-                              hasWritePermissions={true}
                               history={
                                 Object {
                                   "action": "POP",
@@ -5853,11 +5927,17 @@ Create a baseline to use in your Comparison analysis.
                                   "url": "/",
                                 }
                               }
+                              permissions={
+                                Object {
+                                  "baselinesRead": true,
+                                  "baselinesWrite": true,
+                                  "compareRead": true,
+                                }
+                              }
                             >
                               <CreateBaselineButton
                                 addSystemModalOpened={false}
                                 emptyState={true}
-                                hasWritePermissions={true}
                                 history={
                                   Object {
                                     "action": "POP",
@@ -5903,6 +5983,13 @@ Create a baseline to use in your Comparison analysis.
                                     "params": Object {},
                                     "path": "/",
                                     "url": "/",
+                                  }
+                                }
+                                permissions={
+                                  Object {
+                                    "baselinesRead": true,
+                                    "baselinesWrite": true,
+                                    "compareRead": true,
                                   }
                                 }
                                 toggleAddSystemModal={[Function]}

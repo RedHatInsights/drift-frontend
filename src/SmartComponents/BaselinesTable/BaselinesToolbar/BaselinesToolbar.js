@@ -106,9 +106,8 @@ export class BaselinesToolbar extends Component {
     }, 250)
 
     render() {
-        const { createButton, exportButton, fetchWithParams, hasMultiSelect, hasReadPermissions,
-            hasWritePermissions, kebab, loading, onBulkSelect, tableData, tableId,
-            page, perPage, selectedBaselineIds, totalBaselines, updatePagination } = this.props;
+        const { createButton, exportButton, fetchWithParams, hasMultiSelect, kebab, loading, onBulkSelect,
+            tableData, tableId, page, permissions, perPage, selectedBaselineIds, totalBaselines, updatePagination } = this.props;
         const { bulkSelectItems, dropdownItems, dropdownOpen, modalOpened, nameSearch } = this.state;
         let selected = tableData.filter(baseline => baseline.selected === true).length;
 
@@ -132,8 +131,8 @@ export class BaselinesToolbar extends Component {
                                         checked={ helpers.findCheckedValue(tableData.length, selected) }
                                         onSelect={ () => onBulkSelect(!selected > 0) }
                                         isDisabled={ tableData.length === 0
-                                            || (!hasWritePermissions && kebab)
-                                            || (!hasReadPermissions && !createButton) }
+                                            || (!permissions.baselinesWrite && kebab)
+                                            || (!permissions.baselinesRead && !createButton) }
                                     />
                                 </ToolbarItem>
                             </ToolbarGroup>
@@ -151,7 +150,7 @@ export class BaselinesToolbar extends Component {
                                     data-ouia-component-type='PF4/TextInput'
                                     data-ouia-component-id='filter-by-name-baselines-table'
                                     onChange={ (event, value) => this.setTextFilter(value) }
-                                    isDisabled={ !hasReadPermissions || !hasWritePermissions }
+                                    isDisabled={ !permissions.baselinesRead || !permissions.baselinesWrite }
                                 />
                             </ToolbarFilter>
                         </ToolbarGroup>
@@ -160,7 +159,7 @@ export class BaselinesToolbar extends Component {
                                 <ToolbarItem>
                                     <CreateBaselineButton
                                         loading={ loading }
-                                        hasWritePermissions={ hasWritePermissions }
+                                        permissions={ permissions }
                                     />
                                 </ToolbarItem>
                                 : null
@@ -191,7 +190,7 @@ export class BaselinesToolbar extends Component {
                             <TablePagination
                                 page={ page }
                                 perPage={ perPage }
-                                total={ !hasReadPermissions ? 0 : totalBaselines }
+                                total={ !permissions.baselinesRead ? 0 : totalBaselines }
                                 isCompact={ true }
                                 updatePagination={ updatePagination }
                                 tableId={ tableId }
@@ -223,8 +222,7 @@ BaselinesToolbar.propTypes = {
     updatePagination: PropTypes.func,
     exportToCSV: PropTypes.func,
     loading: PropTypes.bool,
-    hasWritePermissions: PropTypes.bool,
-    hasReadPermissions: PropTypes.bool
+    permissions: PropTypes.object
 };
 
 export default BaselinesToolbar;

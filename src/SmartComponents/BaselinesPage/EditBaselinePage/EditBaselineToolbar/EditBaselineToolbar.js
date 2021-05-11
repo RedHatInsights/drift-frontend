@@ -46,7 +46,7 @@ export class EditBaselineToolbar extends Component {
     }
 
     render() {
-        const { hasWritePermissions, isDisabled, onBulkSelect, selected, totalFacts } = this.props;
+        const { isDisabled, onBulkSelect, permissions, selected, totalFacts } = this.props;
         const { bulkSelectItems, dropdownItems, dropdownOpen } = this.state;
 
         return (
@@ -65,7 +65,7 @@ export class EditBaselineToolbar extends Component {
                     <ToolbarItem>
                         <AddFactButton
                             isDisabled={ isDisabled }
-                            hasWritePermissions={ hasWritePermissions }
+                            permissions={ permissions }
                         />
                     </ToolbarItem>
                     <ToolbarGroup variant='icon-button-group'>
@@ -95,7 +95,7 @@ EditBaselineToolbar.propTypes = {
     exportToCSV: PropTypes.func,
     tableData: PropTypes.array,
     baselineData: PropTypes.object,
-    hasWritePermissions: PropTypes.bool
+    permissions: PropTypes.object
 };
 
 export default EditBaselineToolbar;

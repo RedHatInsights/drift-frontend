@@ -9,13 +9,11 @@ import helpersFixtures from './helpers.fixtures';
 //import editBaselineFixtures from './helpers.fixtures';
 import EditBaseline from '../EditBaseline';
 //import api from '../../../../../api';
-import { PermissionContext } from '../../../../../App';
 
 describe('EditBaseline', () => {
     let initialState;
     let props;
     let mockStore;
-    let value;
 
     beforeEach(() => {
         mockStore = configureStore();
@@ -43,13 +41,7 @@ describe('EditBaseline', () => {
             editBaselineEmptyState: false,
             editBaselineError: {},
             expandedRows: [],
-            hasWritePermissions: true
-        };
-
-        value = {
             permissions: {
-                compareRead: true,
-                baselinesRead: true,
                 baselinesWrite: true
             }
         };
@@ -77,7 +69,7 @@ describe('EditBaseline', () => {
     });*/
 
     it('should render disabled with no write permissions', () => {
-        props.hasWritePermissions = false;
+        props.permissions.baselinesWrite = false;
         const wrapper = shallow(
             <EditBaseline { ...props }/>
         );
@@ -394,13 +386,11 @@ describe('EditBaseline', () => {
         const store = mockStore(initialState);
 
         const wrapper = mount(
-            <PermissionContext.Provider value={ value }>
-                <MemoryRouter keyLength={ 0 }>
-                    <Provider store={ store }>
-                        <EditBaseline { ...props }/>
-                    </Provider>
-                </MemoryRouter>
-            </PermissionContext.Provider>
+            <MemoryRouter keyLength={ 0 }>
+                <Provider store={ store }>
+                    <EditBaseline { ...props }/>
+                </Provider>
+            </MemoryRouter>
         );
 
         wrapper.find('[className="pointer not-active edit-icon-margin"]').at(1).simulate('click');

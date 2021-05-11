@@ -18,11 +18,11 @@ class AddFactButton extends Component {
     }
 
     render() {
-        const { editBaselineEmptyState, hasWritePermissions, isDisabled } = this.props;
+        const { editBaselineEmptyState, isDisabled, permissions } = this.props;
 
         return (
             <React.Fragment>
-                { !hasWritePermissions && hasWritePermissions !== undefined
+                { !permissions.baselinesWrite && permissions.baselinesWrite !== undefined
                     ? <Tooltip
                         content={ <div>You do not have permissions to perform this action</div> }
                     >
@@ -55,7 +55,7 @@ AddFactButton.propTypes = {
     toggleFactModal: PropTypes.func,
     setFactData: PropTypes.func,
     isDisabled: PropTypes.bool,
-    hasWritePermissions: PropTypes.bool,
+    permissions: PropTypes.object,
     editBaselineEmptyState: PropTypes.bool
 };
 

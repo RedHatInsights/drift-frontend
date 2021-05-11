@@ -31,8 +31,10 @@ describe('AddSystemModal', () => {
             loading: false,
             baselineTableData: [],
             historicalProfiles: [],
-            hasInventoryReadPermissions: true,
-            hasHSPReadPermissions: true,
+            permissions: {
+                hspRead: true,
+                inventoryRead: true
+            },
             referenceId: undefined,
             selectedBaselineContent: [],
             selectedHSPContent: [],
@@ -264,8 +266,10 @@ describe('ConnectedAddSystemModal', () => {
         };
 
         props = {
-            hasInventoryReadPermissions: true,
-            hasHSPReadPermissions: true,
+            permissions: {
+                hspRead: true,
+                inventoryRead: true
+            },
             selectedSystemIds: [],
             selectedBaselineIds: [],
             selectedHSPIds: []
@@ -288,7 +292,7 @@ describe('ConnectedAddSystemModal', () => {
 
     it('should render hasHistoricalDropdown false with no hsp read permissions', () => {
         const store = mockStore(initialState);
-        props.hasHSPReadPermissions = false;
+        props.permissions.hspRead = false;
 
         const wrapper = mount(
             <MemoryRouter keyLength={ 0 }>
@@ -303,7 +307,7 @@ describe('ConnectedAddSystemModal', () => {
 
     it('should render disabled with no inventory permissions', () => {
         const store = mockStore(initialState);
-        props.hasInventoryReadPermissions = false;
+        props.permissions.inventoryRead = false;
 
         const wrapper = mount(
             <MemoryRouter keyLength={ 0 }>

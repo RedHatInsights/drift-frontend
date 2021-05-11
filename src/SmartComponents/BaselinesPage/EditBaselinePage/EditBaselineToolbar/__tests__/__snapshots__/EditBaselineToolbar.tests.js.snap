@@ -50,9 +50,13 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
     >
       <EditBaselineToolbar
         exportToCSV={[MockFunction]}
-        hasWritePermissions={true}
         isDisabled={false}
         onBulkSelect={[MockFunction]}
+        permissions={
+          Object {
+            "baselinesWrite": true,
+          }
+        }
         selected={0}
         totalFacts={2}
       >
@@ -455,12 +459,20 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                         className="pf-c-toolbar__item"
                       >
                         <Connect(AddFactButton)
-                          hasWritePermissions={true}
                           isDisabled={false}
+                          permissions={
+                            Object {
+                              "baselinesWrite": true,
+                            }
+                          }
                         >
                           <AddFactButton
-                            hasWritePermissions={true}
                             isDisabled={false}
+                            permissions={
+                              Object {
+                                "baselinesWrite": true,
+                              }
+                            }
                             setFactData={[Function]}
                             toggleFactModal={[Function]}
                           >
@@ -1171,8 +1183,12 @@ exports[`EditBaselineToolbar should render correctly 1`] = `
     </ToolbarItem>
     <ToolbarItem>
       <Connect(AddFactButton)
-        hasWritePermissions={true}
         isDisabled={false}
+        permissions={
+          Object {
+            "baselinesWrite": true,
+          }
+        }
       />
     </ToolbarItem>
     <ForwardRef
