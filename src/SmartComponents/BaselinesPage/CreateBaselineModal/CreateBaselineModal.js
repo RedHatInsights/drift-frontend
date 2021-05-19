@@ -190,14 +190,14 @@ export class CreateBaselineModal extends Component {
     }
 
     renderCopySystem() {
-        const { entities, hasInventoryReadPermissions } = this.props;
+        const { entities, hasHSPReadPermissions, hasInventoryReadPermissions } = this.props;
 
         return (<React.Fragment>
             <b>Select system to copy from</b>
             <br></br>
             <SystemsTable
                 createBaselineModal={ true }
-                hasHistoricalDropdown={ true }
+                hasHistoricalDropdown={ hasHSPReadPermissions }
                 hasMultiSelect={ false }
                 historicalProfiles={ entities?.selectedHSP ? [ entities.selectedHSP ] : [] }
                 hasInventoryReadPermissions={ hasInventoryReadPermissions }
@@ -362,6 +362,7 @@ CreateBaselineModal.propTypes = {
     totalBaselines: PropTypes.number,
     updatePagination: PropTypes.func,
     historicalProfiles: PropTypes.array,
+    hasHSPReadPermissions: PropTypes.bool,
     hasInventoryReadPermissions: PropTypes.bool,
     hasReadPermissions: PropTypes.bool,
     hasWritePermissions: PropTypes.bool,

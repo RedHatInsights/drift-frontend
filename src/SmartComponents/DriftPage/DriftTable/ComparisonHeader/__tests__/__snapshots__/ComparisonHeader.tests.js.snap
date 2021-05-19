@@ -1,5 +1,520 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ComparisonHeader should not render HistoricalProfilesPopover with no hspRead permissions 1`] = `
+<Fragment>
+  <tr
+    className="sticky-column-header"
+    data-ouia-component-id="comparison-table-header-row"
+    data-ouia-component-type="PF4/TableRow"
+  >
+    <th
+      className="fact-header sticky-column fixed-column-1 pointer"
+      data-ouia-component-id="fact-sort-button"
+      data-ouia-component-type="PF4/Button"
+      id=""
+      key="fact-header"
+      onClick={[Function]}
+    >
+      <div
+        className="active-blue"
+      >
+        Fact 
+        <ArrowsAltVIcon
+          className="not-active"
+          color="currentColor"
+          noVerticalAlign={false}
+          size="sm"
+        />
+      </div>
+    </th>
+    <th
+      className="state-header sticky-column fixed-column-2 pointer"
+      data-ouia-component-id="state-sort-button"
+      data-ouia-component-type="PF4/Button"
+      id="disabled"
+      key="state-header"
+      onClick={[Function]}
+    >
+      <div>
+        State 
+        <ArrowsAltVIcon
+          className="not-active"
+          color="currentColor"
+          noVerticalAlign={false}
+          size="sm"
+        />
+      </div>
+    </th>
+    <th
+      className="drift-header baseline-header"
+      header-id="12e4d81b-f1c6-489a-a829-9d96f3a71f53"
+      key="12e4d81b-f1c6-489a-a829-9d96f3a71f53"
+    >
+      <div>
+        <a
+          className="remove-system-icon"
+          data-ouia-component-id="remove-system-button-12e4d81b-f1c6-489a-a829-9d96f3a71f53"
+          data-ouia-component-type="PF4/Button"
+          onClick={[Function]}
+        >
+          <TimesIcon
+            color="currentColor"
+            noVerticalAlign={false}
+            size="sm"
+          />
+        </a>
+      </div>
+      <div
+        className="comparison-header"
+      >
+        <div
+          className="drift-header-icon"
+        >
+          <Tooltip
+            content={
+              <div>
+                Baseline
+              </div>
+            }
+            position="top"
+          >
+            <BlueprintIcon
+              color="currentColor"
+              noVerticalAlign={false}
+              size="sm"
+            />
+          </Tooltip>
+        </div>
+        <div
+          className="system-name"
+        >
+          baselineA
+        </div>
+        <div
+          className="system-updated-and-reference"
+        >
+          <ReferenceSelector
+            isReference={false}
+            item={
+              Object {
+                "display_name": "baselineA",
+                "id": "12e4d81b-f1c6-489a-a829-9d96f3a71f53",
+                "type": "baseline",
+                "updated": "2021-04-30T23:53:03.235265Z",
+              }
+            }
+            updateReferenceId={[MockFunction]}
+          />
+          30 Apr 2021, 23:53 UTC
+        </div>
+      </div>
+    </th>
+    <th
+      className="drift-header system-header"
+      header-id="dc47qffd-09rt-2kw7-8b9b-53f4g716fec5"
+      key="dc47qffd-09rt-2kw7-8b9b-53f4g716fec5"
+    >
+      <div>
+        <a
+          className="remove-system-icon"
+          data-ouia-component-id="remove-system-button-dc47qffd-09rt-2kw7-8b9b-53f4g716fec5"
+          data-ouia-component-type="PF4/Button"
+          onClick={[Function]}
+        >
+          <TimesIcon
+            color="currentColor"
+            noVerticalAlign={false}
+            size="sm"
+          />
+        </a>
+      </div>
+      <div
+        className="comparison-header"
+      >
+        <div
+          className="drift-header-icon"
+        >
+          <Tooltip
+            content={
+              <div>
+                System
+              </div>
+            }
+            position="top"
+          >
+            <ServerIcon
+              color="currentColor"
+              noVerticalAlign={false}
+              size="sm"
+            />
+          </Tooltip>
+        </div>
+        <div
+          className="system-name"
+        >
+          systemA
+        </div>
+        <div
+          className="system-updated-and-reference"
+        >
+          <ReferenceSelector
+            isReference={false}
+            item={
+              Object {
+                "display_name": "systemA",
+                "id": "dc47qffd-09rt-2kw7-8b9b-53f4g716fec5",
+                "type": "system",
+                "updated": "2020-11-02T12:41:59.029271Z",
+              }
+            }
+            updateReferenceId={[MockFunction]}
+          />
+          02 Nov 2020, 12:41 UTC
+        </div>
+      </div>
+    </th>
+    <th
+      className="drift-header historical-system-profile-header"
+      header-id="e3ed3e34-eaa1-45c4-8633-94fef1f678f1"
+      key="e3ed3e34-eaa1-45c4-8633-94fef1f678f1"
+    >
+      <div>
+        <a
+          className="remove-system-icon"
+          data-ouia-component-id="remove-system-button-e3ed3e34-eaa1-45c4-8633-94fef1f678f1"
+          data-ouia-component-type="PF4/Button"
+          onClick={[Function]}
+        >
+          <TimesIcon
+            color="currentColor"
+            noVerticalAlign={false}
+            size="sm"
+          />
+        </a>
+      </div>
+      <div
+        className="comparison-header"
+      >
+        <div
+          className="drift-header-icon"
+        >
+          <Tooltip
+            content={
+              <div>
+                Historical system
+              </div>
+            }
+            position="top"
+          >
+            <ClockIcon
+              color="currentColor"
+              noVerticalAlign={false}
+              size="sm"
+            />
+          </Tooltip>
+        </div>
+        <div
+          className="system-name"
+        >
+          hspA
+        </div>
+        <div
+          className="system-updated-and-reference"
+        >
+          <ReferenceSelector
+            isReference={false}
+            item={
+              Object {
+                "display_name": "hspA",
+                "id": "e3ed3e34-eaa1-45c4-8633-94fef1f678f1",
+                "system_id": "dc47qffd-09rt-2kw7-8b9b-53f4g716fec5",
+                "type": "historical-system-profile",
+                "updated": "2021-05-15T07:24:01+00:00",
+              }
+            }
+            updateReferenceId={[MockFunction]}
+          />
+          15 May 2021, 07:24 UTC
+        </div>
+      </div>
+    </th>
+  </tr>
+</Fragment>
+`;
+
+exports[`ComparisonHeader should render a system, baseline and hsp 1`] = `
+<Fragment>
+  <tr
+    className="sticky-column-header"
+    data-ouia-component-id="comparison-table-header-row"
+    data-ouia-component-type="PF4/TableRow"
+  >
+    <th
+      className="fact-header sticky-column fixed-column-1 pointer"
+      data-ouia-component-id="fact-sort-button"
+      data-ouia-component-type="PF4/Button"
+      id=""
+      key="fact-header"
+      onClick={[Function]}
+    >
+      <div
+        className="active-blue"
+      >
+        Fact 
+        <ArrowsAltVIcon
+          className="not-active"
+          color="currentColor"
+          noVerticalAlign={false}
+          size="sm"
+        />
+      </div>
+    </th>
+    <th
+      className="state-header sticky-column fixed-column-2 pointer"
+      data-ouia-component-id="state-sort-button"
+      data-ouia-component-type="PF4/Button"
+      id="disabled"
+      key="state-header"
+      onClick={[Function]}
+    >
+      <div>
+        State 
+        <ArrowsAltVIcon
+          className="not-active"
+          color="currentColor"
+          noVerticalAlign={false}
+          size="sm"
+        />
+      </div>
+    </th>
+    <th
+      className="drift-header baseline-header"
+      header-id="12e4d81b-f1c6-489a-a829-9d96f3a71f53"
+      key="12e4d81b-f1c6-489a-a829-9d96f3a71f53"
+    >
+      <div>
+        <a
+          className="remove-system-icon"
+          data-ouia-component-id="remove-system-button-12e4d81b-f1c6-489a-a829-9d96f3a71f53"
+          data-ouia-component-type="PF4/Button"
+          onClick={[Function]}
+        >
+          <TimesIcon
+            color="currentColor"
+            noVerticalAlign={false}
+            size="sm"
+          />
+        </a>
+      </div>
+      <div
+        className="comparison-header"
+      >
+        <div
+          className="drift-header-icon"
+        >
+          <Tooltip
+            content={
+              <div>
+                Baseline
+              </div>
+            }
+            position="top"
+          >
+            <BlueprintIcon
+              color="currentColor"
+              noVerticalAlign={false}
+              size="sm"
+            />
+          </Tooltip>
+        </div>
+        <div
+          className="system-name"
+        >
+          baselineA
+        </div>
+        <div
+          className="system-updated-and-reference"
+        >
+          <ReferenceSelector
+            isReference={false}
+            item={
+              Object {
+                "display_name": "baselineA",
+                "id": "12e4d81b-f1c6-489a-a829-9d96f3a71f53",
+                "type": "baseline",
+                "updated": "2021-04-30T23:53:03.235265Z",
+              }
+            }
+            updateReferenceId={[MockFunction]}
+          />
+          30 Apr 2021, 23:53 UTC
+        </div>
+      </div>
+    </th>
+    <th
+      className="drift-header system-header"
+      header-id="dc47qffd-09rt-2kw7-8b9b-53f4g716fec5"
+      key="dc47qffd-09rt-2kw7-8b9b-53f4g716fec5"
+    >
+      <div>
+        <a
+          className="remove-system-icon"
+          data-ouia-component-id="remove-system-button-dc47qffd-09rt-2kw7-8b9b-53f4g716fec5"
+          data-ouia-component-type="PF4/Button"
+          onClick={[Function]}
+        >
+          <TimesIcon
+            color="currentColor"
+            noVerticalAlign={false}
+            size="sm"
+          />
+        </a>
+      </div>
+      <div
+        className="comparison-header"
+      >
+        <div
+          className="drift-header-icon"
+        >
+          <Tooltip
+            content={
+              <div>
+                System
+              </div>
+            }
+            position="top"
+          >
+            <ServerIcon
+              color="currentColor"
+              noVerticalAlign={false}
+              size="sm"
+            />
+          </Tooltip>
+        </div>
+        <div
+          className="system-name"
+        >
+          systemA
+        </div>
+        <div
+          className="system-updated-and-reference"
+        >
+          <ReferenceSelector
+            isReference={false}
+            item={
+              Object {
+                "display_name": "systemA",
+                "id": "dc47qffd-09rt-2kw7-8b9b-53f4g716fec5",
+                "type": "system",
+                "updated": "2020-11-02T12:41:59.029271Z",
+              }
+            }
+            updateReferenceId={[MockFunction]}
+          />
+          02 Nov 2020, 12:41 UTC
+          <withRouter(Connect(HistoricalProfilesPopover))
+            fetchCompare={[MockFunction]}
+            hasCompareButton={true}
+            hasMultiSelect={true}
+            system={
+              Object {
+                "display_name": "systemA",
+                "id": "dc47qffd-09rt-2kw7-8b9b-53f4g716fec5",
+                "type": "system",
+                "updated": "2020-11-02T12:41:59.029271Z",
+              }
+            }
+            systemIds={Array []}
+            systemName="systemA"
+          />
+        </div>
+      </div>
+    </th>
+    <th
+      className="drift-header historical-system-profile-header"
+      header-id="e3ed3e34-eaa1-45c4-8633-94fef1f678f1"
+      key="e3ed3e34-eaa1-45c4-8633-94fef1f678f1"
+    >
+      <div>
+        <a
+          className="remove-system-icon"
+          data-ouia-component-id="remove-system-button-e3ed3e34-eaa1-45c4-8633-94fef1f678f1"
+          data-ouia-component-type="PF4/Button"
+          onClick={[Function]}
+        >
+          <TimesIcon
+            color="currentColor"
+            noVerticalAlign={false}
+            size="sm"
+          />
+        </a>
+      </div>
+      <div
+        className="comparison-header"
+      >
+        <div
+          className="drift-header-icon"
+        >
+          <Tooltip
+            content={
+              <div>
+                Historical system
+              </div>
+            }
+            position="top"
+          >
+            <ClockIcon
+              color="currentColor"
+              noVerticalAlign={false}
+              size="sm"
+            />
+          </Tooltip>
+        </div>
+        <div
+          className="system-name"
+        >
+          hspA
+        </div>
+        <div
+          className="system-updated-and-reference"
+        >
+          <ReferenceSelector
+            isReference={false}
+            item={
+              Object {
+                "display_name": "hspA",
+                "id": "e3ed3e34-eaa1-45c4-8633-94fef1f678f1",
+                "system_id": "dc47qffd-09rt-2kw7-8b9b-53f4g716fec5",
+                "type": "historical-system-profile",
+                "updated": "2021-05-15T07:24:01+00:00",
+              }
+            }
+            updateReferenceId={[MockFunction]}
+          />
+          15 May 2021, 07:24 UTC
+          <withRouter(Connect(HistoricalProfilesPopover))
+            fetchCompare={[MockFunction]}
+            hasCompareButton={true}
+            hasMultiSelect={true}
+            system={
+              Object {
+                "display_name": "hspA",
+                "id": "e3ed3e34-eaa1-45c4-8633-94fef1f678f1",
+                "system_id": "dc47qffd-09rt-2kw7-8b9b-53f4g716fec5",
+                "type": "historical-system-profile",
+                "updated": "2021-05-15T07:24:01+00:00",
+              }
+            }
+            systemIds={Array []}
+            systemName="hspA"
+          />
+        </div>
+      </div>
+    </th>
+  </tr>
+</Fragment>
+`;
+
 exports[`ComparisonHeader should render correctly 1`] = `
 <Fragment>
   <tr

@@ -3,6 +3,7 @@ import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
 import ComparisonHeader from '../ComparisonHeader';
+import fixtures from './ComparisonHeader.fixtures';
 
 describe('ComparisonHeader', () => {
     let props;
@@ -11,6 +12,7 @@ describe('ComparisonHeader', () => {
         props = {
             factSort: '',
             fetchCompare: jest.fn(),
+            hasHSPReadPermissions: true,
             masterList: [],
             referenceId: undefined,
             isFirstReference: true,
@@ -118,16 +120,7 @@ describe('ComparisonHeader', () => {
     });
 
     it('should remove a system', () => {
-        /*eslint-disable camelcase*/
-        props.masterList = [
-            {
-                display_name: 'systemA',
-                id: 'dc47qffd-09rt-2kw7-8b9b-53f4g716fec5',
-                type: 'system',
-                updated: '2020-11-02T12:41:59.029271Z'
-            }
-        ];
-        /*eslint-enable camelcase*/
+        props.masterList = fixtures.masterListSystem;
 
         const wrapper = shallow(
             <ComparisonHeader { ...props }/>
@@ -155,5 +148,24 @@ describe('ComparisonHeader', () => {
 
         await wrapper.instance().toggleSort('state', 'desc');
         expect(props.setHistory).toHaveBeenCalled();
+    });
+
+    it('should render a system, baseline and hsp', () => {
+        props.masterList = fixtures.masterListAll;
+        const wrapper = shallow(
+            <ComparisonHeader { ...props }/>
+        );
+
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('should not render HistoricalProfilesPopover with no hspRead permissions', () => {
+        props.masterList = fixtures.masterListAll;
+        props.hasHSPReadPermissions = false;
+        const wrapper = shallow(
+            <ComparisonHeader { ...props }/>
+        );
+
+        expect(toJson(wrapper)).toMatchSnapshot();
     });
 });

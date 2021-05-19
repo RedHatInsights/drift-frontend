@@ -538,8 +538,8 @@ export class DriftTable extends Component {
     }
 
     renderTable(compareData, loading) {
-        const { factSort, referenceId, selectedBaselineIds, selectedHSPIds, selectHistoricProfiles,
-            setHistory, stateSort, toggleFactSort, toggleStateSort } = this.props;
+        const { factSort, hasHSPReadPermissions, referenceId, selectedBaselineIds, selectedHSPIds,
+            selectHistoricProfiles, setHistory, stateSort, toggleFactSort, toggleStateSort } = this.props;
 
         return (
             <React.Fragment>
@@ -552,6 +552,7 @@ export class DriftTable extends Component {
                             <ComparisonHeader
                                 factSort={ factSort }
                                 fetchCompare={ this.fetchCompare }
+                                hasHSPReadPermissions={ hasHSPReadPermissions }
                                 masterList={ this.masterList }
                                 referenceId={ referenceId }
                                 removeSystem={ this.removeSystem }
@@ -577,7 +578,7 @@ export class DriftTable extends Component {
 
     render() {
         const { emptyState, filteredCompareData, systems, baselines, hasBaselinesReadPermissions, hasBaselinesWritePermissions,
-            hasInventoryReadPermissions, historicalProfiles, loading } = this.props;
+            hasHSPReadPermissions, hasInventoryReadPermissions, historicalProfiles, loading } = this.props;
 
         this.masterList = this.formatEntities(systems, baselines, historicalProfiles);
 
@@ -590,6 +591,7 @@ export class DriftTable extends Component {
                     hasInventoryReadPermissions={ hasInventoryReadPermissions }
                     hasBaselinesReadPermissions={ hasBaselinesReadPermissions }
                     hasBaselinesWritePermissions={ hasBaselinesWritePermissions }
+                    hasHSPReadPermissions={ hasHSPReadPermissions }
                 />
                 { !emptyState
                     ? this.renderTable(filteredCompareData, loading)
@@ -665,7 +667,8 @@ DriftTable.propTypes = {
     selectedBaselineIds: PropTypes.array,
     handleBaselineSelection: PropTypes.func,
     handleHSPSelection: PropTypes.func,
-    handleSystemSelection: PropTypes.func
+    handleSystemSelection: PropTypes.func,
+    hasHSPReadPermissions: PropTypes.bool
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DriftTable));

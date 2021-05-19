@@ -9356,6 +9356,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
       }
     >
       <Connect(AddSystemModal)
+        hasHSPReadPermissions={true}
         hasInventoryReadPermissions={true}
         selectedBaselineIds={Array []}
         selectedHSPIds={Array []}
@@ -9382,6 +9383,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
           handleBaselineSelection={[Function]}
           handleHSPSelection={[Function]}
           handleSystemSelection={[Function]}
+          hasHSPReadPermissions={true}
           hasInventoryReadPermissions={true}
           historicalProfiles={Array []}
           loading={false}
@@ -9462,14 +9464,14 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                       class="pf-l-bullseye"
                     >
                       <div
-                        aria-describedby="pf-modal-part-8"
-                        aria-labelledby="pf-modal-part-7"
+                        aria-describedby="pf-modal-part-10"
+                        aria-labelledby="pf-modal-part-9"
                         aria-modal="true"
                         class="pf-c-modal-box drift"
                         data-ouia-component-id="add-to-comparison-modal"
                         data-ouia-component-type="PF4/ModalContent"
                         data-ouia-safe="true"
-                        id="pf-modal-part-6"
+                        id="pf-modal-part-8"
                         role="dialog"
                         style="width: 950px;"
                       >
@@ -9477,7 +9479,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                           aria-disabled="false"
                           aria-label="Close"
                           class="pf-c-button pf-m-plain"
-                          data-ouia-component-id="OUIA-Generated-Button-plain-22"
+                          data-ouia-component-id="OUIA-Generated-Button-plain-29"
                           data-ouia-component-type="PF4/Button"
                           data-ouia-safe="true"
                           type="button"
@@ -9501,7 +9503,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                         >
                           <h1
                             class="pf-c-modal-box__title"
-                            id="pf-modal-part-7"
+                            id="pf-modal-part-9"
                           >
                             
                             <span
@@ -9513,11 +9515,11 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                         </header>
                         <div
                           class="pf-c-modal-box__body"
-                          id="pf-modal-part-8"
+                          id="pf-modal-part-10"
                         >
                           <div
                             class="pf-c-toolbar"
-                            id="pf-random-id-9"
+                            id="pf-random-id-12"
                             style="padding: 0px;"
                           >
                             <div
@@ -9540,7 +9542,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                               </div>
                               <div
                                 class="pf-c-toolbar__expandable-content"
-                                id="pf-random-id-9-expandable-content-9"
+                                id="pf-random-id-12-expandable-content-12"
                               >
                                 <div
                                   class="pf-c-toolbar__group"
@@ -9558,7 +9560,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                           </div>
                           <div
                             class="pf-c-tabs"
-                            data-ouia-component-id="OUIA-Generated-Tabs-4"
+                            data-ouia-component-id="OUIA-Generated-Tabs-5"
                             data-ouia-component-type="PF4/Tabs"
                             data-ouia-safe="true"
                           >
@@ -9676,7 +9678,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                           >
                             <div
                               class="pf-c-toolbar drift-toolbar"
-                              id="pf-random-id-10"
+                              id="pf-random-id-13"
                             >
                               <div
                                 class="pf-c-toolbar__content"
@@ -9692,7 +9694,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                     >
                                       <div
                                         class="pf-c-dropdown ins-c-bulk-select"
-                                        data-ouia-component-id="OUIA-Generated-Dropdown-4"
+                                        data-ouia-component-id="OUIA-Generated-Dropdown-5"
                                         data-ouia-component-type="PF4/Dropdown"
                                         data-ouia-safe="true"
                                       >
@@ -9706,7 +9708,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                             <input
                                               aria-invalid="false"
                                               aria-label="Select all"
-                                              data-ouia-component-id="OUIA-Generated-DropdownToggleCheckbox-4"
+                                              data-ouia-component-id="OUIA-Generated-DropdownToggleCheckbox-5"
                                               data-ouia-component-type="PF4/DropdownToggleCheckbox"
                                               data-ouia-safe="true"
                                               id="toggle-checkbox"
@@ -9719,11 +9721,11 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                             aria-haspopup="true"
                                             aria-label="Select"
                                             class="pf-c-dropdown__toggle-button"
-                                            data-ouia-component-id="OUIA-Generated-DropdownToggle-10"
+                                            data-ouia-component-id="OUIA-Generated-DropdownToggle-13"
                                             data-ouia-component-type="PF4/DropdownToggle"
                                             data-ouia-safe="true"
                                             disabled=""
-                                            id="pf-dropdown-toggle-id-9"
+                                            id="pf-dropdown-toggle-id-12"
                                             type="button"
                                           >
                                             <span
@@ -9797,10 +9799,10 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                   >
                                     <div
                                       class="pf-c-pagination pf-m-compact"
-                                      data-ouia-component-id="OUIA-Generated-Pagination-top-7"
+                                      data-ouia-component-id="OUIA-Generated-Pagination-top-9"
                                       data-ouia-component-type="PF4/Pagination"
                                       data-ouia-safe="true"
-                                      id="pagination-options-menu-6"
+                                      id="pagination-options-menu-8"
                                       style="--pf-c-pagination__nav-page-select--c-form-control--width-chars: 2;"
                                     >
                                       <div
@@ -9847,11 +9849,11 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                             aria-expanded="false"
                                             aria-label="Items per page"
                                             class="  pf-c-options-menu__toggle-button"
-                                            data-ouia-component-id="OUIA-Generated-DropdownToggle-11"
+                                            data-ouia-component-id="OUIA-Generated-DropdownToggle-14"
                                             data-ouia-component-type="PF4/DropdownToggle"
                                             data-ouia-safe="true"
                                             disabled=""
-                                            id="pagination-options-menu-toggle-6"
+                                            id="pagination-options-menu-toggle-8"
                                             type="button"
                                           >
                                             <span
@@ -9886,7 +9888,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                             aria-label="Go to previous page"
                                             class="pf-c-button pf-m-plain pf-m-disabled"
                                             data-action="previous"
-                                            data-ouia-component-id="OUIA-Generated-Button-plain-23"
+                                            data-ouia-component-id="OUIA-Generated-Button-plain-30"
                                             data-ouia-component-type="PF4/Button"
                                             data-ouia-safe="true"
                                             disabled=""
@@ -9915,7 +9917,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                             aria-label="Go to next page"
                                             class="pf-c-button pf-m-plain pf-m-disabled"
                                             data-action="next"
-                                            data-ouia-component-id="OUIA-Generated-Button-plain-24"
+                                            data-ouia-component-id="OUIA-Generated-Button-plain-31"
                                             data-ouia-component-type="PF4/Button"
                                             data-ouia-safe="true"
                                             disabled=""
@@ -9942,7 +9944,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                 </div>
                                 <div
                                   class="pf-c-toolbar__expandable-content"
-                                  id="pf-random-id-10-expandable-content-11"
+                                  id="pf-random-id-13-expandable-content-14"
                                 >
                                   <div
                                     class="pf-c-toolbar__group"
@@ -9971,7 +9973,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                               >
                                 <tr
                                   class=""
-                                  data-ouia-component-id="OUIA-Generated-TableRow-7"
+                                  data-ouia-component-id="OUIA-Generated-TableRow-9"
                                   data-ouia-component-type="PF4/TableRow"
                                   data-ouia-safe="true"
                                 >
@@ -10061,7 +10063,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                               >
                                 <tr
                                   class=""
-                                  data-ouia-component-id="OUIA-Generated-TableRow-8"
+                                  data-ouia-component-id="OUIA-Generated-TableRow-10"
                                   data-ouia-component-type="PF4/TableRow"
                                   data-ouia-safe="true"
                                 >
@@ -10102,7 +10104,7 @@ Try changing your filter settings.
                             </table>
                             <div
                               class="pf-c-toolbar"
-                              id="pf-random-id-11"
+                              id="pf-random-id-14"
                             >
                               <div
                                 class="pf-c-toolbar__group pf-c-pagination"
@@ -10112,10 +10114,10 @@ Try changing your filter settings.
                                 >
                                   <div
                                     class="pf-c-pagination"
-                                    data-ouia-component-id="OUIA-Generated-Pagination-top-8"
+                                    data-ouia-component-id="OUIA-Generated-Pagination-top-10"
                                     data-ouia-component-type="PF4/Pagination"
                                     data-ouia-safe="true"
-                                    id="pagination-options-menu-7"
+                                    id="pagination-options-menu-9"
                                     style="--pf-c-pagination__nav-page-select--c-form-control--width-chars: 2;"
                                   >
                                     <div
@@ -10162,11 +10164,11 @@ Try changing your filter settings.
                                           aria-expanded="false"
                                           aria-label="Items per page"
                                           class="  pf-c-options-menu__toggle-button"
-                                          data-ouia-component-id="OUIA-Generated-DropdownToggle-12"
+                                          data-ouia-component-id="OUIA-Generated-DropdownToggle-15"
                                           data-ouia-component-type="PF4/DropdownToggle"
                                           data-ouia-safe="true"
                                           disabled=""
-                                          id="pagination-options-menu-toggle-7"
+                                          id="pagination-options-menu-toggle-9"
                                           type="button"
                                         >
                                           <span
@@ -10201,7 +10203,7 @@ Try changing your filter settings.
                                           aria-label="Go to first page"
                                           class="pf-c-button pf-m-plain pf-m-disabled"
                                           data-action="first"
-                                          data-ouia-component-id="OUIA-Generated-Button-plain-25"
+                                          data-ouia-component-id="OUIA-Generated-Button-plain-32"
                                           data-ouia-component-type="PF4/Button"
                                           data-ouia-safe="true"
                                           disabled=""
@@ -10230,7 +10232,7 @@ Try changing your filter settings.
                                           aria-label="Go to previous page"
                                           class="pf-c-button pf-m-plain pf-m-disabled"
                                           data-action="previous"
-                                          data-ouia-component-id="OUIA-Generated-Button-plain-26"
+                                          data-ouia-component-id="OUIA-Generated-Button-plain-33"
                                           data-ouia-component-type="PF4/Button"
                                           data-ouia-safe="true"
                                           disabled=""
@@ -10278,7 +10280,7 @@ Try changing your filter settings.
                                           aria-label="Go to next page"
                                           class="pf-c-button pf-m-plain pf-m-disabled"
                                           data-action="next"
-                                          data-ouia-component-id="OUIA-Generated-Button-plain-27"
+                                          data-ouia-component-id="OUIA-Generated-Button-plain-34"
                                           data-ouia-component-type="PF4/Button"
                                           data-ouia-safe="true"
                                           disabled=""
@@ -10307,7 +10309,7 @@ Try changing your filter settings.
                                           aria-label="Go to last page"
                                           class="pf-c-button pf-m-plain pf-m-disabled"
                                           data-action="last"
-                                          data-ouia-component-id="OUIA-Generated-Button-plain-28"
+                                          data-ouia-component-id="OUIA-Generated-Button-plain-35"
                                           data-ouia-component-type="PF4/Button"
                                           data-ouia-safe="true"
                                           disabled=""
@@ -10398,12 +10400,12 @@ Try changing your filter settings.
                 aria-describedby=""
                 aria-label=""
                 aria-labelledby=""
-                boxId="pf-modal-part-6"
+                boxId="pf-modal-part-8"
                 className="drift"
-                descriptorId="pf-modal-part-8"
+                descriptorId="pf-modal-part-10"
                 hasNoBodyWrapper={false}
                 isOpen={true}
-                labelId="pf-modal-part-7"
+                labelId="pf-modal-part-9"
                 onClose={[Function]}
                 ouiaId="add-to-comparison-modal"
                 ouiaSafe={true}
@@ -10432,14 +10434,14 @@ Try changing your filter settings.
                         className="pf-l-bullseye"
                       >
                         <ModalBox
-                          aria-describedby="pf-modal-part-8"
+                          aria-describedby="pf-modal-part-10"
                           aria-label=""
-                          aria-labelledby="pf-modal-part-7"
+                          aria-labelledby="pf-modal-part-9"
                           className="drift"
                           data-ouia-component-id="add-to-comparison-modal"
                           data-ouia-component-type="PF4/ModalContent"
                           data-ouia-safe={true}
-                          id="pf-modal-part-6"
+                          id="pf-modal-part-8"
                           style={
                             Object {
                               "width": "950px",
@@ -10448,15 +10450,15 @@ Try changing your filter settings.
                           variant="default"
                         >
                           <div
-                            aria-describedby="pf-modal-part-8"
+                            aria-describedby="pf-modal-part-10"
                             aria-label={null}
-                            aria-labelledby="pf-modal-part-7"
+                            aria-labelledby="pf-modal-part-9"
                             aria-modal="true"
                             className="pf-c-modal-box drift"
                             data-ouia-component-id="add-to-comparison-modal"
                             data-ouia-component-type="PF4/ModalContent"
                             data-ouia-safe={true}
-                            id="pf-modal-part-6"
+                            id="pf-modal-part-8"
                             role="dialog"
                             style={
                               Object {
@@ -10477,7 +10479,7 @@ Try changing your filter settings.
                                   aria-disabled={false}
                                   aria-label="Close"
                                   className="pf-c-button pf-m-plain"
-                                  data-ouia-component-id="OUIA-Generated-Button-plain-22"
+                                  data-ouia-component-id="OUIA-Generated-Button-plain-29"
                                   data-ouia-component-type="PF4/Button"
                                   data-ouia-safe={true}
                                   disabled={false}
@@ -10519,14 +10521,14 @@ Try changing your filter settings.
                                 className="pf-c-modal-box__header"
                               >
                                 <ModalBoxTitle
-                                  id="pf-modal-part-7"
+                                  id="pf-modal-part-9"
                                   title="Add to comparison"
                                   titleIconVariant={null}
                                   titleLabel=""
                                 >
                                   <h1
                                     className="pf-c-modal-box__title"
-                                    id="pf-modal-part-7"
+                                    id="pf-modal-part-9"
                                   >
                                     <span
                                       className="pf-c-modal-box__title-text"
@@ -10538,11 +10540,11 @@ Try changing your filter settings.
                               </header>
                             </ModalBoxHeader>
                             <ModalBoxBody
-                              id="pf-modal-part-8"
+                              id="pf-modal-part-10"
                             >
                               <div
                                 className="pf-c-modal-box__body"
-                                id="pf-modal-part-8"
+                                id="pf-modal-part-10"
                               >
                                 <GlobalFilterAlert
                                   globalFilterState={
@@ -10565,7 +10567,7 @@ Try changing your filter settings.
                                   >
                                     <div
                                       className="pf-c-toolbar"
-                                      id="pf-random-id-9"
+                                      id="pf-random-id-12"
                                       style={
                                         Object {
                                           "padding": "0px",
@@ -10774,7 +10776,7 @@ Try changing your filter settings.
                                               Object {
                                                 "current": <div
                                                   class="pf-c-toolbar__expandable-content"
-                                                  id="pf-random-id-9-expandable-content-9"
+                                                  id="pf-random-id-12-expandable-content-12"
                                                 >
                                                   <div
                                                     class="pf-c-toolbar__group"
@@ -10782,13 +10784,13 @@ Try changing your filter settings.
                                                 </div>,
                                               }
                                             }
-                                            id="pf-random-id-9-expandable-content-9"
+                                            id="pf-random-id-12-expandable-content-12"
                                             isExpanded={false}
                                             showClearFiltersButton={false}
                                           >
                                             <div
                                               className="pf-c-toolbar__expandable-content"
-                                              id="pf-random-id-9-expandable-content-9"
+                                              id="pf-random-id-12-expandable-content-12"
                                             >
                                               <ForwardRef>
                                                 <ToolbarGroupWithRef
@@ -10860,7 +10862,7 @@ Try changing your filter settings.
                                 >
                                   <div
                                     className="pf-c-tabs"
-                                    data-ouia-component-id="OUIA-Generated-Tabs-4"
+                                    data-ouia-component-id="OUIA-Generated-Tabs-5"
                                     data-ouia-component-type="PF4/Tabs"
                                     data-ouia-safe={true}
                                     onSelect={[Function]}
@@ -11820,14 +11822,14 @@ Try changing your filter settings.
                                                         aria-describedby=""
                                                         aria-label=""
                                                         aria-labelledby=""
-                                                        boxId="pf-modal-part-7"
+                                                        boxId="pf-modal-part-9"
                                                         className="drift"
-                                                        descriptorId="pf-modal-part-9"
+                                                        descriptorId="pf-modal-part-11"
                                                         hasNoBodyWrapper={false}
                                                         isOpen={false}
-                                                        labelId="pf-modal-part-8"
+                                                        labelId="pf-modal-part-10"
                                                         onClose={[Function]}
-                                                        ouiaId="OUIA-Generated-Modal-small-4"
+                                                        ouiaId="OUIA-Generated-Modal-small-5"
                                                         ouiaSafe={true}
                                                         showClose={true}
                                                         title="Delete baselines"
@@ -11848,7 +11850,7 @@ Try changing your filter settings.
                                                 >
                                                   <div
                                                     className="pf-c-toolbar drift-toolbar"
-                                                    id="pf-random-id-10"
+                                                    id="pf-random-id-13"
                                                   >
                                                     <ToolbarContent
                                                       isExpanded={false}
@@ -11993,14 +11995,14 @@ Try changing your filter settings.
                                                                         >
                                                                           <div
                                                                             className="pf-c-dropdown ins-c-bulk-select"
-                                                                            data-ouia-component-id="OUIA-Generated-Dropdown-4"
+                                                                            data-ouia-component-id="OUIA-Generated-Dropdown-5"
                                                                             data-ouia-component-type="PF4/Dropdown"
                                                                             data-ouia-safe={true}
                                                                           >
                                                                             <DropdownToggle
                                                                               aria-haspopup={true}
                                                                               getMenuRef={[Function]}
-                                                                              id="pf-dropdown-toggle-id-9"
+                                                                              id="pf-dropdown-toggle-id-12"
                                                                               isDisabled={true}
                                                                               isOpen={false}
                                                                               isPlain={false}
@@ -12011,7 +12013,7 @@ Try changing your filter settings.
                                                                                 Object {
                                                                                   "current": <div
                                                                                     class="pf-c-dropdown ins-c-bulk-select"
-                                                                                    data-ouia-component-id="OUIA-Generated-Dropdown-4"
+                                                                                    data-ouia-component-id="OUIA-Generated-Dropdown-5"
                                                                                     data-ouia-component-type="PF4/Dropdown"
                                                                                     data-ouia-safe="true"
                                                                                   >
@@ -12025,7 +12027,7 @@ Try changing your filter settings.
                                                                                         <input
                                                                                           aria-invalid="false"
                                                                                           aria-label="Select all"
-                                                                                          data-ouia-component-id="OUIA-Generated-DropdownToggleCheckbox-4"
+                                                                                          data-ouia-component-id="OUIA-Generated-DropdownToggleCheckbox-5"
                                                                                           data-ouia-component-type="PF4/DropdownToggleCheckbox"
                                                                                           data-ouia-safe="true"
                                                                                           id="toggle-checkbox"
@@ -12038,11 +12040,11 @@ Try changing your filter settings.
                                                                                         aria-haspopup="true"
                                                                                         aria-label="Select"
                                                                                         class="pf-c-dropdown__toggle-button"
-                                                                                        data-ouia-component-id="OUIA-Generated-DropdownToggle-10"
+                                                                                        data-ouia-component-id="OUIA-Generated-DropdownToggle-13"
                                                                                         data-ouia-component-type="PF4/DropdownToggle"
                                                                                         data-ouia-safe="true"
                                                                                         disabled=""
-                                                                                        id="pf-dropdown-toggle-id-9"
+                                                                                        id="pf-dropdown-toggle-id-12"
                                                                                         type="button"
                                                                                       >
                                                                                         <span
@@ -12105,7 +12107,7 @@ Try changing your filter settings.
                                                                                       aria-invalid={false}
                                                                                       aria-label="Select all"
                                                                                       checked={false}
-                                                                                      data-ouia-component-id="OUIA-Generated-DropdownToggleCheckbox-4"
+                                                                                      data-ouia-component-id="OUIA-Generated-DropdownToggleCheckbox-5"
                                                                                       data-ouia-component-type="PF4/DropdownToggleCheckbox"
                                                                                       data-ouia-safe={true}
                                                                                       disabled={false}
@@ -12120,11 +12122,11 @@ Try changing your filter settings.
                                                                                   aria-label="Select"
                                                                                   bubbleEvent={false}
                                                                                   className=""
-                                                                                  data-ouia-component-id="OUIA-Generated-DropdownToggle-10"
+                                                                                  data-ouia-component-id="OUIA-Generated-DropdownToggle-13"
                                                                                   data-ouia-component-type="PF4/DropdownToggle"
                                                                                   data-ouia-safe={true}
                                                                                   getMenuRef={[Function]}
-                                                                                  id="pf-dropdown-toggle-id-9"
+                                                                                  id="pf-dropdown-toggle-id-12"
                                                                                   isActive={false}
                                                                                   isDisabled={true}
                                                                                   isOpen={false}
@@ -12137,7 +12139,7 @@ Try changing your filter settings.
                                                                                     Object {
                                                                                       "current": <div
                                                                                         class="pf-c-dropdown ins-c-bulk-select"
-                                                                                        data-ouia-component-id="OUIA-Generated-Dropdown-4"
+                                                                                        data-ouia-component-id="OUIA-Generated-Dropdown-5"
                                                                                         data-ouia-component-type="PF4/Dropdown"
                                                                                         data-ouia-safe="true"
                                                                                       >
@@ -12151,7 +12153,7 @@ Try changing your filter settings.
                                                                                             <input
                                                                                               aria-invalid="false"
                                                                                               aria-label="Select all"
-                                                                                              data-ouia-component-id="OUIA-Generated-DropdownToggleCheckbox-4"
+                                                                                              data-ouia-component-id="OUIA-Generated-DropdownToggleCheckbox-5"
                                                                                               data-ouia-component-type="PF4/DropdownToggleCheckbox"
                                                                                               data-ouia-safe="true"
                                                                                               id="toggle-checkbox"
@@ -12164,11 +12166,11 @@ Try changing your filter settings.
                                                                                             aria-haspopup="true"
                                                                                             aria-label="Select"
                                                                                             class="pf-c-dropdown__toggle-button"
-                                                                                            data-ouia-component-id="OUIA-Generated-DropdownToggle-10"
+                                                                                            data-ouia-component-id="OUIA-Generated-DropdownToggle-13"
                                                                                             data-ouia-component-type="PF4/DropdownToggle"
                                                                                             data-ouia-safe="true"
                                                                                             disabled=""
-                                                                                            id="pf-dropdown-toggle-id-9"
+                                                                                            id="pf-dropdown-toggle-id-12"
                                                                                             type="button"
                                                                                           >
                                                                                             <span
@@ -12199,11 +12201,11 @@ Try changing your filter settings.
                                                                                     aria-haspopup={true}
                                                                                     aria-label="Select"
                                                                                     className="pf-c-dropdown__toggle-button"
-                                                                                    data-ouia-component-id="OUIA-Generated-DropdownToggle-10"
+                                                                                    data-ouia-component-id="OUIA-Generated-DropdownToggle-13"
                                                                                     data-ouia-component-type="PF4/DropdownToggle"
                                                                                     data-ouia-safe={true}
                                                                                     disabled={true}
-                                                                                    id="pf-dropdown-toggle-id-9"
+                                                                                    id="pf-dropdown-toggle-id-12"
                                                                                     onClick={[Function]}
                                                                                     onKeyDown={[Function]}
                                                                                     type="button"
@@ -12490,10 +12492,10 @@ Try changing your filter settings.
                                                                 >
                                                                   <div
                                                                     className="pf-c-pagination pf-m-compact"
-                                                                    data-ouia-component-id="OUIA-Generated-Pagination-top-7"
+                                                                    data-ouia-component-id="OUIA-Generated-Pagination-top-9"
                                                                     data-ouia-component-type="PF4/Pagination"
                                                                     data-ouia-safe={true}
-                                                                    id="pagination-options-menu-6"
+                                                                    id="pagination-options-menu-8"
                                                                   >
                                                                     <div
                                                                       className="pf-c-pagination__total-items"
@@ -12642,7 +12644,7 @@ Try changing your filter settings.
                                                                             aria-haspopup={true}
                                                                             firstIndex={0}
                                                                             getMenuRef={[Function]}
-                                                                            id="pf-dropdown-toggle-id-10"
+                                                                            id="pf-dropdown-toggle-id-13"
                                                                             isDisabled={false}
                                                                             isOpen={false}
                                                                             isPlain={true}
@@ -12684,11 +12686,11 @@ Try changing your filter settings.
                                                                                       aria-expanded="false"
                                                                                       aria-label="Items per page"
                                                                                       class="  pf-c-options-menu__toggle-button"
-                                                                                      data-ouia-component-id="OUIA-Generated-DropdownToggle-11"
+                                                                                      data-ouia-component-id="OUIA-Generated-DropdownToggle-14"
                                                                                       data-ouia-component-type="PF4/DropdownToggle"
                                                                                       data-ouia-safe="true"
                                                                                       disabled=""
-                                                                                      id="pagination-options-menu-toggle-6"
+                                                                                      id="pagination-options-menu-toggle-8"
                                                                                       type="button"
                                                                                     >
                                                                                       <span
@@ -12745,7 +12747,7 @@ Try changing your filter settings.
                                                                               <DropdownToggle
                                                                                 aria-label="Items per page"
                                                                                 className="pf-c-options-menu__toggle-button"
-                                                                                id="pagination-options-menu-toggle-6"
+                                                                                id="pagination-options-menu-toggle-8"
                                                                                 isDisabled={true}
                                                                                 isOpen={false}
                                                                                 onEnter={[Function]}
@@ -12780,11 +12782,11 @@ Try changing your filter settings.
                                                                                           aria-expanded="false"
                                                                                           aria-label="Items per page"
                                                                                           class="  pf-c-options-menu__toggle-button"
-                                                                                          data-ouia-component-id="OUIA-Generated-DropdownToggle-11"
+                                                                                          data-ouia-component-id="OUIA-Generated-DropdownToggle-14"
                                                                                           data-ouia-component-type="PF4/DropdownToggle"
                                                                                           data-ouia-safe="true"
                                                                                           disabled=""
-                                                                                          id="pagination-options-menu-toggle-6"
+                                                                                          id="pagination-options-menu-toggle-8"
                                                                                           type="button"
                                                                                         >
                                                                                           <span
@@ -12814,11 +12816,11 @@ Try changing your filter settings.
                                                                                   aria-label="Items per page"
                                                                                   bubbleEvent={false}
                                                                                   className="pf-c-options-menu__toggle-button"
-                                                                                  data-ouia-component-id="OUIA-Generated-DropdownToggle-11"
+                                                                                  data-ouia-component-id="OUIA-Generated-DropdownToggle-14"
                                                                                   data-ouia-component-type="PF4/DropdownToggle"
                                                                                   data-ouia-safe={true}
                                                                                   getMenuRef={null}
-                                                                                  id="pagination-options-menu-toggle-6"
+                                                                                  id="pagination-options-menu-toggle-8"
                                                                                   isActive={false}
                                                                                   isDisabled={true}
                                                                                   isOpen={false}
@@ -12857,11 +12859,11 @@ Try changing your filter settings.
                                                                                             aria-expanded="false"
                                                                                             aria-label="Items per page"
                                                                                             class="  pf-c-options-menu__toggle-button"
-                                                                                            data-ouia-component-id="OUIA-Generated-DropdownToggle-11"
+                                                                                            data-ouia-component-id="OUIA-Generated-DropdownToggle-14"
                                                                                             data-ouia-component-type="PF4/DropdownToggle"
                                                                                             data-ouia-safe="true"
                                                                                             disabled=""
-                                                                                            id="pagination-options-menu-toggle-6"
+                                                                                            id="pagination-options-menu-toggle-8"
                                                                                             type="button"
                                                                                           >
                                                                                             <span
@@ -12891,11 +12893,11 @@ Try changing your filter settings.
                                                                                     aria-expanded={false}
                                                                                     aria-label="Items per page"
                                                                                     className="  pf-c-options-menu__toggle-button"
-                                                                                    data-ouia-component-id="OUIA-Generated-DropdownToggle-11"
+                                                                                    data-ouia-component-id="OUIA-Generated-DropdownToggle-14"
                                                                                     data-ouia-component-type="PF4/DropdownToggle"
                                                                                     data-ouia-safe={true}
                                                                                     disabled={true}
-                                                                                    id="pagination-options-menu-toggle-6"
+                                                                                    id="pagination-options-menu-toggle-8"
                                                                                     onClick={[Function]}
                                                                                     onKeyDown={[Function]}
                                                                                     type="button"
@@ -12977,7 +12979,7 @@ Try changing your filter settings.
                                                                               aria-label="Go to previous page"
                                                                               className="pf-c-button pf-m-plain pf-m-disabled"
                                                                               data-action="previous"
-                                                                              data-ouia-component-id="OUIA-Generated-Button-plain-23"
+                                                                              data-ouia-component-id="OUIA-Generated-Button-plain-30"
                                                                               data-ouia-component-type="PF4/Button"
                                                                               data-ouia-safe={true}
                                                                               disabled={true}
@@ -13028,7 +13030,7 @@ Try changing your filter settings.
                                                                               aria-label="Go to next page"
                                                                               className="pf-c-button pf-m-plain pf-m-disabled"
                                                                               data-action="next"
-                                                                              data-ouia-component-id="OUIA-Generated-Button-plain-24"
+                                                                              data-ouia-component-id="OUIA-Generated-Button-plain-31"
                                                                               data-ouia-component-type="PF4/Button"
                                                                               data-ouia-safe={true}
                                                                               disabled={true}
@@ -13084,7 +13086,7 @@ Try changing your filter settings.
                                                             Object {
                                                               "current": <div
                                                                 class="pf-c-toolbar__expandable-content"
-                                                                id="pf-random-id-10-expandable-content-11"
+                                                                id="pf-random-id-13-expandable-content-14"
                                                               >
                                                                 <div
                                                                   class="pf-c-toolbar__group"
@@ -13092,13 +13094,13 @@ Try changing your filter settings.
                                                               </div>,
                                                             }
                                                           }
-                                                          id="pf-random-id-10-expandable-content-11"
+                                                          id="pf-random-id-13-expandable-content-14"
                                                           isExpanded={false}
                                                           showClearFiltersButton={false}
                                                         >
                                                           <div
                                                             className="pf-c-toolbar__expandable-content"
-                                                            id="pf-random-id-10-expandable-content-11"
+                                                            id="pf-random-id-13-expandable-content-14"
                                                           >
                                                             <ForwardRef>
                                                               <ToolbarGroupWithRef
@@ -13644,7 +13646,7 @@ Try changing your filter settings.
                                                                         >
                                                                           <tr
                                                                             className=""
-                                                                            data-ouia-component-id="OUIA-Generated-TableRow-7"
+                                                                            data-ouia-component-id="OUIA-Generated-TableRow-9"
                                                                             data-ouia-component-type="PF4/TableRow"
                                                                             data-ouia-safe={true}
                                                                             hidden={false}
@@ -14604,7 +14606,7 @@ Try changing your filter settings.
                                                                             >
                                                                               <tr
                                                                                 className=""
-                                                                                data-ouia-component-id="OUIA-Generated-TableRow-8"
+                                                                                data-ouia-component-id="OUIA-Generated-TableRow-10"
                                                                                 data-ouia-component-type="PF4/TableRow"
                                                                                 data-ouia-safe={true}
                                                                                 hidden={false}
@@ -14724,7 +14726,7 @@ Try changing your filter settings.
                                               >
                                                 <div
                                                   className="pf-c-toolbar"
-                                                  id="pf-random-id-11"
+                                                  id="pf-random-id-14"
                                                 >
                                                   <ForwardRef
                                                     className="pf-c-pagination"
@@ -14810,10 +14812,10 @@ Try changing your filter settings.
                                                               >
                                                                 <div
                                                                   className="pf-c-pagination"
-                                                                  data-ouia-component-id="OUIA-Generated-Pagination-top-8"
+                                                                  data-ouia-component-id="OUIA-Generated-Pagination-top-10"
                                                                   data-ouia-component-type="PF4/Pagination"
                                                                   data-ouia-safe={true}
-                                                                  id="pagination-options-menu-7"
+                                                                  id="pagination-options-menu-9"
                                                                 >
                                                                   <div
                                                                     className="pf-c-pagination__total-items"
@@ -14962,7 +14964,7 @@ Try changing your filter settings.
                                                                           aria-haspopup={true}
                                                                           firstIndex={0}
                                                                           getMenuRef={[Function]}
-                                                                          id="pf-dropdown-toggle-id-11"
+                                                                          id="pf-dropdown-toggle-id-14"
                                                                           isDisabled={false}
                                                                           isOpen={false}
                                                                           isPlain={true}
@@ -15004,11 +15006,11 @@ Try changing your filter settings.
                                                                                     aria-expanded="false"
                                                                                     aria-label="Items per page"
                                                                                     class="  pf-c-options-menu__toggle-button"
-                                                                                    data-ouia-component-id="OUIA-Generated-DropdownToggle-12"
+                                                                                    data-ouia-component-id="OUIA-Generated-DropdownToggle-15"
                                                                                     data-ouia-component-type="PF4/DropdownToggle"
                                                                                     data-ouia-safe="true"
                                                                                     disabled=""
-                                                                                    id="pagination-options-menu-toggle-7"
+                                                                                    id="pagination-options-menu-toggle-9"
                                                                                     type="button"
                                                                                   >
                                                                                     <span
@@ -15065,7 +15067,7 @@ Try changing your filter settings.
                                                                             <DropdownToggle
                                                                               aria-label="Items per page"
                                                                               className="pf-c-options-menu__toggle-button"
-                                                                              id="pagination-options-menu-toggle-7"
+                                                                              id="pagination-options-menu-toggle-9"
                                                                               isDisabled={true}
                                                                               isOpen={false}
                                                                               onEnter={[Function]}
@@ -15100,11 +15102,11 @@ Try changing your filter settings.
                                                                                         aria-expanded="false"
                                                                                         aria-label="Items per page"
                                                                                         class="  pf-c-options-menu__toggle-button"
-                                                                                        data-ouia-component-id="OUIA-Generated-DropdownToggle-12"
+                                                                                        data-ouia-component-id="OUIA-Generated-DropdownToggle-15"
                                                                                         data-ouia-component-type="PF4/DropdownToggle"
                                                                                         data-ouia-safe="true"
                                                                                         disabled=""
-                                                                                        id="pagination-options-menu-toggle-7"
+                                                                                        id="pagination-options-menu-toggle-9"
                                                                                         type="button"
                                                                                       >
                                                                                         <span
@@ -15134,11 +15136,11 @@ Try changing your filter settings.
                                                                                 aria-label="Items per page"
                                                                                 bubbleEvent={false}
                                                                                 className="pf-c-options-menu__toggle-button"
-                                                                                data-ouia-component-id="OUIA-Generated-DropdownToggle-12"
+                                                                                data-ouia-component-id="OUIA-Generated-DropdownToggle-15"
                                                                                 data-ouia-component-type="PF4/DropdownToggle"
                                                                                 data-ouia-safe={true}
                                                                                 getMenuRef={null}
-                                                                                id="pagination-options-menu-toggle-7"
+                                                                                id="pagination-options-menu-toggle-9"
                                                                                 isActive={false}
                                                                                 isDisabled={true}
                                                                                 isOpen={false}
@@ -15177,11 +15179,11 @@ Try changing your filter settings.
                                                                                           aria-expanded="false"
                                                                                           aria-label="Items per page"
                                                                                           class="  pf-c-options-menu__toggle-button"
-                                                                                          data-ouia-component-id="OUIA-Generated-DropdownToggle-12"
+                                                                                          data-ouia-component-id="OUIA-Generated-DropdownToggle-15"
                                                                                           data-ouia-component-type="PF4/DropdownToggle"
                                                                                           data-ouia-safe="true"
                                                                                           disabled=""
-                                                                                          id="pagination-options-menu-toggle-7"
+                                                                                          id="pagination-options-menu-toggle-9"
                                                                                           type="button"
                                                                                         >
                                                                                           <span
@@ -15211,11 +15213,11 @@ Try changing your filter settings.
                                                                                   aria-expanded={false}
                                                                                   aria-label="Items per page"
                                                                                   className="  pf-c-options-menu__toggle-button"
-                                                                                  data-ouia-component-id="OUIA-Generated-DropdownToggle-12"
+                                                                                  data-ouia-component-id="OUIA-Generated-DropdownToggle-15"
                                                                                   data-ouia-component-type="PF4/DropdownToggle"
                                                                                   data-ouia-safe={true}
                                                                                   disabled={true}
-                                                                                  id="pagination-options-menu-toggle-7"
+                                                                                  id="pagination-options-menu-toggle-9"
                                                                                   onClick={[Function]}
                                                                                   onKeyDown={[Function]}
                                                                                   type="button"
@@ -15297,7 +15299,7 @@ Try changing your filter settings.
                                                                             aria-label="Go to first page"
                                                                             className="pf-c-button pf-m-plain pf-m-disabled"
                                                                             data-action="first"
-                                                                            data-ouia-component-id="OUIA-Generated-Button-plain-25"
+                                                                            data-ouia-component-id="OUIA-Generated-Button-plain-32"
                                                                             data-ouia-component-type="PF4/Button"
                                                                             data-ouia-safe={true}
                                                                             disabled={true}
@@ -15348,7 +15350,7 @@ Try changing your filter settings.
                                                                             aria-label="Go to previous page"
                                                                             className="pf-c-button pf-m-plain pf-m-disabled"
                                                                             data-action="previous"
-                                                                            data-ouia-component-id="OUIA-Generated-Button-plain-26"
+                                                                            data-ouia-component-id="OUIA-Generated-Button-plain-33"
                                                                             data-ouia-component-type="PF4/Button"
                                                                             data-ouia-safe={true}
                                                                             disabled={true}
@@ -15420,7 +15422,7 @@ Try changing your filter settings.
                                                                             aria-label="Go to next page"
                                                                             className="pf-c-button pf-m-plain pf-m-disabled"
                                                                             data-action="next"
-                                                                            data-ouia-component-id="OUIA-Generated-Button-plain-27"
+                                                                            data-ouia-component-id="OUIA-Generated-Button-plain-34"
                                                                             data-ouia-component-type="PF4/Button"
                                                                             data-ouia-safe={true}
                                                                             disabled={true}
@@ -15471,7 +15473,7 @@ Try changing your filter settings.
                                                                             aria-label="Go to last page"
                                                                             className="pf-c-button pf-m-plain pf-m-disabled"
                                                                             data-action="last"
-                                                                            data-ouia-component-id="OUIA-Generated-Button-plain-28"
+                                                                            data-ouia-component-id="OUIA-Generated-Button-plain-35"
                                                                             data-ouia-component-type="PF4/Button"
                                                                             data-ouia-safe={true}
                                                                             disabled={true}
@@ -15681,6 +15683,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
       }
     >
       <Connect(AddSystemModal)
+        hasHSPReadPermissions={true}
         hasInventoryReadPermissions={true}
         selectedBaselineIds={Array []}
         selectedHSPIds={Array []}
@@ -15707,6 +15710,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
           handleBaselineSelection={[Function]}
           handleHSPSelection={[Function]}
           handleSystemSelection={[Function]}
+          hasHSPReadPermissions={true}
           hasInventoryReadPermissions={true}
           historicalProfiles={Array []}
           loading={false}
@@ -21954,6 +21958,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
       }
     >
       <Connect(AddSystemModal)
+        hasHSPReadPermissions={true}
         hasInventoryReadPermissions={false}
         selectedBaselineIds={Array []}
         selectedHSPIds={Array []}
@@ -21980,6 +21985,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
           handleBaselineSelection={[Function]}
           handleHSPSelection={[Function]}
           handleSystemSelection={[Function]}
+          hasHSPReadPermissions={true}
           hasInventoryReadPermissions={false}
           historicalProfiles={Array []}
           loading={false}
@@ -22060,14 +22066,14 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                       class="pf-l-bullseye"
                     >
                       <div
-                        aria-describedby="pf-modal-part-4"
-                        aria-labelledby="pf-modal-part-3"
+                        aria-describedby="pf-modal-part-6"
+                        aria-labelledby="pf-modal-part-5"
                         aria-modal="true"
                         class="pf-c-modal-box drift"
                         data-ouia-component-id="add-to-comparison-modal"
                         data-ouia-component-type="PF4/ModalContent"
                         data-ouia-safe="true"
-                        id="pf-modal-part-2"
+                        id="pf-modal-part-4"
                         role="dialog"
                         style="width: 950px;"
                       >
@@ -22075,7 +22081,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                           aria-disabled="false"
                           aria-label="Close"
                           class="pf-c-button pf-m-plain"
-                          data-ouia-component-id="OUIA-Generated-Button-plain-8"
+                          data-ouia-component-id="OUIA-Generated-Button-plain-15"
                           data-ouia-component-type="PF4/Button"
                           data-ouia-safe="true"
                           type="button"
@@ -22099,7 +22105,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                         >
                           <h1
                             class="pf-c-modal-box__title"
-                            id="pf-modal-part-3"
+                            id="pf-modal-part-5"
                           >
                             
                             <span
@@ -22111,11 +22117,11 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                         </header>
                         <div
                           class="pf-c-modal-box__body"
-                          id="pf-modal-part-4"
+                          id="pf-modal-part-6"
                         >
                           <div
                             class="pf-c-toolbar"
-                            id="pf-random-id-3"
+                            id="pf-random-id-6"
                             style="padding: 0px;"
                           >
                             <div
@@ -22138,7 +22144,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                               </div>
                               <div
                                 class="pf-c-toolbar__expandable-content"
-                                id="pf-random-id-3-expandable-content-3"
+                                id="pf-random-id-6-expandable-content-6"
                               >
                                 <div
                                   class="pf-c-toolbar__group"
@@ -22156,7 +22162,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                           </div>
                           <div
                             class="pf-c-tabs"
-                            data-ouia-component-id="OUIA-Generated-Tabs-2"
+                            data-ouia-component-id="OUIA-Generated-Tabs-3"
                             data-ouia-component-type="PF4/Tabs"
                             data-ouia-safe="true"
                           >
@@ -22288,7 +22294,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                           >
                             <div
                               class="pf-c-toolbar drift-toolbar"
-                              id="pf-random-id-4"
+                              id="pf-random-id-7"
                             >
                               <div
                                 class="pf-c-toolbar__content"
@@ -22304,7 +22310,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                     >
                                       <div
                                         class="pf-c-dropdown ins-c-bulk-select"
-                                        data-ouia-component-id="OUIA-Generated-Dropdown-2"
+                                        data-ouia-component-id="OUIA-Generated-Dropdown-3"
                                         data-ouia-component-type="PF4/Dropdown"
                                         data-ouia-safe="true"
                                       >
@@ -22318,7 +22324,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                             <input
                                               aria-invalid="false"
                                               aria-label="Select all"
-                                              data-ouia-component-id="OUIA-Generated-DropdownToggleCheckbox-2"
+                                              data-ouia-component-id="OUIA-Generated-DropdownToggleCheckbox-3"
                                               data-ouia-component-type="PF4/DropdownToggleCheckbox"
                                               data-ouia-safe="true"
                                               id="toggle-checkbox"
@@ -22331,11 +22337,11 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                             aria-haspopup="true"
                                             aria-label="Select"
                                             class="pf-c-dropdown__toggle-button"
-                                            data-ouia-component-id="OUIA-Generated-DropdownToggle-4"
+                                            data-ouia-component-id="OUIA-Generated-DropdownToggle-7"
                                             data-ouia-component-type="PF4/DropdownToggle"
                                             data-ouia-safe="true"
                                             disabled=""
-                                            id="pf-dropdown-toggle-id-3"
+                                            id="pf-dropdown-toggle-id-6"
                                             type="button"
                                           >
                                             <span
@@ -22409,10 +22415,10 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                   >
                                     <div
                                       class="pf-c-pagination pf-m-compact"
-                                      data-ouia-component-id="OUIA-Generated-Pagination-top-3"
+                                      data-ouia-component-id="OUIA-Generated-Pagination-top-5"
                                       data-ouia-component-type="PF4/Pagination"
                                       data-ouia-safe="true"
-                                      id="pagination-options-menu-2"
+                                      id="pagination-options-menu-4"
                                       style="--pf-c-pagination__nav-page-select--c-form-control--width-chars: 2;"
                                     >
                                       <div
@@ -22459,11 +22465,11 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                             aria-expanded="false"
                                             aria-label="Items per page"
                                             class="  pf-c-options-menu__toggle-button"
-                                            data-ouia-component-id="OUIA-Generated-DropdownToggle-5"
+                                            data-ouia-component-id="OUIA-Generated-DropdownToggle-8"
                                             data-ouia-component-type="PF4/DropdownToggle"
                                             data-ouia-safe="true"
                                             disabled=""
-                                            id="pagination-options-menu-toggle-2"
+                                            id="pagination-options-menu-toggle-4"
                                             type="button"
                                           >
                                             <span
@@ -22498,7 +22504,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                             aria-label="Go to previous page"
                                             class="pf-c-button pf-m-plain pf-m-disabled"
                                             data-action="previous"
-                                            data-ouia-component-id="OUIA-Generated-Button-plain-9"
+                                            data-ouia-component-id="OUIA-Generated-Button-plain-16"
                                             data-ouia-component-type="PF4/Button"
                                             data-ouia-safe="true"
                                             disabled=""
@@ -22527,7 +22533,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                             aria-label="Go to next page"
                                             class="pf-c-button pf-m-plain pf-m-disabled"
                                             data-action="next"
-                                            data-ouia-component-id="OUIA-Generated-Button-plain-10"
+                                            data-ouia-component-id="OUIA-Generated-Button-plain-17"
                                             data-ouia-component-type="PF4/Button"
                                             data-ouia-safe="true"
                                             disabled=""
@@ -22554,7 +22560,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                 </div>
                                 <div
                                   class="pf-c-toolbar__expandable-content"
-                                  id="pf-random-id-4-expandable-content-5"
+                                  id="pf-random-id-7-expandable-content-8"
                                 >
                                   <div
                                     class="pf-c-toolbar__group"
@@ -22583,7 +22589,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                               >
                                 <tr
                                   class=""
-                                  data-ouia-component-id="OUIA-Generated-TableRow-3"
+                                  data-ouia-component-id="OUIA-Generated-TableRow-5"
                                   data-ouia-component-type="PF4/TableRow"
                                   data-ouia-safe="true"
                                 >
@@ -22673,7 +22679,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                               >
                                 <tr
                                   class=""
-                                  data-ouia-component-id="OUIA-Generated-TableRow-4"
+                                  data-ouia-component-id="OUIA-Generated-TableRow-6"
                                   data-ouia-component-type="PF4/TableRow"
                                   data-ouia-safe="true"
                                 >
@@ -22714,7 +22720,7 @@ Try changing your filter settings.
                             </table>
                             <div
                               class="pf-c-toolbar"
-                              id="pf-random-id-5"
+                              id="pf-random-id-8"
                             >
                               <div
                                 class="pf-c-toolbar__group pf-c-pagination"
@@ -22724,10 +22730,10 @@ Try changing your filter settings.
                                 >
                                   <div
                                     class="pf-c-pagination"
-                                    data-ouia-component-id="OUIA-Generated-Pagination-top-4"
+                                    data-ouia-component-id="OUIA-Generated-Pagination-top-6"
                                     data-ouia-component-type="PF4/Pagination"
                                     data-ouia-safe="true"
-                                    id="pagination-options-menu-3"
+                                    id="pagination-options-menu-5"
                                     style="--pf-c-pagination__nav-page-select--c-form-control--width-chars: 2;"
                                   >
                                     <div
@@ -22774,11 +22780,11 @@ Try changing your filter settings.
                                           aria-expanded="false"
                                           aria-label="Items per page"
                                           class="  pf-c-options-menu__toggle-button"
-                                          data-ouia-component-id="OUIA-Generated-DropdownToggle-6"
+                                          data-ouia-component-id="OUIA-Generated-DropdownToggle-9"
                                           data-ouia-component-type="PF4/DropdownToggle"
                                           data-ouia-safe="true"
                                           disabled=""
-                                          id="pagination-options-menu-toggle-3"
+                                          id="pagination-options-menu-toggle-5"
                                           type="button"
                                         >
                                           <span
@@ -22813,7 +22819,7 @@ Try changing your filter settings.
                                           aria-label="Go to first page"
                                           class="pf-c-button pf-m-plain pf-m-disabled"
                                           data-action="first"
-                                          data-ouia-component-id="OUIA-Generated-Button-plain-11"
+                                          data-ouia-component-id="OUIA-Generated-Button-plain-18"
                                           data-ouia-component-type="PF4/Button"
                                           data-ouia-safe="true"
                                           disabled=""
@@ -22842,7 +22848,7 @@ Try changing your filter settings.
                                           aria-label="Go to previous page"
                                           class="pf-c-button pf-m-plain pf-m-disabled"
                                           data-action="previous"
-                                          data-ouia-component-id="OUIA-Generated-Button-plain-12"
+                                          data-ouia-component-id="OUIA-Generated-Button-plain-19"
                                           data-ouia-component-type="PF4/Button"
                                           data-ouia-safe="true"
                                           disabled=""
@@ -22890,7 +22896,7 @@ Try changing your filter settings.
                                           aria-label="Go to next page"
                                           class="pf-c-button pf-m-plain pf-m-disabled"
                                           data-action="next"
-                                          data-ouia-component-id="OUIA-Generated-Button-plain-13"
+                                          data-ouia-component-id="OUIA-Generated-Button-plain-20"
                                           data-ouia-component-type="PF4/Button"
                                           data-ouia-safe="true"
                                           disabled=""
@@ -22919,7 +22925,7 @@ Try changing your filter settings.
                                           aria-label="Go to last page"
                                           class="pf-c-button pf-m-plain pf-m-disabled"
                                           data-action="last"
-                                          data-ouia-component-id="OUIA-Generated-Button-plain-14"
+                                          data-ouia-component-id="OUIA-Generated-Button-plain-21"
                                           data-ouia-component-type="PF4/Button"
                                           data-ouia-safe="true"
                                           disabled=""
@@ -23010,12 +23016,12 @@ Try changing your filter settings.
                 aria-describedby=""
                 aria-label=""
                 aria-labelledby=""
-                boxId="pf-modal-part-2"
+                boxId="pf-modal-part-4"
                 className="drift"
-                descriptorId="pf-modal-part-4"
+                descriptorId="pf-modal-part-6"
                 hasNoBodyWrapper={false}
                 isOpen={true}
-                labelId="pf-modal-part-3"
+                labelId="pf-modal-part-5"
                 onClose={[Function]}
                 ouiaId="add-to-comparison-modal"
                 ouiaSafe={true}
@@ -23044,14 +23050,14 @@ Try changing your filter settings.
                         className="pf-l-bullseye"
                       >
                         <ModalBox
-                          aria-describedby="pf-modal-part-4"
+                          aria-describedby="pf-modal-part-6"
                           aria-label=""
-                          aria-labelledby="pf-modal-part-3"
+                          aria-labelledby="pf-modal-part-5"
                           className="drift"
                           data-ouia-component-id="add-to-comparison-modal"
                           data-ouia-component-type="PF4/ModalContent"
                           data-ouia-safe={true}
-                          id="pf-modal-part-2"
+                          id="pf-modal-part-4"
                           style={
                             Object {
                               "width": "950px",
@@ -23060,15 +23066,15 @@ Try changing your filter settings.
                           variant="default"
                         >
                           <div
-                            aria-describedby="pf-modal-part-4"
+                            aria-describedby="pf-modal-part-6"
                             aria-label={null}
-                            aria-labelledby="pf-modal-part-3"
+                            aria-labelledby="pf-modal-part-5"
                             aria-modal="true"
                             className="pf-c-modal-box drift"
                             data-ouia-component-id="add-to-comparison-modal"
                             data-ouia-component-type="PF4/ModalContent"
                             data-ouia-safe={true}
-                            id="pf-modal-part-2"
+                            id="pf-modal-part-4"
                             role="dialog"
                             style={
                               Object {
@@ -23089,7 +23095,7 @@ Try changing your filter settings.
                                   aria-disabled={false}
                                   aria-label="Close"
                                   className="pf-c-button pf-m-plain"
-                                  data-ouia-component-id="OUIA-Generated-Button-plain-8"
+                                  data-ouia-component-id="OUIA-Generated-Button-plain-15"
                                   data-ouia-component-type="PF4/Button"
                                   data-ouia-safe={true}
                                   disabled={false}
@@ -23131,14 +23137,14 @@ Try changing your filter settings.
                                 className="pf-c-modal-box__header"
                               >
                                 <ModalBoxTitle
-                                  id="pf-modal-part-3"
+                                  id="pf-modal-part-5"
                                   title="Add to comparison"
                                   titleIconVariant={null}
                                   titleLabel=""
                                 >
                                   <h1
                                     className="pf-c-modal-box__title"
-                                    id="pf-modal-part-3"
+                                    id="pf-modal-part-5"
                                   >
                                     <span
                                       className="pf-c-modal-box__title-text"
@@ -23150,11 +23156,11 @@ Try changing your filter settings.
                               </header>
                             </ModalBoxHeader>
                             <ModalBoxBody
-                              id="pf-modal-part-4"
+                              id="pf-modal-part-6"
                             >
                               <div
                                 className="pf-c-modal-box__body"
-                                id="pf-modal-part-4"
+                                id="pf-modal-part-6"
                               >
                                 <GlobalFilterAlert
                                   globalFilterState={
@@ -23177,7 +23183,7 @@ Try changing your filter settings.
                                   >
                                     <div
                                       className="pf-c-toolbar"
-                                      id="pf-random-id-3"
+                                      id="pf-random-id-6"
                                       style={
                                         Object {
                                           "padding": "0px",
@@ -23386,7 +23392,7 @@ Try changing your filter settings.
                                               Object {
                                                 "current": <div
                                                   class="pf-c-toolbar__expandable-content"
-                                                  id="pf-random-id-3-expandable-content-3"
+                                                  id="pf-random-id-6-expandable-content-6"
                                                 >
                                                   <div
                                                     class="pf-c-toolbar__group"
@@ -23394,13 +23400,13 @@ Try changing your filter settings.
                                                 </div>,
                                               }
                                             }
-                                            id="pf-random-id-3-expandable-content-3"
+                                            id="pf-random-id-6-expandable-content-6"
                                             isExpanded={false}
                                             showClearFiltersButton={false}
                                           >
                                             <div
                                               className="pf-c-toolbar__expandable-content"
-                                              id="pf-random-id-3-expandable-content-3"
+                                              id="pf-random-id-6-expandable-content-6"
                                             >
                                               <ForwardRef>
                                                 <ToolbarGroupWithRef
@@ -23472,7 +23478,7 @@ Try changing your filter settings.
                                 >
                                   <div
                                     className="pf-c-tabs"
-                                    data-ouia-component-id="OUIA-Generated-Tabs-2"
+                                    data-ouia-component-id="OUIA-Generated-Tabs-3"
                                     data-ouia-component-type="PF4/Tabs"
                                     data-ouia-safe={true}
                                     onSelect={[Function]}
@@ -24027,14 +24033,14 @@ Try changing your filter settings.
                                                         aria-describedby=""
                                                         aria-label=""
                                                         aria-labelledby=""
-                                                        boxId="pf-modal-part-3"
+                                                        boxId="pf-modal-part-5"
                                                         className="drift"
-                                                        descriptorId="pf-modal-part-5"
+                                                        descriptorId="pf-modal-part-7"
                                                         hasNoBodyWrapper={false}
                                                         isOpen={false}
-                                                        labelId="pf-modal-part-4"
+                                                        labelId="pf-modal-part-6"
                                                         onClose={[Function]}
-                                                        ouiaId="OUIA-Generated-Modal-small-2"
+                                                        ouiaId="OUIA-Generated-Modal-small-3"
                                                         ouiaSafe={true}
                                                         showClose={true}
                                                         title="Delete baselines"
@@ -24055,7 +24061,7 @@ Try changing your filter settings.
                                                 >
                                                   <div
                                                     className="pf-c-toolbar drift-toolbar"
-                                                    id="pf-random-id-4"
+                                                    id="pf-random-id-7"
                                                   >
                                                     <ToolbarContent
                                                       isExpanded={false}
@@ -24200,14 +24206,14 @@ Try changing your filter settings.
                                                                         >
                                                                           <div
                                                                             className="pf-c-dropdown ins-c-bulk-select"
-                                                                            data-ouia-component-id="OUIA-Generated-Dropdown-2"
+                                                                            data-ouia-component-id="OUIA-Generated-Dropdown-3"
                                                                             data-ouia-component-type="PF4/Dropdown"
                                                                             data-ouia-safe={true}
                                                                           >
                                                                             <DropdownToggle
                                                                               aria-haspopup={true}
                                                                               getMenuRef={[Function]}
-                                                                              id="pf-dropdown-toggle-id-3"
+                                                                              id="pf-dropdown-toggle-id-6"
                                                                               isDisabled={true}
                                                                               isOpen={false}
                                                                               isPlain={false}
@@ -24218,7 +24224,7 @@ Try changing your filter settings.
                                                                                 Object {
                                                                                   "current": <div
                                                                                     class="pf-c-dropdown ins-c-bulk-select"
-                                                                                    data-ouia-component-id="OUIA-Generated-Dropdown-2"
+                                                                                    data-ouia-component-id="OUIA-Generated-Dropdown-3"
                                                                                     data-ouia-component-type="PF4/Dropdown"
                                                                                     data-ouia-safe="true"
                                                                                   >
@@ -24232,7 +24238,7 @@ Try changing your filter settings.
                                                                                         <input
                                                                                           aria-invalid="false"
                                                                                           aria-label="Select all"
-                                                                                          data-ouia-component-id="OUIA-Generated-DropdownToggleCheckbox-2"
+                                                                                          data-ouia-component-id="OUIA-Generated-DropdownToggleCheckbox-3"
                                                                                           data-ouia-component-type="PF4/DropdownToggleCheckbox"
                                                                                           data-ouia-safe="true"
                                                                                           id="toggle-checkbox"
@@ -24245,11 +24251,11 @@ Try changing your filter settings.
                                                                                         aria-haspopup="true"
                                                                                         aria-label="Select"
                                                                                         class="pf-c-dropdown__toggle-button"
-                                                                                        data-ouia-component-id="OUIA-Generated-DropdownToggle-4"
+                                                                                        data-ouia-component-id="OUIA-Generated-DropdownToggle-7"
                                                                                         data-ouia-component-type="PF4/DropdownToggle"
                                                                                         data-ouia-safe="true"
                                                                                         disabled=""
-                                                                                        id="pf-dropdown-toggle-id-3"
+                                                                                        id="pf-dropdown-toggle-id-6"
                                                                                         type="button"
                                                                                       >
                                                                                         <span
@@ -24312,7 +24318,7 @@ Try changing your filter settings.
                                                                                       aria-invalid={false}
                                                                                       aria-label="Select all"
                                                                                       checked={false}
-                                                                                      data-ouia-component-id="OUIA-Generated-DropdownToggleCheckbox-2"
+                                                                                      data-ouia-component-id="OUIA-Generated-DropdownToggleCheckbox-3"
                                                                                       data-ouia-component-type="PF4/DropdownToggleCheckbox"
                                                                                       data-ouia-safe={true}
                                                                                       disabled={false}
@@ -24327,11 +24333,11 @@ Try changing your filter settings.
                                                                                   aria-label="Select"
                                                                                   bubbleEvent={false}
                                                                                   className=""
-                                                                                  data-ouia-component-id="OUIA-Generated-DropdownToggle-4"
+                                                                                  data-ouia-component-id="OUIA-Generated-DropdownToggle-7"
                                                                                   data-ouia-component-type="PF4/DropdownToggle"
                                                                                   data-ouia-safe={true}
                                                                                   getMenuRef={[Function]}
-                                                                                  id="pf-dropdown-toggle-id-3"
+                                                                                  id="pf-dropdown-toggle-id-6"
                                                                                   isActive={false}
                                                                                   isDisabled={true}
                                                                                   isOpen={false}
@@ -24344,7 +24350,7 @@ Try changing your filter settings.
                                                                                     Object {
                                                                                       "current": <div
                                                                                         class="pf-c-dropdown ins-c-bulk-select"
-                                                                                        data-ouia-component-id="OUIA-Generated-Dropdown-2"
+                                                                                        data-ouia-component-id="OUIA-Generated-Dropdown-3"
                                                                                         data-ouia-component-type="PF4/Dropdown"
                                                                                         data-ouia-safe="true"
                                                                                       >
@@ -24358,7 +24364,7 @@ Try changing your filter settings.
                                                                                             <input
                                                                                               aria-invalid="false"
                                                                                               aria-label="Select all"
-                                                                                              data-ouia-component-id="OUIA-Generated-DropdownToggleCheckbox-2"
+                                                                                              data-ouia-component-id="OUIA-Generated-DropdownToggleCheckbox-3"
                                                                                               data-ouia-component-type="PF4/DropdownToggleCheckbox"
                                                                                               data-ouia-safe="true"
                                                                                               id="toggle-checkbox"
@@ -24371,11 +24377,11 @@ Try changing your filter settings.
                                                                                             aria-haspopup="true"
                                                                                             aria-label="Select"
                                                                                             class="pf-c-dropdown__toggle-button"
-                                                                                            data-ouia-component-id="OUIA-Generated-DropdownToggle-4"
+                                                                                            data-ouia-component-id="OUIA-Generated-DropdownToggle-7"
                                                                                             data-ouia-component-type="PF4/DropdownToggle"
                                                                                             data-ouia-safe="true"
                                                                                             disabled=""
-                                                                                            id="pf-dropdown-toggle-id-3"
+                                                                                            id="pf-dropdown-toggle-id-6"
                                                                                             type="button"
                                                                                           >
                                                                                             <span
@@ -24406,11 +24412,11 @@ Try changing your filter settings.
                                                                                     aria-haspopup={true}
                                                                                     aria-label="Select"
                                                                                     className="pf-c-dropdown__toggle-button"
-                                                                                    data-ouia-component-id="OUIA-Generated-DropdownToggle-4"
+                                                                                    data-ouia-component-id="OUIA-Generated-DropdownToggle-7"
                                                                                     data-ouia-component-type="PF4/DropdownToggle"
                                                                                     data-ouia-safe={true}
                                                                                     disabled={true}
-                                                                                    id="pf-dropdown-toggle-id-3"
+                                                                                    id="pf-dropdown-toggle-id-6"
                                                                                     onClick={[Function]}
                                                                                     onKeyDown={[Function]}
                                                                                     type="button"
@@ -24697,10 +24703,10 @@ Try changing your filter settings.
                                                                 >
                                                                   <div
                                                                     className="pf-c-pagination pf-m-compact"
-                                                                    data-ouia-component-id="OUIA-Generated-Pagination-top-3"
+                                                                    data-ouia-component-id="OUIA-Generated-Pagination-top-5"
                                                                     data-ouia-component-type="PF4/Pagination"
                                                                     data-ouia-safe={true}
-                                                                    id="pagination-options-menu-2"
+                                                                    id="pagination-options-menu-4"
                                                                   >
                                                                     <div
                                                                       className="pf-c-pagination__total-items"
@@ -24849,7 +24855,7 @@ Try changing your filter settings.
                                                                             aria-haspopup={true}
                                                                             firstIndex={0}
                                                                             getMenuRef={[Function]}
-                                                                            id="pf-dropdown-toggle-id-4"
+                                                                            id="pf-dropdown-toggle-id-7"
                                                                             isDisabled={false}
                                                                             isOpen={false}
                                                                             isPlain={true}
@@ -24891,11 +24897,11 @@ Try changing your filter settings.
                                                                                       aria-expanded="false"
                                                                                       aria-label="Items per page"
                                                                                       class="  pf-c-options-menu__toggle-button"
-                                                                                      data-ouia-component-id="OUIA-Generated-DropdownToggle-5"
+                                                                                      data-ouia-component-id="OUIA-Generated-DropdownToggle-8"
                                                                                       data-ouia-component-type="PF4/DropdownToggle"
                                                                                       data-ouia-safe="true"
                                                                                       disabled=""
-                                                                                      id="pagination-options-menu-toggle-2"
+                                                                                      id="pagination-options-menu-toggle-4"
                                                                                       type="button"
                                                                                     >
                                                                                       <span
@@ -24952,7 +24958,7 @@ Try changing your filter settings.
                                                                               <DropdownToggle
                                                                                 aria-label="Items per page"
                                                                                 className="pf-c-options-menu__toggle-button"
-                                                                                id="pagination-options-menu-toggle-2"
+                                                                                id="pagination-options-menu-toggle-4"
                                                                                 isDisabled={true}
                                                                                 isOpen={false}
                                                                                 onEnter={[Function]}
@@ -24987,11 +24993,11 @@ Try changing your filter settings.
                                                                                           aria-expanded="false"
                                                                                           aria-label="Items per page"
                                                                                           class="  pf-c-options-menu__toggle-button"
-                                                                                          data-ouia-component-id="OUIA-Generated-DropdownToggle-5"
+                                                                                          data-ouia-component-id="OUIA-Generated-DropdownToggle-8"
                                                                                           data-ouia-component-type="PF4/DropdownToggle"
                                                                                           data-ouia-safe="true"
                                                                                           disabled=""
-                                                                                          id="pagination-options-menu-toggle-2"
+                                                                                          id="pagination-options-menu-toggle-4"
                                                                                           type="button"
                                                                                         >
                                                                                           <span
@@ -25021,11 +25027,11 @@ Try changing your filter settings.
                                                                                   aria-label="Items per page"
                                                                                   bubbleEvent={false}
                                                                                   className="pf-c-options-menu__toggle-button"
-                                                                                  data-ouia-component-id="OUIA-Generated-DropdownToggle-5"
+                                                                                  data-ouia-component-id="OUIA-Generated-DropdownToggle-8"
                                                                                   data-ouia-component-type="PF4/DropdownToggle"
                                                                                   data-ouia-safe={true}
                                                                                   getMenuRef={null}
-                                                                                  id="pagination-options-menu-toggle-2"
+                                                                                  id="pagination-options-menu-toggle-4"
                                                                                   isActive={false}
                                                                                   isDisabled={true}
                                                                                   isOpen={false}
@@ -25064,11 +25070,11 @@ Try changing your filter settings.
                                                                                             aria-expanded="false"
                                                                                             aria-label="Items per page"
                                                                                             class="  pf-c-options-menu__toggle-button"
-                                                                                            data-ouia-component-id="OUIA-Generated-DropdownToggle-5"
+                                                                                            data-ouia-component-id="OUIA-Generated-DropdownToggle-8"
                                                                                             data-ouia-component-type="PF4/DropdownToggle"
                                                                                             data-ouia-safe="true"
                                                                                             disabled=""
-                                                                                            id="pagination-options-menu-toggle-2"
+                                                                                            id="pagination-options-menu-toggle-4"
                                                                                             type="button"
                                                                                           >
                                                                                             <span
@@ -25098,11 +25104,11 @@ Try changing your filter settings.
                                                                                     aria-expanded={false}
                                                                                     aria-label="Items per page"
                                                                                     className="  pf-c-options-menu__toggle-button"
-                                                                                    data-ouia-component-id="OUIA-Generated-DropdownToggle-5"
+                                                                                    data-ouia-component-id="OUIA-Generated-DropdownToggle-8"
                                                                                     data-ouia-component-type="PF4/DropdownToggle"
                                                                                     data-ouia-safe={true}
                                                                                     disabled={true}
-                                                                                    id="pagination-options-menu-toggle-2"
+                                                                                    id="pagination-options-menu-toggle-4"
                                                                                     onClick={[Function]}
                                                                                     onKeyDown={[Function]}
                                                                                     type="button"
@@ -25184,7 +25190,7 @@ Try changing your filter settings.
                                                                               aria-label="Go to previous page"
                                                                               className="pf-c-button pf-m-plain pf-m-disabled"
                                                                               data-action="previous"
-                                                                              data-ouia-component-id="OUIA-Generated-Button-plain-9"
+                                                                              data-ouia-component-id="OUIA-Generated-Button-plain-16"
                                                                               data-ouia-component-type="PF4/Button"
                                                                               data-ouia-safe={true}
                                                                               disabled={true}
@@ -25235,7 +25241,7 @@ Try changing your filter settings.
                                                                               aria-label="Go to next page"
                                                                               className="pf-c-button pf-m-plain pf-m-disabled"
                                                                               data-action="next"
-                                                                              data-ouia-component-id="OUIA-Generated-Button-plain-10"
+                                                                              data-ouia-component-id="OUIA-Generated-Button-plain-17"
                                                                               data-ouia-component-type="PF4/Button"
                                                                               data-ouia-safe={true}
                                                                               disabled={true}
@@ -25291,7 +25297,7 @@ Try changing your filter settings.
                                                             Object {
                                                               "current": <div
                                                                 class="pf-c-toolbar__expandable-content"
-                                                                id="pf-random-id-4-expandable-content-5"
+                                                                id="pf-random-id-7-expandable-content-8"
                                                               >
                                                                 <div
                                                                   class="pf-c-toolbar__group"
@@ -25299,13 +25305,13 @@ Try changing your filter settings.
                                                               </div>,
                                                             }
                                                           }
-                                                          id="pf-random-id-4-expandable-content-5"
+                                                          id="pf-random-id-7-expandable-content-8"
                                                           isExpanded={false}
                                                           showClearFiltersButton={false}
                                                         >
                                                           <div
                                                             className="pf-c-toolbar__expandable-content"
-                                                            id="pf-random-id-4-expandable-content-5"
+                                                            id="pf-random-id-7-expandable-content-8"
                                                           >
                                                             <ForwardRef>
                                                               <ToolbarGroupWithRef
@@ -25851,7 +25857,7 @@ Try changing your filter settings.
                                                                         >
                                                                           <tr
                                                                             className=""
-                                                                            data-ouia-component-id="OUIA-Generated-TableRow-3"
+                                                                            data-ouia-component-id="OUIA-Generated-TableRow-5"
                                                                             data-ouia-component-type="PF4/TableRow"
                                                                             data-ouia-safe={true}
                                                                             hidden={false}
@@ -26811,7 +26817,7 @@ Try changing your filter settings.
                                                                             >
                                                                               <tr
                                                                                 className=""
-                                                                                data-ouia-component-id="OUIA-Generated-TableRow-4"
+                                                                                data-ouia-component-id="OUIA-Generated-TableRow-6"
                                                                                 data-ouia-component-type="PF4/TableRow"
                                                                                 data-ouia-safe={true}
                                                                                 hidden={false}
@@ -26931,7 +26937,7 @@ Try changing your filter settings.
                                               >
                                                 <div
                                                   className="pf-c-toolbar"
-                                                  id="pf-random-id-5"
+                                                  id="pf-random-id-8"
                                                 >
                                                   <ForwardRef
                                                     className="pf-c-pagination"
@@ -27017,10 +27023,10 @@ Try changing your filter settings.
                                                               >
                                                                 <div
                                                                   className="pf-c-pagination"
-                                                                  data-ouia-component-id="OUIA-Generated-Pagination-top-4"
+                                                                  data-ouia-component-id="OUIA-Generated-Pagination-top-6"
                                                                   data-ouia-component-type="PF4/Pagination"
                                                                   data-ouia-safe={true}
-                                                                  id="pagination-options-menu-3"
+                                                                  id="pagination-options-menu-5"
                                                                 >
                                                                   <div
                                                                     className="pf-c-pagination__total-items"
@@ -27169,7 +27175,7 @@ Try changing your filter settings.
                                                                           aria-haspopup={true}
                                                                           firstIndex={0}
                                                                           getMenuRef={[Function]}
-                                                                          id="pf-dropdown-toggle-id-5"
+                                                                          id="pf-dropdown-toggle-id-8"
                                                                           isDisabled={false}
                                                                           isOpen={false}
                                                                           isPlain={true}
@@ -27211,11 +27217,11 @@ Try changing your filter settings.
                                                                                     aria-expanded="false"
                                                                                     aria-label="Items per page"
                                                                                     class="  pf-c-options-menu__toggle-button"
-                                                                                    data-ouia-component-id="OUIA-Generated-DropdownToggle-6"
+                                                                                    data-ouia-component-id="OUIA-Generated-DropdownToggle-9"
                                                                                     data-ouia-component-type="PF4/DropdownToggle"
                                                                                     data-ouia-safe="true"
                                                                                     disabled=""
-                                                                                    id="pagination-options-menu-toggle-3"
+                                                                                    id="pagination-options-menu-toggle-5"
                                                                                     type="button"
                                                                                   >
                                                                                     <span
@@ -27272,7 +27278,7 @@ Try changing your filter settings.
                                                                             <DropdownToggle
                                                                               aria-label="Items per page"
                                                                               className="pf-c-options-menu__toggle-button"
-                                                                              id="pagination-options-menu-toggle-3"
+                                                                              id="pagination-options-menu-toggle-5"
                                                                               isDisabled={true}
                                                                               isOpen={false}
                                                                               onEnter={[Function]}
@@ -27307,11 +27313,11 @@ Try changing your filter settings.
                                                                                         aria-expanded="false"
                                                                                         aria-label="Items per page"
                                                                                         class="  pf-c-options-menu__toggle-button"
-                                                                                        data-ouia-component-id="OUIA-Generated-DropdownToggle-6"
+                                                                                        data-ouia-component-id="OUIA-Generated-DropdownToggle-9"
                                                                                         data-ouia-component-type="PF4/DropdownToggle"
                                                                                         data-ouia-safe="true"
                                                                                         disabled=""
-                                                                                        id="pagination-options-menu-toggle-3"
+                                                                                        id="pagination-options-menu-toggle-5"
                                                                                         type="button"
                                                                                       >
                                                                                         <span
@@ -27341,11 +27347,11 @@ Try changing your filter settings.
                                                                                 aria-label="Items per page"
                                                                                 bubbleEvent={false}
                                                                                 className="pf-c-options-menu__toggle-button"
-                                                                                data-ouia-component-id="OUIA-Generated-DropdownToggle-6"
+                                                                                data-ouia-component-id="OUIA-Generated-DropdownToggle-9"
                                                                                 data-ouia-component-type="PF4/DropdownToggle"
                                                                                 data-ouia-safe={true}
                                                                                 getMenuRef={null}
-                                                                                id="pagination-options-menu-toggle-3"
+                                                                                id="pagination-options-menu-toggle-5"
                                                                                 isActive={false}
                                                                                 isDisabled={true}
                                                                                 isOpen={false}
@@ -27384,11 +27390,11 @@ Try changing your filter settings.
                                                                                           aria-expanded="false"
                                                                                           aria-label="Items per page"
                                                                                           class="  pf-c-options-menu__toggle-button"
-                                                                                          data-ouia-component-id="OUIA-Generated-DropdownToggle-6"
+                                                                                          data-ouia-component-id="OUIA-Generated-DropdownToggle-9"
                                                                                           data-ouia-component-type="PF4/DropdownToggle"
                                                                                           data-ouia-safe="true"
                                                                                           disabled=""
-                                                                                          id="pagination-options-menu-toggle-3"
+                                                                                          id="pagination-options-menu-toggle-5"
                                                                                           type="button"
                                                                                         >
                                                                                           <span
@@ -27418,11 +27424,11 @@ Try changing your filter settings.
                                                                                   aria-expanded={false}
                                                                                   aria-label="Items per page"
                                                                                   className="  pf-c-options-menu__toggle-button"
-                                                                                  data-ouia-component-id="OUIA-Generated-DropdownToggle-6"
+                                                                                  data-ouia-component-id="OUIA-Generated-DropdownToggle-9"
                                                                                   data-ouia-component-type="PF4/DropdownToggle"
                                                                                   data-ouia-safe={true}
                                                                                   disabled={true}
-                                                                                  id="pagination-options-menu-toggle-3"
+                                                                                  id="pagination-options-menu-toggle-5"
                                                                                   onClick={[Function]}
                                                                                   onKeyDown={[Function]}
                                                                                   type="button"
@@ -27504,7 +27510,7 @@ Try changing your filter settings.
                                                                             aria-label="Go to first page"
                                                                             className="pf-c-button pf-m-plain pf-m-disabled"
                                                                             data-action="first"
-                                                                            data-ouia-component-id="OUIA-Generated-Button-plain-11"
+                                                                            data-ouia-component-id="OUIA-Generated-Button-plain-18"
                                                                             data-ouia-component-type="PF4/Button"
                                                                             data-ouia-safe={true}
                                                                             disabled={true}
@@ -27555,7 +27561,7 @@ Try changing your filter settings.
                                                                             aria-label="Go to previous page"
                                                                             className="pf-c-button pf-m-plain pf-m-disabled"
                                                                             data-action="previous"
-                                                                            data-ouia-component-id="OUIA-Generated-Button-plain-12"
+                                                                            data-ouia-component-id="OUIA-Generated-Button-plain-19"
                                                                             data-ouia-component-type="PF4/Button"
                                                                             data-ouia-safe={true}
                                                                             disabled={true}
@@ -27627,7 +27633,7 @@ Try changing your filter settings.
                                                                             aria-label="Go to next page"
                                                                             className="pf-c-button pf-m-plain pf-m-disabled"
                                                                             data-action="next"
-                                                                            data-ouia-component-id="OUIA-Generated-Button-plain-13"
+                                                                            data-ouia-component-id="OUIA-Generated-Button-plain-20"
                                                                             data-ouia-component-type="PF4/Button"
                                                                             data-ouia-safe={true}
                                                                             disabled={true}
@@ -27678,7 +27684,7 @@ Try changing your filter settings.
                                                                             aria-label="Go to last page"
                                                                             className="pf-c-button pf-m-plain pf-m-disabled"
                                                                             data-action="last"
-                                                                            data-ouia-component-id="OUIA-Generated-Button-plain-14"
+                                                                            data-ouia-component-id="OUIA-Generated-Button-plain-21"
                                                                             data-ouia-component-type="PF4/Button"
                                                                             data-ouia-safe={true}
                                                                             disabled={true}
