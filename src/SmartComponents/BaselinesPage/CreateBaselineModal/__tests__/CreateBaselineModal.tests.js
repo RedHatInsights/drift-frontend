@@ -16,6 +16,7 @@ describe('CreateBaselineModal', () => {
             createBaselineModalOpened: false,
             baselineData: [],
             entities: {},
+            hasHSPReadPermissions: true,
             selectedBaselineIds: [],
             createBaselineError: {},
             clearSelectedBaselines: jest.fn(),
@@ -149,6 +150,7 @@ describe('CreateBaselineModal', () => {
 describe('ConnectedCreateBaselineModal', () => {
     let initialState;
     let mockStore;
+    let props;
 
     beforeEach(() => {
         mockStore = configureStore();
@@ -177,6 +179,10 @@ describe('ConnectedCreateBaselineModal', () => {
             createBaseline: jest.fn(),
             clearSelectedBaselines: jest.fn()
         };
+
+        props = {
+            hasHSPReadPermissions: true
+        };
     });
 
     it('should render correctly', () => {
@@ -197,7 +203,7 @@ describe('ConnectedCreateBaselineModal', () => {
         const wrapper = mount(
             <MemoryRouter keyLength={ 0 }>
                 <Provider store={ store }>
-                    <ConnectedCreateBaselineModal />
+                    <ConnectedCreateBaselineModal { ...props } />
                 </Provider>
             </MemoryRouter>
         );

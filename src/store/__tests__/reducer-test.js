@@ -1,12 +1,94 @@
 import selectedReducer from '../reducers';
 import types from '../../SmartComponents/modules/types';
+import fixtures from './reducer.fixtures';
 
 describe('compare reducer', () => {
     let reducer;
+    let inventoryActions;
 
-    beforeEach(() =>
-        reducer = selectedReducer({ LOAD_ENTITIES_FULFILLED: 'LOAD_ENTITIES_FULFILLED' })
-    );
+    beforeEach(() => {
+        inventoryActions = { LOAD_ENTITIES_FULFILLED: 'LOAD_ENTITIES_FULFILLED' },
+        reducer = selectedReducer(inventoryActions);
+    });
+
+    it('should handle LOAD_ENTITIES_FULFILLED', () => {
+        reducer = selectedReducer(
+            inventoryActions,
+            undefined,
+            false,
+            []
+        );
+        expect(
+            reducer({
+                columns: fixtures.columns,
+                rows: fixtures.results,
+                selectedSystemIds: []
+            }, {
+                payload: {
+                    results: fixtures.results
+                },
+                type: inventoryActions.LOAD_ENTITIES_FULFILLED
+            })
+        ).toEqual({
+            rows: fixtures.results,
+            columns: fixtures.columns,
+            selectedSystemIds: []
+        });
+    });
+
+    it('should handle LOAD_ENTITIES_FULFILLED with historical dropdown', () => {
+        reducer = selectedReducer(
+            inventoryActions,
+            undefined,
+            false,
+            [],
+            true,
+            true
+        );
+        expect(
+            reducer({
+                columns: fixtures.columns,
+                rows: fixtures.results,
+                selectedSystemIds: []
+            }, {
+                payload: {
+                    results: fixtures.results
+                },
+                type: inventoryActions.LOAD_ENTITIES_FULFILLED
+            })
+        ).toEqual({
+            rows: fixtures.results,
+            columns: fixtures.columnsWithHSP,
+            selectedSystemIds: []
+        });
+    });
+
+    it('should handle LOAD_ENTITIES_FULFILLED with no hsp read permissions', () => {
+        reducer = selectedReducer(
+            inventoryActions,
+            undefined,
+            false,
+            [],
+            true,
+            false
+        );
+        expect(
+            reducer({
+                columns: fixtures.columns,
+                rows: fixtures.results,
+                selectedSystemIds: []
+            }, {
+                payload: {
+                    results: fixtures.results
+                },
+                type: inventoryActions.LOAD_ENTITIES_FULFILLED
+            })
+        ).toEqual({
+            rows: fixtures.results,
+            columns: fixtures.columns,
+            selectedSystemIds: []
+        });
+    });
 
     it('should handle SELECT_ENTITY', () => {
         expect(

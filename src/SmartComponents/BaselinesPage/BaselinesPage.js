@@ -148,6 +148,7 @@ export class BaselinesPage extends Component {
                     <React.Fragment>
                         <CreateBaselineModal
                             hasInventoryReadPermissions={ value.permissions.inventoryRead }
+                            hasHSPReadPermissions={ value.permissions.hspRead }
                             hasReadPermissions={ value.permissions.baselinesRead }
                             hasWritePermissions={ value.permissions.baselinesWrite }
                             selectHistoricProfiles={ selectHistoricProfiles }

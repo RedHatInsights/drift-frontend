@@ -32,6 +32,7 @@ describe('DriftTable', () => {
             stateSort: DESC,
             loading: false,
             isFirstReference: true,
+            hasHSPReadPermissions: true,
             stateFilters: stateFilterFixtures.allStatesTrue,
             toggleFactSort: jest.fn(),
             toggleStateSort: jest.fn(),
@@ -195,6 +196,7 @@ describe('ConnectedDriftTable', () => {
             systems: [],
             baselines: [],
             historicalProfiles: [],
+            hasHSPReadPermissions: true,
             updateReferenceId: jest.fn()
         };
     });

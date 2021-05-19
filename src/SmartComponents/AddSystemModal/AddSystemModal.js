@@ -173,8 +173,8 @@ export class AddSystemModal extends Component {
 
     render() {
         const { activeTab, addSystemModalOpened, baselineTableData, globalFilterState, handleBaselineSelection, handleHSPSelection,
-            hasBaselinesReadPermissions, hasBaselinesWritePermissions, hasInventoryReadPermissions, historicalProfiles, loading, entities,
-            selectEntity, selectHistoricProfiles, selectedBaselineIds, selectedBaselineContent, selectedHSPContent, selectedHSPIds,
+            hasBaselinesReadPermissions, hasBaselinesWritePermissions, hasInventoryReadPermissions, hasHSPReadPermissions, historicalProfiles,
+            loading, entities, selectEntity, selectHistoricProfiles, selectedBaselineIds, selectedBaselineContent, selectedHSPContent, selectedHSPIds,
             selectBaseline, selectedSystemContent, selectedSystemIds, setSelectedSystemIds, totalBaselines } = this.props;
         const { columns, basketIsVisible } = this.state;
 
@@ -243,7 +243,7 @@ export class AddSystemModal extends Component {
                         >
                             <SystemsTable
                                 selectedSystemIds={ selectedSystemIds }
-                                hasHistoricalDropdown={ true }
+                                hasHistoricalDropdown={ hasHSPReadPermissions }
                                 historicalProfiles={ historicalProfiles }
                                 hasMultiSelect={ true }
                                 hasInventoryReadPermissions={ hasInventoryReadPermissions }
@@ -303,6 +303,7 @@ AddSystemModal.propTypes = {
     hasInventoryReadPermissions: PropTypes.bool,
     hasBaselinesReadPermissions: PropTypes.bool,
     hasBaselinesWritePermissions: PropTypes.bool,
+    hasHSPReadPermissions: PropTypes.bool,
     globalFilterState: PropTypes.object,
     selectedSystemIds: PropTypes.array,
     setSelectedSystemIds: PropTypes.func,

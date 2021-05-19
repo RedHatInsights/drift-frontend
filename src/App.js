@@ -16,21 +16,24 @@ const App = (props) => {
         hasCompareReadPermissions,
         hasBaselinesReadPermissions,
         hasBaselinesWritePermissions,
+        hasHSPReadPermissions,
         hasInventoryReadPermissions,
         arePermissionsLoaded
     }, setPermissions ] = useState({
         hasCompareReadPermissions: undefined,
         hasBaselinesReadPermissions: undefined,
         hasBaselinesWritePermissions: undefined,
+        hasHSPReadPermissions: undefined,
         hasInventoryReadPermissions: undefined,
         arePermissionsLoaded: false
     });
 
-    const handlePermissionsUpdate = (hasCompareRead, hasBaselinesRead, hasBaselinesWrite, hasInventoryRead) => {
+    const handlePermissionsUpdate = (hasCompareRead, hasBaselinesRead, hasBaselinesWrite, hasHSPRead, hasInventoryRead) => {
         setPermissions({
             hasCompareReadPermissions: hasCompareRead,
             hasBaselinesReadPermissions: hasBaselinesRead,
             hasBaselinesWritePermissions: hasBaselinesWrite,
+            hasHSPReadPermissions: hasHSPRead,
             hasInventoryReadPermissions: hasInventoryRead,
             arePermissionsLoaded: true
         });
@@ -64,6 +67,9 @@ const App = (props) => {
                 permissionsList.some((permission) => hasPermission(permission, [ 'drift:*:*', 'drift:comparisons:read', 'drift:*:read' ])),
                 permissionsList.some((permission) => hasPermission(permission, [ 'drift:*:*', 'drift:baselines:read', 'drift:*:read' ])),
                 permissionsList.some((permission) => hasPermission(permission, [ 'drift:*:*', 'drift:baselines:write', 'drift:*:write' ])),
+                permissionsList.some((permission) => hasPermission(
+                    permission, [ 'drift:*:*', 'drift-historical-system-profiles:read', 'drift:*:read' ])
+                ),
                 permissionsList.some((permission) => hasPermission(permission, [ 'inventory:*:*', 'inventory:*:read' ]))
             );
         })();
@@ -84,6 +90,7 @@ const App = (props) => {
                         compareRead: hasCompareReadPermissions,
                         baselinesRead: hasBaselinesReadPermissions,
                         baselinesWrite: hasBaselinesWritePermissions,
+                        hspRead: hasHSPReadPermissions,
                         inventoryRead: hasInventoryReadPermissions
                     }
                 }}>
