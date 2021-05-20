@@ -68,7 +68,7 @@ const App = (props) => {
                 permissionsList.some((permission) => hasPermission(permission, [ 'drift:*:*', 'drift:baselines:read', 'drift:*:read' ])),
                 permissionsList.some((permission) => hasPermission(permission, [ 'drift:*:*', 'drift:baselines:write', 'drift:*:write' ])),
                 permissionsList.some((permission) => hasPermission(
-                    permission, [ 'drift:*:*', 'drift-historical-system-profiles:read', 'drift:*:read' ])
+                    permission, [ 'drift:*:*', 'drift:historical-system-profiles:read', 'drift:*:read' ])
                 ),
                 permissionsList.some((permission) => hasPermission(permission, [ 'inventory:*:*', 'inventory:*:read' ]))
             );
