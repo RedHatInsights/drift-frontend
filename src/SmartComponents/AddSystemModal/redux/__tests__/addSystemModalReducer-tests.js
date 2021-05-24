@@ -2,6 +2,7 @@
 import { addSystemModalReducer } from '../addSystemModalReducer';
 import types from '../types';
 import { BlueprintIcon, ClockIcon, ServerIcon } from '@patternfly/react-icons';
+import DriftTooltip from '../../../DriftTooltip/DriftTooltip';
 
 describe('add system modal reducer', () => {
     it('should return initial state', () => {
@@ -212,12 +213,26 @@ describe('add system modal reducer', () => {
             addSystemModalReducer({ selectedHSPContent: []}, {
                 type: `${types.HANDLE_HSP_SELECTION}`,
                 payload: {
-                    id: 'abcd1234', system_id: 'efgh5678', icon: <ClockIcon />, captured_date: '2021-03-03T06:40:32+00:00'
+                    id: 'abcd1234',
+                    system_id: 'efgh5678',
+                    icon: <DriftTooltip
+                        content='Historical profile'
+                        body={ <ClockIcon /> }
+                    />,
+                    captured_date: '2021-03-03T06:40:32+00:00'
                 }
             })
         ).toEqual({
             selectedHSPContent: [
-                { id: 'abcd1234', system_id: 'efgh5678', icon: <ClockIcon />, captured_date: '2021-03-03T06:40:32+00:00' }
+                {
+                    id: 'abcd1234',
+                    system_id: 'efgh5678',
+                    icon: <DriftTooltip
+                        content='Historical profile'
+                        body={ <ClockIcon /> }
+                    />,
+                    captured_date: '2021-03-03T06:40:32+00:00'
+                }
             ]}
         );
     });
@@ -226,12 +241,26 @@ describe('add system modal reducer', () => {
         expect(
             addSystemModalReducer({
                 selectedHSPContent: [
-                    { id: 'abcd1234', system_id: 'efgh5678', icon: <ClockIcon />, captured_date: '2021-03-03T06:40:32+00:00' }
+                    {
+                        id: 'abcd1234',
+                        system_id: 'efgh5678',
+                        icon: <DriftTooltip
+                            content='Historical profile'
+                            body={ <ClockIcon /> }
+                        />,
+                        captured_date: '2021-03-03T06:40:32+00:00'
+                    }
                 ]
             }, {
                 type: `${types.HANDLE_HSP_SELECTION}`,
                 payload: {
-                    id: 'abcd1234', system_id: 'efgh5678', icon: <ClockIcon />, captured_date: '2021-03-03T06:40:32+00:00'
+                    id: 'abcd1234',
+                    system_id: 'efgh5678',
+                    icon: <DriftTooltip
+                        content='Historical profile'
+                        body={ <ClockIcon /> }
+                    />,
+                    captured_date: '2021-03-03T06:40:32+00:00'
                 }
             })
         ).toEqual({
@@ -239,22 +268,52 @@ describe('add system modal reducer', () => {
         );
     });
 
-    it('should handle HANDLE_HSP_SELECTION remove hsp', () => {
+    it('should handle HANDLE_HSP_SELECTION add second hsp', () => {
         expect(
             addSystemModalReducer({
                 selectedHSPContent: [
-                    { id: 'abcd1234', system_id: 'efgh5678', icon: <ClockIcon />, captured_date: '2021-03-03T06:40:32+00:00' }
+                    {
+                        id: 'abcd1234',
+                        system_id: 'efgh5678',
+                        icon: <DriftTooltip
+                            content='Historical profile'
+                            body={ <ClockIcon /> }
+                        />,
+                        captured_date: '2021-03-03T06:40:32+00:00'
+                    }
                 ]
             }, {
                 type: `${types.HANDLE_HSP_SELECTION}`,
                 payload: {
-                    id: 'ijkl9101', system_id: 'efgh5678', icon: <ClockIcon />, captured_date: '2021-03-02T06:40:32+00:00'
+                    id: 'ijkl9101',
+                    system_id: 'efgh5678',
+                    icon: <DriftTooltip
+                        content='Historical profile'
+                        body={ <ClockIcon /> }
+                    />,
+                    captured_date: '2021-03-02T06:40:32+00:00'
                 }
             })
         ).toEqual({
             selectedHSPContent: [
-                { id: 'abcd1234', system_id: 'efgh5678', icon: <ClockIcon />, captured_date: '2021-03-03T06:40:32+00:00' },
-                { id: 'ijkl9101', system_id: 'efgh5678', icon: <ClockIcon />, captured_date: '2021-03-02T06:40:32+00:00' }
+                {
+                    id: 'abcd1234',
+                    system_id: 'efgh5678',
+                    icon: <DriftTooltip
+                        content='Historical profile'
+                        body={ <ClockIcon /> }
+                    />,
+                    captured_date: '2021-03-03T06:40:32+00:00'
+                },
+                {
+                    id: 'ijkl9101',
+                    system_id: 'efgh5678',
+                    icon: <DriftTooltip
+                        content='Historical profile'
+                        body={ <ClockIcon /> }
+                    />,
+                    captured_date: '2021-03-02T06:40:32+00:00'
+                }
             ]}
         );
     });

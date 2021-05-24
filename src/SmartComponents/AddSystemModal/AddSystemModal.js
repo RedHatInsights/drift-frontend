@@ -10,6 +10,7 @@ import SystemsTable from '../SystemsTable/SystemsTable';
 import BaselinesTable from '../BaselinesTable/BaselinesTable';
 import GlobalFilterAlert from '../GlobalFilterAlert/GlobalFilterAlert';
 import SelectedBasket from './SelectedBasket/SelectedBasket';
+import DriftTooltip from '../DriftTooltip/DriftTooltip';
 import { addSystemModalActions } from './redux';
 import { baselinesTableActions } from '../BaselinesTable/redux';
 import { historicProfilesActions } from '../HistoricalProfilesPopover/redux';
@@ -43,6 +44,17 @@ export class AddSystemModal extends Component {
         });
     }
 
+    createContent = (id, content, body, name) => {
+        return {
+            id,
+            icon: <DriftTooltip
+                content={ content }
+                body={ body }
+            />,
+            name
+        };
+    }
+
     /*eslint-disable camelcase*/
     componentDidUpdate(prevProps) {
         const { baselines, handleBaselineSelection, handleHSPSelection, handleSystemSelection, historicalProfiles,
@@ -57,14 +69,14 @@ export class AddSystemModal extends Component {
         if ((baselines.length || historicalProfiles.length || systems.length)
             && (!selectedBaselineContent.length && !selectedHSPContent.length && !selectedSystemContent.length)) {
             newSelectedSystems = systems.map(function(system) {
-                return { id: system.id, icon: <ServerIcon />, name: system.display_name };
-            });
+                return this.createContent(system.id, 'System', <ServerIcon />, system.display_name);
+            }.bind(this));
 
             handleSystemSelection(newSelectedSystems, true);
 
             newSelectedBaselines = baselines.map(function(baseline) {
-                return { id: baseline.id, icon: <BlueprintIcon />, name: baseline.display_name };
-            });
+                return this.createContent(baseline.id, 'Baseline', <BlueprintIcon />, baseline.display_name);
+            }.bind(this));
 
             handleBaselineSelection(newSelectedBaselines, true);
 
@@ -101,14 +113,14 @@ export class AddSystemModal extends Component {
             });
 
             selectedContent = baselineTableData.map(function(item) {
-                return { id: item[0], icon: <BlueprintIcon />, name: item[1] };
-            });
+                return this.createContent(item[0], 'Baseline', <BlueprintIcon />, item[1]);
+            }.bind(this));
         } else {
             ids = [ baselineTableData[rowId][0] ];
 
-            selectedContent.push({
-                id: baselineTableData[rowId][0], icon: <BlueprintIcon />, name: baselineTableData[rowId][1]
-            });
+            selectedContent.push(
+                this.createContent(baselineTableData[rowId][0], 'Baseline', <BlueprintIcon />, baselineTableData[rowId][1])
+            );
         }
 
         selectBaseline(ids, isSelected, 'COMPARISON');
@@ -174,8 +186,8 @@ export class AddSystemModal extends Component {
         });
 
         selectedContent = baselineTableData.map(function(baseline) {
-            return { id: baseline[0], icon: <BlueprintIcon />, name: baseline[1] };
-        });
+            return this.createContent(baseline[0], 'Baseline', <BlueprintIcon />, baseline[1]);
+        }.bind(this));
 
         selectBaseline(ids, isSelected, 'COMPARISON');
         handleBaselineSelection(selectedContent, isSelected);
@@ -190,8 +202,8 @@ export class AddSystemModal extends Component {
                 selectedSystems = selectedSystemContent;
             } else {
                 selectedSystems = entities.rows.map(function(row) {
-                    return { id: row.id, name: row.display_name, icon: <ServerIcon /> };
-                });
+                    return this.createContent(row.id, 'System', <ServerIcon />, row.display_name);
+                }.bind(this));
             }
         } else {
             if (!data.selected) {
@@ -199,7 +211,14 @@ export class AddSystemModal extends Component {
             } else {
                 entities.rows.forEach(function(row) {
                     if (row.id === data.id) {
-                        selectedSystems.push({ id: row.id, name: row.display_name, icon: <ServerIcon /> });
+                        selectedSystems.push({
+                            id: row.id,
+                            name: row.display_name,
+                            icon: <DriftTooltip
+                                content='System'
+                                body={ <ServerIcon /> }
+                            />
+                        });
                     }
                 });
             }

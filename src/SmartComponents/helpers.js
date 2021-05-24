@@ -1,6 +1,7 @@
 import React from 'react';
 import { CloseIcon, HistoryIcon, ServerIcon } from '@patternfly/react-icons';
 import moment from 'moment';
+import DriftTooltip from './DriftTooltip/DriftTooltip';
 import baselinesTableHelpers from './BaselinesTable/redux/helpers';
 import editBaselineHelpers from './BaselinesPage/EditBaselinePage/EditBaseline/helpers';
 
@@ -13,7 +14,14 @@ function findSelectedOnPage(rows, selectedSystemIds) {
         }
 
         if (row.selected) {
-            selectedSystems.push({ id: row.id, name: row.display_name, icon: <ServerIcon /> });
+            selectedSystems.push({
+                id: row.id,
+                name: row.display_name,
+                icon: <DriftTooltip
+                    content='System'
+                    body={ <ServerIcon /> }
+                />
+            });
         }
     });
 
