@@ -1,15 +1,22 @@
 /* eslint-disable camelcase */
 import { BlueprintIcon, ServerIcon } from '@patternfly/react-icons';
+import DriftTooltip from '../../../DriftTooltip/DriftTooltip';
 
 const systemContent1 = ([
     {
         id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9',
-        icon: <ServerIcon />,
+        icon: <DriftTooltip
+            content='System'
+            body={ <ServerIcon /> }
+        />,
         name: 'sgi-xe500-01.rhts.eng.bos.redhat.com'
     },
     {
         id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2',
-        icon: <ServerIcon />,
+        icon: <DriftTooltip
+            content='System'
+            body={ <ServerIcon /> }
+        />,
         name: 'ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com'
     }
 ]);
@@ -17,7 +24,10 @@ const systemContent1 = ([
 const systemContent2 = ([
     {
         id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9',
-        icon: <ServerIcon />,
+        icon: <DriftTooltip
+            content='System'
+            body={ <ServerIcon /> }
+        />,
         name: 'sgi-xe500-01.rhts.eng.bos.redhat.com'
     }
 ]);
@@ -25,7 +35,10 @@ const systemContent2 = ([
 const systemContent3 = ([
     {
         id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2',
-        icon: <ServerIcon />,
+        icon: <DriftTooltip
+            content='System'
+            body={ <ServerIcon /> }
+        />,
         name: 'ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com'
     }
 ]);
@@ -44,23 +57,49 @@ const systems3 = ([
 ]);
 
 const baselineContent1 = ([
-    { id: 'abcd1234', icon: <BlueprintIcon />, name: 'baseline1' }
+    {
+        id: 'abcd1234',
+        icon: <DriftTooltip
+            content='Baseline'
+            body={ <BlueprintIcon /> }
+        />,
+        name: 'baseline1' }
 ]);
 
 const baselineContent2 = ([
-    { id: 'abcd1234', icon: <BlueprintIcon />, name: 'baseline1' },
-    { id: 'efgh5678', icon: <BlueprintIcon />, name: 'baseline2' }
+    {
+        id: 'abcd1234',
+        icon: <DriftTooltip
+            content='Baseline'
+            body={ <BlueprintIcon /> }
+        />,
+        name: 'baseline1'
+    },
+    {
+        id: 'efgh5678',
+        icon: <DriftTooltip
+            content='Baseline'
+            body={ <BlueprintIcon /> }
+        />,
+        name: 'baseline2'
+    }
 ]);
 
 const baselineContent3 = ([
     {
         id: '9bbbefcc-8f23-4d97-07f2-142asdl234e9',
-        icon: <BlueprintIcon />,
+        icon: <DriftTooltip
+            content='Baseline'
+            body={ <BlueprintIcon /> }
+        />,
         name: 'baseline1'
     },
     {
         id: 'fdmk59dj-fn42-dfjk-alv3-bmn2854mnn29',
-        icon: <BlueprintIcon />,
+        icon: <DriftTooltip
+            content='Baseline'
+            body={ <BlueprintIcon /> }
+        />,
         name: 'baseline2'
     }
 ]);

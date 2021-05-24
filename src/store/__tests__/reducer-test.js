@@ -3,6 +3,7 @@ import selectedReducer from '../reducers';
 import types from '../../SmartComponents/modules/types';
 import fixtures from './reducer.fixtures';
 import { ServerIcon } from '@patternfly/react-icons';
+import DriftTooltip from '../../SmartComponents/DriftTooltip/DriftTooltip';
 
 describe('compare reducer', () => {
     let reducer;
@@ -320,7 +321,10 @@ describe('compare reducer', () => {
             selectedSystems: [{
                 id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9',
                 name: undefined,
-                icon: <ServerIcon />
+                icon: <DriftTooltip
+                    content='System'
+                    body={ <ServerIcon /> }
+                />
             }]
         });
     });

@@ -1,4 +1,5 @@
 import React from 'react';
+import DriftTooltip from '../../DriftTooltip/DriftTooltip';
 import { ClockIcon } from '@patternfly/react-icons';
 
 function makeSelections(content, isSelected, selectedContent) {
@@ -39,7 +40,7 @@ function makeHSPSelections(content, selectedContent) {
     selectedContent?.forEach(function(hsp) {
         if (hsp.id !== content.id) {
             if (!content.icon) {
-                content.icon = <ClockIcon />;
+                content.icon = <DriftTooltip content='Historical profile' body={ <ClockIcon /> } />;
             }
 
             newSelectedContent.push(hsp);
@@ -49,7 +50,7 @@ function makeHSPSelections(content, selectedContent) {
     });
 
     if (!exists) {
-        content.icon = <ClockIcon />;
+        content.icon = <DriftTooltip content='Historical profile' body={ <ClockIcon /> } />;
         newSelectedContent.push(content);
     }
 
