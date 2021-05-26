@@ -37,6 +37,12 @@ export class DriftPage extends Component {
         this.props.loadEntities();
     }
 
+    componentDidUpdate(prevProps) {
+        if (prevProps.location.search !== '' && this.props.location.search === '') {
+            this.setHistory();
+        }
+    }
+
     setHistory = () => {
         const { activeFactFilters, baselines, factFilter, factSort, historicalProfiles, history, referenceId, stateFilters,
             stateSort, systems } = this.props;

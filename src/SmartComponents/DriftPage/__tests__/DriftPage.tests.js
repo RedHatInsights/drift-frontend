@@ -1,3 +1,4 @@
+/*eslint-disable camelcase*/
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { MemoryRouter } from 'react-router-dom';
@@ -31,6 +32,7 @@ describe('DriftPage', () => {
             referenceId: undefined,
             stateFilters: allStatesTrue,
             history: { location: { search: '' }, push: jest.fn() },
+            location: { search: '' },
             clearSelectedBaselines: jest.fn(),
             toggleErrorAlert: jest.fn(),
             clearComparison: jest.fn(),
@@ -97,6 +99,32 @@ describe('DriftPage', () => {
         await wrapper.instance().setHistory();
         await expect(setHistorySpy).toHaveBeenCalledWith(
             props.history, systemIds, baselineIds, HSPIds, undefined, [], '', allStatesTrue, DESC, ASC
+        );
+    });
+
+    it('should keep url on Comparison click', async () => {
+        props.baselines = [
+            {
+                display_name: 'baseline1',
+                id: '9bbbefcc-8f23-4d97-07f2-142asdl234e9',
+                last_updated: '2019-01-15T14:53:15.886891Z'
+            }
+        ];
+        props.location.search = '?baseline_ids=9bbbefcc-8f23-4d97-07f2-142asdl234e9';
+        const setHistorySpy = jest.spyOn(setHistory, 'setHistory');
+
+        const wrapper = shallow(
+            <DriftPage { ...props } />
+        );
+
+        let prevProps = props;
+
+        wrapper.setProps({
+            location: { search: '' }
+        });
+        wrapper.instance().componentDidUpdate(prevProps);
+        await expect(setHistorySpy).toHaveBeenCalledWith(
+            props.history, [], [ '9bbbefcc-8f23-4d97-07f2-142asdl234e9' ], [], undefined, [], '', allStatesTrue, DESC, ASC
         );
     });
 });
@@ -281,3 +309,4 @@ describe('ConnectedDriftPage', () => {
         expect(wrapper.find('[id="action-kebab"]').first().prop('isOpen')).toBe(true);
     });
 });
+/*eslint-enable camelcase*/
