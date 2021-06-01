@@ -109,11 +109,12 @@ export class SelectedBasket extends Component {
                 <span>
                     <Popover
                         id='selected-basket'
+                        style={{ minWidth: '500px' }}
                         isVisible={ isVisible }
                         shouldClose={ () => this.onToggle() }
                         headerContent={ <div>Selected items</div> }
                         position={ PopoverPosition.bottom }
-                        bodyContent={ <div style={{ maxHeight: '350px', overflowY: 'scroll' }}>
+                        bodyContent={ <div style={{ maxHeight: '500px', overflowY: 'auto' }}>
                             <SelectedTable
                                 selectedBaselineContent={ selectedBaselineContent }
                                 entities={ entities }
