@@ -1,6 +1,8 @@
+import React from 'react';
 import selectedReducer from '../reducers';
 import types from '../../SmartComponents/modules/types';
 import fixtures from './reducer.fixtures';
+import { ServerIcon } from '@patternfly/react-icons';
 
 describe('compare reducer', () => {
     let reducer;
@@ -285,6 +287,38 @@ describe('compare reducer', () => {
             selectedSystemIds: [],
             rows: [{ id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9' }, { id: '9c83bfcc-8t7a-47c7-b4r2-142fg52e89e1' }],
             selectedSystems: []
+        });
+    });
+
+    it('should set row to selected if in selectedSystemIds but not selected', () => {
+        expect(
+            reducer({
+                selectedSystemIds: [
+                    '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9'
+                ],
+                rows: [
+                    { id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9', selected: undefined },
+                    { id: '9c83bfcc-8t7a-47c7-b4r2-142fg52e89e1', selected: undefined }
+                ]
+            }, {
+                payload:
+                    {
+                        id: '9c83bfcc-8t7a-47c7-b4r2-142fg52e89e1', selected: false
+                    },
+                type: types.SELECT_ENTITY
+            })
+        ).toEqual({
+            columns: undefined,
+            selectedSystemIds: [ '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9' ],
+            rows: [
+                { id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9', selected: true },
+                { id: '9c83bfcc-8t7a-47c7-b4r2-142fg52e89e1', selected: undefined }
+            ],
+            selectedSystems: [{
+                id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9',
+                name: undefined,
+                icon: <ServerIcon />
+            }]
         });
     });
 });
