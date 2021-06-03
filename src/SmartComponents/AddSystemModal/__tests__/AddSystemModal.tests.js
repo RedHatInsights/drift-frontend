@@ -216,6 +216,18 @@ describe('AddSystemModal', () => {
         wrapper.instance().systemContentSelect(modalFixtures.data2);
         expect(props.handleSystemSelection).toHaveBeenCalledWith(modalFixtures.systemContent1, modalFixtures.data2.selected);
     });
+
+    it('should deselect for systemContent', () => {
+        props.selectedSystemContent = modalFixtures.systemContent1;
+        const wrapper = shallow(
+            <AddSystemModal
+                { ...props }
+            />
+        );
+
+        wrapper.instance().systemContentSelect(modalFixtures.data3);
+        expect(props.handleSystemSelection).toHaveBeenCalledWith([ modalFixtures.systemContent1[0] ], modalFixtures.data3.selected);
+    });
 });
 
 describe('ConnectedAddSystemModal', () => {

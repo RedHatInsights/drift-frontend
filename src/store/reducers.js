@@ -225,6 +225,10 @@ function selectedReducer(
 
             if (newRows.length === 0) {
                 state.rows.forEach(function(row) {
+                    if (selectedSystemIds.includes(row.id)) {
+                        row.selected = true;
+                    }
+
                     if (row.selected) {
                         selectedSystems.push({ id: row.id, name: row.display_name, icon: <ServerIcon /> });
                     }

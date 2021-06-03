@@ -153,7 +153,7 @@ export class AddSystemModal extends Component {
     }
 
     systemContentSelect = (data) => {
-        const { entities, handleSystemSelection } = this.props;
+        const { entities, handleSystemSelection, selectedSystemContent } = this.props;
         let selectedSystems = [];
 
         if (data.id === 0) {
@@ -161,11 +161,15 @@ export class AddSystemModal extends Component {
                 return { id: row.id, name: row.display_name, icon: <ServerIcon /> };
             });
         } else {
-            entities.rows.forEach(function(row) {
-                if (row.id === data.id) {
-                    selectedSystems.push({ id: row.id, name: row.display_name, icon: <ServerIcon /> });
-                }
-            });
+            if (!data.selected) {
+                selectedSystems = selectedSystemContent.filter(system => system.id === data.id);
+            } else {
+                entities.rows.forEach(function(row) {
+                    if (row.id === data.id) {
+                        selectedSystems.push({ id: row.id, name: row.display_name, icon: <ServerIcon /> });
+                    }
+                });
+            }
         }
 
         handleSystemSelection(selectedSystems, data.selected);

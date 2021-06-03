@@ -66,6 +66,10 @@ const data2 = ({
     id: 0, selected: true
 });
 
+const data3 = ({
+    id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9', selected: false
+});
+
 const rows = ([
     { id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9', display_name: 'sgi-xe500-01.rhts.eng.bos.redhat.com' },
     { id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2', display_name: 'ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com' }
@@ -81,6 +85,7 @@ export default {
     hspContent2,
     data1,
     data2,
+    data3,
     rows
 };
 /* eslint-enable camelcase */
