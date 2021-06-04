@@ -34,7 +34,8 @@ describe('compare reducer', () => {
         ).toEqual({
             rows: fixtures.results,
             columns: fixtures.columns,
-            selectedSystemIds: []
+            selectedSystemIds: [],
+            selectedSystems: []
         });
     });
 
@@ -61,7 +62,8 @@ describe('compare reducer', () => {
         ).toEqual({
             rows: fixtures.results,
             columns: fixtures.columnsWithHSP,
-            selectedSystemIds: []
+            selectedSystemIds: [],
+            selectedSystems: []
         });
     });
 
@@ -88,7 +90,8 @@ describe('compare reducer', () => {
         ).toEqual({
             rows: fixtures.results,
             columns: fixtures.columns,
-            selectedSystemIds: []
+            selectedSystemIds: [],
+            selectedSystems: []
         });
     });
 

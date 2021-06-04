@@ -64,6 +64,8 @@ exports[`AddSystemModal should render correctly 1`] = `
             handleBaselineSelection={[MockFunction]}
             handleHSPSelection={[MockFunction]}
             isVisible={false}
+            selectBaseline={[MockFunction]}
+            selectHistoricProfiles={[MockFunction]}
             selectedBaselineContent={Array []}
             selectedHSPContent={Array []}
             selectedSystemContent={Array []}
@@ -9385,6 +9387,16 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
           disableSystemTable={[Function]}
           entities={
             Object {
+              "rows": Array [
+                Object {
+                  "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                  "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                },
+                Object {
+                  "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                  "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                },
+              ],
               "selectedSystemIds": Array [],
             }
           }
@@ -10612,6 +10624,16 @@ Try changing your filter settings.
                                                 <SelectedBasket
                                                   entities={
                                                     Object {
+                                                      "rows": Array [
+                                                        Object {
+                                                          "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                          "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                                        },
+                                                        Object {
+                                                          "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                          "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                                        },
+                                                      ],
                                                       "selectedSystemIds": Array [],
                                                     }
                                                   }
@@ -10640,6 +10662,16 @@ Try changing your filter settings.
                                                           <SelectedTable
                                                             entities={
                                                               Object {
+                                                                "rows": Array [
+                                                                  Object {
+                                                                    "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                                    "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                                                  },
+                                                                  Object {
+                                                                    "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                                    "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                                                  },
+                                                                ],
                                                                 "selectedSystemIds": Array [],
                                                               }
                                                             }
@@ -10735,6 +10767,16 @@ Try changing your filter settings.
                                                                   <SelectedTable
                                                                     entities={
                                                                       Object {
+                                                                        "rows": Array [
+                                                                          Object {
+                                                                            "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                                            "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                                                          },
+                                                                          Object {
+                                                                            "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                                            "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                                                          },
+                                                                        ],
                                                                         "selectedSystemIds": Array [],
                                                                       }
                                                                     }
@@ -11018,6 +11060,16 @@ Try changing your filter settings.
                                         <Memo(Connect(SystemsTable))
                                           entities={
                                             Object {
+                                              "rows": Array [
+                                                Object {
+                                                  "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                  "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                                },
+                                                Object {
+                                                  "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                  "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                                },
+                                              ],
                                               "selectedSystemIds": Array [],
                                             }
                                           }
@@ -11051,6 +11103,16 @@ Try changing your filter settings.
                                           <Memo(Connect(SystemsTable))
                                             entities={
                                               Object {
+                                                "rows": Array [
+                                                  Object {
+                                                    "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                    "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                                  },
+                                                  Object {
+                                                    "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                    "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                                  },
+                                                ],
                                                 "selectedSystemIds": Array [],
                                               }
                                             }
@@ -11085,6 +11147,16 @@ Try changing your filter settings.
                                         <Connect(SystemsTable)
                                           entities={
                                             Object {
+                                              "rows": Array [
+                                                Object {
+                                                  "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                  "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                                },
+                                                Object {
+                                                  "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                  "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                                },
+                                              ],
                                               "selectedSystemIds": Array [],
                                             }
                                           }
@@ -11105,6 +11177,16 @@ Try changing your filter settings.
                                             driftClearFilters={[Function]}
                                             entities={
                                               Object {
+                                                "rows": Array [
+                                                  Object {
+                                                    "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                    "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                                  },
+                                                  Object {
+                                                    "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                    "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                                  },
+                                                ],
                                                 "selectedSystemIds": Array [],
                                               }
                                             }
@@ -11140,6 +11222,10 @@ Try changing your filter settings.
                                                     Object {
                                                       "onClick": [Function],
                                                       "title": "Select page (0)",
+                                                    },
+                                                    Object {
+                                                      "onClick": [Function],
+                                                      "title": "Deselect page (0)",
                                                     },
                                                   ],
                                                   "onSelect": [Function],
@@ -11188,6 +11274,10 @@ Try changing your filter settings.
                                                       Object {
                                                         "onClick": [Function],
                                                         "title": "Select page (0)",
+                                                      },
+                                                      Object {
+                                                        "onClick": [Function],
+                                                        "title": "Deselect page (0)",
                                                       },
                                                     ],
                                                     "onSelect": [Function],
@@ -11251,6 +11341,10 @@ Try changing your filter settings.
                                                                 "onClick": [Function],
                                                                 "title": "Select page (0)",
                                                               },
+                                                              Object {
+                                                                "onClick": [Function],
+                                                                "title": "Deselect page (0)",
+                                                              },
                                                             ],
                                                             "onSelect": [Function],
                                                           }
@@ -11301,6 +11395,10 @@ Try changing your filter settings.
                                                           Object {
                                                             "onClick": [Function],
                                                             "title": "Select page (0)",
+                                                          },
+                                                          Object {
+                                                            "onClick": [Function],
+                                                            "title": "Deselect page (0)",
                                                           },
                                                         ],
                                                         "onSelect": [Function],
@@ -11395,6 +11493,10 @@ Try changing your filter settings.
                                                                   "onClick": [Function],
                                                                   "title": "Select page (0)",
                                                                 },
+                                                                Object {
+                                                                  "onClick": [Function],
+                                                                  "title": "Deselect page (0)",
+                                                                },
                                                               ],
                                                               "onSelect": [Function],
                                                             }
@@ -11445,6 +11547,10 @@ Try changing your filter settings.
                                                             Object {
                                                               "onClick": [Function],
                                                               "title": "Select page (0)",
+                                                            },
+                                                            Object {
+                                                              "onClick": [Function],
+                                                              "title": "Deselect page (0)",
                                                             },
                                                           ],
                                                           "onSelect": [Function],
@@ -11536,6 +11642,10 @@ Try changing your filter settings.
                                                               Object {
                                                                 "onClick": [Function],
                                                                 "title": "Select page (0)",
+                                                              },
+                                                              Object {
+                                                                "onClick": [Function],
+                                                                "title": "Deselect page (0)",
                                                               },
                                                             ],
                                                             "onSelect": [Function],
@@ -15772,6 +15882,16 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
           disableSystemTable={[Function]}
           entities={
             Object {
+              "rows": Array [
+                Object {
+                  "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                  "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                },
+                Object {
+                  "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                  "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                },
+              ],
               "selectedSystemIds": Array [],
             }
           }
@@ -16999,6 +17119,16 @@ Try changing your filter settings.
                                                 <SelectedBasket
                                                   entities={
                                                     Object {
+                                                      "rows": Array [
+                                                        Object {
+                                                          "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                          "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                                        },
+                                                        Object {
+                                                          "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                          "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                                        },
+                                                      ],
                                                       "selectedSystemIds": Array [],
                                                     }
                                                   }
@@ -17027,6 +17157,16 @@ Try changing your filter settings.
                                                           <SelectedTable
                                                             entities={
                                                               Object {
+                                                                "rows": Array [
+                                                                  Object {
+                                                                    "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                                    "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                                                  },
+                                                                  Object {
+                                                                    "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                                    "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                                                  },
+                                                                ],
                                                                 "selectedSystemIds": Array [],
                                                               }
                                                             }
@@ -17122,6 +17262,16 @@ Try changing your filter settings.
                                                                   <SelectedTable
                                                                     entities={
                                                                       Object {
+                                                                        "rows": Array [
+                                                                          Object {
+                                                                            "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                                            "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                                                          },
+                                                                          Object {
+                                                                            "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                                            "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                                                          },
+                                                                        ],
                                                                         "selectedSystemIds": Array [],
                                                                       }
                                                                     }
@@ -17405,6 +17555,16 @@ Try changing your filter settings.
                                         <Memo(Connect(SystemsTable))
                                           entities={
                                             Object {
+                                              "rows": Array [
+                                                Object {
+                                                  "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                  "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                                },
+                                                Object {
+                                                  "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                  "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                                },
+                                              ],
                                               "selectedSystemIds": Array [],
                                             }
                                           }
@@ -17438,6 +17598,16 @@ Try changing your filter settings.
                                           <Memo(Connect(SystemsTable))
                                             entities={
                                               Object {
+                                                "rows": Array [
+                                                  Object {
+                                                    "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                    "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                                  },
+                                                  Object {
+                                                    "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                    "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                                  },
+                                                ],
                                                 "selectedSystemIds": Array [],
                                               }
                                             }
@@ -17472,6 +17642,16 @@ Try changing your filter settings.
                                         <Connect(SystemsTable)
                                           entities={
                                             Object {
+                                              "rows": Array [
+                                                Object {
+                                                  "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                  "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                                },
+                                                Object {
+                                                  "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                  "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                                },
+                                              ],
                                               "selectedSystemIds": Array [],
                                             }
                                           }
@@ -17492,6 +17672,16 @@ Try changing your filter settings.
                                             driftClearFilters={[Function]}
                                             entities={
                                               Object {
+                                                "rows": Array [
+                                                  Object {
+                                                    "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                    "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                                  },
+                                                  Object {
+                                                    "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                    "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                                  },
+                                                ],
                                                 "selectedSystemIds": Array [],
                                               }
                                             }
@@ -17527,6 +17717,10 @@ Try changing your filter settings.
                                                     Object {
                                                       "onClick": [Function],
                                                       "title": "Select page (0)",
+                                                    },
+                                                    Object {
+                                                      "onClick": [Function],
+                                                      "title": "Deselect page (0)",
                                                     },
                                                   ],
                                                   "onSelect": [Function],
@@ -17575,6 +17769,10 @@ Try changing your filter settings.
                                                       Object {
                                                         "onClick": [Function],
                                                         "title": "Select page (0)",
+                                                      },
+                                                      Object {
+                                                        "onClick": [Function],
+                                                        "title": "Deselect page (0)",
                                                       },
                                                     ],
                                                     "onSelect": [Function],
@@ -17638,6 +17836,10 @@ Try changing your filter settings.
                                                                 "onClick": [Function],
                                                                 "title": "Select page (0)",
                                                               },
+                                                              Object {
+                                                                "onClick": [Function],
+                                                                "title": "Deselect page (0)",
+                                                              },
                                                             ],
                                                             "onSelect": [Function],
                                                           }
@@ -17688,6 +17890,10 @@ Try changing your filter settings.
                                                           Object {
                                                             "onClick": [Function],
                                                             "title": "Select page (0)",
+                                                          },
+                                                          Object {
+                                                            "onClick": [Function],
+                                                            "title": "Deselect page (0)",
                                                           },
                                                         ],
                                                         "onSelect": [Function],
@@ -17782,6 +17988,10 @@ Try changing your filter settings.
                                                                   "onClick": [Function],
                                                                   "title": "Select page (0)",
                                                                 },
+                                                                Object {
+                                                                  "onClick": [Function],
+                                                                  "title": "Deselect page (0)",
+                                                                },
                                                               ],
                                                               "onSelect": [Function],
                                                             }
@@ -17832,6 +18042,10 @@ Try changing your filter settings.
                                                             Object {
                                                               "onClick": [Function],
                                                               "title": "Select page (0)",
+                                                            },
+                                                            Object {
+                                                              "onClick": [Function],
+                                                              "title": "Deselect page (0)",
                                                             },
                                                           ],
                                                           "onSelect": [Function],
@@ -22107,6 +22321,16 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
           disableSystemTable={[Function]}
           entities={
             Object {
+              "rows": Array [
+                Object {
+                  "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                  "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                },
+                Object {
+                  "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                  "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                },
+              ],
               "selectedSystemIds": Array [],
             }
           }
@@ -23348,6 +23572,16 @@ Try changing your filter settings.
                                                 <SelectedBasket
                                                   entities={
                                                     Object {
+                                                      "rows": Array [
+                                                        Object {
+                                                          "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                          "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                                        },
+                                                        Object {
+                                                          "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                          "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                                        },
+                                                      ],
                                                       "selectedSystemIds": Array [],
                                                     }
                                                   }
@@ -23376,6 +23610,16 @@ Try changing your filter settings.
                                                           <SelectedTable
                                                             entities={
                                                               Object {
+                                                                "rows": Array [
+                                                                  Object {
+                                                                    "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                                    "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                                                  },
+                                                                  Object {
+                                                                    "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                                    "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                                                  },
+                                                                ],
                                                                 "selectedSystemIds": Array [],
                                                               }
                                                             }
@@ -23471,6 +23715,16 @@ Try changing your filter settings.
                                                                   <SelectedTable
                                                                     entities={
                                                                       Object {
+                                                                        "rows": Array [
+                                                                          Object {
+                                                                            "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                                            "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                                                          },
+                                                                          Object {
+                                                                            "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                                            "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                                                          },
+                                                                        ],
                                                                         "selectedSystemIds": Array [],
                                                                       }
                                                                     }
@@ -23754,6 +24008,16 @@ Try changing your filter settings.
                                         <Memo(Connect(SystemsTable))
                                           entities={
                                             Object {
+                                              "rows": Array [
+                                                Object {
+                                                  "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                  "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                                },
+                                                Object {
+                                                  "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                  "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                                },
+                                              ],
                                               "selectedSystemIds": Array [],
                                             }
                                           }
@@ -23787,6 +24051,16 @@ Try changing your filter settings.
                                           <Memo(Connect(SystemsTable))
                                             entities={
                                               Object {
+                                                "rows": Array [
+                                                  Object {
+                                                    "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                    "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                                  },
+                                                  Object {
+                                                    "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                    "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                                  },
+                                                ],
                                                 "selectedSystemIds": Array [],
                                               }
                                             }
@@ -23821,6 +24095,16 @@ Try changing your filter settings.
                                         <Connect(SystemsTable)
                                           entities={
                                             Object {
+                                              "rows": Array [
+                                                Object {
+                                                  "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                  "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                                },
+                                                Object {
+                                                  "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                  "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                                },
+                                              ],
                                               "selectedSystemIds": Array [],
                                             }
                                           }
@@ -23841,6 +24125,16 @@ Try changing your filter settings.
                                             driftClearFilters={[Function]}
                                             entities={
                                               Object {
+                                                "rows": Array [
+                                                  Object {
+                                                    "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                    "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                                  },
+                                                  Object {
+                                                    "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                    "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                                  },
+                                                ],
                                                 "selectedSystemIds": Array [],
                                               }
                                             }

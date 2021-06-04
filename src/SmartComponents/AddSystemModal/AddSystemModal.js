@@ -44,11 +44,15 @@ export class AddSystemModal extends Component {
     }
 
     /*eslint-disable camelcase*/
-    componentDidUpdate() {
+    componentDidUpdate(prevProps) {
         const { baselines, handleBaselineSelection, handleHSPSelection, handleSystemSelection, historicalProfiles,
             selectedBaselineContent, selectedHSPContent, selectedSystemContent, systems } = this.props;
         let newSelectedSystems = [];
         let newSelectedBaselines = [];
+
+        if (!prevProps.addSystemModalOpened && this.props.addSystemModalOpened) {
+            this.setSelectedContent();
+        }
 
         if ((baselines.length || historicalProfiles.length || systems.length)
             && (!selectedBaselineContent.length && !selectedHSPContent.length && !selectedSystemContent.length)) {
@@ -123,9 +127,32 @@ export class AddSystemModal extends Component {
         toggleAddSystemModal();
     }
 
+    findNotInComparison(basketContent, comparedContent) {
+        if (comparedContent.length === 0) {
+            return basketContent;
+        } else {
+            return basketContent.filter(item => comparedContent.some(({ id }) => id !== item.id));
+        }
+    }
+
+    setSelectedContent() {
+        const { baselines, handleBaselineSelection, handleHSPSelection, handleSystemSelection, historicalProfiles,
+            selectBaseline, selectedBaselineContent, selectedHSPContent, selectedSystemContent, selectHistoricProfiles,
+            systems } = this.props;
+
+        handleSystemSelection(this.findNotInComparison(selectedSystemContent, systems), false);
+        let baselinesToRemove = this.findNotInComparison(selectedBaselineContent, baselines);
+        handleBaselineSelection(baselinesToRemove, false);
+        baselinesToRemove.forEach(baseline => selectBaseline(baseline.id, false, 'COMPARISON'));
+        let hspsToRemove = this.findNotInComparison(selectedHSPContent, historicalProfiles);
+        hspsToRemove.forEach(hsp => handleHSPSelection(hsp));
+        selectHistoricProfiles(historicalProfiles.map(hsp => hsp.id));
+    }
+
     cancelSelection() {
         const { toggleAddSystemModal } = this.props;
 
+        this.setSelectedContent();
         toggleAddSystemModal();
     }
 
@@ -157,9 +184,13 @@ export class AddSystemModal extends Component {
         let selectedSystems = [];
 
         if (data.id === 0) {
-            selectedSystems = entities.rows.map(function(row) {
-                return { id: row.id, name: row.display_name, icon: <ServerIcon /> };
-            });
+            if (data.bulk) {
+                selectedSystems = selectedSystemContent;
+            } else {
+                selectedSystems = entities.rows.map(function(row) {
+                    return { id: row.id, name: row.display_name, icon: <ServerIcon /> };
+                });
+            }
         } else {
             if (!data.selected) {
                 selectedSystems = selectedSystemContent.filter(system => system.id === data.id);

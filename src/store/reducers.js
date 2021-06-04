@@ -4,7 +4,6 @@ import { mergeArraysByKey } from '@redhat-cloud-services/frontend-components-uti
 import { applyReducerHash } from '@redhat-cloud-services/frontend-components-utilities/files/ReducerRegistry';
 import HistoricalProfilesPopover from '../SmartComponents/HistoricalProfilesPopover/HistoricalProfilesPopover';
 import SystemKebab from '../SmartComponents/BaselinesPage/EditBaselinePage/SystemNotification/SystemKebab/SystemKebab';
-import { ServerIcon } from '@patternfly/react-icons';
 
 import types from '../SmartComponents/modules/types';
 import helpers from '../SmartComponents/helpers';
@@ -146,7 +145,8 @@ function selectedReducer(
                 columns: newColumns,
                 rows: state.selectedHSP && !hasMultiSelect
                     ? helpers.buildSystemsTableWithSelectedHSP(rows, state.selectedHSP, deselectHistoricalProfiles)
-                    : rows
+                    : rows,
+                selectedSystems: helpers.findSelectedOnPage(rows, state.selectedSystemIds)
             };
         },
         [types.DRIFT_CLEAR_ALL_FILTERS]: (state) => ({
@@ -224,15 +224,7 @@ function selectedReducer(
             }
 
             if (newRows.length === 0) {
-                state.rows.forEach(function(row) {
-                    if (selectedSystemIds.includes(row.id)) {
-                        row.selected = true;
-                    }
-
-                    if (row.selected) {
-                        selectedSystems.push({ id: row.id, name: row.display_name, icon: <ServerIcon /> });
-                    }
-                });
+                selectedSystems = helpers.findSelectedOnPage(state.rows, selectedSystemIds);
             }
 
             return {
