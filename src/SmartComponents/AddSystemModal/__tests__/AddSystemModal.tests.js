@@ -45,7 +45,9 @@ describe('AddSystemModal', () => {
             toggleAddSystemModal: jest.fn(),
             handleBaselineSelection: jest.fn(),
             handleHSPSelection: jest.fn(),
-            handleSystemSelection: jest.fn()
+            handleSystemSelection: jest.fn(),
+            selectHistoricProfiles: jest.fn(),
+            selectBaseline: jest.fn()
         };
     });
 
@@ -139,12 +141,14 @@ describe('AddSystemModal', () => {
             />
         );
 
+        let prevProps = props;
+
         wrapper.setProps({
             baselines: baselinesPayload,
             systems: systemsPayload,
             historicalProfiles: historicalProfilesPayload
         });
-        wrapper.instance().componentDidUpdate();
+        wrapper.instance().componentDidUpdate(prevProps);
         expect(props.handleSystemSelection).toHaveBeenCalledWith(modalFixtures.systemContent1, true);
         expect(props.handleBaselineSelection).toHaveBeenCalledWith(modalFixtures.baselineContent3, true);
         expect(props.handleHSPSelection).toHaveBeenCalledWith(modalFixtures.hspContent1);
@@ -178,6 +182,9 @@ describe('AddSystemModal', () => {
         );
 
         wrapper.instance().cancelSelection();
+        expect(props.handleSystemSelection).toHaveBeenCalled();
+        expect(props.handleBaselineSelection).toHaveBeenCalled();
+        expect(props.selectHistoricProfiles).toHaveBeenCalled();
         expect(props.toggleAddSystemModal).toHaveBeenCalled();
     });
 
@@ -228,6 +235,23 @@ describe('AddSystemModal', () => {
         wrapper.instance().systemContentSelect(modalFixtures.data3);
         expect(props.handleSystemSelection).toHaveBeenCalledWith([ modalFixtures.systemContent1[0] ], modalFixtures.data3.selected);
     });
+
+    it('should remove contents from basket that are not compared', () => {
+        props.baselines = modalFixtures.baselines1;
+        props.historicalProfiles = modalFixtures.historicalProfiles1;
+        props.systems = modalFixtures.systems1;
+        props.selectedBaselineContent = modalFixtures.baselineContent2;
+        props.selectedHSPContent = modalFixtures.hspContent3;
+        props.selectedSystemContent = modalFixtures.systemContent1;
+        const wrapper = shallow(
+            <AddSystemModal
+                { ...props }
+            />
+        );
+
+        wrapper.instance().setSelectedContent();
+        expect(props.handleSystemSelection).toHaveBeenCalledWith(modalFixtures.systemContent3, false);
+    });
 });
 
 describe('ConnectedAddSystemModal', () => {
@@ -265,7 +289,8 @@ describe('ConnectedAddSystemModal', () => {
                 selectedHSPIds: []
             },
             entities: {
-                selectedSystemIds: []
+                selectedSystemIds: [],
+                rows: modalFixtures.rows
             },
             addSystemModalActions: {
                 toggleAddSystemModal: jest.fn()

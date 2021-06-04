@@ -20,7 +20,6 @@ export const SystemsTable = ({
     driftClearFilters,
     entities,
     hasHistoricalDropdown,
-    //hasInventoryReadPermissions,
     permissions,
     hasMultiSelect,
     historicalProfiles,
@@ -43,6 +42,11 @@ export const SystemsTable = ({
         switch (event) {
             case 'none': {
                 toSelect = { id: 0, selected: false, bulk: true };
+                break;
+            }
+
+            case 'deselect-page': {
+                toSelect = { id: 0, selected: false };
                 break;
             }
 
@@ -115,7 +119,7 @@ export const SystemsTable = ({
                     } }
                 bulkSelect={ onSelect && !isAddSystemNotifications && {
                     isDisabled: !hasMultiSelect,
-                    count: entities && entities.selectedSystemIds ? entities.selectedSystemIds.length : 0,
+                    count: entities?.selectedSystemIds?.length,
                     items: [{
                         title: `Select none (0)`,
                         onClick: () => {
@@ -126,9 +130,18 @@ export const SystemsTable = ({
                         onClick: () => {
                             onSelect('page');
                         }
+                    }, {
+                        title: `Deselect page (${ entities?.count || 0 })`,
+                        onClick: () => {
+                            onSelect('deselect-page');
+                        }
                     }],
-                    onSelect: (value) => {
-                        value ? onSelect('page') : onSelect('none');
+                    onSelect: () => {
+                        if (entities?.rows.length === entities?.selectedSystems?.length) {
+                            onSelect('deselect-page');
+                        } else {
+                            onSelect('page');
+                        }
                     },
                     checked: entities && entities.selectedSystemIds
                         ? helpers.findCheckedValue(entities?.total, entities?.selectedSystemIds.length)
@@ -154,7 +167,6 @@ SystemsTable.propTypes = {
     historicalProfiles: PropTypes.array,
     hasMultiSelect: PropTypes.bool,
     updateColumns: PropTypes.func,
-    //hasInventoryReadPermissions: PropTypes.bool,
     permissions: PropTypes.object,
     entities: PropTypes.object,
     selectEntities: PropTypes.func,

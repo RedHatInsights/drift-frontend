@@ -1,8 +1,24 @@
 import React from 'react';
-import { CloseIcon, HistoryIcon } from '@patternfly/react-icons';
+import { CloseIcon, HistoryIcon, ServerIcon } from '@patternfly/react-icons';
 import moment from 'moment';
 import baselinesTableHelpers from './BaselinesTable/redux/helpers';
 import editBaselineHelpers from './BaselinesPage/EditBaselinePage/EditBaseline/helpers';
+
+function findSelectedOnPage(rows, selectedSystemIds) {
+    let selectedSystems = [];
+
+    rows.forEach(function(row) {
+        if (selectedSystemIds.includes(row.id)) {
+            row.selected = true;
+        }
+
+        if (row.selected) {
+            selectedSystems.push({ id: row.id, name: row.display_name, icon: <ServerIcon /> });
+        }
+    });
+
+    return selectedSystems;
+}
 
 function findCheckedValue(total, selected) {
     if (selected === total && total > 0) {
@@ -91,6 +107,7 @@ function downloadCSV(baselineData) {
 }
 
 export default {
+    findSelectedOnPage,
     findCheckedValue,
     paginateData,
     buildSystemsTableWithSelectedHSP,

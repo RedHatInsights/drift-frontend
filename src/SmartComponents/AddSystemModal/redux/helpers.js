@@ -20,9 +20,12 @@ function makeSelections(content, isSelected, selectedContent) {
         }
     } else {
         newSelectedContent = [ ...selectedContent ];
+        let selectedContentIds = selectedContent.map(selectedItem => selectedItem.id);
 
         content.forEach(function(item) {
-            newSelectedContent.push(item);
+            if (!selectedContentIds.includes(item.id)) {
+                newSelectedContent.push(item);
+            }
         });
     }
 
