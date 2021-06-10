@@ -252,6 +252,40 @@ describe('AddSystemModal', () => {
         wrapper.instance().setSelectedContent();
         expect(props.handleSystemSelection).toHaveBeenCalledWith(modalFixtures.systemContent3, false);
     });
+
+    it('should return basket content if no items in comparedContent', () => {
+        let basketContent = modalFixtures.systemContent1;
+        const wrapper = shallow(
+            <AddSystemModal
+                { ...props }
+            />
+        );
+
+        expect(wrapper.instance().findNotInComparison(basketContent, [])).toEqual(basketContent);
+    });
+
+    it('should return empty if no items in basketContent', () => {
+        let comparedContent = modalFixtures.systems2;
+        const wrapper = shallow(
+            <AddSystemModal
+                { ...props }
+            />
+        );
+
+        expect(wrapper.instance().findNotInComparison([], comparedContent)).toEqual([]);
+    });
+
+    it('should return systems to be removed', () => {
+        let basketContent = modalFixtures.systemContent1;
+        let comparedContent = modalFixtures.systems3;
+        const wrapper = shallow(
+            <AddSystemModal
+                { ...props }
+            />
+        );
+
+        expect(wrapper.instance().findNotInComparison(basketContent, comparedContent)).toEqual(modalFixtures.systemContent2);
+    });
 });
 
 describe('ConnectedAddSystemModal', () => {
