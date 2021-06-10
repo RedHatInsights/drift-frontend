@@ -131,7 +131,9 @@ export class AddSystemModal extends Component {
         if (comparedContent.length === 0) {
             return basketContent;
         } else {
-            return basketContent.filter(item => comparedContent.some(({ id }) => id !== item.id));
+            return basketContent.filter(basketItem => (
+                comparedContent.findIndex(comparedItem => (basketItem.id === comparedItem.id)) === -1
+            ));
         }
     }
 

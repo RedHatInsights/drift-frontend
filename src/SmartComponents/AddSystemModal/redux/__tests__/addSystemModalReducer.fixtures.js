@@ -34,6 +34,15 @@ const systems1 = ([
     { id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9' }
 ]);
 
+const systems2 = ([
+    { id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9' },
+    { id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2' }
+]);
+
+const systems3 = ([
+    { id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2' }
+]);
+
 const baselineContent1 = ([
     { id: 'abcd1234', icon: <BlueprintIcon />, name: 'baseline1' }
 ]);
@@ -115,6 +124,8 @@ export default {
     systemContent2,
     systemContent3,
     systems1,
+    systems2,
+    systems3,
     baselineContent1,
     baselineContent2,
     baselineContent3,
