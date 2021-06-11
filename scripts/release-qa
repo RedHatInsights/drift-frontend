@@ -3,6 +3,7 @@
 read -p "Releasing master(CI) to QA environment. Do you wish to continue? (Y/n) " decision
 
 if [ $decision == 'Y' ];then
+  git stash
   git fetch origin
   git checkout master
   git reset origin/master --hard
