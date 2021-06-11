@@ -3,6 +3,7 @@
 read -p "Releasing QA to Prod (stable and beta)  environment. Do you wish to continue? (Y/n) " decision
 
 if [ $decision == 'Y' ];then
+  git stash
   git fetch origin
   git checkout qa
   git reset origin/qa --hard
