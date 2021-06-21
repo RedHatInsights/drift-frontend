@@ -28,14 +28,14 @@ Make sure to run these commands in 2 different terminals at the sametime.
 
 In terminal 1:
 ```
-    cd drift-frontend
-    SPANDX_CONFIG=profiles/local-frontend.js  bash ../insights-proxy/scripts/run.sh
+cd drift-frontend
+SPANDX_CONFIG=profiles/local-frontend.js  bash ../insights-proxy/scripts/run.sh
 ```
 
 In terminal 2:
 ```
-    cd drift-frontend
-    npm run start
+cd drift-frontend
+npm run start
 ```
 Note: If you see `ℹ ｢wdm｣: Compiled successfully.`, you are in good shape.
 
@@ -53,15 +53,15 @@ Make sure to run these commands in 2 different terminals at the sametime.
 In terminal 1:
 
 ```
-    cd drift-frontend
-    SPANDX_CONFIG=drift-backend/local-drift-backend.js bash insights-proxy/scripts/run.sh
+cd drift-frontend
+SPANDX_CONFIG=../drift-backend/local-drift-backend.js bash ../insights-proxy/scripts/run.sh
 ```
 
 In terminal 2:
 
 ```
-    cd drift-frontend
-    npm run start
+cd drift-frontend
+npm run start
 ```
 
 # how to run with [drift-dev-setup](https://github.com/RedHatInsights/drift-dev-setup)
