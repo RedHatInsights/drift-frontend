@@ -68,20 +68,4 @@ describe('ConnectedSystemNotification', () => {
 
         expect(toJson(wrapper)).toMatchSnapshot();
     });
-
-    it('should disable Add system button', () => {
-        initialState.systemNotificationsState.systemNotificationLoaded = true;
-        props.permissions.baselinesWrite = false;
-
-        const store = mockStore(initialState);
-        const wrapper = mount(
-            <MemoryRouter keyLength={ 0 }>
-                <Provider store={ store }>
-                    <ConnectedSystemNotification { ...props } />
-                </Provider>
-            </MemoryRouter>
-        );
-
-        expect(toJson(wrapper)).toMatchSnapshot();
-    });
 });

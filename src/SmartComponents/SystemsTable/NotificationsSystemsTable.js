@@ -36,7 +36,6 @@ export const SystemsTable = connect(null, mapDispatchToProps)(({
     hasMultiSelect,
     selectHistoricProfiles,
     updateColumns,
-    //hasInventoryReadPermissions,
     permissions,
     selectEntities,
     selectVariant,
@@ -83,6 +82,45 @@ export const SystemsTable = connect(null, mapDispatchToProps)(({
         selectEntities(toSelect);
     };
 
+    const buildTableProps = () => {
+        if (permissions.notificationsWrite) {
+            return {
+                canSelectAll: false,
+                selectVariant,
+                ouiaId: 'systems-table'
+            };
+        } else {
+            return {
+                canSelectAll: false,
+                selectVariant,
+                ouiaId: 'systems-table',
+                onSelect: false
+            };
+        }
+    };
+
+    const buildDeleteNotificationsKebab = () => {
+        return <div
+            className='pointer'
+            key="delete-baseline-notification"
+            onClick={ () => deleteNotifications(entities?.selectedSystemIds) }
+            isDisabled={ !entities?.selectedSystemIds?.length }
+        >
+            { entities?.selectedSystemIds?.length > 1 ? 'Delete associated systems' : 'Delete associated system' }
+        </div>;
+    };
+
+    const buildActionsConfig = () => {
+        if (permissions.notificationsWrite) {
+            return [
+                toolbarButton,
+                buildDeleteNotificationsKebab()
+            ];
+        } else {
+            return [];
+        }
+    };
+
     useEffect(() => {
         window.entityListener = addNewListener({
             on: 'SELECT_ENTITY',
@@ -100,7 +138,7 @@ export const SystemsTable = connect(null, mapDispatchToProps)(({
     });
 
     return (
-        /*hasInventoryReadPermissions*/ permissions.inventoryRead ? (
+        permissions.inventoryRead ? (
             <InventoryTable
                 onLoad={ ({ mergeWithEntities, INVENTORY_ACTION_TYPES, api }) => {
                     getEntities.current = api?.getEntities;
@@ -109,7 +147,7 @@ export const SystemsTable = connect(null, mapDispatchToProps)(({
                         selectedReducer(
                             INVENTORY_ACTION_TYPES, baselineId, createBaselineModal, historicalProfiles,
                             hasMultiSelect, hasHistoricalDropdown, deselectHistoricalProfiles, isAddSystemNotifications,
-                            selectHistoricProfiles, systemNotificationIds, selectSystemsToAdd, deleteNotifications
+                            selectHistoricProfiles, systemNotificationIds, selectSystemsToAdd, deleteNotifications, permissions
                         )
                     ));
                     setSelectedSystemIds(selected);
@@ -125,11 +163,7 @@ export const SystemsTable = connect(null, mapDispatchToProps)(({
                         }
                     }
                 }}
-                tableProps={{
-                    canSelectAll: false,
-                    selectVariant,
-                    ouiaId: 'systems-table'
-                }}
+                tableProps={ buildTableProps() }
                 getEntities={ async (_items, config) => {
                     const currIds = (systemNotificationIds || [])
                     .slice((config.page - 1) * config.per_page, config.page * config.per_page);
@@ -152,7 +186,7 @@ export const SystemsTable = connect(null, mapDispatchToProps)(({
                     };
                 } }
                 bulkSelect={ onSelect && {
-                    isDisabled: !hasMultiSelect,
+                    isDisabled: !hasMultiSelect || !permissions.notificationsWrite,
                     count: entities?.selectedSystemIds ? entities.selectedSystemIds.length : 0,
                     items: [{
                         title: `Select none (0)`,
@@ -173,17 +207,7 @@ export const SystemsTable = connect(null, mapDispatchToProps)(({
                         : null
                 } }
                 actionsConfig={{
-                    actions: [
-                        toolbarButton,
-                        <div
-                            className='pointer'
-                            key="delete-baseline-notification"
-                            onClick={ () => deleteNotifications(entities?.selectedSystemIds) }
-                            isDisabled={ !entities?.selectedSystemIds?.length }
-                        >
-                            { entities?.selectedSystemIds?.length > 1 ? 'Delete associated systems' : 'Delete associated system' }
-                        </div>
-                    ]
+                    actions: buildActionsConfig()
                 }}
             />
         )
@@ -207,7 +231,6 @@ SystemsTable.propTypes = {
     hasMultiSelect: PropTypes.bool,
     updateColumns: PropTypes.func,
     selectedHSPIds: PropTypes.array,
-    //hasInventoryReadPermissions: PropTypes.bool,
     permissions: PropTypes.object,
     entities: PropTypes.object,
     selectEntities: PropTypes.func,

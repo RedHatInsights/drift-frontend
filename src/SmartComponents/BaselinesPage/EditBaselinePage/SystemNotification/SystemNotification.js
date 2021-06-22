@@ -54,14 +54,11 @@ export class SystemNotification extends Component {
     }
 
     buildNotificationsButton = () => {
-        const { permissions } = this.props;
-
         return <Button
             key="add-baseline-notification"
             variant="primary"
             onClick={ this.toggleModal }
             ouiaId="add-baseline-notification-button"
-            isDisabled={ !permissions.baselinesWrite }
         >
             Add associated system
         </Button>;
