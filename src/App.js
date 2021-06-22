@@ -18,6 +18,8 @@ const App = (props) => {
         hasBaselinesWritePermissions,
         hasHSPReadPermissions,
         hasInventoryReadPermissions,
+        hasNotificationsWritePermissions,
+        hasNotificationsReadPermissions,
         arePermissionsLoaded
     }, setPermissions ] = useState({
         hasCompareReadPermissions: undefined,
@@ -25,16 +27,21 @@ const App = (props) => {
         hasBaselinesWritePermissions: undefined,
         hasHSPReadPermissions: undefined,
         hasInventoryReadPermissions: undefined,
+        hasNotificationsWritePermissions: undefined,
+        hasNotificationsReadPermissions: undefined,
         arePermissionsLoaded: false
     });
 
-    const handlePermissionsUpdate = (hasCompareRead, hasBaselinesRead, hasBaselinesWrite, hasHSPRead, hasInventoryRead) => {
+    const handlePermissionsUpdate = (hasCompareRead, hasBaselinesRead, hasBaselinesWrite, hasHSPRead,
+        hasInventoryRead, hasNotificationsWrite, hasNotificationsRead) => {
         setPermissions({
             hasCompareReadPermissions: hasCompareRead,
             hasBaselinesReadPermissions: hasBaselinesRead,
             hasBaselinesWritePermissions: hasBaselinesWrite,
             hasHSPReadPermissions: hasHSPRead,
             hasInventoryReadPermissions: hasInventoryRead,
+            hasNotificationsWritePermissions: hasNotificationsWrite,
+            hasNotificationsReadPermissions: hasNotificationsRead,
             arePermissionsLoaded: true
         });
     };
@@ -70,7 +77,9 @@ const App = (props) => {
                 permissionsList.some((permission) => hasPermission(
                     permission, [ 'drift:*:*', 'drift:historical-system-profiles:read', 'drift:*:read' ])
                 ),
-                permissionsList.some((permission) => hasPermission(permission, [ 'inventory:*:*', 'inventory:*:read' ]))
+                permissionsList.some((permission) => hasPermission(permission, [ 'inventory:*:*', 'inventory:*:read' ])),
+                permissionsList.some((permission) => hasPermission(permission, [ 'drift:*:*', 'drift:notifications:write', 'drift:*:write' ])),
+                permissionsList.some((permission) => hasPermission(permission, [ 'drift:*:*', 'drift:notifications:read', 'drift:*:read' ]))
             );
         })();
 
@@ -91,7 +100,9 @@ const App = (props) => {
                         baselinesRead: hasBaselinesReadPermissions,
                         baselinesWrite: hasBaselinesWritePermissions,
                         hspRead: hasHSPReadPermissions,
-                        inventoryRead: hasInventoryReadPermissions
+                        inventoryRead: hasInventoryReadPermissions,
+                        notificationsWrite: hasNotificationsWritePermissions,
+                        notificationsRead: hasNotificationsReadPermissions
                     }
                 }}>
                 <NotificationsPortal />

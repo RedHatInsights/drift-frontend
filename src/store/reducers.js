@@ -11,7 +11,7 @@ import helpers from '../SmartComponents/helpers';
 function selectedReducer(
     INVENTORY_ACTIONS, baselineId, createBaselineModal, historicalProfiles, hasMultiSelect, hasHistoricalDropdown,
     deselectHistoricalProfiles, isAddSystemNotifications, selectHistoricProfiles, systemNotificationIds, selectSystemsToAdd,
-    deleteNotifications
+    deleteNotifications, permissions
 ) {
     let newColumns;
     let systemIds;
@@ -79,7 +79,7 @@ function selectedReducer(
                 });
             }
 
-            if (baselineId && !isAddSystemNotifications) {
+            if (baselineId && !isAddSystemNotifications && permissions.notificationsWrite) {
                 if (!newColumns.find(({ key }) => key === 'system_notification')) {
                     newColumns.push({
                         key: 'system_notification',

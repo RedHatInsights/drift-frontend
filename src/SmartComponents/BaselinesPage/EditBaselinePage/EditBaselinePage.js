@@ -141,7 +141,7 @@ export class EditBaselinePage extends Component {
         return pageTitle;
     }
 
-    renderPageHeader = ({ baselinesRead, baselinesWrite }) => {
+    renderPageHeader = ({ baselinesRead, baselinesWrite, notificationsRead }) => {
         const { modalOpened } = this.state;
         const { baselineData, baselineDataLoading, inlineError } = this.props;
         let pageHeader;
@@ -159,12 +159,15 @@ export class EditBaselinePage extends Component {
                         toggleEditNameModal={ this.toggleEditNameModal }
                         error={ inlineError }
                     />
-                    <PageHeader className='bottom-padding-0'>
+                    <PageHeader className={ notificationsRead ? 'bottom-padding-0' : '' }>
                         { this.renderBreadcrumb(baselineData, baselinesRead) }
                         <div id="edit-baseline-title">
                             { this.renderPageTitle(baselineData, baselinesRead, baselinesWrite) }
                         </div>
-                        { this.renderTabs() }
+                        { notificationsRead
+                            ? this.renderTabs()
+                            : null
+                        }
                     </PageHeader>
                 </React.Fragment>;
             } else {
