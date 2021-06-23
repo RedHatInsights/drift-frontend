@@ -195,7 +195,7 @@ export class EditBaselinePage extends Component {
                 </Tab>
                 <Tab
                     eventKey={ 1 }
-                    title="Systems"
+                    title="Associated systems"
                     id="system-notifications-tab"
                     data-ouia-component-id=""
                 >

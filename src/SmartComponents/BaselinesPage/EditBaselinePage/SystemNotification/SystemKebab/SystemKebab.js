@@ -29,7 +29,7 @@ export class SystemKebab extends Component {
                 data-ouia-component-id='delete-baseline-notification'
                 onClick={ () => deleteNotifications(systemIds) }
             >
-                Delete notification
+                Delete associated system
             </DropdownItem>
         );
 

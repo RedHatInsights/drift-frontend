@@ -63,7 +63,7 @@ export class SystemNotification extends Component {
             ouiaId="add-baseline-notification-button"
             isDisabled={ !permissions.baselinesWrite }
         >
-            Add system
+            Add associated system
         </Button>;
     }
 
