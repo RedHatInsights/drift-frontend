@@ -27,7 +27,7 @@ export class DeleteNotificationModal extends Component {
                     className="drift"
                     ouiaId='delete-baseline-notification-modal'
                     variant={ ModalVariant.small }
-                    title={ systemsToDelete?.length === 1 ? 'Delete baseline notification' : 'Delete baseline notifications' }
+                    title={ systemsToDelete?.length === 1 ? 'Delete associated system' : 'Delete associated systems' }
                     isOpen={ deleteNotificationsModalOpened }
                     onClose={ () => toggleDeleteNotificationsModal() }
                     actions = { [
@@ -49,10 +49,10 @@ export class DeleteNotificationModal extends Component {
                         </Button>
                     ] }
                 >
-                    You have selected { ' ' } { systemsToDelete?.length === 1 ? 'a baseline notification' : 'multiple baseline notifications' }
+                    You have selected { ' ' } { systemsToDelete?.length === 1 ? 'an associated system' : 'multiple associated systems' }
                     { ' ' } to be deleted.
                     <br></br>
-                    { <div className="md-padding-top">Deleting a baseline notification cannot be undone.</div> }
+                    { <div className="md-padding-top">Deleting an associated system cannot be undone.</div> }
                 </Modal>
             </React.Fragment>
         );

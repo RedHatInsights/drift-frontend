@@ -181,7 +181,7 @@ export const SystemsTable = connect(null, mapDispatchToProps)(({
                             onClick={ () => deleteNotifications(entities?.selectedSystemIds) }
                             isDisabled={ !entities?.selectedSystemIds?.length }
                         >
-                            { entities?.selectedSystemIds?.length > 1 ? 'Delete notifications' : 'Delete notification' }
+                            { entities?.selectedSystemIds?.length > 1 ? 'Delete associated systems' : 'Delete associated system' }
                         </div>
                     ]
                 }}
