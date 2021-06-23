@@ -159,7 +159,9 @@ export class HistoricalProfilesPopover extends Component {
                     color='#c9190b'
                     title={ 'Cannot get historical check-ins' }
                     error={ error.status + ': ' + error.message }
-                    button={ <a onClick={ () => this.retryFetch() }>
+                    button={ <a onClick={ () => this.retryFetch() }
+                        data-ouia-component-type="PF4/Button"
+                        data-ouia-component-id="hsp-retry-button">
                         <UndoIcon className='reload-button' />
                             Retry
                     </a> }
@@ -225,6 +227,8 @@ export class HistoricalProfilesPopover extends Component {
                     data-ouia-component-type='PF4/Button' >
                     <Popover
                         id={ 'hsp-popover-' + id }
+                        data-ouia-component-type='PF4/Popover'
+                        data-ouia-component-id={ 'hsp-popover-' + id }
                         isVisible={ isVisible }
                         shouldClose={ () => this.onToggle() }
                         headerContent={ <div>Historical profiles for this system</div> }
@@ -234,7 +238,7 @@ export class HistoricalProfilesPopover extends Component {
                         footerContent={ hasCompareButton
                             ? <Button
                                 variant='primary'
-                                ouiaId="hsp-popover-compare"
+                                ouiaId='hsp-popover-compare'
                                 onClick={ () => this.fetchCompare() }>
                                 Compare
                             </Button>

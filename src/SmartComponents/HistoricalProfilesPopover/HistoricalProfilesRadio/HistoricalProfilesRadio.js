@@ -63,6 +63,8 @@ export class HistoricalProfilesRadio extends Component {
                     label={ moment.utc(profile.captured_date).format('DD MMM YYYY, HH:mm UTC') }
                     value={ profile.captured_date }
                     onChange={ this.handleChange }
+                    ouiaId={ 'hsp-popover-option-radio-' + profile.id }
+                    data-ouia-component-type='PF4/Radio'
                 />
             </React.Fragment>
         );

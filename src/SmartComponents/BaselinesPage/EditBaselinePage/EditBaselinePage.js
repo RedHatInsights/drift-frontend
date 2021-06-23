@@ -98,7 +98,9 @@ export class EditBaselinePage extends Component {
         /*eslint-disable camelcase*/
         breadcrumb = <Breadcrumb ouiaId='edit-baseline-breadcrumb'>
             <BreadcrumbItem>
-                <a onClick={ () => this.goToBaselinesList() }>
+                <a onClick={ () => this.goToBaselinesList() }
+                    data-ouia-component-id='breadcrumb-baselines'
+                    data-ouia-component-type='PF4/Button'>
                     Baselines
                 </a>
             </BreadcrumbItem>

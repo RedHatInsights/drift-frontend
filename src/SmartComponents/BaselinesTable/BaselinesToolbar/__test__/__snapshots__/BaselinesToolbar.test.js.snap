@@ -227,14 +227,14 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                 Array [
                   <Button
                     onClick={[Function]}
-                    ouiaId="delete"
+                    ouiaId="delete-baseline-modal-submit-button"
                     variant="danger"
                   >
                     Delete baselines
                   </Button>,
                   <Button
                     onClick={[Function]}
-                    ouiaId="cancel"
+                    ouiaId="delete-baseline-modal-cancel-button"
                     variant="link"
                   >
                     Cancel
@@ -249,6 +249,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
               hasNoBodyWrapper={false}
               isOpen={false}
               onClose={[Function]}
+              ouiaId="delete-baseline-modal"
               ouiaSafe={true}
               showClose={true}
               title="Delete baselines"
@@ -264,14 +265,14 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                     Array [
                       <Button
                         onClick={[Function]}
-                        ouiaId="delete"
+                        ouiaId="delete-baseline-modal-submit-button"
                         variant="danger"
                       >
                         Delete baselines
                       </Button>,
                       <Button
                         onClick={[Function]}
-                        ouiaId="cancel"
+                        ouiaId="delete-baseline-modal-cancel-button"
                         variant="link"
                       >
                         Cancel
@@ -288,7 +289,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                   isOpen={false}
                   labelId="pf-modal-part-1"
                   onClose={[Function]}
-                  ouiaId="OUIA-Generated-Modal-small-1"
+                  ouiaId="delete-baseline-modal"
                   ouiaSafe={true}
                   showClose={true}
                   title="Delete baselines"

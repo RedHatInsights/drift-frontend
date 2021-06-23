@@ -319,6 +319,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                     hasNoBodyWrapper={false}
                     isOpen={false}
                     onClose={[Function]}
+                    ouiaId="create-baseline-modal"
                     ouiaSafe={true}
                     showClose={true}
                     title="Create baseline"
@@ -359,7 +360,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                         isOpen={false}
                         labelId="pf-modal-part-1"
                         onClose={[Function]}
-                        ouiaId="OUIA-Generated-Modal-default-1"
+                        ouiaId="create-baseline-modal"
                         ouiaSafe={true}
                         showClose={true}
                         title="Create baseline"
@@ -571,14 +572,14 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                           Array [
                                             <Button
                                               onClick={[Function]}
-                                              ouiaId="delete"
+                                              ouiaId="delete-baseline-modal-submit-button"
                                               variant="danger"
                                             >
                                               Delete baselines
                                             </Button>,
                                             <Button
                                               onClick={[Function]}
-                                              ouiaId="cancel"
+                                              ouiaId="delete-baseline-modal-cancel-button"
                                               variant="link"
                                             >
                                               Cancel
@@ -593,6 +594,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                         hasNoBodyWrapper={false}
                                         isOpen={false}
                                         onClose={[Function]}
+                                        ouiaId="delete-baseline-modal"
                                         ouiaSafe={true}
                                         showClose={true}
                                         title="Delete baselines"
@@ -608,14 +610,14 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                               Array [
                                                 <Button
                                                   onClick={[Function]}
-                                                  ouiaId="delete"
+                                                  ouiaId="delete-baseline-modal-submit-button"
                                                   variant="danger"
                                                 >
                                                   Delete baselines
                                                 </Button>,
                                                 <Button
                                                   onClick={[Function]}
-                                                  ouiaId="cancel"
+                                                  ouiaId="delete-baseline-modal-cancel-button"
                                                   variant="link"
                                                 >
                                                   Cancel
@@ -632,7 +634,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                             isOpen={false}
                                             labelId="pf-modal-part-2"
                                             onClose={[Function]}
-                                            ouiaId="OUIA-Generated-Modal-small-1"
+                                            ouiaId="delete-baseline-modal"
                                             ouiaSafe={true}
                                             showClose={true}
                                             title="Delete baselines"
@@ -5715,6 +5717,7 @@ exports[`ConnectedBaselinesPage should render empty state 1`] = `
                     hasNoBodyWrapper={false}
                     isOpen={false}
                     onClose={[Function]}
+                    ouiaId="create-baseline-modal"
                     ouiaSafe={true}
                     showClose={true}
                     title="Create baseline"
@@ -5755,7 +5758,7 @@ exports[`ConnectedBaselinesPage should render empty state 1`] = `
                         isOpen={false}
                         labelId="pf-modal-part-4"
                         onClose={[Function]}
-                        ouiaId="OUIA-Generated-Modal-default-3"
+                        ouiaId="create-baseline-modal"
                         ouiaSafe={true}
                         showClose={true}
                         title="Create baseline"

@@ -320,6 +320,7 @@ export class CreateBaselineModal extends Component {
                 isOpen={ createBaselineModalOpened }
                 onClose={ this.cancelModal }
                 actions={ this.renderActions() }
+                ouiaId="create-baseline-modal"
             >
                 { copySystemChecked
                     ? <GlobalFilterAlert globalFilterState={ globalFilterState }/>

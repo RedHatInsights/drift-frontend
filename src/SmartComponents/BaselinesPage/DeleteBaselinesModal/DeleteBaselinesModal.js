@@ -53,12 +53,13 @@ export class DeleteBaselinesModal extends Component {
                 title={ deleteMessage }
                 isOpen={ modalOpened }
                 onClose={ toggleModal }
+                ouiaId="delete-baseline-modal"
                 actions = { [
                     <Button
                         key="confirm"
                         variant="danger"
                         onClick={ this.deleteBaselines }
-                        ouiaId="delete"
+                        ouiaId="delete-baseline-modal-submit-button"
                     >
                         { deleteMessage }
                     </Button>,
@@ -66,7 +67,7 @@ export class DeleteBaselinesModal extends Component {
                         key="cancel"
                         variant="link"
                         onClick={ toggleModal }
-                        ouiaId="cancel"
+                        ouiaId="delete-baseline-modal-cancel-button"
                     >
                     Cancel
                     </Button>
