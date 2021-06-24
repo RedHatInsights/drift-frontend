@@ -128,7 +128,7 @@ export const SystemsTable = connect(null, mapDispatchToProps)(({
                 tableProps={{
                     canSelectAll: false,
                     selectVariant,
-                    ouiaId: 'systems-table'
+                    ouiaId: 'system-associations-table'
                 }}
                 getEntities={ async (_items, config) => {
                     const currIds = (systemNotificationIds || [])
@@ -180,6 +180,7 @@ export const SystemsTable = connect(null, mapDispatchToProps)(({
                             key="delete-baseline-notification"
                             onClick={ () => deleteNotifications(entities?.selectedSystemIds) }
                             isDisabled={ !entities?.selectedSystemIds?.length }
+                            data-ouia-component-id="delete-associated-systems-dropdown-item"
                         >
                             { entities?.selectedSystemIds?.length > 1 ? 'Delete associated systems' : 'Delete associated system' }
                         </div>

@@ -26,7 +26,7 @@ export class SystemKebab extends Component {
             <DropdownItem
                 key="delete-baseline-notification"
                 component="button"
-                data-ouia-component-id='delete-baseline-notification'
+                data-ouia-component-id={ 'delete-system-association-dropdown-item' + systemIds }
                 onClick={ () => deleteNotifications(systemIds) }
             >
                 Delete associated system
@@ -38,19 +38,20 @@ export class SystemKebab extends Component {
 
     render() {
         const { kebabOpened } = this.state;
+        const { systemIds } = this.props;
 
         return (
             <React.Fragment>
                 <Dropdown
                     style={{ float: 'right' }}
                     toggle={ <KebabToggle
-                        data-ouia-component-id='system-notification-dropdown'
+                        data-ouia-component-id={ 'system-association-dropdown-toggle-' + systemIds }
                         data-ouia-component-type='PF4/DropdownToggle'
                         onToggle={ () => this.toggleKebab() } /> }
                     isOpen={ kebabOpened }
                     dropdownItems={ this.buildDropdownItems() }
                     isPlain
-                    ouiaId='system-notification-dropdown'
+                    ouiaId={ 'system-notification-dropdown-' + systemIds }
                     position={ DropdownPosition.right }
                 />
             </React.Fragment>

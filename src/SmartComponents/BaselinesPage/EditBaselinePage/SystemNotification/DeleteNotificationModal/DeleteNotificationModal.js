@@ -25,7 +25,7 @@ export class DeleteNotificationModal extends Component {
             <React.Fragment>
                 <Modal
                     className="drift"
-                    ouiaId='delete-baseline-notification-modal'
+                    ouiaId='delete-system-association-modal'
                     variant={ ModalVariant.small }
                     title={ systemsToDelete?.length === 1 ? 'Delete associated system' : 'Delete associated systems' }
                     isOpen={ deleteNotificationsModalOpened }
@@ -33,7 +33,7 @@ export class DeleteNotificationModal extends Component {
                     actions = { [
                         <Button
                             key="confirm"
-                            ouiaId='delete-baseline-notification-button'
+                            ouiaId='delete-system-association-button'
                             variant="danger"
                             onClick={ this.deleteNotification }
                         >
@@ -41,7 +41,7 @@ export class DeleteNotificationModal extends Component {
                         </Button>,
                         <Button
                             key="cancel"
-                            ouiaId='delete-baseline-notification-cancel-button'
+                            ouiaId='delete-system-association-cancel-button'
                             variant="link"
                             onClick={ () => toggleDeleteNotificationsModal() }
                         >

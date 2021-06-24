@@ -60,7 +60,7 @@ export class SystemNotification extends Component {
             key="add-baseline-notification"
             variant="primary"
             onClick={ this.toggleModal }
-            ouiaId="add-baseline-notification-button"
+            ouiaId="add-system-associations-button"
             isDisabled={ !permissions.baselinesWrite }
         >
             Add associated system
@@ -95,7 +95,7 @@ export class SystemNotification extends Component {
                 />
                 <Modal
                     className="drift"
-                    ouiaId='add-baseline-notification-modal'
+                    ouiaId='add-system-association-modal'
                     variant={ ModalVariant.medium }
                     title={ 'Associate system with ' + baselineName }
                     isOpen={ modalOpened }
@@ -103,7 +103,7 @@ export class SystemNotification extends Component {
                     actions = { [
                         <Button
                             key="confirm"
-                            ouiaId='add-baseline-notification-button'
+                            ouiaId='add-system-association-button'
                             variant="primary"
                             onClick={ this.addNotification }
                         >
@@ -111,7 +111,7 @@ export class SystemNotification extends Component {
                         </Button>,
                         <Button
                             key="cancel"
-                            ouiaId='add-baseline-notification-cancel-button'
+                            ouiaId='add-system-association-cancel-button'
                             variant="link"
                             onClick={ this.toggleModal }
                         >
