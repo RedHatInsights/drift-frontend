@@ -15,6 +15,7 @@ export class EmptyStateDisplay extends Component {
     render() {
         const { button, color, error, icon, isSmall, text, title } = this.props;
 
+        /*eslint-disable react/jsx-key*/
         return (
             <EmptyState variant={ isSmall ? EmptyStateVariant.small : EmptyStateVariant.large }>
                 { icon
@@ -33,12 +34,19 @@ export class EmptyStateDisplay extends Component {
                     { title }
                 </Title>
                 <EmptyStateBody>
-                    { text ? text.join('\n') : null }
+                    { text ? text.map(line =>
+                        <React.Fragment>
+                            { line }
+                            <br />
+                        </React.Fragment>)
+                        : null
+                    }
                     { error ? error : null }
                 </EmptyStateBody>
                 { button }
             </EmptyState>
         );
+        /*eslint-enable react/jsx-key*/
     }
 }
 
