@@ -4499,7 +4499,9 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                                             className="pf-c-empty-state__body"
                                                                                           >
                                                                                             This filter criteria matches no baselines.
-Try changing your filter settings.
+                                                                                            <br />
+                                                                                            Try changing your filter settings.
+                                                                                            <br />
                                                                                           </div>
                                                                                         </EmptyStateBody>
                                                                                       </div>
@@ -5882,7 +5884,9 @@ exports[`ConnectedBaselinesPage should render empty state 1`] = `
                               className="pf-c-empty-state__body"
                             >
                               You currently have no baselines displayed.
-Create a baseline to use in your Comparison analysis.
+                              <br />
+                              Create a baseline to use in your Comparison analysis.
+                              <br />
                             </div>
                           </EmptyStateBody>
                           <withRouter(Connect(CreateBaselineButton))
