@@ -1313,6 +1313,27 @@ exports[`ConnectedNotificationsSystemsTable should render correctly with no inve
                               "tags": undefined,
                             }
                           }
+                          error={[TypeError: Cannot read property 'appsMetaData' of undefined]}
+                          errorInfo={
+                            Object {
+                              "componentStack": "
+    in LoadModule (created by BaseScalprumComponent)
+    in BaseScalprumComponent (created by ForwardRef)
+    in ForwardRef (created by BaseInvTable)
+    in Suspense (created by BaseInvTable)
+    in BaseInvTable (created by ForwardRef)
+    in ForwardRef
+    in Unknown (created by Connect(Component))
+    in Connect(Component)
+    in Connect(Component) (created by SystemsTableWithContext)
+    in Provider (created by SystemsTableWithContext)
+    in SystemsTableWithContext
+    in Provider
+    in Router (created by MemoryRouter)
+    in MemoryRouter (created by WrapperComponent)
+    in WrapperComponent",
+                            }
+                          }
                           fallback={
                             <Bullseye
                               className="pf-u-p-lg"
@@ -1323,6 +1344,7 @@ exports[`ConnectedNotificationsSystemsTable should render correctly with no inve
                             </Bullseye>
                           }
                           getEntities={[Function]}
+                          hasError={true}
                           innerRef={null}
                           noDetail={true}
                           onLoad={[Function]}

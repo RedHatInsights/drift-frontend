@@ -170,21 +170,29 @@ exports[`ConnectedCreateBaselineButton should render correctly 1`] = `
               ouiaId="create-baseline-button"
               variant="primary"
             >
-              <button
-                aria-disabled={false}
-                aria-label={null}
-                className="pf-c-button pf-m-primary"
-                data-ouia-component-id="create-baseline-button"
-                data-ouia-component-type="PF4/Button"
-                data-ouia-safe={true}
-                disabled={false}
+              <ButtonBase
                 id="create-baseline-button"
+                innerRef={null}
                 onClick={[Function]}
-                role={null}
-                type="button"
+                ouiaId="create-baseline-button"
+                variant="primary"
               >
-                Create baseline
-              </button>
+                <button
+                  aria-disabled={false}
+                  aria-label={null}
+                  className="pf-c-button pf-m-primary"
+                  data-ouia-component-id="create-baseline-button"
+                  data-ouia-component-type="PF4/Button"
+                  data-ouia-safe={true}
+                  disabled={false}
+                  id="create-baseline-button"
+                  onClick={[Function]}
+                  role={null}
+                  type="button"
+                >
+                  Create baseline
+                </button>
+              </ButtonBase>
             </Button>
           </CreateBaselineButton>
         </Connect(CreateBaselineButton)>
@@ -225,21 +233,30 @@ exports[`CreateBaselineButton should render mount correctly 1`] = `
     ouiaId="create-baseline-button"
     variant="primary"
   >
-    <button
-      aria-disabled={false}
-      aria-label={null}
-      className="pf-c-button pf-m-primary"
-      data-ouia-component-id="create-baseline-button"
-      data-ouia-component-type="PF4/Button"
-      data-ouia-safe={true}
-      disabled={false}
+    <ButtonBase
       id="create-baseline-button"
+      innerRef={null}
+      isDisabled={false}
       onClick={[Function]}
-      role={null}
-      type="button"
+      ouiaId="create-baseline-button"
+      variant="primary"
     >
-      Create baseline
-    </button>
+      <button
+        aria-disabled={false}
+        aria-label={null}
+        className="pf-c-button pf-m-primary"
+        data-ouia-component-id="create-baseline-button"
+        data-ouia-component-type="PF4/Button"
+        data-ouia-safe={true}
+        disabled={false}
+        id="create-baseline-button"
+        onClick={[Function]}
+        role={null}
+        type="button"
+      >
+        Create baseline
+      </button>
+    </ButtonBase>
   </Button>
 </CreateBaselineButton>
 `;
