@@ -135,6 +135,12 @@ function setGlobalFilterSIDs(SIDs = []) {
     };
 }
 
+function resetComparisonFilters() {
+    return {
+        type: types.RESET_COMPARISON_FILTERS
+    };
+}
+
 export default {
     fetchCompare,
     revertCompareData,
@@ -153,5 +159,6 @@ export default {
     updateReferenceId,
     setGlobalFilterTags,
     setGlobalFilterWorkloads,
-    setGlobalFilterSIDs
+    setGlobalFilterSIDs,
+    resetComparisonFilters
 };

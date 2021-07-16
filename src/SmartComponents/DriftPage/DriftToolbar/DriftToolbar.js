@@ -49,16 +49,6 @@ export class DriftToolbar extends Component {
         return factFilterChips;
     }
 
-    async clearAllFactChips() {
-        const { activeFactFilters, filterByFact, handleFactFilter } = this.props;
-
-        await activeFactFilters.forEach(function (filter) {
-            handleFactFilter(filter);
-        });
-
-        filterByFact('');
-    }
-
     setStateChips = (stateFilters) => {
         let stateChips = [];
 
@@ -83,29 +73,24 @@ export class DriftToolbar extends Component {
     removeChip = async (type = '', id = '') => {
         const { activeFactFilters, addStateFilter, clearAllFactFilters, filterByFact, handleFactFilter, setHistory, stateFilters } = this.props;
 
-        if (type) {
-            if (type === 'State') {
-                if (id === '') {
-                    this.clearAllStateChips();
-                } else {
-                    stateFilters.forEach(async function(stateFilter) {
-                        if (stateFilter.display === id) {
-                            await addStateFilter(stateFilter);
-                        }
-                    });
-                }
+        if (type === 'State') {
+            if (id === '') {
+                this.clearAllStateChips();
             } else {
-                if (id === '') {
-                    await clearAllFactFilters();
-                } else if (activeFactFilters.includes(id)) {
-                    await handleFactFilter(id);
-                } else {
-                    await filterByFact('');
-                }
+                stateFilters.forEach(async function(stateFilter) {
+                    if (stateFilter.display === id) {
+                        await addStateFilter(stateFilter);
+                    }
+                });
             }
         } else {
-            await this.clearAllStateChips();
-            await this.clearAllFactChips();
+            if (id === '') {
+                await clearAllFactFilters();
+            } else if (activeFactFilters.includes(id)) {
+                await handleFactFilter(id);
+            } else {
+                await filterByFact('');
+            }
         }
 
         setHistory();
@@ -142,13 +127,13 @@ export class DriftToolbar extends Component {
     }
 
     render() {
-        const { activeFactFilters, factFilter, filterByFact, handleFactFilter, loading,
-            page, perPage, setHistory, stateFilters, totalFacts, updatePagination } = this.props;
+        const { activeFactFilters, factFilter, filterByFact, handleFactFilter, loading, page, perPage,
+            resetComparisonFilters, setHistory, stateFilters, totalFacts, updatePagination } = this.props;
         const { actionKebabItems, dropdownItems, dropdownOpen } = this.state;
 
         return (
             <React.Fragment>
-                <Toolbar className="drift-toolbar" clearAllFilters={ this.removeChip }>
+                <Toolbar className="drift-toolbar" clearAllFilters={ resetComparisonFilters } clearFiltersButtonText='Reset filters'>
                     <ToolbarContent>
                         <ToolbarGroup variant='filter-group'>
                             <ToolbarFilter
@@ -233,7 +218,8 @@ DriftToolbar.propTypes = {
     activeFactFilters: PropTypes.array,
     handleFactFilter: PropTypes.func,
     clearAllFactFilters: PropTypes.func,
-    setHistory: PropTypes.func
+    setHistory: PropTypes.func,
+    resetComparisonFilters: PropTypes.func
 };
 
 export default DriftToolbar;

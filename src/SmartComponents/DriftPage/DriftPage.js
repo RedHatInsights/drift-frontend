@@ -96,8 +96,8 @@ export class DriftPage extends Component {
     render() {
         const { activeFactFilters, addStateFilter, baselines, clearAllFactFilters, clearComparison, clearComparisonFilters, clearSelectedBaselines,
             emptyState, error, exportToCSV, factFilter, factSort, filterByFact, handleFactFilter, historicalProfiles, handleBaselineSelection,
-            handleHSPSelection, handleSystemSelection, history, loading, page, perPage, referenceId, selectedBaselineIds, selectedHSPIds,
-            stateFilters, stateSort, systems, totalFacts, updatePagination, updateReferenceId } = this.props;
+            handleHSPSelection, handleSystemSelection, history, loading, page, perPage, referenceId, resetComparisonFilters, selectedBaselineIds,
+            selectedHSPIds, stateFilters, stateSort, systems, totalFacts, updatePagination, updateReferenceId } = this.props;
         const { isFirstReference } = this.state;
 
         return (
@@ -149,6 +149,7 @@ export class DriftPage extends Component {
                                                         handleFactFilter={ handleFactFilter }
                                                         clearAllFactFilters={ clearAllFactFilters }
                                                         setHistory={ this.setHistory }
+                                                        resetComparisonFilters={ resetComparisonFilters }
                                                     />
                                                     : null
                                                 }
@@ -244,7 +245,8 @@ DriftPage.propTypes = {
     selectedBaselineIds: PropTypes.array,
     handleBaselineSelection: PropTypes.func,
     handleHSPSelection: PropTypes.func,
-    handleSystemSelection: PropTypes.func
+    handleSystemSelection: PropTypes.func,
+    resetComparisonFilters: PropTypes.func
 };
 
 function mapDispatchToProps(dispatch) {
@@ -264,7 +266,8 @@ function mapDispatchToProps(dispatch) {
         loadEntities: () => dispatch({ type: 'LOAD_ENTITIES' }),
         handleSystemSelection: (content, isSelected) => dispatch(addSystemModalActions.handleSystemSelection(content, isSelected)),
         handleBaselineSelection: (content, isSelected) => dispatch(addSystemModalActions.handleBaselineSelection(content, isSelected)),
-        handleHSPSelection: (content) => dispatch(addSystemModalActions.handleHSPSelection(content))
+        handleHSPSelection: (content) => dispatch(addSystemModalActions.handleHSPSelection(content)),
+        resetComparisonFilters: () => dispatch(compareActions.resetComparisonFilters())
     };
 }
 

@@ -193,6 +193,12 @@ describe('compare actions', () => {
         });
     });
 
+    it('handles resetComparisonFilters', () => {
+        expect(compareActions.resetComparisonFilters()).toEqual({
+            type: types.RESET_COMPARISON_FILTERS
+        });
+    });
+
     it('handles setGlobalFilterTags', () => {
         expect(compareActions.setGlobalFilterTags([ 'tag1', 'tag2' ])).toEqual({
             type: types.SET_GLOBAL_FILTER_TAGS,
