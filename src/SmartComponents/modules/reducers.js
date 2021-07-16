@@ -273,6 +273,40 @@ export function compareReducer(state = initialState, action) {
                 ...state,
                 referenceId: action.payload
             };
+        case `${types.RESET_COMPARISON_FILTERS}`:
+            newStateFilters = [
+                {
+                    filter: 'SAME',
+                    display: 'Same',
+                    selected: true
+                },
+                {
+                    filter: 'DIFFERENT',
+                    display: 'Different',
+                    selected: true
+                },
+                {
+                    filter: 'INCOMPLETE_DATA',
+                    display: 'Incomplete data',
+                    selected: true
+                }
+            ];
+
+            filteredFacts = reducerHelpers.filterCompareData(
+                state.fullCompareData, newStateFilters, '', state.referenceId, []
+            );
+            sortedFacts = reducerHelpers.sortData(filteredFacts, state.factSort, state.stateSort);
+            paginatedFacts = reducerHelpers.paginateData(sortedFacts, 1, state.perPage);
+
+            return {
+                ...state,
+                stateFilters: newStateFilters,
+                factFilter: '',
+                activeFactFilters: [],
+                filteredCompareData: paginatedFacts,
+                sortedFilteredFacts: sortedFacts,
+                totalFacts: filteredFacts.length
+            };
 
         default:
             return {

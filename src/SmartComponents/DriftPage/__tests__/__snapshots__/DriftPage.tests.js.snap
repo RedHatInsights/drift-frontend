@@ -164,6 +164,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
               }
             }
             previousStateSystems={Array []}
+            resetComparisonFilters={[Function]}
             revertCompareData={[Function]}
             selectHistoricProfiles={[Function]}
             selectedBaselineIds={Array []}
@@ -291,6 +292,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                 }
                               }
                               loading={false}
+                              resetComparisonFilters={[Function]}
                               setHistory={[Function]}
                               setIsFirstReference={[Function]}
                               stateFilters={
@@ -318,6 +320,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                               <Toolbar
                                 className="drift-toolbar"
                                 clearAllFilters={[Function]}
+                                clearFiltersButtonText="Reset filters"
                               >
                                 <GenerateId
                                   prefix="pf-random-id-"
@@ -2840,7 +2843,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                             }
                                           }
                                           clearAllFilters={[Function]}
-                                          clearFiltersButtonText="Clear all filters"
+                                          clearFiltersButtonText="Reset filters"
                                           expandableContentRef={
                                             Object {
                                               "current": <div
@@ -2867,7 +2870,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                       data-ouia-safe="true"
                                                       type="button"
                                                     >
-                                                      Clear all filters
+                                                      Reset filters
                                                     </button>
                                                   </div>
                                                 </div>
@@ -2943,7 +2946,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                             role={null}
                                                             type="button"
                                                           >
-                                                            Clear all filters
+                                                            Reset filters
                                                           </button>
                                                         </ButtonBase>
                                                       </Button>
@@ -3159,14 +3162,14 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                 data-ouia-safe="true"
                                                 type="button"
                                               >
-                                                Clear all filters
+                                                Reset filters
                                               </button>
                                             </div>
                                           </div>,
                                         }
                                       }
                                       clearAllFilters={[Function]}
-                                      clearFiltersButtonText="Clear all filters"
+                                      clearFiltersButtonText="Reset filters"
                                       collapseListedFiltersBreakpoint="lg"
                                       isExpanded={false}
                                       numberOfFilters={3}
@@ -3214,7 +3217,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                   role={null}
                                                   type="button"
                                                 >
-                                                  Clear all filters
+                                                  Reset filters
                                                 </button>
                                               </ButtonBase>
                                             </Button>
@@ -4746,6 +4749,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
               }
             }
             previousStateSystems={Array []}
+            resetComparisonFilters={[Function]}
             revertCompareData={[Function]}
             selectHistoricProfiles={[Function]}
             selectedBaselineIds={Array []}
@@ -4881,6 +4885,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                 }
                               }
                               loading={false}
+                              resetComparisonFilters={[Function]}
                               setHistory={[Function]}
                               setIsFirstReference={[Function]}
                               stateFilters={
@@ -4908,6 +4913,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                               <Toolbar
                                 className="drift-toolbar"
                                 clearAllFilters={[Function]}
+                                clearFiltersButtonText="Reset filters"
                               >
                                 <GenerateId
                                   prefix="pf-random-id-"
@@ -7430,7 +7436,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                             }
                                           }
                                           clearAllFilters={[Function]}
-                                          clearFiltersButtonText="Clear all filters"
+                                          clearFiltersButtonText="Reset filters"
                                           expandableContentRef={
                                             Object {
                                               "current": <div
@@ -7457,7 +7463,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                       data-ouia-safe="true"
                                                       type="button"
                                                     >
-                                                      Clear all filters
+                                                      Reset filters
                                                     </button>
                                                   </div>
                                                 </div>
@@ -7533,7 +7539,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                             role={null}
                                                             type="button"
                                                           >
-                                                            Clear all filters
+                                                            Reset filters
                                                           </button>
                                                         </ButtonBase>
                                                       </Button>
@@ -7749,14 +7755,14 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                 data-ouia-safe="true"
                                                 type="button"
                                               >
-                                                Clear all filters
+                                                Reset filters
                                               </button>
                                             </div>
                                           </div>,
                                         }
                                       }
                                       clearAllFilters={[Function]}
-                                      clearFiltersButtonText="Clear all filters"
+                                      clearFiltersButtonText="Reset filters"
                                       collapseListedFiltersBreakpoint="lg"
                                       isExpanded={false}
                                       numberOfFilters={3}
@@ -7804,7 +7810,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                   role={null}
                                                   type="button"
                                                 >
-                                                  Clear all filters
+                                                  Reset filters
                                                 </button>
                                               </ButtonBase>
                                             </Button>

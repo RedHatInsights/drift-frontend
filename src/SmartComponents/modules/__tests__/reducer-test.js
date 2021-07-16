@@ -1179,6 +1179,30 @@ describe('compare reducer', () => {
             }
         );
     });
+
+    it('should handle RESET_COMPARISON_FILTERS', () => {
+        expect(
+            compareReducer({
+                stateFilters: stateFilters.sameStateTrue,
+                factFilter: 'bios',
+                activeFactFilters: [ 'display' ],
+                fullCompareData: stateFilteredFixtures.stateFilteredStateAll.facts
+            },
+            {
+                type: `${types.RESET_COMPARISON_FILTERS}`
+            })
+        ).toEqual(
+            {
+                stateFilters: stateFilters.allStatesTrue,
+                factFilter: '',
+                activeFactFilters: [],
+                fullCompareData: stateFilteredFixtures.stateFilteredStateAll.facts,
+                filteredCompareData: [],
+                sortedFilteredFacts: stateFilteredFixtures.stateFilteredStateAll.facts,
+                totalFacts: 3
+            }
+        );
+    });
 });
 
 describe('compare reducer', () => {

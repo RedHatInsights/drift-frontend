@@ -150,27 +150,6 @@ describe('DriftToolbar', () => {
         expect(props.clearAllFactFilters).toHaveBeenCalled();
     });
 
-    it('should clear all filters', async () => {
-        props.activeFactFilters = [ 'dog', 'cat' ];
-        const wrapper = shallow(
-            <DriftToolbar { ...props } />
-        );
-        wrapper.instance().removeChip();
-
-        await expect(props.addStateFilter).toHaveBeenCalledWith(
-            { filter: 'SAME', display: 'Same', selected: true }
-        );
-        await expect(props.addStateFilter).toHaveBeenCalledWith(
-            { filter: 'DIFFERENT', display: 'Different', selected: true }
-        );
-        await expect(props.addStateFilter).toHaveBeenCalledWith(
-            { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
-        );
-        await expect(props.handleFactFilter).toHaveBeenCalledWith('dog');
-        await expect(props.handleFactFilter).toHaveBeenCalledWith('cat');
-        await expect(props.filterByFact).toHaveBeenCalledWith('');
-    });
-
     it.skip('should call clearFilters', () => {
         props.factFilter = 'blah';
         const wrapper = shallow(
