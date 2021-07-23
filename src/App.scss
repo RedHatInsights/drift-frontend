@@ -63,7 +63,6 @@
 
 .reference-header {
   overflow: visible;
-  border-top: 1px solid #CCC;
   background: #DEF3FF;
 }
 
@@ -75,13 +74,11 @@
 
 .baseline-header {
   overflow: visible;
-  border-top: 1px solid #CCC;
   background: #FFF;
 }
 
 .system-header {
   overflow: visible;
-  border-top: 1px solid #CCC;
   background-color: rgb(237, 237, 237);
 }
 
@@ -93,7 +90,6 @@
 
 .historical-system-profile-header {
   overflow: visible;
-  border-top: 1px solid #CCC;
   background-color: #f9e0a2;
 }
 
@@ -160,10 +156,13 @@
   }
 }
 
+.sticky-column-header th {
+  z-index: 2;
+}
+
 .drift-table {
   border-top: 0;
   border-left: 0;
-  margin-top: 10px;
 
   td, th {
     background-clip: padding-box;
@@ -199,11 +198,12 @@
 
     tr td:first-child {
       background-clip: padding-box;
-      z-index: 9999;
     }
     tr td:nth-child(2) {
       background-clip: padding-box;
-      z-index: 9999;
+    }
+    tr td:empty {
+      min-width: 250px;
     }
   }
 
@@ -246,6 +246,7 @@
   }
 }
 
+
 .different-fact-cell {
   border-left: 6px solid rgb(201, 25, 11);
   border-left-width: medium;
@@ -257,36 +258,63 @@
 }
 
 .second-scroll-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
   margin-left: 24px;
   margin-right: 24px;
-  overflow-x: scroll;
-  overflow-y: hidden;
+  height: 15px;
+  background-color: white;
 }
 
 .second-scroll {
   height: 12px;
 }
 
-.drift-table-wrapper {
-  overflow-x: scroll;
-  overflow-y: hidden;
-  min-height: 500px;
+.container {
+  height: 1000px;
+  overflow: auto;
   margin-left: 24px;
   margin-right: 24px;
 }
+
+.height-100 {
+  height: 100%
+}
+
+.drift-table-wrapper {
+  overflow: hidden;
+  margin-right: 24px;
+  margin-left: 24px;
+}
+
+.sticky-table-header {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+}
+
+.table-body-scroll {
+  overflow-x: auto;
+}
+
 .sticky-column {
   &,
   .sticky-column-header & {
     position: sticky;
     background-color: white;
     background-clip: padding-box;
-    z-index: 1;
+    z-index: 3;
     border-right: 0;
   }
 }
+th.sticky-column {
+  z-index: 3;
+}
+.sticky-header {
+  top: 0;
+  position: sticky;
+}
 .fact-header {
-  min-width: 200px;
-  width: 100%;
   vertical-align: bottom;
 }
 .state-header {
@@ -298,21 +326,26 @@
   }
 }
 .fixed-column-1 {
+  top: 0;
   left: 0;
   width: 250px;
   min-width: 250px;
   max-width: 250px;
   word-wrap: break-word;
   border-right: none;
+  z-index: 1;
 }
 .fixed-column-2 {
+  top: 0;
   left: 250px;
   width: 60px;
   min-width: 100px;
   max-width: 100px;
   border-right: 1px solid #CCC;
+  z-index: 1;
 }
 .comparison-cell {
+  min-width: 250px;
   border-right: 1px solid #CCC;
 }
 .nested-fact {
@@ -320,11 +353,6 @@
 }
 .child-row {
   margin-left: 3em;
-}
-.drift-table-scroller {
-  overflow-x: scroll;
-  overflow-y: visible;
-  margin-left: 410px;
 }
 .add-system-icon {
   font-size: 3em;
@@ -470,4 +498,12 @@
   .pf-c-dropdown__toggle {
     width: 207px;
   }
+}
+
+.fact-loading-width {
+  width: 250px;
+}
+
+.state-loading-width {
+  width: 100px;
 }

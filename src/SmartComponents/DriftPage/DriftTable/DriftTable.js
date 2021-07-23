@@ -26,6 +26,7 @@ export class DriftTable extends Component {
         this.setFilters();
         this.setSort();
         this.topScroller = React.createRef();
+        this.headerScroll = React.createRef();
         this.bottomScroller = React.createRef();
         this.doubleScroll = this.doubleScroll.bind(this);
         this.fetchCompare = this.fetchCompare.bind(this);
@@ -34,14 +35,17 @@ export class DriftTable extends Component {
 
     doubleScroll() {
         let wrapper1 = this.topScroller.current;
-        let wrapper2 = this.bottomScroller.current;
+        let wrapper2 = this.headerScroll.current;
+        let wrapper3 = this.bottomScroller.current;
 
         wrapper1.onscroll = function() {
             wrapper2.scrollLeft = wrapper1.scrollLeft;
+            wrapper3.scrollLeft = wrapper1.scrollLeft;
         };
 
-        wrapper2.onscroll = function() {
-            wrapper1.scrollLeft = wrapper2.scrollLeft;
+        wrapper3.onscroll = function() {
+            wrapper1.scrollLeft = wrapper3.scrollLeft;
+            wrapper2.scrollLeft = wrapper3.scrollLeft;
         };
     }
 
@@ -355,9 +359,9 @@ export class DriftTable extends Component {
         let rows = [];
         let rowData = [];
 
-        for (let i = 0; i < 3; i += 1) {
-            rowData.push(<td><Skeleton size={ SkeletonSize.md } /></td>);
-        }
+        rowData.push(<td className='fact-loading-width'><Skeleton size={ SkeletonSize.md } /></td>);
+        rowData.push(<td className='state-loading-width'><Skeleton size={ SkeletonSize.md } /></td>);
+        rowData.push(<td><Skeleton size={ SkeletonSize.md } /></td>);
 
         for (let i = 0; i < 10; i += 1) {
             rows.push(<tr>{ rowData }</tr>);
@@ -443,36 +447,51 @@ export class DriftTable extends Component {
 
         return (
             <React.Fragment>
-                <div className='second-scroll-wrapper' onScroll={ this.doubleScroll } ref={ this.topScroller }>
+                <div className='sticky-table-header'>
+                    <div className='second-scroll-wrapper' onScroll={ this.doubleScroll } ref={ this.topScroller }>
+                        <div
+                            className='second-scroll'
+                            style={{ width: scrollWidth }}
+                        ></div>
+                    </div>
                     <div
-                        className='second-scroll'
-                        style={{ width: scrollWidth }}
-                    ></div>
+                        className="drift-table-wrapper"
+                        onScroll={ this.doubleScroll }
+                        ref={ this.headerScroll }>
+                        <table
+                            className="pf-c-table pf-m-compact drift-table"
+                            data-ouia-component-type='PF4/Table'
+                            data-ouia-component-id='comparison-table'>
+                            <thead>
+                                <ComparisonHeader
+                                    factSort={ factSort }
+                                    fetchCompare={ this.fetchCompare }
+                                    permissions={ permissions }
+                                    masterList={ this.masterList }
+                                    referenceId={ referenceId }
+                                    removeSystem={ this.removeSystem }
+                                    stateSort={ stateSort }
+                                    systemIds={ this.systemIds }
+                                    toggleFactSort={ toggleFactSort }
+                                    toggleStateSort={ toggleStateSort }
+                                    updateReferenceId={ this.updateReferenceId }
+                                    setHistory={ setHistory }
+                                    selectedHSPIds={ selectedHSPIds }
+                                    selectHistoricProfiles={ selectHistoricProfiles }
+                                    selectedBaselineIds={ selectedBaselineIds }
+                                />
+                            </thead>
+                        </table>
+                    </div>
                 </div>
-                <div className="drift-table-wrapper" onScroll={ this.doubleScroll } ref={ this.bottomScroller }>
+                <div
+                    className="drift-table-wrapper table-body-scroll"
+                    onScroll={ this.doubleScroll }
+                    ref={ this.bottomScroller }>
                     <table
                         className="pf-c-table pf-m-compact drift-table"
                         data-ouia-component-type='PF4/Table'
                         data-ouia-component-id='comparison-table'>
-                        <thead>
-                            <ComparisonHeader
-                                factSort={ factSort }
-                                fetchCompare={ this.fetchCompare }
-                                permissions={ permissions }
-                                masterList={ this.masterList }
-                                referenceId={ referenceId }
-                                removeSystem={ this.removeSystem }
-                                stateSort={ stateSort }
-                                systemIds={ this.systemIds }
-                                toggleFactSort={ toggleFactSort }
-                                toggleStateSort={ toggleStateSort }
-                                updateReferenceId={ this.updateReferenceId }
-                                setHistory={ setHistory }
-                                selectedHSPIds={ selectedHSPIds }
-                                selectHistoricProfiles={ selectHistoricProfiles }
-                                selectedBaselineIds={ selectedBaselineIds }
-                            />
-                        </thead>
                         <tbody>
                             { loading ? this.renderLoadingRows() : this.renderRows(compareData) }
                         </tbody>

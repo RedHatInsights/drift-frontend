@@ -214,26 +214,32 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                 className="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
                 widget-type="InsightsPageHeader"
               >
-                <PageHeaderTitle
-                  title="Comparison"
-                >
-                  <Title
-                    className=""
-                    headingLevel="h1"
-                    size="2xl"
-                    widget-type="InsightsPageHeaderTitle"
+                <PageSection>
+                  <section
+                    className="pf-c-page__main-section"
                   >
-                    <h1
-                      className="pf-c-title pf-m-2xl"
-                      data-ouia-component-id="OUIA-Generated-Title-1"
-                      data-ouia-component-type="PF4/Title"
-                      data-ouia-safe={true}
-                      widget-type="InsightsPageHeaderTitle"
+                    <PageHeaderTitle
+                      title="Comparison"
                     >
-                      Comparison
-                    </h1>
-                  </Title>
-                </PageHeaderTitle>
+                      <Title
+                        className=""
+                        headingLevel="h1"
+                        size="2xl"
+                        widget-type="InsightsPageHeaderTitle"
+                      >
+                        <h1
+                          className="pf-c-title pf-m-2xl"
+                          data-ouia-component-id="OUIA-Generated-Title-1"
+                          data-ouia-component-type="PF4/Title"
+                          data-ouia-safe={true}
+                          widget-type="InsightsPageHeaderTitle"
+                        >
+                          Comparison
+                        </h1>
+                      </Title>
+                    </PageHeaderTitle>
+                  </section>
+                </PageSection>
               </section>
             </PageHeader>
             <Connect(InternalMain)>
@@ -4022,20 +4028,160 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                   </AddSystemModal>
                                 </Connect(AddSystemModal)>
                                 <div
-                                  className="second-scroll-wrapper"
-                                  onScroll={[Function]}
+                                  className="sticky-table-header"
                                 >
                                   <div
-                                    className="second-scroll"
-                                    style={
-                                      Object {
-                                        "width": "",
+                                    className="second-scroll-wrapper"
+                                    onScroll={[Function]}
+                                  >
+                                    <div
+                                      className="second-scroll"
+                                      style={
+                                        Object {
+                                          "width": "",
+                                        }
                                       }
-                                    }
-                                  />
+                                    />
+                                  </div>
+                                  <div
+                                    className="drift-table-wrapper"
+                                    onScroll={[Function]}
+                                  >
+                                    <table
+                                      className="pf-c-table pf-m-compact drift-table"
+                                      data-ouia-component-id="comparison-table"
+                                      data-ouia-component-type="PF4/Table"
+                                    >
+                                      <thead>
+                                        <ComparisonHeader
+                                          fetchCompare={[Function]}
+                                          masterList={Array []}
+                                          permissions={
+                                            Object {
+                                              "compareRead": true,
+                                            }
+                                          }
+                                          removeSystem={[Function]}
+                                          selectHistoricProfiles={[Function]}
+                                          selectedBaselineIds={Array []}
+                                          selectedHSPIds={Array []}
+                                          setHistory={[Function]}
+                                          systemIds={Array []}
+                                          toggleFactSort={[Function]}
+                                          toggleStateSort={[Function]}
+                                          updateReferenceId={[Function]}
+                                        >
+                                          <tr
+                                            className="sticky-column-header"
+                                            data-ouia-component-id="comparison-table-header-row"
+                                            data-ouia-component-type="PF4/TableRow"
+                                          >
+                                            <th
+                                              className="fact-header sticky-column fixed-column-1 pointer sticky-header"
+                                              data-ouia-component-id="fact-sort-button"
+                                              data-ouia-component-type="PF4/Button"
+                                              key="fact-header"
+                                              onClick={[Function]}
+                                            >
+                                              <div
+                                                className="active-blue"
+                                              >
+                                                Fact 
+                                                <ArrowsAltVIcon
+                                                  className="not-active"
+                                                  color="currentColor"
+                                                  noVerticalAlign={false}
+                                                  size="sm"
+                                                >
+                                                  <svg
+                                                    aria-hidden={true}
+                                                    aria-labelledby={null}
+                                                    className="not-active"
+                                                    fill="currentColor"
+                                                    height="1em"
+                                                    role="img"
+                                                    style={
+                                                      Object {
+                                                        "verticalAlign": "-0.125em",
+                                                      }
+                                                    }
+                                                    viewBox="0 0 256 512"
+                                                    width="1em"
+                                                  >
+                                                    <path
+                                                      d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                                                    />
+                                                  </svg>
+                                                </ArrowsAltVIcon>
+                                              </div>
+                                            </th>
+                                            <th
+                                              className="state-header sticky-column fixed-column-2 pointer right-border sticky-header"
+                                              data-ouia-component-id="state-sort-button"
+                                              data-ouia-component-type="PF4/Button"
+                                              id="disabled"
+                                              key="state-header"
+                                              onClick={[Function]}
+                                            >
+                                              <div
+                                                className="active-blue"
+                                              >
+                                                State 
+                                                <ArrowsAltVIcon
+                                                  className="not-active"
+                                                  color="currentColor"
+                                                  noVerticalAlign={false}
+                                                  size="sm"
+                                                >
+                                                  <svg
+                                                    aria-hidden={true}
+                                                    aria-labelledby={null}
+                                                    className="not-active"
+                                                    fill="currentColor"
+                                                    height="1em"
+                                                    role="img"
+                                                    style={
+                                                      Object {
+                                                        "verticalAlign": "-0.125em",
+                                                      }
+                                                    }
+                                                    viewBox="0 0 256 512"
+                                                    width="1em"
+                                                  >
+                                                    <path
+                                                      d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                                                    />
+                                                  </svg>
+                                                </ArrowsAltVIcon>
+                                              </div>
+                                            </th>
+                                            <td
+                                              key="loading-systems-header"
+                                            >
+                                              <Skeleton
+                                                size="md"
+                                              >
+                                                <Skeleton
+                                                  className="ins-c-skeleton ins-c-skeleton__md"
+                                                >
+                                                  <div
+                                                    className="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+                                                  >
+                                                    <span
+                                                      className="pf-u-screen-reader"
+                                                    />
+                                                  </div>
+                                                </Skeleton>
+                                              </Skeleton>
+                                            </td>
+                                          </tr>
+                                        </ComparisonHeader>
+                                      </thead>
+                                    </table>
+                                  </div>
                                 </div>
                                 <div
-                                  className="drift-table-wrapper"
+                                  className="drift-table-wrapper table-body-scroll"
                                   onScroll={[Function]}
                                 >
                                   <table
@@ -4043,112 +4189,6 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                     data-ouia-component-id="comparison-table"
                                     data-ouia-component-type="PF4/Table"
                                   >
-                                    <thead>
-                                      <ComparisonHeader
-                                        fetchCompare={[Function]}
-                                        masterList={Array []}
-                                        permissions={
-                                          Object {
-                                            "compareRead": true,
-                                          }
-                                        }
-                                        removeSystem={[Function]}
-                                        selectHistoricProfiles={[Function]}
-                                        selectedBaselineIds={Array []}
-                                        selectedHSPIds={Array []}
-                                        setHistory={[Function]}
-                                        systemIds={Array []}
-                                        toggleFactSort={[Function]}
-                                        toggleStateSort={[Function]}
-                                        updateReferenceId={[Function]}
-                                      >
-                                        <tr
-                                          className="sticky-column-header"
-                                          data-ouia-component-id="comparison-table-header-row"
-                                          data-ouia-component-type="PF4/TableRow"
-                                        >
-                                          <th
-                                            className="fact-header sticky-column fixed-column-1 pointer"
-                                            data-ouia-component-id="fact-sort-button"
-                                            data-ouia-component-type="PF4/Button"
-                                            key="fact-header"
-                                            onClick={[Function]}
-                                          >
-                                            <div
-                                              className="active-blue"
-                                            >
-                                              Fact 
-                                              <ArrowsAltVIcon
-                                                className="not-active"
-                                                color="currentColor"
-                                                noVerticalAlign={false}
-                                                size="sm"
-                                              >
-                                                <svg
-                                                  aria-hidden={true}
-                                                  aria-labelledby={null}
-                                                  className="not-active"
-                                                  fill="currentColor"
-                                                  height="1em"
-                                                  role="img"
-                                                  style={
-                                                    Object {
-                                                      "verticalAlign": "-0.125em",
-                                                    }
-                                                  }
-                                                  viewBox="0 0 256 512"
-                                                  width="1em"
-                                                >
-                                                  <path
-                                                    d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
-                                                  />
-                                                </svg>
-                                              </ArrowsAltVIcon>
-                                            </div>
-                                          </th>
-                                          <th
-                                            className="state-header sticky-column fixed-column-2 pointer right-border"
-                                            data-ouia-component-id="state-sort-button"
-                                            data-ouia-component-type="PF4/Button"
-                                            id="disabled"
-                                            key="state-header"
-                                            onClick={[Function]}
-                                          >
-                                            <div
-                                              className="active-blue"
-                                            >
-                                              State 
-                                              <ArrowsAltVIcon
-                                                className="not-active"
-                                                color="currentColor"
-                                                noVerticalAlign={false}
-                                                size="sm"
-                                              >
-                                                <svg
-                                                  aria-hidden={true}
-                                                  aria-labelledby={null}
-                                                  className="not-active"
-                                                  fill="currentColor"
-                                                  height="1em"
-                                                  role="img"
-                                                  style={
-                                                    Object {
-                                                      "verticalAlign": "-0.125em",
-                                                    }
-                                                  }
-                                                  viewBox="0 0 256 512"
-                                                  width="1em"
-                                                >
-                                                  <path
-                                                    d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
-                                                  />
-                                                </svg>
-                                              </ArrowsAltVIcon>
-                                            </div>
-                                          </th>
-                                        </tr>
-                                      </ComparisonHeader>
-                                    </thead>
                                     <tbody />
                                   </table>
                                 </div>
@@ -5261,26 +5301,32 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                 className="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
                 widget-type="InsightsPageHeader"
               >
-                <PageHeaderTitle
-                  title="Comparison"
-                >
-                  <Title
-                    className=""
-                    headingLevel="h1"
-                    size="2xl"
-                    widget-type="InsightsPageHeaderTitle"
+                <PageSection>
+                  <section
+                    className="pf-c-page__main-section"
                   >
-                    <h1
-                      className="pf-c-title pf-m-2xl"
-                      data-ouia-component-id="OUIA-Generated-Title-6"
-                      data-ouia-component-type="PF4/Title"
-                      data-ouia-safe={true}
-                      widget-type="InsightsPageHeaderTitle"
+                    <PageHeaderTitle
+                      title="Comparison"
                     >
-                      Comparison
-                    </h1>
-                  </Title>
-                </PageHeaderTitle>
+                      <Title
+                        className=""
+                        headingLevel="h1"
+                        size="2xl"
+                        widget-type="InsightsPageHeaderTitle"
+                      >
+                        <h1
+                          className="pf-c-title pf-m-2xl"
+                          data-ouia-component-id="OUIA-Generated-Title-6"
+                          data-ouia-component-type="PF4/Title"
+                          data-ouia-safe={true}
+                          widget-type="InsightsPageHeaderTitle"
+                        >
+                          Comparison
+                        </h1>
+                      </Title>
+                    </PageHeaderTitle>
+                  </section>
+                </PageSection>
               </section>
             </PageHeader>
             <Connect(InternalMain)>
@@ -9089,20 +9135,160 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                   </AddSystemModal>
                                 </Connect(AddSystemModal)>
                                 <div
-                                  className="second-scroll-wrapper"
-                                  onScroll={[Function]}
+                                  className="sticky-table-header"
                                 >
                                   <div
-                                    className="second-scroll"
-                                    style={
-                                      Object {
-                                        "width": "",
+                                    className="second-scroll-wrapper"
+                                    onScroll={[Function]}
+                                  >
+                                    <div
+                                      className="second-scroll"
+                                      style={
+                                        Object {
+                                          "width": "",
+                                        }
                                       }
-                                    }
-                                  />
+                                    />
+                                  </div>
+                                  <div
+                                    className="drift-table-wrapper"
+                                    onScroll={[Function]}
+                                  >
+                                    <table
+                                      className="pf-c-table pf-m-compact drift-table"
+                                      data-ouia-component-id="comparison-table"
+                                      data-ouia-component-type="PF4/Table"
+                                    >
+                                      <thead>
+                                        <ComparisonHeader
+                                          fetchCompare={[Function]}
+                                          masterList={Array []}
+                                          permissions={
+                                            Object {
+                                              "compareRead": true,
+                                            }
+                                          }
+                                          removeSystem={[Function]}
+                                          selectHistoricProfiles={[Function]}
+                                          selectedBaselineIds={Array []}
+                                          selectedHSPIds={Array []}
+                                          setHistory={[Function]}
+                                          systemIds={Array []}
+                                          toggleFactSort={[Function]}
+                                          toggleStateSort={[Function]}
+                                          updateReferenceId={[Function]}
+                                        >
+                                          <tr
+                                            className="sticky-column-header"
+                                            data-ouia-component-id="comparison-table-header-row"
+                                            data-ouia-component-type="PF4/TableRow"
+                                          >
+                                            <th
+                                              className="fact-header sticky-column fixed-column-1 pointer sticky-header"
+                                              data-ouia-component-id="fact-sort-button"
+                                              data-ouia-component-type="PF4/Button"
+                                              key="fact-header"
+                                              onClick={[Function]}
+                                            >
+                                              <div
+                                                className="active-blue"
+                                              >
+                                                Fact 
+                                                <ArrowsAltVIcon
+                                                  className="not-active"
+                                                  color="currentColor"
+                                                  noVerticalAlign={false}
+                                                  size="sm"
+                                                >
+                                                  <svg
+                                                    aria-hidden={true}
+                                                    aria-labelledby={null}
+                                                    className="not-active"
+                                                    fill="currentColor"
+                                                    height="1em"
+                                                    role="img"
+                                                    style={
+                                                      Object {
+                                                        "verticalAlign": "-0.125em",
+                                                      }
+                                                    }
+                                                    viewBox="0 0 256 512"
+                                                    width="1em"
+                                                  >
+                                                    <path
+                                                      d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                                                    />
+                                                  </svg>
+                                                </ArrowsAltVIcon>
+                                              </div>
+                                            </th>
+                                            <th
+                                              className="state-header sticky-column fixed-column-2 pointer right-border sticky-header"
+                                              data-ouia-component-id="state-sort-button"
+                                              data-ouia-component-type="PF4/Button"
+                                              id="disabled"
+                                              key="state-header"
+                                              onClick={[Function]}
+                                            >
+                                              <div
+                                                className="active-blue"
+                                              >
+                                                State 
+                                                <ArrowsAltVIcon
+                                                  className="not-active"
+                                                  color="currentColor"
+                                                  noVerticalAlign={false}
+                                                  size="sm"
+                                                >
+                                                  <svg
+                                                    aria-hidden={true}
+                                                    aria-labelledby={null}
+                                                    className="not-active"
+                                                    fill="currentColor"
+                                                    height="1em"
+                                                    role="img"
+                                                    style={
+                                                      Object {
+                                                        "verticalAlign": "-0.125em",
+                                                      }
+                                                    }
+                                                    viewBox="0 0 256 512"
+                                                    width="1em"
+                                                  >
+                                                    <path
+                                                      d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                                                    />
+                                                  </svg>
+                                                </ArrowsAltVIcon>
+                                              </div>
+                                            </th>
+                                            <td
+                                              key="loading-systems-header"
+                                            >
+                                              <Skeleton
+                                                size="md"
+                                              >
+                                                <Skeleton
+                                                  className="ins-c-skeleton ins-c-skeleton__md"
+                                                >
+                                                  <div
+                                                    className="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+                                                  >
+                                                    <span
+                                                      className="pf-u-screen-reader"
+                                                    />
+                                                  </div>
+                                                </Skeleton>
+                                              </Skeleton>
+                                            </td>
+                                          </tr>
+                                        </ComparisonHeader>
+                                      </thead>
+                                    </table>
+                                  </div>
                                 </div>
                                 <div
-                                  className="drift-table-wrapper"
+                                  className="drift-table-wrapper table-body-scroll"
                                   onScroll={[Function]}
                                 >
                                   <table
@@ -9110,112 +9296,6 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                     data-ouia-component-id="comparison-table"
                                     data-ouia-component-type="PF4/Table"
                                   >
-                                    <thead>
-                                      <ComparisonHeader
-                                        fetchCompare={[Function]}
-                                        masterList={Array []}
-                                        permissions={
-                                          Object {
-                                            "compareRead": true,
-                                          }
-                                        }
-                                        removeSystem={[Function]}
-                                        selectHistoricProfiles={[Function]}
-                                        selectedBaselineIds={Array []}
-                                        selectedHSPIds={Array []}
-                                        setHistory={[Function]}
-                                        systemIds={Array []}
-                                        toggleFactSort={[Function]}
-                                        toggleStateSort={[Function]}
-                                        updateReferenceId={[Function]}
-                                      >
-                                        <tr
-                                          className="sticky-column-header"
-                                          data-ouia-component-id="comparison-table-header-row"
-                                          data-ouia-component-type="PF4/TableRow"
-                                        >
-                                          <th
-                                            className="fact-header sticky-column fixed-column-1 pointer"
-                                            data-ouia-component-id="fact-sort-button"
-                                            data-ouia-component-type="PF4/Button"
-                                            key="fact-header"
-                                            onClick={[Function]}
-                                          >
-                                            <div
-                                              className="active-blue"
-                                            >
-                                              Fact 
-                                              <ArrowsAltVIcon
-                                                className="not-active"
-                                                color="currentColor"
-                                                noVerticalAlign={false}
-                                                size="sm"
-                                              >
-                                                <svg
-                                                  aria-hidden={true}
-                                                  aria-labelledby={null}
-                                                  className="not-active"
-                                                  fill="currentColor"
-                                                  height="1em"
-                                                  role="img"
-                                                  style={
-                                                    Object {
-                                                      "verticalAlign": "-0.125em",
-                                                    }
-                                                  }
-                                                  viewBox="0 0 256 512"
-                                                  width="1em"
-                                                >
-                                                  <path
-                                                    d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
-                                                  />
-                                                </svg>
-                                              </ArrowsAltVIcon>
-                                            </div>
-                                          </th>
-                                          <th
-                                            className="state-header sticky-column fixed-column-2 pointer right-border"
-                                            data-ouia-component-id="state-sort-button"
-                                            data-ouia-component-type="PF4/Button"
-                                            id="disabled"
-                                            key="state-header"
-                                            onClick={[Function]}
-                                          >
-                                            <div
-                                              className="active-blue"
-                                            >
-                                              State 
-                                              <ArrowsAltVIcon
-                                                className="not-active"
-                                                color="currentColor"
-                                                noVerticalAlign={false}
-                                                size="sm"
-                                              >
-                                                <svg
-                                                  aria-hidden={true}
-                                                  aria-labelledby={null}
-                                                  className="not-active"
-                                                  fill="currentColor"
-                                                  height="1em"
-                                                  role="img"
-                                                  style={
-                                                    Object {
-                                                      "verticalAlign": "-0.125em",
-                                                    }
-                                                  }
-                                                  viewBox="0 0 256 512"
-                                                  width="1em"
-                                                >
-                                                  <path
-                                                    d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
-                                                  />
-                                                </svg>
-                                              </ArrowsAltVIcon>
-                                            </div>
-                                          </th>
-                                        </tr>
-                                      </ComparisonHeader>
-                                    </thead>
                                     <tbody />
                                   </table>
                                 </div>

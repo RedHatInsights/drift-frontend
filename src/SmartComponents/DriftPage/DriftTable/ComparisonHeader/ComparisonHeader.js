@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Tooltip } from '@patternfly/react-core';
 import { ClockIcon, TimesIcon, ExclamationTriangleIcon, ServerIcon, BlueprintIcon } from '@patternfly/react-icons';
 import { LongArrowAltUpIcon, LongArrowAltDownIcon, ArrowsAltVIcon } from '@patternfly/react-icons';
+import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
 import moment from 'moment';
 
 import { ASC, DESC } from '../../../../constants';
@@ -47,6 +48,10 @@ class ComparisonHeader extends Component {
         setHistory();
     }
 
+    renderLoadingSystems() {
+        return [ <td key='loading-systems-header'><Skeleton size={ SkeletonSize.md } /></td> ];
+    }
+
     renderSystemHeaders() {
         const { fetchCompare, masterList, permissions, referenceId, removeSystem, selectedBaselineIds,
             selectedHSPIds, selectHistoricProfiles, systemIds, updateReferenceId } = this.props;
@@ -83,8 +88,8 @@ class ComparisonHeader extends Component {
                     header-id={ item.id }
                     key={ item.id }
                     className={ item.id === referenceId
-                        ? 'drift-header right-border reference-header'
-                        : `drift-header right-border ${item.type}-header` }
+                        ? 'drift-header right-border reference-header sticky-header'
+                        : `drift-header right-border ${item.type}-header sticky-header` }
                 >
                     <div>
                         <a
@@ -146,12 +151,12 @@ class ComparisonHeader extends Component {
     }
 
     renderHeaderRow() {
-        const { factSort, stateSort } = this.props;
+        const { factSort, masterList, stateSort } = this.props;
 
         return (
             <tr className="sticky-column-header" data-ouia-component-type='PF4/TableRow' data-ouia-component-id='comparison-table-header-row'>
                 <th
-                    className="fact-header sticky-column fixed-column-1 pointer"
+                    className="fact-header sticky-column fixed-column-1 pointer sticky-header"
                     key='fact-header'
                     id={ factSort }
                     onClick={ () => this.toggleSort('fact', factSort) }
@@ -161,7 +166,7 @@ class ComparisonHeader extends Component {
                     <div className="active-blue">Fact { this.renderSortButton(factSort) }</div>
                 </th>
                 <th
-                    className="state-header sticky-column fixed-column-2 pointer right-border"
+                    className="state-header sticky-column fixed-column-2 pointer right-border sticky-header"
                     key='state-header'
                     id={ stateSort || 'disabled' }
                     data-ouia-component-type='PF4/Button'
@@ -173,7 +178,7 @@ class ComparisonHeader extends Component {
                         : <div>State { this.renderSortButton(stateSort) }</div>
                     }
                 </th>
-                { this.renderSystemHeaders() }
+                { masterList.length ? this.renderSystemHeaders() : this.renderLoadingSystems() }
             </tr>
         );
     }

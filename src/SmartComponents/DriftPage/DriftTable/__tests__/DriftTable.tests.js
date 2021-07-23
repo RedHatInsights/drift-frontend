@@ -263,7 +263,7 @@ describe('ConnectedDriftTable', () => {
             </MemoryRouter>
         );
 
-        expect(wrapper.find('table')).toHaveLength(1);
+        expect(wrapper.find('table')).toHaveLength(2);
         expect(wrapper.find('tr')).toHaveLength(4);
         expect(wrapper.find(EmptyState)).toHaveLength(0);
         expect(toJson(wrapper)).toMatchSnapshot();
@@ -288,7 +288,7 @@ describe('ConnectedDriftTable', () => {
             </MemoryRouter>
         );
 
-        expect(wrapper.find('table')).toHaveLength(1);
+        expect(wrapper.find('table')).toHaveLength(2);
         expect(wrapper.find('tr')).toHaveLength(10);
         expect(wrapper.find(EmptyState)).toHaveLength(0);
         expect(toJson(wrapper)).toMatchSnapshot();
@@ -311,7 +311,7 @@ describe('ConnectedDriftTable', () => {
         );
 
         expect(wrapper.find('tr')).toHaveLength(11);
-        expect(wrapper.find(Skeleton)).toHaveLength(30);
+        expect(wrapper.find(Skeleton)).toHaveLength(31);
         expect(wrapper.find(EmptyState)).toHaveLength(0);
         expect(toJson(wrapper)).toMatchSnapshot();
     });

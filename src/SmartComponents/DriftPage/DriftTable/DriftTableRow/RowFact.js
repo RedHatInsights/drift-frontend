@@ -9,7 +9,7 @@ function RowFact(props) {
         if (type === 'fact' || (type === 'category' && !expandedRows.includes(factName))) {
             return 'sticky-column fixed-column-1';
         } else {
-            return 'nested-fact sticky-column fixed-column';
+            return 'nested-fact sticky-column fixed-column-1';
         }
     };
 
