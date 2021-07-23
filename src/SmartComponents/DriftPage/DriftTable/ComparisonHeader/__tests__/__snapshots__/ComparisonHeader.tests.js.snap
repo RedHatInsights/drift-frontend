@@ -8,7 +8,7 @@ exports[`ComparisonHeader should not render HistoricalProfilesPopover with no hs
     data-ouia-component-type="PF4/TableRow"
   >
     <th
-      className="fact-header sticky-column fixed-column-1 pointer"
+      className="fact-header sticky-column fixed-column-1 pointer sticky-header"
       data-ouia-component-id="fact-sort-button"
       data-ouia-component-type="PF4/Button"
       id=""
@@ -28,7 +28,7 @@ exports[`ComparisonHeader should not render HistoricalProfilesPopover with no hs
       </div>
     </th>
     <th
-      className="state-header sticky-column fixed-column-2 pointer right-border"
+      className="state-header sticky-column fixed-column-2 pointer right-border sticky-header"
       data-ouia-component-id="state-sort-button"
       data-ouia-component-type="PF4/Button"
       id="disabled"
@@ -46,7 +46,7 @@ exports[`ComparisonHeader should not render HistoricalProfilesPopover with no hs
       </div>
     </th>
     <th
-      className="drift-header right-border baseline-header"
+      className="drift-header right-border baseline-header sticky-header"
       header-id="12e4d81b-f1c6-489a-a829-9d96f3a71f53"
       key="12e4d81b-f1c6-489a-a829-9d96f3a71f53"
     >
@@ -112,7 +112,7 @@ exports[`ComparisonHeader should not render HistoricalProfilesPopover with no hs
       </div>
     </th>
     <th
-      className="drift-header right-border system-header"
+      className="drift-header right-border system-header sticky-header"
       header-id="dc47qffd-09rt-2kw7-8b9b-53f4g716fec5"
       key="dc47qffd-09rt-2kw7-8b9b-53f4g716fec5"
     >
@@ -178,7 +178,7 @@ exports[`ComparisonHeader should not render HistoricalProfilesPopover with no hs
       </div>
     </th>
     <th
-      className="drift-header right-border historical-system-profile-header"
+      className="drift-header right-border historical-system-profile-header sticky-header"
       header-id="e3ed3e34-eaa1-45c4-8633-94fef1f678f1"
       key="e3ed3e34-eaa1-45c4-8633-94fef1f678f1"
     >
@@ -256,7 +256,7 @@ exports[`ComparisonHeader should render a system, baseline and hsp 1`] = `
     data-ouia-component-type="PF4/TableRow"
   >
     <th
-      className="fact-header sticky-column fixed-column-1 pointer"
+      className="fact-header sticky-column fixed-column-1 pointer sticky-header"
       data-ouia-component-id="fact-sort-button"
       data-ouia-component-type="PF4/Button"
       id=""
@@ -276,7 +276,7 @@ exports[`ComparisonHeader should render a system, baseline and hsp 1`] = `
       </div>
     </th>
     <th
-      className="state-header sticky-column fixed-column-2 pointer right-border"
+      className="state-header sticky-column fixed-column-2 pointer right-border sticky-header"
       data-ouia-component-id="state-sort-button"
       data-ouia-component-type="PF4/Button"
       id="disabled"
@@ -294,7 +294,7 @@ exports[`ComparisonHeader should render a system, baseline and hsp 1`] = `
       </div>
     </th>
     <th
-      className="drift-header right-border baseline-header"
+      className="drift-header right-border baseline-header sticky-header"
       header-id="12e4d81b-f1c6-489a-a829-9d96f3a71f53"
       key="12e4d81b-f1c6-489a-a829-9d96f3a71f53"
     >
@@ -360,7 +360,7 @@ exports[`ComparisonHeader should render a system, baseline and hsp 1`] = `
       </div>
     </th>
     <th
-      className="drift-header right-border system-header"
+      className="drift-header right-border system-header sticky-header"
       header-id="dc47qffd-09rt-2kw7-8b9b-53f4g716fec5"
       key="dc47qffd-09rt-2kw7-8b9b-53f4g716fec5"
     >
@@ -441,7 +441,7 @@ exports[`ComparisonHeader should render a system, baseline and hsp 1`] = `
       </div>
     </th>
     <th
-      className="drift-header right-border historical-system-profile-header"
+      className="drift-header right-border historical-system-profile-header sticky-header"
       header-id="e3ed3e34-eaa1-45c4-8633-94fef1f678f1"
       key="e3ed3e34-eaa1-45c4-8633-94fef1f678f1"
     >
@@ -535,7 +535,7 @@ exports[`ComparisonHeader should render correctly 1`] = `
     data-ouia-component-type="PF4/TableRow"
   >
     <th
-      className="fact-header sticky-column fixed-column-1 pointer"
+      className="fact-header sticky-column fixed-column-1 pointer sticky-header"
       data-ouia-component-id="fact-sort-button"
       data-ouia-component-type="PF4/Button"
       id=""
@@ -555,7 +555,7 @@ exports[`ComparisonHeader should render correctly 1`] = `
       </div>
     </th>
     <th
-      className="state-header sticky-column fixed-column-2 pointer right-border"
+      className="state-header sticky-column fixed-column-2 pointer right-border sticky-header"
       data-ouia-component-id="state-sort-button"
       data-ouia-component-type="PF4/Button"
       id="disabled"
@@ -572,6 +572,13 @@ exports[`ComparisonHeader should render correctly 1`] = `
         />
       </div>
     </th>
+    <td
+      key="loading-systems-header"
+    >
+      <Skeleton
+        size="md"
+      />
+    </td>
   </tr>
 </Fragment>
 `;
@@ -584,7 +591,7 @@ exports[`ComparisonHeader should render fact sort asc 1`] = `
     data-ouia-component-type="PF4/TableRow"
   >
     <th
-      className="fact-header sticky-column fixed-column-1 pointer"
+      className="fact-header sticky-column fixed-column-1 pointer sticky-header"
       data-ouia-component-id="fact-sort-button"
       data-ouia-component-type="PF4/Button"
       id="asc"
@@ -604,7 +611,7 @@ exports[`ComparisonHeader should render fact sort asc 1`] = `
       </div>
     </th>
     <th
-      className="state-header sticky-column fixed-column-2 pointer right-border"
+      className="state-header sticky-column fixed-column-2 pointer right-border sticky-header"
       data-ouia-component-id="state-sort-button"
       data-ouia-component-type="PF4/Button"
       id="disabled"
@@ -621,6 +628,13 @@ exports[`ComparisonHeader should render fact sort asc 1`] = `
         />
       </div>
     </th>
+    <td
+      key="loading-systems-header"
+    >
+      <Skeleton
+        size="md"
+      />
+    </td>
   </tr>
 </Fragment>
 `;
@@ -633,7 +647,7 @@ exports[`ComparisonHeader should render fact sort desc 1`] = `
     data-ouia-component-type="PF4/TableRow"
   >
     <th
-      className="fact-header sticky-column fixed-column-1 pointer"
+      className="fact-header sticky-column fixed-column-1 pointer sticky-header"
       data-ouia-component-id="fact-sort-button"
       data-ouia-component-type="PF4/Button"
       id="desc"
@@ -653,7 +667,7 @@ exports[`ComparisonHeader should render fact sort desc 1`] = `
       </div>
     </th>
     <th
-      className="state-header sticky-column fixed-column-2 pointer right-border"
+      className="state-header sticky-column fixed-column-2 pointer right-border sticky-header"
       data-ouia-component-id="state-sort-button"
       data-ouia-component-type="PF4/Button"
       id="disabled"
@@ -670,6 +684,13 @@ exports[`ComparisonHeader should render fact sort desc 1`] = `
         />
       </div>
     </th>
+    <td
+      key="loading-systems-header"
+    >
+      <Skeleton
+        size="md"
+      />
+    </td>
   </tr>
 </Fragment>
 `;
@@ -682,7 +703,7 @@ exports[`ComparisonHeader should render state sort asc 1`] = `
     data-ouia-component-type="PF4/TableRow"
   >
     <th
-      className="fact-header sticky-column fixed-column-1 pointer"
+      className="fact-header sticky-column fixed-column-1 pointer sticky-header"
       data-ouia-component-id="fact-sort-button"
       data-ouia-component-type="PF4/Button"
       id=""
@@ -702,7 +723,7 @@ exports[`ComparisonHeader should render state sort asc 1`] = `
       </div>
     </th>
     <th
-      className="state-header sticky-column fixed-column-2 pointer right-border"
+      className="state-header sticky-column fixed-column-2 pointer right-border sticky-header"
       data-ouia-component-id="state-sort-button"
       data-ouia-component-type="PF4/Button"
       id="asc"
@@ -721,6 +742,13 @@ exports[`ComparisonHeader should render state sort asc 1`] = `
         />
       </div>
     </th>
+    <td
+      key="loading-systems-header"
+    >
+      <Skeleton
+        size="md"
+      />
+    </td>
   </tr>
 </Fragment>
 `;
@@ -733,7 +761,7 @@ exports[`ComparisonHeader should render state sort desc 1`] = `
     data-ouia-component-type="PF4/TableRow"
   >
     <th
-      className="fact-header sticky-column fixed-column-1 pointer"
+      className="fact-header sticky-column fixed-column-1 pointer sticky-header"
       data-ouia-component-id="fact-sort-button"
       data-ouia-component-type="PF4/Button"
       id=""
@@ -753,7 +781,7 @@ exports[`ComparisonHeader should render state sort desc 1`] = `
       </div>
     </th>
     <th
-      className="state-header sticky-column fixed-column-2 pointer right-border"
+      className="state-header sticky-column fixed-column-2 pointer right-border sticky-header"
       data-ouia-component-id="state-sort-button"
       data-ouia-component-type="PF4/Button"
       id="desc"
@@ -772,6 +800,13 @@ exports[`ComparisonHeader should render state sort desc 1`] = `
         />
       </div>
     </th>
+    <td
+      key="loading-systems-header"
+    >
+      <Skeleton
+        size="md"
+      />
+    </td>
   </tr>
 </Fragment>
 `;

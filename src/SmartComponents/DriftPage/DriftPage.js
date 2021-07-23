@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { Main, PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components';
-import { Card, CardBody, Toolbar, ToolbarGroup, ToolbarItem, PaginationVariant } from '@patternfly/react-core';
+import { Card, CardBody, Toolbar, ToolbarGroup, ToolbarItem, PageSection, PaginationVariant } from '@patternfly/react-core';
 import { ExclamationCircleIcon, LockIcon, PlusCircleIcon } from '@patternfly/react-icons';
 import { baselinesTableActions } from '../BaselinesTable/redux';
 import { addSystemModalActions } from '../AddSystemModal/redux';
@@ -100,7 +100,9 @@ export class DriftPage extends Component {
         return (
             <React.Fragment>
                 <PageHeader>
-                    <PageHeaderTitle title='Comparison'/>
+                    <PageSection>
+                        <PageHeaderTitle title='Comparison'/>
+                    </PageSection>
                 </PageHeader>
                 <Main>
                     <PermissionContext.Consumer>
