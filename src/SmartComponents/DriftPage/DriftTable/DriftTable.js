@@ -34,8 +34,24 @@ export class DriftTable extends Component {
         this.setReferenceId();
         this.setFilters();
         this.setSort();
+        this.topScroller = React.createRef();
+        this.bottomScroller = React.createRef();
+        this.doubleScroll = this.doubleScroll.bind(this);
         this.fetchCompare = this.fetchCompare.bind(this);
         this.removeSystem = this.removeSystem.bind(this);
+    }
+
+    doubleScroll() {
+        let wrapper1 = this.topScroller.current;
+        let wrapper2 = this.bottomScroller.current;
+
+        wrapper1.onscroll = function() {
+            wrapper2.scrollLeft = wrapper1.scrollLeft;
+        };
+
+        wrapper2.onscroll = function() {
+            wrapper1.scrollLeft = wrapper2.scrollLeft;
+        };
     }
 
     async componentDidMount() {
@@ -540,10 +556,21 @@ export class DriftTable extends Component {
     renderTable(compareData, loading) {
         const { factSort, permissions, referenceId, selectedBaselineIds, selectedHSPIds,
             selectHistoricProfiles, setHistory, stateSort, toggleFactSort, toggleStateSort } = this.props;
+        let scrollWidth = '';
+
+        if (this.bottomScroller.current) {
+            scrollWidth = this.bottomScroller.current.scrollWidth;
+        }
 
         return (
             <React.Fragment>
-                <div className="drift-table-wrapper">
+                <div className='second-scroll-wrapper' onScroll={ this.doubleScroll } ref={ this.topScroller }>
+                    <div
+                        className='second-scroll'
+                        style={{ width: scrollWidth }}
+                    ></div>
+                </div>
+                <div className="drift-table-wrapper" onScroll={ this.doubleScroll } ref={ this.bottomScroller }>
                     <table
                         className="pf-c-table pf-m-compact drift-table"
                         data-ouia-component-type='PF4/Table'
