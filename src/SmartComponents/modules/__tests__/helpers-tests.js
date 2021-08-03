@@ -1,8 +1,8 @@
 import helpers from '../helpers';
 import stateFiltersFixtures from './state-filter.fixtures';
-import { compareReducerPayloadWithCategory, compareReducerPayloadWithMultiFact,
-    sortedPayloadWithMultiFactAscDesc, sortedPayloadWithMultiFactAscAsc } from './reducer.fixtures';
-import { filteredCategory, filteredCategoryAndFact } from './reducer.fact-filter-fixtures';
+import { compareReducerPayloadWithCategory, compareReducerPayloadWithMultiFact, compareReducerPayloadWithUppercase,
+    sortedPayloadWithMultiFactAscDesc, sortedPayloadWithMultiFactAscAsc, compareReducerPayloadWithUpperCaseSubFact } from './reducer.fixtures';
+import { filteredCategory, filteredCategoryAndFact, filteredUpperCaseFact, filteredUpperCaseSubFact } from './reducer.fact-filter-fixtures';
 import { multivalues, comparisonsWithMultivalues, multivaluesWithTooltips, comparisonsWithMultivaluesTooltips } from './multiFact-filter-fixtures';
 
 describe('helpers', () => {
@@ -85,6 +85,18 @@ describe('helpers', () => {
         ).toEqual(filteredCategoryAndFact);
     });
 
+    it('should return uppercase fact name with lowercase fact filter', () => {
+        const data = compareReducerPayloadWithUppercase.facts;
+        const stateFilters = stateFiltersFixtures.allStatesTrue;
+        const factFilter = 'cpus';
+        const referenceId = undefined;
+        const activeFactFilters = [];
+
+        expect(
+            helpers.filterCompareData(data, stateFilters, factFilter, referenceId, activeFactFilters)
+        ).toEqual(filteredUpperCaseFact);
+    });
+
     it('should filterComparisons with multivalues with all states true', () => {
         const comparisons = comparisonsWithMultivalues;
         const stateFilters = stateFiltersFixtures.allStatesTrue;
@@ -95,6 +107,18 @@ describe('helpers', () => {
         expect(
             helpers.filterComparisons(comparisons, stateFilters, factFilter, referenceId, activeFactFilters)
         ).toEqual(comparisonsWithMultivaluesTooltips);
+    });
+
+    it('should filterCompareData with upper case sub fact', () => {
+        const data = compareReducerPayloadWithUpperCaseSubFact.facts;
+        const stateFilters = stateFiltersFixtures.allStatesTrue;
+        const factFilter = 'abm';
+        const referenceId = undefined;
+        const activeFactFilters = [];
+
+        expect(
+            helpers.filterCompareData(data, stateFilters, factFilter, referenceId, activeFactFilters)
+        ).toEqual(filteredUpperCaseSubFact);
     });
 
     it('should filterMultiFacts with all states true', () => {
