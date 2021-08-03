@@ -84,10 +84,11 @@ function filterCompareData(data, stateFilters, factFilter, referenceId, activeFa
     }
 
     for (let i = 0; i < data.length; i += 1) {
+        let lowerCaseFactName = data[i].name.toLowerCase();
         isStateSelected = getStateSelected(data[i].state, stateFilters);
 
         if (data[i].comparisons) {
-            if (data[i].name === factFilter || activeFactFilters?.includes(data[i].name)) {
+            if (lowerCaseFactName === factFilter || activeFactFilters?.includes(lowerCaseFactName)) {
                 setTooltip(data[i], stateFilters, referenceId);
                 filteredComparisons = filterComparisons(data[i].comparisons, stateFilters, '', referenceId, []);
                 filteredFacts.push({
@@ -112,7 +113,7 @@ function filterCompareData(data, stateFilters, factFilter, referenceId, activeFa
                 });
             }
         } else {
-            if (isStateSelected && filterFact(data[i].name, factFilter, activeFactFilters)) {
+            if (isStateSelected && filterFact(lowerCaseFactName, factFilter, activeFactFilters)) {
                 setTooltip(data[i], stateFilters, referenceId);
                 filteredFacts.push(data[i]);
             }
@@ -129,9 +130,10 @@ function filterComparisons(comparisons, stateFilters, factFilter, referenceId, a
     let isStateSelected;
 
     for (let i = 0; i < comparisons.length; i++) {
+        let lowerCaseFactName = comparisons[i].name.toLowerCase();
         if (comparisons[i].multivalues) {
             filteredMultivalueItems = filterMultiFacts(comparisons[i].multivalues, stateFilters, referenceId);
-            if (filteredMultivalueItems.length && filterFact(comparisons[i].name, factFilter, activeFactFilters)) {
+            if (filteredMultivalueItems.length && filterFact(lowerCaseFactName, factFilter, activeFactFilters)) {
                 setTooltip(comparisons[i], stateFilters, referenceId);
                 filteredComparisons.push({
                     name: comparisons[i].name,
@@ -142,7 +144,7 @@ function filterComparisons(comparisons, stateFilters, factFilter, referenceId, a
             }
         } else {
             isStateSelected = getStateSelected(comparisons[i].state, stateFilters);
-            if (isStateSelected && filterFact(comparisons[i].name, factFilter, activeFactFilters)) {
+            if (isStateSelected && filterFact(lowerCaseFactName, factFilter, activeFactFilters)) {
                 setTooltip(comparisons[i], stateFilters, referenceId);
                 filteredComparisons.push(comparisons[i]);
             }

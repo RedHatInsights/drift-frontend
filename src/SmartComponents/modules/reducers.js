@@ -54,6 +54,7 @@ export function compareReducer(state = initialState, action) {
     let newActiveFactFilters = [];
     let index;
     let newFactFilter;
+    let lowerCaseFilter;
 
     switch (action.type) {
         case types.CLEAR_COMPARISON:
@@ -168,14 +169,16 @@ export function compareReducer(state = initialState, action) {
                 totalFacts: filteredFacts.length
             };
         case `${types.FILTER_BY_FACT}`:
+            lowerCaseFilter = action.payload.toLowerCase();
+
             filteredFacts = reducerHelpers.filterCompareData(
-                state.fullCompareData, state.stateFilters, action.payload, state.referenceId, state.activeFactFilters
+                state.fullCompareData, state.stateFilters, lowerCaseFilter, state.referenceId, state.activeFactFilters
             );
             sortedFacts = reducerHelpers.sortData(filteredFacts, state.factSort, state.stateSort);
             paginatedFacts = reducerHelpers.paginateData(sortedFacts, 1, state.perPage);
             return {
                 ...state,
-                factFilter: action.payload,
+                factFilter: lowerCaseFilter,
                 page: 1,
                 filteredCompareData: paginatedFacts,
                 sortedFilteredFacts: sortedFacts,
