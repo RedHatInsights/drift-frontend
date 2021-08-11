@@ -96,10 +96,12 @@ class ComparisonHeader extends Component {
                         </a>
                     </div>
                     <div className='comparison-header'>
-                        <div className="drift-header-icon">
-                            { typeIcon }
+                        <div>
+                            <span className="drift-header-icon">
+                                { typeIcon }
+                            </span>
+                            <span className="system-name">{ item.display_name }</span>
                         </div>
-                        <div className="system-name">{ item.display_name }</div>
                         <div className="system-updated-and-reference">
                             <ReferenceSelector
                                 updateReferenceId={ updateReferenceId }

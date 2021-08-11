@@ -52,7 +52,7 @@
 
 .comparison-header {
   .drift-header-icon {
-    position: absolute;
+    vertical-align: middle;
   }
 
   svg {
@@ -102,14 +102,11 @@
   font-size: 16px;
   word-wrap: break-word;
   white-space: pre-wrap;
-  margin-bottom: 20px;
-  margin-left: 25px;
 }
 
 .system-updated-and-reference {
   font-size: 14px;
   font-weight: normal;
-  position: absolute;
   bottom: 12px;
 
   &.stale-system {

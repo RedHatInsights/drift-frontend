@@ -67,28 +67,30 @@ exports[`ComparisonHeader should not render HistoricalProfilesPopover with no hs
       <div
         className="comparison-header"
       >
-        <div
-          className="drift-header-icon"
-        >
-          <Tooltip
-            content={
-              <div>
-                Baseline
-              </div>
-            }
-            position="top"
+        <div>
+          <span
+            className="drift-header-icon"
           >
-            <BlueprintIcon
-              color="currentColor"
-              noVerticalAlign={false}
-              size="sm"
-            />
-          </Tooltip>
-        </div>
-        <div
-          className="system-name"
-        >
-          baselineA
+            <Tooltip
+              content={
+                <div>
+                  Baseline
+                </div>
+              }
+              position="top"
+            >
+              <BlueprintIcon
+                color="currentColor"
+                noVerticalAlign={false}
+                size="sm"
+              />
+            </Tooltip>
+          </span>
+          <span
+            className="system-name"
+          >
+            baselineA
+          </span>
         </div>
         <div
           className="system-updated-and-reference"
@@ -131,28 +133,30 @@ exports[`ComparisonHeader should not render HistoricalProfilesPopover with no hs
       <div
         className="comparison-header"
       >
-        <div
-          className="drift-header-icon"
-        >
-          <Tooltip
-            content={
-              <div>
-                System
-              </div>
-            }
-            position="top"
+        <div>
+          <span
+            className="drift-header-icon"
           >
-            <ServerIcon
-              color="currentColor"
-              noVerticalAlign={false}
-              size="sm"
-            />
-          </Tooltip>
-        </div>
-        <div
-          className="system-name"
-        >
-          systemA
+            <Tooltip
+              content={
+                <div>
+                  System
+                </div>
+              }
+              position="top"
+            >
+              <ServerIcon
+                color="currentColor"
+                noVerticalAlign={false}
+                size="sm"
+              />
+            </Tooltip>
+          </span>
+          <span
+            className="system-name"
+          >
+            systemA
+          </span>
         </div>
         <div
           className="system-updated-and-reference"
@@ -195,28 +199,30 @@ exports[`ComparisonHeader should not render HistoricalProfilesPopover with no hs
       <div
         className="comparison-header"
       >
-        <div
-          className="drift-header-icon"
-        >
-          <Tooltip
-            content={
-              <div>
-                Historical system
-              </div>
-            }
-            position="top"
+        <div>
+          <span
+            className="drift-header-icon"
           >
-            <ClockIcon
-              color="currentColor"
-              noVerticalAlign={false}
-              size="sm"
-            />
-          </Tooltip>
-        </div>
-        <div
-          className="system-name"
-        >
-          hspA
+            <Tooltip
+              content={
+                <div>
+                  Historical system
+                </div>
+              }
+              position="top"
+            >
+              <ClockIcon
+                color="currentColor"
+                noVerticalAlign={false}
+                size="sm"
+              />
+            </Tooltip>
+          </span>
+          <span
+            className="system-name"
+          >
+            hspA
+          </span>
         </div>
         <div
           className="system-updated-and-reference"
@@ -309,28 +315,30 @@ exports[`ComparisonHeader should render a system, baseline and hsp 1`] = `
       <div
         className="comparison-header"
       >
-        <div
-          className="drift-header-icon"
-        >
-          <Tooltip
-            content={
-              <div>
-                Baseline
-              </div>
-            }
-            position="top"
+        <div>
+          <span
+            className="drift-header-icon"
           >
-            <BlueprintIcon
-              color="currentColor"
-              noVerticalAlign={false}
-              size="sm"
-            />
-          </Tooltip>
-        </div>
-        <div
-          className="system-name"
-        >
-          baselineA
+            <Tooltip
+              content={
+                <div>
+                  Baseline
+                </div>
+              }
+              position="top"
+            >
+              <BlueprintIcon
+                color="currentColor"
+                noVerticalAlign={false}
+                size="sm"
+              />
+            </Tooltip>
+          </span>
+          <span
+            className="system-name"
+          >
+            baselineA
+          </span>
         </div>
         <div
           className="system-updated-and-reference"
@@ -373,28 +381,30 @@ exports[`ComparisonHeader should render a system, baseline and hsp 1`] = `
       <div
         className="comparison-header"
       >
-        <div
-          className="drift-header-icon"
-        >
-          <Tooltip
-            content={
-              <div>
-                System
-              </div>
-            }
-            position="top"
+        <div>
+          <span
+            className="drift-header-icon"
           >
-            <ServerIcon
-              color="currentColor"
-              noVerticalAlign={false}
-              size="sm"
-            />
-          </Tooltip>
-        </div>
-        <div
-          className="system-name"
-        >
-          systemA
+            <Tooltip
+              content={
+                <div>
+                  System
+                </div>
+              }
+              position="top"
+            >
+              <ServerIcon
+                color="currentColor"
+                noVerticalAlign={false}
+                size="sm"
+              />
+            </Tooltip>
+          </span>
+          <span
+            className="system-name"
+          >
+            systemA
+          </span>
         </div>
         <div
           className="system-updated-and-reference"
@@ -452,28 +462,30 @@ exports[`ComparisonHeader should render a system, baseline and hsp 1`] = `
       <div
         className="comparison-header"
       >
-        <div
-          className="drift-header-icon"
-        >
-          <Tooltip
-            content={
-              <div>
-                Historical system
-              </div>
-            }
-            position="top"
+        <div>
+          <span
+            className="drift-header-icon"
           >
-            <ClockIcon
-              color="currentColor"
-              noVerticalAlign={false}
-              size="sm"
-            />
-          </Tooltip>
-        </div>
-        <div
-          className="system-name"
-        >
-          hspA
+            <Tooltip
+              content={
+                <div>
+                  Historical system
+                </div>
+              }
+              position="top"
+            >
+              <ClockIcon
+                color="currentColor"
+                noVerticalAlign={false}
+                size="sm"
+              />
+            </Tooltip>
+          </span>
+          <span
+            className="system-name"
+          >
+            hspA
+          </span>
         </div>
         <div
           className="system-updated-and-reference"
