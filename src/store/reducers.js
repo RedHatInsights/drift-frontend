@@ -57,7 +57,7 @@ function selectedReducer(
                         }
                     });
 
-                    row.historical_profiles = <React.Fragment>
+                    row.historical_profiles = <div className='hsp-icon-align'>
                         <HistoricalProfilesPopover
                             system={ systemInfo }
                             hasBadge={ true }
@@ -66,7 +66,7 @@ function selectedReducer(
                             selectHistoricProfiles={ selectHistoricProfiles }
                             systemName={ row.display_name }
                         />
-                    </React.Fragment>;
+                    </div>;
                 });
             }
 
