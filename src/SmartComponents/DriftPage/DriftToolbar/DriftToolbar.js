@@ -96,6 +96,13 @@ export class DriftToolbar extends Component {
         setHistory();
     }
 
+    resetFilters = async () => {
+        const { resetComparisonFilters, setHistory } = this.props;
+
+        await resetComparisonFilters();
+        setHistory();
+    }
+
     setIsEmpty = (isEmpty) => {
         this.setState({ isEmpty });
     }
@@ -128,12 +135,12 @@ export class DriftToolbar extends Component {
 
     render() {
         const { activeFactFilters, factFilter, filterByFact, handleFactFilter, loading, page, perPage,
-            resetComparisonFilters, setHistory, stateFilters, totalFacts, updatePagination } = this.props;
+            setHistory, stateFilters, totalFacts, updatePagination } = this.props;
         const { actionKebabItems, dropdownItems, dropdownOpen } = this.state;
 
         return (
             <React.Fragment>
-                <Toolbar className="drift-toolbar" clearAllFilters={ resetComparisonFilters } clearFiltersButtonText='Reset filters'>
+                <Toolbar className="drift-toolbar" clearAllFilters={ this.resetFilters } clearFiltersButtonText='Reset filters'>
                     <ToolbarContent>
                         <ToolbarGroup variant='filter-group'>
                             <ToolbarFilter
