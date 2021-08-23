@@ -261,7 +261,7 @@ class EditBaseline extends Component {
 
     renderTable({ baselinesWrite }) {
         return (
-            <table className="pf-c-table ins-c-table pf-m-grid-md ins-entity-table">
+            <table className="pf-c-table ins-c-table pf-m-grid-md ins-entity-table edit-baseline-table">
                 <thead>
                     { this.renderHeaderRow(baselinesWrite) }
                 </thead>
