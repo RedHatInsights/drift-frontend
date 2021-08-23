@@ -70,7 +70,6 @@ export class BaselineTableKebab extends Component {
                 }
                 <Dropdown
                     style={{ float: 'right' }}
-                    className={ 'baseline-table-kebab' }
                     ouiaId={ 'baseline-kebab-dropdown-' + baselineName }
                     toggle={ <KebabToggle
                         data-ouia-component-id={ 'baseline-kebab-dropdown-toggle-' + baselineName }

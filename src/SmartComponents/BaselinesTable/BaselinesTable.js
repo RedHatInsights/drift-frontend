@@ -182,6 +182,7 @@ export class BaselinesTable extends Component {
                     tableRows = this.renderRows(baselinesWrite);
 
                     table = <Table
+                        className='baseline-table'
                         aria-label="Baselines Table"
                         data-ouia-component-id='baselines-table'
                         onSort={ this.onSort }
