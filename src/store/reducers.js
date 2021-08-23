@@ -41,15 +41,17 @@ function selectedReducer(
                         }
                     });
 
-                    row.historical_profiles = <div className='hsp-icon-align'>
-                        <HistoricalProfilesPopover
-                            system={ systemInfo }
-                            hasBadge={ true }
-                            badgeCount={ badgeCount }
-                            hasMultiSelect={ hasMultiSelect }
-                            selectHistoricProfiles={ selectHistoricProfiles }
-                            systemName={ row.display_name }
-                        />
+                    row.historical_profiles = <div>
+                        <div className='hsp-icon-align'>
+                            <HistoricalProfilesPopover
+                                system={ systemInfo }
+                                hasBadge={ true }
+                                badgeCount={ badgeCount }
+                                hasMultiSelect={ hasMultiSelect }
+                                selectHistoricProfiles={ selectHistoricProfiles }
+                                systemName={ row.display_name }
+                            />
+                        </div>
                     </div>;
                 });
             }
