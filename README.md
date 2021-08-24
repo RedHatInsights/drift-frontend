@@ -29,7 +29,7 @@ Make sure to run these commands in 2 different terminals at the sametime.
 In terminal 1:
 ```
 cd drift-frontend
-SPANDX_CONFIG=profiles/local-frontend.js  bash ../insights-proxy/scripts/run.sh
+USE_CLOUD=true SPANDX_CONFIG=profiles/local-frontend.js  bash ../insights-proxy/scripts/run.sh
 ```
 
 In terminal 2:
@@ -54,7 +54,7 @@ In terminal 1:
 
 ```
 cd drift-frontend
-SPANDX_CONFIG=../drift-backend/local-drift-backend.js bash ../insights-proxy/scripts/run.sh
+USE_CLOUD=true SPANDX_CONFIG=../drift-backend/local-drift-backend.js bash ../insights-proxy/scripts/run.sh
 ```
 
 In terminal 2:
@@ -69,7 +69,7 @@ npm run start
 In terminal
 ```
 cd drift-frontend
-SPANDX_PORT=1338 SPANDX_CONFIG=profiles/local-drift-dev-setup.js bash ../insights-proxy/scripts/run.sh
+USE_CLOUD=true SPANDX_PORT=1338 SPANDX_CONFIG=profiles/local-drift-dev-setup.js bash ../insights-proxy/scripts/run.sh
 ```
 Note that `SPANDX_PORT` should be different from the port used for [drift-dev-setup](https://github.com/RedHatInsights/drift-dev-setup) which is `1337` by default.
 
