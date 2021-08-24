@@ -9711,23 +9711,27 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                             tabindex="0"
                           >
                             <div
-                              class="pf-l-bullseye pf-u-p-lg"
+                              class="inventory-toolbar-no-padding"
                             >
-                              <span
-                                aria-valuetext="Loading..."
-                                class="pf-c-spinner pf-m-xl"
-                                role="progressbar"
+                              <div
+                                class="pf-l-bullseye pf-u-p-lg"
                               >
                                 <span
-                                  class="pf-c-spinner__clipper"
-                                />
-                                <span
-                                  class="pf-c-spinner__lead-ball"
-                                />
-                                <span
-                                  class="pf-c-spinner__tail-ball"
-                                />
-                              </span>
+                                  aria-valuetext="Loading..."
+                                  class="pf-c-spinner pf-m-xl"
+                                  role="progressbar"
+                                >
+                                  <span
+                                    class="pf-c-spinner__clipper"
+                                  />
+                                  <span
+                                    class="pf-c-spinner__lead-ball"
+                                  />
+                                  <span
+                                    class="pf-c-spinner__tail-ball"
+                                  />
+                                </span>
+                              </div>
                             </div>
                           </section>
                           <section
@@ -11389,93 +11393,10 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                               ]
                                             }
                                           >
-                                            <ForwardRef
-                                              bulkSelect={
-                                                Object {
-                                                  "checked": false,
-                                                  "count": 0,
-                                                  "isDisabled": false,
-                                                  "items": Array [
-                                                    Object {
-                                                      "onClick": [Function],
-                                                      "title": "Select none (0)",
-                                                    },
-                                                    Object {
-                                                      "onClick": [Function],
-                                                      "title": "Select page (0)",
-                                                    },
-                                                    Object {
-                                                      "onClick": [Function],
-                                                      "title": "Deselect page (0)",
-                                                    },
-                                                  ],
-                                                  "onSelect": [Function],
-                                                }
-                                              }
-                                              columns={
-                                                Array [
-                                                  Object {
-                                                    "key": "display_name",
-                                                    "props": Object {
-                                                      "width": 20,
-                                                    },
-                                                    "title": "Name",
-                                                  },
-                                                  Object {
-                                                    "key": "tags",
-                                                    "props": Object {
-                                                      "isStatic": true,
-                                                      "width": 10,
-                                                    },
-                                                    "title": "Tags",
-                                                  },
-                                                  Object {
-                                                    "key": "updated",
-                                                    "props": Object {
-                                                      "width": 10,
-                                                    },
-                                                    "title": "Last seen",
-                                                  },
-                                                  Object {
-                                                    "key": "historical_profiles",
-                                                    "props": Object {
-                                                      "isStatic": true,
-                                                      "width": 10,
-                                                    },
-                                                    "title": "Historical profiles",
-                                                  },
-                                                ]
-                                              }
-                                              customFilters={
-                                                Object {
-                                                  "filter": Object {
-                                                    "system_profile": Object {},
-                                                  },
-                                                  "tags": Array [],
-                                                }
-                                              }
-                                              fallback={
-                                                <Bullseye
-                                                  className="pf-u-p-lg"
-                                                >
-                                                  <Spinner
-                                                    size="xl"
-                                                  />
-                                                </Bullseye>
-                                              }
-                                              getEntities={[Function]}
-                                              noDetail={true}
-                                              onLoad={[Function]}
-                                              showTags={true}
-                                              tableProps={
-                                                Object {
-                                                  "canSelectAll": false,
-                                                  "ouiaId": "systems-table",
-                                                  "selectVariant": "checkbox",
-                                                }
-                                              }
+                                            <div
+                                              className="inventory-toolbar-no-padding"
                                             >
-                                              <BaseInvTable
+                                              <ForwardRef
                                                 bulkSelect={
                                                   Object {
                                                     "checked": false,
@@ -11550,7 +11471,6 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                   </Bullseye>
                                                 }
                                                 getEntities={[Function]}
-                                                innerRef={null}
                                                 noDetail={true}
                                                 onLoad={[Function]}
                                                 showTags={true}
@@ -11562,7 +11482,71 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                   }
                                                 }
                                               >
-                                                <Suspense
+                                                <BaseInvTable
+                                                  bulkSelect={
+                                                    Object {
+                                                      "checked": false,
+                                                      "count": 0,
+                                                      "isDisabled": false,
+                                                      "items": Array [
+                                                        Object {
+                                                          "onClick": [Function],
+                                                          "title": "Select none (0)",
+                                                        },
+                                                        Object {
+                                                          "onClick": [Function],
+                                                          "title": "Select page (0)",
+                                                        },
+                                                        Object {
+                                                          "onClick": [Function],
+                                                          "title": "Deselect page (0)",
+                                                        },
+                                                      ],
+                                                      "onSelect": [Function],
+                                                    }
+                                                  }
+                                                  columns={
+                                                    Array [
+                                                      Object {
+                                                        "key": "display_name",
+                                                        "props": Object {
+                                                          "width": 20,
+                                                        },
+                                                        "title": "Name",
+                                                      },
+                                                      Object {
+                                                        "key": "tags",
+                                                        "props": Object {
+                                                          "isStatic": true,
+                                                          "width": 10,
+                                                        },
+                                                        "title": "Tags",
+                                                      },
+                                                      Object {
+                                                        "key": "updated",
+                                                        "props": Object {
+                                                          "width": 10,
+                                                        },
+                                                        "title": "Last seen",
+                                                      },
+                                                      Object {
+                                                        "key": "historical_profiles",
+                                                        "props": Object {
+                                                          "isStatic": true,
+                                                          "width": 10,
+                                                        },
+                                                        "title": "Historical profiles",
+                                                      },
+                                                    ]
+                                                  }
+                                                  customFilters={
+                                                    Object {
+                                                      "filter": Object {
+                                                        "system_profile": Object {},
+                                                      },
+                                                      "tags": Array [],
+                                                    }
+                                                  }
                                                   fallback={
                                                     <Bullseye
                                                       className="pf-u-p-lg"
@@ -11572,163 +11556,20 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                       />
                                                     </Bullseye>
                                                   }
+                                                  getEntities={[Function]}
+                                                  innerRef={null}
+                                                  noDetail={true}
+                                                  onLoad={[Function]}
+                                                  showTags={true}
+                                                  tableProps={
+                                                    Object {
+                                                      "canSelectAll": false,
+                                                      "ouiaId": "systems-table",
+                                                      "selectVariant": "checkbox",
+                                                    }
+                                                  }
                                                 >
-                                                  <ForwardRef
-                                                    ErrorComponent={
-                                                      <UNDEFINED
-                                                        bulkSelect={
-                                                          Object {
-                                                            "checked": false,
-                                                            "count": 0,
-                                                            "isDisabled": false,
-                                                            "items": Array [
-                                                              Object {
-                                                                "onClick": [Function],
-                                                                "title": "Select none (0)",
-                                                              },
-                                                              Object {
-                                                                "onClick": [Function],
-                                                                "title": "Select page (0)",
-                                                              },
-                                                              Object {
-                                                                "onClick": [Function],
-                                                                "title": "Deselect page (0)",
-                                                              },
-                                                            ],
-                                                            "onSelect": [Function],
-                                                          }
-                                                        }
-                                                        columns={
-                                                          Array [
-                                                            Object {
-                                                              "key": "display_name",
-                                                              "props": Object {
-                                                                "width": 20,
-                                                              },
-                                                              "title": "Name",
-                                                            },
-                                                            Object {
-                                                              "key": "tags",
-                                                              "props": Object {
-                                                                "isStatic": true,
-                                                                "width": 10,
-                                                              },
-                                                              "title": "Tags",
-                                                            },
-                                                            Object {
-                                                              "key": "updated",
-                                                              "props": Object {
-                                                                "width": 10,
-                                                              },
-                                                              "title": "Last seen",
-                                                            },
-                                                            Object {
-                                                              "key": "historical_profiles",
-                                                              "props": Object {
-                                                                "isStatic": true,
-                                                                "width": 10,
-                                                              },
-                                                              "title": "Historical profiles",
-                                                            },
-                                                          ]
-                                                        }
-                                                        component="InventoryTable"
-                                                        customFilters={
-                                                          Object {
-                                                            "filter": Object {
-                                                              "system_profile": Object {},
-                                                            },
-                                                            "tags": Array [],
-                                                          }
-                                                        }
-                                                        fallback={
-                                                          <Bullseye
-                                                            className="pf-u-p-lg"
-                                                          >
-                                                            <Spinner
-                                                              size="xl"
-                                                            />
-                                                          </Bullseye>
-                                                        }
-                                                        getEntities={[Function]}
-                                                        innerRef={null}
-                                                        noDetail={true}
-                                                        onLoad={[Function]}
-                                                        showTags={true}
-                                                        tableProps={
-                                                          Object {
-                                                            "canSelectAll": false,
-                                                            "ouiaId": "systems-table",
-                                                            "selectVariant": "checkbox",
-                                                          }
-                                                        }
-                                                      />
-                                                    }
-                                                    appName="chrome"
-                                                    bulkSelect={
-                                                      Object {
-                                                        "checked": false,
-                                                        "count": 0,
-                                                        "isDisabled": false,
-                                                        "items": Array [
-                                                          Object {
-                                                            "onClick": [Function],
-                                                            "title": "Select none (0)",
-                                                          },
-                                                          Object {
-                                                            "onClick": [Function],
-                                                            "title": "Select page (0)",
-                                                          },
-                                                          Object {
-                                                            "onClick": [Function],
-                                                            "title": "Deselect page (0)",
-                                                          },
-                                                        ],
-                                                        "onSelect": [Function],
-                                                      }
-                                                    }
-                                                    columns={
-                                                      Array [
-                                                        Object {
-                                                          "key": "display_name",
-                                                          "props": Object {
-                                                            "width": 20,
-                                                          },
-                                                          "title": "Name",
-                                                        },
-                                                        Object {
-                                                          "key": "tags",
-                                                          "props": Object {
-                                                            "isStatic": true,
-                                                            "width": 10,
-                                                          },
-                                                          "title": "Tags",
-                                                        },
-                                                        Object {
-                                                          "key": "updated",
-                                                          "props": Object {
-                                                            "width": 10,
-                                                          },
-                                                          "title": "Last seen",
-                                                        },
-                                                        Object {
-                                                          "key": "historical_profiles",
-                                                          "props": Object {
-                                                            "isStatic": true,
-                                                            "width": 10,
-                                                          },
-                                                          "title": "Historical profiles",
-                                                        },
-                                                      ]
-                                                    }
-                                                    customFilters={
-                                                      Object {
-                                                        "filter": Object {
-                                                          "system_profile": Object {},
-                                                        },
-                                                        "tags": Array [],
-                                                      }
-                                                    }
+                                                  <Suspense
                                                     fallback={
                                                       <Bullseye
                                                         className="pf-u-p-lg"
@@ -11738,62 +11579,8 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                         />
                                                       </Bullseye>
                                                     }
-                                                    getEntities={[Function]}
-                                                    history={
-                                                      Object {
-                                                        "action": "POP",
-                                                        "block": [Function],
-                                                        "canGo": [Function],
-                                                        "createHref": [Function],
-                                                        "entries": Array [
-                                                          Object {
-                                                            "hash": "",
-                                                            "pathname": "/",
-                                                            "search": "",
-                                                            "state": undefined,
-                                                          },
-                                                        ],
-                                                        "go": [Function],
-                                                        "goBack": [Function],
-                                                        "goForward": [Function],
-                                                        "index": 0,
-                                                        "length": 1,
-                                                        "listen": [Function],
-                                                        "location": Object {
-                                                          "hash": "",
-                                                          "pathname": "/",
-                                                          "search": "",
-                                                          "state": undefined,
-                                                        },
-                                                        "push": [Function],
-                                                        "replace": [Function],
-                                                      }
-                                                    }
-                                                    innerRef={null}
-                                                    module="./InventoryTable"
-                                                    noDetail={true}
-                                                    onLoad={[Function]}
-                                                    scope="chrome"
-                                                    showTags={true}
-                                                    store={
-                                                      Object {
-                                                        "clearActions": [Function],
-                                                        "dispatch": [Function],
-                                                        "getActions": [Function],
-                                                        "getState": [Function],
-                                                        "replaceReducer": [Function],
-                                                        "subscribe": [Function],
-                                                      }
-                                                    }
-                                                    tableProps={
-                                                      Object {
-                                                        "canSelectAll": false,
-                                                        "ouiaId": "systems-table",
-                                                        "selectVariant": "checkbox",
-                                                      }
-                                                    }
                                                   >
-                                                    <BaseScalprumComponent
+                                                    <ForwardRef
                                                       ErrorComponent={
                                                         <UNDEFINED
                                                           bulkSelect={
@@ -12013,7 +11800,98 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                         }
                                                       }
                                                     >
-                                                      <AsyncInventory
+                                                      <BaseScalprumComponent
+                                                        ErrorComponent={
+                                                          <UNDEFINED
+                                                            bulkSelect={
+                                                              Object {
+                                                                "checked": false,
+                                                                "count": 0,
+                                                                "isDisabled": false,
+                                                                "items": Array [
+                                                                  Object {
+                                                                    "onClick": [Function],
+                                                                    "title": "Select none (0)",
+                                                                  },
+                                                                  Object {
+                                                                    "onClick": [Function],
+                                                                    "title": "Select page (0)",
+                                                                  },
+                                                                  Object {
+                                                                    "onClick": [Function],
+                                                                    "title": "Deselect page (0)",
+                                                                  },
+                                                                ],
+                                                                "onSelect": [Function],
+                                                              }
+                                                            }
+                                                            columns={
+                                                              Array [
+                                                                Object {
+                                                                  "key": "display_name",
+                                                                  "props": Object {
+                                                                    "width": 20,
+                                                                  },
+                                                                  "title": "Name",
+                                                                },
+                                                                Object {
+                                                                  "key": "tags",
+                                                                  "props": Object {
+                                                                    "isStatic": true,
+                                                                    "width": 10,
+                                                                  },
+                                                                  "title": "Tags",
+                                                                },
+                                                                Object {
+                                                                  "key": "updated",
+                                                                  "props": Object {
+                                                                    "width": 10,
+                                                                  },
+                                                                  "title": "Last seen",
+                                                                },
+                                                                Object {
+                                                                  "key": "historical_profiles",
+                                                                  "props": Object {
+                                                                    "isStatic": true,
+                                                                    "width": 10,
+                                                                  },
+                                                                  "title": "Historical profiles",
+                                                                },
+                                                              ]
+                                                            }
+                                                            component="InventoryTable"
+                                                            customFilters={
+                                                              Object {
+                                                                "filter": Object {
+                                                                  "system_profile": Object {},
+                                                                },
+                                                                "tags": Array [],
+                                                              }
+                                                            }
+                                                            fallback={
+                                                              <Bullseye
+                                                                className="pf-u-p-lg"
+                                                              >
+                                                                <Spinner
+                                                                  size="xl"
+                                                                />
+                                                              </Bullseye>
+                                                            }
+                                                            getEntities={[Function]}
+                                                            innerRef={null}
+                                                            noDetail={true}
+                                                            onLoad={[Function]}
+                                                            showTags={true}
+                                                            tableProps={
+                                                              Object {
+                                                                "canSelectAll": false,
+                                                                "ouiaId": "systems-table",
+                                                                "selectVariant": "checkbox",
+                                                              }
+                                                            }
+                                                          />
+                                                        }
+                                                        appName="chrome"
                                                         bulkSelect={
                                                           Object {
                                                             "checked": false,
@@ -12070,7 +11948,6 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                             },
                                                           ]
                                                         }
-                                                        component="InventoryTable"
                                                         customFilters={
                                                           Object {
                                                             "filter": Object {
@@ -12079,16 +11956,147 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                             "tags": Array [],
                                                           }
                                                         }
-                                                        error={[TypeError: Cannot read property 'appsMetaData' of undefined]}
-                                                        errorInfo={
+                                                        fallback={
+                                                          <Bullseye
+                                                            className="pf-u-p-lg"
+                                                          >
+                                                            <Spinner
+                                                              size="xl"
+                                                            />
+                                                          </Bullseye>
+                                                        }
+                                                        getEntities={[Function]}
+                                                        history={
                                                           Object {
-                                                            "componentStack": "
+                                                            "action": "POP",
+                                                            "block": [Function],
+                                                            "canGo": [Function],
+                                                            "createHref": [Function],
+                                                            "entries": Array [
+                                                              Object {
+                                                                "hash": "",
+                                                                "pathname": "/",
+                                                                "search": "",
+                                                                "state": undefined,
+                                                              },
+                                                            ],
+                                                            "go": [Function],
+                                                            "goBack": [Function],
+                                                            "goForward": [Function],
+                                                            "index": 0,
+                                                            "length": 1,
+                                                            "listen": [Function],
+                                                            "location": Object {
+                                                              "hash": "",
+                                                              "pathname": "/",
+                                                              "search": "",
+                                                              "state": undefined,
+                                                            },
+                                                            "push": [Function],
+                                                            "replace": [Function],
+                                                          }
+                                                        }
+                                                        innerRef={null}
+                                                        module="./InventoryTable"
+                                                        noDetail={true}
+                                                        onLoad={[Function]}
+                                                        scope="chrome"
+                                                        showTags={true}
+                                                        store={
+                                                          Object {
+                                                            "clearActions": [Function],
+                                                            "dispatch": [Function],
+                                                            "getActions": [Function],
+                                                            "getState": [Function],
+                                                            "replaceReducer": [Function],
+                                                            "subscribe": [Function],
+                                                          }
+                                                        }
+                                                        tableProps={
+                                                          Object {
+                                                            "canSelectAll": false,
+                                                            "ouiaId": "systems-table",
+                                                            "selectVariant": "checkbox",
+                                                          }
+                                                        }
+                                                      >
+                                                        <AsyncInventory
+                                                          bulkSelect={
+                                                            Object {
+                                                              "checked": false,
+                                                              "count": 0,
+                                                              "isDisabled": false,
+                                                              "items": Array [
+                                                                Object {
+                                                                  "onClick": [Function],
+                                                                  "title": "Select none (0)",
+                                                                },
+                                                                Object {
+                                                                  "onClick": [Function],
+                                                                  "title": "Select page (0)",
+                                                                },
+                                                                Object {
+                                                                  "onClick": [Function],
+                                                                  "title": "Deselect page (0)",
+                                                                },
+                                                              ],
+                                                              "onSelect": [Function],
+                                                            }
+                                                          }
+                                                          columns={
+                                                            Array [
+                                                              Object {
+                                                                "key": "display_name",
+                                                                "props": Object {
+                                                                  "width": 20,
+                                                                },
+                                                                "title": "Name",
+                                                              },
+                                                              Object {
+                                                                "key": "tags",
+                                                                "props": Object {
+                                                                  "isStatic": true,
+                                                                  "width": 10,
+                                                                },
+                                                                "title": "Tags",
+                                                              },
+                                                              Object {
+                                                                "key": "updated",
+                                                                "props": Object {
+                                                                  "width": 10,
+                                                                },
+                                                                "title": "Last seen",
+                                                              },
+                                                              Object {
+                                                                "key": "historical_profiles",
+                                                                "props": Object {
+                                                                  "isStatic": true,
+                                                                  "width": 10,
+                                                                },
+                                                                "title": "Historical profiles",
+                                                              },
+                                                            ]
+                                                          }
+                                                          component="InventoryTable"
+                                                          customFilters={
+                                                            Object {
+                                                              "filter": Object {
+                                                                "system_profile": Object {},
+                                                              },
+                                                              "tags": Array [],
+                                                            }
+                                                          }
+                                                          error={[TypeError: Cannot read property 'appsMetaData' of undefined]}
+                                                          errorInfo={
+                                                            Object {
+                                                              "componentStack": "
     in LoadModule (created by BaseScalprumComponent)
     in BaseScalprumComponent (created by ForwardRef)
     in ForwardRef (created by BaseInvTable)
     in Suspense (created by BaseInvTable)
     in BaseInvTable (created by ForwardRef)
     in ForwardRef (created by SystemsTable)
+    in div (created by SystemsTable)
     in SystemsTable (created by Connect(SystemsTable))
     in Connect(SystemsTable) (created by AddSystemModal)
     in section (created by Context.Consumer)
@@ -12111,64 +12119,65 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
     in Router (created by MemoryRouter)
     in MemoryRouter (created by WrapperComponent)
     in WrapperComponent",
+                                                            }
                                                           }
-                                                        }
-                                                        fallback={
+                                                          fallback={
+                                                            <Bullseye
+                                                              className="pf-u-p-lg"
+                                                            >
+                                                              <Spinner
+                                                                size="xl"
+                                                              />
+                                                            </Bullseye>
+                                                          }
+                                                          getEntities={[Function]}
+                                                          hasError={true}
+                                                          innerRef={null}
+                                                          noDetail={true}
+                                                          onLoad={[Function]}
+                                                          showTags={true}
+                                                          tableProps={
+                                                            Object {
+                                                              "canSelectAll": false,
+                                                              "ouiaId": "systems-table",
+                                                              "selectVariant": "checkbox",
+                                                            }
+                                                          }
+                                                        >
                                                           <Bullseye
                                                             className="pf-u-p-lg"
                                                           >
-                                                            <Spinner
-                                                              size="xl"
-                                                            />
-                                                          </Bullseye>
-                                                        }
-                                                        getEntities={[Function]}
-                                                        hasError={true}
-                                                        innerRef={null}
-                                                        noDetail={true}
-                                                        onLoad={[Function]}
-                                                        showTags={true}
-                                                        tableProps={
-                                                          Object {
-                                                            "canSelectAll": false,
-                                                            "ouiaId": "systems-table",
-                                                            "selectVariant": "checkbox",
-                                                          }
-                                                        }
-                                                      >
-                                                        <Bullseye
-                                                          className="pf-u-p-lg"
-                                                        >
-                                                          <div
-                                                            className="pf-l-bullseye pf-u-p-lg"
-                                                          >
-                                                            <Spinner
-                                                              size="xl"
+                                                            <div
+                                                              className="pf-l-bullseye pf-u-p-lg"
                                                             >
-                                                              <span
-                                                                aria-valuetext="Loading..."
-                                                                className="pf-c-spinner pf-m-xl"
-                                                                role="progressbar"
+                                                              <Spinner
+                                                                size="xl"
                                                               >
                                                                 <span
-                                                                  className="pf-c-spinner__clipper"
-                                                                />
-                                                                <span
-                                                                  className="pf-c-spinner__lead-ball"
-                                                                />
-                                                                <span
-                                                                  className="pf-c-spinner__tail-ball"
-                                                                />
-                                                              </span>
-                                                            </Spinner>
-                                                          </div>
-                                                        </Bullseye>
-                                                      </AsyncInventory>
-                                                    </BaseScalprumComponent>
-                                                  </ForwardRef>
-                                                </Suspense>
-                                              </BaseInvTable>
-                                            </ForwardRef>
+                                                                  aria-valuetext="Loading..."
+                                                                  className="pf-c-spinner pf-m-xl"
+                                                                  role="progressbar"
+                                                                >
+                                                                  <span
+                                                                    className="pf-c-spinner__clipper"
+                                                                  />
+                                                                  <span
+                                                                    className="pf-c-spinner__lead-ball"
+                                                                  />
+                                                                  <span
+                                                                    className="pf-c-spinner__tail-ball"
+                                                                  />
+                                                                </span>
+                                                              </Spinner>
+                                                            </div>
+                                                          </Bullseye>
+                                                        </AsyncInventory>
+                                                      </BaseScalprumComponent>
+                                                    </ForwardRef>
+                                                  </Suspense>
+                                                </BaseInvTable>
+                                              </ForwardRef>
+                                            </div>
                                           </SystemsTable>
                                         </Connect(SystemsTable)>
                                       </section>
@@ -16741,23 +16750,27 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                             tabindex="0"
                           >
                             <div
-                              class="pf-l-bullseye pf-u-p-lg"
+                              class="inventory-toolbar-no-padding"
                             >
-                              <span
-                                aria-valuetext="Loading..."
-                                class="pf-c-spinner pf-m-xl"
-                                role="progressbar"
+                              <div
+                                class="pf-l-bullseye pf-u-p-lg"
                               >
                                 <span
-                                  class="pf-c-spinner__clipper"
-                                />
-                                <span
-                                  class="pf-c-spinner__lead-ball"
-                                />
-                                <span
-                                  class="pf-c-spinner__tail-ball"
-                                />
-                              </span>
+                                  aria-valuetext="Loading..."
+                                  class="pf-c-spinner pf-m-xl"
+                                  role="progressbar"
+                                >
+                                  <span
+                                    class="pf-c-spinner__clipper"
+                                  />
+                                  <span
+                                    class="pf-c-spinner__lead-ball"
+                                  />
+                                  <span
+                                    class="pf-c-spinner__tail-ball"
+                                  />
+                                </span>
+                              </div>
                             </div>
                           </section>
                           <section
@@ -18420,93 +18433,10 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                               ]
                                             }
                                           >
-                                            <ForwardRef
-                                              bulkSelect={
-                                                Object {
-                                                  "checked": false,
-                                                  "count": 0,
-                                                  "isDisabled": false,
-                                                  "items": Array [
-                                                    Object {
-                                                      "onClick": [Function],
-                                                      "title": "Select none (0)",
-                                                    },
-                                                    Object {
-                                                      "onClick": [Function],
-                                                      "title": "Select page (0)",
-                                                    },
-                                                    Object {
-                                                      "onClick": [Function],
-                                                      "title": "Deselect page (0)",
-                                                    },
-                                                  ],
-                                                  "onSelect": [Function],
-                                                }
-                                              }
-                                              columns={
-                                                Array [
-                                                  Object {
-                                                    "key": "display_name",
-                                                    "props": Object {
-                                                      "width": 20,
-                                                    },
-                                                    "title": "Name",
-                                                  },
-                                                  Object {
-                                                    "key": "tags",
-                                                    "props": Object {
-                                                      "isStatic": true,
-                                                      "width": 10,
-                                                    },
-                                                    "title": "Tags",
-                                                  },
-                                                  Object {
-                                                    "key": "updated",
-                                                    "props": Object {
-                                                      "width": 10,
-                                                    },
-                                                    "title": "Last seen",
-                                                  },
-                                                  Object {
-                                                    "key": "historical_profiles",
-                                                    "props": Object {
-                                                      "isStatic": true,
-                                                      "width": 10,
-                                                    },
-                                                    "title": "Historical profiles",
-                                                  },
-                                                ]
-                                              }
-                                              customFilters={
-                                                Object {
-                                                  "filter": Object {
-                                                    "system_profile": Object {},
-                                                  },
-                                                  "tags": Array [],
-                                                }
-                                              }
-                                              fallback={
-                                                <Bullseye
-                                                  className="pf-u-p-lg"
-                                                >
-                                                  <Spinner
-                                                    size="xl"
-                                                  />
-                                                </Bullseye>
-                                              }
-                                              getEntities={[Function]}
-                                              noDetail={true}
-                                              onLoad={[Function]}
-                                              showTags={true}
-                                              tableProps={
-                                                Object {
-                                                  "canSelectAll": false,
-                                                  "ouiaId": "systems-table",
-                                                  "selectVariant": "checkbox",
-                                                }
-                                              }
+                                            <div
+                                              className="inventory-toolbar-no-padding"
                                             >
-                                              <BaseInvTable
+                                              <ForwardRef
                                                 bulkSelect={
                                                   Object {
                                                     "checked": false,
@@ -18581,7 +18511,6 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                   </Bullseye>
                                                 }
                                                 getEntities={[Function]}
-                                                innerRef={null}
                                                 noDetail={true}
                                                 onLoad={[Function]}
                                                 showTags={true}
@@ -18593,7 +18522,71 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                   }
                                                 }
                                               >
-                                                <Suspense
+                                                <BaseInvTable
+                                                  bulkSelect={
+                                                    Object {
+                                                      "checked": false,
+                                                      "count": 0,
+                                                      "isDisabled": false,
+                                                      "items": Array [
+                                                        Object {
+                                                          "onClick": [Function],
+                                                          "title": "Select none (0)",
+                                                        },
+                                                        Object {
+                                                          "onClick": [Function],
+                                                          "title": "Select page (0)",
+                                                        },
+                                                        Object {
+                                                          "onClick": [Function],
+                                                          "title": "Deselect page (0)",
+                                                        },
+                                                      ],
+                                                      "onSelect": [Function],
+                                                    }
+                                                  }
+                                                  columns={
+                                                    Array [
+                                                      Object {
+                                                        "key": "display_name",
+                                                        "props": Object {
+                                                          "width": 20,
+                                                        },
+                                                        "title": "Name",
+                                                      },
+                                                      Object {
+                                                        "key": "tags",
+                                                        "props": Object {
+                                                          "isStatic": true,
+                                                          "width": 10,
+                                                        },
+                                                        "title": "Tags",
+                                                      },
+                                                      Object {
+                                                        "key": "updated",
+                                                        "props": Object {
+                                                          "width": 10,
+                                                        },
+                                                        "title": "Last seen",
+                                                      },
+                                                      Object {
+                                                        "key": "historical_profiles",
+                                                        "props": Object {
+                                                          "isStatic": true,
+                                                          "width": 10,
+                                                        },
+                                                        "title": "Historical profiles",
+                                                      },
+                                                    ]
+                                                  }
+                                                  customFilters={
+                                                    Object {
+                                                      "filter": Object {
+                                                        "system_profile": Object {},
+                                                      },
+                                                      "tags": Array [],
+                                                    }
+                                                  }
                                                   fallback={
                                                     <Bullseye
                                                       className="pf-u-p-lg"
@@ -18603,163 +18596,20 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                       />
                                                     </Bullseye>
                                                   }
+                                                  getEntities={[Function]}
+                                                  innerRef={null}
+                                                  noDetail={true}
+                                                  onLoad={[Function]}
+                                                  showTags={true}
+                                                  tableProps={
+                                                    Object {
+                                                      "canSelectAll": false,
+                                                      "ouiaId": "systems-table",
+                                                      "selectVariant": "checkbox",
+                                                    }
+                                                  }
                                                 >
-                                                  <ForwardRef
-                                                    ErrorComponent={
-                                                      <UNDEFINED
-                                                        bulkSelect={
-                                                          Object {
-                                                            "checked": false,
-                                                            "count": 0,
-                                                            "isDisabled": false,
-                                                            "items": Array [
-                                                              Object {
-                                                                "onClick": [Function],
-                                                                "title": "Select none (0)",
-                                                              },
-                                                              Object {
-                                                                "onClick": [Function],
-                                                                "title": "Select page (0)",
-                                                              },
-                                                              Object {
-                                                                "onClick": [Function],
-                                                                "title": "Deselect page (0)",
-                                                              },
-                                                            ],
-                                                            "onSelect": [Function],
-                                                          }
-                                                        }
-                                                        columns={
-                                                          Array [
-                                                            Object {
-                                                              "key": "display_name",
-                                                              "props": Object {
-                                                                "width": 20,
-                                                              },
-                                                              "title": "Name",
-                                                            },
-                                                            Object {
-                                                              "key": "tags",
-                                                              "props": Object {
-                                                                "isStatic": true,
-                                                                "width": 10,
-                                                              },
-                                                              "title": "Tags",
-                                                            },
-                                                            Object {
-                                                              "key": "updated",
-                                                              "props": Object {
-                                                                "width": 10,
-                                                              },
-                                                              "title": "Last seen",
-                                                            },
-                                                            Object {
-                                                              "key": "historical_profiles",
-                                                              "props": Object {
-                                                                "isStatic": true,
-                                                                "width": 10,
-                                                              },
-                                                              "title": "Historical profiles",
-                                                            },
-                                                          ]
-                                                        }
-                                                        component="InventoryTable"
-                                                        customFilters={
-                                                          Object {
-                                                            "filter": Object {
-                                                              "system_profile": Object {},
-                                                            },
-                                                            "tags": Array [],
-                                                          }
-                                                        }
-                                                        fallback={
-                                                          <Bullseye
-                                                            className="pf-u-p-lg"
-                                                          >
-                                                            <Spinner
-                                                              size="xl"
-                                                            />
-                                                          </Bullseye>
-                                                        }
-                                                        getEntities={[Function]}
-                                                        innerRef={null}
-                                                        noDetail={true}
-                                                        onLoad={[Function]}
-                                                        showTags={true}
-                                                        tableProps={
-                                                          Object {
-                                                            "canSelectAll": false,
-                                                            "ouiaId": "systems-table",
-                                                            "selectVariant": "checkbox",
-                                                          }
-                                                        }
-                                                      />
-                                                    }
-                                                    appName="chrome"
-                                                    bulkSelect={
-                                                      Object {
-                                                        "checked": false,
-                                                        "count": 0,
-                                                        "isDisabled": false,
-                                                        "items": Array [
-                                                          Object {
-                                                            "onClick": [Function],
-                                                            "title": "Select none (0)",
-                                                          },
-                                                          Object {
-                                                            "onClick": [Function],
-                                                            "title": "Select page (0)",
-                                                          },
-                                                          Object {
-                                                            "onClick": [Function],
-                                                            "title": "Deselect page (0)",
-                                                          },
-                                                        ],
-                                                        "onSelect": [Function],
-                                                      }
-                                                    }
-                                                    columns={
-                                                      Array [
-                                                        Object {
-                                                          "key": "display_name",
-                                                          "props": Object {
-                                                            "width": 20,
-                                                          },
-                                                          "title": "Name",
-                                                        },
-                                                        Object {
-                                                          "key": "tags",
-                                                          "props": Object {
-                                                            "isStatic": true,
-                                                            "width": 10,
-                                                          },
-                                                          "title": "Tags",
-                                                        },
-                                                        Object {
-                                                          "key": "updated",
-                                                          "props": Object {
-                                                            "width": 10,
-                                                          },
-                                                          "title": "Last seen",
-                                                        },
-                                                        Object {
-                                                          "key": "historical_profiles",
-                                                          "props": Object {
-                                                            "isStatic": true,
-                                                            "width": 10,
-                                                          },
-                                                          "title": "Historical profiles",
-                                                        },
-                                                      ]
-                                                    }
-                                                    customFilters={
-                                                      Object {
-                                                        "filter": Object {
-                                                          "system_profile": Object {},
-                                                        },
-                                                        "tags": Array [],
-                                                      }
-                                                    }
+                                                  <Suspense
                                                     fallback={
                                                       <Bullseye
                                                         className="pf-u-p-lg"
@@ -18769,62 +18619,8 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                         />
                                                       </Bullseye>
                                                     }
-                                                    getEntities={[Function]}
-                                                    history={
-                                                      Object {
-                                                        "action": "POP",
-                                                        "block": [Function],
-                                                        "canGo": [Function],
-                                                        "createHref": [Function],
-                                                        "entries": Array [
-                                                          Object {
-                                                            "hash": "",
-                                                            "pathname": "/",
-                                                            "search": "",
-                                                            "state": undefined,
-                                                          },
-                                                        ],
-                                                        "go": [Function],
-                                                        "goBack": [Function],
-                                                        "goForward": [Function],
-                                                        "index": 0,
-                                                        "length": 1,
-                                                        "listen": [Function],
-                                                        "location": Object {
-                                                          "hash": "",
-                                                          "pathname": "/",
-                                                          "search": "",
-                                                          "state": undefined,
-                                                        },
-                                                        "push": [Function],
-                                                        "replace": [Function],
-                                                      }
-                                                    }
-                                                    innerRef={null}
-                                                    module="./InventoryTable"
-                                                    noDetail={true}
-                                                    onLoad={[Function]}
-                                                    scope="chrome"
-                                                    showTags={true}
-                                                    store={
-                                                      Object {
-                                                        "clearActions": [Function],
-                                                        "dispatch": [Function],
-                                                        "getActions": [Function],
-                                                        "getState": [Function],
-                                                        "replaceReducer": [Function],
-                                                        "subscribe": [Function],
-                                                      }
-                                                    }
-                                                    tableProps={
-                                                      Object {
-                                                        "canSelectAll": false,
-                                                        "ouiaId": "systems-table",
-                                                        "selectVariant": "checkbox",
-                                                      }
-                                                    }
                                                   >
-                                                    <BaseScalprumComponent
+                                                    <ForwardRef
                                                       ErrorComponent={
                                                         <UNDEFINED
                                                           bulkSelect={
@@ -19043,38 +18839,259 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                           "selectVariant": "checkbox",
                                                         }
                                                       }
-                                                    />
-                                                  </ForwardRef>
-                                                  <Bullseye
-                                                    className="pf-u-p-lg"
-                                                  >
-                                                    <div
-                                                      className="pf-l-bullseye pf-u-p-lg"
                                                     >
-                                                      <Spinner
-                                                        size="xl"
+                                                      <BaseScalprumComponent
+                                                        ErrorComponent={
+                                                          <UNDEFINED
+                                                            bulkSelect={
+                                                              Object {
+                                                                "checked": false,
+                                                                "count": 0,
+                                                                "isDisabled": false,
+                                                                "items": Array [
+                                                                  Object {
+                                                                    "onClick": [Function],
+                                                                    "title": "Select none (0)",
+                                                                  },
+                                                                  Object {
+                                                                    "onClick": [Function],
+                                                                    "title": "Select page (0)",
+                                                                  },
+                                                                  Object {
+                                                                    "onClick": [Function],
+                                                                    "title": "Deselect page (0)",
+                                                                  },
+                                                                ],
+                                                                "onSelect": [Function],
+                                                              }
+                                                            }
+                                                            columns={
+                                                              Array [
+                                                                Object {
+                                                                  "key": "display_name",
+                                                                  "props": Object {
+                                                                    "width": 20,
+                                                                  },
+                                                                  "title": "Name",
+                                                                },
+                                                                Object {
+                                                                  "key": "tags",
+                                                                  "props": Object {
+                                                                    "isStatic": true,
+                                                                    "width": 10,
+                                                                  },
+                                                                  "title": "Tags",
+                                                                },
+                                                                Object {
+                                                                  "key": "updated",
+                                                                  "props": Object {
+                                                                    "width": 10,
+                                                                  },
+                                                                  "title": "Last seen",
+                                                                },
+                                                                Object {
+                                                                  "key": "historical_profiles",
+                                                                  "props": Object {
+                                                                    "isStatic": true,
+                                                                    "width": 10,
+                                                                  },
+                                                                  "title": "Historical profiles",
+                                                                },
+                                                              ]
+                                                            }
+                                                            component="InventoryTable"
+                                                            customFilters={
+                                                              Object {
+                                                                "filter": Object {
+                                                                  "system_profile": Object {},
+                                                                },
+                                                                "tags": Array [],
+                                                              }
+                                                            }
+                                                            fallback={
+                                                              <Bullseye
+                                                                className="pf-u-p-lg"
+                                                              >
+                                                                <Spinner
+                                                                  size="xl"
+                                                                />
+                                                              </Bullseye>
+                                                            }
+                                                            getEntities={[Function]}
+                                                            innerRef={null}
+                                                            noDetail={true}
+                                                            onLoad={[Function]}
+                                                            showTags={true}
+                                                            tableProps={
+                                                              Object {
+                                                                "canSelectAll": false,
+                                                                "ouiaId": "systems-table",
+                                                                "selectVariant": "checkbox",
+                                                              }
+                                                            }
+                                                          />
+                                                        }
+                                                        appName="chrome"
+                                                        bulkSelect={
+                                                          Object {
+                                                            "checked": false,
+                                                            "count": 0,
+                                                            "isDisabled": false,
+                                                            "items": Array [
+                                                              Object {
+                                                                "onClick": [Function],
+                                                                "title": "Select none (0)",
+                                                              },
+                                                              Object {
+                                                                "onClick": [Function],
+                                                                "title": "Select page (0)",
+                                                              },
+                                                              Object {
+                                                                "onClick": [Function],
+                                                                "title": "Deselect page (0)",
+                                                              },
+                                                            ],
+                                                            "onSelect": [Function],
+                                                          }
+                                                        }
+                                                        columns={
+                                                          Array [
+                                                            Object {
+                                                              "key": "display_name",
+                                                              "props": Object {
+                                                                "width": 20,
+                                                              },
+                                                              "title": "Name",
+                                                            },
+                                                            Object {
+                                                              "key": "tags",
+                                                              "props": Object {
+                                                                "isStatic": true,
+                                                                "width": 10,
+                                                              },
+                                                              "title": "Tags",
+                                                            },
+                                                            Object {
+                                                              "key": "updated",
+                                                              "props": Object {
+                                                                "width": 10,
+                                                              },
+                                                              "title": "Last seen",
+                                                            },
+                                                            Object {
+                                                              "key": "historical_profiles",
+                                                              "props": Object {
+                                                                "isStatic": true,
+                                                                "width": 10,
+                                                              },
+                                                              "title": "Historical profiles",
+                                                            },
+                                                          ]
+                                                        }
+                                                        customFilters={
+                                                          Object {
+                                                            "filter": Object {
+                                                              "system_profile": Object {},
+                                                            },
+                                                            "tags": Array [],
+                                                          }
+                                                        }
+                                                        fallback={
+                                                          <Bullseye
+                                                            className="pf-u-p-lg"
+                                                          >
+                                                            <Spinner
+                                                              size="xl"
+                                                            />
+                                                          </Bullseye>
+                                                        }
+                                                        getEntities={[Function]}
+                                                        history={
+                                                          Object {
+                                                            "action": "POP",
+                                                            "block": [Function],
+                                                            "canGo": [Function],
+                                                            "createHref": [Function],
+                                                            "entries": Array [
+                                                              Object {
+                                                                "hash": "",
+                                                                "pathname": "/",
+                                                                "search": "",
+                                                                "state": undefined,
+                                                              },
+                                                            ],
+                                                            "go": [Function],
+                                                            "goBack": [Function],
+                                                            "goForward": [Function],
+                                                            "index": 0,
+                                                            "length": 1,
+                                                            "listen": [Function],
+                                                            "location": Object {
+                                                              "hash": "",
+                                                              "pathname": "/",
+                                                              "search": "",
+                                                              "state": undefined,
+                                                            },
+                                                            "push": [Function],
+                                                            "replace": [Function],
+                                                          }
+                                                        }
+                                                        innerRef={null}
+                                                        module="./InventoryTable"
+                                                        noDetail={true}
+                                                        onLoad={[Function]}
+                                                        scope="chrome"
+                                                        showTags={true}
+                                                        store={
+                                                          Object {
+                                                            "clearActions": [Function],
+                                                            "dispatch": [Function],
+                                                            "getActions": [Function],
+                                                            "getState": [Function],
+                                                            "replaceReducer": [Function],
+                                                            "subscribe": [Function],
+                                                          }
+                                                        }
+                                                        tableProps={
+                                                          Object {
+                                                            "canSelectAll": false,
+                                                            "ouiaId": "systems-table",
+                                                            "selectVariant": "checkbox",
+                                                          }
+                                                        }
+                                                      />
+                                                    </ForwardRef>
+                                                    <Bullseye
+                                                      className="pf-u-p-lg"
+                                                    >
+                                                      <div
+                                                        className="pf-l-bullseye pf-u-p-lg"
                                                       >
-                                                        <span
-                                                          aria-valuetext="Loading..."
-                                                          className="pf-c-spinner pf-m-xl"
-                                                          role="progressbar"
+                                                        <Spinner
+                                                          size="xl"
                                                         >
                                                           <span
-                                                            className="pf-c-spinner__clipper"
-                                                          />
-                                                          <span
-                                                            className="pf-c-spinner__lead-ball"
-                                                          />
-                                                          <span
-                                                            className="pf-c-spinner__tail-ball"
-                                                          />
-                                                        </span>
-                                                      </Spinner>
-                                                    </div>
-                                                  </Bullseye>
-                                                </Suspense>
-                                              </BaseInvTable>
-                                            </ForwardRef>
+                                                            aria-valuetext="Loading..."
+                                                            className="pf-c-spinner pf-m-xl"
+                                                            role="progressbar"
+                                                          >
+                                                            <span
+                                                              className="pf-c-spinner__clipper"
+                                                            />
+                                                            <span
+                                                              className="pf-c-spinner__lead-ball"
+                                                            />
+                                                            <span
+                                                              className="pf-c-spinner__tail-ball"
+                                                            />
+                                                          </span>
+                                                        </Spinner>
+                                                      </div>
+                                                    </Bullseye>
+                                                  </Suspense>
+                                                </BaseInvTable>
+                                              </ForwardRef>
+                                            </div>
                                           </SystemsTable>
                                         </Connect(SystemsTable)>
                                       </section>
