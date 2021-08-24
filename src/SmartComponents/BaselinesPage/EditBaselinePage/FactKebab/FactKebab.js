@@ -7,7 +7,7 @@ import { editBaselineActions } from '../redux';
 import editBaselineHelpers from '../EditBaseline/helpers';
 import DeleteFactModal from '../DeleteFactModal/DeleteFactModal';
 
-class FactKebab extends Component {
+export class FactKebab extends Component {
     constructor(props) {
         super(props);
 
@@ -107,14 +107,14 @@ class FactKebab extends Component {
                 component="button"
                 data-ouia-component-id={ 'edit-fact-dropdown-item-' + factName }
                 onClick={ this.editFact }>
-                { isCategory ? 'Edit category' : 'Edit fact' }
+                { isCategory ? 'Edit category' : 'Edit' }
             </DropdownItem>,
             <DropdownItem
                 key="delete"
                 component="button"
                 data-ouia-component-id={ 'delete-fact-dropdown-item-' + factName }
                 onClick={ this.toggleModalOpened }>
-                { isCategory ? 'Delete category' : 'Delete fact' }
+                { isCategory ? 'Delete category' : 'Delete' }
             </DropdownItem>
         );
 

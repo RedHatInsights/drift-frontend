@@ -1,0 +1,356 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConnectedFactKebab should render correctly 1`] = `
+<MemoryRouter
+  keyLength={0}
+>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Provider
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+    >
+      <Connect(FactKebab)
+        baselineData={Object {}}
+        deleteBaselineData={[MockFunction]}
+        fact={Object {}}
+        factName="fact-name"
+        factValue="Bob"
+        fetchBaselineData={[MockFunction]}
+        isCategory={false}
+        isSubFact={false}
+        setFactData={[MockFunction]}
+        toggleFactModal={[MockFunction]}
+      >
+        <FactKebab
+          baselineData={Object {}}
+          deleteBaselineData={[Function]}
+          fact={Object {}}
+          factName="fact-name"
+          factValue="Bob"
+          fetchBaselineData={[Function]}
+          isCategory={false}
+          isSubFact={false}
+          setFactData={[Function]}
+          toggleFactModal={[Function]}
+        >
+          <Dropdown
+            className="baseline-fact-kebab"
+            dropdownItems={
+              Array [
+                <DropdownItem
+                  component="button"
+                  data-ouia-component-id="edit-fact-dropdown-item-fact-name"
+                  onClick={[Function]}
+                >
+                  Edit
+                </DropdownItem>,
+                <DropdownItem
+                  component="button"
+                  data-ouia-component-id="delete-fact-dropdown-item-fact-name"
+                  onClick={[Function]}
+                >
+                  Delete
+                </DropdownItem>,
+              ]
+            }
+            isOpen={false}
+            isPlain={true}
+            ouiaId="fact-dropdown-fact-name"
+            position="right"
+            style={
+              Object {
+                "float": "right",
+              }
+            }
+            toggle={
+              <KebabToggle
+                data-ouia-compoent-type="PF4/DropdownToggle"
+                data-ouia-component-id="fact-dropdown-toggle-fact-name"
+                onToggle={[Function]}
+              />
+            }
+          >
+            <DropdownWithContext
+              autoFocus={true}
+              className="baseline-fact-kebab"
+              direction="down"
+              dropdownItems={
+                Array [
+                  <DropdownItem
+                    component="button"
+                    data-ouia-component-id="edit-fact-dropdown-item-fact-name"
+                    onClick={[Function]}
+                  >
+                    Edit
+                  </DropdownItem>,
+                  <DropdownItem
+                    component="button"
+                    data-ouia-component-id="delete-fact-dropdown-item-fact-name"
+                    onClick={[Function]}
+                  >
+                    Delete
+                  </DropdownItem>,
+                ]
+              }
+              isGrouped={false}
+              isOpen={false}
+              isPlain={true}
+              menuAppendTo="inline"
+              onSelect={[Function]}
+              position="right"
+              style={
+                Object {
+                  "float": "right",
+                }
+              }
+              toggle={
+                <KebabToggle
+                  data-ouia-compoent-type="PF4/DropdownToggle"
+                  data-ouia-component-id="fact-dropdown-toggle-fact-name"
+                  onToggle={[Function]}
+                />
+              }
+            >
+              <div
+                className="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
+                data-ouia-component-id="fact-dropdown-fact-name"
+                data-ouia-component-type="PF4/Dropdown"
+                data-ouia-safe={true}
+                style={
+                  Object {
+                    "float": "right",
+                  }
+                }
+              >
+                <KebabToggle
+                  aria-haspopup={true}
+                  data-ouia-compoent-type="PF4/DropdownToggle"
+                  data-ouia-component-id="fact-dropdown-toggle-fact-name"
+                  getMenuRef={[Function]}
+                  id="pf-dropdown-toggle-id-0"
+                  isOpen={false}
+                  isPlain={true}
+                  key=".0"
+                  onEnter={[Function]}
+                  onToggle={[Function]}
+                  parentRef={
+                    Object {
+                      "current": <div
+                        class="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
+                        data-ouia-component-id="fact-dropdown-fact-name"
+                        data-ouia-component-type="PF4/Dropdown"
+                        data-ouia-safe="true"
+                        style="float: right;"
+                      >
+                        <button
+                          aria-expanded="false"
+                          aria-haspopup="true"
+                          aria-label="Actions"
+                          class="pf-c-dropdown__toggle pf-m-plain"
+                          data-ouia-compoent-type="PF4/DropdownToggle"
+                          data-ouia-component-id="fact-dropdown-toggle-fact-name"
+                          id="pf-dropdown-toggle-id-0"
+                          type="button"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            fill="currentColor"
+                            height="1em"
+                            role="img"
+                            style="vertical-align: -0.125em;"
+                            viewBox="0 0 192 512"
+                            width="1em"
+                          >
+                            <path
+                              d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                            />
+                          </svg>
+                        </button>
+                      </div>,
+                    }
+                  }
+                >
+                  <Toggle
+                    aria-haspopup={true}
+                    aria-label="Actions"
+                    bubbleEvent={false}
+                    className=""
+                    data-ouia-compoent-type="PF4/DropdownToggle"
+                    data-ouia-component-id="fact-dropdown-toggle-fact-name"
+                    getMenuRef={[Function]}
+                    id="pf-dropdown-toggle-id-0"
+                    isActive={false}
+                    isDisabled={false}
+                    isOpen={false}
+                    isPlain={true}
+                    isPrimary={false}
+                    isSplitButton={false}
+                    onEnter={[Function]}
+                    onToggle={[Function]}
+                    parentRef={
+                      Object {
+                        "current": <div
+                          class="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
+                          data-ouia-component-id="fact-dropdown-fact-name"
+                          data-ouia-component-type="PF4/Dropdown"
+                          data-ouia-safe="true"
+                          style="float: right;"
+                        >
+                          <button
+                            aria-expanded="false"
+                            aria-haspopup="true"
+                            aria-label="Actions"
+                            class="pf-c-dropdown__toggle pf-m-plain"
+                            data-ouia-compoent-type="PF4/DropdownToggle"
+                            data-ouia-component-id="fact-dropdown-toggle-fact-name"
+                            id="pf-dropdown-toggle-id-0"
+                            type="button"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              style="vertical-align: -0.125em;"
+                              viewBox="0 0 192 512"
+                              width="1em"
+                            >
+                              <path
+                                d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                              />
+                            </svg>
+                          </button>
+                        </div>,
+                      }
+                    }
+                  >
+                    <button
+                      aria-expanded={false}
+                      aria-haspopup={true}
+                      aria-label="Actions"
+                      className="pf-c-dropdown__toggle pf-m-plain"
+                      data-ouia-compoent-type="PF4/DropdownToggle"
+                      data-ouia-component-id="fact-dropdown-toggle-fact-name"
+                      disabled={false}
+                      id="pf-dropdown-toggle-id-0"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      type="button"
+                    >
+                      <EllipsisVIcon
+                        color="currentColor"
+                        noVerticalAlign={false}
+                        size="sm"
+                      >
+                        <svg
+                          aria-hidden={true}
+                          aria-labelledby={null}
+                          fill="currentColor"
+                          height="1em"
+                          role="img"
+                          style={
+                            Object {
+                              "verticalAlign": "-0.125em",
+                            }
+                          }
+                          viewBox="0 0 192 512"
+                          width="1em"
+                        >
+                          <path
+                            d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                          />
+                        </svg>
+                      </EllipsisVIcon>
+                    </button>
+                  </Toggle>
+                </KebabToggle>
+              </div>
+            </DropdownWithContext>
+          </Dropdown>
+        </FactKebab>
+      </Connect(FactKebab)>
+    </Provider>
+  </Router>
+</MemoryRouter>
+`;
+
+exports[`FactKebab should render correctly 1`] = `
+<Fragment>
+  <Dropdown
+    className="baseline-fact-kebab"
+    dropdownItems={
+      Array [
+        <DropdownItem
+          component="button"
+          data-ouia-component-id="edit-fact-dropdown-item-fact-name"
+          onClick={[Function]}
+        >
+          Edit
+        </DropdownItem>,
+        <DropdownItem
+          component="button"
+          data-ouia-component-id="delete-fact-dropdown-item-fact-name"
+          onClick={[Function]}
+        >
+          Delete
+        </DropdownItem>,
+      ]
+    }
+    isOpen={false}
+    isPlain={true}
+    ouiaId="fact-dropdown-fact-name"
+    position="right"
+    style={
+      Object {
+        "float": "right",
+      }
+    }
+    toggle={
+      <KebabToggle
+        data-ouia-compoent-type="PF4/DropdownToggle"
+        data-ouia-component-id="fact-dropdown-toggle-fact-name"
+        onToggle={[Function]}
+      />
+    }
+  />
+</Fragment>
+`;
