@@ -78,6 +78,8 @@ function filterCompareData(data, stateFilters, factFilter, referenceId, activeFa
     let filteredFacts = [];
     let filteredComparisons = [];
     let isStateSelected;
+    let lowerCaseFactFilter = factFilter.toLowerCase();
+    let lowerCaseActiveFilters = activeFactFilters?.map(filter => filter.toLowerCase());
 
     if (data === null || !data.length) {
         return [];
@@ -88,7 +90,7 @@ function filterCompareData(data, stateFilters, factFilter, referenceId, activeFa
         isStateSelected = getStateSelected(data[i].state, stateFilters);
 
         if (data[i].comparisons) {
-            if (lowerCaseFactName === factFilter || activeFactFilters?.includes(lowerCaseFactName)) {
+            if (lowerCaseFactName === lowerCaseFactFilter || lowerCaseActiveFilters?.includes(lowerCaseFactName)) {
                 setTooltip(data[i], stateFilters, referenceId);
                 filteredComparisons = filterComparisons(data[i].comparisons, stateFilters, '', referenceId, []);
                 filteredFacts.push({
@@ -101,7 +103,7 @@ function filterCompareData(data, stateFilters, factFilter, referenceId, activeFa
                 continue;
             }
 
-            filteredComparisons = filterComparisons(data[i].comparisons, stateFilters, factFilter, referenceId, activeFactFilters);
+            filteredComparisons = filterComparisons(data[i].comparisons, stateFilters, lowerCaseFactFilter, referenceId, lowerCaseActiveFilters);
 
             if (filteredComparisons.length) {
                 setTooltip(data[i], stateFilters, referenceId);
@@ -113,7 +115,7 @@ function filterCompareData(data, stateFilters, factFilter, referenceId, activeFa
                 });
             }
         } else {
-            if (isStateSelected && filterFact(lowerCaseFactName, factFilter, activeFactFilters)) {
+            if (isStateSelected && filterFact(lowerCaseFactName, lowerCaseFactFilter, lowerCaseActiveFilters)) {
                 setTooltip(data[i], stateFilters, referenceId);
                 filteredFacts.push(data[i]);
             }

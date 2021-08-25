@@ -121,6 +121,18 @@ describe('helpers', () => {
         ).toEqual(filteredUpperCaseSubFact);
     });
 
+    it('should filterCompareData with upper case activeFactFilter', () => {
+        const data = compareReducerPayloadWithUppercase.facts;
+        const stateFilters = stateFiltersFixtures.allStatesTrue;
+        const factFilter = '';
+        const referenceId = undefined;
+        const activeFactFilters = [ 'CPU' ];
+
+        expect(
+            helpers.filterCompareData(data, stateFilters, factFilter, referenceId, activeFactFilters)
+        ).toEqual(filteredUpperCaseFact);
+    });
+
     it('should filterMultiFacts with all states true', () => {
         const multivalueItems = multivalues;
         const stateFilters = stateFiltersFixtures.allStatesTrue;

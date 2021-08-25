@@ -910,6 +910,34 @@ describe('compare reducer', () => {
         });
     });
 
+    it('should handle HANDLE_FACT_FILTER uppercase active filters, all states different', () => {
+        expect(
+            compareReducer({
+                page: 1,
+                perPage: 50,
+                fullCompareData: compareReducerPayloadWithCategory.facts,
+                systems: compareReducerPayloadWithCategory.systems,
+                factFilter: 'BIOS',
+                activeFactFilters: [],
+                stateFilters: stateFilters.allStatesFalse },
+            {
+                payload: 'BIOS',
+                type: `${types.HANDLE_FACT_FILTER}`
+            })
+        ).toEqual({
+            fullCompareData: compareReducerPayloadWithCategory.facts,
+            factFilter: '',
+            activeFactFilters: [ 'BIOS' ],
+            filteredCompareData: [],
+            sortedFilteredFacts: [],
+            systems: activeFactFilteredStateOne.systems,
+            page: 1,
+            perPage: 50,
+            stateFilters: stateFilters.allStatesFalse,
+            totalFacts: 0
+        });
+    });
+
     it('should handle CLEAR_ALL_FACT_FILTERS', () => {
         expect(
             compareReducer({
