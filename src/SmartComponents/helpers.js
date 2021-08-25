@@ -114,10 +114,15 @@ function downloadCSV(baselineData) {
     link.dispatchEvent(new MouseEvent(`click`, { bubbles: true, cancelable: true, view: window }));
 }
 
+function makeSentenceCase(message) {
+    return message.charAt(0).toUpperCase() + message.slice(1);
+}
+
 export default {
     findSelectedOnPage,
     findCheckedValue,
     paginateData,
     buildSystemsTableWithSelectedHSP,
-    downloadCSV
+    downloadCSV,
+    makeSentenceCase
 };
