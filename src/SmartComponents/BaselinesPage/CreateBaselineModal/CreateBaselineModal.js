@@ -193,7 +193,7 @@ export class CreateBaselineModal extends Component {
                 id='copy system'
                 ouiaId='create-baseline-copy-system-radio'
                 name='baseline-create-options'
-                label='Copy an existing system'
+                label='Copy an existing system or historical profile'
                 value='copySystemChecked'
                 onChange={ this.handleChecked }
             />
@@ -227,7 +227,7 @@ export class CreateBaselineModal extends Component {
         const { entities, permissions } = this.props;
 
         return (<React.Fragment>
-            <b>Select system to copy from</b>
+            <b>Select system or historical profile to copy from</b>
             <br></br>
             <SystemsTable
                 createBaselineModal={ true }
