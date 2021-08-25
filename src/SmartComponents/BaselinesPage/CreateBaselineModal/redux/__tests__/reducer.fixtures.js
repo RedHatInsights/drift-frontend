@@ -21,7 +21,7 @@ const baselineData = ({
 const errorStatusText = ({
     response: {
         data: '',
-        statusText: 'error',
+        statusText: 'Error',
         status: 400
     }
 });
@@ -29,7 +29,7 @@ const errorStatusText = ({
 const errorDataMessage = ({
     response: {
         data: {
-            message: 'error'
+            message: 'Error'
         },
         status: 400
     }
@@ -38,7 +38,7 @@ const errorDataMessage = ({
 const errorDataDetail = ({
     response: {
         data: {
-            detail: 'error'
+            detail: 'Error'
         },
         status: 400
     }

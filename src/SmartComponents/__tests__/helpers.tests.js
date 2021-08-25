@@ -4,6 +4,11 @@ import helpers from '../helpers';
 
 /*eslint-disable camelcase*/
 describe('helpers', () => {
+    it('should make string sentence case', () => {
+        let string = 'this is a sentence.';
+        expect(helpers.makeSentenceCase(string)).toEqual('This is a sentence.');
+    });
+
     it.skip('buildSystemsTableWithSelectedHSP returns selected HSP', () => {
         const rows = [
             { display_name: 'system1', id: 'abcd1234' },

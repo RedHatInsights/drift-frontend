@@ -1,4 +1,5 @@
 import types from './types';
+import helpers from '../../../helpers';
 
 const initialState = {
     createBaselineModalOpened: false,
@@ -35,11 +36,11 @@ export function createBaselineModalReducer(state = initialState, action) {
             response = action.payload.response;
 
             if (response.data === '') {
-                errorObject = { detail: response.statusText, status: response.status };
+                errorObject = { detail: helpers.makeSentenceCase(response.statusText), status: response.status };
             } else if (response.data.message) {
-                errorObject = { detail: response.data.message, status: response.status };
+                errorObject = { detail: helpers.makeSentenceCase(response.data.message), status: response.status };
             } else {
-                errorObject = { detail: response.data.detail, status: response.status };
+                errorObject = { detail: helpers.makeSentenceCase(response.data.detail), status: response.status };
             }
 
             return {
