@@ -19,6 +19,31 @@ Ensure the following entry is in your `/etc/hosts` file:
 127.0.0.1 ci.foo.redhat.com
 ```
 
+# how to run with Clowder drift-backend
+
+Ensure insights-proxy repo (https://github.com/RedHatInsights/insights-proxy) exists in the same parent directory that contains `/drift-frontend`
+
+
+OBS: First go through the steps in [drift-dev-setup](https://github.com/RedHatInsights/drift-dev-setup#run-with-clowder).
+
+Make sure to run these commands in 2 different terminals at the sametime.
+
+In terminal 1:
+```
+cd drift-frontend
+USE_CLOUD=true PLATFORM=linux CUSTOM_CONF_PATH=$PWD/profiles/local-frontend-and-ephemeral-cluster.js npm --prefix ../insights-proxy/ run start
+```
+
+In terminal 2:
+```
+cd drift-frontend
+npm run start
+```
+Note: If you see `ℹ ｢wdm｣: Compiled successfully.`, you are in good shape.
+
+Finally, hit the following URL in your browser. If you are not logged in, you will be prompted to do so.
+
+https://ci.foo.redhat.com:1337/insights/drift
 
 # how to run with CI drift-backend
 
