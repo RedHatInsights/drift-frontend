@@ -163,7 +163,10 @@ class EditBaseline extends Component {
 
         baselinesWrite
             ? row.push(<td
-                className={ expandedRows.includes(fact[FACT_NAME]) ? 'pf-c-table__check nested-fact' : 'pf-c-table__check' }>
+                className={ expandedRows.includes(fact[FACT_NAME]) && Array.isArray(fact[2])
+                    ? 'pf-c-table__check nested-fact'
+                    : 'pf-c-table__check' }
+            >
                 { this.renderCheckbox(fact) }
             </td>)
             : null;
