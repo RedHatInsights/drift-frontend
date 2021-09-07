@@ -63,7 +63,7 @@ function buildEditedFactData(isParent, originalFactName, factName, originalValue
             let newSubFact = { name: factName, value: factValue };
 
             factData.values.forEach(function(subFact) {
-                if (subFact.name === originalSubFact.name && subFact.value === originalSubFact.value) {
+                if (isSameFact(originalSubFact, subFact)) {
                     return;
                 }
 
@@ -84,7 +84,7 @@ function buildDeletedSubFact(factToDelete, fact) {
     let newSubFacts = [];
 
     fact.values.forEach(function(subFact) {
-        if (subFact.name === factToDelete.name && subFact.value === factToDelete.value) {
+        if (isSameFact(subFact, factToDelete)) {
             return;
         }
 
@@ -102,7 +102,7 @@ function makeDeleteFactPatch(factToDelete, originalAPIBody) {
 
     /*eslint-disable camelcase*/
     originalAPIBody.baseline_facts.forEach(function(fact, index) {
-        if (fact.name === factToDelete.name) {
+        if (fact.name === factToDelete.name && fact.value === factToDelete.value) {
             path += index;
         }
     });
@@ -122,13 +122,13 @@ function makeDeleteSubFactPatch(factToDelete, parentFact, originalAPIBody) {
 
     /*eslint-disable camelcase*/
     originalAPIBody.baseline_facts.forEach(function(fact, index) {
-        if (fact.name === parentFact.name) {
+        if (isSameFact(fact, parentFact)) {
             path = `/${index}/values`;
         }
     });
 
     parentFact.values.forEach(function(fact, index) {
-        if (fact.name === factToDelete.name) {
+        if (isSameFact(fact, factToDelete)) {
             path += `/${index}`;
         }
     });
@@ -189,7 +189,7 @@ function makeAddFactPatch(newFactData, originalAPIBody) {
         value = newFactData.values[newFactData.values.length - 1];
 
         for (let i = 0; i < originalAPIBody.baseline_facts.length; i += 1) {
-            if (originalAPIBody.baseline_facts[i].name === newFactData.name) {
+            if (isSameFact(originalAPIBody.baseline_facts[i], newFactData)) {
                 index = i;
             }
         }
@@ -339,6 +339,18 @@ function isCategory(fact) {
     }
 }
 
+function isSameFact(factA, factB) {
+    if (factA.name === factB.name) {
+        if (factA.values === factB.values || factA.value === factB.value) {
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+        return false;
+    }
+}
+
 function baselineSubFacts(fact) {
     return fact[2];
 }
@@ -436,6 +448,7 @@ export default {
     toggleExpandedRow,
     isAllSelected,
     isCategory,
+    isSameFact,
     baselineSubFacts,
     findFactCount,
     findSelected,

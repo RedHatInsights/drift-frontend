@@ -84,6 +84,23 @@ describe('edit baseline helpers', () => {
         );
     });
 
+    it('buildEditedFactData with same subFact name just returns', () => {
+        const isParent = undefined;
+        const originalFactName = 'old-virus';
+        const factName = 'old-virus';
+        const originalValueName = 'SARS';
+        const factValue = 'SARS';
+        const factData = { name: 'viruses', values: [
+            { name: 'old-virus', value: 'SARS' }
+        ]};
+
+        expect(editBaselineHelpers.buildEditedFactData(isParent, originalFactName, factName, originalValueName, factValue, factData)).toEqual(
+            { name: 'viruses', values: [
+                { name: 'old-virus', value: 'SARS' }
+            ]}
+        );
+    });
+
     it('isAllSelected retuns false', () => {
         editBaselineFixtures.mockBaselineTableData1[0].selected = true;
         editBaselineFixtures.mockBaselineTableData1[1].selected = true;
@@ -158,6 +175,23 @@ describe('edit baseline helpers', () => {
         expect(editBaselineHelpers.makeAddFactPatch(newFactData, originalAPIBody)).toEqual(newAPIBody);
     });
 
+    it('makeAddFactPatch adds fact to category, not fact with same name', () => {
+        let newFactData = { name: 'The Fellowship of the Ring', values: [
+            { name: 'Gollum', value: 'Smeagol' }
+        ]};
+        let originalAPIBody = editBaselineFixtures.mockBaselineDataSameName1;
+        let newAPIBody = {
+            display_name: 'lotr-baseline',
+            facts_patch: [
+                { op: 'add', path: '/3/values/0', value:
+                    { name: 'Gollum', value: 'Smeagol' }
+                }
+            ]
+        };
+
+        expect(editBaselineHelpers.makeAddFactPatch(newFactData, originalAPIBody)).toEqual(newAPIBody);
+    });
+
     it('makeDeleteFactsPatch removes single fact', () => {
         let factsToDelete = editBaselineFixtures.mockBaselineTableData1;
         factsToDelete.forEach(fact => fact.selected = false);
@@ -174,6 +208,42 @@ describe('edit baseline helpers', () => {
         };
 
         expect(editBaselineHelpers.makeDeleteFactsPatch(factsToDelete, originalAPIBody)).toEqual(newAPIBody);
+    });
+
+    it('returns true if categories with same name', () => {
+        let factA = editBaselineFixtures.newParentFact;
+        let factB = editBaselineFixtures.newParentFact;
+        expect(editBaselineHelpers.isSameFact(factA, factB)).toEqual(true);
+    });
+
+    it('returns true if facts with same name', () => {
+        let factA = editBaselineFixtures.newFact;
+        let factB = editBaselineFixtures.newFact;
+        expect(editBaselineHelpers.isSameFact(factA, factB)).toEqual(true);
+    });
+
+    it('returns false if different category', () => {
+        let factA = editBaselineFixtures.newParentFact;
+        let factB = editBaselineFixtures.editParentFact;
+        expect(editBaselineHelpers.isSameFact(factA, factB)).toEqual(false);
+    });
+
+    it('returns false if different fact', () => {
+        let factA = editBaselineFixtures.newFact;
+        let factB = editBaselineFixtures.editFact;
+        expect(editBaselineHelpers.isSameFact(factA, factB)).toEqual(false);
+    });
+
+    it('returns false if category and fact', () => {
+        let factA = editBaselineFixtures.newParentFact;
+        let factB = editBaselineFixtures.newFact;
+        expect(editBaselineHelpers.isSameFact(factA, factB)).toEqual(false);
+    });
+
+    it('returns false if category and fact with same name', () => {
+        let factA = editBaselineFixtures.newParentFact;
+        let factB = { name: 'new_parent_fact', value: 'new_value' };
+        expect(editBaselineHelpers.isSameFact(factA, factB)).toEqual(false);
     });
 });
 /*eslint-enable camelcase*/
