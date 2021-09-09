@@ -1,7 +1,7 @@
 import types from './types';
 import { ASC, DESC } from '../../constants';
 import reducerHelpers from './helpers';
-import { applyReducerHash } from '@redhat-cloud-services/frontend-components-utilities/files/ReducerRegistry';
+import { applyReducerHash } from '@redhat-cloud-services/frontend-components-utilities/ReducerRegistry';
 
 const initialState = {
     fullCompareData: [],

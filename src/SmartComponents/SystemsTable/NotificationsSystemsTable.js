@@ -2,13 +2,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import ReducerRegistry from '@redhat-cloud-services/frontend-components-utilities/files/ReducerRegistry';
+import ReducerRegistry from '@redhat-cloud-services/frontend-components-utilities/ReducerRegistry';
 import { connect } from 'react-redux';
 import { InventoryTable } from '@redhat-cloud-services/frontend-components/Inventory';
 import { LockIcon } from '@patternfly/react-icons';
 import promiseMiddleware from 'redux-promise-middleware';
 import { Provider } from 'react-redux';
-import MiddlewareListener from '@redhat-cloud-services/frontend-components-utilities/files/MiddlewareListener';
+import MiddlewareListener from '@redhat-cloud-services/frontend-components-utilities/MiddlewareListener';
 
 import selectedReducer from '../../store/reducers';
 import { compareActions } from '../modules';
