@@ -191,7 +191,7 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
                 >
                   <ForwardRef
                     ErrorComponent={
-                      <UNDEFINED
+                      <InventoryLoadError
                         bulkSelect={
                           Object {
                             "checked": null,
@@ -214,7 +214,7 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
                             "onSelect": [Function],
                           }
                         }
-                        component="InventoryTable"
+                        component="InventoryDetailHead"
                         customFilters={
                           Object {
                             "filter": Object {
@@ -233,10 +233,50 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
                           </Bullseye>
                         }
                         getEntities={[Function]}
+                        history={
+                          Object {
+                            "action": "POP",
+                            "block": [Function],
+                            "canGo": [Function],
+                            "createHref": [Function],
+                            "entries": Array [
+                              Object {
+                                "hash": "",
+                                "pathname": "/",
+                                "search": "",
+                                "state": undefined,
+                              },
+                            ],
+                            "go": [Function],
+                            "goBack": [Function],
+                            "goForward": [Function],
+                            "index": 0,
+                            "length": 1,
+                            "listen": [Function],
+                            "location": Object {
+                              "hash": "",
+                              "pathname": "/",
+                              "search": "",
+                              "state": undefined,
+                            },
+                            "push": [Function],
+                            "replace": [Function],
+                          }
+                        }
                         innerRef={null}
                         noDetail={true}
                         onLoad={[Function]}
                         showTags={true}
+                        store={
+                          Object {
+                            "clearActions": [Function],
+                            "dispatch": [Function],
+                            "getActions": [Function],
+                            "getState": [Function],
+                            "replaceReducer": [Function],
+                            "subscribe": [Function],
+                          }
+                        }
                         tableProps={
                           Object {
                             "canSelectAll": false,
@@ -247,7 +287,7 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
                         }
                       />
                     }
-                    appName="chrome"
+                    appName="inventory"
                     bulkSelect={
                       Object {
                         "checked": null,
@@ -322,7 +362,7 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
                     module="./InventoryTable"
                     noDetail={true}
                     onLoad={[Function]}
-                    scope="chrome"
+                    scope="inventory"
                     showTags={true}
                     store={
                       Object {
@@ -345,7 +385,7 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
                   >
                     <BaseScalprumComponent
                       ErrorComponent={
-                        <UNDEFINED
+                        <InventoryLoadError
                           bulkSelect={
                             Object {
                               "checked": null,
@@ -368,7 +408,7 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
                               "onSelect": [Function],
                             }
                           }
-                          component="InventoryTable"
+                          component="InventoryDetailHead"
                           customFilters={
                             Object {
                               "filter": Object {
@@ -387,10 +427,50 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
                             </Bullseye>
                           }
                           getEntities={[Function]}
+                          history={
+                            Object {
+                              "action": "POP",
+                              "block": [Function],
+                              "canGo": [Function],
+                              "createHref": [Function],
+                              "entries": Array [
+                                Object {
+                                  "hash": "",
+                                  "pathname": "/",
+                                  "search": "",
+                                  "state": undefined,
+                                },
+                              ],
+                              "go": [Function],
+                              "goBack": [Function],
+                              "goForward": [Function],
+                              "index": 0,
+                              "length": 1,
+                              "listen": [Function],
+                              "location": Object {
+                                "hash": "",
+                                "pathname": "/",
+                                "search": "",
+                                "state": undefined,
+                              },
+                              "push": [Function],
+                              "replace": [Function],
+                            }
+                          }
                           innerRef={null}
                           noDetail={true}
                           onLoad={[Function]}
                           showTags={true}
+                          store={
+                            Object {
+                              "clearActions": [Function],
+                              "dispatch": [Function],
+                              "getActions": [Function],
+                              "getState": [Function],
+                              "replaceReducer": [Function],
+                              "subscribe": [Function],
+                            }
+                          }
                           tableProps={
                             Object {
                               "canSelectAll": false,
@@ -401,7 +481,7 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
                           }
                         />
                       }
-                      appName="chrome"
+                      appName="inventory"
                       bulkSelect={
                         Object {
                           "checked": null,
@@ -476,7 +556,7 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
                       module="./InventoryTable"
                       noDetail={true}
                       onLoad={[Function]}
-                      scope="chrome"
+                      scope="inventory"
                       showTags={true}
                       store={
                         Object {
@@ -496,35 +576,137 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
                           "selectVariant": undefined,
                         }
                       }
-                    />
-                  </ForwardRef>
-                  <Bullseye
-                    className="pf-u-p-lg"
-                  >
-                    <div
-                      className="pf-l-bullseye pf-u-p-lg"
                     >
-                      <Spinner
-                        size="xl"
+                      <InventoryLoadError
+                        bulkSelect={
+                          Object {
+                            "checked": null,
+                            "count": undefined,
+                            "isDisabled": true,
+                            "items": Array [
+                              Object {
+                                "onClick": [Function],
+                                "title": "Select none (0)",
+                              },
+                              Object {
+                                "onClick": [Function],
+                                "title": "Select page (0)",
+                              },
+                              Object {
+                                "onClick": [Function],
+                                "title": "Deselect page (0)",
+                              },
+                            ],
+                            "onSelect": [Function],
+                          }
+                        }
+                        component="InventoryDetailHead"
+                        customFilters={
+                          Object {
+                            "filter": Object {
+                              "system_profile": Object {},
+                            },
+                            "tags": undefined,
+                          }
+                        }
+                        error={[TypeError: Cannot read property 'appsMetaData' of undefined]}
+                        errorInfo={
+                          Object {
+                            "componentStack": "
+    in LoadModule (created by BaseScalprumComponent)
+    in BaseScalprumComponent (created by ForwardRef)
+    in ForwardRef (created by BaseInvTable)
+    in Suspense (created by BaseInvTable)
+    in BaseInvTable (created by ForwardRef)
+    in ForwardRef (created by SystemsTable)
+    in div (created by SystemsTable)
+    in SystemsTable (created by Connect(SystemsTable))
+    in Connect(SystemsTable)
+    in Provider
+    in Router (created by MemoryRouter)
+    in MemoryRouter (created by WrapperComponent)
+    in WrapperComponent",
+                          }
+                        }
+                        fallback={
+                          <Bullseye
+                            className="pf-u-p-lg"
+                          >
+                            <Spinner
+                              size="xl"
+                            />
+                          </Bullseye>
+                        }
+                        getEntities={[Function]}
+                        hasError={true}
+                        history={
+                          Object {
+                            "action": "POP",
+                            "block": [Function],
+                            "canGo": [Function],
+                            "createHref": [Function],
+                            "entries": Array [
+                              Object {
+                                "hash": "",
+                                "pathname": "/",
+                                "search": "",
+                                "state": undefined,
+                              },
+                            ],
+                            "go": [Function],
+                            "goBack": [Function],
+                            "goForward": [Function],
+                            "index": 0,
+                            "length": 1,
+                            "listen": [Function],
+                            "location": Object {
+                              "hash": "",
+                              "pathname": "/",
+                              "search": "",
+                              "state": undefined,
+                            },
+                            "push": [Function],
+                            "replace": [Function],
+                          }
+                        }
+                        innerRef={null}
+                        noDetail={true}
+                        onLoad={[Function]}
+                        showTags={true}
+                        store={
+                          Object {
+                            "clearActions": [Function],
+                            "dispatch": [Function],
+                            "getActions": [Function],
+                            "getState": [Function],
+                            "replaceReducer": [Function],
+                            "subscribe": [Function],
+                          }
+                        }
+                        tableProps={
+                          Object {
+                            "canSelectAll": false,
+                            "className": "inventory-align",
+                            "ouiaId": "systems-table",
+                            "selectVariant": undefined,
+                          }
+                        }
                       >
-                        <span
-                          aria-valuetext="Loading..."
-                          className="pf-c-spinner pf-m-xl"
-                          role="progressbar"
-                        >
-                          <span
-                            className="pf-c-spinner__clipper"
-                          />
-                          <span
-                            className="pf-c-spinner__lead-ball"
-                          />
-                          <span
-                            className="pf-c-spinner__tail-ball"
-                          />
-                        </span>
-                      </Spinner>
-                    </div>
-                  </Bullseye>
+                        <div>
+                          <h1>
+                            Unable to load inventory component
+                          </h1>
+                          <h2>
+                            Failed to load 
+                            InventoryDetailHead
+                          </h2>
+                          <code>
+                            More info can be found in browser console output.
+                          </code>
+                        </div>
+                      </InventoryLoadError>
+                    </BaseScalprumComponent>
+                  </ForwardRef>
                 </Suspense>
               </BaseInvTable>
             </ForwardRef>

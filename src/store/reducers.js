@@ -1,7 +1,7 @@
 /*eslint-disable camelcase*/
 import React from 'react';
-import { mergeArraysByKey } from '@redhat-cloud-services/frontend-components-utilities/files/helpers';
-import { applyReducerHash } from '@redhat-cloud-services/frontend-components-utilities/files/ReducerRegistry';
+import { mergeArraysByKey } from '@redhat-cloud-services/frontend-components-utilities/helpers';
+import { applyReducerHash } from '@redhat-cloud-services/frontend-components-utilities/ReducerRegistry';
 import HistoricalProfilesPopover from '../SmartComponents/HistoricalProfilesPopover/HistoricalProfilesPopover';
 import SystemKebab from '../SmartComponents/BaselinesPage/EditBaselinePage/SystemNotification/SystemKebab/SystemKebab';
 

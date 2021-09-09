@@ -1,5 +1,5 @@
 import promiseMiddleware from 'redux-promise-middleware';
-import { getRegistry } from '@redhat-cloud-services/frontend-components-utilities/files/Registry';
+import { getRegistry } from '@redhat-cloud-services/frontend-components-utilities/Registry';
 
 import { compareReducer, globalFilterReducer } from '../SmartComponents/modules/reducers';
 import { addSystemModalReducer } from '../SmartComponents/AddSystemModal/redux/addSystemModalReducer';
@@ -10,7 +10,7 @@ import { editBaselineReducer } from '../SmartComponents/BaselinesPage/EditBaseli
 import { historicProfilesReducer } from '../SmartComponents/HistoricalProfilesPopover/redux/reducers';
 import { systemNotificationsReducer } from '../SmartComponents/BaselinesPage/EditBaselinePage/SystemNotification/redux/reducer';
 
-import MiddlewareListener from '@redhat-cloud-services/frontend-components-utilities/files/MiddlewareListener';
+import MiddlewareListener from '@redhat-cloud-services/frontend-components-utilities/MiddlewareListener';
 import { notifications } from '@redhat-cloud-services/frontend-components-notifications';
 export { default as reducers } from './reducers';
 

@@ -9713,24 +9713,17 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                             <div
                               class="inventory-toolbar-no-padding"
                             >
-                              <div
-                                class="pf-l-bullseye pf-u-p-lg"
-                              >
-                                <span
-                                  aria-valuetext="Loading..."
-                                  class="pf-c-spinner pf-m-xl"
-                                  role="progressbar"
-                                >
-                                  <span
-                                    class="pf-c-spinner__clipper"
-                                  />
-                                  <span
-                                    class="pf-c-spinner__lead-ball"
-                                  />
-                                  <span
-                                    class="pf-c-spinner__tail-ball"
-                                  />
-                                </span>
+                              <div>
+                                <h1>
+                                  Unable to load inventory component
+                                </h1>
+                                <h2>
+                                  Failed to load 
+                                  InventoryDetailHead
+                                </h2>
+                                <code>
+                                  More info can be found in browser console output.
+                                </code>
                               </div>
                             </div>
                           </section>
@@ -11584,7 +11577,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                   >
                                                     <ForwardRef
                                                       ErrorComponent={
-                                                        <UNDEFINED
+                                                        <InventoryLoadError
                                                           bulkSelect={
                                                             Object {
                                                               "checked": false,
@@ -11641,7 +11634,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                               },
                                                             ]
                                                           }
-                                                          component="InventoryTable"
+                                                          component="InventoryDetailHead"
                                                           customFilters={
                                                             Object {
                                                               "filter": Object {
@@ -11660,10 +11653,50 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                             </Bullseye>
                                                           }
                                                           getEntities={[Function]}
+                                                          history={
+                                                            Object {
+                                                              "action": "POP",
+                                                              "block": [Function],
+                                                              "canGo": [Function],
+                                                              "createHref": [Function],
+                                                              "entries": Array [
+                                                                Object {
+                                                                  "hash": "",
+                                                                  "pathname": "/",
+                                                                  "search": "",
+                                                                  "state": undefined,
+                                                                },
+                                                              ],
+                                                              "go": [Function],
+                                                              "goBack": [Function],
+                                                              "goForward": [Function],
+                                                              "index": 0,
+                                                              "length": 1,
+                                                              "listen": [Function],
+                                                              "location": Object {
+                                                                "hash": "",
+                                                                "pathname": "/",
+                                                                "search": "",
+                                                                "state": undefined,
+                                                              },
+                                                              "push": [Function],
+                                                              "replace": [Function],
+                                                            }
+                                                          }
                                                           innerRef={null}
                                                           noDetail={true}
                                                           onLoad={[Function]}
                                                           showTags={true}
+                                                          store={
+                                                            Object {
+                                                              "clearActions": [Function],
+                                                              "dispatch": [Function],
+                                                              "getActions": [Function],
+                                                              "getState": [Function],
+                                                              "replaceReducer": [Function],
+                                                              "subscribe": [Function],
+                                                            }
+                                                          }
                                                           tableProps={
                                                             Object {
                                                               "canSelectAll": false,
@@ -11674,7 +11707,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                           }
                                                         />
                                                       }
-                                                      appName="chrome"
+                                                      appName="inventory"
                                                       bulkSelect={
                                                         Object {
                                                           "checked": false,
@@ -11783,7 +11816,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                       module="./InventoryTable"
                                                       noDetail={true}
                                                       onLoad={[Function]}
-                                                      scope="chrome"
+                                                      scope="inventory"
                                                       showTags={true}
                                                       store={
                                                         Object {
@@ -11806,7 +11839,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                     >
                                                       <BaseScalprumComponent
                                                         ErrorComponent={
-                                                          <UNDEFINED
+                                                          <InventoryLoadError
                                                             bulkSelect={
                                                               Object {
                                                                 "checked": false,
@@ -11863,7 +11896,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                 },
                                                               ]
                                                             }
-                                                            component="InventoryTable"
+                                                            component="InventoryDetailHead"
                                                             customFilters={
                                                               Object {
                                                                 "filter": Object {
@@ -11882,10 +11915,50 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                               </Bullseye>
                                                             }
                                                             getEntities={[Function]}
+                                                            history={
+                                                              Object {
+                                                                "action": "POP",
+                                                                "block": [Function],
+                                                                "canGo": [Function],
+                                                                "createHref": [Function],
+                                                                "entries": Array [
+                                                                  Object {
+                                                                    "hash": "",
+                                                                    "pathname": "/",
+                                                                    "search": "",
+                                                                    "state": undefined,
+                                                                  },
+                                                                ],
+                                                                "go": [Function],
+                                                                "goBack": [Function],
+                                                                "goForward": [Function],
+                                                                "index": 0,
+                                                                "length": 1,
+                                                                "listen": [Function],
+                                                                "location": Object {
+                                                                  "hash": "",
+                                                                  "pathname": "/",
+                                                                  "search": "",
+                                                                  "state": undefined,
+                                                                },
+                                                                "push": [Function],
+                                                                "replace": [Function],
+                                                              }
+                                                            }
                                                             innerRef={null}
                                                             noDetail={true}
                                                             onLoad={[Function]}
                                                             showTags={true}
+                                                            store={
+                                                              Object {
+                                                                "clearActions": [Function],
+                                                                "dispatch": [Function],
+                                                                "getActions": [Function],
+                                                                "getState": [Function],
+                                                                "replaceReducer": [Function],
+                                                                "subscribe": [Function],
+                                                              }
+                                                            }
                                                             tableProps={
                                                               Object {
                                                                 "canSelectAll": false,
@@ -11896,7 +11969,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                             }
                                                           />
                                                         }
-                                                        appName="chrome"
+                                                        appName="inventory"
                                                         bulkSelect={
                                                           Object {
                                                             "checked": false,
@@ -12005,7 +12078,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                         module="./InventoryTable"
                                                         noDetail={true}
                                                         onLoad={[Function]}
-                                                        scope="chrome"
+                                                        scope="inventory"
                                                         showTags={true}
                                                         store={
                                                           Object {
@@ -12026,7 +12099,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                           }
                                                         }
                                                       >
-                                                        <AsyncInventory
+                                                        <InventoryLoadError
                                                           bulkSelect={
                                                             Object {
                                                               "checked": false,
@@ -12083,7 +12156,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                               },
                                                             ]
                                                           }
-                                                          component="InventoryTable"
+                                                          component="InventoryDetailHead"
                                                           customFilters={
                                                             Object {
                                                               "filter": Object {
@@ -12138,10 +12211,50 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                           }
                                                           getEntities={[Function]}
                                                           hasError={true}
+                                                          history={
+                                                            Object {
+                                                              "action": "POP",
+                                                              "block": [Function],
+                                                              "canGo": [Function],
+                                                              "createHref": [Function],
+                                                              "entries": Array [
+                                                                Object {
+                                                                  "hash": "",
+                                                                  "pathname": "/",
+                                                                  "search": "",
+                                                                  "state": undefined,
+                                                                },
+                                                              ],
+                                                              "go": [Function],
+                                                              "goBack": [Function],
+                                                              "goForward": [Function],
+                                                              "index": 0,
+                                                              "length": 1,
+                                                              "listen": [Function],
+                                                              "location": Object {
+                                                                "hash": "",
+                                                                "pathname": "/",
+                                                                "search": "",
+                                                                "state": undefined,
+                                                              },
+                                                              "push": [Function],
+                                                              "replace": [Function],
+                                                            }
+                                                          }
                                                           innerRef={null}
                                                           noDetail={true}
                                                           onLoad={[Function]}
                                                           showTags={true}
+                                                          store={
+                                                            Object {
+                                                              "clearActions": [Function],
+                                                              "dispatch": [Function],
+                                                              "getActions": [Function],
+                                                              "getState": [Function],
+                                                              "replaceReducer": [Function],
+                                                              "subscribe": [Function],
+                                                            }
+                                                          }
                                                           tableProps={
                                                             Object {
                                                               "canSelectAll": false,
@@ -12151,34 +12264,19 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                             }
                                                           }
                                                         >
-                                                          <Bullseye
-                                                            className="pf-u-p-lg"
-                                                          >
-                                                            <div
-                                                              className="pf-l-bullseye pf-u-p-lg"
-                                                            >
-                                                              <Spinner
-                                                                size="xl"
-                                                              >
-                                                                <span
-                                                                  aria-valuetext="Loading..."
-                                                                  className="pf-c-spinner pf-m-xl"
-                                                                  role="progressbar"
-                                                                >
-                                                                  <span
-                                                                    className="pf-c-spinner__clipper"
-                                                                  />
-                                                                  <span
-                                                                    className="pf-c-spinner__lead-ball"
-                                                                  />
-                                                                  <span
-                                                                    className="pf-c-spinner__tail-ball"
-                                                                  />
-                                                                </span>
-                                                              </Spinner>
-                                                            </div>
-                                                          </Bullseye>
-                                                        </AsyncInventory>
+                                                          <div>
+                                                            <h1>
+                                                              Unable to load inventory component
+                                                            </h1>
+                                                            <h2>
+                                                              Failed to load 
+                                                              InventoryDetailHead
+                                                            </h2>
+                                                            <code>
+                                                              More info can be found in browser console output.
+                                                            </code>
+                                                          </div>
+                                                        </InventoryLoadError>
                                                       </BaseScalprumComponent>
                                                     </ForwardRef>
                                                   </Suspense>
@@ -12945,6 +13043,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                         items={Array []}
                                                                         onChange={[Function]}
                                                                         placeholder="Filter by name"
+                                                                        useMobileLayout={false}
                                                                         value=""
                                                                       >
                                                                         <div
@@ -12959,6 +13058,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                             onChange={[Function]}
                                                                             onSubmit={[Function]}
                                                                             placeholder="Filter by name"
+                                                                            useMobileLayout={false}
                                                                             value=""
                                                                             widget-type="InsightsInput"
                                                                           >
@@ -12972,6 +13072,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                               onChange={[Function]}
                                                                               onKeyDown={[Function]}
                                                                               placeholder="Filter by name"
+                                                                              useMobileLayout={false}
                                                                               value=""
                                                                               widget-type="InsightsInput"
                                                                             >
@@ -12990,6 +13091,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                                 onKeyDown={[Function]}
                                                                                 placeholder="Filter by name"
                                                                                 type="text"
+                                                                                useMobileLayout={false}
                                                                                 validated="default"
                                                                                 value=""
                                                                                 widget-type="InsightsInput"
@@ -13010,6 +13112,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                                   readOnly={false}
                                                                                   required={false}
                                                                                   type="text"
+                                                                                  useMobileLayout={false}
                                                                                   value=""
                                                                                   widget-type="InsightsInput"
                                                                                 />
@@ -16759,24 +16862,17 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                             <div
                               class="inventory-toolbar-no-padding"
                             >
-                              <div
-                                class="pf-l-bullseye pf-u-p-lg"
-                              >
-                                <span
-                                  aria-valuetext="Loading..."
-                                  class="pf-c-spinner pf-m-xl"
-                                  role="progressbar"
-                                >
-                                  <span
-                                    class="pf-c-spinner__clipper"
-                                  />
-                                  <span
-                                    class="pf-c-spinner__lead-ball"
-                                  />
-                                  <span
-                                    class="pf-c-spinner__tail-ball"
-                                  />
-                                </span>
+                              <div>
+                                <h1>
+                                  Unable to load inventory component
+                                </h1>
+                                <h2>
+                                  Failed to load 
+                                  InventoryDetailHead
+                                </h2>
+                                <code>
+                                  More info can be found in browser console output.
+                                </code>
                               </div>
                             </div>
                           </section>
@@ -18631,7 +18727,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                   >
                                                     <ForwardRef
                                                       ErrorComponent={
-                                                        <UNDEFINED
+                                                        <InventoryLoadError
                                                           bulkSelect={
                                                             Object {
                                                               "checked": false,
@@ -18688,7 +18784,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                               },
                                                             ]
                                                           }
-                                                          component="InventoryTable"
+                                                          component="InventoryDetailHead"
                                                           customFilters={
                                                             Object {
                                                               "filter": Object {
@@ -18707,10 +18803,50 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                             </Bullseye>
                                                           }
                                                           getEntities={[Function]}
+                                                          history={
+                                                            Object {
+                                                              "action": "POP",
+                                                              "block": [Function],
+                                                              "canGo": [Function],
+                                                              "createHref": [Function],
+                                                              "entries": Array [
+                                                                Object {
+                                                                  "hash": "",
+                                                                  "pathname": "/",
+                                                                  "search": "",
+                                                                  "state": undefined,
+                                                                },
+                                                              ],
+                                                              "go": [Function],
+                                                              "goBack": [Function],
+                                                              "goForward": [Function],
+                                                              "index": 0,
+                                                              "length": 1,
+                                                              "listen": [Function],
+                                                              "location": Object {
+                                                                "hash": "",
+                                                                "pathname": "/",
+                                                                "search": "",
+                                                                "state": undefined,
+                                                              },
+                                                              "push": [Function],
+                                                              "replace": [Function],
+                                                            }
+                                                          }
                                                           innerRef={null}
                                                           noDetail={true}
                                                           onLoad={[Function]}
                                                           showTags={true}
+                                                          store={
+                                                            Object {
+                                                              "clearActions": [Function],
+                                                              "dispatch": [Function],
+                                                              "getActions": [Function],
+                                                              "getState": [Function],
+                                                              "replaceReducer": [Function],
+                                                              "subscribe": [Function],
+                                                            }
+                                                          }
                                                           tableProps={
                                                             Object {
                                                               "canSelectAll": false,
@@ -18721,7 +18857,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                           }
                                                         />
                                                       }
-                                                      appName="chrome"
+                                                      appName="inventory"
                                                       bulkSelect={
                                                         Object {
                                                           "checked": false,
@@ -18830,7 +18966,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                       module="./InventoryTable"
                                                       noDetail={true}
                                                       onLoad={[Function]}
-                                                      scope="chrome"
+                                                      scope="inventory"
                                                       showTags={true}
                                                       store={
                                                         Object {
@@ -18853,7 +18989,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                     >
                                                       <BaseScalprumComponent
                                                         ErrorComponent={
-                                                          <UNDEFINED
+                                                          <InventoryLoadError
                                                             bulkSelect={
                                                               Object {
                                                                 "checked": false,
@@ -18910,7 +19046,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                 },
                                                               ]
                                                             }
-                                                            component="InventoryTable"
+                                                            component="InventoryDetailHead"
                                                             customFilters={
                                                               Object {
                                                                 "filter": Object {
@@ -18929,10 +19065,50 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                               </Bullseye>
                                                             }
                                                             getEntities={[Function]}
+                                                            history={
+                                                              Object {
+                                                                "action": "POP",
+                                                                "block": [Function],
+                                                                "canGo": [Function],
+                                                                "createHref": [Function],
+                                                                "entries": Array [
+                                                                  Object {
+                                                                    "hash": "",
+                                                                    "pathname": "/",
+                                                                    "search": "",
+                                                                    "state": undefined,
+                                                                  },
+                                                                ],
+                                                                "go": [Function],
+                                                                "goBack": [Function],
+                                                                "goForward": [Function],
+                                                                "index": 0,
+                                                                "length": 1,
+                                                                "listen": [Function],
+                                                                "location": Object {
+                                                                  "hash": "",
+                                                                  "pathname": "/",
+                                                                  "search": "",
+                                                                  "state": undefined,
+                                                                },
+                                                                "push": [Function],
+                                                                "replace": [Function],
+                                                              }
+                                                            }
                                                             innerRef={null}
                                                             noDetail={true}
                                                             onLoad={[Function]}
                                                             showTags={true}
+                                                            store={
+                                                              Object {
+                                                                "clearActions": [Function],
+                                                                "dispatch": [Function],
+                                                                "getActions": [Function],
+                                                                "getState": [Function],
+                                                                "replaceReducer": [Function],
+                                                                "subscribe": [Function],
+                                                              }
+                                                            }
                                                             tableProps={
                                                               Object {
                                                                 "canSelectAll": false,
@@ -18943,7 +19119,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                             }
                                                           />
                                                         }
-                                                        appName="chrome"
+                                                        appName="inventory"
                                                         bulkSelect={
                                                           Object {
                                                             "checked": false,
@@ -19052,7 +19228,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                         module="./InventoryTable"
                                                         noDetail={true}
                                                         onLoad={[Function]}
-                                                        scope="chrome"
+                                                        scope="inventory"
                                                         showTags={true}
                                                         store={
                                                           Object {
@@ -19072,35 +19248,187 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                             "selectVariant": "checkbox",
                                                           }
                                                         }
-                                                      />
-                                                    </ForwardRef>
-                                                    <Bullseye
-                                                      className="pf-u-p-lg"
-                                                    >
-                                                      <div
-                                                        className="pf-l-bullseye pf-u-p-lg"
                                                       >
-                                                        <Spinner
-                                                          size="xl"
+                                                        <InventoryLoadError
+                                                          bulkSelect={
+                                                            Object {
+                                                              "checked": false,
+                                                              "count": 0,
+                                                              "isDisabled": false,
+                                                              "items": Array [
+                                                                Object {
+                                                                  "onClick": [Function],
+                                                                  "title": "Select none (0)",
+                                                                },
+                                                                Object {
+                                                                  "onClick": [Function],
+                                                                  "title": "Select page (0)",
+                                                                },
+                                                                Object {
+                                                                  "onClick": [Function],
+                                                                  "title": "Deselect page (0)",
+                                                                },
+                                                              ],
+                                                              "onSelect": [Function],
+                                                            }
+                                                          }
+                                                          columns={
+                                                            Array [
+                                                              Object {
+                                                                "key": "display_name",
+                                                                "props": Object {
+                                                                  "width": 20,
+                                                                },
+                                                                "title": "Name",
+                                                              },
+                                                              Object {
+                                                                "key": "tags",
+                                                                "props": Object {
+                                                                  "isStatic": true,
+                                                                  "width": 10,
+                                                                },
+                                                                "title": "Tags",
+                                                              },
+                                                              Object {
+                                                                "key": "updated",
+                                                                "props": Object {
+                                                                  "width": 10,
+                                                                },
+                                                                "title": "Last seen",
+                                                              },
+                                                              Object {
+                                                                "key": "historical_profiles",
+                                                                "props": Object {
+                                                                  "isStatic": true,
+                                                                  "width": 10,
+                                                                },
+                                                                "title": "Historical profiles",
+                                                              },
+                                                            ]
+                                                          }
+                                                          component="InventoryDetailHead"
+                                                          customFilters={
+                                                            Object {
+                                                              "filter": Object {
+                                                                "system_profile": Object {},
+                                                              },
+                                                              "tags": Array [],
+                                                            }
+                                                          }
+                                                          error={[TypeError: Cannot read property 'appsMetaData' of undefined]}
+                                                          errorInfo={
+                                                            Object {
+                                                              "componentStack": "
+    in LoadModule (created by BaseScalprumComponent)
+    in BaseScalprumComponent (created by ForwardRef)
+    in ForwardRef (created by BaseInvTable)
+    in Suspense (created by BaseInvTable)
+    in BaseInvTable (created by ForwardRef)
+    in ForwardRef (created by SystemsTable)
+    in div (created by SystemsTable)
+    in SystemsTable (created by Connect(SystemsTable))
+    in Connect(SystemsTable) (created by AddSystemModal)
+    in section (created by Context.Consumer)
+    in TabContentBase (created by ForwardRef)
+    in ForwardRef (created by Tabs)
+    in Tabs (created by AddSystemModal)
+    in div (created by ModalBoxBody)
+    in ModalBoxBody (created by ModalContent)
+    in div (created by ModalBox)
+    in ModalBox (created by ModalContent)
+    in div (created by FocusTrap)
+    in FocusTrap (created by ModalContent)
+    in div (created by Backdrop)
+    in Backdrop (created by ModalContent)
+    in ModalContent (created by Modal)
+    in Modal (created by AddSystemModal)
+    in AddSystemModal (created by Connect(AddSystemModal))
+    in Connect(AddSystemModal)
+    in Provider
+    in Router (created by MemoryRouter)
+    in MemoryRouter (created by WrapperComponent)
+    in WrapperComponent",
+                                                            }
+                                                          }
+                                                          fallback={
+                                                            <Bullseye
+                                                              className="pf-u-p-lg"
+                                                            >
+                                                              <Spinner
+                                                                size="xl"
+                                                              />
+                                                            </Bullseye>
+                                                          }
+                                                          getEntities={[Function]}
+                                                          hasError={true}
+                                                          history={
+                                                            Object {
+                                                              "action": "POP",
+                                                              "block": [Function],
+                                                              "canGo": [Function],
+                                                              "createHref": [Function],
+                                                              "entries": Array [
+                                                                Object {
+                                                                  "hash": "",
+                                                                  "pathname": "/",
+                                                                  "search": "",
+                                                                  "state": undefined,
+                                                                },
+                                                              ],
+                                                              "go": [Function],
+                                                              "goBack": [Function],
+                                                              "goForward": [Function],
+                                                              "index": 0,
+                                                              "length": 1,
+                                                              "listen": [Function],
+                                                              "location": Object {
+                                                                "hash": "",
+                                                                "pathname": "/",
+                                                                "search": "",
+                                                                "state": undefined,
+                                                              },
+                                                              "push": [Function],
+                                                              "replace": [Function],
+                                                            }
+                                                          }
+                                                          innerRef={null}
+                                                          noDetail={true}
+                                                          onLoad={[Function]}
+                                                          showTags={true}
+                                                          store={
+                                                            Object {
+                                                              "clearActions": [Function],
+                                                              "dispatch": [Function],
+                                                              "getActions": [Function],
+                                                              "getState": [Function],
+                                                              "replaceReducer": [Function],
+                                                              "subscribe": [Function],
+                                                            }
+                                                          }
+                                                          tableProps={
+                                                            Object {
+                                                              "canSelectAll": false,
+                                                              "className": "inventory-align",
+                                                              "ouiaId": "systems-table",
+                                                              "selectVariant": "checkbox",
+                                                            }
+                                                          }
                                                         >
-                                                          <span
-                                                            aria-valuetext="Loading..."
-                                                            className="pf-c-spinner pf-m-xl"
-                                                            role="progressbar"
-                                                          >
-                                                            <span
-                                                              className="pf-c-spinner__clipper"
-                                                            />
-                                                            <span
-                                                              className="pf-c-spinner__lead-ball"
-                                                            />
-                                                            <span
-                                                              className="pf-c-spinner__tail-ball"
-                                                            />
-                                                          </span>
-                                                        </Spinner>
-                                                      </div>
-                                                    </Bullseye>
+                                                          <div>
+                                                            <h1>
+                                                              Unable to load inventory component
+                                                            </h1>
+                                                            <h2>
+                                                              Failed to load 
+                                                              InventoryDetailHead
+                                                            </h2>
+                                                            <code>
+                                                              More info can be found in browser console output.
+                                                            </code>
+                                                          </div>
+                                                        </InventoryLoadError>
+                                                      </BaseScalprumComponent>
+                                                    </ForwardRef>
                                                   </Suspense>
                                                 </BaseInvTable>
                                               </ForwardRef>
@@ -19865,6 +20193,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                         items={Array []}
                                                                         onChange={[Function]}
                                                                         placeholder="Filter by name"
+                                                                        useMobileLayout={false}
                                                                         value=""
                                                                       >
                                                                         <div
@@ -19879,6 +20208,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                             onChange={[Function]}
                                                                             onSubmit={[Function]}
                                                                             placeholder="Filter by name"
+                                                                            useMobileLayout={false}
                                                                             value=""
                                                                             widget-type="InsightsInput"
                                                                           >
@@ -19892,6 +20222,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                               onChange={[Function]}
                                                                               onKeyDown={[Function]}
                                                                               placeholder="Filter by name"
+                                                                              useMobileLayout={false}
                                                                               value=""
                                                                               widget-type="InsightsInput"
                                                                             >
@@ -19910,6 +20241,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                                 onKeyDown={[Function]}
                                                                                 placeholder="Filter by name"
                                                                                 type="text"
+                                                                                useMobileLayout={false}
                                                                                 validated="default"
                                                                                 value=""
                                                                                 widget-type="InsightsInput"
@@ -19930,6 +20262,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                                   readOnly={false}
                                                                                   required={false}
                                                                                   type="text"
+                                                                                  useMobileLayout={false}
                                                                                   value=""
                                                                                   widget-type="InsightsInput"
                                                                                 />
@@ -26206,6 +26539,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                         items={Array []}
                                                                         onChange={[Function]}
                                                                         placeholder="Filter by name"
+                                                                        useMobileLayout={false}
                                                                         value=""
                                                                       >
                                                                         <div
@@ -26220,6 +26554,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                             onChange={[Function]}
                                                                             onSubmit={[Function]}
                                                                             placeholder="Filter by name"
+                                                                            useMobileLayout={false}
                                                                             value=""
                                                                             widget-type="InsightsInput"
                                                                           >
@@ -26233,6 +26568,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                               onChange={[Function]}
                                                                               onKeyDown={[Function]}
                                                                               placeholder="Filter by name"
+                                                                              useMobileLayout={false}
                                                                               value=""
                                                                               widget-type="InsightsInput"
                                                                             >
@@ -26251,6 +26587,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                 onKeyDown={[Function]}
                                                                                 placeholder="Filter by name"
                                                                                 type="text"
+                                                                                useMobileLayout={false}
                                                                                 validated="default"
                                                                                 value=""
                                                                                 widget-type="InsightsInput"
@@ -26271,6 +26608,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                   readOnly={false}
                                                                                   required={false}
                                                                                   type="text"
+                                                                                  useMobileLayout={false}
                                                                                   value=""
                                                                                   widget-type="InsightsInput"
                                                                                 />
