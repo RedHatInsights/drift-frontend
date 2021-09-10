@@ -215,8 +215,8 @@ export class BaselinesTable extends Component {
     }
 
     render() {
-        const { kebab, createButton, exportToCSV, exportButton, hasMultiSelect, loading, onBulkSelect, permissions,
-            selectedBaselineIds, tableData, tableId, totalBaselines } = this.props;
+        const { kebab, createButton, exportToCSV, exportButton, hasMultiSelect, leftAlignToolbar, loading,
+            onBulkSelect, permissions, selectedBaselineIds, tableData, tableId, totalBaselines } = this.props;
         const { page, perPage } = this.state;
 
         return (
@@ -238,6 +238,7 @@ export class BaselinesTable extends Component {
                     totalBaselines={ totalBaselines }
                     updatePagination={ this.updatePagination }
                     exportToCSV={ exportToCSV }
+                    leftAlignToolbar={ leftAlignToolbar }
                     loading={ loading }
                     permissions={ permissions }
                 />
@@ -278,7 +279,8 @@ BaselinesTable.propTypes = {
     totalBaselines: PropTypes.number,
     exportToCSV: PropTypes.func,
     permissions: PropTypes.object,
-    basketIsVisible: PropTypes.bool
+    basketIsVisible: PropTypes.bool,
+    leftAlignToolbar: PropTypes.bool
 };
 
 function mapDispatchToProps(dispatch) {
