@@ -101,7 +101,6 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
             baselineError={Object {}}
             baselineTableData={Array []}
             clearEditBaselineData={[Function]}
-            createBaselineModalOpened={false}
             emptyState={false}
             history={
               Object {
@@ -457,7 +456,6 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                   },
                                 ]
                               }
-                              createBaselineModalOpened={false}
                               createButton={true}
                               exportButton={true}
                               hasMultiSelect={true}
@@ -502,7 +500,6 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                     },
                                   ]
                                 }
-                                createBaselineModalOpened={false}
                                 createButton={true}
                                 exportButton={true}
                                 exportToCSV={[Function]}
@@ -645,14 +642,14 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                     </DeleteBaselinesModal>
                                   </Connect(DeleteBaselinesModal)>
                                   <Toolbar
-                                    className="drift-toolbar"
+                                    className={null}
                                     clearAllFilters={[Function]}
                                   >
                                     <GenerateId
                                       prefix="pf-random-id-"
                                     >
                                       <div
-                                        className="pf-c-toolbar drift-toolbar"
+                                        className="pf-c-toolbar"
                                         id="pf-random-id-0"
                                       >
                                         <ToolbarContent
@@ -5593,7 +5590,6 @@ exports[`ConnectedBaselinesPage should render empty state 1`] = `
             baselineError={Object {}}
             baselineTableData={Array []}
             clearEditBaselineData={[Function]}
-            createBaselineModalOpened={false}
             emptyState={true}
             history={
               Object {

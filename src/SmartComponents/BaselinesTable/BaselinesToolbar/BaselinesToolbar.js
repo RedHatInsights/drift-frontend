@@ -106,7 +106,7 @@ export class BaselinesToolbar extends Component {
     }, 250)
 
     render() {
-        const { createButton, exportButton, fetchWithParams, hasMultiSelect, kebab, loading, onBulkSelect,
+        const { createButton, exportButton, fetchWithParams, hasMultiSelect, kebab, leftAlignToolbar, loading, onBulkSelect,
             tableData, tableId, page, permissions, perPage, selectedBaselineIds, totalBaselines, updatePagination } = this.props;
         const { bulkSelectItems, dropdownItems, dropdownOpen, modalOpened, nameSearch } = this.state;
         let selected = tableData.filter(baseline => baseline.selected === true).length;
@@ -120,7 +120,9 @@ export class BaselinesToolbar extends Component {
                     toggleModal={ this.toggleModal }
                     selectedBaselineIds={ selectedBaselineIds }
                 />
-                <Toolbar className="drift-toolbar" clearAllFilters={ this.clearFilters }>
+                <Toolbar
+                    className={ leftAlignToolbar ? 'baseline-toolbar' : null }
+                    clearAllFilters={ this.clearFilters }>
                     <ToolbarContent>
                         { hasMultiSelect
                             ? <ToolbarGroup variant='filter-group'>
@@ -222,7 +224,8 @@ BaselinesToolbar.propTypes = {
     updatePagination: PropTypes.func,
     exportToCSV: PropTypes.func,
     loading: PropTypes.bool,
-    permissions: PropTypes.object
+    permissions: PropTypes.object,
+    leftAlignToolbar: PropTypes.bool
 };
 
 export default BaselinesToolbar;

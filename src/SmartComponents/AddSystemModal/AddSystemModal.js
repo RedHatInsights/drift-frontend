@@ -336,6 +336,7 @@ export class AddSystemModal extends Component {
                                 permissions={ permissions }
                                 kebab={ false }
                                 basketIsVisible={ basketIsVisible }
+                                leftAlignToolbar={ true }
                             />
                         </Tab>
                     </Tabs>

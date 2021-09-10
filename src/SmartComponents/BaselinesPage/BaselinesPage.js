@@ -78,7 +78,7 @@ export class BaselinesPage extends Component {
     }
 
     renderTable(permissions) {
-        const { baselineTableData, loading, createBaselineModalOpened, clearEditBaselineData, selectedBaselineIds,
+        const { baselineTableData, loading, clearEditBaselineData, selectedBaselineIds,
             totalBaselines } = this.props;
         const { columns } = this.state;
 
@@ -98,7 +98,6 @@ export class BaselinesPage extends Component {
                         createButton={ true }
                         exportButton={ true }
                         onClick={ this.fetchBaseline }
-                        createBaselineModalOpened={ createBaselineModalOpened }
                         onBulkSelect={ this.onBulkSelect }
                         selectedBaselineIds={ selectedBaselineIds }
                         totalBaselines={ totalBaselines }
@@ -188,7 +187,6 @@ BaselinesPage.propTypes = {
     loading: PropTypes.bool,
     baselineTableData: PropTypes.array,
     emptyState: PropTypes.bool,
-    createBaselineModalOpened: PropTypes.bool,
     selectBaseline: PropTypes.func,
     history: PropTypes.object,
     baselineError: PropTypes.object,
@@ -206,7 +204,6 @@ function mapStateToProps(state) {
         loading: state.baselinesTableState.checkboxTable.loading,
         emptyState: state.baselinesTableState.checkboxTable.emptyState,
         baselineTableData: state.baselinesTableState.checkboxTable.baselineTableData,
-        createBaselineModalOpened: state.createBaselineModalState.createBaselineModalOpened,
         baselineError: state.baselinesTableState.checkboxTable.baselineError,
         selectedBaselineIds: state.baselinesTableState.checkboxTable.selectedBaselineIds,
         totalBaselines: state.baselinesTableState.checkboxTable.totalBaselines

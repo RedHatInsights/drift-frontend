@@ -8,7 +8,7 @@ exports[`jest-tests BaselinesToolbar should render correctly 1`] = `
     toggleModal={[Function]}
   />
   <Toolbar
-    className="drift-toolbar"
+    className={null}
     clearAllFilters={[Function]}
   >
     <ToolbarContent
@@ -302,14 +302,14 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
           </DeleteBaselinesModal>
         </Connect(DeleteBaselinesModal)>
         <Toolbar
-          className="drift-toolbar"
+          className={null}
           clearAllFilters={[Function]}
         >
           <GenerateId
             prefix="pf-random-id-"
           >
             <div
-              className="pf-c-toolbar drift-toolbar"
+              className="pf-c-toolbar"
               id="pf-random-id-0"
             >
               <ToolbarContent

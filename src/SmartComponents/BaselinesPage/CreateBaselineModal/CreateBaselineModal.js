@@ -202,7 +202,7 @@ export class CreateBaselineModal extends Component {
     }
 
     renderCopyBaseline() {
-        const { baselineTableData, createBaselineModalOpened, loading, permissions, selectedBaselineIds, totalBaselines } = this.props;
+        const { baselineTableData, loading, permissions, selectedBaselineIds, totalBaselines } = this.props;
         const { columns } = this.state;
 
         return (<React.Fragment>
@@ -212,12 +212,12 @@ export class CreateBaselineModal extends Component {
                 onSelect={ this.onSelect }
                 tableData={ baselineTableData }
                 loading={ loading }
-                createBaselineModalOpened={ createBaselineModalOpened }
                 columns={ columns }
                 totalBaselines={ totalBaselines }
                 permissions={ permissions }
                 hasMultiSelect={ false }
                 selectedBaselineIds={ selectedBaselineIds }
+                leftAlignToolbar={ true }
             />
         </React.Fragment>
         );
