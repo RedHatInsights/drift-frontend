@@ -276,7 +276,6 @@ export class CreateBaselineModal extends Component {
                     >
                         <TextInput
                             className="fact-value"
-                            placeholder="Baseline name"
                             value={ baselineName }
                             type="text"
                             onChange={ this.updateBaselineName }
