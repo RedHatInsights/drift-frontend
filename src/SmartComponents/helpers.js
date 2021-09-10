@@ -70,7 +70,7 @@ function buildSystemsTableWithSelectedHSP (rows, selectedHSP, deselectHistorical
                         moment.utc(selectedHSP.captured_date).format('DD MMM YYYY, HH:mm UTC')
                     }
                     <CloseIcon
-                        className='pointer active-blue margin-left-5-px'
+                        className='pointer not-active margin-left-5-px'
                         onClick={ () => deselectHistoricalProfiles() }
                     />
                 </div>
