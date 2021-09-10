@@ -16,7 +16,7 @@ class StateIcon extends Component {
         } else if (this.props.fact.state === 'DIFFERENT') {
             iconClass = <ExclamationCircleIcon color='#C9190B' height='16px' width='16px'/>;
         } else {
-            iconClass = <QuestionCircleIcon color='#151515' height='16px' width='16px'/>;
+            iconClass = <QuestionCircleIcon color='#6A6E73' height='16px' width='16px'/>;
         }
 
         return iconClass;
