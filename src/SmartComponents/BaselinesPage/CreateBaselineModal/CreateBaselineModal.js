@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Alert, Button, Modal, Radio, TextInput, Form, FormGroup, ValidatedOptions } from '@patternfly/react-core';
+import { Button, Modal, Radio, TextInput, Form, FormGroup, ValidatedOptions } from '@patternfly/react-core';
 import { sortable, cellWidth } from '@patternfly/react-table';
 import { addNewListener } from '../../../store';
 
@@ -344,7 +344,7 @@ export class CreateBaselineModal extends Component {
     }
 
     render() {
-        const { createBaselineError, createBaselineModalOpened, globalFilterState } = this.props;
+        const { createBaselineModalOpened, globalFilterState } = this.props;
         const { copySystemChecked } = this.state;
 
         return (
@@ -359,19 +359,6 @@ export class CreateBaselineModal extends Component {
                 { copySystemChecked
                     ? <GlobalFilterAlert globalFilterState={ globalFilterState }/>
                     : null
-                }
-                { createBaselineError.status
-                    ? <Alert
-                        variant='danger'
-                        isInline
-                        title={ 'Status: ' + createBaselineError.status }
-                        ouiaId="status"
-                    >
-                        <p>
-                            { createBaselineError.detail }
-                        </p>
-                    </Alert>
-                    : <div></div>
                 }
                 { this.renderModalBody() }
             </Modal>

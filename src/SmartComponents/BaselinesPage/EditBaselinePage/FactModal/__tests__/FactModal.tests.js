@@ -34,6 +34,19 @@ describe('FactModal', () => {
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 
+    it('should render error correctly', () => {
+        props.inlineError = {
+            status: 404,
+            detail: 'This is an error'
+        };
+
+        const wrapper = shallow(
+            <FactModal { ...props } />
+        );
+
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
     it('should render fact name and value correctly', () => {
         props.factName = 'cool';
         props.factValue = 'fact';

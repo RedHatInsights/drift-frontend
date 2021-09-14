@@ -30,14 +30,26 @@ describe('CreateBaselineModal', () => {
         jest.clearAllMocks();
     });
 
-    it('should render correctly', () =>{
+    it('should render correctly', () => {
         const wrapper = shallow(
             <CreateBaselineModal { ...props }/>
         );
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 
-    it('should render mount correctly', () =>{
+    it('should render error correctly', () => {
+        props.createBaselineError = {
+            status: 404,
+            detail: 'This is an error'
+        };
+
+        const wrapper = shallow(
+            <CreateBaselineModal { ...props }/>
+        );
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('should render mount correctly', () => {
         const wrapper = mount(
             <CreateBaselineModal { ...props }/>
         );

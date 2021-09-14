@@ -29,6 +29,19 @@ describe('EditBaselineNameModal', () => {
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 
+    it('should render error correctly', () => {
+        props.error = {
+            status: 404,
+            detail: 'This is an error'
+        };
+
+        const wrapper = shallow(
+            <EditBaselineNameModal { ...props }/>
+        );
+
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
     it('should render mount correctly', () => {
         const wrapper = mount(
             <EditBaselineNameModal { ...props }/>

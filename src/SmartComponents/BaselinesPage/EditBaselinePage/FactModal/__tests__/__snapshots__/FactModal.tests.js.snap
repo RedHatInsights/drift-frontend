@@ -163,7 +163,6 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                           class="pf-c-modal-box__body"
                           id="pf-modal-part-2"
                         >
-                          <div />
                           <div
                             class="pf-c-check sm-padding-bottom"
                           >
@@ -478,7 +477,6 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                                 className="pf-c-modal-box__body"
                                 id="pf-modal-part-2"
                               >
-                                <div />
                                 <Checkbox
                                   aria-label="controlled checkbox example"
                                   className="sm-padding-bottom"
@@ -815,7 +813,6 @@ exports[`FactModal should render category correctly 1`] = `
   titleLabel=""
   variant="small"
 >
-  <div />
   <Checkbox
     aria-label="controlled checkbox example"
     className="sm-padding-bottom"
@@ -893,7 +890,6 @@ exports[`FactModal should render empty correctly 1`] = `
   titleLabel=""
   variant="small"
 >
-  <div />
   <Checkbox
     aria-label="controlled checkbox example"
     className="sm-padding-bottom"
@@ -958,6 +954,106 @@ exports[`FactModal should render empty correctly 1`] = `
 </Modal>
 `;
 
+exports[`FactModal should render error correctly 1`] = `
+<Modal
+  actions={
+    Array [
+      <Button
+        onClick={[Function]}
+        ouiaId="fact-modal-save-button"
+        variant="primary"
+      >
+        Save
+      </Button>,
+      <Button
+        onClick={[Function]}
+        ouiaId="fact-modal-cancel-button"
+        variant="link"
+      >
+        Cancel
+      </Button>,
+    ]
+  }
+  appendTo={[Function]}
+  aria-describedby=""
+  aria-label=""
+  aria-labelledby=""
+  className="drift"
+  hasNoBodyWrapper={false}
+  isOpen={true}
+  onClose={[Function]}
+  ouiaId="add-fact-modal"
+  ouiaSafe={true}
+  showClose={true}
+  title="Add fact"
+  titleIconVariant={null}
+  titleLabel=""
+  variant="small"
+>
+  <Checkbox
+    aria-label="controlled checkbox example"
+    className="sm-padding-bottom"
+    data-ouia-component-id="category-checkbox"
+    data-ouia-component-type="PF4/Checkbox"
+    id="isCategory"
+    isChecked={false}
+    isDisabled={false}
+    isValid={true}
+    label="This is a category"
+    name="isCategory"
+    onChange={[Function]}
+  />
+  <Form>
+    <div
+      className="fact-value"
+    >
+      <FormGroup
+        fieldId="fact name"
+        helperTextInvalid="This is an error"
+        isRequired={true}
+        label="Fact name"
+        onKeyPress={[Function]}
+        validated="error"
+      >
+        <TextInput
+          aria-label="fact name"
+          data-ouia-component-id="fact-name-input"
+          data-ouia-component-type="PF4/TextInput"
+          onChange={[Function]}
+          placeholder="Name"
+          type="text"
+          validated="error"
+          value=""
+        />
+      </FormGroup>
+    </div>
+    <div
+      className="fact-value"
+    >
+      <FormGroup
+        fieldId="fact value"
+        helperTextInvalid="This is an error"
+        isRequired={true}
+        label="Value"
+        onKeyPress={[Function]}
+        validated="error"
+      >
+        <TextInput
+          aria-label="value"
+          data-ouia-component-id="value-input"
+          data-ouia-component-type="PF4/TextInput"
+          onChange={[Function]}
+          placeholder="Value"
+          type="text"
+          validated="error"
+          value=""
+        />
+      </FormGroup>
+    </div>
+  </Form>
+</Modal>
+`;
+
 exports[`FactModal should render fact name and value correctly 1`] = `
 <Modal
   actions={
@@ -994,7 +1090,6 @@ exports[`FactModal should render fact name and value correctly 1`] = `
   titleLabel=""
   variant="small"
 >
-  <div />
   <Form>
     <div
       className="fact-value"
@@ -1082,7 +1177,6 @@ exports[`FactModal should render sub fact correctly 1`] = `
   titleLabel=""
   variant="small"
 >
-  <div />
   <Form>
     <div
       className="fact-value"

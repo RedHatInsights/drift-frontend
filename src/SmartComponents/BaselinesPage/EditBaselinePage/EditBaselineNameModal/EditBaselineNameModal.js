@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Button, Form, FormGroup, Modal, ModalVariant, TextInput, ValidatedOptions, Alert } from '@patternfly/react-core';
+import { Button, Form, FormGroup, Modal, ModalVariant, TextInput, ValidatedOptions } from '@patternfly/react-core';
 
 import { editBaselineActions } from '../redux';
 
@@ -79,7 +79,7 @@ export class EditBaselineNameModal extends Component {
     }
 
     render() {
-        const { modalOpened, error } = this.props;
+        const { modalOpened } = this.props;
 
         return (
             <Modal
@@ -105,15 +105,6 @@ export class EditBaselineNameModal extends Component {
                     </Button>
                 ] }
             >
-                { error.status && <Alert
-                    variant='danger'
-                    isInline
-                    title={ 'Status: ' + error.status }
-                >
-                    <p>
-                        { error.detail }
-                    </p>
-                </Alert> }
                 { this.renderModalBody() }
             </Modal>
         );

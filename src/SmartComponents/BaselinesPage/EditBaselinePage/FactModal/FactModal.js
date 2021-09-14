@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Alert, Button, Checkbox, Form, FormGroup, Modal, ModalVariant, TextInput, ValidatedOptions } from '@patternfly/react-core';
+import { Button, Checkbox, Form, FormGroup, Modal, ModalVariant, TextInput, ValidatedOptions } from '@patternfly/react-core';
 
 import { editBaselineActions } from '../redux';
 import editBaselineHelpers from '../EditBaseline/helpers';
@@ -169,24 +169,12 @@ export class FactModal extends Component {
     }
 
     renderModalBody() {
-        const { inlineError, isSubFact } = this.props;
+        const { isSubFact } = this.props;
         const { isAddFact, isCategory } = this.state;
         let modalBody;
 
         modalBody =
             <React.Fragment>
-                { inlineError.status
-                    ? <Alert
-                        variant='danger'
-                        isInline
-                        title={ 'Status: ' + inlineError.status }
-                    >
-                        <p>
-                            { inlineError.detail }
-                        </p>
-                    </Alert>
-                    : <div></div>
-                }
                 { (isAddFact && !isSubFact) || isCategory ? this.renderCategoryCheckbox() : null }
                 <Form>
                     { this.renderFactInput() }
