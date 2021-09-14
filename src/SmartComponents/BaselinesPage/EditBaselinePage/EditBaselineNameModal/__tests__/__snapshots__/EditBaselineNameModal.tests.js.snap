@@ -60,6 +60,66 @@ exports[`EditBaselineNameModal should render correctly 1`] = `
 </Modal>
 `;
 
+exports[`EditBaselineNameModal should render error correctly 1`] = `
+<Modal
+  actions={
+    Array [
+      <Button
+        onClick={[Function]}
+        ouiaId="save"
+        variant="primary"
+      >
+        Save
+      </Button>,
+      <Button
+        onClick={[Function]}
+        ouiaId="cancel"
+        variant="link"
+      >
+        Cancel
+      </Button>,
+    ]
+  }
+  appendTo={[Function]}
+  aria-describedby=""
+  aria-label=""
+  aria-labelledby=""
+  className="drift"
+  hasNoBodyWrapper={false}
+  isOpen={true}
+  onClose={[Function]}
+  ouiaSafe={true}
+  showClose={true}
+  title="Edit name"
+  titleIconVariant={null}
+  titleLabel=""
+  variant="small"
+>
+  <div
+    className="fact-value"
+  >
+    <Form>
+      <FormGroup
+        fieldId="baseline name"
+        helperTextInvalid="This is an error"
+        isRequired={true}
+        label="Baseline title"
+        onKeyPress={[Function]}
+        validated="error"
+      >
+        <TextInput
+          aria-label="baseline name"
+          onChange={[Function]}
+          type="text"
+          validated="error"
+          value="lotr-baseline"
+        />
+      </FormGroup>
+    </Form>
+  </div>
+</Modal>
+`;
+
 exports[`EditBaselineNameModal should render mount correctly 1`] = `
 <EditBaselineNameModal
   baselineData={

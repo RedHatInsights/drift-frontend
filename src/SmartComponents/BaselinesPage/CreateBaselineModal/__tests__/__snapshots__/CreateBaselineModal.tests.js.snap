@@ -258,7 +258,6 @@ exports[`ConnectedCreateBaselineModal should render correctly 1`] = `
                             class="pf-c-modal-box__body"
                             id="pf-modal-part-7"
                           >
-                            <div />
                             <div
                               class="pf-c-radio"
                             >
@@ -580,7 +579,6 @@ exports[`ConnectedCreateBaselineModal should render correctly 1`] = `
                                   className="pf-c-modal-box__body"
                                   id="pf-modal-part-7"
                                 >
-                                  <div />
                                   <Radio
                                     className=""
                                     id="create baseline"
@@ -898,7 +896,6 @@ exports[`CreateBaselineModal should render correctly 1`] = `
   variant="default"
   width="1200px"
 >
-  <div />
   <Radio
     className=""
     id="create baseline"
@@ -954,6 +951,105 @@ exports[`CreateBaselineModal should render correctly 1`] = `
           onChange={[Function]}
           type="text"
           validated={null}
+          value=""
+        />
+      </FormGroup>
+    </Form>
+  </div>
+</Modal>
+`;
+
+exports[`CreateBaselineModal should render error correctly 1`] = `
+<Modal
+  actions={
+    Array [
+      <Button
+        isDisabled={true}
+        ouiaId="create-baseline-button-fromscratch"
+        variant="primary"
+      >
+        Create baseline
+      </Button>,
+      <Button
+        onClick={[Function]}
+        ouiaId="create-baseline-modal-cancel-button"
+        variant="link"
+      >
+        Cancel
+      </Button>,
+    ]
+  }
+  appendTo={[Function]}
+  aria-describedby=""
+  aria-label=""
+  aria-labelledby=""
+  className="drift"
+  hasNoBodyWrapper={false}
+  isOpen={false}
+  onClose={[Function]}
+  ouiaSafe={true}
+  showClose={true}
+  title="Create baseline"
+  titleIconVariant={null}
+  titleLabel=""
+  variant="default"
+  width="1200px"
+>
+  <Radio
+    className=""
+    id="create baseline"
+    isChecked={true}
+    isDisabled={false}
+    isValid={true}
+    label="Create baseline from scratch"
+    name="baseline-create-options"
+    onChange={[Function]}
+    ouiaId="create-baseline-from-scratch-radio"
+    value="fromScratchChecked"
+  />
+  <Radio
+    className=""
+    id="copy baseline"
+    isChecked={false}
+    isDisabled={false}
+    isValid={true}
+    label="Copy an existing baseline"
+    name="baseline-create-options"
+    onChange={[Function]}
+    ouiaId="create-baseline-copy-baseline-radio"
+    value="copyBaselineChecked"
+  />
+  <Radio
+    className=""
+    id="copy system"
+    isChecked={false}
+    isDisabled={false}
+    isValid={true}
+    label="Copy an existing system or historical profile"
+    name="baseline-create-options"
+    onChange={[Function]}
+    ouiaId="create-baseline-copy-system-radio"
+    value="copySystemChecked"
+  />
+  <div
+    className="md-padding-top md-padding-bottom"
+  >
+    <Form>
+      <FormGroup
+        fieldId="name"
+        helperTextInvalid="This is an error"
+        isRequired={true}
+        label="Baseline name"
+        onKeyPress={[Function]}
+        type="text"
+        validated="error"
+      >
+        <TextInput
+          aria-label="baseline name"
+          className="fact-value"
+          onChange={[Function]}
+          type="text"
+          validated="error"
           value=""
         />
       </FormGroup>
