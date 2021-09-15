@@ -24,6 +24,7 @@ export class DriftTable extends Component {
                 'You currently have no system or baselines displayed. Add at least two',
                 'systems or baselines to compare their facts.'
             ]
+            //scrollWidth: undefined
         };
 
         this.masterList = [];
@@ -36,9 +37,15 @@ export class DriftTable extends Component {
         this.setSort();
         this.topScroller = React.createRef();
         this.bottomScroller = React.createRef();
+        this.table = React.createRef();
         this.doubleScroll = this.doubleScroll.bind(this);
         this.fetchCompare = this.fetchCompare.bind(this);
         this.removeSystem = this.removeSystem.bind(this);
+
+        /*this.updateBottomScroller = element => {
+            this.bottomScroller = element;
+            //this.setState({ scrollWidth: })
+        };*/
     }
 
     doubleScroll() {
@@ -553,28 +560,55 @@ export class DriftTable extends Component {
         return expandIcon;
     }
 
+    renderTopScoller(scrollWidth) {
+        return this.table.current.scrollWidth < scrollWidth
+            ? <div className='second-scroll-wrapper' onScroll={ this.doubleScroll } ref={ this.topScroller }>
+                <div
+                    className='second-scroll'
+                    style={{ width: scrollWidth }}
+                ></div>
+            </div>
+            : null;
+    }
+
     renderTable(compareData, loading) {
         const { factSort, permissions, referenceId, selectedBaselineIds, selectedHSPIds,
             selectHistoricProfiles, setHistory, stateSort, toggleFactSort, toggleStateSort } = this.props;
-        let scrollWidth = '';
+        //let scrollWidth = '';
 
-        if (this.bottomScroller.current) {
+        /*if (this.bottomScroller.current) {
+            //console.log('where');
             scrollWidth = this.bottomScroller.current.scrollWidth;
-        }
+        }*/
+
+        console.log(this.bottomScroller.current?.scrollWidth);
 
         return (
             <React.Fragment>
-                <div className='second-scroll-wrapper' onScroll={ this.doubleScroll } ref={ this.topScroller }>
+                { /*this.table.current ? this.renderTopScoller(scrollWidth) : null*/ }
+                <div
+                    className={ this.table.current?.scrollWidth > this.bottomScroller.current?.scrollWidth
+                        ? 'second-scroll-wrapper-scroll' : 'second-scroll-wrapper' }
+                    onScroll={ this.doubleScroll }
+                    ref={ this.topScroller }>
                     <div
                         className='second-scroll'
-                        style={{ width: scrollWidth }}
+                        //style={{ width: scrollWidth }}
+                        style={{ width: this.bottomScroller.current?.scrollWidth }}
                     ></div>
                 </div>
-                <div className="drift-table-wrapper" onScroll={ this.doubleScroll } ref={ this.bottomScroller }>
+                <div
+                    className={ this.table.current?.scrollWidth > this.bottomScroller.current?.scrollWidth
+                        ? 'drift-table-wrapper-scroll' : 'drift-table-wrapper' }
+                    onScroll={ this.doubleScroll }
+                    ref={ this.bottomScroller }>
+                    { /*ref={ this.updateBottomScroller }>*/ }
                     <table
                         className="pf-c-table pf-m-compact drift-table"
                         data-ouia-component-type='PF4/Table'
-                        data-ouia-component-id='comparison-table'>
+                        data-ouia-component-id='comparison-table'
+                        ref={ this.table }
+                    >
                         <thead>
                             <ComparisonHeader
                                 factSort={ factSort }

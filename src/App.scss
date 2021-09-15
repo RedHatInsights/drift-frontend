@@ -247,20 +247,32 @@
   color: #6a6a73;
 }
 
-.second-scroll-wrapper {
+.second-scroll-wrapper-scroll {
   margin-left: 24px;
   margin-right: 24px;
   overflow-x: scroll;
   overflow-y: hidden;
 }
 
+.second-scroll-wrapper {
+  margin-left: 24px;
+  margin-right: 24px;
+  overflow: auto;
+}
+
 .second-scroll {
   height: 12px;
 }
 
-.drift-table-wrapper {
+.drift-table-wrapper-scroll {
   overflow-x: scroll;
   overflow-y: hidden;
+  min-height: 500px;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+.drift-table-wrapper {
+  overflow: auto;
   min-height: 500px;
   margin-left: 24px;
   margin-right: 24px;
