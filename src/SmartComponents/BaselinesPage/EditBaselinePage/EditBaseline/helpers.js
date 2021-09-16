@@ -253,7 +253,7 @@ function makeAPIPatch(data, originalAPIBody, originalParentFact) {
         });
     } else {
         originalAPIBody.baseline_facts.forEach(function(fact) {
-            if (fact.name !== originalParentFact.name) {
+            if (!isSameFact(fact, originalParentFact)) {
                 patchBody.push(fact);
             }
         });
@@ -361,9 +361,9 @@ function findFactCount(editBaselineTableData) {
     editBaselineTableData.forEach(function(fact) {
         if (Array.isArray(fact[2])) {
             totalFacts += fact[2].length;
-        } else {
-            totalFacts += 1;
         }
+
+        totalFacts += 1;
     });
 
     return totalFacts;
@@ -379,6 +379,9 @@ function findSelected(editBaselineTableData) {
                     selected += 1;
                 }
             });
+            if (fact.selected) {
+                selected += 1;
+            }
         } else {
             if (fact.selected === true) {
                 selected += 1;

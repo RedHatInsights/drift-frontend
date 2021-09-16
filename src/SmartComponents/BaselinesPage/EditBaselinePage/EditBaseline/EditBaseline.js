@@ -158,7 +158,13 @@ class EditBaseline extends Component {
         let rows = [];
 
         let factData = baselineData.baseline_facts.find((baselineFact) => {
-            return baselineFact.name === fact[FACT_NAME];
+            if (baselineFact.name === fact[FACT_NAME]) {
+                if (baselineFact.value && fact[FACT_VALUE] === baselineFact.value) {
+                    return fact;
+                } else if (baselineFact.values && Array.isArray(fact[FACT_VALUE])) {
+                    return fact;
+                }
+            }
         });
 
         baselinesWrite
