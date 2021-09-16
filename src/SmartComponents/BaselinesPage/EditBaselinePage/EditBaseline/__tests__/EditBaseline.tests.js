@@ -111,25 +111,17 @@ describe('EditBaseline', () => {
         );
 
         expect(toJson(wrapper)).toMatchSnapshot();
-    });
+    });*/
 
     it('should render with baseline facts', () => {
-        initialState.editBaselineState.baselineData = editBaselineFixtures.mockBaselineData1;
-        initialState.editBaselineState.editBaselineTableData = editBaselineFixtures.mockBaselineTableData1;
-        const store = mockStore(initialState);
-        const wrapper = mount(
-            <PermissionContext.Provider value={ value }>
-                <MemoryRouter keyLength={ 0 }>
-                    <Provider store={ store }>
-                        <ConnectedEditBaseline />
-                    </Provider>
-                </MemoryRouter>
-            </PermissionContext.Provider>
+        props.baselineData = helpersFixtures.mockBaselineData1;
+        props.editBaselineTableData = helpersFixtures.mockBaselineTableData1;
+        const wrapper = shallow(
+            <EditBaseline { ...props } />
         );
 
         expect(toJson(wrapper)).toMatchSnapshot();
-        expect(wrapper.find('#edit-baseline-title').text()).toEqual('lotr-baseline');
-    });*/
+    });
 
     it('should render expandable rows closed', () => {
         props.editBaselineTableData = helpersFixtures.mockBaselineTableData1;
@@ -147,6 +139,16 @@ describe('EditBaseline', () => {
         props.expandedRows = [ 'The Fellowship of the Ring' ];
         const wrapper = shallow(
             <EditBaseline { ...props }/>
+        );
+
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('should render with baseline facts with same name', () => {
+        props.baselineData = helpersFixtures.mockBaselineDataSameName1;
+        props.editBaselineTableData = helpersFixtures.mockBaselineTableDataSameName1;
+        const wrapper = shallow(
+            <EditBaseline { ...props } />
         );
 
         expect(toJson(wrapper)).toMatchSnapshot();

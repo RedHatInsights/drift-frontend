@@ -245,5 +245,12 @@ describe('edit baseline helpers', () => {
         let factB = { name: 'new_parent_fact', value: 'new_value' };
         expect(editBaselineHelpers.isSameFact(factA, factB)).toEqual(false);
     });
+
+    it('returns number selected', () => {
+        let editBaselineTableData = editBaselineFixtures.mockBaselineTableDataSameName1;
+        editBaselineTableData[1].selected = true;
+        editBaselineTableData[3][2][3].selected = true;
+        expect(editBaselineHelpers.findSelected(editBaselineTableData)).toEqual(2);
+    });
 });
 /*eslint-enable camelcase*/

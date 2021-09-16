@@ -66,6 +66,25 @@ const mockBaselineTableData1 = [
     ]
 ];
 
+const mockBaselineTableDataSameName1 = [
+    [ 0, 'Sauron', 'the Dark Lord' ],
+    [ 1, 'Galadriel', 'the Elven Queen' ],
+    [ 2, 'The Fellowship of the Ring', 'same name as category' ],
+    [ 3, 'The Fellowship of the Ring',
+        [
+            [ 4, 'Frodo', 'Baggins' ],
+            [ 5, 'Samwise', 'Gamgee' ],
+            [ 6, 'Gandalf', 'the Grey' ],
+            [ 7, 'Meriadoc', 'Brandybuck' ],
+            [ 8, 'Peregrin', 'Took' ],
+            [ 9, 'Gimli', 'son of Gloin' ],
+            [ 10, 'Legolas', 'Greenleaf' ],
+            [ 11, 'Boromir', 'son of Denethor' ],
+            [ 12, 'Aragorn', 'son of Arathorn' ]
+        ]
+    ]
+];
+
 const mockBaselineAPIBody = {
     id: '38gnw73l-fn36-5829-1287-2m5ghs46801c',
     display_name: 'lotr_baseline',
@@ -273,6 +292,7 @@ export default {
     mockBaselineData1,
     mockBaselineDataSameName1,
     mockBaselineTableData1,
+    mockBaselineTableDataSameName1,
     mockBaselineAPIBody,
     originalAPIBody,
     rows,
