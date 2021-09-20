@@ -2,12 +2,14 @@
 
 read -p "Releasing QA to Prod (stable and beta)  environment. Do you wish to continue? (Y/n) " decision
 
+remote_name=$(git remote -v | grep RedHatInsights --ignore-case | grep push | awk '{print $1}')
+
 if [ $decision == 'Y' ];then
   git stash
-  git fetch origin
+  git fetch $remote_name
   git checkout qa
-  git reset origin/qa --hard
-  git push origin qa:prod
+  git reset $remote_name/qa --hard
+  git push $remote_name qa:prod
 else
   echo 'Aborting release to prod'
 fi
