@@ -2,12 +2,14 @@
 
 read -p "Releasing master(CI) to QA environment. Do you wish to continue? (Y/n) " decision
 
+remote_name=$(git remote -v | grep RedHatInsights --ignore-case | grep push | awk '{print $1}')
+
 if [ $decision == 'Y' ];then
   git stash
-  git fetch origin
+  git fetch $remote_name
   git checkout master
-  git reset origin/master --hard
-  git push origin master:qa
+  git reset $remote_name/master --hard
+  git push $remote_name master:qa
 else
   echo 'Aborting release to qa'
 fi
