@@ -308,6 +308,9 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
               >
                 <div
                   className="pf-c-toolbar"
+                  data-ouia-component-id="OUIA-Generated-Toolbar-13"
+                  data-ouia-component-type="PF4/Toolbar"
+                  data-ouia-safe={true}
                   id="pf-random-id-12"
                 >
                   <ToolbarContent
@@ -829,6 +832,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                               isRequired={false}
                                               onChange={[Function]}
                                               onKeyDown={[Function]}
+                                              ouiaSafe={true}
                                               placeholder="Filter by name"
                                               type="text"
                                               useMobileLayout={false}
@@ -840,8 +844,9 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                 aria-invalid={false}
                                                 aria-label="text input"
                                                 className="pf-c-form-control ins-c-conditional-filter "
-                                                data-ouia-component-id="filter-by-name-baselines-table"
+                                                data-ouia-component-id="OUIA-Generated-TextInputBase-14"
                                                 data-ouia-component-type="PF4/TextInput"
+                                                data-ouia-safe={true}
                                                 disabled={false}
                                                 id="default-input"
                                                 onBlur={[Function]}
@@ -2389,6 +2394,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
             dropdownPosition="right"
             expandId="expandable-toggle"
             gridBreakPoint="grid-md"
+            isNested={false}
             isStickyHeader={false}
             isTreeTable={false}
             onSort={[Function]}
@@ -2616,6 +2622,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
               }
               data-ouia-component-id="baselines-table"
               gridBreakPoint="grid-md"
+              isNested={false}
               isStickyHeader={false}
               isTreeTable={false}
               ouiaSafe={true}
@@ -2640,6 +2647,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                 className="baseline-table"
                 data-ouia-component-id="baselines-table"
                 gridBreakPoint="grid-md"
+                isNested={false}
                 isStickyHeader={false}
                 isTreeTable={false}
                 ouiaSafe={true}
@@ -2653,6 +2661,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                   data-ouia-component-id="baselines-table"
                   gridBreakPoint="grid-md"
                   innerRef={null}
+                  isNested={false}
                   isStickyHeader={false}
                   isTreeTable={false}
                   ouiaSafe={true}
@@ -2671,7 +2680,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                       <ContextHeader
                         headerRows={null}
                       >
-                        <Component
+                        <Header
                           className=""
                           headerRows={null}
                         >
@@ -3293,10 +3302,10 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                               </TheadBase>
                             </Thead>
                           </BaseHeader>
-                        </Component>
+                        </Header>
                       </ContextHeader>
                     </TableHeader>
-                    <Component>
+                    <TableBody>
                       <ContextBody
                         className=""
                         headerData={
@@ -3510,7 +3519,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                           ]
                         }
                       >
-                        <Component
+                        <Body
                           className=""
                           headerRows={null}
                           mappedRows={
@@ -4678,7 +4687,8 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                     >
                                       <RowWrapper
                                         className=""
-                                        onMouseDown={[Function]}
+                                        onClick={[Function]}
+                                        onKeyDown={[Function]}
                                         row={
                                           Object {
                                             "0": "beavs baseline",
@@ -4760,12 +4770,14 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                       >
                                         <Tr
                                           className=""
-                                          onMouseDown={[Function]}
+                                          onClick={[Function]}
+                                          onKeyDown={[Function]}
                                         >
                                           <TrBase
                                             className=""
                                             innerRef={null}
-                                            onMouseDown={[Function]}
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
                                           >
                                             <tr
                                               className=""
@@ -4773,7 +4785,8 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                               data-ouia-component-type="PF4/TableRow"
                                               data-ouia-safe={true}
                                               hidden={false}
-                                              onMouseDown={[Function]}
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
                                             >
                                               <BodyCell
                                                 data-key={0}
@@ -5437,7 +5450,8 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                     >
                                       <RowWrapper
                                         className=""
-                                        onMouseDown={[Function]}
+                                        onClick={[Function]}
+                                        onKeyDown={[Function]}
                                         row={
                                           Object {
                                             "0": "micjohns baseline",
@@ -5518,12 +5532,14 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                       >
                                         <Tr
                                           className=""
-                                          onMouseDown={[Function]}
+                                          onClick={[Function]}
+                                          onKeyDown={[Function]}
                                         >
                                           <TrBase
                                             className=""
                                             innerRef={null}
-                                            onMouseDown={[Function]}
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
                                           >
                                             <tr
                                               className=""
@@ -5531,7 +5547,8 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                               data-ouia-component-type="PF4/TableRow"
                                               data-ouia-safe={true}
                                               hidden={false}
-                                              onMouseDown={[Function]}
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
                                             >
                                               <BodyCell
                                                 data-key={0}
@@ -5958,9 +5975,9 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                               </Tbody>
                             </BodyWrapper>
                           </BaseBody>
-                        </Component>
+                        </Body>
                       </ContextBody>
-                    </Component>
+                    </TableBody>
                   </table>
                 </TableComposableBase>
               </TableComposable>
@@ -5972,6 +5989,9 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
             >
               <div
                 className="pf-c-toolbar"
+                data-ouia-component-id="OUIA-Generated-Toolbar-14"
+                data-ouia-component-type="PF4/Toolbar"
+                data-ouia-safe={true}
                 id="pf-random-id-13"
               >
                 <ForwardRef
@@ -7144,6 +7164,9 @@ exports[`ConnectedBaselinesTable should render disabled when selected basket is 
               >
                 <div
                   className="pf-c-toolbar"
+                  data-ouia-component-id="OUIA-Generated-Toolbar-15"
+                  data-ouia-component-type="PF4/Toolbar"
+                  data-ouia-safe={true}
                   id="pf-random-id-14"
                 >
                   <ToolbarContent
@@ -7665,6 +7688,7 @@ exports[`ConnectedBaselinesTable should render disabled when selected basket is 
                                               isRequired={false}
                                               onChange={[Function]}
                                               onKeyDown={[Function]}
+                                              ouiaSafe={true}
                                               placeholder="Filter by name"
                                               type="text"
                                               useMobileLayout={false}
@@ -7676,8 +7700,9 @@ exports[`ConnectedBaselinesTable should render disabled when selected basket is 
                                                 aria-invalid={false}
                                                 aria-label="text input"
                                                 className="pf-c-form-control ins-c-conditional-filter "
-                                                data-ouia-component-id="filter-by-name-baselines-table"
+                                                data-ouia-component-id="OUIA-Generated-TextInputBase-16"
                                                 data-ouia-component-type="PF4/TextInput"
+                                                data-ouia-safe={true}
                                                 disabled={false}
                                                 id="default-input"
                                                 onBlur={[Function]}
@@ -9225,6 +9250,7 @@ exports[`ConnectedBaselinesTable should render disabled when selected basket is 
             dropdownPosition="right"
             expandId="expandable-toggle"
             gridBreakPoint="grid-md"
+            isNested={false}
             isStickyHeader={false}
             isTreeTable={false}
             onSort={[Function]}
@@ -9444,6 +9470,7 @@ exports[`ConnectedBaselinesTable should render disabled when selected basket is 
               }
               data-ouia-component-id="baselines-table"
               gridBreakPoint="grid-md"
+              isNested={false}
               isStickyHeader={false}
               isTreeTable={false}
               ouiaSafe={true}
@@ -9468,6 +9495,7 @@ exports[`ConnectedBaselinesTable should render disabled when selected basket is 
                 className="baseline-table"
                 data-ouia-component-id="baselines-table"
                 gridBreakPoint="grid-md"
+                isNested={false}
                 isStickyHeader={false}
                 isTreeTable={false}
                 ouiaSafe={true}
@@ -9481,6 +9509,7 @@ exports[`ConnectedBaselinesTable should render disabled when selected basket is 
                   data-ouia-component-id="baselines-table"
                   gridBreakPoint="grid-md"
                   innerRef={null}
+                  isNested={false}
                   isStickyHeader={false}
                   isTreeTable={false}
                   ouiaSafe={true}
@@ -9499,7 +9528,7 @@ exports[`ConnectedBaselinesTable should render disabled when selected basket is 
                       <ContextHeader
                         headerRows={null}
                       >
-                        <Component
+                        <Header
                           className=""
                           headerRows={null}
                         >
@@ -10121,10 +10150,10 @@ exports[`ConnectedBaselinesTable should render disabled when selected basket is 
                               </TheadBase>
                             </Thead>
                           </BaseHeader>
-                        </Component>
+                        </Header>
                       </ContextHeader>
                     </TableHeader>
-                    <Component>
+                    <TableBody>
                       <ContextBody
                         className=""
                         headerData={
@@ -10330,7 +10359,7 @@ exports[`ConnectedBaselinesTable should render disabled when selected basket is 
                           ]
                         }
                       >
-                        <Component
+                        <Body
                           className=""
                           headerRows={null}
                           mappedRows={
@@ -11410,7 +11439,8 @@ exports[`ConnectedBaselinesTable should render disabled when selected basket is 
                                     >
                                       <RowWrapper
                                         className=""
-                                        onMouseDown={[Function]}
+                                        onClick={[Function]}
+                                        onKeyDown={[Function]}
                                         row={
                                           Object {
                                             "0": "beavs baseline",
@@ -11484,12 +11514,14 @@ exports[`ConnectedBaselinesTable should render disabled when selected basket is 
                                       >
                                         <Tr
                                           className=""
-                                          onMouseDown={[Function]}
+                                          onClick={[Function]}
+                                          onKeyDown={[Function]}
                                         >
                                           <TrBase
                                             className=""
                                             innerRef={null}
-                                            onMouseDown={[Function]}
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
                                           >
                                             <tr
                                               className=""
@@ -11497,7 +11529,8 @@ exports[`ConnectedBaselinesTable should render disabled when selected basket is 
                                               data-ouia-component-type="PF4/TableRow"
                                               data-ouia-safe={true}
                                               hidden={false}
-                                              onMouseDown={[Function]}
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
                                             >
                                               <BodyCell
                                                 data-key={0}
@@ -12145,7 +12178,8 @@ exports[`ConnectedBaselinesTable should render disabled when selected basket is 
                                     >
                                       <RowWrapper
                                         className=""
-                                        onMouseDown={[Function]}
+                                        onClick={[Function]}
+                                        onKeyDown={[Function]}
                                         row={
                                           Object {
                                             "0": "micjohns baseline",
@@ -12218,12 +12252,14 @@ exports[`ConnectedBaselinesTable should render disabled when selected basket is 
                                       >
                                         <Tr
                                           className=""
-                                          onMouseDown={[Function]}
+                                          onClick={[Function]}
+                                          onKeyDown={[Function]}
                                         >
                                           <TrBase
                                             className=""
                                             innerRef={null}
-                                            onMouseDown={[Function]}
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
                                           >
                                             <tr
                                               className=""
@@ -12231,7 +12267,8 @@ exports[`ConnectedBaselinesTable should render disabled when selected basket is 
                                               data-ouia-component-type="PF4/TableRow"
                                               data-ouia-safe={true}
                                               hidden={false}
-                                              onMouseDown={[Function]}
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
                                             >
                                               <BodyCell
                                                 data-key={0}
@@ -12650,9 +12687,9 @@ exports[`ConnectedBaselinesTable should render disabled when selected basket is 
                               </Tbody>
                             </BodyWrapper>
                           </BaseBody>
-                        </Component>
+                        </Body>
                       </ContextBody>
-                    </Component>
+                    </TableBody>
                   </table>
                 </TableComposableBase>
               </TableComposable>
@@ -12664,6 +12701,9 @@ exports[`ConnectedBaselinesTable should render disabled when selected basket is 
             >
               <div
                 className="pf-c-toolbar"
+                data-ouia-component-id="OUIA-Generated-Toolbar-16"
+                data-ouia-component-type="PF4/Toolbar"
+                data-ouia-safe={true}
                 id="pf-random-id-15"
               >
                 <ForwardRef
@@ -13836,6 +13876,9 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
               >
                 <div
                   className="pf-c-toolbar"
+                  data-ouia-component-id="OUIA-Generated-Toolbar-9"
+                  data-ouia-component-type="PF4/Toolbar"
+                  data-ouia-safe={true}
                   id="pf-random-id-8"
                 >
                   <ToolbarContent
@@ -14324,6 +14367,7 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                                               isRequired={false}
                                               onChange={[Function]}
                                               onKeyDown={[Function]}
+                                              ouiaSafe={true}
                                               placeholder="Filter by name"
                                               type="text"
                                               useMobileLayout={false}
@@ -14335,8 +14379,9 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                                                 aria-invalid={false}
                                                 aria-label="text input"
                                                 className="pf-c-form-control ins-c-conditional-filter "
-                                                data-ouia-component-id="filter-by-name-baselines-table"
+                                                data-ouia-component-id="OUIA-Generated-TextInputBase-10"
                                                 data-ouia-component-type="PF4/TextInput"
+                                                data-ouia-safe={true}
                                                 disabled={false}
                                                 id="default-input"
                                                 onBlur={[Function]}
@@ -15912,6 +15957,7 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
               dropdownPosition="right"
               expandId="expandable-toggle"
               gridBreakPoint="grid-md"
+              isNested={false}
               isStickyHeader={false}
               isTreeTable={false}
               onSelect={true}
@@ -16309,6 +16355,7 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                   ]
                 }
                 gridBreakPoint="grid-md"
+                isNested={false}
                 isStickyHeader={false}
                 isTreeTable={false}
                 ouiaSafe={true}
@@ -16332,6 +16379,7 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                   borders={true}
                   className=""
                   gridBreakPoint="grid-md"
+                  isNested={false}
                   isStickyHeader={false}
                   isTreeTable={false}
                   ouiaSafe={true}
@@ -16344,6 +16392,7 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                     className=""
                     gridBreakPoint="grid-md"
                     innerRef={null}
+                    isNested={false}
                     isStickyHeader={false}
                     isTreeTable={false}
                     ouiaSafe={true}
@@ -16362,7 +16411,7 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                         <ContextHeader
                           headerRows={null}
                         >
-                          <Component
+                          <Header
                             className=""
                             headerRows={null}
                           >
@@ -17097,10 +17146,10 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                                 </TheadBase>
                               </Thead>
                             </BaseHeader>
-                          </Component>
+                          </Header>
                         </ContextHeader>
                       </TableHeader>
-                      <Component>
+                      <TableBody>
                         <ContextBody
                           className=""
                           headerData={
@@ -17491,7 +17540,7 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                             ]
                           }
                         >
-                          <Component
+                          <Body
                             className=""
                             headerRows={null}
                             mappedRows={
@@ -20432,7 +20481,8 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                                       >
                                         <RowWrapper
                                           className=""
-                                          onMouseDown={[Function]}
+                                          onClick={[Function]}
+                                          onKeyDown={[Function]}
                                           row={
                                             Object {
                                               "cells": Array [
@@ -20504,12 +20554,14 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                                         >
                                           <Tr
                                             className=""
-                                            onMouseDown={[Function]}
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
                                           >
                                             <TrBase
                                               className=""
                                               innerRef={null}
-                                              onMouseDown={[Function]}
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
                                             >
                                               <tr
                                                 className=""
@@ -20517,7 +20569,8 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                                                 data-ouia-component-type="PF4/TableRow"
                                                 data-ouia-safe={true}
                                                 hidden={false}
-                                                onMouseDown={[Function]}
+                                                onClick={[Function]}
+                                                onKeyDown={[Function]}
                                               >
                                                 <BodyCell
                                                   className="pf-c-table__check"
@@ -20978,7 +21031,8 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                                       >
                                         <RowWrapper
                                           className=""
-                                          onMouseDown={[Function]}
+                                          onClick={[Function]}
+                                          onKeyDown={[Function]}
                                           row={
                                             Object {
                                               "cells": Array [
@@ -21050,12 +21104,14 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                                         >
                                           <Tr
                                             className=""
-                                            onMouseDown={[Function]}
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
                                           >
                                             <TrBase
                                               className=""
                                               innerRef={null}
-                                              onMouseDown={[Function]}
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
                                             >
                                               <tr
                                                 className=""
@@ -21063,7 +21119,8 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                                                 data-ouia-component-type="PF4/TableRow"
                                                 data-ouia-safe={true}
                                                 hidden={false}
-                                                onMouseDown={[Function]}
+                                                onClick={[Function]}
+                                                onKeyDown={[Function]}
                                               >
                                                 <BodyCell
                                                   className="pf-c-table__check"
@@ -21524,7 +21581,8 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                                       >
                                         <RowWrapper
                                           className=""
-                                          onMouseDown={[Function]}
+                                          onClick={[Function]}
+                                          onKeyDown={[Function]}
                                           row={
                                             Object {
                                               "cells": Array [
@@ -21596,12 +21654,14 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                                         >
                                           <Tr
                                             className=""
-                                            onMouseDown={[Function]}
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
                                           >
                                             <TrBase
                                               className=""
                                               innerRef={null}
-                                              onMouseDown={[Function]}
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
                                             >
                                               <tr
                                                 className=""
@@ -21609,7 +21669,8 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                                                 data-ouia-component-type="PF4/TableRow"
                                                 data-ouia-safe={true}
                                                 hidden={false}
-                                                onMouseDown={[Function]}
+                                                onClick={[Function]}
+                                                onKeyDown={[Function]}
                                               >
                                                 <BodyCell
                                                   className="pf-c-table__check"
@@ -22070,7 +22131,8 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                                       >
                                         <RowWrapper
                                           className=""
-                                          onMouseDown={[Function]}
+                                          onClick={[Function]}
+                                          onKeyDown={[Function]}
                                           row={
                                             Object {
                                               "cells": Array [
@@ -22142,12 +22204,14 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                                         >
                                           <Tr
                                             className=""
-                                            onMouseDown={[Function]}
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
                                           >
                                             <TrBase
                                               className=""
                                               innerRef={null}
-                                              onMouseDown={[Function]}
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
                                             >
                                               <tr
                                                 className=""
@@ -22155,7 +22219,8 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                                                 data-ouia-component-type="PF4/TableRow"
                                                 data-ouia-safe={true}
                                                 hidden={false}
-                                                onMouseDown={[Function]}
+                                                onClick={[Function]}
+                                                onKeyDown={[Function]}
                                               >
                                                 <BodyCell
                                                   className="pf-c-table__check"
@@ -22616,7 +22681,8 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                                       >
                                         <RowWrapper
                                           className=""
-                                          onMouseDown={[Function]}
+                                          onClick={[Function]}
+                                          onKeyDown={[Function]}
                                           row={
                                             Object {
                                               "cells": Array [
@@ -22688,12 +22754,14 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                                         >
                                           <Tr
                                             className=""
-                                            onMouseDown={[Function]}
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
                                           >
                                             <TrBase
                                               className=""
                                               innerRef={null}
-                                              onMouseDown={[Function]}
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
                                             >
                                               <tr
                                                 className=""
@@ -22701,7 +22769,8 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                                                 data-ouia-component-type="PF4/TableRow"
                                                 data-ouia-safe={true}
                                                 hidden={false}
-                                                onMouseDown={[Function]}
+                                                onClick={[Function]}
+                                                onKeyDown={[Function]}
                                               >
                                                 <BodyCell
                                                   className="pf-c-table__check"
@@ -23162,7 +23231,8 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                                       >
                                         <RowWrapper
                                           className=""
-                                          onMouseDown={[Function]}
+                                          onClick={[Function]}
+                                          onKeyDown={[Function]}
                                           row={
                                             Object {
                                               "cells": Array [
@@ -23234,12 +23304,14 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                                         >
                                           <Tr
                                             className=""
-                                            onMouseDown={[Function]}
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
                                           >
                                             <TrBase
                                               className=""
                                               innerRef={null}
-                                              onMouseDown={[Function]}
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
                                             >
                                               <tr
                                                 className=""
@@ -23247,7 +23319,8 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                                                 data-ouia-component-type="PF4/TableRow"
                                                 data-ouia-safe={true}
                                                 hidden={false}
-                                                onMouseDown={[Function]}
+                                                onClick={[Function]}
+                                                onKeyDown={[Function]}
                                               >
                                                 <BodyCell
                                                   className="pf-c-table__check"
@@ -23708,7 +23781,8 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                                       >
                                         <RowWrapper
                                           className=""
-                                          onMouseDown={[Function]}
+                                          onClick={[Function]}
+                                          onKeyDown={[Function]}
                                           row={
                                             Object {
                                               "cells": Array [
@@ -23780,12 +23854,14 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                                         >
                                           <Tr
                                             className=""
-                                            onMouseDown={[Function]}
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
                                           >
                                             <TrBase
                                               className=""
                                               innerRef={null}
-                                              onMouseDown={[Function]}
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
                                             >
                                               <tr
                                                 className=""
@@ -23793,7 +23869,8 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                                                 data-ouia-component-type="PF4/TableRow"
                                                 data-ouia-safe={true}
                                                 hidden={false}
-                                                onMouseDown={[Function]}
+                                                onClick={[Function]}
+                                                onKeyDown={[Function]}
                                               >
                                                 <BodyCell
                                                   className="pf-c-table__check"
@@ -24254,7 +24331,8 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                                       >
                                         <RowWrapper
                                           className=""
-                                          onMouseDown={[Function]}
+                                          onClick={[Function]}
+                                          onKeyDown={[Function]}
                                           row={
                                             Object {
                                               "cells": Array [
@@ -24326,12 +24404,14 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                                         >
                                           <Tr
                                             className=""
-                                            onMouseDown={[Function]}
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
                                           >
                                             <TrBase
                                               className=""
                                               innerRef={null}
-                                              onMouseDown={[Function]}
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
                                             >
                                               <tr
                                                 className=""
@@ -24339,7 +24419,8 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                                                 data-ouia-component-type="PF4/TableRow"
                                                 data-ouia-safe={true}
                                                 hidden={false}
-                                                onMouseDown={[Function]}
+                                                onClick={[Function]}
+                                                onKeyDown={[Function]}
                                               >
                                                 <BodyCell
                                                   className="pf-c-table__check"
@@ -24533,9 +24614,9 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                                 </Tbody>
                               </BodyWrapper>
                             </BaseBody>
-                          </Component>
+                          </Body>
                         </ContextBody>
-                      </Component>
+                      </TableBody>
                     </table>
                   </TableComposableBase>
                 </TableComposable>
@@ -24548,6 +24629,9 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
             >
               <div
                 className="pf-c-toolbar"
+                data-ouia-component-id="OUIA-Generated-Toolbar-10"
+                data-ouia-component-type="PF4/Toolbar"
+                data-ouia-safe={true}
                 id="pf-random-id-9"
               >
                 <ForwardRef
@@ -25720,6 +25804,9 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
               >
                 <div
                   className="pf-c-toolbar"
+                  data-ouia-component-id="OUIA-Generated-Toolbar-11"
+                  data-ouia-component-type="PF4/Toolbar"
+                  data-ouia-safe={true}
                   id="pf-random-id-10"
                 >
                   <ToolbarContent
@@ -25807,6 +25894,7 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
                                               isRequired={false}
                                               onChange={[Function]}
                                               onKeyDown={[Function]}
+                                              ouiaSafe={true}
                                               placeholder="Filter by name"
                                               type="text"
                                               useMobileLayout={false}
@@ -25818,8 +25906,9 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
                                                 aria-invalid={false}
                                                 aria-label="text input"
                                                 className="pf-c-form-control ins-c-conditional-filter "
-                                                data-ouia-component-id="filter-by-name-baselines-table"
+                                                data-ouia-component-id="OUIA-Generated-TextInputBase-12"
                                                 data-ouia-component-type="PF4/TextInput"
+                                                data-ouia-safe={true}
                                                 disabled={false}
                                                 id="default-input"
                                                 onBlur={[Function]}
@@ -27395,6 +27484,7 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
               dropdownPosition="right"
               expandId="expandable-toggle"
               gridBreakPoint="grid-md"
+              isNested={false}
               isStickyHeader={false}
               isTreeTable={false}
               onSelect={true}
@@ -27792,6 +27882,7 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
                   ]
                 }
                 gridBreakPoint="grid-md"
+                isNested={false}
                 isStickyHeader={false}
                 isTreeTable={false}
                 ouiaSafe={true}
@@ -27815,6 +27906,7 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
                   borders={true}
                   className=""
                   gridBreakPoint="grid-md"
+                  isNested={false}
                   isStickyHeader={false}
                   isTreeTable={false}
                   ouiaSafe={true}
@@ -27827,6 +27919,7 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
                     className=""
                     gridBreakPoint="grid-md"
                     innerRef={null}
+                    isNested={false}
                     isStickyHeader={false}
                     isTreeTable={false}
                     ouiaSafe={true}
@@ -27845,7 +27938,7 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
                         <ContextHeader
                           headerRows={null}
                         >
-                          <Component
+                          <Header
                             className=""
                             headerRows={null}
                           >
@@ -28580,10 +28673,10 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
                                 </TheadBase>
                               </Thead>
                             </BaseHeader>
-                          </Component>
+                          </Header>
                         </ContextHeader>
                       </TableHeader>
-                      <Component>
+                      <TableBody>
                         <ContextBody
                           className=""
                           headerData={
@@ -28974,7 +29067,7 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
                             ]
                           }
                         >
-                          <Component
+                          <Body
                             className=""
                             headerRows={null}
                             mappedRows={
@@ -31915,7 +32008,8 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
                                       >
                                         <RowWrapper
                                           className=""
-                                          onMouseDown={[Function]}
+                                          onClick={[Function]}
+                                          onKeyDown={[Function]}
                                           row={
                                             Object {
                                               "cells": Array [
@@ -31987,12 +32081,14 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
                                         >
                                           <Tr
                                             className=""
-                                            onMouseDown={[Function]}
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
                                           >
                                             <TrBase
                                               className=""
                                               innerRef={null}
-                                              onMouseDown={[Function]}
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
                                             >
                                               <tr
                                                 className=""
@@ -32000,7 +32096,8 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
                                                 data-ouia-component-type="PF4/TableRow"
                                                 data-ouia-safe={true}
                                                 hidden={false}
-                                                onMouseDown={[Function]}
+                                                onClick={[Function]}
+                                                onKeyDown={[Function]}
                                               >
                                                 <BodyCell
                                                   className="pf-c-table__check"
@@ -32461,7 +32558,8 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
                                       >
                                         <RowWrapper
                                           className=""
-                                          onMouseDown={[Function]}
+                                          onClick={[Function]}
+                                          onKeyDown={[Function]}
                                           row={
                                             Object {
                                               "cells": Array [
@@ -32533,12 +32631,14 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
                                         >
                                           <Tr
                                             className=""
-                                            onMouseDown={[Function]}
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
                                           >
                                             <TrBase
                                               className=""
                                               innerRef={null}
-                                              onMouseDown={[Function]}
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
                                             >
                                               <tr
                                                 className=""
@@ -32546,7 +32646,8 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
                                                 data-ouia-component-type="PF4/TableRow"
                                                 data-ouia-safe={true}
                                                 hidden={false}
-                                                onMouseDown={[Function]}
+                                                onClick={[Function]}
+                                                onKeyDown={[Function]}
                                               >
                                                 <BodyCell
                                                   className="pf-c-table__check"
@@ -33007,7 +33108,8 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
                                       >
                                         <RowWrapper
                                           className=""
-                                          onMouseDown={[Function]}
+                                          onClick={[Function]}
+                                          onKeyDown={[Function]}
                                           row={
                                             Object {
                                               "cells": Array [
@@ -33079,12 +33181,14 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
                                         >
                                           <Tr
                                             className=""
-                                            onMouseDown={[Function]}
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
                                           >
                                             <TrBase
                                               className=""
                                               innerRef={null}
-                                              onMouseDown={[Function]}
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
                                             >
                                               <tr
                                                 className=""
@@ -33092,7 +33196,8 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
                                                 data-ouia-component-type="PF4/TableRow"
                                                 data-ouia-safe={true}
                                                 hidden={false}
-                                                onMouseDown={[Function]}
+                                                onClick={[Function]}
+                                                onKeyDown={[Function]}
                                               >
                                                 <BodyCell
                                                   className="pf-c-table__check"
@@ -33553,7 +33658,8 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
                                       >
                                         <RowWrapper
                                           className=""
-                                          onMouseDown={[Function]}
+                                          onClick={[Function]}
+                                          onKeyDown={[Function]}
                                           row={
                                             Object {
                                               "cells": Array [
@@ -33625,12 +33731,14 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
                                         >
                                           <Tr
                                             className=""
-                                            onMouseDown={[Function]}
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
                                           >
                                             <TrBase
                                               className=""
                                               innerRef={null}
-                                              onMouseDown={[Function]}
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
                                             >
                                               <tr
                                                 className=""
@@ -33638,7 +33746,8 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
                                                 data-ouia-component-type="PF4/TableRow"
                                                 data-ouia-safe={true}
                                                 hidden={false}
-                                                onMouseDown={[Function]}
+                                                onClick={[Function]}
+                                                onKeyDown={[Function]}
                                               >
                                                 <BodyCell
                                                   className="pf-c-table__check"
@@ -34099,7 +34208,8 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
                                       >
                                         <RowWrapper
                                           className=""
-                                          onMouseDown={[Function]}
+                                          onClick={[Function]}
+                                          onKeyDown={[Function]}
                                           row={
                                             Object {
                                               "cells": Array [
@@ -34171,12 +34281,14 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
                                         >
                                           <Tr
                                             className=""
-                                            onMouseDown={[Function]}
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
                                           >
                                             <TrBase
                                               className=""
                                               innerRef={null}
-                                              onMouseDown={[Function]}
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
                                             >
                                               <tr
                                                 className=""
@@ -34184,7 +34296,8 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
                                                 data-ouia-component-type="PF4/TableRow"
                                                 data-ouia-safe={true}
                                                 hidden={false}
-                                                onMouseDown={[Function]}
+                                                onClick={[Function]}
+                                                onKeyDown={[Function]}
                                               >
                                                 <BodyCell
                                                   className="pf-c-table__check"
@@ -34645,7 +34758,8 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
                                       >
                                         <RowWrapper
                                           className=""
-                                          onMouseDown={[Function]}
+                                          onClick={[Function]}
+                                          onKeyDown={[Function]}
                                           row={
                                             Object {
                                               "cells": Array [
@@ -34717,12 +34831,14 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
                                         >
                                           <Tr
                                             className=""
-                                            onMouseDown={[Function]}
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
                                           >
                                             <TrBase
                                               className=""
                                               innerRef={null}
-                                              onMouseDown={[Function]}
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
                                             >
                                               <tr
                                                 className=""
@@ -34730,7 +34846,8 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
                                                 data-ouia-component-type="PF4/TableRow"
                                                 data-ouia-safe={true}
                                                 hidden={false}
-                                                onMouseDown={[Function]}
+                                                onClick={[Function]}
+                                                onKeyDown={[Function]}
                                               >
                                                 <BodyCell
                                                   className="pf-c-table__check"
@@ -35191,7 +35308,8 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
                                       >
                                         <RowWrapper
                                           className=""
-                                          onMouseDown={[Function]}
+                                          onClick={[Function]}
+                                          onKeyDown={[Function]}
                                           row={
                                             Object {
                                               "cells": Array [
@@ -35263,12 +35381,14 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
                                         >
                                           <Tr
                                             className=""
-                                            onMouseDown={[Function]}
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
                                           >
                                             <TrBase
                                               className=""
                                               innerRef={null}
-                                              onMouseDown={[Function]}
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
                                             >
                                               <tr
                                                 className=""
@@ -35276,7 +35396,8 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
                                                 data-ouia-component-type="PF4/TableRow"
                                                 data-ouia-safe={true}
                                                 hidden={false}
-                                                onMouseDown={[Function]}
+                                                onClick={[Function]}
+                                                onKeyDown={[Function]}
                                               >
                                                 <BodyCell
                                                   className="pf-c-table__check"
@@ -35737,7 +35858,8 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
                                       >
                                         <RowWrapper
                                           className=""
-                                          onMouseDown={[Function]}
+                                          onClick={[Function]}
+                                          onKeyDown={[Function]}
                                           row={
                                             Object {
                                               "cells": Array [
@@ -35809,12 +35931,14 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
                                         >
                                           <Tr
                                             className=""
-                                            onMouseDown={[Function]}
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
                                           >
                                             <TrBase
                                               className=""
                                               innerRef={null}
-                                              onMouseDown={[Function]}
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
                                             >
                                               <tr
                                                 className=""
@@ -35822,7 +35946,8 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
                                                 data-ouia-component-type="PF4/TableRow"
                                                 data-ouia-safe={true}
                                                 hidden={false}
-                                                onMouseDown={[Function]}
+                                                onClick={[Function]}
+                                                onKeyDown={[Function]}
                                               >
                                                 <BodyCell
                                                   className="pf-c-table__check"
@@ -36016,9 +36141,9 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
                                 </Tbody>
                               </BodyWrapper>
                             </BaseBody>
-                          </Component>
+                          </Body>
                         </ContextBody>
-                      </Component>
+                      </TableBody>
                     </table>
                   </TableComposableBase>
                 </TableComposable>
@@ -36031,6 +36156,9 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
             >
               <div
                 className="pf-c-toolbar"
+                data-ouia-component-id="OUIA-Generated-Toolbar-12"
+                data-ouia-component-type="PF4/Toolbar"
+                data-ouia-safe={true}
                 id="pf-random-id-11"
               >
                 <ForwardRef
@@ -37203,6 +37331,9 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
               >
                 <div
                   className="pf-c-toolbar"
+                  data-ouia-component-id="OUIA-Generated-Toolbar-5"
+                  data-ouia-component-type="PF4/Toolbar"
+                  data-ouia-safe={true}
                   id="pf-random-id-4"
                 >
                   <ToolbarContent
@@ -37691,6 +37822,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                               isRequired={false}
                                               onChange={[Function]}
                                               onKeyDown={[Function]}
+                                              ouiaSafe={true}
                                               placeholder="Filter by name"
                                               type="text"
                                               useMobileLayout={false}
@@ -37702,8 +37834,9 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                                 aria-invalid={false}
                                                 aria-label="text input"
                                                 className="pf-c-form-control ins-c-conditional-filter "
-                                                data-ouia-component-id="filter-by-name-baselines-table"
+                                                data-ouia-component-id="OUIA-Generated-TextInputBase-6"
                                                 data-ouia-component-type="PF4/TextInput"
+                                                data-ouia-safe={true}
                                                 disabled={false}
                                                 id="default-input"
                                                 onBlur={[Function]}
@@ -39251,6 +39384,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
             dropdownPosition="right"
             expandId="expandable-toggle"
             gridBreakPoint="grid-md"
+            isNested={false}
             isStickyHeader={false}
             isTreeTable={false}
             onSort={[Function]}
@@ -39470,6 +39604,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
               }
               data-ouia-component-id="baselines-table"
               gridBreakPoint="grid-md"
+              isNested={false}
               isStickyHeader={false}
               isTreeTable={false}
               ouiaSafe={true}
@@ -39494,6 +39629,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                 className="baseline-table"
                 data-ouia-component-id="baselines-table"
                 gridBreakPoint="grid-md"
+                isNested={false}
                 isStickyHeader={false}
                 isTreeTable={false}
                 ouiaSafe={true}
@@ -39507,6 +39643,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                   data-ouia-component-id="baselines-table"
                   gridBreakPoint="grid-md"
                   innerRef={null}
+                  isNested={false}
                   isStickyHeader={false}
                   isTreeTable={false}
                   ouiaSafe={true}
@@ -39525,7 +39662,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                       <ContextHeader
                         headerRows={null}
                       >
-                        <Component
+                        <Header
                           className=""
                           headerRows={null}
                         >
@@ -40147,10 +40284,10 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                               </TheadBase>
                             </Thead>
                           </BaseHeader>
-                        </Component>
+                        </Header>
                       </ContextHeader>
                     </TableHeader>
-                    <Component>
+                    <TableBody>
                       <ContextBody
                         className=""
                         headerData={
@@ -40356,7 +40493,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                           ]
                         }
                       >
-                        <Component
+                        <Body
                           className=""
                           headerRows={null}
                           mappedRows={
@@ -41430,7 +41567,8 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                     >
                                       <RowWrapper
                                         className=""
-                                        onMouseDown={[Function]}
+                                        onClick={[Function]}
+                                        onKeyDown={[Function]}
                                         row={
                                           Object {
                                             "0": "beavs baseline",
@@ -41503,12 +41641,14 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                       >
                                         <Tr
                                           className=""
-                                          onMouseDown={[Function]}
+                                          onClick={[Function]}
+                                          onKeyDown={[Function]}
                                         >
                                           <TrBase
                                             className=""
                                             innerRef={null}
-                                            onMouseDown={[Function]}
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
                                           >
                                             <tr
                                               className=""
@@ -41516,7 +41656,8 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                               data-ouia-component-type="PF4/TableRow"
                                               data-ouia-safe={true}
                                               hidden={false}
-                                              onMouseDown={[Function]}
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
                                             >
                                               <BodyCell
                                                 data-key={0}
@@ -42164,7 +42305,8 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                     >
                                       <RowWrapper
                                         className=""
-                                        onMouseDown={[Function]}
+                                        onClick={[Function]}
+                                        onKeyDown={[Function]}
                                         row={
                                           Object {
                                             "0": "micjohns baseline",
@@ -42237,12 +42379,14 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                       >
                                         <Tr
                                           className=""
-                                          onMouseDown={[Function]}
+                                          onClick={[Function]}
+                                          onKeyDown={[Function]}
                                         >
                                           <TrBase
                                             className=""
                                             innerRef={null}
-                                            onMouseDown={[Function]}
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
                                           >
                                             <tr
                                               className=""
@@ -42250,7 +42394,8 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                               data-ouia-component-type="PF4/TableRow"
                                               data-ouia-safe={true}
                                               hidden={false}
-                                              onMouseDown={[Function]}
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
                                             >
                                               <BodyCell
                                                 data-key={0}
@@ -42669,9 +42814,9 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                               </Tbody>
                             </BodyWrapper>
                           </BaseBody>
-                        </Component>
+                        </Body>
                       </ContextBody>
-                    </Component>
+                    </TableBody>
                   </table>
                 </TableComposableBase>
               </TableComposable>
@@ -42683,6 +42828,9 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
             >
               <div
                 className="pf-c-toolbar"
+                data-ouia-component-id="OUIA-Generated-Toolbar-6"
+                data-ouia-component-type="PF4/Toolbar"
+                data-ouia-safe={true}
                 id="pf-random-id-5"
               >
                 <ForwardRef
@@ -43816,6 +43964,9 @@ exports[`ConnectedBaselinesTable should render no matching baselines 1`] = `
               >
                 <div
                   className="pf-c-toolbar"
+                  data-ouia-component-id="OUIA-Generated-Toolbar-7"
+                  data-ouia-component-type="PF4/Toolbar"
+                  data-ouia-safe={true}
                   id="pf-random-id-6"
                 >
                   <ToolbarContent
@@ -44306,6 +44457,7 @@ exports[`ConnectedBaselinesTable should render no matching baselines 1`] = `
                                               isRequired={false}
                                               onChange={[Function]}
                                               onKeyDown={[Function]}
+                                              ouiaSafe={true}
                                               placeholder="Filter by name"
                                               type="text"
                                               useMobileLayout={false}
@@ -44317,8 +44469,9 @@ exports[`ConnectedBaselinesTable should render no matching baselines 1`] = `
                                                 aria-invalid={false}
                                                 aria-label="text input"
                                                 className="pf-c-form-control ins-c-conditional-filter "
-                                                data-ouia-component-id="filter-by-name-baselines-table"
+                                                data-ouia-component-id="OUIA-Generated-TextInputBase-8"
                                                 data-ouia-component-type="PF4/TextInput"
+                                                data-ouia-safe={true}
                                                 disabled={false}
                                                 id="default-input"
                                                 onBlur={[Function]}
@@ -45866,6 +46019,7 @@ exports[`ConnectedBaselinesTable should render no matching baselines 1`] = `
             dropdownPosition="right"
             expandId="expandable-toggle"
             gridBreakPoint="grid-md"
+            isNested={false}
             isStickyHeader={false}
             isTreeTable={false}
             ouiaSafe={true}
@@ -46051,6 +46205,7 @@ exports[`ConnectedBaselinesTable should render no matching baselines 1`] = `
               }
               data-ouia-component-id="baselines-table"
               gridBreakPoint="grid-md"
+              isNested={false}
               isStickyHeader={false}
               isTreeTable={false}
               ouiaSafe={true}
@@ -46075,6 +46230,7 @@ exports[`ConnectedBaselinesTable should render no matching baselines 1`] = `
                 className=""
                 data-ouia-component-id="baselines-table"
                 gridBreakPoint="grid-md"
+                isNested={false}
                 isStickyHeader={false}
                 isTreeTable={false}
                 ouiaSafe={true}
@@ -46088,6 +46244,7 @@ exports[`ConnectedBaselinesTable should render no matching baselines 1`] = `
                   data-ouia-component-id="baselines-table"
                   gridBreakPoint="grid-md"
                   innerRef={null}
+                  isNested={false}
                   isStickyHeader={false}
                   isTreeTable={false}
                   ouiaSafe={true}
@@ -46106,7 +46263,7 @@ exports[`ConnectedBaselinesTable should render no matching baselines 1`] = `
                       <ContextHeader
                         headerRows={null}
                       >
-                        <Component
+                        <Header
                           className=""
                           headerRows={null}
                         >
@@ -46708,10 +46865,10 @@ exports[`ConnectedBaselinesTable should render no matching baselines 1`] = `
                               </TheadBase>
                             </Thead>
                           </BaseHeader>
-                        </Component>
+                        </Header>
                       </ContextHeader>
                     </TableHeader>
-                    <Component>
+                    <TableBody>
                       <ContextBody
                         className=""
                         headerData={
@@ -46890,7 +47047,7 @@ exports[`ConnectedBaselinesTable should render no matching baselines 1`] = `
                           ]
                         }
                       >
-                        <Component
+                        <Body
                           className=""
                           headerRows={null}
                           mappedRows={
@@ -47545,7 +47702,8 @@ exports[`ConnectedBaselinesTable should render no matching baselines 1`] = `
                                     >
                                       <RowWrapper
                                         className=""
-                                        onMouseDown={[Function]}
+                                        onClick={[Function]}
+                                        onKeyDown={[Function]}
                                         row={
                                           Object {
                                             "cells": Array [
@@ -47602,12 +47760,14 @@ exports[`ConnectedBaselinesTable should render no matching baselines 1`] = `
                                       >
                                         <Tr
                                           className=""
-                                          onMouseDown={[Function]}
+                                          onClick={[Function]}
+                                          onKeyDown={[Function]}
                                         >
                                           <TrBase
                                             className=""
                                             innerRef={null}
-                                            onMouseDown={[Function]}
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
                                           >
                                             <tr
                                               className=""
@@ -47615,7 +47775,8 @@ exports[`ConnectedBaselinesTable should render no matching baselines 1`] = `
                                               data-ouia-component-type="PF4/TableRow"
                                               data-ouia-safe={true}
                                               hidden={false}
-                                              onMouseDown={[Function]}
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
                                             >
                                               <BodyCell
                                                 colSpan={3}
@@ -47680,6 +47841,9 @@ exports[`ConnectedBaselinesTable should render no matching baselines 1`] = `
                                                                   >
                                                                     <h1
                                                                       className="pf-c-title pf-m-lg"
+                                                                      data-ouia-component-id="OUIA-Generated-Title-1"
+                                                                      data-ouia-component-type="PF4/Title"
+                                                                      data-ouia-safe={true}
                                                                     >
                                                                       No matching baselines found
                                                                     </h1>
@@ -47724,9 +47888,9 @@ exports[`ConnectedBaselinesTable should render no matching baselines 1`] = `
                               </Tbody>
                             </BodyWrapper>
                           </BaseBody>
-                        </Component>
+                        </Body>
                       </ContextBody>
-                    </Component>
+                    </TableBody>
                   </table>
                 </TableComposableBase>
               </TableComposable>
@@ -47738,6 +47902,9 @@ exports[`ConnectedBaselinesTable should render no matching baselines 1`] = `
             >
               <div
                 className="pf-c-toolbar"
+                data-ouia-component-id="OUIA-Generated-Toolbar-8"
+                data-ouia-component-type="PF4/Toolbar"
+                data-ouia-safe={true}
                 id="pf-random-id-7"
               >
                 <ForwardRef
@@ -48910,6 +49077,9 @@ exports[`ConnectedBaselinesTable should render no table kebabs with no write per
               >
                 <div
                   className="pf-c-toolbar"
+                  data-ouia-component-id="OUIA-Generated-Toolbar-1"
+                  data-ouia-component-type="PF4/Toolbar"
+                  data-ouia-safe={true}
                   id="pf-random-id-0"
                 >
                   <ToolbarContent
@@ -49400,6 +49570,7 @@ exports[`ConnectedBaselinesTable should render no table kebabs with no write per
                                               isRequired={false}
                                               onChange={[Function]}
                                               onKeyDown={[Function]}
+                                              ouiaSafe={true}
                                               placeholder="Filter by name"
                                               type="text"
                                               useMobileLayout={false}
@@ -49411,8 +49582,9 @@ exports[`ConnectedBaselinesTable should render no table kebabs with no write per
                                                 aria-invalid={false}
                                                 aria-label="text input"
                                                 className="pf-c-form-control ins-c-conditional-filter "
-                                                data-ouia-component-id="filter-by-name-baselines-table"
+                                                data-ouia-component-id="OUIA-Generated-TextInputBase-2"
                                                 data-ouia-component-type="PF4/TextInput"
+                                                data-ouia-safe={true}
                                                 disabled={false}
                                                 id="default-input"
                                                 onBlur={[Function]}
@@ -51051,6 +51223,7 @@ exports[`ConnectedBaselinesTable should render no table kebabs with no write per
             dropdownPosition="right"
             expandId="expandable-toggle"
             gridBreakPoint="grid-md"
+            isNested={false}
             isStickyHeader={false}
             isTreeTable={false}
             onSelect={false}
@@ -51241,6 +51414,7 @@ exports[`ConnectedBaselinesTable should render no table kebabs with no write per
               }
               data-ouia-component-id="baselines-table"
               gridBreakPoint="grid-md"
+              isNested={false}
               isStickyHeader={false}
               isTreeTable={false}
               ouiaSafe={true}
@@ -51265,6 +51439,7 @@ exports[`ConnectedBaselinesTable should render no table kebabs with no write per
                 className="baseline-table"
                 data-ouia-component-id="baselines-table"
                 gridBreakPoint="grid-md"
+                isNested={false}
                 isStickyHeader={false}
                 isTreeTable={false}
                 ouiaSafe={true}
@@ -51278,6 +51453,7 @@ exports[`ConnectedBaselinesTable should render no table kebabs with no write per
                   data-ouia-component-id="baselines-table"
                   gridBreakPoint="grid-md"
                   innerRef={null}
+                  isNested={false}
                   isStickyHeader={false}
                   isTreeTable={false}
                   ouiaSafe={true}
@@ -51296,7 +51472,7 @@ exports[`ConnectedBaselinesTable should render no table kebabs with no write per
                       <ContextHeader
                         headerRows={null}
                       >
-                        <Component
+                        <Header
                           className=""
                           headerRows={null}
                         >
@@ -51918,10 +52094,10 @@ exports[`ConnectedBaselinesTable should render no table kebabs with no write per
                               </TheadBase>
                             </Thead>
                           </BaseHeader>
-                        </Component>
+                        </Header>
                       </ContextHeader>
                     </TableHeader>
-                    <Component>
+                    <TableBody>
                       <ContextBody
                         className=""
                         headerData={
@@ -52097,7 +52273,7 @@ exports[`ConnectedBaselinesTable should render no table kebabs with no write per
                           ]
                         }
                       >
-                        <Component
+                        <Body
                           className=""
                           headerRows={null}
                           mappedRows={
@@ -52786,7 +52962,8 @@ exports[`ConnectedBaselinesTable should render no table kebabs with no write per
                                     >
                                       <RowWrapper
                                         className=""
-                                        onMouseDown={[Function]}
+                                        onClick={[Function]}
+                                        onKeyDown={[Function]}
                                         row={
                                           Object {
                                             "0": "beavs baseline",
@@ -52824,12 +53001,14 @@ exports[`ConnectedBaselinesTable should render no table kebabs with no write per
                                       >
                                         <Tr
                                           className=""
-                                          onMouseDown={[Function]}
+                                          onClick={[Function]}
+                                          onKeyDown={[Function]}
                                         >
                                           <TrBase
                                             className=""
                                             innerRef={null}
-                                            onMouseDown={[Function]}
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
                                           >
                                             <tr
                                               className=""
@@ -52837,7 +53016,8 @@ exports[`ConnectedBaselinesTable should render no table kebabs with no write per
                                               data-ouia-component-type="PF4/TableRow"
                                               data-ouia-safe={true}
                                               hidden={false}
-                                              onMouseDown={[Function]}
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
                                             >
                                               <BodyCell
                                                 data-key={0}
@@ -53116,7 +53296,8 @@ exports[`ConnectedBaselinesTable should render no table kebabs with no write per
                                     >
                                       <RowWrapper
                                         className=""
-                                        onMouseDown={[Function]}
+                                        onClick={[Function]}
+                                        onKeyDown={[Function]}
                                         row={
                                           Object {
                                             "0": "micjohns baseline",
@@ -53154,12 +53335,14 @@ exports[`ConnectedBaselinesTable should render no table kebabs with no write per
                                       >
                                         <Tr
                                           className=""
-                                          onMouseDown={[Function]}
+                                          onClick={[Function]}
+                                          onKeyDown={[Function]}
                                         >
                                           <TrBase
                                             className=""
                                             innerRef={null}
-                                            onMouseDown={[Function]}
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
                                           >
                                             <tr
                                               className=""
@@ -53167,7 +53350,8 @@ exports[`ConnectedBaselinesTable should render no table kebabs with no write per
                                               data-ouia-component-type="PF4/TableRow"
                                               data-ouia-safe={true}
                                               hidden={false}
-                                              onMouseDown={[Function]}
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
                                             >
                                               <BodyCell
                                                 data-key={0}
@@ -53252,9 +53436,9 @@ exports[`ConnectedBaselinesTable should render no table kebabs with no write per
                               </Tbody>
                             </BodyWrapper>
                           </BaseBody>
-                        </Component>
+                        </Body>
                       </ContextBody>
-                    </Component>
+                    </TableBody>
                   </table>
                 </TableComposableBase>
               </TableComposable>
@@ -53266,6 +53450,9 @@ exports[`ConnectedBaselinesTable should render no table kebabs with no write per
             >
               <div
                 className="pf-c-toolbar"
+                data-ouia-component-id="OUIA-Generated-Toolbar-2"
+                data-ouia-component-type="PF4/Toolbar"
+                data-ouia-safe={true}
                 id="pf-random-id-1"
               >
                 <ForwardRef
