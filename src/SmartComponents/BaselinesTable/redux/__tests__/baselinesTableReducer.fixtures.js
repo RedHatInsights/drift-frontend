@@ -8,7 +8,8 @@ const baselinesListPayload = ({
             display_name: 'beavs baseline',
             fact_count: 2,
             id: '1234',
-            updated: '2019-05-18T15:00:00.000000Z'
+            updated: '2019-05-18T15:00:00.000000Z',
+            mapped_system_count: 3
         },
         {
             created: '2019-02-18T13:30:00.000000Z',
@@ -51,8 +52,8 @@ const baselinesListPayloadResults = ([
 /*eslint-enable camelcase*/
 
 const baselineTableDataRows = ([
-    [ '1234', 'beavs baseline', moment('18 May 2019, 15:00 UTC').fromNow() ],
-    [ 'abcd', 'micjohns baseline', moment('19 May 2019, 15:00 UTC').fromNow() ]
+    [ '1234', 'beavs baseline', moment('18 May 2019, 15:00 UTC').fromNow(), 3 ],
+    [ 'abcd', 'micjohns baseline', moment('19 May 2019, 15:00 UTC').fromNow(), 0 ]
 ]);
 
 const baselineTableDataRow1 = ([

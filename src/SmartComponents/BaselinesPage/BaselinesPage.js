@@ -25,8 +25,9 @@ export class BaselinesPage extends Component {
 
         this.state = {
             columns: [
-                { title: 'Name', transforms: [ sortable, cellWidth(40) ]},
-                { title: 'Last updated', transforms: [ sortable, cellWidth(45) ]},
+                { title: 'Name', transforms: [ sortable, cellWidth(45) ]},
+                { title: 'Last updated', transforms: [ sortable, cellWidth(30) ]},
+                { title: 'Associated systems', transforms: [ cellWidth(20) ]},
                 { title: '', transforms: [ cellWidth(5) ]}
             ],
             emptyStateMessage: [

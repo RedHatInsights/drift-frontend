@@ -40,6 +40,7 @@ describe('ConnectedBaselinesTable', () => {
             columns: [
                 { title: 'Name', transforms: [ sortable ]},
                 { title: 'Last updated', transforms: [ sortable ]},
+                { title: 'Associated systems' },
                 { title: '' }
             ],
             selectedBaselineIds: [],

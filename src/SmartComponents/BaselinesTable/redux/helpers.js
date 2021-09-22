@@ -28,6 +28,7 @@ function buildBaselinesTable(data, selectedBaselineIds) {
         row.push(baseline.id);
         row.push(baseline.display_name);
         row.push(dateTimeStamp);
+        row.push(baseline.mapped_system_count ? baseline.mapped_system_count : 0);
 
         rows.push(row);
     });

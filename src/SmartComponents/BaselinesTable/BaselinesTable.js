@@ -12,6 +12,7 @@ import baselinesReducerHelpers from './redux/helpers';
 import BaselinesToolbar from './BaselinesToolbar/BaselinesToolbar';
 import EmptyStateDisplay from '../EmptyStateDisplay/EmptyStateDisplay';
 import TablePagination from '../Pagination/Pagination';
+import NotificationDetails from './NotificationDetails/NotificationDetails';
 
 export class BaselinesTable extends Component {
     constructor(props) {
@@ -92,7 +93,7 @@ export class BaselinesTable extends Component {
         const { basketIsVisible, hasMultiSelect, tableData, kebab, onClick, selectedBaselineIds, tableId } = this.props;
         let table = [];
 
-        tableData.forEach((baseline) => {
+        tableData.forEach((baseline, index) => {
             let row = [];
 
             if (onClick) {
@@ -112,6 +113,9 @@ export class BaselinesTable extends Component {
             }
 
             row.push(baseline[2]);
+            row.push(<div>
+                <NotificationDetails index={ index } badgeCount={ baseline[3] } hasBadge={ true } />
+            </div>);
 
             if (kebab && baselinesWrite) {
                 let kebab = <BaselineTableKebab
