@@ -8,6 +8,7 @@ import { LockIcon } from '@patternfly/react-icons';
 
 import BaselineTableKebab from './BaselineTableKebab/BaselineTableKebab';
 import { baselinesTableActions } from './redux';
+import { editBaselineActions } from '../BaselinesPage/EditBaselinePage/redux';
 import baselinesReducerHelpers from './redux/helpers';
 import BaselinesToolbar from './BaselinesToolbar/BaselinesToolbar';
 import EmptyStateDisplay from '../EmptyStateDisplay/EmptyStateDisplay';
@@ -90,7 +91,9 @@ export class BaselinesTable extends Component {
     }
 
     renderRows(baselinesWrite) {
-        const { basketIsVisible, hasMultiSelect, tableData, kebab, onClick, selectedBaselineIds, tableId } = this.props;
+        const { basketIsVisible, hasMultiSelect, hasSwitch, tableData, kebab, onClick, notificationsSwitchError,
+            selectedBaselineIds, toggleNotificationPending, toggleNotificationFulfilled, toggleNotificationRejected,
+            tableId } = this.props;
         let table = [];
 
         tableData.forEach((baseline, index) => {
@@ -113,9 +116,27 @@ export class BaselinesTable extends Component {
             }
 
             row.push(baseline[2]);
+            /*eslint-disable camelcase*/
             row.push(<div>
-                <NotificationDetails index={ index } badgeCount={ baseline[3] } hasBadge={ true } />
+                <NotificationDetails
+                    classname='sm-padding-right'
+                    index={ index }
+                    badgeCount={ baseline[3] }
+                    hasBadge={ true }
+                    hasSwitch={ hasSwitch }
+                    baselineData={{
+                        id: baseline[0],
+                        display_name: baseline[1],
+                        associated_systems: baseline[3],
+                        notifications_enabled: baseline[4]
+                    }}
+                    notificationsSwitchError={ notificationsSwitchError }
+                    toggleNotificationPending={ toggleNotificationPending }
+                    toggleNotificationFulfilled={ toggleNotificationFulfilled }
+                    toggleNotificationRejected={ toggleNotificationRejected }
+                />
             </div>);
+            /*eslint-enable camelcase*/
 
             if (kebab && baselinesWrite) {
                 let kebab = <BaselineTableKebab
@@ -286,9 +307,15 @@ BaselinesTable.propTypes = {
     exportToJSON: PropTypes.func,
     permissions: PropTypes.object,
     basketIsVisible: PropTypes.bool,
-    leftAlignToolbar: PropTypes.bool
+    leftAlignToolbar: PropTypes.bool,
+    hasSwitch: PropTypes.bool,
+    notificationsSwitchError: PropTypes.object,
+    toggleNotificationPending: PropTypes.func,
+    toggleNotificationFulfilled: PropTypes.func,
+    toggleNotificationRejected: PropTypes.func
 };
 
+/*eslint-disable camelcase*/
 function mapDispatchToProps(dispatch) {
     return {
         fetchBaselines: (tableId, params) => dispatch(baselinesTableActions.fetchBaselines(tableId, params)),
@@ -297,8 +324,14 @@ function mapDispatchToProps(dispatch) {
         },
         exportToJSON: (exportData)=> {
             dispatch(baselinesTableActions.exportToJSON(exportData));
+        },
+        toggleNotificationPending: () => dispatch(editBaselineActions.toggleNotificationPending()),
+        toggleNotificationFulfilled: (data) => dispatch(editBaselineActions.toggleNotificationFulfilled(data)),
+        toggleNotificationRejected: (error, id, display_name) => {
+            dispatch(editBaselineActions.toggleNotificationRejected(error, id, display_name));
         }
     };
 }
+/*eslint-enable camelcase*/
 
 export default connect(null, mapDispatchToProps)(BaselinesTable);

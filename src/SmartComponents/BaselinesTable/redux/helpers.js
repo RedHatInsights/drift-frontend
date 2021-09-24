@@ -29,6 +29,7 @@ function buildBaselinesTable(data, selectedBaselineIds) {
         row.push(baseline.display_name);
         row.push(dateTimeStamp);
         row.push(baseline.mapped_system_count ? baseline.mapped_system_count : 0);
+        row.push(baseline.notifications_enabled);
 
         rows.push(row);
     });
@@ -120,6 +121,7 @@ function convertListToJSON(data) {
         row.name = baseline[1];
         row.last_updated = baseline[2];
         row.associated_systems = baseline[3];
+        row.notifications_enabled = baseline[4];
         json.push(row);
     });
 

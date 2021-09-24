@@ -88,6 +88,28 @@ function exportToJSON(baselineData) {
     };
 }
 
+function toggleNotificationPending() {
+    return {
+        type: `TOGGLE_NOTIFICATIONS_SWITCH_PENDING`
+    };
+}
+
+function toggleNotificationFulfilled(data) {
+    return {
+        type: `TOGGLE_NOTIFICATIONS_SWITCH_FULFILLED`,
+        payload: data.response
+    };
+}
+
+/*eslint-disable camelcase*/
+function toggleNotificationRejected(error, id, display_name) {
+    return {
+        type: `TOGGLE_NOTIFICATIONS_SWITCH_REJECTED`,
+        payload: { error, id, display_name }
+    };
+}
+/*eslint-enable camelcase*/
+
 export default {
     expandRow,
     fetchBaselineData,
@@ -99,5 +121,9 @@ export default {
     selectFact,
     clearErrorData,
     exportToCSV,
-    exportToJSON
+    exportToJSON,
+    toggleNotificationPending,
+    toggleNotificationFulfilled,
+    toggleNotificationRejected
+
 };

@@ -26,6 +26,9 @@ describe('ConnectedBaselinesTable', () => {
                     baselineTableData: baselinesTableFixtures.baselineTableDataRows,
                     selectedBaselineIds: [ '1234' ]
                 }
+            },
+            editBaselineState: {
+                notificationsSwitchError: {}
             }
         };
 

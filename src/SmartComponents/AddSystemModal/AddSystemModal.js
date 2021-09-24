@@ -338,6 +338,7 @@ export class AddSystemModal extends Component {
                                 kebab={ false }
                                 basketIsVisible={ basketIsVisible }
                                 leftAlignToolbar={ true }
+                                hasSwitch={ false }
                             />
                         </Tab>
                     </Tabs>

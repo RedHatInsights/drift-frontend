@@ -86,9 +86,10 @@ export class SystemNotification extends Component {
     }
 
     fetchSystems = async (baselineId) => {
-        const { getNotifications } = this.props;
+        const { fetchBaselineData, getNotifications } = this.props;
 
         getNotifications(baselineId);
+        fetchBaselineData(baselineId);
     }
 
     async componentDidMount() {
@@ -177,6 +178,7 @@ SystemNotification.propTypes = {
     baselineId: PropTypes.string,
     baselineName: PropTypes.string,
     entities: PropTypes.object,
+    fetchBaselineData: PropTypes.func,
     permissions: PropTypes.object,
     selectHistoricProfiles: PropTypes.func,
     setSelectedSystemIds: PropTypes.func,

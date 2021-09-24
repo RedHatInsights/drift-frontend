@@ -219,6 +219,7 @@ export class CreateBaselineModal extends Component {
                 hasMultiSelect={ false }
                 selectedBaselineIds={ selectedBaselineIds }
                 leftAlignToolbar={ true }
+                hasSwitch={ false }
             />
         </React.Fragment>
         );
