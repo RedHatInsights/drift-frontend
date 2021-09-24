@@ -37,13 +37,26 @@ export class BaselinesPage extends Component {
             errorMessage: [ 'The list of baselines cannot be displayed at this time. Please retry and if',
                 'the problem persists contact your system administrator.',
                 ''
-            ]
+            ],
+            error: {}
         };
     }
 
     async componentDidMount() {
         await window.insights.chrome.auth.getUser();
         await window.insights?.chrome?.appAction?.('baseline-list');
+    }
+
+    componentDidUpdate(prevProps) {
+        const { baselineError, notificationsSwitchError } = this.props;
+
+        if (prevProps.baselineError !== baselineError) {
+            this.setState({ error: baselineError });
+        }
+
+        if (prevProps.notificationsSwitchError !== notificationsSwitchError) {
+            this.setState({ error: notificationsSwitchError });
+        }
     }
 
     fetchBaseline = (baselineId) => {
@@ -79,7 +92,7 @@ export class BaselinesPage extends Component {
     }
 
     renderTable(permissions) {
-        const { baselineTableData, loading, clearEditBaselineData, selectedBaselineIds,
+        const { baselineTableData, loading, clearEditBaselineData, notificationsSwitchError, selectedBaselineIds,
             totalBaselines } = this.props;
         const { columns } = this.state;
 
@@ -103,6 +116,8 @@ export class BaselinesPage extends Component {
                         selectedBaselineIds={ selectedBaselineIds }
                         totalBaselines={ totalBaselines }
                         permissions={ permissions }
+                        hasSwitch={ true }
+                        notificationsSwitchError={ notificationsSwitchError }
                     />
                 </div>
             </CardBody>
@@ -139,7 +154,8 @@ export class BaselinesPage extends Component {
     }
 
     render() {
-        const { baselineError, emptyState, loading, revertBaselineFetch, selectHistoricProfiles, setSelectedSystemIds } = this.props;
+        const { error } = this.state;
+        const { emptyState, loading, revertBaselineFetch, selectHistoricProfiles, setSelectedSystemIds } = this.props;
 
         return (
             <PermissionContext.Consumer>
@@ -165,7 +181,7 @@ export class BaselinesPage extends Component {
                                     ? this.renderEmptyState(value.permissions)
                                     : <React.Fragment>
                                         <ErrorAlert
-                                            error={ !emptyState && baselineError ? baselineError : {} }
+                                            error={ !emptyState && error ? error : {} }
                                             onClose={ revertBaselineFetch }
                                             tableId={ 'CHECKBOX' }
                                         />
@@ -197,7 +213,8 @@ BaselinesPage.propTypes = {
     totalBaselines: PropTypes.number,
     selectHistoricProfiles: PropTypes.func,
     setSelectedSystemIds: PropTypes.func,
-    entitiesLoading: PropTypes.func
+    entitiesLoading: PropTypes.func,
+    notificationsSwitchError: PropTypes.object
 };
 
 function mapStateToProps(state) {
@@ -206,6 +223,7 @@ function mapStateToProps(state) {
         emptyState: state.baselinesTableState.checkboxTable.emptyState,
         baselineTableData: state.baselinesTableState.checkboxTable.baselineTableData,
         baselineError: state.baselinesTableState.checkboxTable.baselineError,
+        notificationsSwitchError: state.editBaselineState.notificationsSwitchError,
         selectedBaselineIds: state.baselinesTableState.checkboxTable.selectedBaselineIds,
         totalBaselines: state.baselinesTableState.checkboxTable.totalBaselines
     };

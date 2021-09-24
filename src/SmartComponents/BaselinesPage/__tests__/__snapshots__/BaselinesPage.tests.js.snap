@@ -149,6 +149,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                 "url": "/",
               }
             }
+            notificationsSwitchError={Object {}}
             revertBaselineFetch={[Function]}
             selectBaseline={[Function]}
             selectHistoricProfiles={[Function]}
@@ -468,8 +469,10 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                               createButton={true}
                               exportButton={true}
                               hasMultiSelect={true}
+                              hasSwitch={true}
                               kebab={true}
                               loading={false}
+                              notificationsSwitchError={Object {}}
                               onBulkSelect={[Function]}
                               onClick={[Function]}
                               onSelect={[Function]}
@@ -521,8 +524,10 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                 exportToJSON={[Function]}
                                 fetchBaselines={[Function]}
                                 hasMultiSelect={true}
+                                hasSwitch={true}
                                 kebab={true}
                                 loading={false}
+                                notificationsSwitchError={Object {}}
                                 onBulkSelect={[Function]}
                                 onClick={[Function]}
                                 onSelect={[Function]}
@@ -536,6 +541,9 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                 selectedBaselineIds={Array []}
                                 tableData={Array []}
                                 tableId="CHECKBOX"
+                                toggleNotificationFulfilled={[Function]}
+                                toggleNotificationPending={[Function]}
+                                toggleNotificationRejected={[Function]}
                               >
                                 <BaselinesToolbar
                                   createButton={true}
@@ -6039,6 +6047,7 @@ exports[`ConnectedBaselinesPage should render empty state 1`] = `
                 "url": "/",
               }
             }
+            notificationsSwitchError={Object {}}
             revertBaselineFetch={[Function]}
             selectBaseline={[Function]}
             selectHistoricProfiles={[Function]}

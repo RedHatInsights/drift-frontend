@@ -16,7 +16,8 @@ const initialState = {
     factData: [],
     isCategory: false,
     isSubFact: false,
-    editBaselineEmptyState: false
+    editBaselineEmptyState: false,
+    notificationsSwitchError: {}
 };
 
 export function editBaselineReducer(state = initialState, action) {
@@ -24,12 +25,15 @@ export function editBaselineReducer(state = initialState, action) {
     let newEditBaselineTableData = [];
     let newExpandedRows = [];
     let response;
+    let error;
 
     switch (action.type) {
         case `${types.FETCH_BASELINE_DATA}_PENDING`:
             return {
                 ...state,
-                baselineDataLoading: true
+                baselineDataLoading: true,
+                editBaselineError: {},
+                notificationsSwitchError: {}
             };
         case `${types.FETCH_BASELINE_DATA}_FULFILLED`:
             newEditBaselineTableData = editBaselineHelpers.buildBaselineTableData(action.payload.baseline_facts);
@@ -184,7 +188,30 @@ export function editBaselineReducer(state = initialState, action) {
             return {
                 ...state
             };
+        case `${types.TOGGLE_NOTIFICATIONS_SWITCH}_PENDING`:
+            return {
+                ...state,
+                notificationsSwitchError: {}
+            };
+        case `${types.TOGGLE_NOTIFICATIONS_SWITCH}_FULFILLED`:
+            return {
+                ...state
+            };
+        case `${types.TOGGLE_NOTIFICATIONS_SWITCH}_REJECTED`:
+            error = action.payload.error.response;
 
+            if (error.status !== 200) {
+                errorObject = {
+                    detail: `Notifications toggle failed for ${ action.payload.display_name }. ` + error.data.detail,
+                    status: error.status,
+                    id: action.payload.id
+                };
+            }
+
+            return {
+                ...state,
+                notificationsSwitchError: errorObject
+            };
         default:
             return state;
     }

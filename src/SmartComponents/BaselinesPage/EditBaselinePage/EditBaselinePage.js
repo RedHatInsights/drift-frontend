@@ -19,6 +19,7 @@ import systemsTableActions from '../../SystemsTable/actions';
 import { historicProfilesActions } from '../../HistoricalProfilesPopover/redux';
 import EmptyStateDisplay from '../../EmptyStateDisplay/EmptyStateDisplay';
 import { PermissionContext } from '../../../App';
+import NotificationDetails from '../../BaselinesTable/NotificationDetails/NotificationDetails';
 
 import _ from 'lodash';
 
@@ -28,16 +29,13 @@ export class EditBaselinePage extends Component {
 
         this.state = {
             modalOpened: false,
-            errorMessage: [ 'The baseline cannot be displayed at this time. Please retry and if',
-                'the problem persists contact your system administrator.',
-                ''
-            ],
             loadingColumns: [
                 { title: 'Fact', transforms: [ cellWidth(40) ]},
                 { title: 'Value', transforms: [ cellWidth(45) ]},
                 { title: '', transforms: [ cellWidth(5) ]}
             ],
-            activeTab: 0
+            activeTab: 0,
+            error: {}
         };
 
         this.fetchBaselineId();
@@ -61,9 +59,19 @@ export class EditBaselinePage extends Component {
         await window.insights?.chrome?.appObjectId(params.id);
     }
 
-    componentDidUpdate() {
-        if (this.props.baselineData) {
+    componentDidUpdate(prevProps) {
+        const { baselineData, editBaselineError, notificationsSwitchError } = this.props;
+
+        if (baselineData) {
             document.title = this.props.baselineData.display_name + ' - Baselines - Drift | Red Hat Insights';
+        }
+
+        if (prevProps.editBaselineError !== editBaselineError) {
+            this.setState({ error: editBaselineError });
+        }
+
+        if (prevProps.notificationsSwitchError !== notificationsSwitchError) {
+            this.setState({ error: notificationsSwitchError });
         }
     }
 
@@ -143,7 +151,8 @@ export class EditBaselinePage extends Component {
 
     renderPageHeader = ({ baselinesRead, baselinesWrite, notificationsRead }) => {
         const { modalOpened } = this.state;
-        const { baselineData, baselineDataLoading, inlineError } = this.props;
+        const { baselineData, baselineDataLoading, notificationsSwitchError, inlineError,
+            toggleNotificationPending, toggleNotificationFulfilled, toggleNotificationRejected } = this.props;
         let pageHeader;
 
         if (baselineDataLoading) {
@@ -152,6 +161,7 @@ export class EditBaselinePage extends Component {
             </PageHeader>;
         } else {
             if (baselineData !== undefined) {
+                /*eslint-disable camelcase*/
                 pageHeader = <React.Fragment>
                     <EditBaselineNameModal
                         baselineData={ baselineData }
@@ -163,6 +173,22 @@ export class EditBaselinePage extends Component {
                         { this.renderBreadcrumb(baselineData, baselinesRead) }
                         <div id="edit-baseline-title">
                             { this.renderPageTitle(baselineData, baselinesRead, baselinesWrite) }
+                            <NotificationDetails
+                                classname='float-right'
+                                hasBadge={ false }
+                                hasLabel={ true }
+                                hasSwitch={ true }
+                                baselineData={{
+                                    id: baselineData.id,
+                                    display_name: baselineData.display_name,
+                                    associated_systems: baselineData.mapped_system_count,
+                                    notifications_enabled: baselineData.notifications_enabled
+                                }}
+                                notificationsSwitchError={ notificationsSwitchError }
+                                toggleNotificationPending={ toggleNotificationPending }
+                                toggleNotificationFulfilled={ toggleNotificationFulfilled }
+                                toggleNotificationRejected={ toggleNotificationRejected }
+                            />
                         </div>
                         { notificationsRead
                             ? this.renderTabs()
@@ -170,6 +196,7 @@ export class EditBaselinePage extends Component {
                         }
                     </PageHeader>
                 </React.Fragment>;
+                /*eslint-enable camelcase*/
             } else {
                 pageHeader = <PageHeader>
                     { this.renderBreadcrumb() }
@@ -209,8 +236,8 @@ export class EditBaselinePage extends Component {
 
     renderMain(permissions) {
         const { baselineData, baselineDataLoading, clearErrorData, driftClearFilters, editBaselineEmptyState, editBaselineError,
-            editBaselineTableData, entities, expandRow, expandedRows, exportToCSV, exportToJSON, factModalOpened, selectFact,
-            match: { params }, selectEntities, selectHistoricProfiles, setSelectedSystemIds } = this.props;
+            editBaselineTableData, entities, expandRow, expandedRows, exportToCSV, exportToJSON, factModalOpened, fetchBaselineData,
+            selectFact, match: { params }, selectEntities, selectHistoricProfiles, setSelectedSystemIds } = this.props;
         const { activeTab } = this.state;
         let body;
 
@@ -221,6 +248,7 @@ export class EditBaselinePage extends Component {
                 clearErrorData={ clearErrorData }
                 editBaselineEmptyState={ editBaselineEmptyState }
                 editBaselineError={ editBaselineError }
+                notificationsSwitchError
                 editBaselineTableData={ editBaselineTableData }
                 expandRow={ expandRow }
                 expandedRows={ expandedRows }
@@ -238,6 +266,7 @@ export class EditBaselinePage extends Component {
                 permissions={ permissions }
                 entities={ entities }
                 driftClearFilters={ driftClearFilters }
+                fetchBaselineData={ fetchBaselineData }
                 selectEntities={ selectEntities }
                 selectHistoricProfiles={ selectHistoricProfiles }
                 setSelectedSystemIds={ setSelectedSystemIds }
@@ -287,6 +316,7 @@ EditBaselinePage.propTypes = {
     selectFact: PropTypes.func,
     clearErrorData: PropTypes.func,
     editBaselineError: PropTypes.object,
+    notificationsSwitchError: PropTypes.object,
     inlineError: PropTypes.object,
     editBaselineEmptyState: PropTypes.bool,
     exportToCSV: PropTypes.func,
@@ -296,7 +326,10 @@ EditBaselinePage.propTypes = {
     selectHistoricProfiles: PropTypes.func,
     setSelectedSystemIds: PropTypes.func,
     driftClearFilters: PropTypes.func,
-    selectEntities: PropTypes.func
+    selectEntities: PropTypes.func,
+    toggleNotificationPending: PropTypes.func,
+    toggleNotificationFulfilled: PropTypes.func,
+    toggleNotificationRejected: PropTypes.func
 };
 
 function mapStateToProps(state) {
@@ -307,12 +340,14 @@ function mapStateToProps(state) {
         editBaselineTableData: state.editBaselineState.editBaselineTableData,
         expandedRows: state.editBaselineState.expandedRows,
         editBaselineError: state.editBaselineState.editBaselineError,
+        notificationsSwitchError: state.editBaselineState.notificationsSwitchError,
         editBaselineEmptyState: state.editBaselineState.editBaselineEmptyState,
         inlineError: state.editBaselineState.inlineError,
         entities: state.entities
     };
 }
 
+/*eslint-disable camelcase*/
 function mapDispatchToProps(dispatch) {
     return {
         clearBaselineData: (tableId) => dispatch(baselinesTableActions.clearBaselineData(tableId)),
@@ -330,8 +365,14 @@ function mapDispatchToProps(dispatch) {
         selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds)),
         setSelectedSystemIds: (systemIds) => dispatch(compareActions.setSelectedSystemIds(systemIds)),
         driftClearFilters: () => dispatch(systemsTableActions.clearAllFilters()),
-        selectEntities: (toSelect) => dispatch({ type: 'SELECT_ENTITY', payload: toSelect })
+        selectEntities: (toSelect) => dispatch({ type: 'SELECT_ENTITY', payload: toSelect }),
+        toggleNotificationPending: () => dispatch(editBaselineActions.toggleNotificationPending()),
+        toggleNotificationFulfilled: (data) => dispatch(editBaselineActions.toggleNotificationFulfilled(data)),
+        toggleNotificationRejected: (error, id, display_name) => {
+            dispatch(editBaselineActions.toggleNotificationRejected(error, id, display_name));
+        }
     };
 }
+/*eslint-enable camelcase*/
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(EditBaselinePage));

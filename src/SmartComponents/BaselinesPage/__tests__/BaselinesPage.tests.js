@@ -164,6 +164,9 @@ describe('ConnectedBaselinesPage', () => {
             },
             historicProfilesState: {
                 selectedHSPIds: []
+            },
+            editBaselineState: {
+                notificationsSwitchError: {}
             }
         };
 
