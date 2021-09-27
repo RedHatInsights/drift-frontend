@@ -101,19 +101,31 @@ describe('edit baseline helpers', () => {
         );
     });
 
-    it('isAllSelected retuns false', () => {
-        editBaselineFixtures.mockBaselineTableData1[0].selected = true;
-        editBaselineFixtures.mockBaselineTableData1[1].selected = true;
+    it('isAllSelected returns null', () => {
+        let subFacts = JSON.parse(JSON.stringify(editBaselineFixtures.mockBaselineTableData1[2][2]));
+        subFacts[0].selected = true;
 
-        expect(editBaselineHelpers.isAllSelected(editBaselineFixtures.mockBaselineTableData1)).toEqual(false);
+        expect(editBaselineHelpers.isAllSelected(subFacts)).toEqual(null);
+    });
+
+    it('isAllSelected retuns false', () => {
+        let subFacts = JSON.parse(JSON.stringify(editBaselineFixtures.mockBaselineTableData1[2][2]));
+        expect(editBaselineHelpers.isAllSelected(subFacts)).toEqual(false);
     });
 
     it('isAllSelected returns true', () => {
-        editBaselineFixtures.mockBaselineTableData1[0].selected = true;
-        editBaselineFixtures.mockBaselineTableData1[1].selected = true;
-        editBaselineFixtures.mockBaselineTableData1[2].selected = true;
+        let subFacts = JSON.parse(JSON.stringify(editBaselineFixtures.mockBaselineTableData1[2][2]));
+        subFacts[0].selected = true;
+        subFacts[1].selected = true;
+        subFacts[2].selected = true;
+        subFacts[3].selected = true;
+        subFacts[4].selected = true;
+        subFacts[5].selected = true;
+        subFacts[6].selected = true;
+        subFacts[7].selected = true;
+        subFacts[8].selected = true;
 
-        expect(editBaselineHelpers.isAllSelected(editBaselineFixtures.mockBaselineTableData1)).toEqual(true);
+        expect(editBaselineHelpers.isAllSelected(subFacts)).toEqual(true);
     });
 
     it('isCategory returns false', () => {
@@ -193,8 +205,7 @@ describe('edit baseline helpers', () => {
     });
 
     it('makeDeleteFactsPatch removes single fact', () => {
-        let factsToDelete = editBaselineFixtures.mockBaselineTableData1;
-        factsToDelete.forEach(fact => fact.selected = false);
+        let factsToDelete = JSON.parse(JSON.stringify(editBaselineFixtures.mockBaselineTableData1));
         factsToDelete[0].selected = true;
         let originalAPIBody = editBaselineFixtures.mockBaselineData1;
         let newAPIBody = {

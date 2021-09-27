@@ -320,12 +320,18 @@ function toggleExpandedRow(expandedRows, factName) {
 
 function isAllSelected(data) {
     let allSelected = true;
+    let falseCounter = 0;
 
     data.forEach(function(fact) {
         if (!fact.selected) {
-            allSelected = false;
+            allSelected = null;
+            falseCounter++;
         }
     });
+
+    if (falseCounter === data.length) {
+        allSelected = false;
+    }
 
     return allSelected;
 }
