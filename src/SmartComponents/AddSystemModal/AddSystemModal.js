@@ -27,7 +27,8 @@ export class AddSystemModal extends Component {
             systemColumns: this.buildSystemColumns(this.props.permissions),
             columns: [
                 { title: 'Name', transforms: [ sortable ]},
-                { title: 'Last updated', transforms: [ sortable, cellWidth(20) ]}
+                { title: 'Last updated', transforms: [ sortable, cellWidth(20) ]},
+                { title: 'Associated systems', transforms: [ cellWidth(20) ]}
             ],
             basketIsVisible: false
         };

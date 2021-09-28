@@ -25,8 +25,9 @@ export class CreateBaselineModal extends Component {
             copyBaselineChecked: false,
             copySystemChecked: false,
             columns: [
-                { title: 'Name', transforms: [ sortable ]},
-                { title: 'Last updated', transforms: [ sortable, cellWidth(40) ]}
+                { title: 'Name', transforms: [ sortable, cellWidth(60) ]},
+                { title: 'Last updated', transforms: [ sortable, cellWidth(20) ]},
+                { title: 'Associated systems', transforms: [ cellWidth(20) ]}
             ]
         };
 
