@@ -169,6 +169,12 @@ exports[`AddSystemModal should render correctly 1`] = `
                   [Function],
                 ],
               },
+              Object {
+                "title": "Associated systems",
+                "transforms": Array [
+                  [Function],
+                ],
+              },
             ]
           }
           hasMultiSelect={true}
@@ -10125,6 +10131,14 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                       </div>
                                     </button>
                                   </th>
+                                  <th
+                                    class="pf-m-width-20"
+                                    data-key="2"
+                                    data-label="Associated systems"
+                                    scope="col"
+                                  >
+                                    Associated systems
+                                  </th>
                                 </tr>
                               </thead>
                               <tbody
@@ -10139,7 +10153,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                 >
                                   <td
                                     class=""
-                                    colspan="2"
+                                    colspan="3"
                                     data-key="0"
                                     data-label="Name"
                                   >
@@ -12369,6 +12383,12 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                   [Function],
                                                 ],
                                               },
+                                              Object {
+                                                "title": "Associated systems",
+                                                "transforms": Array [
+                                                  [Function],
+                                                ],
+                                              },
                                             ]
                                           }
                                           hasMultiSelect={true}
@@ -12416,6 +12436,12 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                   "title": "Last updated",
                                                   "transforms": Array [
                                                     [Function],
+                                                    [Function],
+                                                  ],
+                                                },
+                                                Object {
+                                                  "title": "Associated systems",
+                                                  "transforms": Array [
                                                     [Function],
                                                   ],
                                                 },
@@ -12470,6 +12496,12 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                   [Function],
                                                 ],
                                               },
+                                              Object {
+                                                "title": "Associated systems",
+                                                "transforms": Array [
+                                                  [Function],
+                                                ],
+                                              },
                                             ]
                                           }
                                           hasMultiSelect={true}
@@ -12503,6 +12535,12 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                   "title": "Last updated",
                                                   "transforms": Array [
                                                     [Function],
+                                                    [Function],
+                                                  ],
+                                                },
+                                                Object {
+                                                  "title": "Associated systems",
+                                                  "transforms": Array [
                                                     [Function],
                                                   ],
                                                 },
@@ -14036,6 +14074,12 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                       [Function],
                                                     ],
                                                   },
+                                                  Object {
+                                                    "title": "Associated systems",
+                                                    "transforms": Array [
+                                                      [Function],
+                                                    ],
+                                                  },
                                                 ]
                                               }
                                               className=""
@@ -14057,7 +14101,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                     "cells": Array [
                                                       Object {
                                                         "props": Object {
-                                                          "colSpan": 2,
+                                                          "colSpan": 3,
                                                         },
                                                         "title": <EmptyTable>
                                                           <EmptyStateDisplay
@@ -14179,6 +14223,54 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                       "props": Object {
                                                         "data-key": 1,
                                                         "data-label": "Last updated",
+                                                      },
+                                                    },
+                                                    Object {
+                                                      "cell": Object {
+                                                        "formatters": Array [
+                                                          [Function],
+                                                        ],
+                                                        "transforms": Array [
+                                                          [Function],
+                                                        ],
+                                                      },
+                                                      "data": undefined,
+                                                      "extraParams": Object {
+                                                        "actionResolver": undefined,
+                                                        "actions": undefined,
+                                                        "actionsToggle": undefined,
+                                                        "allRowsSelected": false,
+                                                        "areActionsDisabled": undefined,
+                                                        "canSelectAll": false,
+                                                        "canSortFavorites": true,
+                                                        "contentId": "expanded-content",
+                                                        "dropdownDirection": "down",
+                                                        "dropdownPosition": "right",
+                                                        "expandId": "expandable-toggle",
+                                                        "firstUserColumnIndex": 0,
+                                                        "onCollapse": undefined,
+                                                        "onExpand": undefined,
+                                                        "onFavorite": undefined,
+                                                        "onRowEdit": undefined,
+                                                        "onSelect": undefined,
+                                                        "onSort": undefined,
+                                                        "rowLabeledBy": "simple-node",
+                                                        "selectVariant": "checkbox",
+                                                        "sortBy": undefined,
+                                                      },
+                                                      "header": Object {
+                                                        "formatters": Array [],
+                                                        "label": "Associated systems",
+                                                        "transforms": Array [
+                                                          [Function],
+                                                          [Function],
+                                                          [Function],
+                                                        ],
+                                                      },
+                                                      "property": "associated-systems",
+                                                      "props": Object {
+                                                        "data-key": 2,
+                                                        "data-label": "Associated systems",
                                                       },
                                                     },
                                                   ]
@@ -14348,6 +14440,54 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                       "data-label": "Last updated",
                                                                     },
                                                                   },
+                                                                  Object {
+                                                                    "cell": Object {
+                                                                      "formatters": Array [
+                                                                        [Function],
+                                                                      ],
+                                                                      "transforms": Array [
+                                                                        [Function],
+                                                                      ],
+                                                                    },
+                                                                    "data": undefined,
+                                                                    "extraParams": Object {
+                                                                      "actionResolver": undefined,
+                                                                      "actions": undefined,
+                                                                      "actionsToggle": undefined,
+                                                                      "allRowsSelected": false,
+                                                                      "areActionsDisabled": undefined,
+                                                                      "canSelectAll": false,
+                                                                      "canSortFavorites": true,
+                                                                      "contentId": "expanded-content",
+                                                                      "dropdownDirection": "down",
+                                                                      "dropdownPosition": "right",
+                                                                      "expandId": "expandable-toggle",
+                                                                      "firstUserColumnIndex": 0,
+                                                                      "onCollapse": undefined,
+                                                                      "onExpand": undefined,
+                                                                      "onFavorite": undefined,
+                                                                      "onRowEdit": undefined,
+                                                                      "onSelect": undefined,
+                                                                      "onSort": undefined,
+                                                                      "rowLabeledBy": "simple-node",
+                                                                      "selectVariant": "checkbox",
+                                                                      "sortBy": undefined,
+                                                                    },
+                                                                    "header": Object {
+                                                                      "formatters": Array [],
+                                                                      "label": "Associated systems",
+                                                                      "transforms": Array [
+                                                                        [Function],
+                                                                        [Function],
+                                                                        [Function],
+                                                                      ],
+                                                                    },
+                                                                    "property": "associated-systems",
+                                                                    "props": Object {
+                                                                      "data-key": 2,
+                                                                      "data-label": "Associated systems",
+                                                                    },
+                                                                  },
                                                                 ]
                                                               }
                                                               headerRows={null}
@@ -14503,6 +14643,54 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                             "props": Object {
                                                                               "data-key": 1,
                                                                               "data-label": "Last updated",
+                                                                            },
+                                                                          },
+                                                                          Object {
+                                                                            "cell": Object {
+                                                                              "formatters": Array [
+                                                                                [Function],
+                                                                              ],
+                                                                              "transforms": Array [
+                                                                                [Function],
+                                                                              ],
+                                                                            },
+                                                                            "data": undefined,
+                                                                            "extraParams": Object {
+                                                                              "actionResolver": undefined,
+                                                                              "actions": undefined,
+                                                                              "actionsToggle": undefined,
+                                                                              "allRowsSelected": false,
+                                                                              "areActionsDisabled": undefined,
+                                                                              "canSelectAll": false,
+                                                                              "canSortFavorites": true,
+                                                                              "contentId": "expanded-content",
+                                                                              "dropdownDirection": "down",
+                                                                              "dropdownPosition": "right",
+                                                                              "expandId": "expandable-toggle",
+                                                                              "firstUserColumnIndex": 0,
+                                                                              "onCollapse": undefined,
+                                                                              "onExpand": undefined,
+                                                                              "onFavorite": undefined,
+                                                                              "onRowEdit": undefined,
+                                                                              "onSelect": undefined,
+                                                                              "onSort": undefined,
+                                                                              "rowLabeledBy": "simple-node",
+                                                                              "selectVariant": "checkbox",
+                                                                              "sortBy": undefined,
+                                                                            },
+                                                                            "header": Object {
+                                                                              "formatters": Array [],
+                                                                              "label": "Associated systems",
+                                                                              "transforms": Array [
+                                                                                [Function],
+                                                                                [Function],
+                                                                                [Function],
+                                                                              ],
+                                                                            },
+                                                                            "property": "associated-systems",
+                                                                            "props": Object {
+                                                                              "data-key": 2,
+                                                                              "data-label": "Associated systems",
                                                                             },
                                                                           },
                                                                         ]
@@ -14708,6 +14896,46 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                                 </ThBase>
                                                                               </Th>
                                                                             </HeaderCell>
+                                                                            <HeaderCell
+                                                                              className="pf-m-width-20"
+                                                                              data-key={2}
+                                                                              data-label="Associated systems"
+                                                                              key="2-header"
+                                                                              scope="col"
+                                                                            >
+                                                                              <Th
+                                                                                className="pf-m-width-20"
+                                                                                component="th"
+                                                                                data-key={2}
+                                                                                data-label="Associated systems"
+                                                                                onMouseEnter={[Function]}
+                                                                                scope="col"
+                                                                                textCenter={false}
+                                                                                tooltip=""
+                                                                              >
+                                                                                <ThBase
+                                                                                  className="pf-m-width-20"
+                                                                                  component="th"
+                                                                                  data-key={2}
+                                                                                  data-label="Associated systems"
+                                                                                  innerRef={null}
+                                                                                  onMouseEnter={[Function]}
+                                                                                  scope="col"
+                                                                                  textCenter={false}
+                                                                                  tooltip=""
+                                                                                >
+                                                                                  <th
+                                                                                    className="pf-m-width-20"
+                                                                                    data-key={2}
+                                                                                    data-label="Associated systems"
+                                                                                    onMouseEnter={[Function]}
+                                                                                    scope="col"
+                                                                                  >
+                                                                                    Associated systems
+                                                                                  </th>
+                                                                                </ThBase>
+                                                                              </Th>
+                                                                            </HeaderCell>
                                                                           </tr>
                                                                         </TrBase>
                                                                       </Tr>
@@ -14821,6 +15049,54 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                   "data-label": "Last updated",
                                                                 },
                                                               },
+                                                              Object {
+                                                                "cell": Object {
+                                                                  "formatters": Array [
+                                                                    [Function],
+                                                                  ],
+                                                                  "transforms": Array [
+                                                                    [Function],
+                                                                  ],
+                                                                },
+                                                                "data": undefined,
+                                                                "extraParams": Object {
+                                                                  "actionResolver": undefined,
+                                                                  "actions": undefined,
+                                                                  "actionsToggle": undefined,
+                                                                  "allRowsSelected": false,
+                                                                  "areActionsDisabled": undefined,
+                                                                  "canSelectAll": false,
+                                                                  "canSortFavorites": true,
+                                                                  "contentId": "expanded-content",
+                                                                  "dropdownDirection": "down",
+                                                                  "dropdownPosition": "right",
+                                                                  "expandId": "expandable-toggle",
+                                                                  "firstUserColumnIndex": 0,
+                                                                  "onCollapse": undefined,
+                                                                  "onExpand": undefined,
+                                                                  "onFavorite": undefined,
+                                                                  "onRowEdit": undefined,
+                                                                  "onSelect": undefined,
+                                                                  "onSort": undefined,
+                                                                  "rowLabeledBy": "simple-node",
+                                                                  "selectVariant": "checkbox",
+                                                                  "sortBy": undefined,
+                                                                },
+                                                                "header": Object {
+                                                                  "formatters": Array [],
+                                                                  "label": "Associated systems",
+                                                                  "transforms": Array [
+                                                                    [Function],
+                                                                    [Function],
+                                                                    [Function],
+                                                                  ],
+                                                                },
+                                                                "property": "associated-systems",
+                                                                "props": Object {
+                                                                  "data-key": 2,
+                                                                  "data-label": "Associated systems",
+                                                                },
+                                                              },
                                                             ]
                                                           }
                                                           headerRows={null}
@@ -14833,7 +15109,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                 "cells": Array [
                                                                   Object {
                                                                     "props": Object {
-                                                                      "colSpan": 2,
+                                                                      "colSpan": 3,
                                                                     },
                                                                     "title": <EmptyTable>
                                                                       <EmptyStateDisplay
@@ -14861,7 +15137,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                   "cells": Array [
                                                                     Object {
                                                                       "props": Object {
-                                                                        "colSpan": 2,
+                                                                        "colSpan": 3,
                                                                       },
                                                                       "title": <EmptyTable>
                                                                         <EmptyStateDisplay
@@ -14885,7 +15161,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                   "name": Object {
                                                                     "formatters": Array [],
                                                                     "props": Object {
-                                                                      "colSpan": 2,
+                                                                      "colSpan": 3,
                                                                       "isVisible": true,
                                                                     },
                                                                     "title": <EmptyTable>
@@ -14912,7 +15188,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                   "cells": Array [
                                                                     Object {
                                                                       "props": Object {
-                                                                        "colSpan": 2,
+                                                                        "colSpan": 3,
                                                                       },
                                                                       "title": <EmptyTable>
                                                                         <EmptyStateDisplay
@@ -14936,7 +15212,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                   "name": Object {
                                                                     "formatters": Array [],
                                                                     "props": Object {
-                                                                      "colSpan": 2,
+                                                                      "colSpan": 3,
                                                                       "isVisible": true,
                                                                     },
                                                                     "title": <EmptyTable>
@@ -15057,6 +15333,54 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                       "data-label": "Last updated",
                                                                     },
                                                                   },
+                                                                  Object {
+                                                                    "cell": Object {
+                                                                      "formatters": Array [
+                                                                        [Function],
+                                                                      ],
+                                                                      "transforms": Array [
+                                                                        [Function],
+                                                                      ],
+                                                                    },
+                                                                    "data": undefined,
+                                                                    "extraParams": Object {
+                                                                      "actionResolver": undefined,
+                                                                      "actions": undefined,
+                                                                      "actionsToggle": undefined,
+                                                                      "allRowsSelected": false,
+                                                                      "areActionsDisabled": undefined,
+                                                                      "canSelectAll": false,
+                                                                      "canSortFavorites": true,
+                                                                      "contentId": "expanded-content",
+                                                                      "dropdownDirection": "down",
+                                                                      "dropdownPosition": "right",
+                                                                      "expandId": "expandable-toggle",
+                                                                      "firstUserColumnIndex": 0,
+                                                                      "onCollapse": undefined,
+                                                                      "onExpand": undefined,
+                                                                      "onFavorite": undefined,
+                                                                      "onRowEdit": undefined,
+                                                                      "onSelect": undefined,
+                                                                      "onSort": undefined,
+                                                                      "rowLabeledBy": "simple-node",
+                                                                      "selectVariant": "checkbox",
+                                                                      "sortBy": undefined,
+                                                                    },
+                                                                    "header": Object {
+                                                                      "formatters": Array [],
+                                                                      "label": "Associated systems",
+                                                                      "transforms": Array [
+                                                                        [Function],
+                                                                        [Function],
+                                                                        [Function],
+                                                                      ],
+                                                                    },
+                                                                    "property": "associated-systems",
+                                                                    "props": Object {
+                                                                      "data-key": 2,
+                                                                      "data-label": "Associated systems",
+                                                                    },
+                                                                  },
                                                                 ]
                                                               }
                                                               headerRows={null}
@@ -15066,7 +15390,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                     "cells": Array [
                                                                       Object {
                                                                         "props": Object {
-                                                                          "colSpan": 2,
+                                                                          "colSpan": 3,
                                                                         },
                                                                         "title": <EmptyTable>
                                                                           <EmptyStateDisplay
@@ -15090,7 +15414,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                     "name": Object {
                                                                       "formatters": Array [],
                                                                       "props": Object {
-                                                                        "colSpan": 2,
+                                                                        "colSpan": 3,
                                                                         "isVisible": true,
                                                                       },
                                                                       "title": <EmptyTable>
@@ -15144,7 +15468,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                     "cells": Array [
                                                                       Object {
                                                                         "props": Object {
-                                                                          "colSpan": 2,
+                                                                          "colSpan": 3,
                                                                         },
                                                                         "title": <EmptyTable>
                                                                           <EmptyStateDisplay
@@ -15168,7 +15492,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                     "name": Object {
                                                                       "formatters": Array [],
                                                                       "props": Object {
-                                                                        "colSpan": 2,
+                                                                        "colSpan": 3,
                                                                         "isVisible": true,
                                                                       },
                                                                       "title": <EmptyTable>
@@ -15197,7 +15521,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                       "cells": Array [
                                                                         Object {
                                                                           "props": Object {
-                                                                            "colSpan": 2,
+                                                                            "colSpan": 3,
                                                                           },
                                                                           "title": <EmptyTable>
                                                                             <EmptyStateDisplay
@@ -15221,7 +15545,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                       "name": Object {
                                                                         "formatters": Array [],
                                                                         "props": Object {
-                                                                          "colSpan": 2,
+                                                                          "colSpan": 3,
                                                                           "isVisible": true,
                                                                         },
                                                                         "title": <EmptyTable>
@@ -15352,6 +15676,54 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                                 "data-label": "Last updated",
                                                                               },
                                                                             },
+                                                                            Object {
+                                                                              "cell": Object {
+                                                                                "formatters": Array [
+                                                                                  [Function],
+                                                                                ],
+                                                                                "transforms": Array [
+                                                                                  [Function],
+                                                                                ],
+                                                                              },
+                                                                              "data": undefined,
+                                                                              "extraParams": Object {
+                                                                                "actionResolver": undefined,
+                                                                                "actions": undefined,
+                                                                                "actionsToggle": undefined,
+                                                                                "allRowsSelected": false,
+                                                                                "areActionsDisabled": undefined,
+                                                                                "canSelectAll": false,
+                                                                                "canSortFavorites": true,
+                                                                                "contentId": "expanded-content",
+                                                                                "dropdownDirection": "down",
+                                                                                "dropdownPosition": "right",
+                                                                                "expandId": "expandable-toggle",
+                                                                                "firstUserColumnIndex": 0,
+                                                                                "onCollapse": undefined,
+                                                                                "onExpand": undefined,
+                                                                                "onFavorite": undefined,
+                                                                                "onRowEdit": undefined,
+                                                                                "onSelect": undefined,
+                                                                                "onSort": undefined,
+                                                                                "rowLabeledBy": "simple-node",
+                                                                                "selectVariant": "checkbox",
+                                                                                "sortBy": undefined,
+                                                                              },
+                                                                              "header": Object {
+                                                                                "formatters": Array [],
+                                                                                "label": "Associated systems",
+                                                                                "transforms": Array [
+                                                                                  [Function],
+                                                                                  [Function],
+                                                                                  [Function],
+                                                                                ],
+                                                                              },
+                                                                              "property": "associated-systems",
+                                                                              "props": Object {
+                                                                                "data-key": 2,
+                                                                                "data-label": "Associated systems",
+                                                                              },
+                                                                            },
                                                                           ]
                                                                         }
                                                                         key="0-row"
@@ -15368,7 +15740,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                             "cells": Array [
                                                                               Object {
                                                                                 "props": Object {
-                                                                                  "colSpan": 2,
+                                                                                  "colSpan": 3,
                                                                                 },
                                                                                 "title": <EmptyTable>
                                                                                   <EmptyStateDisplay
@@ -15392,7 +15764,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                             "name": Object {
                                                                               "formatters": Array [],
                                                                               "props": Object {
-                                                                                "colSpan": 2,
+                                                                                "colSpan": 3,
                                                                                 "isVisible": true,
                                                                               },
                                                                               "title": <EmptyTable>
@@ -15422,7 +15794,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                               "cells": Array [
                                                                                 Object {
                                                                                   "props": Object {
-                                                                                    "colSpan": 2,
+                                                                                    "colSpan": 3,
                                                                                   },
                                                                                   "title": <EmptyTable>
                                                                                     <EmptyStateDisplay
@@ -15446,7 +15818,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                               "name": Object {
                                                                                 "formatters": Array [],
                                                                                 "props": Object {
-                                                                                  "colSpan": 2,
+                                                                                  "colSpan": 3,
                                                                                   "isVisible": true,
                                                                                 },
                                                                                 "title": <EmptyTable>
@@ -15492,7 +15864,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                                 onKeyDown={[Function]}
                                                                               >
                                                                                 <BodyCell
-                                                                                  colSpan={2}
+                                                                                  colSpan={3}
                                                                                   data-key={0}
                                                                                   data-label="Name"
                                                                                   isVisible={true}
@@ -15500,7 +15872,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                                 >
                                                                                   <Td
                                                                                     className=""
-                                                                                    colSpan={2}
+                                                                                    colSpan={3}
                                                                                     component="td"
                                                                                     data-key={0}
                                                                                     dataLabel="Name"
@@ -15509,7 +15881,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                                   >
                                                                                     <TdBase
                                                                                       className=""
-                                                                                      colSpan={2}
+                                                                                      colSpan={3}
                                                                                       component="td"
                                                                                       data-key={0}
                                                                                       dataLabel="Name"
@@ -15519,7 +15891,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                                     >
                                                                                       <td
                                                                                         className=""
-                                                                                        colSpan={2}
+                                                                                        colSpan={3}
                                                                                         data-key={0}
                                                                                         data-label="Name"
                                                                                         onMouseEnter={[Function]}
@@ -15585,6 +15957,11 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                                   data-key={1}
                                                                                   data-label="Last updated"
                                                                                   key="col-1-row-0"
+                                                                                />
+                                                                                <BodyCell
+                                                                                  data-key={2}
+                                                                                  data-label="Associated systems"
+                                                                                  key="col-2-row-0"
                                                                                 />
                                                                               </tr>
                                                                             </TrBase>
@@ -17353,6 +17730,14 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                       </div>
                                     </button>
                                   </th>
+                                  <th
+                                    class="pf-m-width-20"
+                                    data-key="2"
+                                    data-label="Associated systems"
+                                    scope="col"
+                                  >
+                                    Associated systems
+                                  </th>
                                 </tr>
                               </thead>
                               <tbody
@@ -17367,7 +17752,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                 >
                                   <td
                                     class=""
-                                    colspan="2"
+                                    colspan="3"
                                     data-key="0"
                                     data-label="Name"
                                   >
@@ -19597,6 +19982,12 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                   [Function],
                                                 ],
                                               },
+                                              Object {
+                                                "title": "Associated systems",
+                                                "transforms": Array [
+                                                  [Function],
+                                                ],
+                                              },
                                             ]
                                           }
                                           hasMultiSelect={true}
@@ -19644,6 +20035,12 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                   "title": "Last updated",
                                                   "transforms": Array [
                                                     [Function],
+                                                    [Function],
+                                                  ],
+                                                },
+                                                Object {
+                                                  "title": "Associated systems",
+                                                  "transforms": Array [
                                                     [Function],
                                                   ],
                                                 },
@@ -19698,6 +20095,12 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                   [Function],
                                                 ],
                                               },
+                                              Object {
+                                                "title": "Associated systems",
+                                                "transforms": Array [
+                                                  [Function],
+                                                ],
+                                              },
                                             ]
                                           }
                                           hasMultiSelect={true}
@@ -19731,6 +20134,12 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                   "title": "Last updated",
                                                   "transforms": Array [
                                                     [Function],
+                                                    [Function],
+                                                  ],
+                                                },
+                                                Object {
+                                                  "title": "Associated systems",
+                                                  "transforms": Array [
                                                     [Function],
                                                   ],
                                                 },
@@ -21264,6 +21673,12 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                       [Function],
                                                     ],
                                                   },
+                                                  Object {
+                                                    "title": "Associated systems",
+                                                    "transforms": Array [
+                                                      [Function],
+                                                    ],
+                                                  },
                                                 ]
                                               }
                                               className=""
@@ -21285,7 +21700,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                     "cells": Array [
                                                       Object {
                                                         "props": Object {
-                                                          "colSpan": 2,
+                                                          "colSpan": 3,
                                                         },
                                                         "title": <EmptyTable>
                                                           <EmptyStateDisplay
@@ -21407,6 +21822,54 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                       "props": Object {
                                                         "data-key": 1,
                                                         "data-label": "Last updated",
+                                                      },
+                                                    },
+                                                    Object {
+                                                      "cell": Object {
+                                                        "formatters": Array [
+                                                          [Function],
+                                                        ],
+                                                        "transforms": Array [
+                                                          [Function],
+                                                        ],
+                                                      },
+                                                      "data": undefined,
+                                                      "extraParams": Object {
+                                                        "actionResolver": undefined,
+                                                        "actions": undefined,
+                                                        "actionsToggle": undefined,
+                                                        "allRowsSelected": false,
+                                                        "areActionsDisabled": undefined,
+                                                        "canSelectAll": false,
+                                                        "canSortFavorites": true,
+                                                        "contentId": "expanded-content",
+                                                        "dropdownDirection": "down",
+                                                        "dropdownPosition": "right",
+                                                        "expandId": "expandable-toggle",
+                                                        "firstUserColumnIndex": 0,
+                                                        "onCollapse": undefined,
+                                                        "onExpand": undefined,
+                                                        "onFavorite": undefined,
+                                                        "onRowEdit": undefined,
+                                                        "onSelect": undefined,
+                                                        "onSort": undefined,
+                                                        "rowLabeledBy": "simple-node",
+                                                        "selectVariant": "checkbox",
+                                                        "sortBy": undefined,
+                                                      },
+                                                      "header": Object {
+                                                        "formatters": Array [],
+                                                        "label": "Associated systems",
+                                                        "transforms": Array [
+                                                          [Function],
+                                                          [Function],
+                                                          [Function],
+                                                        ],
+                                                      },
+                                                      "property": "associated-systems",
+                                                      "props": Object {
+                                                        "data-key": 2,
+                                                        "data-label": "Associated systems",
                                                       },
                                                     },
                                                   ]
@@ -21576,6 +22039,54 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                       "data-label": "Last updated",
                                                                     },
                                                                   },
+                                                                  Object {
+                                                                    "cell": Object {
+                                                                      "formatters": Array [
+                                                                        [Function],
+                                                                      ],
+                                                                      "transforms": Array [
+                                                                        [Function],
+                                                                      ],
+                                                                    },
+                                                                    "data": undefined,
+                                                                    "extraParams": Object {
+                                                                      "actionResolver": undefined,
+                                                                      "actions": undefined,
+                                                                      "actionsToggle": undefined,
+                                                                      "allRowsSelected": false,
+                                                                      "areActionsDisabled": undefined,
+                                                                      "canSelectAll": false,
+                                                                      "canSortFavorites": true,
+                                                                      "contentId": "expanded-content",
+                                                                      "dropdownDirection": "down",
+                                                                      "dropdownPosition": "right",
+                                                                      "expandId": "expandable-toggle",
+                                                                      "firstUserColumnIndex": 0,
+                                                                      "onCollapse": undefined,
+                                                                      "onExpand": undefined,
+                                                                      "onFavorite": undefined,
+                                                                      "onRowEdit": undefined,
+                                                                      "onSelect": undefined,
+                                                                      "onSort": undefined,
+                                                                      "rowLabeledBy": "simple-node",
+                                                                      "selectVariant": "checkbox",
+                                                                      "sortBy": undefined,
+                                                                    },
+                                                                    "header": Object {
+                                                                      "formatters": Array [],
+                                                                      "label": "Associated systems",
+                                                                      "transforms": Array [
+                                                                        [Function],
+                                                                        [Function],
+                                                                        [Function],
+                                                                      ],
+                                                                    },
+                                                                    "property": "associated-systems",
+                                                                    "props": Object {
+                                                                      "data-key": 2,
+                                                                      "data-label": "Associated systems",
+                                                                    },
+                                                                  },
                                                                 ]
                                                               }
                                                               headerRows={null}
@@ -21731,6 +22242,54 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                             "props": Object {
                                                                               "data-key": 1,
                                                                               "data-label": "Last updated",
+                                                                            },
+                                                                          },
+                                                                          Object {
+                                                                            "cell": Object {
+                                                                              "formatters": Array [
+                                                                                [Function],
+                                                                              ],
+                                                                              "transforms": Array [
+                                                                                [Function],
+                                                                              ],
+                                                                            },
+                                                                            "data": undefined,
+                                                                            "extraParams": Object {
+                                                                              "actionResolver": undefined,
+                                                                              "actions": undefined,
+                                                                              "actionsToggle": undefined,
+                                                                              "allRowsSelected": false,
+                                                                              "areActionsDisabled": undefined,
+                                                                              "canSelectAll": false,
+                                                                              "canSortFavorites": true,
+                                                                              "contentId": "expanded-content",
+                                                                              "dropdownDirection": "down",
+                                                                              "dropdownPosition": "right",
+                                                                              "expandId": "expandable-toggle",
+                                                                              "firstUserColumnIndex": 0,
+                                                                              "onCollapse": undefined,
+                                                                              "onExpand": undefined,
+                                                                              "onFavorite": undefined,
+                                                                              "onRowEdit": undefined,
+                                                                              "onSelect": undefined,
+                                                                              "onSort": undefined,
+                                                                              "rowLabeledBy": "simple-node",
+                                                                              "selectVariant": "checkbox",
+                                                                              "sortBy": undefined,
+                                                                            },
+                                                                            "header": Object {
+                                                                              "formatters": Array [],
+                                                                              "label": "Associated systems",
+                                                                              "transforms": Array [
+                                                                                [Function],
+                                                                                [Function],
+                                                                                [Function],
+                                                                              ],
+                                                                            },
+                                                                            "property": "associated-systems",
+                                                                            "props": Object {
+                                                                              "data-key": 2,
+                                                                              "data-label": "Associated systems",
                                                                             },
                                                                           },
                                                                         ]
@@ -21936,6 +22495,46 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                                 </ThBase>
                                                                               </Th>
                                                                             </HeaderCell>
+                                                                            <HeaderCell
+                                                                              className="pf-m-width-20"
+                                                                              data-key={2}
+                                                                              data-label="Associated systems"
+                                                                              key="2-header"
+                                                                              scope="col"
+                                                                            >
+                                                                              <Th
+                                                                                className="pf-m-width-20"
+                                                                                component="th"
+                                                                                data-key={2}
+                                                                                data-label="Associated systems"
+                                                                                onMouseEnter={[Function]}
+                                                                                scope="col"
+                                                                                textCenter={false}
+                                                                                tooltip=""
+                                                                              >
+                                                                                <ThBase
+                                                                                  className="pf-m-width-20"
+                                                                                  component="th"
+                                                                                  data-key={2}
+                                                                                  data-label="Associated systems"
+                                                                                  innerRef={null}
+                                                                                  onMouseEnter={[Function]}
+                                                                                  scope="col"
+                                                                                  textCenter={false}
+                                                                                  tooltip=""
+                                                                                >
+                                                                                  <th
+                                                                                    className="pf-m-width-20"
+                                                                                    data-key={2}
+                                                                                    data-label="Associated systems"
+                                                                                    onMouseEnter={[Function]}
+                                                                                    scope="col"
+                                                                                  >
+                                                                                    Associated systems
+                                                                                  </th>
+                                                                                </ThBase>
+                                                                              </Th>
+                                                                            </HeaderCell>
                                                                           </tr>
                                                                         </TrBase>
                                                                       </Tr>
@@ -22049,6 +22648,54 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                   "data-label": "Last updated",
                                                                 },
                                                               },
+                                                              Object {
+                                                                "cell": Object {
+                                                                  "formatters": Array [
+                                                                    [Function],
+                                                                  ],
+                                                                  "transforms": Array [
+                                                                    [Function],
+                                                                  ],
+                                                                },
+                                                                "data": undefined,
+                                                                "extraParams": Object {
+                                                                  "actionResolver": undefined,
+                                                                  "actions": undefined,
+                                                                  "actionsToggle": undefined,
+                                                                  "allRowsSelected": false,
+                                                                  "areActionsDisabled": undefined,
+                                                                  "canSelectAll": false,
+                                                                  "canSortFavorites": true,
+                                                                  "contentId": "expanded-content",
+                                                                  "dropdownDirection": "down",
+                                                                  "dropdownPosition": "right",
+                                                                  "expandId": "expandable-toggle",
+                                                                  "firstUserColumnIndex": 0,
+                                                                  "onCollapse": undefined,
+                                                                  "onExpand": undefined,
+                                                                  "onFavorite": undefined,
+                                                                  "onRowEdit": undefined,
+                                                                  "onSelect": undefined,
+                                                                  "onSort": undefined,
+                                                                  "rowLabeledBy": "simple-node",
+                                                                  "selectVariant": "checkbox",
+                                                                  "sortBy": undefined,
+                                                                },
+                                                                "header": Object {
+                                                                  "formatters": Array [],
+                                                                  "label": "Associated systems",
+                                                                  "transforms": Array [
+                                                                    [Function],
+                                                                    [Function],
+                                                                    [Function],
+                                                                  ],
+                                                                },
+                                                                "property": "associated-systems",
+                                                                "props": Object {
+                                                                  "data-key": 2,
+                                                                  "data-label": "Associated systems",
+                                                                },
+                                                              },
                                                             ]
                                                           }
                                                           headerRows={null}
@@ -22061,7 +22708,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                 "cells": Array [
                                                                   Object {
                                                                     "props": Object {
-                                                                      "colSpan": 2,
+                                                                      "colSpan": 3,
                                                                     },
                                                                     "title": <EmptyTable>
                                                                       <EmptyStateDisplay
@@ -22089,7 +22736,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                   "cells": Array [
                                                                     Object {
                                                                       "props": Object {
-                                                                        "colSpan": 2,
+                                                                        "colSpan": 3,
                                                                       },
                                                                       "title": <EmptyTable>
                                                                         <EmptyStateDisplay
@@ -22113,7 +22760,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                   "name": Object {
                                                                     "formatters": Array [],
                                                                     "props": Object {
-                                                                      "colSpan": 2,
+                                                                      "colSpan": 3,
                                                                       "isVisible": true,
                                                                     },
                                                                     "title": <EmptyTable>
@@ -22140,7 +22787,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                   "cells": Array [
                                                                     Object {
                                                                       "props": Object {
-                                                                        "colSpan": 2,
+                                                                        "colSpan": 3,
                                                                       },
                                                                       "title": <EmptyTable>
                                                                         <EmptyStateDisplay
@@ -22164,7 +22811,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                   "name": Object {
                                                                     "formatters": Array [],
                                                                     "props": Object {
-                                                                      "colSpan": 2,
+                                                                      "colSpan": 3,
                                                                       "isVisible": true,
                                                                     },
                                                                     "title": <EmptyTable>
@@ -22285,6 +22932,54 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                       "data-label": "Last updated",
                                                                     },
                                                                   },
+                                                                  Object {
+                                                                    "cell": Object {
+                                                                      "formatters": Array [
+                                                                        [Function],
+                                                                      ],
+                                                                      "transforms": Array [
+                                                                        [Function],
+                                                                      ],
+                                                                    },
+                                                                    "data": undefined,
+                                                                    "extraParams": Object {
+                                                                      "actionResolver": undefined,
+                                                                      "actions": undefined,
+                                                                      "actionsToggle": undefined,
+                                                                      "allRowsSelected": false,
+                                                                      "areActionsDisabled": undefined,
+                                                                      "canSelectAll": false,
+                                                                      "canSortFavorites": true,
+                                                                      "contentId": "expanded-content",
+                                                                      "dropdownDirection": "down",
+                                                                      "dropdownPosition": "right",
+                                                                      "expandId": "expandable-toggle",
+                                                                      "firstUserColumnIndex": 0,
+                                                                      "onCollapse": undefined,
+                                                                      "onExpand": undefined,
+                                                                      "onFavorite": undefined,
+                                                                      "onRowEdit": undefined,
+                                                                      "onSelect": undefined,
+                                                                      "onSort": undefined,
+                                                                      "rowLabeledBy": "simple-node",
+                                                                      "selectVariant": "checkbox",
+                                                                      "sortBy": undefined,
+                                                                    },
+                                                                    "header": Object {
+                                                                      "formatters": Array [],
+                                                                      "label": "Associated systems",
+                                                                      "transforms": Array [
+                                                                        [Function],
+                                                                        [Function],
+                                                                        [Function],
+                                                                      ],
+                                                                    },
+                                                                    "property": "associated-systems",
+                                                                    "props": Object {
+                                                                      "data-key": 2,
+                                                                      "data-label": "Associated systems",
+                                                                    },
+                                                                  },
                                                                 ]
                                                               }
                                                               headerRows={null}
@@ -22294,7 +22989,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                     "cells": Array [
                                                                       Object {
                                                                         "props": Object {
-                                                                          "colSpan": 2,
+                                                                          "colSpan": 3,
                                                                         },
                                                                         "title": <EmptyTable>
                                                                           <EmptyStateDisplay
@@ -22318,7 +23013,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                     "name": Object {
                                                                       "formatters": Array [],
                                                                       "props": Object {
-                                                                        "colSpan": 2,
+                                                                        "colSpan": 3,
                                                                         "isVisible": true,
                                                                       },
                                                                       "title": <EmptyTable>
@@ -22372,7 +23067,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                     "cells": Array [
                                                                       Object {
                                                                         "props": Object {
-                                                                          "colSpan": 2,
+                                                                          "colSpan": 3,
                                                                         },
                                                                         "title": <EmptyTable>
                                                                           <EmptyStateDisplay
@@ -22396,7 +23091,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                     "name": Object {
                                                                       "formatters": Array [],
                                                                       "props": Object {
-                                                                        "colSpan": 2,
+                                                                        "colSpan": 3,
                                                                         "isVisible": true,
                                                                       },
                                                                       "title": <EmptyTable>
@@ -22425,7 +23120,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                       "cells": Array [
                                                                         Object {
                                                                           "props": Object {
-                                                                            "colSpan": 2,
+                                                                            "colSpan": 3,
                                                                           },
                                                                           "title": <EmptyTable>
                                                                             <EmptyStateDisplay
@@ -22449,7 +23144,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                       "name": Object {
                                                                         "formatters": Array [],
                                                                         "props": Object {
-                                                                          "colSpan": 2,
+                                                                          "colSpan": 3,
                                                                           "isVisible": true,
                                                                         },
                                                                         "title": <EmptyTable>
@@ -22580,6 +23275,54 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                                 "data-label": "Last updated",
                                                                               },
                                                                             },
+                                                                            Object {
+                                                                              "cell": Object {
+                                                                                "formatters": Array [
+                                                                                  [Function],
+                                                                                ],
+                                                                                "transforms": Array [
+                                                                                  [Function],
+                                                                                ],
+                                                                              },
+                                                                              "data": undefined,
+                                                                              "extraParams": Object {
+                                                                                "actionResolver": undefined,
+                                                                                "actions": undefined,
+                                                                                "actionsToggle": undefined,
+                                                                                "allRowsSelected": false,
+                                                                                "areActionsDisabled": undefined,
+                                                                                "canSelectAll": false,
+                                                                                "canSortFavorites": true,
+                                                                                "contentId": "expanded-content",
+                                                                                "dropdownDirection": "down",
+                                                                                "dropdownPosition": "right",
+                                                                                "expandId": "expandable-toggle",
+                                                                                "firstUserColumnIndex": 0,
+                                                                                "onCollapse": undefined,
+                                                                                "onExpand": undefined,
+                                                                                "onFavorite": undefined,
+                                                                                "onRowEdit": undefined,
+                                                                                "onSelect": undefined,
+                                                                                "onSort": undefined,
+                                                                                "rowLabeledBy": "simple-node",
+                                                                                "selectVariant": "checkbox",
+                                                                                "sortBy": undefined,
+                                                                              },
+                                                                              "header": Object {
+                                                                                "formatters": Array [],
+                                                                                "label": "Associated systems",
+                                                                                "transforms": Array [
+                                                                                  [Function],
+                                                                                  [Function],
+                                                                                  [Function],
+                                                                                ],
+                                                                              },
+                                                                              "property": "associated-systems",
+                                                                              "props": Object {
+                                                                                "data-key": 2,
+                                                                                "data-label": "Associated systems",
+                                                                              },
+                                                                            },
                                                                           ]
                                                                         }
                                                                         key="0-row"
@@ -22596,7 +23339,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                             "cells": Array [
                                                                               Object {
                                                                                 "props": Object {
-                                                                                  "colSpan": 2,
+                                                                                  "colSpan": 3,
                                                                                 },
                                                                                 "title": <EmptyTable>
                                                                                   <EmptyStateDisplay
@@ -22620,7 +23363,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                             "name": Object {
                                                                               "formatters": Array [],
                                                                               "props": Object {
-                                                                                "colSpan": 2,
+                                                                                "colSpan": 3,
                                                                                 "isVisible": true,
                                                                               },
                                                                               "title": <EmptyTable>
@@ -22650,7 +23393,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                               "cells": Array [
                                                                                 Object {
                                                                                   "props": Object {
-                                                                                    "colSpan": 2,
+                                                                                    "colSpan": 3,
                                                                                   },
                                                                                   "title": <EmptyTable>
                                                                                     <EmptyStateDisplay
@@ -22674,7 +23417,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                               "name": Object {
                                                                                 "formatters": Array [],
                                                                                 "props": Object {
-                                                                                  "colSpan": 2,
+                                                                                  "colSpan": 3,
                                                                                   "isVisible": true,
                                                                                 },
                                                                                 "title": <EmptyTable>
@@ -22720,7 +23463,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                                 onKeyDown={[Function]}
                                                                               >
                                                                                 <BodyCell
-                                                                                  colSpan={2}
+                                                                                  colSpan={3}
                                                                                   data-key={0}
                                                                                   data-label="Name"
                                                                                   isVisible={true}
@@ -22728,7 +23471,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                                 >
                                                                                   <Td
                                                                                     className=""
-                                                                                    colSpan={2}
+                                                                                    colSpan={3}
                                                                                     component="td"
                                                                                     data-key={0}
                                                                                     dataLabel="Name"
@@ -22737,7 +23480,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                                   >
                                                                                     <TdBase
                                                                                       className=""
-                                                                                      colSpan={2}
+                                                                                      colSpan={3}
                                                                                       component="td"
                                                                                       data-key={0}
                                                                                       dataLabel="Name"
@@ -22747,7 +23490,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                                     >
                                                                                       <td
                                                                                         className=""
-                                                                                        colSpan={2}
+                                                                                        colSpan={3}
                                                                                         data-key={0}
                                                                                         data-label="Name"
                                                                                         onMouseEnter={[Function]}
@@ -22813,6 +23556,11 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                                   data-key={1}
                                                                                   data-label="Last updated"
                                                                                   key="col-1-row-0"
+                                                                                />
+                                                                                <BodyCell
+                                                                                  data-key={2}
+                                                                                  data-label="Associated systems"
+                                                                                  key="col-2-row-0"
                                                                                 />
                                                                               </tr>
                                                                             </TrBase>
@@ -24602,6 +25350,14 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                       </div>
                                     </button>
                                   </th>
+                                  <th
+                                    class="pf-m-width-20"
+                                    data-key="2"
+                                    data-label="Associated systems"
+                                    scope="col"
+                                  >
+                                    Associated systems
+                                  </th>
                                 </tr>
                               </thead>
                               <tbody
@@ -24616,7 +25372,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                 >
                                   <td
                                     class=""
-                                    colspan="2"
+                                    colspan="3"
                                     data-key="0"
                                     data-label="Name"
                                   >
@@ -26027,6 +26783,12 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                   [Function],
                                                 ],
                                               },
+                                              Object {
+                                                "title": "Associated systems",
+                                                "transforms": Array [
+                                                  [Function],
+                                                ],
+                                              },
                                             ]
                                           }
                                           hasMultiSelect={true}
@@ -26074,6 +26836,12 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                   "title": "Last updated",
                                                   "transforms": Array [
                                                     [Function],
+                                                    [Function],
+                                                  ],
+                                                },
+                                                Object {
+                                                  "title": "Associated systems",
+                                                  "transforms": Array [
                                                     [Function],
                                                   ],
                                                 },
@@ -26128,6 +26896,12 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                   [Function],
                                                 ],
                                               },
+                                              Object {
+                                                "title": "Associated systems",
+                                                "transforms": Array [
+                                                  [Function],
+                                                ],
+                                              },
                                             ]
                                           }
                                           hasMultiSelect={true}
@@ -26161,6 +26935,12 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                   "title": "Last updated",
                                                   "transforms": Array [
                                                     [Function],
+                                                    [Function],
+                                                  ],
+                                                },
+                                                Object {
+                                                  "title": "Associated systems",
+                                                  "transforms": Array [
                                                     [Function],
                                                   ],
                                                 },
@@ -27694,6 +28474,12 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                       [Function],
                                                     ],
                                                   },
+                                                  Object {
+                                                    "title": "Associated systems",
+                                                    "transforms": Array [
+                                                      [Function],
+                                                    ],
+                                                  },
                                                 ]
                                               }
                                               className=""
@@ -27715,7 +28501,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                     "cells": Array [
                                                       Object {
                                                         "props": Object {
-                                                          "colSpan": 2,
+                                                          "colSpan": 3,
                                                         },
                                                         "title": <EmptyTable>
                                                           <EmptyStateDisplay
@@ -27837,6 +28623,54 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                       "props": Object {
                                                         "data-key": 1,
                                                         "data-label": "Last updated",
+                                                      },
+                                                    },
+                                                    Object {
+                                                      "cell": Object {
+                                                        "formatters": Array [
+                                                          [Function],
+                                                        ],
+                                                        "transforms": Array [
+                                                          [Function],
+                                                        ],
+                                                      },
+                                                      "data": undefined,
+                                                      "extraParams": Object {
+                                                        "actionResolver": undefined,
+                                                        "actions": undefined,
+                                                        "actionsToggle": undefined,
+                                                        "allRowsSelected": false,
+                                                        "areActionsDisabled": undefined,
+                                                        "canSelectAll": false,
+                                                        "canSortFavorites": true,
+                                                        "contentId": "expanded-content",
+                                                        "dropdownDirection": "down",
+                                                        "dropdownPosition": "right",
+                                                        "expandId": "expandable-toggle",
+                                                        "firstUserColumnIndex": 0,
+                                                        "onCollapse": undefined,
+                                                        "onExpand": undefined,
+                                                        "onFavorite": undefined,
+                                                        "onRowEdit": undefined,
+                                                        "onSelect": undefined,
+                                                        "onSort": undefined,
+                                                        "rowLabeledBy": "simple-node",
+                                                        "selectVariant": "checkbox",
+                                                        "sortBy": undefined,
+                                                      },
+                                                      "header": Object {
+                                                        "formatters": Array [],
+                                                        "label": "Associated systems",
+                                                        "transforms": Array [
+                                                          [Function],
+                                                          [Function],
+                                                          [Function],
+                                                        ],
+                                                      },
+                                                      "property": "associated-systems",
+                                                      "props": Object {
+                                                        "data-key": 2,
+                                                        "data-label": "Associated systems",
                                                       },
                                                     },
                                                   ]
@@ -28006,6 +28840,54 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                       "data-label": "Last updated",
                                                                     },
                                                                   },
+                                                                  Object {
+                                                                    "cell": Object {
+                                                                      "formatters": Array [
+                                                                        [Function],
+                                                                      ],
+                                                                      "transforms": Array [
+                                                                        [Function],
+                                                                      ],
+                                                                    },
+                                                                    "data": undefined,
+                                                                    "extraParams": Object {
+                                                                      "actionResolver": undefined,
+                                                                      "actions": undefined,
+                                                                      "actionsToggle": undefined,
+                                                                      "allRowsSelected": false,
+                                                                      "areActionsDisabled": undefined,
+                                                                      "canSelectAll": false,
+                                                                      "canSortFavorites": true,
+                                                                      "contentId": "expanded-content",
+                                                                      "dropdownDirection": "down",
+                                                                      "dropdownPosition": "right",
+                                                                      "expandId": "expandable-toggle",
+                                                                      "firstUserColumnIndex": 0,
+                                                                      "onCollapse": undefined,
+                                                                      "onExpand": undefined,
+                                                                      "onFavorite": undefined,
+                                                                      "onRowEdit": undefined,
+                                                                      "onSelect": undefined,
+                                                                      "onSort": undefined,
+                                                                      "rowLabeledBy": "simple-node",
+                                                                      "selectVariant": "checkbox",
+                                                                      "sortBy": undefined,
+                                                                    },
+                                                                    "header": Object {
+                                                                      "formatters": Array [],
+                                                                      "label": "Associated systems",
+                                                                      "transforms": Array [
+                                                                        [Function],
+                                                                        [Function],
+                                                                        [Function],
+                                                                      ],
+                                                                    },
+                                                                    "property": "associated-systems",
+                                                                    "props": Object {
+                                                                      "data-key": 2,
+                                                                      "data-label": "Associated systems",
+                                                                    },
+                                                                  },
                                                                 ]
                                                               }
                                                               headerRows={null}
@@ -28161,6 +29043,54 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                             "props": Object {
                                                                               "data-key": 1,
                                                                               "data-label": "Last updated",
+                                                                            },
+                                                                          },
+                                                                          Object {
+                                                                            "cell": Object {
+                                                                              "formatters": Array [
+                                                                                [Function],
+                                                                              ],
+                                                                              "transforms": Array [
+                                                                                [Function],
+                                                                              ],
+                                                                            },
+                                                                            "data": undefined,
+                                                                            "extraParams": Object {
+                                                                              "actionResolver": undefined,
+                                                                              "actions": undefined,
+                                                                              "actionsToggle": undefined,
+                                                                              "allRowsSelected": false,
+                                                                              "areActionsDisabled": undefined,
+                                                                              "canSelectAll": false,
+                                                                              "canSortFavorites": true,
+                                                                              "contentId": "expanded-content",
+                                                                              "dropdownDirection": "down",
+                                                                              "dropdownPosition": "right",
+                                                                              "expandId": "expandable-toggle",
+                                                                              "firstUserColumnIndex": 0,
+                                                                              "onCollapse": undefined,
+                                                                              "onExpand": undefined,
+                                                                              "onFavorite": undefined,
+                                                                              "onRowEdit": undefined,
+                                                                              "onSelect": undefined,
+                                                                              "onSort": undefined,
+                                                                              "rowLabeledBy": "simple-node",
+                                                                              "selectVariant": "checkbox",
+                                                                              "sortBy": undefined,
+                                                                            },
+                                                                            "header": Object {
+                                                                              "formatters": Array [],
+                                                                              "label": "Associated systems",
+                                                                              "transforms": Array [
+                                                                                [Function],
+                                                                                [Function],
+                                                                                [Function],
+                                                                              ],
+                                                                            },
+                                                                            "property": "associated-systems",
+                                                                            "props": Object {
+                                                                              "data-key": 2,
+                                                                              "data-label": "Associated systems",
                                                                             },
                                                                           },
                                                                         ]
@@ -28366,6 +29296,46 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                 </ThBase>
                                                                               </Th>
                                                                             </HeaderCell>
+                                                                            <HeaderCell
+                                                                              className="pf-m-width-20"
+                                                                              data-key={2}
+                                                                              data-label="Associated systems"
+                                                                              key="2-header"
+                                                                              scope="col"
+                                                                            >
+                                                                              <Th
+                                                                                className="pf-m-width-20"
+                                                                                component="th"
+                                                                                data-key={2}
+                                                                                data-label="Associated systems"
+                                                                                onMouseEnter={[Function]}
+                                                                                scope="col"
+                                                                                textCenter={false}
+                                                                                tooltip=""
+                                                                              >
+                                                                                <ThBase
+                                                                                  className="pf-m-width-20"
+                                                                                  component="th"
+                                                                                  data-key={2}
+                                                                                  data-label="Associated systems"
+                                                                                  innerRef={null}
+                                                                                  onMouseEnter={[Function]}
+                                                                                  scope="col"
+                                                                                  textCenter={false}
+                                                                                  tooltip=""
+                                                                                >
+                                                                                  <th
+                                                                                    className="pf-m-width-20"
+                                                                                    data-key={2}
+                                                                                    data-label="Associated systems"
+                                                                                    onMouseEnter={[Function]}
+                                                                                    scope="col"
+                                                                                  >
+                                                                                    Associated systems
+                                                                                  </th>
+                                                                                </ThBase>
+                                                                              </Th>
+                                                                            </HeaderCell>
                                                                           </tr>
                                                                         </TrBase>
                                                                       </Tr>
@@ -28479,6 +29449,54 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                   "data-label": "Last updated",
                                                                 },
                                                               },
+                                                              Object {
+                                                                "cell": Object {
+                                                                  "formatters": Array [
+                                                                    [Function],
+                                                                  ],
+                                                                  "transforms": Array [
+                                                                    [Function],
+                                                                  ],
+                                                                },
+                                                                "data": undefined,
+                                                                "extraParams": Object {
+                                                                  "actionResolver": undefined,
+                                                                  "actions": undefined,
+                                                                  "actionsToggle": undefined,
+                                                                  "allRowsSelected": false,
+                                                                  "areActionsDisabled": undefined,
+                                                                  "canSelectAll": false,
+                                                                  "canSortFavorites": true,
+                                                                  "contentId": "expanded-content",
+                                                                  "dropdownDirection": "down",
+                                                                  "dropdownPosition": "right",
+                                                                  "expandId": "expandable-toggle",
+                                                                  "firstUserColumnIndex": 0,
+                                                                  "onCollapse": undefined,
+                                                                  "onExpand": undefined,
+                                                                  "onFavorite": undefined,
+                                                                  "onRowEdit": undefined,
+                                                                  "onSelect": undefined,
+                                                                  "onSort": undefined,
+                                                                  "rowLabeledBy": "simple-node",
+                                                                  "selectVariant": "checkbox",
+                                                                  "sortBy": undefined,
+                                                                },
+                                                                "header": Object {
+                                                                  "formatters": Array [],
+                                                                  "label": "Associated systems",
+                                                                  "transforms": Array [
+                                                                    [Function],
+                                                                    [Function],
+                                                                    [Function],
+                                                                  ],
+                                                                },
+                                                                "property": "associated-systems",
+                                                                "props": Object {
+                                                                  "data-key": 2,
+                                                                  "data-label": "Associated systems",
+                                                                },
+                                                              },
                                                             ]
                                                           }
                                                           headerRows={null}
@@ -28491,7 +29509,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                 "cells": Array [
                                                                   Object {
                                                                     "props": Object {
-                                                                      "colSpan": 2,
+                                                                      "colSpan": 3,
                                                                     },
                                                                     "title": <EmptyTable>
                                                                       <EmptyStateDisplay
@@ -28519,7 +29537,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                   "cells": Array [
                                                                     Object {
                                                                       "props": Object {
-                                                                        "colSpan": 2,
+                                                                        "colSpan": 3,
                                                                       },
                                                                       "title": <EmptyTable>
                                                                         <EmptyStateDisplay
@@ -28543,7 +29561,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                   "name": Object {
                                                                     "formatters": Array [],
                                                                     "props": Object {
-                                                                      "colSpan": 2,
+                                                                      "colSpan": 3,
                                                                       "isVisible": true,
                                                                     },
                                                                     "title": <EmptyTable>
@@ -28570,7 +29588,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                   "cells": Array [
                                                                     Object {
                                                                       "props": Object {
-                                                                        "colSpan": 2,
+                                                                        "colSpan": 3,
                                                                       },
                                                                       "title": <EmptyTable>
                                                                         <EmptyStateDisplay
@@ -28594,7 +29612,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                   "name": Object {
                                                                     "formatters": Array [],
                                                                     "props": Object {
-                                                                      "colSpan": 2,
+                                                                      "colSpan": 3,
                                                                       "isVisible": true,
                                                                     },
                                                                     "title": <EmptyTable>
@@ -28715,6 +29733,54 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                       "data-label": "Last updated",
                                                                     },
                                                                   },
+                                                                  Object {
+                                                                    "cell": Object {
+                                                                      "formatters": Array [
+                                                                        [Function],
+                                                                      ],
+                                                                      "transforms": Array [
+                                                                        [Function],
+                                                                      ],
+                                                                    },
+                                                                    "data": undefined,
+                                                                    "extraParams": Object {
+                                                                      "actionResolver": undefined,
+                                                                      "actions": undefined,
+                                                                      "actionsToggle": undefined,
+                                                                      "allRowsSelected": false,
+                                                                      "areActionsDisabled": undefined,
+                                                                      "canSelectAll": false,
+                                                                      "canSortFavorites": true,
+                                                                      "contentId": "expanded-content",
+                                                                      "dropdownDirection": "down",
+                                                                      "dropdownPosition": "right",
+                                                                      "expandId": "expandable-toggle",
+                                                                      "firstUserColumnIndex": 0,
+                                                                      "onCollapse": undefined,
+                                                                      "onExpand": undefined,
+                                                                      "onFavorite": undefined,
+                                                                      "onRowEdit": undefined,
+                                                                      "onSelect": undefined,
+                                                                      "onSort": undefined,
+                                                                      "rowLabeledBy": "simple-node",
+                                                                      "selectVariant": "checkbox",
+                                                                      "sortBy": undefined,
+                                                                    },
+                                                                    "header": Object {
+                                                                      "formatters": Array [],
+                                                                      "label": "Associated systems",
+                                                                      "transforms": Array [
+                                                                        [Function],
+                                                                        [Function],
+                                                                        [Function],
+                                                                      ],
+                                                                    },
+                                                                    "property": "associated-systems",
+                                                                    "props": Object {
+                                                                      "data-key": 2,
+                                                                      "data-label": "Associated systems",
+                                                                    },
+                                                                  },
                                                                 ]
                                                               }
                                                               headerRows={null}
@@ -28724,7 +29790,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                     "cells": Array [
                                                                       Object {
                                                                         "props": Object {
-                                                                          "colSpan": 2,
+                                                                          "colSpan": 3,
                                                                         },
                                                                         "title": <EmptyTable>
                                                                           <EmptyStateDisplay
@@ -28748,7 +29814,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                     "name": Object {
                                                                       "formatters": Array [],
                                                                       "props": Object {
-                                                                        "colSpan": 2,
+                                                                        "colSpan": 3,
                                                                         "isVisible": true,
                                                                       },
                                                                       "title": <EmptyTable>
@@ -28802,7 +29868,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                     "cells": Array [
                                                                       Object {
                                                                         "props": Object {
-                                                                          "colSpan": 2,
+                                                                          "colSpan": 3,
                                                                         },
                                                                         "title": <EmptyTable>
                                                                           <EmptyStateDisplay
@@ -28826,7 +29892,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                     "name": Object {
                                                                       "formatters": Array [],
                                                                       "props": Object {
-                                                                        "colSpan": 2,
+                                                                        "colSpan": 3,
                                                                         "isVisible": true,
                                                                       },
                                                                       "title": <EmptyTable>
@@ -28855,7 +29921,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                       "cells": Array [
                                                                         Object {
                                                                           "props": Object {
-                                                                            "colSpan": 2,
+                                                                            "colSpan": 3,
                                                                           },
                                                                           "title": <EmptyTable>
                                                                             <EmptyStateDisplay
@@ -28879,7 +29945,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                       "name": Object {
                                                                         "formatters": Array [],
                                                                         "props": Object {
-                                                                          "colSpan": 2,
+                                                                          "colSpan": 3,
                                                                           "isVisible": true,
                                                                         },
                                                                         "title": <EmptyTable>
@@ -29010,6 +30076,54 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                 "data-label": "Last updated",
                                                                               },
                                                                             },
+                                                                            Object {
+                                                                              "cell": Object {
+                                                                                "formatters": Array [
+                                                                                  [Function],
+                                                                                ],
+                                                                                "transforms": Array [
+                                                                                  [Function],
+                                                                                ],
+                                                                              },
+                                                                              "data": undefined,
+                                                                              "extraParams": Object {
+                                                                                "actionResolver": undefined,
+                                                                                "actions": undefined,
+                                                                                "actionsToggle": undefined,
+                                                                                "allRowsSelected": false,
+                                                                                "areActionsDisabled": undefined,
+                                                                                "canSelectAll": false,
+                                                                                "canSortFavorites": true,
+                                                                                "contentId": "expanded-content",
+                                                                                "dropdownDirection": "down",
+                                                                                "dropdownPosition": "right",
+                                                                                "expandId": "expandable-toggle",
+                                                                                "firstUserColumnIndex": 0,
+                                                                                "onCollapse": undefined,
+                                                                                "onExpand": undefined,
+                                                                                "onFavorite": undefined,
+                                                                                "onRowEdit": undefined,
+                                                                                "onSelect": undefined,
+                                                                                "onSort": undefined,
+                                                                                "rowLabeledBy": "simple-node",
+                                                                                "selectVariant": "checkbox",
+                                                                                "sortBy": undefined,
+                                                                              },
+                                                                              "header": Object {
+                                                                                "formatters": Array [],
+                                                                                "label": "Associated systems",
+                                                                                "transforms": Array [
+                                                                                  [Function],
+                                                                                  [Function],
+                                                                                  [Function],
+                                                                                ],
+                                                                              },
+                                                                              "property": "associated-systems",
+                                                                              "props": Object {
+                                                                                "data-key": 2,
+                                                                                "data-label": "Associated systems",
+                                                                              },
+                                                                            },
                                                                           ]
                                                                         }
                                                                         key="0-row"
@@ -29026,7 +30140,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                             "cells": Array [
                                                                               Object {
                                                                                 "props": Object {
-                                                                                  "colSpan": 2,
+                                                                                  "colSpan": 3,
                                                                                 },
                                                                                 "title": <EmptyTable>
                                                                                   <EmptyStateDisplay
@@ -29050,7 +30164,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                             "name": Object {
                                                                               "formatters": Array [],
                                                                               "props": Object {
-                                                                                "colSpan": 2,
+                                                                                "colSpan": 3,
                                                                                 "isVisible": true,
                                                                               },
                                                                               "title": <EmptyTable>
@@ -29080,7 +30194,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                               "cells": Array [
                                                                                 Object {
                                                                                   "props": Object {
-                                                                                    "colSpan": 2,
+                                                                                    "colSpan": 3,
                                                                                   },
                                                                                   "title": <EmptyTable>
                                                                                     <EmptyStateDisplay
@@ -29104,7 +30218,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                               "name": Object {
                                                                                 "formatters": Array [],
                                                                                 "props": Object {
-                                                                                  "colSpan": 2,
+                                                                                  "colSpan": 3,
                                                                                   "isVisible": true,
                                                                                 },
                                                                                 "title": <EmptyTable>
@@ -29150,7 +30264,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                 onKeyDown={[Function]}
                                                                               >
                                                                                 <BodyCell
-                                                                                  colSpan={2}
+                                                                                  colSpan={3}
                                                                                   data-key={0}
                                                                                   data-label="Name"
                                                                                   isVisible={true}
@@ -29158,7 +30272,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                 >
                                                                                   <Td
                                                                                     className=""
-                                                                                    colSpan={2}
+                                                                                    colSpan={3}
                                                                                     component="td"
                                                                                     data-key={0}
                                                                                     dataLabel="Name"
@@ -29167,7 +30281,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                   >
                                                                                     <TdBase
                                                                                       className=""
-                                                                                      colSpan={2}
+                                                                                      colSpan={3}
                                                                                       component="td"
                                                                                       data-key={0}
                                                                                       dataLabel="Name"
@@ -29177,7 +30291,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                     >
                                                                                       <td
                                                                                         className=""
-                                                                                        colSpan={2}
+                                                                                        colSpan={3}
                                                                                         data-key={0}
                                                                                         data-label="Name"
                                                                                         onMouseEnter={[Function]}
@@ -29243,6 +30357,11 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                   data-key={1}
                                                                                   data-label="Last updated"
                                                                                   key="col-1-row-0"
+                                                                                />
+                                                                                <BodyCell
+                                                                                  data-key={2}
+                                                                                  data-label="Associated systems"
+                                                                                  key="col-2-row-0"
                                                                                 />
                                                                               </tr>
                                                                             </TrBase>
