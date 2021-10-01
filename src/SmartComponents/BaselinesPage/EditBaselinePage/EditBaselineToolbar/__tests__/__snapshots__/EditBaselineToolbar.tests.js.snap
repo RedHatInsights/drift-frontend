@@ -549,6 +549,13 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                     >
                                       Export to CSV
                                     </DropdownItem>,
+                                    <DropdownItem
+                                      component="button"
+                                      onClick={[Function]}
+                                      ouiaId="edit-baseline-export-to-json"
+                                    >
+                                      Export to JSON
+                                    </DropdownItem>,
                                   ]
                                 }
                                 isOpen={false}
@@ -564,6 +571,13 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                         ouiaId="edit-baseline-export-to-csv"
                                       >
                                         Export to CSV
+                                      </DropdownItem>,
+                                      <DropdownItem
+                                        component="button"
+                                        onClick={[Function]}
+                                        ouiaId="edit-baseline-export-to-json"
+                                      >
+                                        Export to JSON
                                       </DropdownItem>,
                                     ]
                                   }
@@ -598,6 +612,13 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                           ouiaId="edit-baseline-export-to-csv"
                                         >
                                           Export to CSV
+                                        </DropdownItem>,
+                                        <DropdownItem
+                                          component="button"
+                                          onClick={[Function]}
+                                          ouiaId="edit-baseline-export-to-json"
+                                        >
+                                          Export to JSON
                                         </DropdownItem>,
                                       ]
                                     }
@@ -1229,6 +1250,13 @@ exports[`EditBaselineToolbar should render correctly 1`] = `
                 ouiaId="edit-baseline-export-to-csv"
               >
                 Export to CSV
+              </DropdownItem>,
+              <DropdownItem
+                component="button"
+                onClick={[Function]}
+                ouiaId="edit-baseline-export-to-json"
+              >
+                Export to JSON
               </DropdownItem>,
             ]
           }

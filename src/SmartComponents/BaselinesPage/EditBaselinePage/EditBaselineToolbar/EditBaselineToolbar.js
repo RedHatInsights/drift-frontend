@@ -32,6 +32,14 @@ export class EditBaselineToolbar extends Component {
                     onClick={ () => this.props.exportToCSV(this.props.tableData, this.props.baselineData) }
                 >
                     Export to CSV
+                </DropdownItem>,
+                <DropdownItem
+                    key='export-to-JSON'
+                    component='button'
+                    ouiaId='edit-baseline-export-to-json'
+                    onClick={ () => this.props.exportToJSON(this.props.tableData) }
+                >
+                    Export to JSON
                 </DropdownItem>
             ]
         };
@@ -93,6 +101,7 @@ EditBaselineToolbar.propTypes = {
     selected: PropTypes.any,
     totalFacts: PropTypes.number,
     exportToCSV: PropTypes.func,
+    exportToJSON: PropTypes.func,
     tableData: PropTypes.array,
     baselineData: PropTypes.object,
     permissions: PropTypes.object

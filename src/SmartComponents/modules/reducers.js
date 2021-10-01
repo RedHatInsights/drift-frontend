@@ -250,7 +250,16 @@ export function compareReducer(state = initialState, action) {
                 totalFacts: filteredFacts.length
             };
         case `${types.EXPORT_TO_CSV}`:
-            reducerHelpers.downloadCSV(state.sortedFilteredFacts, [ ...state.baselines, ...state.systems, ...state.historicalProfiles ]);
+            reducerHelpers.downloadHelper(
+                'csv', state.sortedFilteredFacts, state.referenceId, [ ...state.baselines, ...state.systems, ...state.historicalProfiles ]
+            );
+            return {
+                ...state
+            };
+        case `${types.EXPORT_TO_JSON}`:
+            reducerHelpers.downloadHelper(
+                'json', state.sortedFilteredFacts, state.referenceId, [ ...state.baselines, ...state.systems, ...state.historicalProfiles ]
+            );
             return {
                 ...state
             };

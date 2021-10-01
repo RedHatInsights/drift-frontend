@@ -219,7 +219,7 @@ export class BaselinesTable extends Component {
     }
 
     render() {
-        const { kebab, createButton, exportToCSV, exportButton, hasMultiSelect, leftAlignToolbar, loading,
+        const { kebab, createButton, exportToCSV, exportToJSON, exportButton, hasMultiSelect, leftAlignToolbar, loading,
             onBulkSelect, permissions, selectedBaselineIds, tableData, tableId, totalBaselines } = this.props;
         const { page, perPage } = this.state;
 
@@ -242,6 +242,7 @@ export class BaselinesTable extends Component {
                     totalBaselines={ totalBaselines }
                     updatePagination={ this.updatePagination }
                     exportToCSV={ exportToCSV }
+                    exportToJSON={ exportToJSON }
                     leftAlignToolbar={ leftAlignToolbar }
                     loading={ loading }
                     permissions={ permissions }
@@ -282,6 +283,7 @@ BaselinesTable.propTypes = {
     selectedBaselineIds: PropTypes.array,
     totalBaselines: PropTypes.number,
     exportToCSV: PropTypes.func,
+    exportToJSON: PropTypes.func,
     permissions: PropTypes.object,
     basketIsVisible: PropTypes.bool,
     leftAlignToolbar: PropTypes.bool
@@ -290,8 +292,11 @@ BaselinesTable.propTypes = {
 function mapDispatchToProps(dispatch) {
     return {
         fetchBaselines: (tableId, params) => dispatch(baselinesTableActions.fetchBaselines(tableId, params)),
-        exportToCSV: (exportData, baselineRowData)=> {
-            dispatch(baselinesTableActions.exportToCSV(exportData, baselineRowData));
+        exportToCSV: (exportData)=> {
+            dispatch(baselinesTableActions.exportToCSV(exportData));
+        },
+        exportToJSON: (exportData)=> {
+            dispatch(baselinesTableActions.exportToJSON(exportData));
         }
     };
 }

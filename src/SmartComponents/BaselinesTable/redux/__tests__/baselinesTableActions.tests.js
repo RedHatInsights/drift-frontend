@@ -1,4 +1,5 @@
 import { baselinesTableActions } from '../index';
+import fixtures from './baselinesTableReducer.fixtures';
 
 describe('baselines table actions', () => {
     it('fetchBaselines', () => {
@@ -31,6 +32,28 @@ describe('baselines table actions', () => {
         expect(baselinesTableActions.setSelectedBaselines([ 'abc', '123' ], 'CHECKBOX')).toEqual({
             type: `SET_SELECTED_BASELINES_CHECKBOX`,
             payload: [ 'abc', '123' ]
+        });
+    });
+
+    it('handles exportToCSV', () => {
+        expect(baselinesTableActions.exportToCSV(fixtures.baselineTableDataRows)).toEqual({
+            type: `EXPORT_BASELINES_LIST_TO_CSV_CHECKBOX`,
+            payload: {
+                type: 'csv',
+                exportType: 'baseline list',
+                exportData: fixtures.baselineTableDataRows
+            }
+        });
+    });
+
+    it('handles exportToJSON', () => {
+        expect(baselinesTableActions.exportToJSON(fixtures.baselineTableDataRows)).toEqual({
+            type: `EXPORT_BASELINES_LIST_TO_JSON_CHECKBOX`,
+            payload: {
+                type: 'json',
+                exportType: 'baseline list',
+                exportData: fixtures.baselineTableDataRows
+            }
         });
     });
 });

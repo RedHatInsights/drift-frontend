@@ -133,6 +133,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
           createButton={true}
           exportButton={true}
           exportToCSV={[Function]}
+          exportToJSON={[Function]}
           fetchBaselines={[Function]}
           hasMultiSelect={true}
           kebab={true}
@@ -170,6 +171,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
             createButton={true}
             exportButton={true}
             exportToCSV={[Function]}
+            exportToJSON={[Function]}
             fetchWithParams={[Function]}
             hasMultiSelect={true}
             isDeleteDisabled={false}
@@ -1117,6 +1119,13 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                         >
                                           Export to CSV
                                         </DropdownItem>,
+                                        <DropdownItem
+                                          component="button"
+                                          data-ouia-component-id="export-to-json-dropdown-item-baselines"
+                                          onClick={[Function]}
+                                        >
+                                          Export to JSON
+                                        </DropdownItem>,
                                       ]
                                     }
                                     isOpen={false}
@@ -1132,6 +1141,13 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                             onClick={[Function]}
                                           >
                                             Export to CSV
+                                          </DropdownItem>,
+                                          <DropdownItem
+                                            component="button"
+                                            data-ouia-component-id="export-to-json-dropdown-item-baselines"
+                                            onClick={[Function]}
+                                          >
+                                            Export to JSON
                                           </DropdownItem>,
                                         ]
                                       }
@@ -1166,6 +1182,13 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                               onClick={[Function]}
                                             >
                                               Export to CSV
+                                            </DropdownItem>,
+                                            <DropdownItem
+                                              component="button"
+                                              data-ouia-component-id="export-to-json-dropdown-item-baselines"
+                                              onClick={[Function]}
+                                            >
+                                              Export to JSON
                                             </DropdownItem>,
                                           ]
                                         }
@@ -7837,6 +7860,7 @@ exports[`ConnectedBaselinesTable should render disabled when selected basket is 
           createButton={true}
           exportButton={true}
           exportToCSV={[Function]}
+          exportToJSON={[Function]}
           fetchBaselines={[Function]}
           hasMultiSelect={true}
           kebab={true}
@@ -7870,6 +7894,7 @@ exports[`ConnectedBaselinesTable should render disabled when selected basket is 
             createButton={true}
             exportButton={true}
             exportToCSV={[Function]}
+            exportToJSON={[Function]}
             fetchWithParams={[Function]}
             hasMultiSelect={true}
             isDeleteDisabled={true}
@@ -8805,6 +8830,13 @@ exports[`ConnectedBaselinesTable should render disabled when selected basket is 
                                         >
                                           Export to CSV
                                         </DropdownItem>,
+                                        <DropdownItem
+                                          component="button"
+                                          data-ouia-component-id="export-to-json-dropdown-item-baselines"
+                                          onClick={[Function]}
+                                        >
+                                          Export to JSON
+                                        </DropdownItem>,
                                       ]
                                     }
                                     isOpen={false}
@@ -8820,6 +8852,13 @@ exports[`ConnectedBaselinesTable should render disabled when selected basket is 
                                             onClick={[Function]}
                                           >
                                             Export to CSV
+                                          </DropdownItem>,
+                                          <DropdownItem
+                                            component="button"
+                                            data-ouia-component-id="export-to-json-dropdown-item-baselines"
+                                            onClick={[Function]}
+                                          >
+                                            Export to JSON
                                           </DropdownItem>,
                                         ]
                                       }
@@ -8854,6 +8893,13 @@ exports[`ConnectedBaselinesTable should render disabled when selected basket is 
                                               onClick={[Function]}
                                             >
                                               Export to CSV
+                                            </DropdownItem>,
+                                            <DropdownItem
+                                              component="button"
+                                              data-ouia-component-id="export-to-json-dropdown-item-baselines"
+                                              onClick={[Function]}
+                                            >
+                                              Export to JSON
                                             </DropdownItem>,
                                           ]
                                         }
@@ -15381,6 +15427,7 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
           createButton={true}
           exportButton={true}
           exportToCSV={[Function]}
+          exportToJSON={[Function]}
           fetchBaselines={[Function]}
           hasMultiSelect={true}
           kebab={true}
@@ -15414,6 +15461,7 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
             createButton={true}
             exportButton={true}
             exportToCSV={[Function]}
+            exportToJSON={[Function]}
             fetchWithParams={[Function]}
             hasMultiSelect={true}
             isDeleteDisabled={true}
@@ -16317,6 +16365,13 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                                         >
                                           Export to CSV
                                         </DropdownItem>,
+                                        <DropdownItem
+                                          component="button"
+                                          data-ouia-component-id="export-to-json-dropdown-item-baselines"
+                                          onClick={[Function]}
+                                        >
+                                          Export to JSON
+                                        </DropdownItem>,
                                       ]
                                     }
                                     isOpen={false}
@@ -16332,6 +16387,13 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                                             onClick={[Function]}
                                           >
                                             Export to CSV
+                                          </DropdownItem>,
+                                          <DropdownItem
+                                            component="button"
+                                            data-ouia-component-id="export-to-json-dropdown-item-baselines"
+                                            onClick={[Function]}
+                                          >
+                                            Export to JSON
                                           </DropdownItem>,
                                         ]
                                       }
@@ -16366,6 +16428,13 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                                               onClick={[Function]}
                                             >
                                               Export to CSV
+                                            </DropdownItem>,
+                                            <DropdownItem
+                                              component="button"
+                                              data-ouia-component-id="export-to-json-dropdown-item-baselines"
+                                              onClick={[Function]}
+                                            >
+                                              Export to JSON
                                             </DropdownItem>,
                                           ]
                                         }
@@ -29313,6 +29382,7 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
           createButton={true}
           exportButton={true}
           exportToCSV={[Function]}
+          exportToJSON={[Function]}
           fetchBaselines={[Function]}
           hasMultiSelect={false}
           kebab={true}
@@ -29346,6 +29416,7 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
             createButton={true}
             exportButton={true}
             exportToCSV={[Function]}
+            exportToJSON={[Function]}
             fetchWithParams={[Function]}
             hasMultiSelect={false}
             isDeleteDisabled={true}
@@ -29848,6 +29919,13 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
                                         >
                                           Export to CSV
                                         </DropdownItem>,
+                                        <DropdownItem
+                                          component="button"
+                                          data-ouia-component-id="export-to-json-dropdown-item-baselines"
+                                          onClick={[Function]}
+                                        >
+                                          Export to JSON
+                                        </DropdownItem>,
                                       ]
                                     }
                                     isOpen={false}
@@ -29863,6 +29941,13 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
                                             onClick={[Function]}
                                           >
                                             Export to CSV
+                                          </DropdownItem>,
+                                          <DropdownItem
+                                            component="button"
+                                            data-ouia-component-id="export-to-json-dropdown-item-baselines"
+                                            onClick={[Function]}
+                                          >
+                                            Export to JSON
                                           </DropdownItem>,
                                         ]
                                       }
@@ -29897,6 +29982,13 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
                                               onClick={[Function]}
                                             >
                                               Export to CSV
+                                            </DropdownItem>,
+                                            <DropdownItem
+                                              component="button"
+                                              data-ouia-component-id="export-to-json-dropdown-item-baselines"
+                                              onClick={[Function]}
+                                            >
+                                              Export to JSON
                                             </DropdownItem>,
                                           ]
                                         }
@@ -42844,6 +42936,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
           createButton={true}
           exportButton={true}
           exportToCSV={[Function]}
+          exportToJSON={[Function]}
           fetchBaselines={[Function]}
           hasMultiSelect={true}
           kebab={true}
@@ -42877,6 +42970,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
             createButton={true}
             exportButton={true}
             exportToCSV={[Function]}
+            exportToJSON={[Function]}
             fetchWithParams={[Function]}
             hasMultiSelect={true}
             isDeleteDisabled={true}
@@ -43779,6 +43873,13 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                         >
                                           Export to CSV
                                         </DropdownItem>,
+                                        <DropdownItem
+                                          component="button"
+                                          data-ouia-component-id="export-to-json-dropdown-item-baselines"
+                                          onClick={[Function]}
+                                        >
+                                          Export to JSON
+                                        </DropdownItem>,
                                       ]
                                     }
                                     isOpen={false}
@@ -43794,6 +43895,13 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                             onClick={[Function]}
                                           >
                                             Export to CSV
+                                          </DropdownItem>,
+                                          <DropdownItem
+                                            component="button"
+                                            data-ouia-component-id="export-to-json-dropdown-item-baselines"
+                                            onClick={[Function]}
+                                          >
+                                            Export to JSON
                                           </DropdownItem>,
                                         ]
                                       }
@@ -43828,6 +43936,13 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                               onClick={[Function]}
                                             >
                                               Export to CSV
+                                            </DropdownItem>,
+                                            <DropdownItem
+                                              component="button"
+                                              data-ouia-component-id="export-to-json-dropdown-item-baselines"
+                                              onClick={[Function]}
+                                            >
+                                              Export to JSON
                                             </DropdownItem>,
                                           ]
                                         }
@@ -50333,6 +50448,7 @@ exports[`ConnectedBaselinesTable should render no matching baselines 1`] = `
           createButton={true}
           exportButton={true}
           exportToCSV={[Function]}
+          exportToJSON={[Function]}
           fetchBaselines={[Function]}
           hasMultiSelect={true}
           kebab={true}
@@ -50351,6 +50467,7 @@ exports[`ConnectedBaselinesTable should render no matching baselines 1`] = `
             createButton={true}
             exportButton={true}
             exportToCSV={[Function]}
+            exportToJSON={[Function]}
             fetchWithParams={[Function]}
             hasMultiSelect={true}
             isDeleteDisabled={true}
@@ -51240,6 +51357,13 @@ exports[`ConnectedBaselinesTable should render no matching baselines 1`] = `
                                         >
                                           Export to CSV
                                         </DropdownItem>,
+                                        <DropdownItem
+                                          component="button"
+                                          data-ouia-component-id="export-to-json-dropdown-item-baselines"
+                                          onClick={[Function]}
+                                        >
+                                          Export to JSON
+                                        </DropdownItem>,
                                       ]
                                     }
                                     isOpen={false}
@@ -51255,6 +51379,13 @@ exports[`ConnectedBaselinesTable should render no matching baselines 1`] = `
                                             onClick={[Function]}
                                           >
                                             Export to CSV
+                                          </DropdownItem>,
+                                          <DropdownItem
+                                            component="button"
+                                            data-ouia-component-id="export-to-json-dropdown-item-baselines"
+                                            onClick={[Function]}
+                                          >
+                                            Export to JSON
                                           </DropdownItem>,
                                         ]
                                       }
@@ -51289,6 +51420,13 @@ exports[`ConnectedBaselinesTable should render no matching baselines 1`] = `
                                               onClick={[Function]}
                                             >
                                               Export to CSV
+                                            </DropdownItem>,
+                                            <DropdownItem
+                                              component="button"
+                                              data-ouia-component-id="export-to-json-dropdown-item-baselines"
+                                              onClick={[Function]}
+                                            >
+                                              Export to JSON
                                             </DropdownItem>,
                                           ]
                                         }
@@ -55757,6 +55895,7 @@ exports[`ConnectedBaselinesTable should render no table kebabs with no write per
           createButton={true}
           exportButton={true}
           exportToCSV={[Function]}
+          exportToJSON={[Function]}
           fetchBaselines={[Function]}
           hasMultiSelect={true}
           kebab={true}
@@ -55790,6 +55929,7 @@ exports[`ConnectedBaselinesTable should render no table kebabs with no write per
             createButton={true}
             exportButton={true}
             exportToCSV={[Function]}
+            exportToJSON={[Function]}
             fetchWithParams={[Function]}
             hasMultiSelect={true}
             isDeleteDisabled={true}
@@ -56785,6 +56925,13 @@ exports[`ConnectedBaselinesTable should render no table kebabs with no write per
                                         >
                                           Export to CSV
                                         </DropdownItem>,
+                                        <DropdownItem
+                                          component="button"
+                                          data-ouia-component-id="export-to-json-dropdown-item-baselines"
+                                          onClick={[Function]}
+                                        >
+                                          Export to JSON
+                                        </DropdownItem>,
                                       ]
                                     }
                                     isOpen={false}
@@ -56800,6 +56947,13 @@ exports[`ConnectedBaselinesTable should render no table kebabs with no write per
                                             onClick={[Function]}
                                           >
                                             Export to CSV
+                                          </DropdownItem>,
+                                          <DropdownItem
+                                            component="button"
+                                            data-ouia-component-id="export-to-json-dropdown-item-baselines"
+                                            onClick={[Function]}
+                                          >
+                                            Export to JSON
                                           </DropdownItem>,
                                         ]
                                       }
@@ -56834,6 +56988,13 @@ exports[`ConnectedBaselinesTable should render no table kebabs with no write per
                                               onClick={[Function]}
                                             >
                                               Export to CSV
+                                            </DropdownItem>,
+                                            <DropdownItem
+                                              component="button"
+                                              data-ouia-component-id="export-to-json-dropdown-item-baselines"
+                                              onClick={[Function]}
+                                            >
+                                              Export to JSON
                                             </DropdownItem>,
                                           ]
                                         }

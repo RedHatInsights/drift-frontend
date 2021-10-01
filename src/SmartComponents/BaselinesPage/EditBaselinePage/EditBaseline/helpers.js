@@ -436,6 +436,30 @@ function convertDataToCSV(data, baselineData) {
     return result;
 }
 
+/*eslint-disable camelcase*/
+function convertDataToJSON(data) {
+    if (data === null || !data.length) {
+        return null;
+    }
+
+    let json = [];
+
+    data.forEach(function(fact) {
+        let row = new Object();
+        row.fact = fact[1];
+        if (Array.isArray(fact[2])) {
+            row.sub_facts = convertDataToJSON(fact[2]);
+        } else {
+            row.value = fact[2];
+        }
+
+        json.push(row);
+    });
+
+    return json;
+}
+/*eslint-enable camelcase*/
+
 export default {
     renderKebab,
     buildNewFactData,
@@ -455,5 +479,6 @@ export default {
     baselineSubFacts,
     findFactCount,
     findSelected,
-    convertDataToCSV
+    convertDataToCSV,
+    convertDataToJSON
 };

@@ -141,7 +141,12 @@ const baselinesTableReducer = (tableId = '') => {
                     baselineError: errorObject
                 };
             case `EXPORT_BASELINES_LIST_TO_CSV_${tableId}`:
-                helpers.downloadCSV(action.payload);
+                helpers.downloadHelper(action.payload);
+                return {
+                    ...state
+                };
+            case `EXPORT_BASELINES_LIST_TO_JSON_${tableId}`:
+                helpers.downloadHelper(action.payload);
                 return {
                     ...state
                 };

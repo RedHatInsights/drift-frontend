@@ -252,5 +252,17 @@ describe('edit baseline helpers', () => {
         editBaselineTableData[3][2][3].selected = true;
         expect(editBaselineHelpers.findSelected(editBaselineTableData)).toEqual(2);
     });
+
+    it('returns CSV export', () => {
+        let data = editBaselineFixtures.mockBaselineTableData1;
+        let baselineData = editBaselineFixtures.mockBaselineData1;
+        expect(editBaselineHelpers.convertDataToCSV(data, baselineData)).toEqual(editBaselineFixtures.csvContent);
+    });
+
+    it('returns JSON export', () => {
+        let data = editBaselineFixtures.mockBaselineTableData1;
+        let json = editBaselineFixtures.jsonContent;
+        expect(editBaselineHelpers.convertDataToJSON(data)).toEqual(json);
+    });
 });
 /*eslint-enable camelcase*/

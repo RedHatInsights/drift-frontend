@@ -209,7 +209,7 @@ export class EditBaselinePage extends Component {
 
     renderMain(permissions) {
         const { baselineData, baselineDataLoading, clearErrorData, driftClearFilters, editBaselineEmptyState, editBaselineError,
-            editBaselineTableData, entities, expandRow, expandedRows, exportToCSV, factModalOpened, selectFact,
+            editBaselineTableData, entities, expandRow, expandedRows, exportToCSV, exportToJSON, factModalOpened, selectFact,
             match: { params }, selectEntities, selectHistoricProfiles, setSelectedSystemIds } = this.props;
         const { activeTab } = this.state;
         let body;
@@ -225,6 +225,7 @@ export class EditBaselinePage extends Component {
                 expandRow={ expandRow }
                 expandedRows={ expandedRows }
                 exportToCSV={ exportToCSV }
+                exportToJSON={ exportToJSON }
                 factModalOpened={ factModalOpened }
                 permissions={ permissions }
                 history={ history }
@@ -289,6 +290,7 @@ EditBaselinePage.propTypes = {
     inlineError: PropTypes.object,
     editBaselineEmptyState: PropTypes.bool,
     exportToCSV: PropTypes.func,
+    exportToJSON: PropTypes.func,
     fetchBaselines: PropTypes.func,
     entities: PropTypes.object,
     selectHistoricProfiles: PropTypes.func,
@@ -320,6 +322,9 @@ function mapDispatchToProps(dispatch) {
         clearErrorData: () => dispatch(editBaselineActions.clearErrorData()),
         exportToCSV: (exportData, baselineRowData)=> {
             dispatch(editBaselineActions.exportToCSV(exportData, baselineRowData));
+        },
+        exportToJSON: (exportData)=> {
+            dispatch(editBaselineActions.exportToJSON(exportData));
         },
         fetchBaselines: (tableId, params) => dispatch(baselinesTableActions.fetchBaselines(tableId, params)),
         selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds)),

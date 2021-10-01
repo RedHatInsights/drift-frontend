@@ -63,6 +63,7 @@ function clearErrorData() {
 
 function exportToCSV(baselineData, baselineRowData = []) {
     let data = {
+        type: 'csv',
         exportType: 'baselines data',
         exportData: baselineData,
         baselineRowData
@@ -70,6 +71,19 @@ function exportToCSV(baselineData, baselineRowData = []) {
 
     return {
         type: `EXPORT_BASELINE_DATA_TO_CSV`,
+        payload: data
+    };
+}
+
+function exportToJSON(baselineData) {
+    let data = {
+        type: 'json',
+        exportType: 'baselines data',
+        exportData: baselineData
+    };
+
+    return {
+        type: `EXPORT_BASELINE_DATA_TO_JSON`,
         payload: data
     };
 }
@@ -84,5 +98,6 @@ export default {
     toggleFactModal,
     selectFact,
     clearErrorData,
-    exportToCSV
+    exportToCSV,
+    exportToJSON
 };
