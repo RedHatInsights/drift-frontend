@@ -1,4 +1,5 @@
 import { ASC, DESC, COLUMN_DELIMITER, LINE_DELIMITER } from '../../constants';
+import { downloadFile } from '@redhat-cloud-services/frontend-components-utilities/helpers';
 import moment from 'moment';
 
 function paginateData(data, selectedPage, factsPerPage) {
@@ -327,16 +328,29 @@ function addRow(fact) {
     return result;
 }
 
-function convertFactsToCSV(data, systems) {
+function convertFactsToCSV(data, referenceId, systems) {
+    let referenceIndex;
     if (data === null || !data.length) {
         return null;
     }
 
-    let systemNames = systems.map(system => system.display_name);
+    let systemNames = systems.map(function(system, index) {
+        let systemName = system.display_name;
+        if (system.id === referenceId) {
+            systemName += '(reference)';
+            referenceIndex = index;
+        }
+
+        return systemName;
+    });
     let mappedDates = systems.map(system => system.last_updated ? system.last_updated : system.updated);
     let systemUpdates = [];
-    mappedDates.forEach((date) => {
-        systemUpdates.push(moment.utc(date).format('DD MMM YYYY HH:mm UTC'));
+    mappedDates.forEach((date, index) => {
+        if (index === referenceIndex) {
+            systemUpdates.push(moment.utc(date).format('DD MMM YYYY HH:mm UTC') + '(reference)');
+        } else {
+            systemUpdates.push(moment.utc(date).format('DD MMM YYYY HH:mm UTC'));
+        }
     });
 
     let headers = 'Fact,State,';
@@ -362,28 +376,49 @@ function convertFactsToCSV(data, systems) {
     return result;
 }
 
-function downloadCSV(driftData, systems) {
-    let csv = convertFactsToCSV(driftData, systems);
+function convertFactsToJSON(data, referenceId, systems) {
+    let json = [];
+    let reference = systems.find(system => system.id === referenceId);
 
-    if (csv === null) {
+    data.forEach(function(fact) {
+        let factInfo = new Object();
+        factInfo.fact = fact.name;
+        factInfo.state = fact.state;
+        if (fact.comparisons) {
+            factInfo.comparisons = convertFactsToJSON(fact.comparisons, referenceId, systems);
+        } else {
+            fact.systems.forEach(function(system, index) {
+                factInfo[systems[index].display_name + ', ' +
+                moment.utc(systems[index].last_updated).format('DD MMM YYYY, HH:mm UTC')] = system.value;
+            });
+        }
+
+        factInfo.reference = reference.display_name + ', ' + moment.utc(reference.last_updated).format('DD MMM YYYY, HH:mm UTC');
+
+        json.push(factInfo);
+    });
+
+    return json;
+}
+
+function downloadHelper(type, driftData, referenceId, systems) {
+    let file;
+    if (type === 'csv') {
+        file = convertFactsToCSV(driftData, referenceId, systems);
+    } else {
+        file = JSON.stringify(convertFactsToJSON(driftData, referenceId, systems));
+    }
+
+    if (file === null) {
         return;
     }
 
     let filename = 'system-comparison-export-';
     let today = new Date();
     filename += today.toISOString();
-    filename += '.csv';
+    filename += '.' + type;
 
-    if (!csv.match(/^data:text\/csv/i)) {
-        csv = 'data:text/csv;charset=utf-8,' + csv;
-    }
-
-    let data = encodeURI(csv);
-
-    let link = document.createElement('a');
-    link.setAttribute('href', data);
-    link.setAttribute('download', filename);
-    link.dispatchEvent(new MouseEvent(`click`, { bubbles: true, cancelable: true, view: window }));
+    downloadFile(file, filename, type);
 }
 
 function toggleExpandedRow(expandedRows, factName) {
@@ -423,8 +458,10 @@ export default {
     filterComparisons,
     filterMultiFacts,
     filterFact,
+    convertFactsToCSV,
+    convertFactsToJSON,
     sortData,
-    downloadCSV,
+    downloadHelper,
     toggleExpandedRow,
     updateStateFilters,
     findFilterIndex

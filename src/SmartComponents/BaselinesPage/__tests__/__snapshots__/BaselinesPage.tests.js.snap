@@ -518,6 +518,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                 createButton={true}
                                 exportButton={true}
                                 exportToCSV={[Function]}
+                                exportToJSON={[Function]}
                                 fetchBaselines={[Function]}
                                 hasMultiSelect={true}
                                 kebab={true}
@@ -540,6 +541,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                   createButton={true}
                                   exportButton={true}
                                   exportToCSV={[Function]}
+                                  exportToJSON={[Function]}
                                   fetchWithParams={[Function]}
                                   hasMultiSelect={true}
                                   isDeleteDisabled={true}
@@ -1434,6 +1436,13 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                               >
                                                                 Export to CSV
                                                               </DropdownItem>,
+                                                              <DropdownItem
+                                                                component="button"
+                                                                data-ouia-component-id="export-to-json-dropdown-item-baselines"
+                                                                onClick={[Function]}
+                                                              >
+                                                                Export to JSON
+                                                              </DropdownItem>,
                                                             ]
                                                           }
                                                           isOpen={false}
@@ -1449,6 +1458,13 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                   onClick={[Function]}
                                                                 >
                                                                   Export to CSV
+                                                                </DropdownItem>,
+                                                                <DropdownItem
+                                                                  component="button"
+                                                                  data-ouia-component-id="export-to-json-dropdown-item-baselines"
+                                                                  onClick={[Function]}
+                                                                >
+                                                                  Export to JSON
                                                                 </DropdownItem>,
                                                               ]
                                                             }
@@ -1483,6 +1499,13 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                     onClick={[Function]}
                                                                   >
                                                                     Export to CSV
+                                                                  </DropdownItem>,
+                                                                  <DropdownItem
+                                                                    component="button"
+                                                                    data-ouia-component-id="export-to-json-dropdown-item-baselines"
+                                                                    onClick={[Function]}
+                                                                  >
+                                                                    Export to JSON
                                                                   </DropdownItem>,
                                                                 ]
                                                               }

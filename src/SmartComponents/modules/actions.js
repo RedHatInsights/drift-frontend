@@ -100,6 +100,12 @@ function exportToCSV() {
     };
 }
 
+function exportToJSON() {
+    return {
+        type: types.EXPORT_TO_JSON
+    };
+}
+
 function expandRow(factName) {
     return {
         type: types.EXPAND_ROW,
@@ -155,6 +161,7 @@ export default {
     clearAllFactFilters,
     updatePagination,
     exportToCSV,
+    exportToJSON,
     expandRow,
     updateReferenceId,
     setGlobalFilterTags,

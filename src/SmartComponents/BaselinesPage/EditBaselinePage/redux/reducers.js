@@ -175,7 +175,12 @@ export function editBaselineReducer(state = initialState, action) {
                 baselineDataLoading: false
             };
         case `${types.EXPORT_BASELINE_DATA_TO_CSV}`:
-            helpers.downloadCSV(action.payload);
+            helpers.downloadHelper(action.payload);
+            return {
+                ...state
+            };
+        case `${types.EXPORT_BASELINE_DATA_TO_JSON}`:
+            helpers.downloadHelper(action.payload);
             return {
                 ...state
             };

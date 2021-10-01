@@ -186,6 +186,12 @@ describe('compare actions', () => {
         });
     });
 
+    it('handles exportToJSON', () => {
+        expect(compareActions.exportToJSON()).toEqual({
+            type: types.EXPORT_TO_JSON
+        });
+    });
+
     it('handles expandRow', () => {
         expect(compareActions.expandRow('arch')).toEqual({
             type: types.EXPAND_ROW,

@@ -108,6 +108,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
             emptyState={false}
             error={Object {}}
             exportToCSV={[Function]}
+            exportToJSON={[Function]}
             factFilter=""
             filterByFact={[Function]}
             handleBaselineSelection={[Function]}
@@ -260,6 +261,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                             clearComparisonFilters={[Function]}
                             clearSelectedBaselines={[Function]}
                             exportToCSV={[Function]}
+                            exportToJSON={[Function]}
                             factFilter=""
                             filterByFact={[Function]}
                             handleFactFilter={[Function]}
@@ -1664,6 +1666,13 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                         >
                                                           Export to CSV
                                                         </DropdownItem>,
+                                                        <DropdownItem
+                                                          component="button"
+                                                          data-ouia-component-id="export-to-json-dropdown-item-comparison"
+                                                          onClick={[Function]}
+                                                        >
+                                                          Export to JSON
+                                                        </DropdownItem>,
                                                       ]
                                                     }
                                                     isOpen={false}
@@ -1679,6 +1688,13 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                             onClick={[Function]}
                                                           >
                                                             Export to CSV
+                                                          </DropdownItem>,
+                                                          <DropdownItem
+                                                            component="button"
+                                                            data-ouia-component-id="export-to-json-dropdown-item-comparison"
+                                                            onClick={[Function]}
+                                                          >
+                                                            Export to JSON
                                                           </DropdownItem>,
                                                         ]
                                                       }
@@ -1713,6 +1729,13 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                               onClick={[Function]}
                                                             >
                                                               Export to CSV
+                                                            </DropdownItem>,
+                                                            <DropdownItem
+                                                              component="button"
+                                                              data-ouia-component-id="export-to-json-dropdown-item-comparison"
+                                                              onClick={[Function]}
+                                                            >
+                                                              Export to JSON
                                                             </DropdownItem>,
                                                           ]
                                                         }
@@ -4721,6 +4744,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
               }
             }
             exportToCSV={[Function]}
+            exportToJSON={[Function]}
             factFilter=""
             filterByFact={[Function]}
             handleBaselineSelection={[Function]}
@@ -4881,6 +4905,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                             clearComparisonFilters={[Function]}
                             clearSelectedBaselines={[Function]}
                             exportToCSV={[Function]}
+                            exportToJSON={[Function]}
                             factFilter=""
                             filterByFact={[Function]}
                             handleFactFilter={[Function]}
@@ -6285,6 +6310,13 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                         >
                                                           Export to CSV
                                                         </DropdownItem>,
+                                                        <DropdownItem
+                                                          component="button"
+                                                          data-ouia-component-id="export-to-json-dropdown-item-comparison"
+                                                          onClick={[Function]}
+                                                        >
+                                                          Export to JSON
+                                                        </DropdownItem>,
                                                       ]
                                                     }
                                                     isOpen={false}
@@ -6300,6 +6332,13 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                             onClick={[Function]}
                                                           >
                                                             Export to CSV
+                                                          </DropdownItem>,
+                                                          <DropdownItem
+                                                            component="button"
+                                                            data-ouia-component-id="export-to-json-dropdown-item-comparison"
+                                                            onClick={[Function]}
+                                                          >
+                                                            Export to JSON
                                                           </DropdownItem>,
                                                         ]
                                                       }
@@ -6334,6 +6373,13 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                               onClick={[Function]}
                                                             >
                                                               Export to CSV
+                                                            </DropdownItem>,
+                                                            <DropdownItem
+                                                              component="button"
+                                                              data-ouia-component-id="export-to-json-dropdown-item-comparison"
+                                                              onClick={[Function]}
+                                                            >
+                                                              Export to JSON
                                                             </DropdownItem>,
                                                           ]
                                                         }

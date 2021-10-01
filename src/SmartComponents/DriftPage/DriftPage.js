@@ -95,9 +95,9 @@ export class DriftPage extends Component {
 
     render() {
         const { activeFactFilters, addStateFilter, baselines, clearAllFactFilters, clearComparison, clearComparisonFilters, clearSelectedBaselines,
-            emptyState, error, exportToCSV, factFilter, factSort, filterByFact, handleFactFilter, historicalProfiles, handleBaselineSelection,
-            handleHSPSelection, handleSystemSelection, history, loading, page, perPage, referenceId, resetComparisonFilters, selectedBaselineIds,
-            selectedHSPIds, stateFilters, stateSort, systems, totalFacts, updatePagination, updateReferenceId } = this.props;
+            emptyState, error, exportToCSV, exportToJSON, factFilter, factSort, filterByFact, handleFactFilter, historicalProfiles,
+            handleBaselineSelection, handleHSPSelection, handleSystemSelection, history, loading, page, perPage, referenceId, resetComparisonFilters,
+            selectedBaselineIds, selectedHSPIds, stateFilters, stateSort, systems, totalFacts, updatePagination, updateReferenceId } = this.props;
         const { isFirstReference } = this.state;
 
         return (
@@ -137,6 +137,7 @@ export class DriftPage extends Component {
                                                     clearComparison={ clearComparison }
                                                     clearComparisonFilters={ clearComparisonFilters }
                                                     exportToCSV={ exportToCSV }
+                                                    exportToJSON={ exportToJSON }
                                                     updateReferenceId={ updateReferenceId }
                                                     setIsFirstReference={ this.setIsFirstReference }
                                                     clearSelectedBaselines={ clearSelectedBaselines }
@@ -226,6 +227,7 @@ DriftPage.propTypes = {
     revertCompareData: PropTypes.func,
     previousStateSystems: PropTypes.array,
     exportToCSV: PropTypes.func,
+    exportToJSON: PropTypes.func,
     factFilter: PropTypes.string,
     activeFactFilters: PropTypes.array,
     handleFactFilter: PropTypes.func,
@@ -257,6 +259,7 @@ function mapDispatchToProps(dispatch) {
         selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds)),
         revertCompareData: () => dispatch(compareActions.revertCompareData()),
         exportToCSV: () => dispatch(compareActions.exportToCSV()),
+        exportToJSON: () => dispatch(compareActions.exportToJSON()),
         filterByFact: (filter) => dispatch(compareActions.filterByFact(filter)),
         addStateFilter: (filter) => dispatch(compareActions.addStateFilter(filter)),
         handleFactFilter: (filter) => dispatch(compareActions.handleFactFilter(filter)),

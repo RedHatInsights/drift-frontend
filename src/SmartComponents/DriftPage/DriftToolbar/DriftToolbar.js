@@ -31,6 +31,14 @@ export class DriftToolbar extends Component {
                     onClick={ () => this.props.exportToCSV() }
                 >
                     Export to CSV
+                </DropdownItem>,
+                <DropdownItem
+                    key='export-to-JSON'
+                    component='button'
+                    data-ouia-component-id='export-to-json-dropdown-item-comparison'
+                    onClick={ () => this.props.exportToJSON() }
+                >
+                    Export to JSON
                 </DropdownItem>
             ],
             isEmpty: true,
@@ -215,6 +223,7 @@ DriftToolbar.propTypes = {
     clearComparisonFilters: PropTypes.func,
     clearComparison: PropTypes.func,
     exportToCSV: PropTypes.func,
+    exportToJSON: PropTypes.func,
     clearSelectedBaselines: PropTypes.func,
     setIsFirstReference: PropTypes.func,
     updateReferenceId: PropTypes.func,

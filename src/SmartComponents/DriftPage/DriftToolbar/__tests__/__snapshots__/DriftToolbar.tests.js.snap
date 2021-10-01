@@ -191,6 +191,13 @@ exports[`DriftToolbar should render correctly 1`] = `
                 >
                   Export to CSV
                 </DropdownItem>,
+                <DropdownItem
+                  component="button"
+                  data-ouia-component-id="export-to-json-dropdown-item-comparison"
+                  onClick={[Function]}
+                >
+                  Export to JSON
+                </DropdownItem>,
               ]
             }
             isOpen={false}
@@ -319,6 +326,13 @@ exports[`DriftToolbar should render with fact filter chips 1`] = `
                   onClick={[Function]}
                 >
                   Export to CSV
+                </DropdownItem>,
+                <DropdownItem
+                  component="button"
+                  data-ouia-component-id="export-to-json-dropdown-item-comparison"
+                  onClick={[Function]}
+                >
+                  Export to JSON
                 </DropdownItem>,
               ]
             }

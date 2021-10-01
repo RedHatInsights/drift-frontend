@@ -40,6 +40,14 @@ export class BaselinesToolbar extends Component {
                     onClick={ () => this.props.exportToCSV(this.props.tableData) }
                 >
                     Export to CSV
+                </DropdownItem>,
+                <DropdownItem
+                    key='export-to-JSON'
+                    component='button'
+                    data-ouia-component-id='export-to-json-dropdown-item-baselines'
+                    onClick={ () => this.props.exportToJSON(this.props.tableData) }
+                >
+                    Export to JSON
                 </DropdownItem>
             ]
         };
@@ -223,6 +231,7 @@ BaselinesToolbar.propTypes = {
     totalBaselines: PropTypes.number,
     updatePagination: PropTypes.func,
     exportToCSV: PropTypes.func,
+    exportToJSON: PropTypes.func,
     loading: PropTypes.bool,
     permissions: PropTypes.object,
     leftAlignToolbar: PropTypes.bool

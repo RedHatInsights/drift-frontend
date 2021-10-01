@@ -89,6 +89,18 @@ function baselineTableDataOneSelected() {
     return baselineTableDataOneSelected;
 }
 
+const tableDataCSV = 'UUID,Name,Last updated,Associated systems\n\
+1234,beavs baseline,2 years ago,3,\n\
+abcd,micjohns baseline,2 years ago,0,\n\
+';
+
+/*eslint-disable camelcase*/
+const tableDataJSON = [
+    { name: 'beavs baseline', last_updated: '2 years ago', associated_systems: 3 },
+    { name: 'micjohns baseline', last_updated: '2 years ago', associated_systems: 0 }
+];
+/*eslint-enable camelcase*/
+
 export default {
     baselinesListPayload,
     baselinesListPayloadResults,
@@ -97,5 +109,7 @@ export default {
     baselineTableDataRow2,
     baselineTableDataTwoSelected,
     baselineTableDataOneSelected,
-    baselinesListEmptyPayload
+    baselinesListEmptyPayload,
+    tableDataCSV,
+    tableDataJSON
 };

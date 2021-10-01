@@ -282,7 +282,7 @@ class EditBaseline extends Component {
     }
 
     render() {
-        const { baselineData, baselineDataLoading, editBaselineTableData, exportToCSV, factModalOpened,
+        const { baselineData, baselineDataLoading, editBaselineTableData, exportToCSV, exportToJSON, factModalOpened,
             editBaselineEmptyState, editBaselineError, clearErrorData, permissions } = this.props;
         let selected = editBaselineHelpers.findSelected(editBaselineTableData);
 
@@ -307,6 +307,7 @@ class EditBaseline extends Component {
                                 totalFacts={ editBaselineHelpers.findFactCount(editBaselineTableData) }
                                 baselineData={ baselineData }
                                 exportToCSV={ exportToCSV }
+                                exportToJSON={ exportToJSON }
                                 tableData={ editBaselineTableData }
                                 permissions={ permissions }
                             />
@@ -336,6 +337,7 @@ EditBaseline.propTypes = {
     editBaselineError: PropTypes.object,
     editBaselineEmptyState: PropTypes.bool,
     exportToCSV: PropTypes.func,
+    exportToJSON: PropTypes.func,
     permissions: PropTypes.object
 };
 

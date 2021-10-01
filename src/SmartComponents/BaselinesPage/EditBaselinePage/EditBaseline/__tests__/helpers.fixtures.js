@@ -286,6 +286,38 @@ const editParentFactAPIBody = {
         }
     ]
 };
+
+const csvContent = 'lotr-baseline\n\
+Fact,Value,\n\
+Sauron,the Dark Lord,\n\
+Galadriel,the Elven Queen,\n\
+The Fellowship of the Ring,\n\
+    Frodo,Baggins,\n\
+    Samwise,Gamgee,\n\
+    Gandalf,the Grey,\n\
+    Meriadoc,Brandybuck,\n\
+    Peregrin,Took,\n\
+    Gimli,son of Gloin,\n\
+    Legolas,Greenleaf,\n\
+    Boromir,son of Denethor,\n\
+    Aragorn,son of Arathorn,\n\
+';
+
+const jsonContent = [
+    { fact: 'Sauron', value: 'the Dark Lord' },
+    { fact: 'Galadriel', value: 'the Elven Queen' },
+    { fact: 'The Fellowship of the Ring', sub_facts: [
+        { fact: 'Frodo', value: 'Baggins' },
+        { fact: 'Samwise', value: 'Gamgee' },
+        { fact: 'Gandalf', value: 'the Grey' },
+        { fact: 'Meriadoc', value: 'Brandybuck' },
+        { fact: 'Peregrin', value: 'Took' },
+        { fact: 'Gimli', value: 'son of Gloin' },
+        { fact: 'Legolas', value: 'Greenleaf' },
+        { fact: 'Boromir', value: 'son of Denethor' },
+        { fact: 'Aragorn', value: 'son of Arathorn' }
+    ]}
+];
 /*eslint-enable camelcase*/
 
 export default {
@@ -305,5 +337,7 @@ export default {
     newFactAPIBody,
     editFactAPIBody,
     newParentFactAPIBody,
-    editParentFactAPIBody
+    editParentFactAPIBody,
+    csvContent,
+    jsonContent
 };

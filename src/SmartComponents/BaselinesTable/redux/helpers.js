@@ -92,7 +92,7 @@ function convertListToCSV(data) {
     let columnDelimiter = data.columnDelimiter || ',';
     let lineDelimiter = data.lineDelimiter || '\n';
 
-    let headers = 'UUID,Name,Last updated,';
+    let headers = 'UUID,Name,Last updated,Associated systems';
     let result = headers + lineDelimiter;
 
     data.forEach(function(baseline) {
@@ -107,11 +107,32 @@ function convertListToCSV(data) {
     return result;
 }
 
+/*eslint-disable camelcase*/
+function convertListToJSON(data) {
+    if (data === null || !data.length) {
+        return null;
+    }
+
+    let json = [];
+
+    data.forEach(function(baseline) {
+        let row = new Object();
+        row.name = baseline[1];
+        row.last_updated = baseline[2];
+        row.associated_systems = baseline[3];
+        json.push(row);
+    });
+
+    return JSON.stringify(json);
+}
+/*eslint-enable camelcase*/
+
 export default {
     fetchBaselines,
     buildBaselinesTable,
     setBaselineArray,
     toggleExpandedRow,
     setSelected,
-    convertListToCSV
+    convertListToCSV,
+    convertListToJSON
 };

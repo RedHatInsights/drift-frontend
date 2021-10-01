@@ -4,6 +4,7 @@ import moment from 'moment';
 import DriftTooltip from './DriftTooltip/DriftTooltip';
 import baselinesTableHelpers from './BaselinesTable/redux/helpers';
 import editBaselineHelpers from './BaselinesPage/EditBaselinePage/EditBaseline/helpers';
+import { downloadFile } from '@redhat-cloud-services/frontend-components-utilities/helpers';
 
 function findSelectedOnPage(rows, selectedSystemIds) {
     let selectedSystems = [];
@@ -82,36 +83,35 @@ function buildSystemsTableWithSelectedHSP (rows, selectedHSP, deselectHistorical
     return rows;
 }
 
-function downloadCSV(baselineData) {
+function downloadHelper(baselineData) {
     let filename;
-    let csv;
+    let file;
 
     if (baselineData.exportType === 'baseline list') {
-        filename = 'baseline-list-export-';
-        csv = baselinesTableHelpers.convertListToCSV(baselineData.exportData);
+        filename = 'baseline-list-export';
+        if (baselineData.type === 'csv') {
+            file = baselinesTableHelpers.convertListToCSV(baselineData.exportData);
+        } else if (baselineData.type === 'json') {
+            file = baselinesTableHelpers.convertListToJSON(baselineData.exportData);
+        }
     } else if (baselineData.exportType === 'baselines data') {
-        filename = 'baseline-data-export-';
-        csv = editBaselineHelpers.convertDataToCSV(baselineData.exportData, baselineData.baselineRowData);
+        filename = 'baseline-data-export';
+        if (baselineData.type === 'csv') {
+            file = editBaselineHelpers.convertDataToCSV(baselineData.exportData, baselineData.baselineRowData);
+        } else if (baselineData.type === 'json') {
+            file = JSON.stringify(editBaselineHelpers.convertDataToJSON(baselineData.exportData));
+        }
     }
 
-    if (csv === null) {
+    if (file === null) {
         return;
     }
 
     let today = new Date();
     filename += today.toISOString();
-    filename += '.csv';
+    //filename += '.' + baselineData.type;
 
-    if (!csv.match(/^data:text\/csv/i)) {
-        csv = 'data:text/csv;charset=utf-8,' + csv;
-    }
-
-    let data = encodeURI(csv);
-
-    let link = document.createElement('a');
-    link.setAttribute('href', data);
-    link.setAttribute('download', filename);
-    link.dispatchEvent(new MouseEvent(`click`, { bubbles: true, cancelable: true, view: window }));
+    downloadFile(file, filename, baselineData.type);
 }
 
 export default {
@@ -119,5 +119,5 @@ export default {
     findCheckedValue,
     paginateData,
     buildSystemsTableWithSelectedHSP,
-    downloadCSV
+    downloadHelper
 };

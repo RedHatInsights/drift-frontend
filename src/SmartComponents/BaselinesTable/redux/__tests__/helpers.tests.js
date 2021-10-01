@@ -1,4 +1,5 @@
 import baselinesReducerHelpers from '../helpers';
+import fixtures from './baselinesTableReducer.fixtures';
 
 describe('baselines table helpers', () => {
     it('calls fetchBaselines', () => {
@@ -27,6 +28,18 @@ describe('baselines table helpers', () => {
         baselinesReducerHelpers.fetchBaselines('CHECKBOX', fetchBaselines, fetchParams);
 
         expect(fetchBaselines).toHaveBeenCalledWith('CHECKBOX', params);
+    });
+
+    it('converts baseline list to csv', () => {
+        let data = fixtures.baselineTableDataRows;
+        let csv = fixtures.tableDataCSV;
+        expect(baselinesReducerHelpers.convertListToCSV(data)).toEqual(csv);
+    });
+
+    it('converts baseline list to json', () => {
+        let data = fixtures.baselineTableDataRows;
+        let json = fixtures.tableDataJSON;
+        expect(baselinesReducerHelpers.convertListToJSON(data)).toEqual(JSON.stringify(json));
     });
     /*eslint-enable camelcase*/
 });
