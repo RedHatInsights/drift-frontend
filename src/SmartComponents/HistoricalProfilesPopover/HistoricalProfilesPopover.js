@@ -270,8 +270,7 @@ HistoricalProfilesPopover.propTypes = {
 
 function mapStateToProps(state) {
     return {
-        selectedHSPIds: state.historicProfilesState?.selectedHSPIds || [],
-        selectedBaselineIds: state.baselinesTableState?.checkboxTable.selectedBaselineIds || []
+        selectedHSPIds: state.historicProfilesState?.selectedHSPIds || []
     };
 }
 

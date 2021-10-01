@@ -16,8 +16,10 @@ describe('HistoricalProfilesPopover', () => {
 
     beforeEach(() => {
         props = {
+            systemIds: [],
             selectedHSPIds: [],
             selectedBaselineIds: [],
+            referenceId: undefined,
             dropdownDirection: DropdownDirection.down,
             hasBadge: true,
             hasCompareButton: false,
@@ -25,7 +27,8 @@ describe('HistoricalProfilesPopover', () => {
             system: {
                 id: '4416c520-a339-4dde-b303-f317ea9efc5f',
                 last_updated: '2020-05-04T18:33:12.249348+00:00'
-            }
+            },
+            fetchCompare: jest.fn()
         };
     });
 
@@ -41,6 +44,21 @@ describe('HistoricalProfilesPopover', () => {
             <HistoricalProfilesPopover { ...props }/>
         );
         expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('should call fetchCompare correctly', () => {
+        props.systemIds = [ 'abc' ];
+        props.selectedHSPIds = [ '123' ];
+        props.selectedBaselineIds = [ 'def' ];
+        props.referenceId = 'def';
+        const wrapper = mount(
+            <HistoricalProfilesPopover { ...props }/>
+        );
+
+        wrapper.instance().fetchCompare();
+        expect(props.fetchCompare).toHaveBeenCalledWith(
+            props.systemIds, props.selectedBaselineIds, props.selectedHSPIds, props.referenceId
+        );
     });
 
     describe('API', () => {
@@ -79,11 +97,6 @@ describe('ConnectedHistoricalProfilesPopover', () => {
         initialState = {
             historicProfilesState: {
                 selectedHSPIds: []
-            },
-            baselinesTableState: {
-                checkboxTable: {
-                    selectedBaselineIds: []
-                }
             }
         };
 
