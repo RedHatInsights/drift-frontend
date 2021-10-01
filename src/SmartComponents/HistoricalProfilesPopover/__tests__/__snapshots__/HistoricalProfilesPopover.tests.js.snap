@@ -526,7 +526,6 @@ exports[`ConnectedHistoricalProfilesPopover should render correctly 1`] = `
             }
             selectSingleHSP={[Function]}
             selectSystem={[Function]}
-            selectedBaselineIds={Array []}
             selectedHSPIds={Array []}
           >
             <span
@@ -1153,6 +1152,7 @@ exports[`HistoricalProfilesPopover should render mount correctly 1`] = `
 <HistoricalProfilesPopover
   badgeCount={0}
   dropdownDirection="down"
+  fetchCompare={[MockFunction]}
   hasBadge={true}
   hasCompareButton={false}
   selectedBaselineIds={Array []}
@@ -1163,6 +1163,7 @@ exports[`HistoricalProfilesPopover should render mount correctly 1`] = `
       "last_updated": "2020-05-04T18:33:12.249348+00:00",
     }
   }
+  systemIds={Array []}
 >
   <span
     className="hsp-icon-padding"
