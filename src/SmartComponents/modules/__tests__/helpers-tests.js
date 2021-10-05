@@ -2,7 +2,7 @@ import helpers from '../helpers';
 import stateFiltersFixtures from './state-filter.fixtures';
 import { compareReducerPayloadWithCategory, compareReducerPayloadWithMultiFact, compareReducerPayloadWithUppercase,
     sortedPayloadWithMultiFactAscDesc, sortedPayloadWithMultiFactAscAsc, compareReducerPayloadWithUpperCaseSubFact,
-    comparisonCSV, comparisonJSON } from './reducer.fixtures';
+    comparisonCSV, comparisonJSON, fullSimpleComparison } from './reducer.fixtures';
 import { filteredCategory, filteredCategoryAndFact, filteredUpperCaseFact, filteredUpperCaseSubFact } from './reducer.fact-filter-fixtures';
 import { multivalues, comparisonsWithMultivalues, multivaluesWithTooltips, comparisonsWithMultivaluesTooltips } from './multiFact-filter-fixtures';
 
@@ -225,9 +225,9 @@ describe('helpers', () => {
     });
 
     it('should convertFactsToJSON', () => {
-        let data = compareReducerPayloadWithCategory.facts;
+        let data = fullSimpleComparison.facts;
         let referenceId = '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9';
-        let systems = compareReducerPayloadWithCategory.systems;
+        let systems = fullSimpleComparison.systems;
 
         expect(
             helpers.convertFactsToJSON(data, referenceId, systems)
