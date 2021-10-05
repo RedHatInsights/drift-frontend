@@ -376,16 +376,23 @@ function convertFactsToCSV(data, referenceId, systems) {
     return result;
 }
 
-function convertFactsToJSON(data, referenceId, systems) {
+function convertFactsToJSON(data, referenceId, systems, factName) {
     let json = [];
     let reference = systems.find(system => system.id === referenceId);
 
     data.forEach(function(fact) {
         let factInfo = new Object();
-        factInfo.fact = fact.name;
+        if (factName) {
+            factInfo.fact = factName;
+        } else {
+            factInfo.fact = fact.name;
+        }
+
         factInfo.state = fact.state;
         if (fact.comparisons) {
             factInfo.comparisons = convertFactsToJSON(fact.comparisons, referenceId, systems);
+        } else if (fact.multivalues) {
+            factInfo.multivalues = convertFactsToJSON(fact.multivalues, referenceId, systems, fact.name);
         } else {
             fact.systems.forEach(function(system, index) {
                 factInfo[systems[index].display_name + ', ' +
@@ -393,7 +400,9 @@ function convertFactsToJSON(data, referenceId, systems) {
             });
         }
 
-        factInfo.reference = reference.display_name + ', ' + moment.utc(reference.last_updated).format('DD MMM YYYY, HH:mm UTC');
+        if (reference) {
+            factInfo.reference = reference.display_name + ', ' + moment.utc(reference.last_updated).format('DD MMM YYYY, HH:mm UTC');
+        }
 
         json.push(factInfo);
     });
