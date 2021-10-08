@@ -398,10 +398,10 @@ function convertFactsToJSON(data, referenceId, systems, factName) {
                 factInfo[systems[index].display_name + ', ' +
                 moment.utc(systems[index].last_updated).format('DD MMM YYYY, HH:mm UTC')] = system.value;
             });
-        }
 
-        if (reference) {
-            factInfo.reference = reference.display_name + ', ' + moment.utc(reference.last_updated).format('DD MMM YYYY, HH:mm UTC');
+            if (reference) {
+                factInfo.reference = reference.display_name + ', ' + moment.utc(reference.last_updated).format('DD MMM YYYY, HH:mm UTC');
+            }
         }
 
         json.push(factInfo);

@@ -1317,7 +1317,6 @@ export const comparisonJSON = [
     {
         fact: 'cpu_flags',
         state: 'DIFFERENT',
-        reference: 'sgi-xe500-01.rhts.eng.bos.redhat.com, 15 Jan 2019, 14:53 UTC',
         comparisons: [
             {
                 fact: 'abm',
@@ -1329,7 +1328,6 @@ export const comparisonJSON = [
             {
                 fact: 'abc',
                 state: 'INCOMPLETE_DATA',
-                reference: 'sgi-xe500-01.rhts.eng.bos.redhat.com, 15 Jan 2019, 14:53 UTC',
                 multivalues: [
                     {
                         fact: 'abc',
