@@ -425,7 +425,6 @@ function downloadHelper(type, driftData, referenceId, systems) {
     let filename = 'system-comparison-export-';
     let today = new Date();
     filename += today.toISOString();
-    filename += '.' + type;
 
     downloadFile(file, filename, type);
 }
