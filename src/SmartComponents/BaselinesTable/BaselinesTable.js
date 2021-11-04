@@ -117,7 +117,7 @@ export class BaselinesTable extends Component {
 
             row.push(baseline[2]);
             /*eslint-disable camelcase*/
-            row.push(<div>
+            row.push(<div className='no-left-padding'>
                 <NotificationDetails
                     classname='sm-padding-right'
                     index={ index }

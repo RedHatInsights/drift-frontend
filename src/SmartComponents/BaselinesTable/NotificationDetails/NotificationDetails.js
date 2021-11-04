@@ -46,7 +46,7 @@ function NotificationDetails(props) {
                 hasBadge
                     ? <Badge
                         key={ index }
-                        isRead={ isChecked ? null : true }
+                        isRead={ badgeCount > 0 ? null : true }
                     >
                         { badgeCount }
                     </Badge>
