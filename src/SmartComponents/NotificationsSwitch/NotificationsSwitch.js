@@ -14,7 +14,6 @@ function NotificationsSwitch(props) {
             labelOff={ hasLabel ? 'Notifications are disabled' : null }
             label={ hasLabel ? 'Notifications are enabled' : null }
             isReversed
-            isDisabled={ baselineData.associated_systems === 0 }
         />
     );
 }
