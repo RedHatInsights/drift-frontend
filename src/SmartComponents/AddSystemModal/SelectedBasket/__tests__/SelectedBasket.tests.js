@@ -79,7 +79,7 @@ describe('SelectedBasket', () => {
         wrapper.setState({ systemsToDeselect: [ 'efgh5678' ]});
         wrapper.setState({ isVisible: true });
 
-        wrapper.instance().onToggle();
+        wrapper.instance().applyChanges();
         expect(props.selectEntity).toHaveBeenCalledWith('efgh5678', false);
         expect(props.selectBaseline).not.toHaveBeenCalled();
         expect(props.selectHistoricProfiles).not.toHaveBeenCalled();
@@ -101,7 +101,7 @@ describe('SelectedBasket', () => {
         wrapper.setState({ hspsToDeselect: [ 'ijkl9101' ]});
         wrapper.setState({ isVisible: true });
 
-        wrapper.instance().onToggle();
+        wrapper.instance().applyChanges();
         expect(props.selectHistoricProfiles).toHaveBeenCalledWith([ 'mnop1121' ]);
     });
 
@@ -119,7 +119,7 @@ describe('SelectedBasket', () => {
         });
         wrapper.setState({ isVisible: true });
 
-        await wrapper.instance().onToggle();
+        await wrapper.instance().applyChanges();
         await expect(props.selectBaseline).toHaveBeenCalledWith([ 'abcd1234' ], false, 'COMPARISON');
         await expect(props.handleBaselineSelection).toHaveBeenCalledWith(
             [{ id: 'abcd1234', name: 'baseline', icon: <BlueprintIcon /> }],
@@ -203,6 +203,27 @@ describe('SelectedBasket', () => {
         );
 
         expect(wrapper.instance().removeId('efgh5678', [ 'abcd1234', 'efgh5678' ])).toEqual([ 'abcd1234' ]);
+    });
+
+    it('should clear items to deselect', () => {
+        const wrapper = shallow(
+            <SelectedBasket
+                { ...props }
+            />
+        );
+
+        wrapper.setState({
+            systemsToDeselect: [ 'efgh5678' ],
+            baselinesToDeselect: [ 'abcd1234' ],
+            hspsToDeselect: [ 'ijkl9101' ]
+        });
+        wrapper.setState({ isVisible: true });
+
+        wrapper.instance().toggleBasket();
+        expect(props.toggleBasketVisible).toHaveBeenCalled();
+        expect(wrapper.state('systemsToDeselect')).toEqual([]);
+        expect(wrapper.state('baselinesToDeselect')).toEqual([]);
+        expect(wrapper.state('hspsToDeselect')).toEqual([]);
     });
 });
 /*eslint-enable camelcase*/

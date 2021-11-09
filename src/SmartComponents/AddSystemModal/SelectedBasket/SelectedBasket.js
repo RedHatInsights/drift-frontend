@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Popover, PopoverPosition } from '@patternfly/react-core';
+import { Button, Popover, PopoverPosition } from '@patternfly/react-core';
 import SelectedTable from './SelectedTable/SelectedTable';
+import EmptyStateDisplay from '../../EmptyStateDisplay/EmptyStateDisplay';
 
 export class SelectedBasket extends Component {
     constructor(props) {
@@ -20,7 +21,14 @@ export class SelectedBasket extends Component {
         };
     }
 
-    onToggle = async () => {
+    toggleBasket = () => {
+        const { toggleBasketVisible } = this.props;
+
+        this.clearDeselected();
+        toggleBasketVisible();
+    }
+
+    applyChanges = async () => {
         const { baselinesToDeselect, hspsToDeselect, systemsToDeselect } = this.state;
         const { handleBaselineSelection, handleHSPSelection, selectBaseline, selectEntity, selectHistoricProfiles,
             selectedBaselineContent, selectedHSPContent, toggleBasketVisible } = this.props;
@@ -101,8 +109,31 @@ export class SelectedBasket extends Component {
         return selectedCount;
     }
 
+    displayBodyContent = (isEmpty) => {
+        const { entities, selectedSystemContent, selectedBaselineContent, selectedHSPContent } = this.props;
+        let bodyContent;
+
+        if (isEmpty) {
+            bodyContent = <EmptyStateDisplay
+                title='Nothing selected'
+                text={ [ 'Select systems and baselines to compare.' ] }
+            />;
+        } else {
+            bodyContent = <SelectedTable
+                selectedBaselineContent={ selectedBaselineContent }
+                entities={ entities }
+                selectedHSPContent={ selectedHSPContent }
+                findType={ this.findType }
+                handleDeselect={ this.handleDeselect }
+                selectedSystemContent={ selectedSystemContent }
+            />;
+        }
+
+        return bodyContent;
+    }
+
     render() {
-        const { entities, isVisible, selectedBaselineContent, selectedHSPContent, selectedSystemContent } = this.props;
+        const { isVisible } = this.props;
 
         return (
             <React.Fragment>
@@ -111,21 +142,22 @@ export class SelectedBasket extends Component {
                         id='selected-basket'
                         style={{ minWidth: '500px' }}
                         isVisible={ isVisible }
-                        shouldClose={ () => this.onToggle() }
-                        headerContent={ <div>Selected items</div> }
+                        shouldClose={ () => this.toggleBasket() }
+                        headerContent={ <div>Selected items ({ this.findSelected() })</div> }
+                        footerContent={ <Button
+                            key="confirm"
+                            variant="primary"
+                            onClick={ () => this.applyChanges() }
+                            ouiaId="confirm-selected-basket-button"
+                        >
+                            Apply changes
+                        </Button> }
                         position={ PopoverPosition.bottom }
                         bodyContent={ <div style={{ maxHeight: '500px', overflowY: 'auto' }}>
-                            <SelectedTable
-                                selectedBaselineContent={ selectedBaselineContent }
-                                entities={ entities }
-                                selectedHSPContent={ selectedHSPContent }
-                                findType={ this.findType }
-                                handleDeselect={ this.handleDeselect }
-                                selectedSystemContent={ selectedSystemContent }
-                            />
+                            { this.displayBodyContent(this.findSelected() === 0) }
                         </div> }
                     >
-                        <a onClick={ () => this.onToggle() }>
+                        <a onClick={ () => this.toggleBasket() }>
                             Selected ({ this.findSelected() })
                         </a>
                     </Popover>
