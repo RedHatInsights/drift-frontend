@@ -32,6 +32,8 @@ export class AddSystemModal extends Component {
             ],
             basketIsVisible: false
         };
+
+        this.addSystemModal = React.createRef();
     }
 
     async componentDidMount() {
@@ -43,6 +45,13 @@ export class AddSystemModal extends Component {
                 this.props.addSystemModalOpened ? this.systemContentSelect(data) : null;
             }
         });
+    }
+
+    closePopover = () => {
+        const { disableSystemTable } = this.props;
+
+        disableSystemTable(false);
+        this.setState({ basketIsVisible: false });
     }
 
     buildSystemColumns(permissions) {
@@ -247,7 +256,9 @@ export class AddSystemModal extends Component {
         return (
             <React.Fragment>
                 <Modal
-                    className="drift"
+                    ref={ this.addSystemModal }
+                    onScroll={ basketIsVisible ? this.closePopover : null }
+                    style={{ maxHeight: '600px' }}
                     width={ '950px' }
                     title="Add to comparison"
                     ouiaId='add-to-comparison-modal'
