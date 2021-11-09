@@ -58,9 +58,20 @@ exports[`SelectedBasket should not be visible with selected count 1`] = `
           />
         </div>
       }
+      footerContent={
+        <Button
+          onClick={[Function]}
+          ouiaId="confirm-selected-basket-button"
+          variant="primary"
+        >
+          Apply changes
+        </Button>
+      }
       headerContent={
         <div>
-          Selected items
+          Selected items (
+          3
+          )
         </div>
       }
       id="selected-basket"
@@ -97,17 +108,30 @@ exports[`SelectedBasket should render empty 1`] = `
             }
           }
         >
-          <SelectedTable
-            findType={[Function]}
-            selectedBaselineContent={Array []}
-            selectedHSPContent={Array []}
-            selectedSystemContent={Array []}
+          <EmptyStateDisplay
+            text={
+              Array [
+                "Select systems and baselines to compare.",
+              ]
+            }
+            title="Nothing selected"
           />
         </div>
       }
+      footerContent={
+        <Button
+          onClick={[Function]}
+          ouiaId="confirm-selected-basket-button"
+          variant="primary"
+        >
+          Apply changes
+        </Button>
+      }
       headerContent={
         <div>
-          Selected items
+          Selected items (
+          0
+          )
         </div>
       }
       id="selected-basket"
@@ -189,9 +213,20 @@ exports[`SelectedBasket should toggle to visible with system, baseline and hsp 1
           />
         </div>
       }
+      footerContent={
+        <Button
+          onClick={[Function]}
+          ouiaId="confirm-selected-basket-button"
+          variant="primary"
+        >
+          Apply changes
+        </Button>
+      }
       headerContent={
         <div>
-          Selected items
+          Selected items (
+          3
+          )
         </div>
       }
       id="selected-basket"

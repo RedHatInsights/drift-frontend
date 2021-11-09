@@ -10736,32 +10736,30 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                             }
                                                           }
                                                         >
-                                                          <SelectedTable
-                                                            entities={
-                                                              Object {
-                                                                "rows": Array [
-                                                                  Object {
-                                                                    "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
-                                                                    "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
-                                                                  },
-                                                                  Object {
-                                                                    "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
-                                                                    "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
-                                                                  },
-                                                                ],
-                                                                "selectedSystemIds": Array [],
-                                                              }
+                                                          <EmptyStateDisplay
+                                                            text={
+                                                              Array [
+                                                                "Select systems and baselines to compare.",
+                                                              ]
                                                             }
-                                                            findType={[Function]}
-                                                            selectedBaselineContent={Array []}
-                                                            selectedHSPContent={Array []}
-                                                            selectedSystemContent={Array []}
+                                                            title="Nothing selected"
                                                           />
                                                         </div>
                                                       }
+                                                      footerContent={
+                                                        <Button
+                                                          onClick={[Function]}
+                                                          ouiaId="confirm-selected-basket-button"
+                                                          variant="primary"
+                                                        >
+                                                          Apply changes
+                                                        </Button>
+                                                      }
                                                       headerContent={
                                                         <div>
-                                                          Selected items
+                                                          Selected items (
+                                                          0
+                                                          )
                                                         </div>
                                                       }
                                                       id="selected-basket"
@@ -10829,7 +10827,9 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                 id="popover-selected-basket-header"
                                                               >
                                                                 <div>
-                                                                  Selected items
+                                                                  Selected items (
+                                                                  0
+                                                                  )
                                                                 </div>
                                                               </PopoverHeader>
                                                               <PopoverBody
@@ -10843,29 +10843,27 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                     }
                                                                   }
                                                                 >
-                                                                  <SelectedTable
-                                                                    entities={
-                                                                      Object {
-                                                                        "rows": Array [
-                                                                          Object {
-                                                                            "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
-                                                                            "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
-                                                                          },
-                                                                          Object {
-                                                                            "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
-                                                                            "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
-                                                                          },
-                                                                        ],
-                                                                        "selectedSystemIds": Array [],
-                                                                      }
+                                                                  <EmptyStateDisplay
+                                                                    text={
+                                                                      Array [
+                                                                        "Select systems and baselines to compare.",
+                                                                      ]
                                                                     }
-                                                                    findType={[Function]}
-                                                                    selectedBaselineContent={Array []}
-                                                                    selectedHSPContent={Array []}
-                                                                    selectedSystemContent={Array []}
+                                                                    title="Nothing selected"
                                                                   />
                                                                 </div>
                                                               </PopoverBody>
+                                                              <PopoverFooter
+                                                                id="popover-selected-basket-footer"
+                                                              >
+                                                                <Button
+                                                                  onClick={[Function]}
+                                                                  ouiaId="confirm-selected-basket-button"
+                                                                  variant="primary"
+                                                                >
+                                                                  Apply changes
+                                                                </Button>
+                                                              </PopoverFooter>
                                                             </PopoverContent>
                                                           </FocusTrap>
                                                         }
@@ -18344,32 +18342,30 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                             }
                                                           }
                                                         >
-                                                          <SelectedTable
-                                                            entities={
-                                                              Object {
-                                                                "rows": Array [
-                                                                  Object {
-                                                                    "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
-                                                                    "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
-                                                                  },
-                                                                  Object {
-                                                                    "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
-                                                                    "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
-                                                                  },
-                                                                ],
-                                                                "selectedSystemIds": Array [],
-                                                              }
+                                                          <EmptyStateDisplay
+                                                            text={
+                                                              Array [
+                                                                "Select systems and baselines to compare.",
+                                                              ]
                                                             }
-                                                            findType={[Function]}
-                                                            selectedBaselineContent={Array []}
-                                                            selectedHSPContent={Array []}
-                                                            selectedSystemContent={Array []}
+                                                            title="Nothing selected"
                                                           />
                                                         </div>
                                                       }
+                                                      footerContent={
+                                                        <Button
+                                                          onClick={[Function]}
+                                                          ouiaId="confirm-selected-basket-button"
+                                                          variant="primary"
+                                                        >
+                                                          Apply changes
+                                                        </Button>
+                                                      }
                                                       headerContent={
                                                         <div>
-                                                          Selected items
+                                                          Selected items (
+                                                          0
+                                                          )
                                                         </div>
                                                       }
                                                       id="selected-basket"
@@ -18437,7 +18433,9 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                 id="popover-selected-basket-header"
                                                               >
                                                                 <div>
-                                                                  Selected items
+                                                                  Selected items (
+                                                                  0
+                                                                  )
                                                                 </div>
                                                               </PopoverHeader>
                                                               <PopoverBody
@@ -18451,29 +18449,27 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                     }
                                                                   }
                                                                 >
-                                                                  <SelectedTable
-                                                                    entities={
-                                                                      Object {
-                                                                        "rows": Array [
-                                                                          Object {
-                                                                            "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
-                                                                            "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
-                                                                          },
-                                                                          Object {
-                                                                            "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
-                                                                            "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
-                                                                          },
-                                                                        ],
-                                                                        "selectedSystemIds": Array [],
-                                                                      }
+                                                                  <EmptyStateDisplay
+                                                                    text={
+                                                                      Array [
+                                                                        "Select systems and baselines to compare.",
+                                                                      ]
                                                                     }
-                                                                    findType={[Function]}
-                                                                    selectedBaselineContent={Array []}
-                                                                    selectedHSPContent={Array []}
-                                                                    selectedSystemContent={Array []}
+                                                                    title="Nothing selected"
                                                                   />
                                                                 </div>
                                                               </PopoverBody>
+                                                              <PopoverFooter
+                                                                id="popover-selected-basket-footer"
+                                                              >
+                                                                <Button
+                                                                  onClick={[Function]}
+                                                                  ouiaId="confirm-selected-basket-button"
+                                                                  variant="primary"
+                                                                >
+                                                                  Apply changes
+                                                                </Button>
+                                                              </PopoverFooter>
                                                             </PopoverContent>
                                                           </FocusTrap>
                                                         }
@@ -25973,32 +25969,30 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                             }
                                                           }
                                                         >
-                                                          <SelectedTable
-                                                            entities={
-                                                              Object {
-                                                                "rows": Array [
-                                                                  Object {
-                                                                    "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
-                                                                    "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
-                                                                  },
-                                                                  Object {
-                                                                    "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
-                                                                    "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
-                                                                  },
-                                                                ],
-                                                                "selectedSystemIds": Array [],
-                                                              }
+                                                          <EmptyStateDisplay
+                                                            text={
+                                                              Array [
+                                                                "Select systems and baselines to compare.",
+                                                              ]
                                                             }
-                                                            findType={[Function]}
-                                                            selectedBaselineContent={Array []}
-                                                            selectedHSPContent={Array []}
-                                                            selectedSystemContent={Array []}
+                                                            title="Nothing selected"
                                                           />
                                                         </div>
                                                       }
+                                                      footerContent={
+                                                        <Button
+                                                          onClick={[Function]}
+                                                          ouiaId="confirm-selected-basket-button"
+                                                          variant="primary"
+                                                        >
+                                                          Apply changes
+                                                        </Button>
+                                                      }
                                                       headerContent={
                                                         <div>
-                                                          Selected items
+                                                          Selected items (
+                                                          0
+                                                          )
                                                         </div>
                                                       }
                                                       id="selected-basket"
@@ -26066,7 +26060,9 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                 id="popover-selected-basket-header"
                                                               >
                                                                 <div>
-                                                                  Selected items
+                                                                  Selected items (
+                                                                  0
+                                                                  )
                                                                 </div>
                                                               </PopoverHeader>
                                                               <PopoverBody
@@ -26080,29 +26076,27 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                     }
                                                                   }
                                                                 >
-                                                                  <SelectedTable
-                                                                    entities={
-                                                                      Object {
-                                                                        "rows": Array [
-                                                                          Object {
-                                                                            "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
-                                                                            "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
-                                                                          },
-                                                                          Object {
-                                                                            "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
-                                                                            "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
-                                                                          },
-                                                                        ],
-                                                                        "selectedSystemIds": Array [],
-                                                                      }
+                                                                  <EmptyStateDisplay
+                                                                    text={
+                                                                      Array [
+                                                                        "Select systems and baselines to compare.",
+                                                                      ]
                                                                     }
-                                                                    findType={[Function]}
-                                                                    selectedBaselineContent={Array []}
-                                                                    selectedHSPContent={Array []}
-                                                                    selectedSystemContent={Array []}
+                                                                    title="Nothing selected"
                                                                   />
                                                                 </div>
                                                               </PopoverBody>
+                                                              <PopoverFooter
+                                                                id="popover-selected-basket-footer"
+                                                              >
+                                                                <Button
+                                                                  onClick={[Function]}
+                                                                  ouiaId="confirm-selected-basket-button"
+                                                                  variant="primary"
+                                                                >
+                                                                  Apply changes
+                                                                </Button>
+                                                              </PopoverFooter>
                                                             </PopoverContent>
                                                           </FocusTrap>
                                                         }
