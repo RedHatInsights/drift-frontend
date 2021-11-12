@@ -1,6 +1,6 @@
 import React from 'react';
 import DriftTooltip from '../../DriftTooltip/DriftTooltip';
-import { ClockIcon } from '@patternfly/react-icons';
+import { BlueprintIcon, ClockIcon, ServerIcon } from '@patternfly/react-icons';
 
 function makeSelections(content, isSelected, selectedContent) {
     let newSelectedContent = [];
@@ -57,7 +57,55 @@ function makeHSPSelections(content, selectedContent) {
     return newSelectedContent;
 }
 
+function setContent(selectedIds, handleSystemSelection, handleBaselineSelection, handleHSPSelection) {
+    let newSelectedSystems = [];
+    let newSelectedBaselines = [];
+
+    if (selectedIds.systems.length) {
+        newSelectedSystems = selectedIds.systems.map(function(system) {
+            return createContent(system.id, 'System', <ServerIcon />, system.display_name);
+        }.bind(this));
+
+        handleSystemSelection(newSelectedSystems, true);
+    }
+
+    if (selectedIds.baselines.length) {
+        newSelectedBaselines = selectedIds.baselines.map(function(baseline) {
+            return createContent(baseline.id, 'Baseline', <BlueprintIcon />, baseline.display_name);
+        }.bind(this));
+
+        handleBaselineSelection(newSelectedBaselines, true);
+    }
+
+    /*eslint-disable camelcase*/
+    if (selectedIds.historicalProfiles.length) {
+        selectedIds.historicalProfiles.forEach(function(hsp) {
+            let content = {
+                system_name: hsp.display_name,
+                captured_date: hsp.updated,
+                id: hsp.id,
+                system_id: hsp.system_id
+            };
+
+            handleHSPSelection(content);
+        });
+    }
+    /*eslint-enable camelcase*/
+}
+
+function createContent (id, content, body, name) {
+    return {
+        id,
+        icon: <DriftTooltip
+            content={ content }
+            body={ body }
+        />,
+        name
+    };
+}
+
 export default {
     makeSelections,
-    makeHSPSelections
+    makeHSPSelections,
+    setContent
 };

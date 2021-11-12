@@ -7,8 +7,7 @@ import { Provider } from 'react-redux';
 import toJson from 'enzyme-to-json';
 
 import ConnectedAddSystemModal, { AddSystemModal } from '../AddSystemModal';
-import { compareReducerPayload, systemsPayload, baselinesPayload,
-    historicalProfilesPayload } from '../../modules/__tests__/reducer.fixtures';
+import { compareReducerPayload } from '../../modules/__tests__/reducer.fixtures';
 import modalFixtures from '../redux/__tests__/addSystemModalReducer.fixtures';
 
 import { createMiddlewareListener } from '../../../store';
@@ -47,7 +46,8 @@ describe('AddSystemModal', () => {
             handleHSPSelection: jest.fn(),
             handleSystemSelection: jest.fn(),
             selectHistoricProfiles: jest.fn(),
-            selectBaseline: jest.fn()
+            selectBaseline: jest.fn(),
+            setSelectedBaselines: jest.fn()
         };
     });
 
@@ -134,27 +134,6 @@ describe('AddSystemModal', () => {
         expect(props.handleBaselineSelection).toHaveBeenCalledWith(modalFixtures.baselineContent2, true);
     });
 
-    it('should update system basket', () => {
-        const wrapper = shallow(
-            <AddSystemModal
-                { ...props }
-            />
-        );
-
-        let prevProps = props;
-
-        wrapper.setProps({
-            baselines: baselinesPayload,
-            systems: systemsPayload,
-            historicalProfiles: historicalProfilesPayload
-        });
-        wrapper.instance().componentDidUpdate(prevProps);
-        expect(props.handleSystemSelection).toHaveBeenCalledWith(modalFixtures.systemContent1, true);
-        expect(props.handleBaselineSelection).toHaveBeenCalledWith(modalFixtures.baselineContent3, true);
-        expect(props.handleHSPSelection).toHaveBeenCalledWith(modalFixtures.hspContent1);
-        expect(props.handleHSPSelection).toHaveBeenCalledWith(modalFixtures.hspContent2);
-    });
-
     it('should confirm modal', () => {
         props.entities.selectedSystemIds = [ 'abcd1234' ];
         props.selectedBaselineIds = [ 'efgh5678' ];
@@ -181,7 +160,10 @@ describe('AddSystemModal', () => {
             />
         );
 
+        wrapper.setState({ previousSelectedBaselineIds: [ 'abcd1234' ]});
+
         wrapper.instance().cancelSelection();
+        expect(props.setSelectedBaselines).toHaveBeenCalledWith([ 'abcd1234' ], 'COMPARISON');
         expect(props.handleSystemSelection).toHaveBeenCalled();
         expect(props.handleBaselineSelection).toHaveBeenCalled();
         expect(props.selectHistoricProfiles).toHaveBeenCalled();

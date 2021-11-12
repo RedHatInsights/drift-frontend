@@ -195,6 +195,7 @@ exports[`ConnectedDriftTable should render correctly 1`] = `
                 }
               }
               selectedSystemIds={Array []}
+              updateReferenceId={[MockFunction]}
             >
               <AddSystemModal
                 addSystemModalOpened={false}
@@ -215,8 +216,10 @@ exports[`ConnectedDriftTable should render correctly 1`] = `
                 selectedBaselineIds={Array []}
                 selectedHSPIds={Array []}
                 selectedSystemIds={Array []}
+                setSelectedBaselines={[Function]}
                 setSelectedSystemIds={[Function]}
                 toggleAddSystemModal={[Function]}
+                updateReferenceId={[MockFunction]}
               >
                 <Modal
                   actions={
@@ -646,6 +649,7 @@ exports[`ConnectedDriftTable should render loading rows 1`] = `
                 }
               }
               selectedSystemIds={Array []}
+              updateReferenceId={[MockFunction]}
             >
               <AddSystemModal
                 addSystemModalOpened={false}
@@ -666,8 +670,10 @@ exports[`ConnectedDriftTable should render loading rows 1`] = `
                 selectedBaselineIds={Array []}
                 selectedHSPIds={Array []}
                 selectedSystemIds={Array []}
+                setSelectedBaselines={[Function]}
                 setSelectedSystemIds={[Function]}
                 toggleAddSystemModal={[Function]}
+                updateReferenceId={[MockFunction]}
               >
                 <Modal
                   actions={
@@ -2103,6 +2109,7 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                   "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                 ]
               }
+              updateReferenceId={[MockFunction]}
             >
               <AddSystemModal
                 addSystemModalOpened={false}
@@ -2128,8 +2135,10 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                     "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                   ]
                 }
+                setSelectedBaselines={[Function]}
                 setSelectedSystemIds={[Function]}
                 toggleAddSystemModal={[Function]}
+                updateReferenceId={[MockFunction]}
               >
                 <Modal
                   actions={
@@ -7977,6 +7986,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                   "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                 ]
               }
+              updateReferenceId={[MockFunction]}
             >
               <AddSystemModal
                 addSystemModalOpened={false}
@@ -8002,8 +8012,10 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                     "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                   ]
                 }
+                setSelectedBaselines={[Function]}
                 setSelectedSystemIds={[Function]}
                 toggleAddSystemModal={[Function]}
+                updateReferenceId={[MockFunction]}
               >
                 <Modal
                   actions={
@@ -12060,6 +12072,7 @@ exports[`DriftTable should render correctly 1`] = `
       }
     }
     selectedSystemIds={Array []}
+    updateReferenceId={[MockFunction]}
   />
   <div
     className="second-scroll-wrapper"

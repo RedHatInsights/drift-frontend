@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Button, Popover, PopoverPosition } from '@patternfly/react-core';
 import SelectedTable from './SelectedTable/SelectedTable';
 import EmptyStateDisplay from '../../EmptyStateDisplay/EmptyStateDisplay';
+import addSystemModalHelpers from '../redux/helpers';
 
 export class SelectedBasket extends Component {
     constructor(props) {
@@ -19,6 +20,14 @@ export class SelectedBasket extends Component {
             this.setState({ baselinesToDeselect: []});
             this.setState({ hspsToDeselect: []});
         };
+    }
+
+    async componentDidMount() {
+        addSystemModalHelpers.setContent({
+            systems: this.props.systems,
+            baselines: this.props.baselines,
+            historicalProfiles: this.props.historicalProfiles
+        }, this.props.handleSystemSelection, this.props.handleBaselineSelection, this.props.handleHSPSelection);
     }
 
     toggleBasket = () => {
@@ -168,9 +177,12 @@ export class SelectedBasket extends Component {
 }
 
 SelectedBasket.propTypes = {
+    baselines: PropTypes.array,
+    entities: PropTypes.object,
     handleBaselineSelection: PropTypes.func,
     handleHSPSelection: PropTypes.func,
-    entities: PropTypes.object,
+    handleSystemSelection: PropTypes.func,
+    historicalProfiles: PropTypes.array,
     isVisible: PropTypes.bool,
     selectBaseline: PropTypes.func,
     selectedBaselineContent: PropTypes.array,
@@ -178,6 +190,7 @@ SelectedBasket.propTypes = {
     selectedSystemContent: PropTypes.array,
     selectEntity: PropTypes.func,
     selectHistoricProfiles: PropTypes.func,
+    systems: PropTypes.array,
     toggleBasketVisible: PropTypes.func
 };
 
