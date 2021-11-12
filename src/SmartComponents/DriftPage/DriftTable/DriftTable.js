@@ -14,6 +14,7 @@ import ComparisonHeader from './ComparisonHeader/ComparisonHeader';
 import { compareActions } from '../../modules';
 import { baselinesTableActions } from '../../BaselinesTable/redux';
 import { historicProfilesActions } from '../../HistoricalProfilesPopover/redux';
+import addSystemModalHelpers from '../../AddSystemModal/redux/helpers';
 
 export class DriftTable extends Component {
     constructor(props) {
@@ -58,8 +59,14 @@ export class DriftTable extends Component {
         await window.insights.chrome.auth.getUser();
 
         if (this.systemIds.length > 0 || this.baselineIds.length > 0 || this.HSPIds.length > 0) {
-            this.fetchCompare(this.systemIds, this.baselineIds, this.HSPIds, this.props.referenceId);
+            await this.fetchCompare(this.systemIds, this.baselineIds, this.HSPIds, this.props.referenceId);
         }
+
+        addSystemModalHelpers.setContent({
+            systems: this.props.systems,
+            baselines: this.props.baselines,
+            historicalProfiles: this.props.historicalProfiles
+        }, this.props.handleSystemSelection, this.props.handleBaselineSelection, this.props.handleHSPSelection);
     }
 
     async shouldComponentUpdate(nextProps) {
@@ -316,6 +323,10 @@ export class DriftTable extends Component {
             }
         } else {
             reference = referenceId;
+        }
+
+        if (!systemIds.includes(reference) && !baselineIds.includes(reference) && !HSPIds.includes(reference)) {
+            reference = undefined;
         }
 
         setSelectedBaselines(this.baselineIds, 'COMPARISON');
@@ -604,7 +615,8 @@ export class DriftTable extends Component {
     }
 
     render() {
-        const { emptyState, filteredCompareData, systems, baselines, historicalProfiles, loading, permissions } = this.props;
+        const { emptyState, filteredCompareData, systems, baselines, historicalProfiles, loading, permissions,
+            updateReferenceId } = this.props;
 
         this.masterList = this.formatEntities(systems, baselines, historicalProfiles);
 
@@ -615,6 +627,7 @@ export class DriftTable extends Component {
                     confirmModal={ this.fetchCompare }
                     referenceId={ this.props.referenceId }
                     permissions={ permissions }
+                    updateReferenceId={ updateReferenceId }
                 />
                 { !emptyState
                     ? this.renderTable(filteredCompareData, loading)

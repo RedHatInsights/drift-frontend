@@ -30,7 +30,8 @@ export class AddSystemModal extends Component {
                 { title: 'Last updated', transforms: [ sortable, cellWidth(20) ]},
                 { title: 'Associated systems', transforms: [ cellWidth(20) ]}
             ],
-            basketIsVisible: false
+            basketIsVisible: false,
+            previousSelectedBaselineIds: []
         };
 
         this.addSystemModal = React.createRef();
@@ -74,44 +75,11 @@ export class AddSystemModal extends Component {
         };
     }
 
-    /*eslint-disable camelcase*/
     componentDidUpdate(prevProps) {
-        const { baselines, handleBaselineSelection, handleHSPSelection, handleSystemSelection, historicalProfiles,
-            selectedBaselineContent, selectedHSPContent, selectedSystemContent, systems } = this.props;
-        let newSelectedSystems = [];
-        let newSelectedBaselines = [];
-
         if (!prevProps.addSystemModalOpened && this.props.addSystemModalOpened) {
-            this.setSelectedContent();
-        }
-
-        if ((baselines.length || historicalProfiles.length || systems.length)
-            && (!selectedBaselineContent.length && !selectedHSPContent.length && !selectedSystemContent.length)) {
-            newSelectedSystems = systems.map(function(system) {
-                return this.createContent(system.id, 'System', <ServerIcon />, system.display_name);
-            }.bind(this));
-
-            handleSystemSelection(newSelectedSystems, true);
-
-            newSelectedBaselines = baselines.map(function(baseline) {
-                return this.createContent(baseline.id, 'Baseline', <BlueprintIcon />, baseline.display_name);
-            }.bind(this));
-
-            handleBaselineSelection(newSelectedBaselines, true);
-
-            historicalProfiles.forEach(function(hsp) {
-                let content = {
-                    system_name: hsp.display_name,
-                    captured_date: hsp.updated,
-                    id: hsp.id,
-                    system_id: hsp.system_id
-                };
-
-                handleHSPSelection(content);
-            });
+            this.setState({ previousSelectedBaselineIds: this.props.selectedBaselineIds });
         }
     }
-    /*eslint-enable camelcase*/
 
     toggleBasketVisible = () => {
         const { basketIsVisible } = this.state;
@@ -183,8 +151,10 @@ export class AddSystemModal extends Component {
     }
 
     cancelSelection() {
-        const { toggleAddSystemModal } = this.props;
+        const { toggleAddSystemModal, setSelectedBaselines } = this.props;
+        const { previousSelectedBaselineIds } = this.state;
 
+        setSelectedBaselines(previousSelectedBaselineIds, 'COMPARISON');
         this.setSelectedContent();
         toggleAddSystemModal();
     }
@@ -247,10 +217,10 @@ export class AddSystemModal extends Component {
     };
 
     render() {
-        const { activeTab, addSystemModalOpened, baselineTableData, globalFilterState, handleBaselineSelection, handleHSPSelection,
-            historicalProfiles, loading, entities, permissions, selectEntity, selectHistoricProfiles, selectedBaselineIds, selectedBaselineContent,
-            selectedHSPContent, selectedHSPIds, selectBaseline, selectedSystemContent, selectedSystemIds, setSelectedSystemIds,
-            totalBaselines } = this.props;
+        const { activeTab, addSystemModalOpened, baselines, baselineTableData, globalFilterState, handleBaselineSelection, handleHSPSelection,
+            handleSystemSelection, historicalProfiles, loading, entities, permissions, selectEntity, selectHistoricProfiles, selectedBaselineIds,
+            selectedBaselineContent, selectedHSPContent, selectedHSPIds, selectBaseline, selectedSystemContent, selectedSystemIds,
+            setSelectedSystemIds, systems, totalBaselines } = this.props;
         const { columns, basketIsVisible, systemColumns } = this.state;
 
         return (
@@ -294,6 +264,7 @@ export class AddSystemModal extends Component {
                             <ToolbarItem variant='pagination'>
                                 <SelectedBasket
                                     entities={ entities }
+                                    handleSystemSelection={ handleSystemSelection }
                                     handleBaselineSelection={ handleBaselineSelection }
                                     handleHSPSelection={ handleHSPSelection }
                                     isVisible={ basketIsVisible }
@@ -304,6 +275,9 @@ export class AddSystemModal extends Component {
                                     selectEntity={ selectEntity }
                                     selectHistoricProfiles={ selectHistoricProfiles }
                                     toggleBasketVisible={ this.toggleBasketVisible }
+                                    systems={ systems }
+                                    baselines={ baselines }
+                                    historicalProfiles={ historicalProfiles }
                                 />
                             </ToolbarItem>
                         </ToolbarContent>
@@ -390,7 +364,9 @@ AddSystemModal.propTypes = {
     handleBaselineSelection: PropTypes.func,
     handleHSPSelection: PropTypes.func,
     selectEntity: PropTypes.func,
-    disableSystemTable: PropTypes.func
+    disableSystemTable: PropTypes.func,
+    setSelectedBaselines: PropTypes.func,
+    updateReferenceId: PropTypes.func
 };
 
 function mapStateToProps(state) {
@@ -424,7 +400,8 @@ function mapDispatchToProps(dispatch) {
         selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds)),
         selectEntity: (id, isSelected) => dispatch({ type: 'SELECT_ENTITY', payload: { id, isSelected }}),
         setSelectedSystemIds: (selectedSystemIds) => dispatch(addSystemModalActions.setSelectedSystemIds(selectedSystemIds)),
-        disableSystemTable: (isDisabled) => dispatch(systemsTableActions.disableSystemTable(isDisabled))
+        disableSystemTable: (isDisabled) => dispatch(systemsTableActions.disableSystemTable(isDisabled)),
+        setSelectedBaselines: (ids, tableId) => dispatch(baselinesTableActions.setSelectedBaselines(ids, tableId))
     };
 }
 
