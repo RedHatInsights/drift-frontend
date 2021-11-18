@@ -71,5 +71,9 @@ describe('add system modal actions', () => {
             payload: [{ id: 'abcd1234', system_id: 'efgh5678', icon: <ClockIcon />, captured_date: '2021-03-03T06:40:32+00:00' }]
         });
     });
+
+    it('should call CLEAR_ALL_SELECTIONS', () => {
+        expect(addSystemModalActions.clearAllSelections()).toEqual({ type: types.CLEAR_ALL_SELECTIONS });
+    });
 });
 /*eslint-enable camelcase*/

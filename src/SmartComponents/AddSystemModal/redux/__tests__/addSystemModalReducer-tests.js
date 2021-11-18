@@ -3,6 +3,7 @@ import { addSystemModalReducer } from '../addSystemModalReducer';
 import types from '../types';
 import { BlueprintIcon, ClockIcon, ServerIcon } from '@patternfly/react-icons';
 import DriftTooltip from '../../../DriftTooltip/DriftTooltip';
+import addSystemModalFixtures from './addSystemModalReducer.fixtures';
 
 describe('add system modal reducer', () => {
     it('should return initial state', () => {
@@ -316,6 +317,22 @@ describe('add system modal reducer', () => {
                 }
             ]}
         );
+    });
+
+    it('should handle CLEAR_ALL_SELECTIONS', () => {
+        expect(
+            addSystemModalReducer({
+                selectedSystemContent: addSystemModalFixtures.systemContent3,
+                selectedBaselineContent: addSystemModalFixtures.baselineContent3,
+                selectedHSPContent: addSystemModalFixtures.hspContent3
+            }, {
+                type: `${types.CLEAR_ALL_SELECTIONS}`
+            })
+        ).toEqual({
+            selectedSystemContent: [],
+            selectedBaselineContent: [],
+            selectedHSPContent: []
+        });
     });
 });
 /*eslint-enable camelcase*/
