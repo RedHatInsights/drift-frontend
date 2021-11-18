@@ -41,11 +41,18 @@ function handleHSPSelection(content) {
     };
 }
 
+function clearAllSelections() {
+    return {
+        type: types.CLEAR_ALL_SELECTIONS
+    };
+}
+
 export default {
     toggleAddSystemModal,
     selectActiveTab,
     setSelectedSystemIds,
     handleSystemSelection,
     handleBaselineSelection,
-    handleHSPSelection
+    handleHSPSelection,
+    clearAllSelections
 };

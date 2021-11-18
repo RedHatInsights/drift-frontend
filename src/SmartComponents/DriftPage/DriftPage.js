@@ -94,10 +94,11 @@ export class DriftPage extends Component {
     }
 
     render() {
-        const { activeFactFilters, addStateFilter, baselines, clearAllFactFilters, clearComparison, clearComparisonFilters, clearSelectedBaselines,
-            emptyState, error, exportToCSV, exportToJSON, factFilter, factSort, filterByFact, handleFactFilter, historicalProfiles,
-            handleBaselineSelection, handleHSPSelection, handleSystemSelection, history, loading, page, perPage, referenceId, resetComparisonFilters,
-            selectedBaselineIds, selectedHSPIds, stateFilters, stateSort, systems, totalFacts, updatePagination, updateReferenceId } = this.props;
+        const { activeFactFilters, addStateFilter, baselines, clearAllFactFilters, clearAllSelections, clearComparison, clearComparisonFilters,
+            clearSelectedBaselines, emptyState, error, exportToCSV, exportToJSON, factFilter, factSort, filterByFact, handleFactFilter,
+            historicalProfiles, handleBaselineSelection, handleHSPSelection, handleSystemSelection, history, loading, page, perPage, referenceId,
+            resetComparisonFilters, selectedBaselineIds, selectedHSPIds, stateFilters, stateSort, systems, totalFacts, updatePagination,
+            updateReferenceId } = this.props;
         const { isFirstReference } = this.state;
 
         return (
@@ -150,6 +151,7 @@ export class DriftPage extends Component {
                                                     clearAllFactFilters={ clearAllFactFilters }
                                                     setHistory={ this.setHistory }
                                                     resetComparisonFilters={ resetComparisonFilters }
+                                                    clearAllSelections={ clearAllSelections }
                                                 />
                                                 : null
                                             }
@@ -246,7 +248,8 @@ DriftPage.propTypes = {
     handleBaselineSelection: PropTypes.func,
     handleHSPSelection: PropTypes.func,
     handleSystemSelection: PropTypes.func,
-    resetComparisonFilters: PropTypes.func
+    resetComparisonFilters: PropTypes.func,
+    clearAllSelections: PropTypes.func
 };
 
 function mapDispatchToProps(dispatch) {
@@ -268,7 +271,8 @@ function mapDispatchToProps(dispatch) {
         handleSystemSelection: (content, isSelected) => dispatch(addSystemModalActions.handleSystemSelection(content, isSelected)),
         handleBaselineSelection: (content, isSelected) => dispatch(addSystemModalActions.handleBaselineSelection(content, isSelected)),
         handleHSPSelection: (content) => dispatch(addSystemModalActions.handleHSPSelection(content)),
-        resetComparisonFilters: () => dispatch(compareActions.resetComparisonFilters())
+        resetComparisonFilters: () => dispatch(compareActions.resetComparisonFilters()),
+        clearAllSelections: () => dispatch(addSystemModalActions.clearAllSelections())
     };
 }
 

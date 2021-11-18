@@ -131,12 +131,13 @@ export class DriftToolbar extends Component {
     }
 
     clearComparison = async () => {
-        const { clearComparison, clearSelectedBaselines, setHistory, setIsFirstReference, updateReferenceId } = this.props;
+        const { clearAllSelections, clearComparison, clearSelectedBaselines, setHistory, setIsFirstReference, updateReferenceId } = this.props;
 
         await clearComparison();
         await clearSelectedBaselines('COMPARISON');
         await setIsFirstReference(true);
         await updateReferenceId();
+        await clearAllSelections();
         setHistory();
 
     }
@@ -235,7 +236,8 @@ DriftToolbar.propTypes = {
     handleFactFilter: PropTypes.func,
     clearAllFactFilters: PropTypes.func,
     setHistory: PropTypes.func,
-    resetComparisonFilters: PropTypes.func
+    resetComparisonFilters: PropTypes.func,
+    clearAllSelections: PropTypes.func
 };
 
 export default DriftToolbar;

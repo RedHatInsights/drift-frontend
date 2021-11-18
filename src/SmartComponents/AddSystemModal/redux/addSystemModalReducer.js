@@ -50,6 +50,13 @@ export function addSystemModalReducer(state = initialState, action) {
                 ...state,
                 selectedHSPContent: newSelectedContent
             };
+        case `${types.CLEAR_ALL_SELECTIONS}`:
+            return {
+                ...state,
+                selectedSystemContent: [],
+                selectedBaselineContent: [],
+                selectedHSPContent: []
+            };
 
         default:
             return state;
