@@ -226,10 +226,11 @@ export class AddSystemModal extends Component {
         return (
             <React.Fragment>
                 <Modal
+                    className='drift'
                     ref={ this.addSystemModal }
                     onScroll={ basketIsVisible ? this.closePopover : null }
                     style={{ maxHeight: '600px' }}
-                    width={ '950px' }
+                    width={ '1200px' }
                     title="Add to comparison"
                     ouiaId='add-to-comparison-modal'
                     isOpen={ addSystemModalOpened }

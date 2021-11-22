@@ -14,7 +14,6 @@ import ComparisonHeader from './ComparisonHeader/ComparisonHeader';
 import { compareActions } from '../../modules';
 import { baselinesTableActions } from '../../BaselinesTable/redux';
 import { historicProfilesActions } from '../../HistoricalProfilesPopover/redux';
-import addSystemModalHelpers from '../../AddSystemModal/redux/helpers';
 
 export class DriftTable extends Component {
     constructor(props) {
@@ -61,12 +60,6 @@ export class DriftTable extends Component {
         if (this.systemIds.length > 0 || this.baselineIds.length > 0 || this.HSPIds.length > 0) {
             await this.fetchCompare(this.systemIds, this.baselineIds, this.HSPIds, this.props.referenceId);
         }
-
-        addSystemModalHelpers.setContent({
-            systems: this.props.systems,
-            baselines: this.props.baselines,
-            historicalProfiles: this.props.historicalProfiles
-        }, this.props.handleSystemSelection, this.props.handleBaselineSelection, this.props.handleHSPSelection);
     }
 
     async shouldComponentUpdate(nextProps) {

@@ -57,7 +57,7 @@ function makeHSPSelections(content, selectedContent) {
     return newSelectedContent;
 }
 
-function setContent(selectedIds, handleSystemSelection, handleBaselineSelection, handleHSPSelection) {
+function setContent(selectedIds, handleSystemSelection, handleBaselineSelection, handleHSPSelection, selectedHSPContent) {
     let newSelectedSystems = [];
     let newSelectedBaselines = [];
 
@@ -79,7 +79,13 @@ function setContent(selectedIds, handleSystemSelection, handleBaselineSelection,
 
     /*eslint-disable camelcase*/
     if (selectedIds.historicalProfiles.length) {
-        selectedIds.historicalProfiles.forEach(function(hsp) {
+        let unselectedHSPs = selectedIds.historicalProfiles.filter(function(hsp) {
+            return !selectedHSPContent.some(function(profile) {
+                return hsp.id === profile.id;
+            });
+        });
+
+        unselectedHSPs.forEach(function(hsp) {
             let content = {
                 system_name: hsp.display_name,
                 captured_date: hsp.updated,
