@@ -118,6 +118,7 @@ describe('SelectedBasket', () => {
             hspsToDeselect: [ 'ijkl9101' ]
         });
         wrapper.setState({ isVisible: true });
+        expect(toJson(wrapper)).toMatchSnapshot();
 
         await wrapper.instance().applyChanges();
         await expect(props.selectBaseline).toHaveBeenCalledWith([ 'abcd1234' ], false, 'COMPARISON');
