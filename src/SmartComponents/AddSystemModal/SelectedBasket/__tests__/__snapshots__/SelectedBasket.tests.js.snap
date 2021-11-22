@@ -60,6 +60,103 @@ exports[`SelectedBasket should not be visible with selected count 1`] = `
       }
       footerContent={
         <Button
+          isDisabled={true}
+          onClick={[Function]}
+          ouiaId="confirm-selected-basket-button"
+          variant="primary"
+        >
+          Apply changes
+        </Button>
+      }
+      headerContent={
+        <div>
+          Selected items (
+          3
+          )
+        </div>
+      }
+      id="selected-basket"
+      position="bottom"
+      shouldClose={[Function]}
+      style={
+        Object {
+          "minWidth": "500px",
+        }
+      }
+    >
+      <a
+        onClick={[Function]}
+      >
+        Selected (
+        3
+        )
+      </a>
+    </Popover>
+  </span>
+</Fragment>
+`;
+
+exports[`SelectedBasket should remove all selected 1`] = `
+<Fragment>
+  <span>
+    <Popover
+      bodyContent={
+        <div
+          style={
+            Object {
+              "maxHeight": "500px",
+              "overflowY": "auto",
+            }
+          }
+        >
+          <SelectedTable
+            findType={[Function]}
+            selectedBaselineContent={
+              Array [
+                Object {
+                  "icon": <BlueprintIcon
+                    color="currentColor"
+                    noVerticalAlign={false}
+                    size="sm"
+                  />,
+                  "id": "abcd1234",
+                  "name": "baseline",
+                },
+              ]
+            }
+            selectedHSPContent={
+              Array [
+                Object {
+                  "captured_date": "2021-03-03T06:40:32+00:00",
+                  "icon": <ClockIcon
+                    color="currentColor"
+                    noVerticalAlign={false}
+                    size="sm"
+                  />,
+                  "id": "ijkl9101",
+                  "system_id": "efgh5678",
+                },
+              ]
+            }
+            selectedSystemContent={
+              Array [
+                Object {
+                  "icon": <ServerIcon
+                    color="currentColor"
+                    noVerticalAlign={false}
+                    size="sm"
+                  />,
+                  "id": "efgh5678",
+                  "name": "system",
+                },
+              ]
+            }
+          />
+        </div>
+      }
+      footerContent={
+        <Button
+          isDisabled={false}
           onClick={[Function]}
           ouiaId="confirm-selected-basket-button"
           variant="primary"
@@ -120,6 +217,7 @@ exports[`SelectedBasket should render empty 1`] = `
       }
       footerContent={
         <Button
+          isDisabled={true}
           onClick={[Function]}
           ouiaId="confirm-selected-basket-button"
           variant="primary"
@@ -215,6 +313,7 @@ exports[`SelectedBasket should toggle to visible with system, baseline and hsp 1
       }
       footerContent={
         <Button
+          isDisabled={true}
           onClick={[Function]}
           ouiaId="confirm-selected-basket-button"
           variant="primary"

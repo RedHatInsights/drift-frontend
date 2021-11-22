@@ -143,6 +143,7 @@ export class SelectedBasket extends Component {
 
     render() {
         const { isVisible } = this.props;
+        const { systemsToDeselect, baselinesToDeselect, hspsToDeselect } = this.state;
 
         return (
             <React.Fragment>
@@ -158,6 +159,7 @@ export class SelectedBasket extends Component {
                             variant="primary"
                             onClick={ () => this.applyChanges() }
                             ouiaId="confirm-selected-basket-button"
+                            isDisabled={ !systemsToDeselect.length && !baselinesToDeselect.length && !hspsToDeselect.length }
                         >
                             Apply changes
                         </Button> }
