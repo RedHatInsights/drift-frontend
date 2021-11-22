@@ -27,7 +27,7 @@ export class SelectedBasket extends Component {
             systems: this.props.systems,
             baselines: this.props.baselines,
             historicalProfiles: this.props.historicalProfiles
-        }, this.props.handleSystemSelection, this.props.handleBaselineSelection, this.props.handleHSPSelection);
+        }, this.props.handleSystemSelection, this.props.handleBaselineSelection, this.props.handleHSPSelection, this.props.selectedHSPContent);
     }
 
     toggleBasket = () => {
