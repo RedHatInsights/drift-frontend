@@ -6,8 +6,7 @@ const { config: webpackConfig, plugins } = config({
     debug: true,
     https: true,
     useProxy: true,
-    routesPath: process.env.CONFIG_PATH,
-    env: 'stage-stable'
+    routesPath: process.env.CONFIG_PATH
 });
 
 plugins.push(
