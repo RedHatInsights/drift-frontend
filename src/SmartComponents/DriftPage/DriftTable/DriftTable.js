@@ -463,7 +463,7 @@ export class DriftTable extends Component {
                         data-ouia-component-type='PF4/TableRow'
                         data-ouia-component-id={ 'comparison-table-row-' + comparison.name }
                         category={ fact.name }
-                        className={ comparison.state === 'DIFFERENT' ? 'unexpected-row' : '' }>
+                        className={ comparison.state === 'DIFFERENT' || comparison.state === 'INCOMPLETE_DATA_OBFUSCATED' ? 'unexpected-row' : '' }>
                         { row }
                     </tr>);
                     if (comparison.multivalues) {
@@ -472,7 +472,9 @@ export class DriftTable extends Component {
                                 row = this.renderRowChild(subFactItem);
                                 let rowValue = subFactItem.systems.filter(cell => cell.value !== '')[0].value;
                                 rows.push(<tr
-                                    className={ subFactItem.state === 'DIFFERENT' ? 'unexpected-row' : '' }
+                                    className={ subFactItem.state === 'DIFFERENT' || subFactItem.state === 'INCOMPLETE_DATA_OBFUSCATED'
+                                        ? 'unexpected-row'
+                                        : '' }
                                     data-ouia-component-type='PF4/TableRow'
                                     data-ouia-component-id={ 'comparison-table-row-multivalue-' + comparison.name + '-' + rowValue }>{ row }</tr>);
                             });
@@ -493,7 +495,7 @@ export class DriftTable extends Component {
             rows.push(<tr
                 data-ouia-component-type='PF4/TableRow'
                 data-ouia-component-id={ 'comparison-table-row-' + fact.name }
-                className={ fact.state === 'DIFFERENT' ? 'unexpected-row' : '' }>
+                className={ fact.state === 'DIFFERENT'  || fact.state === 'INCOMPLETE_DATA_OBFUSCATED' ? 'unexpected-row' : '' }>
                 { row }
             </tr>);
         }
