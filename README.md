@@ -21,91 +21,53 @@ Ensure the following entry is in your `/etc/hosts` file:
 
 # how to run with Clowder drift-backend
 
-Ensure insights-proxy repo (https://github.com/RedHatInsights/insights-proxy) exists in the same parent directory that contains `/drift-frontend`
-
-
 OBS: First go through the steps in [drift-dev-setup](https://github.com/RedHatInsights/drift-dev-setup#run-with-clowder).
 
-Make sure to run these commands in 2 different terminals at the sametime.
-
-In terminal 1:
+In terminal run:
 ```
-cd drift-frontend
-USE_CLOUD=true PLATFORM=linux CUSTOM_CONF_PATH=$PWD/profiles/local-frontend-and-ephemeral-cluster.js npm --prefix ../insights-proxy/ run start
+npm run ephemeral
 ```
 
-In terminal 2:
-```
-cd drift-frontend
-npm run start
-```
+This will route requests to pods running in ephemeral cluster.
+
 Note: If you see `ℹ ｢wdm｣: Compiled successfully.`, you are in good shape.
 
 Finally, hit the following URL in your browser. If you are not logged in, you will be prompted to do so.
 
 https://ci.foo.redhat.com:1337/insights/drift
 
-# how to run with CI drift-backend
+# how to run with Stage drift-backend
 
-Ensure insights-proxy repo (https://github.com/RedHatInsights/insights-proxy) exists in the same parent directory that contains `/drift-frontend`
-
-Make sure to run these commands in 2 different terminals at the sametime.
-
-In terminal 1:
+In terminal run:
 ```
-cd drift-frontend
-USE_CLOUD=true SPANDX_CONFIG=profiles/local-frontend.js  bash ../insights-proxy/scripts/run.sh
+npm run stage
 ```
 
-In terminal 2:
-```
-cd drift-frontend
-npm run start
-```
+This will route requests to pods running in stage.
+
 Note: If you see `ℹ ｢wdm｣: Compiled successfully.`, you are in good shape.
 
 Finally, hit the following URL in your browser. If you are not logged in, you will be prompted to do so.
 
-https://ci.foo.redhat.com:1337/insights/drift
+https://stage.foo.redhat.com:1337/apps/drift/
 
 
 # how to run with local drift-backend
 
-Ensure drift-backend repo (https://github.com/RedHatInsights/drift-backend) exists in the same parent directory that contains `/drift-frontend`. There is already a `local-drift-backend.js` file in the drift-backend git repo.
+OBS: First go through the steps in [drift-dev-setup](https://github.com/RedHatInsights/drift-dev-setup#run-with-clowder).
 
-Make sure to run these commands in 2 different terminals at the sametime.
+And have backend services running locally with [sh run_app_locally](https://github.com/RedHatInsights/drift-backend/blob/master/run_app_locally.sh)
 
-In terminal 1:
-
+In terminal run:
 ```
-cd drift-frontend
-USE_CLOUD=true SPANDX_CONFIG=../drift-backend/local-drift-backend.js bash ../insights-proxy/scripts/run.sh
+npm run local
 ```
 
-In terminal 2:
+This will route requests to services running locally.
 
-```
-cd drift-frontend
-npm run start
-```
+Finally, hit the following URL in your browser. If you are not logged in, you will be prompted to do so.
 
-# how to run with [drift-dev-setup](https://github.com/RedHatInsights/drift-dev-setup)
-
-In terminal
-```
-cd drift-frontend
-USE_CLOUD=true SPANDX_PORT=1338 SPANDX_CONFIG=profiles/local-drift-dev-setup.js bash ../insights-proxy/scripts/run.sh
-```
-Note that `SPANDX_PORT` should be different from the port used for [drift-dev-setup](https://github.com/RedHatInsights/drift-dev-setup) which is `1337` by default.
-
-In another terminal
-```
-cd drift-frontend
-npm run start -- --port 8001 # value set in profiles/local-drift-dev-setup.js
-```
-
-This way we can have running both frontend from container via [drift-dev-setup](https://github.com/RedHatInsights/drift-dev-setup) and one from local source each running on different port.
-
+https://ci.foo.redhat.com:1337/insights/drift
 
 # troubleshooting
 
