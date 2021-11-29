@@ -1230,12 +1230,12 @@ export const mockMultiValueFacts = ({
 
 export const comparisonCSV = 'Fact,State,sgi-xe500-01.rhts.eng.bos.redhat.com(reference),ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com\n\
 ,,15 Jan 2019 14:53 UTC(reference),15 Jan 2019 15:25 UTC\n\
-cpus,DIFFERENT,4,3,\n\
-bios_uuid,SAME,FAKE-BIOS,FAKE-BIOS,\n\
-display_name,SAME,PC-NAME,PC-NAME,\n\
-cpu_flags,DIFFERENT,\n\
-     abm,SAME,enabled,enabled,\n\
-     adx,INCOMPLETE_DATA,disabled,,\n\
+cpus,DIFFERENT,4,3\n\
+bios_uuid,SAME,FAKE-BIOS,FAKE-BIOS\n\
+display_name,SAME,PC-NAME,PC-NAME\n\
+cpu_flags,DIFFERENT\n\
+     abm,SAME,enabled,enabled\n\
+     adx,INCOMPLETE_DATA,disabled,\n\
 ';
 
 export const fullSimpleComparison = ({

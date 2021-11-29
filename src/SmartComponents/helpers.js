@@ -109,7 +109,6 @@ function downloadHelper(baselineData) {
 
     let today = new Date();
     filename += today.toISOString();
-    //filename += '.' + baselineData.type;
 
     downloadFile(file, filename, baselineData.type);
 }

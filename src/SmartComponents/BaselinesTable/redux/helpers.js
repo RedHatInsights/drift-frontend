@@ -97,9 +97,11 @@ function convertListToCSV(data) {
     let result = headers + lineDelimiter;
 
     data.forEach(function(baseline) {
-        baseline.forEach(function(detail) {
+        baseline.forEach(function(detail, index) {
             result += detail;
-            result += columnDelimiter;
+            if (index + 1 !== baseline.length) {
+                result += columnDelimiter;
+            }
         });
 
         result += lineDelimiter;
