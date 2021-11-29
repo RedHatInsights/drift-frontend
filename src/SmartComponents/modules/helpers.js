@@ -310,13 +310,19 @@ function addRow(fact) {
     let result = '';
 
     result += factName + COLUMN_DELIMITER;
-    result += fact.state + COLUMN_DELIMITER;
+    result += fact.state;
+    if (!fact.multivalues && !fact.comparisons) {
+        result += COLUMN_DELIMITER;
+    }
 
     if (fact.systems) {
-        fact.systems.forEach(function(system) {
+        fact.systems.forEach(function(system, index) {
+            if (index !== 0) {
+                result += COLUMN_DELIMITER;
+            }
+
             value = system.value ? system.value.replace(/,/g, '') : '';
             result += value;
-            result += COLUMN_DELIMITER;
         });
     } else if (fact.multivalues) {
         fact.multivalues.forEach(function(value) {

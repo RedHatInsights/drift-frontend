@@ -407,32 +407,38 @@ function convertDataToCSV(data, baselineData) {
     let lineDelimiter = '\n';
 
     /*eslint-disable camelcase*/
-    let headers = 'Fact,Value,';
+    let headers = 'Fact,Value';
     let result = baselineData.display_name + lineDelimiter + headers + lineDelimiter;
     /*eslint-enable camelcase*/
 
     data.forEach(function(row) {
-        row.forEach(function(rowData) {
+        row.forEach(function(rowData, index) {
             if (row[0] === rowData) {
                 return;
+            }
+
+            if (index !== 1 && !Array.isArray(row[index])) {
+                result += columnDelimiter;
             }
 
             if (Array.isArray(rowData)) {
                 rowData.forEach(function(subFact) {
                     result += lineDelimiter;
                     result += '    ';
-                    subFact.forEach(function(subFactData) {
+                    subFact.forEach(function(subFactData, i) {
                         if (subFact[0] === subFactData) {
                             return;
                         }
 
+                        if (i !== 1) {
+                            result += columnDelimiter;
+                        }
+
                         result += subFactData;
-                        result += columnDelimiter;
                     });
                 });
             } else {
                 result += rowData;
-                result += columnDelimiter;
             }
         });
 

@@ -288,19 +288,19 @@ const editParentFactAPIBody = {
 };
 
 const csvContent = 'lotr-baseline\n\
-Fact,Value,\n\
-Sauron,the Dark Lord,\n\
-Galadriel,the Elven Queen,\n\
-The Fellowship of the Ring,\n\
-    Frodo,Baggins,\n\
-    Samwise,Gamgee,\n\
-    Gandalf,the Grey,\n\
-    Meriadoc,Brandybuck,\n\
-    Peregrin,Took,\n\
-    Gimli,son of Gloin,\n\
-    Legolas,Greenleaf,\n\
-    Boromir,son of Denethor,\n\
-    Aragorn,son of Arathorn,\n\
+Fact,Value\n\
+Sauron,the Dark Lord\n\
+Galadriel,the Elven Queen\n\
+The Fellowship of the Ring\n\
+    Frodo,Baggins\n\
+    Samwise,Gamgee\n\
+    Gandalf,the Grey\n\
+    Meriadoc,Brandybuck\n\
+    Peregrin,Took\n\
+    Gimli,son of Gloin\n\
+    Legolas,Greenleaf\n\
+    Boromir,son of Denethor\n\
+    Aragorn,son of Arathorn\n\
 ';
 
 const jsonContent = [
