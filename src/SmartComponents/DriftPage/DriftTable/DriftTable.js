@@ -504,18 +504,11 @@ export class DriftTable extends Component {
     }
 
     renderRowChild(fact) {
-        const { expandedRows } = this.props;
         let row = [];
 
         if (fact.multivalues) {
             row.push(
-                this.renderFact(
-                    fact.name,
-                    expandedRows.includes(fact.name)
-                        ? 'nested-fact sticky-column fixed-column-1'
-                        : 'sticky-column fixed-column-1',
-                    true
-                )
+                this.renderFact(fact.name, 'nested-fact sticky-column fixed-column-1', true)
             );
 
             row.push(
