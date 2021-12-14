@@ -2,18 +2,16 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Tooltip } from '@patternfly/react-core';
-import { AngleDownIcon, AngleRightIcon, LockIcon } from '@patternfly/react-icons';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
 import { ASC, DESC } from '../../../constants';
 
 import AddSystemModal from '../../AddSystemModal/AddSystemModal';
-import StateIcon from '../../StateIcon/StateIcon';
 import ComparisonHeader from './ComparisonHeader/ComparisonHeader';
 
 import { compareActions } from '../../modules';
 import { baselinesTableActions } from '../../BaselinesTable/redux';
 import { historicProfilesActions } from '../../HistoricalProfilesPopover/redux';
+import DriftTableRow from './DriftTableRow/DriftTableRow';
 
 export class DriftTable extends Component {
     constructor(props) {
@@ -363,193 +361,70 @@ export class DriftTable extends Component {
         return rows;
     }
 
-    findSystem(fact) {
-        let row = [];
-        let system = undefined;
-        let className;
-
-        this.masterList.forEach(item => {
-            className = [ 'comparison-cell' ];
-            system = fact.systems.find(function(sys) {
-                return sys.id === item.id;
-            });
-
-            if (this.props.referenceId) {
-                if (system?.is_obfuscated) {
-                    className.push('obfuscated');
-                } else {
-                    if (system.state === 'DIFFERENT') {
-                        className.push('highlight');
-                        className.push('different-fact-cell');
-                    }
-                }
-            } else {
-                if (system?.is_obfuscated) {
-                    className.push('obfuscated');
-                }
-                else if (fact.state === 'DIFFERENT') {
-                    className.push('highlight');
-                }
-            }
-
-            row.push(<td className={ className.join(' ') }>
-                { system?.value === null ? 'No Data' : system?.value }
-                { system?.is_obfuscated ?
-                    <span
-                        style={{ float: 'right' }}
-                    >
-                        <Tooltip
-                            position='top'
-                            content={ <div>This data has been redacted from the insights-client upload.</div> }
-                        >
-                            <LockIcon color="#737679"/>
-                        </Tooltip>
-                    </span> : ''
-                }
-            </td>);
-        });
-
-        return row;
-    }
-
-    renderFact(factName, className, isMultiFact) {
-        const { expandedRows } = this.props;
-
-        return <td className={ className }>
-            { this.renderExpandableRowButton(expandedRows, factName, isMultiFact) } { factName }
-        </td>;
-    }
-
-    renderState(fact, className) {
-        const { stateSort } = this.props;
-
-        return <td className={ className }>
-            <StateIcon fact={ fact } stateSort={ stateSort ? stateSort : null } />
-        </td>;
-    }
-
     renderRow(fact) {
-        const { expandedRows, stateSort } = this.props;
-        let row = [];
+        const { expandedRows, expandRow, referenceId, stateSort } = this.props;
         let rows = [];
 
         if (fact.comparisons) {
-            row.push(
-                this.renderFact(
-                    fact.name,
-                    expandedRows.includes(fact.name)
-                        ? 'nested-fact sticky-column fixed-column-1'
-                        : 'sticky-column fixed-column-1'
-                )
-            );
-            row.push(
-                this.renderState(fact, 'fact-state sticky-column fixed-column-2')
-            );
-
-            this.masterList.forEach(() => {
-                row.push(<td className="comparison-cell"></td>);
-            });
-
-            rows.push(<tr
-                data-ouia-component-type='PF4/TableRow'
-                data-ouia-component-id={ 'comparison-table-row-' + fact.name }>
-                { row }
-            </tr>);
+            rows.push(<DriftTableRow
+                expandedRows={ expandedRows }
+                expandRow={ expandRow }
+                fact={ fact }
+                masterList={ this.masterList }
+                referenceId={ referenceId }
+                stateSort={ stateSort }
+                type={ 'category' }
+            />);
 
             if (expandedRows.includes(fact.name)) {
                 fact.comparisons.forEach(comparison => {
-                    row = this.renderRowChild(comparison);
-                    rows.push(<tr
-                        data-ouia-component-type='PF4/TableRow'
-                        data-ouia-component-id={ 'comparison-table-row-' + comparison.name }
-                        category={ fact.name }
-                        className={ comparison.state === 'DIFFERENT' || comparison.state === 'INCOMPLETE_DATA_OBFUSCATED' ? 'unexpected-row' : '' }>
-                        { row }
-                    </tr>);
                     if (comparison.multivalues) {
+                        rows.push(<DriftTableRow
+                            expandedRows={ expandedRows }
+                            expandRow={ expandRow }
+                            fact={ comparison }
+                            masterList={ this.masterList }
+                            referenceId={ referenceId }
+                            stateSort={ stateSort }
+                            type={ 'multi fact' }
+                        />);
+
                         if (expandedRows.includes(comparison.name)) {
                             comparison.multivalues.forEach(subFactItem => {
-                                row = this.renderRowChild(subFactItem);
-                                let rowValue = subFactItem.systems.filter(cell => cell.value !== '')[0].value;
-                                rows.push(<tr
-                                    className={ subFactItem.state === 'DIFFERENT' || subFactItem.state === 'INCOMPLETE_DATA_OBFUSCATED'
-                                        ? 'unexpected-row'
-                                        : '' }
-                                    data-ouia-component-type='PF4/TableRow'
-                                    data-ouia-component-id={ 'comparison-table-row-multivalue-' + comparison.name + '-' + rowValue }>{ row }</tr>);
+                                rows.push(<DriftTableRow
+                                    expandedRows={ expandedRows }
+                                    fact={ subFactItem }
+                                    masterList={ this.masterList }
+                                    referenceId={ referenceId }
+                                    stateSort={ stateSort }
+                                    type={ 'multi value' }
+                                />);
                             });
                         }
+                    } else {
+                        rows.push(<DriftTableRow
+                            expandedRows={ expandedRows }
+                            fact={ comparison }
+                            masterList={ this.masterList }
+                            referenceId={ referenceId }
+                            stateSort={ stateSort }
+                            type={ 'sub fact' }
+                        />);
                     }
                 });
             }
         } else {
-            row.push(<td className="sticky-column fixed-column-1">{ fact.name }</td>);
-            row.push(
-                <td className="fact-state sticky-column fixed-column-2">
-                    <StateIcon fact={ fact } stateSort={ stateSort }/>
-                </td>
-            );
-
-            row = row.concat(this.findSystem(fact));
-
-            rows.push(<tr
-                data-ouia-component-type='PF4/TableRow'
-                data-ouia-component-id={ 'comparison-table-row-' + fact.name }
-                className={ fact.state === 'DIFFERENT'  || fact.state === 'INCOMPLETE_DATA_OBFUSCATED' ? 'unexpected-row' : '' }>
-                { row }
-            </tr>);
+            rows.push(<DriftTableRow
+                expandedRows={ expandedRows }
+                fact={ fact }
+                masterList={ this.masterList }
+                referenceId={ referenceId }
+                stateSort={ stateSort }
+                type={ 'fact' }
+            />);
         }
 
         return rows;
-    }
-
-    renderRowChild(fact) {
-        let row = [];
-
-        if (fact.multivalues) {
-            row.push(
-                this.renderFact(fact.name, 'nested-fact sticky-column fixed-column-1', true)
-            );
-
-            row.push(
-                this.renderState(fact, 'fact-state sticky-column fixed-column-2')
-            );
-
-            this.masterList.forEach(() => {
-                row.push(<td className="comparison-cell"></td>);
-            });
-        } else {
-            row.push(<td className="nested-fact sticky-column fixed-column-1">
-                <p className="child-row">{ fact.name }</p>
-            </td>);
-            row.push(<td className="fact-state sticky-column fixed-column-2"><StateIcon fact={ fact }/></td>);
-
-            row = row.concat(this.findSystem(fact));
-        }
-
-        return row;
-    }
-
-    renderExpandableRowButton(expandedRows, factName, isMultiFact) {
-        let expandIcon;
-
-        if (expandedRows.includes(factName)) {
-            expandIcon = <AngleDownIcon
-                className={ 'carat-margin pointer active-blue' + (isMultiFact ? ' child-row' : null) }
-                data-ouia-component-type='PF4/Button'
-                data-ouia-component-id={ 'expand-category-button-' + factName }
-                onClick={ () => this.props.expandRow(factName) }
-            />;
-        } else {
-            expandIcon = <AngleRightIcon
-                className={ 'carat-margin pointer' + (isMultiFact ? ' child-row' : null) }
-                data-ouia-component-type='PF4/Button'
-                data-ouia-component-id={ 'expand-category-button-' + factName }
-                onClick={ () => this.props.expandRow(factName) }
-            />;
-        }
-
-        return expandIcon;
     }
 
     renderTable(compareData, loading) {
