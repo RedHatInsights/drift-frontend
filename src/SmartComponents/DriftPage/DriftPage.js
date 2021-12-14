@@ -34,7 +34,7 @@ export class DriftPage extends Component {
 
     async componentDidMount() {
         await window.insights.chrome.auth.getUser();
-        this.props.loadEntities();
+        //this.props.loadEntities();
     }
 
     componentDidUpdate(prevProps) {
