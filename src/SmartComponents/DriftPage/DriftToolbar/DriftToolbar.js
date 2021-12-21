@@ -177,7 +177,7 @@ export class DriftToolbar extends Component {
                         </ToolbarGroup>
                         <ToolbarGroup variant='button-group'>
                             <ToolbarItem>
-                                <AddSystemButton loading={ loading } />
+                                <AddSystemButton loading={ loading } isToolbar={ true } />
                             </ToolbarItem>
                         </ToolbarGroup>
                         <ToolbarGroup variant='icon-button-group'>

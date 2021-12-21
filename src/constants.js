@@ -15,3 +15,25 @@ export const API_HEADERS = {
     'Content-Type': 'application/json',
     Accept: 'application/json'
 };
+
+/*
+    String constants for empty states
+*/
+
+export const EMPTY_COMPARISON_TITLE = 'No systems or baselines to compare';
+export const EMPTY_COMPARISON_MESSAGE = [
+    'To get started, add at least two systems or baselines to compare their facts.'
+];
+export const EMPTY_BASELINES_FILTER_TITLE = 'No matching baselines found';
+export const EMPTY_FILTER_MESSAGE = [
+    'To continue, edit your filter settings and search again.'
+];
+export const EMPTY_BASELINES_TITLE = 'No baselines';
+export const EMPTY_BASELINES_MESSAGE = [
+    'You currently have no baselines displayed.',
+    'Create a baseline to use in your Comparison analysis.'
+];
+export const EMPTY_BASELINE_TITLE = 'No facts or categories yet';
+export const EMPTY_BASELINE_MESSAGE = [
+    'To get started, add a fact or category to this baseline.'
+];
