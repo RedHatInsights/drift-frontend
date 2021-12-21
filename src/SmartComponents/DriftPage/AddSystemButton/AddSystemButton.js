@@ -11,16 +11,16 @@ export class AddSystemButton extends Component {
     }
 
     render() {
-        const { loading, toggleAddSystemModal, isTable } = this.props;
+        const { loading, toggleAddSystemModal, isToolbar } = this.props;
 
         return (
             <Button
                 variant='primary'
                 onClick={ toggleAddSystemModal }
                 isDisabled={ loading ? true : false }
-                ouiaId={ isTable ? 'add-to-comparison' : 'add-to-comparison-empty' }
+                ouiaId={ isToolbar ? 'add-to-comparison' : 'add-to-comparison-empty' }
             >
-                { isTable ? 'Add' : 'Add to comparison' }
+                { isToolbar ? 'Add to comparison' : 'Add systems or baselines' }
             </Button>
         );
     }
@@ -28,7 +28,7 @@ export class AddSystemButton extends Component {
 
 AddSystemButton.propTypes = {
     toggleAddSystemModal: PropTypes.func,
-    isTable: PropTypes.bool,
+    isToolbar: PropTypes.bool,
     loading: PropTypes.bool
 };
 

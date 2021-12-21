@@ -20,21 +20,18 @@ import DriftToolbar from './DriftToolbar/DriftToolbar';
 import EmptyStateDisplay from '../EmptyStateDisplay/EmptyStateDisplay';
 import { PermissionContext } from '../../App';
 
+import { EMPTY_COMPARISON_TITLE, EMPTY_COMPARISON_MESSAGE } from '../../constants';
+
 export class DriftPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            emptyStateMessage: [
-                'You currently have no system or baselines displayed. Add at least two',
-                'systems or baselines to compare their facts.'
-            ],
             isFirstReference: true
         };
     }
 
     async componentDidMount() {
         await window.insights.chrome.auth.getUser();
-        //this.props.loadEntities();
     }
 
     componentDidUpdate(prevProps) {
@@ -70,7 +67,6 @@ export class DriftPage extends Component {
     }
 
     renderEmptyState = () => {
-        const { emptyStateMessage } = this.state;
         const { error } = this.props;
 
         if (error.status) {
@@ -78,17 +74,17 @@ export class DriftPage extends Component {
                 icon={ ExclamationCircleIcon }
                 color='#c9190b'
                 title={ 'Comparison cannot be displayed' }
-                text={ emptyStateMessage }
+                text={ EMPTY_COMPARISON_MESSAGE }
                 error={ 'Error ' + error.status + ': ' + error.detail }
-                button={ <AddSystemButton isTable={ false }/> }
+                button={ <AddSystemButton/> }
             />;
         } else {
             return <EmptyStateDisplay
                 icon={ PlusCircleIcon }
                 color='#6a6e73'
-                title={ 'Add systems or baselines to compare' }
-                text={ emptyStateMessage }
-                button={ <AddSystemButton isTable={ false }/> }
+                title={ EMPTY_COMPARISON_TITLE }
+                text={ EMPTY_COMPARISON_MESSAGE }
+                button={ <AddSystemButton/> }
             />;
         }
     }

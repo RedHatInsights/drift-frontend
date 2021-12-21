@@ -11,7 +11,7 @@ import ErrorAlert from '../../../ErrorAlert/ErrorAlert';
 import FactModal from '../FactModal/FactModal';
 import AddFactButton from '../AddFactButton/AddFactButton';
 import editBaselineHelpers from './helpers';
-import { FACT_ID, FACT_NAME, FACT_VALUE } from '../../../../constants';
+import { EMPTY_BASELINE_MESSAGE, EMPTY_BASELINE_TITLE, FACT_ID, FACT_NAME, FACT_VALUE } from '../../../../constants';
 import EmptyStateDisplay from '../../../EmptyStateDisplay/EmptyStateDisplay';
 
 class EditBaseline extends Component {
@@ -258,8 +258,8 @@ class EditBaseline extends Component {
             />;
         } else {
             return <EmptyStateDisplay
-                title={ 'No facts' }
-                text={ [ 'No facts or categories have been added to this baseline yet.' ] }
+                title={ EMPTY_BASELINE_TITLE }
+                text={ EMPTY_BASELINE_MESSAGE }
                 button={ <AddFactButton
                     permissions={ permissions }
                     editBaselineEmptyState={ editBaselineEmptyState }

@@ -18,6 +18,7 @@ import { baselinesTableActions } from '../BaselinesTable/redux';
 import { editBaselineActions } from './EditBaselinePage/redux';
 import { historicProfilesActions } from '../HistoricalProfilesPopover/redux';
 import { PermissionContext } from '../../App';
+import { EMPTY_BASELINES_TITLE, EMPTY_BASELINES_MESSAGE } from '../../constants';
 
 export class BaselinesPage extends Component {
     constructor(props) {
@@ -29,10 +30,6 @@ export class BaselinesPage extends Component {
                 { title: 'Last updated', transforms: [ sortable, cellWidth(30) ]},
                 { title: 'Associated systems', transforms: [ cellWidth(20) ]},
                 { title: '', transforms: [ cellWidth(5) ]}
-            ],
-            emptyStateMessage: [
-                'You currently have no baselines displayed.',
-                'Create a baseline to use in your Comparison analysis.'
             ],
             errorMessage: [ 'The list of baselines cannot be displayed at this time. Please retry and if',
                 'the problem persists contact your system administrator.',
@@ -92,7 +89,7 @@ export class BaselinesPage extends Component {
     }
 
     renderTable(permissions) {
-        const { baselineTableData, loading, clearEditBaselineData, notificationsSwitchError, selectedBaselineIds,
+        const { baselineTableData, clearEditBaselineData, emptyState, loading, notificationsSwitchError, selectedBaselineIds,
             totalBaselines } = this.props;
         const { columns } = this.state;
 
@@ -118,6 +115,7 @@ export class BaselinesPage extends Component {
                         permissions={ permissions }
                         hasSwitch={ true }
                         notificationsSwitchError={ notificationsSwitchError }
+                        emptyState={ emptyState }
                     />
                 </div>
             </CardBody>
@@ -126,13 +124,13 @@ export class BaselinesPage extends Component {
 
     renderEmptyState = (permissions) => {
         const { baselineError, emptyState, loading, revertBaselineFetch } = this.props;
-        const { emptyStateMessage, errorMessage } = this.state;
+        const { errorMessage } = this.state;
 
         if (!baselineError.status) {
             return <EmptyStateDisplay
                 icon={ AddCircleOIcon }
-                title={ 'No baselines' }
-                text={ emptyStateMessage }
+                title={ EMPTY_BASELINES_TITLE }
+                text={ EMPTY_BASELINES_MESSAGE }
                 button={ <CreateBaselineButton
                     emptyState={ emptyState }
                     permissions={ permissions }

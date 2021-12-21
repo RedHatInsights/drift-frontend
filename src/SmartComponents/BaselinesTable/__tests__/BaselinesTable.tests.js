@@ -227,10 +227,6 @@ describe('ConnectedBaselinesTable', () => {
             {
                 orderBy: 'display_name',
                 orderHow: 'DESC',
-                emptyStateMessage: [
-                    'This filter criteria matches no baselines.',
-                    'Try changing your filter settings.'
-                ],
                 page: 1,
                 perPage: 20,
                 search: undefined,
@@ -248,10 +244,6 @@ describe('ConnectedBaselinesTable', () => {
             {
                 orderBy: 'display_name',
                 orderHow: 'ASC',
-                emptyStateMessage: [
-                    'This filter criteria matches no baselines.',
-                    'Try changing your filter settings.'
-                ],
                 page: 1,
                 perPage: 20,
                 search: undefined,

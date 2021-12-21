@@ -173,6 +173,7 @@ exports[`DriftToolbar should render correctly 1`] = `
       >
         <ToolbarItem>
           <Connect(AddSystemButton)
+            isToolbar={true}
             loading={false}
           />
         </ToolbarItem>
@@ -309,6 +310,7 @@ exports[`DriftToolbar should render with fact filter chips 1`] = `
       >
         <ToolbarItem>
           <Connect(AddSystemButton)
+            isToolbar={true}
             loading={false}
           />
         </ToolbarItem>

@@ -15,6 +15,9 @@ import EmptyStateDisplay from '../EmptyStateDisplay/EmptyStateDisplay';
 import TablePagination from '../Pagination/Pagination';
 import NotificationDetails from './NotificationDetails/NotificationDetails';
 
+import { EMPTY_BASELINES_TITLE, EMPTY_BASELINES_MESSAGE,
+    EMPTY_BASELINES_FILTER_TITLE, EMPTY_FILTER_MESSAGE } from '../../constants';
+
 export class BaselinesTable extends Component {
     constructor(props) {
         super(props);
@@ -28,11 +31,7 @@ export class BaselinesTable extends Component {
             orderBy: 'display_name',
             orderHow: 'ASC',
             page: 1,
-            perPage: 20,
-            emptyStateMessage: [
-                'This filter criteria matches no baselines.',
-                'Try changing your filter settings.'
-            ]
+            perPage: 20
         };
     }
 
@@ -164,19 +163,28 @@ export class BaselinesTable extends Component {
     }
 
     renderTable({ baselinesWrite, baselinesRead }) {
-        const { columns, createButton, hasMultiSelect, kebab, loading, onSelect, tableData, tableId } = this.props;
-        const { emptyStateMessage } = this.state;
+        const { columns, createButton, emptyState, hasMultiSelect, kebab, loading, onSelect, tableData, tableId } = this.props;
         let tableRows = [];
         let table;
+        let emptyRow;
 
         if (!loading) {
             if (tableData.length === 0) {
-                let emptyRow = <EmptyTable>
-                    <EmptyStateDisplay
-                        title={ 'No matching baselines found' }
-                        text={ emptyStateMessage }
-                    />
-                </EmptyTable>;
+                if (emptyState) {
+                    emptyRow = <EmptyTable>
+                        <EmptyStateDisplay
+                            title={ EMPTY_BASELINES_TITLE }
+                            text={ EMPTY_BASELINES_MESSAGE }
+                        />
+                    </EmptyTable>;
+                } else {
+                    emptyRow = <EmptyTable>
+                        <EmptyStateDisplay
+                            title={ EMPTY_BASELINES_FILTER_TITLE }
+                            text={ EMPTY_FILTER_MESSAGE }
+                        />
+                    </EmptyTable>;
+                }
 
                 tableRows.push({
                     cells: [{
@@ -310,6 +318,7 @@ BaselinesTable.propTypes = {
     leftAlignToolbar: PropTypes.bool,
     hasSwitch: PropTypes.bool,
     notificationsSwitchError: PropTypes.object,
+    emptyState: PropTypes.bool,
     toggleNotificationPending: PropTypes.func,
     toggleNotificationFulfilled: PropTypes.func,
     toggleNotificationRejected: PropTypes.func

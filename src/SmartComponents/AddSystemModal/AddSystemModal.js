@@ -217,10 +217,10 @@ export class AddSystemModal extends Component {
     };
 
     render() {
-        const { activeTab, addSystemModalOpened, baselines, baselineTableData, globalFilterState, handleBaselineSelection, handleHSPSelection,
-            handleSystemSelection, historicalProfiles, loading, entities, permissions, selectEntity, selectHistoricProfiles, selectedBaselineIds,
-            selectedBaselineContent, selectedHSPContent, selectedHSPIds, selectBaseline, selectedSystemContent, selectedSystemIds,
-            setSelectedSystemIds, systems, totalBaselines } = this.props;
+        const { activeTab, addSystemModalOpened, baselines, baselineTableData, emptyState, globalFilterState, handleBaselineSelection,
+            handleHSPSelection, handleSystemSelection, historicalProfiles, loading, entities, permissions, selectEntity, selectHistoricProfiles,
+            selectedBaselineIds, selectedBaselineContent, selectedHSPContent, selectedHSPIds, selectBaseline, selectedSystemContent,
+            selectedSystemIds, setSelectedSystemIds, systems, totalBaselines } = this.props;
         const { columns, basketIsVisible, systemColumns } = this.state;
 
         return (
@@ -325,6 +325,7 @@ export class AddSystemModal extends Component {
                                 basketIsVisible={ basketIsVisible }
                                 leftAlignToolbar={ true }
                                 hasSwitch={ false }
+                                emptyState={ emptyState }
                             />
                         </Tab>
                     </Tabs>
@@ -367,7 +368,8 @@ AddSystemModal.propTypes = {
     selectEntity: PropTypes.func,
     disableSystemTable: PropTypes.func,
     setSelectedBaselines: PropTypes.func,
-    updateReferenceId: PropTypes.func
+    updateReferenceId: PropTypes.func,
+    emptyState: PropTypes.bool
 };
 
 function mapStateToProps(state) {
@@ -386,7 +388,8 @@ function mapStateToProps(state) {
         globalFilterState: state.globalFilterState,
         selectedHSPContent: state.addSystemModalState.selectedHSPContent,
         selectedBaselineContent: state.addSystemModalState.selectedBaselineContent,
-        selectedSystemContent: state.addSystemModalState.selectedSystemContent
+        selectedSystemContent: state.addSystemModalState.selectedSystemContent,
+        emptyState: state.baselinesTableState.comparisonTable.emptyState
     };
 }
 

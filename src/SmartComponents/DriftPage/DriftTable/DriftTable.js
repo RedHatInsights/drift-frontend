@@ -17,13 +17,6 @@ export class DriftTable extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            emptyStateMessage: [
-                'You currently have no system or baselines displayed. Add at least two',
-                'systems or baselines to compare their facts.'
-            ]
-        };
-
         this.masterList = [];
 
         this.setSystemIds();
