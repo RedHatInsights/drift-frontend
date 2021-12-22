@@ -210,8 +210,11 @@
   .sticky-column-header .drift-header {
     padding: 16px;
     margin: 0;
-    border-right: 1px solid #CCC;
     min-width: 250px;
+
+    &.right-border {
+      border-right: 1px solid #CCC;
+    }
 
     &.remove-system-icon {
       position: relative;
@@ -289,6 +292,10 @@
 .state-header {
   font-weight: bold;
   vertical-align: bottom;
+
+  &.right-border {
+    border-right: 1px solid #CCC;
+  }
 }
 .fixed-column-1 {
   left: 0;

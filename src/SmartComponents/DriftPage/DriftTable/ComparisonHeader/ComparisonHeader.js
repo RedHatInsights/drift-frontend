@@ -83,8 +83,8 @@ class ComparisonHeader extends Component {
                     header-id={ item.id }
                     key={ item.id }
                     className={ item.id === referenceId
-                        ? 'drift-header reference-header'
-                        : `drift-header ${item.type}-header` }
+                        ? 'drift-header right-border reference-header'
+                        : `drift-header right-border ${item.type}-header` }
                 >
                     <div>
                         <a
@@ -161,7 +161,7 @@ class ComparisonHeader extends Component {
                     <div className="active-blue">Fact { this.renderSortButton(factSort) }</div>
                 </th>
                 <th
-                    className="state-header sticky-column fixed-column-2 pointer"
+                    className="state-header sticky-column fixed-column-2 pointer right-border"
                     key='state-header'
                     id={ stateSort || 'disabled' }
                     data-ouia-component-type='PF4/Button'
