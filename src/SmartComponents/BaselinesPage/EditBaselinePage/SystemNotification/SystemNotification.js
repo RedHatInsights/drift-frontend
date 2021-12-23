@@ -114,6 +114,7 @@ export class SystemNotification extends Component {
                 />
                 <Modal
                     className="drift"
+                    width='1200px'
                     ouiaId='add-baseline-notification-modal'
                     variant={ ModalVariant.medium }
                     title={ 'Associate system with ' + baselineName }
