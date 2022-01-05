@@ -1,22 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Alert, AlertActionCloseButton } from '@patternfly/react-core';
+import { Alert } from '@patternfly/react-core';
 
 export class GlobalFilterAlert extends Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            isOpen: true
-        };
-
-        this.toggleIsOpen = () => {
-            const { isOpen } = this.state;
-
-            this.setState({
-                isOpen: !isOpen
-            });
-        };
     }
 
     buildBody = () => {
@@ -73,16 +61,14 @@ export class GlobalFilterAlert extends Component {
 
     render() {
         const { sidsFilter, tagsFilter, workloadsFilter } = this.props.globalFilterState;
-        const { isOpen } = this.state;
 
         return (
             <React.Fragment>
-                { isOpen && (workloadsFilter.SAP?.isSelected || sidsFilter.length > 0 || tagsFilter.length > 0)
+                { workloadsFilter.SAP?.isSelected || sidsFilter.length > 0 || tagsFilter.length > 0
                     ? <Alert
                         variant='info'
                         title='Your systems are pre-filtered by the global context selector.'
                         isInline
-                        actionClose={ <AlertActionCloseButton onClose={ () => this.toggleIsOpen() } /> }
                     >
                         <p>
                             { this.buildBody() }
