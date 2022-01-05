@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
 import { GlobalFilterAlert } from '../GlobalFilterAlert';
@@ -112,22 +112,5 @@ describe('GlobalFilterAlert', () => {
         );
 
         expect(toJson(wrapper)).toMatchSnapshot();
-    });
-
-    it('should close alert', () => {
-        props.globalFilterState.workloadsFilter = {
-            SAP: {
-                isSelected: true
-            }
-        };
-
-        const wrapper = mount(
-            <GlobalFilterAlert
-                { ...props }
-            />
-        );
-
-        wrapper.find('AlertActionCloseButton').simulate('click');
-        expect(wrapper.state('isOpen')).toBe(false);
     });
 });
