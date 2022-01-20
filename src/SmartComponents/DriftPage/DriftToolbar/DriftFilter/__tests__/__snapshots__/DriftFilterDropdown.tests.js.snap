@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DriftFilterValue should render with fact name 1`] = `
+<Dropdown
+  className="comparison-filter-dropdown-width"
+  dropdownItems={
+    Array [
+      <DropdownItem
+        data-ouia-component-id="fact-name-filter"
+        onClick={[Function]}
+      >
+        Fact name
+      </DropdownItem>,
+      <DropdownItem
+        data-ouia-component-id="state-filter"
+        onClick={[Function]}
+      >
+        State
+      </DropdownItem>,
+    ]
+  }
+  isOpen={false}
+  ouiaId="drift-filter-dropdown"
+  toggle={
+    <DropdownToggle
+      icon={
+        <FilterIcon
+          color="currentColor"
+          noVerticalAlign={false}
+          size="sm"
+        />
+      }
+      onToggle={[Function]}
+      ouiaId="drift-filter-toggle"
+    >
+      Fact name
+    </DropdownToggle>
+  }
+/>
+`;
+
+exports[`DriftFilterValue should render with state filter 1`] = `
+<Dropdown
+  className="comparison-filter-dropdown-width"
+  dropdownItems={
+    Array [
+      <DropdownItem
+        data-ouia-component-id="fact-name-filter"
+        onClick={[Function]}
+      >
+        Fact name
+      </DropdownItem>,
+      <DropdownItem
+        data-ouia-component-id="state-filter"
+        onClick={[Function]}
+      >
+        State
+      </DropdownItem>,
+    ]
+  }
+  isOpen={false}
+  ouiaId="drift-filter-dropdown"
+  toggle={
+    <DropdownToggle
+      icon={
+        <FilterIcon
+          color="currentColor"
+          noVerticalAlign={false}
+          size="sm"
+        />
+      }
+      onToggle={[Function]}
+      ouiaId="drift-filter-toggle"
+    >
+      State
+    </DropdownToggle>
+  }
+/>
+`;

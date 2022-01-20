@@ -132,179 +132,33 @@ exports[`DriftToolbar should render correctly 1`] = `
       isExpanded={false}
       showClearFiltersButton={false}
     >
-      <ForwardRef
-        variant="filter-group"
-      >
-        <ToolbarFilter
-          categoryName="Fact name"
-          chips={Array []}
-          deleteChip={[Function]}
-          deleteChipGroup={[Function]}
-          showToolbarItem={true}
-        >
-          <SearchBar
-            activeFactFilters={Array []}
-            factFilter=""
-            filterByFact={[MockFunction]}
-            handleFactFilter={[MockFunction]}
-            setHistory={[MockFunction]}
-          />
-        </ToolbarFilter>
-        <ToolbarFilter
-          categoryName="State"
-          chips={
-            Array [
-              "Same",
-              "Different",
-              "Incomplete data",
-            ]
-          }
-          deleteChip={[Function]}
-          deleteChipGroup={[Function]}
-          showToolbarItem={true}
-        >
-          <Connect(FilterDropDown)
-            setHistory={[MockFunction]}
-          />
-        </ToolbarFilter>
-      </ForwardRef>
-      <ForwardRef
-        variant="button-group"
-      >
-        <ToolbarItem>
-          <Connect(AddSystemButton)
-            isToolbar={true}
-            loading={false}
-          />
-        </ToolbarItem>
-      </ForwardRef>
-      <ForwardRef
-        variant="icon-button-group"
-      >
-        <ToolbarItem>
-          <ExportCSVButton
-            dropdownItems={
-              Array [
-                <DropdownItem
-                  component="button"
-                  data-ouia-component-id="export-to-csv-dropdown-item-comparison"
-                  onClick={[Function]}
-                >
-                  Export to CSV
-                </DropdownItem>,
-                <DropdownItem
-                  component="button"
-                  data-ouia-component-id="export-to-json-dropdown-item-comparison"
-                  onClick={[Function]}
-                >
-                  Export to JSON
-                </DropdownItem>,
-              ]
-            }
-            isOpen={false}
-            onToggle={[Function]}
-            ouiaId="export-dropdown-comparison"
-          />
-        </ToolbarItem>
-        <ToolbarItem>
-          <ActionKebab
-            dropdownItems={
-              Array [
-                <DropdownItem
-                  component="button"
-                  data-ouia-component-id="clear-all-comparisons-dropdown-item"
-                  onClick={[Function]}
-                >
-                  Clear all comparisons
-                </DropdownItem>,
-              ]
-            }
-            ouiaId="clear-comparison-dropdown"
-          />
-        </ToolbarItem>
-      </ForwardRef>
-      <ToolbarItem
-        align={
-          Object {
-            "default": "alignRight",
-          }
+      <DriftFilter
+        activeFactFilters={Array []}
+        factFilter=""
+        filterByFact={[MockFunction]}
+        handleFactFilter={[MockFunction]}
+        removeChip={[Function]}
+        setHistory={[MockFunction]}
+        stateFilters={
+          Array [
+            Object {
+              "display": "Same",
+              "filter": "SAME",
+              "selected": true,
+            },
+            Object {
+              "display": "Different",
+              "filter": "DIFFERENT",
+              "selected": true,
+            },
+            Object {
+              "display": "Incomplete data",
+              "filter": "INCOMPLETE_DATA",
+              "selected": true,
+            },
+          ]
         }
-        variant="pagination"
-      >
-        <TablePagination
-          isCompact={true}
-          ouiaId="comparison-pagination-top"
-          page={1}
-          perPage={50}
-          total={30}
-          updatePagination={[MockFunction]}
-          variant="top"
-          widgetId="drift-pagination-top"
-        />
-      </ToolbarItem>
-    </ToolbarContent>
-  </Toolbar>
-</Fragment>
-`;
-
-exports[`DriftToolbar should render with fact filter chips 1`] = `
-<Fragment>
-  <Toolbar
-    className="drift-toolbar"
-    clearAllFilters={[Function]}
-    clearFiltersButtonText="Reset filters"
-  >
-    <ToolbarContent
-      isExpanded={false}
-      showClearFiltersButton={false}
-    >
-      <ForwardRef
-        variant="filter-group"
-      >
-        <ToolbarFilter
-          categoryName="Fact name"
-          chips={
-            Array [
-              "cat",
-              "mouse",
-              "dog",
-            ]
-          }
-          deleteChip={[Function]}
-          deleteChipGroup={[Function]}
-          showToolbarItem={true}
-        >
-          <SearchBar
-            activeFactFilters={
-              Array [
-                "cat",
-                "mouse",
-              ]
-            }
-            factFilter="dog"
-            filterByFact={[MockFunction]}
-            handleFactFilter={[MockFunction]}
-            setHistory={[MockFunction]}
-          />
-        </ToolbarFilter>
-        <ToolbarFilter
-          categoryName="State"
-          chips={
-            Array [
-              "Same",
-              "Different",
-              "Incomplete data",
-            ]
-          }
-          deleteChip={[Function]}
-          deleteChipGroup={[Function]}
-          showToolbarItem={true}
-        >
-          <Connect(FilterDropDown)
-            setHistory={[MockFunction]}
-          />
-        </ToolbarFilter>
-      </ForwardRef>
+      />
       <ForwardRef
         variant="button-group"
       >

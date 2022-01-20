@@ -40,7 +40,7 @@ describe('DriftToolbar', () => {
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 
-    it('should render with fact filter chips', () => {
+    /*it('should render with fact filter chips', () => {
         props.factFilter = 'dog';
         props.activeFactFilters = [ 'cat', 'mouse' ];
 
@@ -49,7 +49,7 @@ describe('DriftToolbar', () => {
         );
 
         expect(toJson(wrapper)).toMatchSnapshot();
-    });
+    });*/
 
     it('should call clearComparisonFilters', () => {
         const wrapper = shallow(
@@ -157,14 +157,5 @@ describe('DriftToolbar', () => {
         );
         wrapper.find('.pf-c-button').simulate('click');
         expect(props.clearComparisonFilters).toHaveBeenCalled();
-    });
-
-    it('should set isEmpty', () => {
-        const wrapper = shallow(
-            <DriftToolbar { ...props } />
-        );
-
-        wrapper.instance().setIsEmpty(false);
-        expect(wrapper.state('isEmpty')).toEqual(false);
     });
 });
