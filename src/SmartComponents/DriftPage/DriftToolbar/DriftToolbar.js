@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { DropdownItem, PaginationVariant, Toolbar, ToolbarGroup, ToolbarItem,
-    ToolbarContent, ToolbarFilter } from '@patternfly/react-core';
+    ToolbarContent } from '@patternfly/react-core';
 
-import FilterDropDown from '../FilterDropDown/FilterDropDown';
-import SearchBar from '../SearchBar/SearchBar';
 import ActionKebab from '../ActionKebab/ActionKebab';
 import AddSystemButton from '../AddSystemButton/AddSystemButton';
 import ExportCSVButton from '../../ExportCSVButton/ExportCSVButton';
+import DriftFilter from './DriftFilter/DriftFilter';
 import { TablePagination } from '../../Pagination/Pagination';
 
 export class DriftToolbar extends Component {
@@ -46,29 +45,6 @@ export class DriftToolbar extends Component {
         };
     }
 
-    setFactFilterChips = () => {
-        const { activeFactFilters, factFilter } = this.props;
-        let factFilterChips = [ ...activeFactFilters ];
-
-        if (factFilter.length && !activeFactFilters.includes(factFilter)) {
-            factFilterChips.push(factFilter);
-        }
-
-        return factFilterChips;
-    }
-
-    setStateChips = (stateFilters) => {
-        let stateChips = [];
-
-        stateFilters.forEach(function(filter) {
-            if (filter.selected) {
-                stateChips.push(filter.display);
-            }
-        });
-
-        return stateChips;
-    }
-
     clearAllStateChips = async () => {
         const { addStateFilter, stateFilters } = this.props;
 
@@ -78,41 +54,11 @@ export class DriftToolbar extends Component {
         });
     }
 
-    removeChip = async (type = '', id = '') => {
-        const { activeFactFilters, addStateFilter, clearAllFactFilters, filterByFact, handleFactFilter, setHistory, stateFilters } = this.props;
-
-        if (type === 'State') {
-            if (id === '') {
-                this.clearAllStateChips();
-            } else {
-                stateFilters.forEach(async function(stateFilter) {
-                    if (stateFilter.display === id) {
-                        await addStateFilter(stateFilter);
-                    }
-                });
-            }
-        } else {
-            if (id === '') {
-                await clearAllFactFilters();
-            } else if (activeFactFilters.includes(id)) {
-                await handleFactFilter(id);
-            } else {
-                await filterByFact('');
-            }
-        }
-
-        setHistory();
-    }
-
     resetFilters = async () => {
         const { resetComparisonFilters, setHistory } = this.props;
 
         await resetComparisonFilters();
         setHistory();
-    }
-
-    setIsEmpty = (isEmpty) => {
-        this.setState({ isEmpty });
     }
 
     onToggle = () => {
@@ -142,39 +88,49 @@ export class DriftToolbar extends Component {
 
     }
 
+    removeChip = async (type = '', id = '') => {
+        const { activeFactFilters, addStateFilter, clearAllFactFilters, handleFactFilter, filterByFact, setHistory, stateFilters } = this.props;
+        if (type === 'State') {
+            if (id === '') {
+                this.clearAllStateChips();
+            } else {
+                stateFilters.forEach(async function(stateFilter) {
+                    if (stateFilter.display === id) {
+                        await addStateFilter(stateFilter);
+                    }
+                });
+            }
+        } else {
+            if (id === '') {
+                await clearAllFactFilters();
+            } else if (activeFactFilters.includes(id)) {
+                await handleFactFilter(id);
+            } else {
+                await filterByFact('');
+            }
+        }
+
+        setHistory();
+    }
+
     render() {
-        const { activeFactFilters, factFilter, filterByFact, handleFactFilter, loading, page, perPage,
-            setHistory, stateFilters, totalFacts, updatePagination } = this.props;
+        const { activeFactFilters, factFilter, filterByFact, handleFactFilter, loading,
+            page, perPage, setHistory, stateFilters, totalFacts, updatePagination } = this.props;
         const { actionKebabItems, dropdownItems, dropdownOpen } = this.state;
 
         return (
             <React.Fragment>
                 <Toolbar className="drift-toolbar" clearAllFilters={ this.resetFilters } clearFiltersButtonText='Reset filters'>
                     <ToolbarContent>
-                        <ToolbarGroup variant='filter-group'>
-                            <ToolbarFilter
-                                chips={ this.setFactFilterChips() }
-                                deleteChip={ this.removeChip }
-                                deleteChipGroup={ this.removeChip }
-                                categoryName="Fact name"
-                            >
-                                <SearchBar
-                                    factFilter={ factFilter }
-                                    activeFactFilters={ activeFactFilters }
-                                    handleFactFilter={ handleFactFilter }
-                                    filterByFact={ filterByFact }
-                                    setHistory={ setHistory }
-                                />
-                            </ToolbarFilter>
-                            <ToolbarFilter
-                                chips={ this.setStateChips(stateFilters) }
-                                deleteChip={ this.removeChip }
-                                deleteChipGroup={ this.removeChip }
-                                categoryName="State"
-                            >
-                                <FilterDropDown setHistory={ setHistory } />
-                            </ToolbarFilter>
-                        </ToolbarGroup>
+                        <DriftFilter
+                            activeFactFilters={ activeFactFilters }
+                            factFilter={ factFilter }
+                            filterByFact={ filterByFact }
+                            handleFactFilter={ handleFactFilter }
+                            removeChip={ this.removeChip }
+                            setHistory={ setHistory }
+                            stateFilters={ stateFilters }
+                        />
                         <ToolbarGroup variant='button-group'>
                             <ToolbarItem>
                                 <AddSystemButton loading={ loading } isToolbar={ true } />
