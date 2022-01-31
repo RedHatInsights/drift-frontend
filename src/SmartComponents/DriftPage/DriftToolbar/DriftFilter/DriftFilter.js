@@ -6,7 +6,8 @@ import DriftFilterDropdown from './DriftFilterDropdown';
 import DriftFilterValue from './DriftFilterValue';
 
 function DriftFilter(props) {
-    const { activeFactFilters, factFilter, filterByFact, handleFactFilter, removeChip, setHistory, stateFilters } = props;
+    const { activeFactFilters, addStateFilter, factFilter, factTypeFilters, filterByFact, handleFactFilter, removeChip,
+        setHistory, stateFilters, toggleFactTypeFilter } = props;
     const [ filterType, toggleFilterType ] = useState('Fact name');
 
     return (
@@ -17,13 +18,16 @@ function DriftFilter(props) {
             />
             <DriftFilterValue
                 activeFactFilters={ activeFactFilters }
+                addStateFilter={ addStateFilter }
                 factFilter={ factFilter }
+                factTypeFilters={ factTypeFilters }
                 filterByFact={ filterByFact }
                 filterType={ filterType }
                 handleFactFilter={ handleFactFilter }
                 removeChip={ removeChip }
                 setHistory={ setHistory }
                 stateFilters={ stateFilters }
+                toggleFactTypeFilter={ toggleFactTypeFilter }
             />
         </ToolbarGroup>
     );
@@ -35,11 +39,13 @@ DriftFilter.propTypes = {
     clearAllFactFilters: PropTypes.func,
     clearAllStateChips: PropTypes.func,
     factFilter: PropTypes.string,
+    factTypeFilters: PropTypes.array,
     filterByFact: PropTypes.func,
     handleFactFilter: PropTypes.func,
     removeChip: PropTypes.func,
     setHistory: PropTypes.func,
-    stateFilters: PropTypes.array
+    stateFilters: PropTypes.array,
+    toggleFactTypeFilter: PropTypes.func
 };
 
 export default DriftFilter;

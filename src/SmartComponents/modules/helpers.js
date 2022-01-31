@@ -75,10 +75,24 @@ function setTooltip (data, stateFilters, referenceId) {
     }
 }
 
-function filterCompareData(data, stateFilters, factFilter, referenceId, activeFactFilters) {
+function findIsBaselineFact(systems, baselineIds) {
+    let isBaselineFact = false;
+    baselineIds.forEach(baselineId => {
+        systems.forEach(system => {
+            if (system.id === baselineId && system.value !== '') {
+                isBaselineFact = true;
+            }
+        });
+    });
+
+    return isBaselineFact;
+}
+
+function filterCompareData(data, stateFilters, factTypeFilters, factFilter, referenceId, activeFactFilters, baselines) {
     let filteredFacts = [];
     let filteredComparisons = [];
     let isStateSelected;
+    let isBaselineFact = true;
     let lowerCaseFactFilter = factFilter.toLowerCase();
     let lowerCaseActiveFilters = activeFactFilters?.map(filter => filter.toLowerCase());
 
@@ -93,7 +107,7 @@ function filterCompareData(data, stateFilters, factFilter, referenceId, activeFa
         if (data[i].comparisons) {
             if (lowerCaseFactName === lowerCaseFactFilter || lowerCaseActiveFilters?.includes(lowerCaseFactName)) {
                 setTooltip(data[i], stateFilters, referenceId);
-                filteredComparisons = filterComparisons(data[i].comparisons, stateFilters, '', referenceId, []);
+                filteredComparisons = filterComparisons(data[i].comparisons, stateFilters, factTypeFilters, '', referenceId, [], baselines);
                 filteredFacts.push({
                     name: data[i].name,
                     state: data[i].state,
@@ -104,7 +118,9 @@ function filterCompareData(data, stateFilters, factFilter, referenceId, activeFa
                 continue;
             }
 
-            filteredComparisons = filterComparisons(data[i].comparisons, stateFilters, lowerCaseFactFilter, referenceId, lowerCaseActiveFilters);
+            filteredComparisons = filterComparisons(
+                data[i].comparisons, stateFilters, factTypeFilters, lowerCaseFactFilter, referenceId, lowerCaseActiveFilters, baselines
+            );
 
             if (filteredComparisons.length) {
                 setTooltip(data[i], stateFilters, referenceId);
@@ -116,7 +132,11 @@ function filterCompareData(data, stateFilters, factFilter, referenceId, activeFa
                 });
             }
         } else {
-            if (isStateSelected && filterFact(lowerCaseFactName, lowerCaseFactFilter, lowerCaseActiveFilters)) {
+            if (factTypeFilters[1].selected) {
+                isBaselineFact = findIsBaselineFact(data[i].systems, baselines.map(baseline => baseline.id));
+            }
+
+            if (isStateSelected && isBaselineFact && filterFact(lowerCaseFactName, lowerCaseFactFilter, lowerCaseActiveFilters)) {
                 setTooltip(data[i], stateFilters, referenceId);
                 filteredFacts.push(data[i]);
             }
@@ -127,15 +147,17 @@ function filterCompareData(data, stateFilters, factFilter, referenceId, activeFa
 }
 
 /*eslint-disable camelcase*/
-function filterComparisons(comparisons, stateFilters, factFilter, referenceId, activeFactFilters) {
+function filterComparisons(comparisons, stateFilters, factTypeFilters, factFilter, referenceId, activeFactFilters, baselines) {
     let filteredComparisons = [];
     let filteredMultivalueItems = [];
     let isStateSelected;
+    let isBaselineFact = true;
 
     for (let i = 0; i < comparisons.length; i++) {
         let lowerCaseFactName = comparisons[i].name.toLowerCase();
+
         if (comparisons[i].multivalues) {
-            filteredMultivalueItems = filterMultiFacts(comparisons[i].multivalues, stateFilters, referenceId);
+            filteredMultivalueItems = filterMultiFacts(comparisons[i].multivalues, stateFilters, factTypeFilters, referenceId, baselines);
             if (filteredMultivalueItems.length && filterFact(lowerCaseFactName, factFilter, activeFactFilters)) {
                 setTooltip(comparisons[i], stateFilters, referenceId);
                 filteredComparisons.push({
@@ -147,7 +169,11 @@ function filterComparisons(comparisons, stateFilters, factFilter, referenceId, a
             }
         } else {
             isStateSelected = getStateSelected(comparisons[i].state, stateFilters);
-            if (isStateSelected && filterFact(lowerCaseFactName, factFilter, activeFactFilters)) {
+            if (factTypeFilters[1].selected) {
+                isBaselineFact = findIsBaselineFact(comparisons[i].systems, baselines.map(baseline => baseline.id));
+            }
+
+            if (isStateSelected && isBaselineFact && filterFact(lowerCaseFactName, factFilter, activeFactFilters)) {
                 setTooltip(comparisons[i], stateFilters, referenceId);
                 filteredComparisons.push(comparisons[i]);
             }
@@ -158,11 +184,16 @@ function filterComparisons(comparisons, stateFilters, factFilter, referenceId, a
 }
 /*eslint-enable camelcase*/
 
-function filterMultiFacts(multivalueItems, stateFilters, referenceId) {
+function filterMultiFacts(multivalueItems, stateFilters, factTypeFilters, referenceId, baselines) {
     let filteredMultivalueItems = [];
+    let isBaselineFact = true;
 
     for (let i = 0; i < multivalueItems.length; i++) {
-        if (getStateSelected(multivalueItems[i].state, stateFilters)) {
+        if (factTypeFilters[1].selected) {
+            isBaselineFact = findIsBaselineFact(multivalueItems[i].systems, baselines.map(baseline => baseline.id));
+        }
+
+        if (getStateSelected(multivalueItems[i].state, stateFilters) && isBaselineFact) {
             setTooltip(multivalueItems[i], stateFilters, referenceId);
             filteredMultivalueItems.push(multivalueItems[i]);
         }
@@ -459,6 +490,21 @@ function updateStateFilters(stateFilters, updatedStateFilter) {
     return newStateFilters;
 }
 
+function updateFactTypeFilters(factTypeFilters, updatedFactTypeFilter) {
+    let newFactTypeFilters = [];
+
+    factTypeFilters.forEach(function (factTypeFilter) {
+        if (factTypeFilter.filter === updatedFactTypeFilter.filter) {
+            newFactTypeFilters.push(updatedFactTypeFilter);
+        } else {
+            factTypeFilter.selected = !updatedFactTypeFilter.selected;
+            newFactTypeFilters.push(factTypeFilter);
+        }
+    });
+
+    return newFactTypeFilters;
+}
+
 function findFilterIndex(filter, activeFactFilters) {
     return activeFactFilters.indexOf(filter);
 }
@@ -478,5 +524,6 @@ export default {
     downloadHelper,
     toggleExpandedRow,
     updateStateFilters,
+    updateFactTypeFilters,
     findFilterIndex
 };

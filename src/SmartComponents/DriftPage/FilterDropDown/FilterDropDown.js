@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Checkbox, Dropdown, DropdownItem, DropdownToggle } from '@patternfly/react-core';
 import PropTypes from 'prop-types';
 
-import { compareActions } from '../../modules';
 import { filterDropdownActions } from './redux';
 
 class FilterDropDown extends Component {
@@ -17,77 +16,58 @@ class FilterDropDown extends Component {
         this.props.toggleDropDown();
     }
 
-    addStateFilter = async (stateFilter) => {
-        const { addStateFilter, setHistory } = this.props;
+    addFilter = async (filter) => {
+        const { filterFunction, setHistory } = this.props;
 
-        await addStateFilter(stateFilter);
+        await filterFunction(filter);
         setHistory();
     }
 
-    createDropdownItem(stateFilter) {
+    createDropdownItem(filter, type) {
         let dropdownItem =
             <DropdownItem
-                data-ouia-component-id={ 'state-filter-option-' + stateFilter.display } >
+                data-ouia-component-id={ `${ type }-filter-option-${ filter.display }` } >
                 <Checkbox
-                    id={ stateFilter.display }
+                    id={ filter.display }
                     data-ouia-component-type='PF4/Checkbox'
-                    data-ouia-component-id={ 'state-filter-option-checkbox-' + stateFilter.display }
-                    label={ stateFilter.display }
-                    isChecked={ stateFilter.selected }
-                    onChange={ () => this.addStateFilter(stateFilter) }
+                    data-ouia-component-id={ `${ type }-filter-option-checkbox-${ filter.display }` }
+                    label={ filter.display }
+                    isChecked={ filter.selected }
+                    onChange={ () => this.addFilter(filter) }
                 />
             </DropdownItem>;
         return dropdownItem;
     }
 
-    createDropdownArray(stateFilters) {
+    createDropdownArray(filters, type) {
         let dropdownItems = [];
 
-        stateFilters.forEach(function(stateFilter) {
-            let dropdownItem = this.createDropdownItem(stateFilter);
+        filters.forEach(function(filter) {
+            let dropdownItem = this.createDropdownItem(filter, type);
             dropdownItems.push(dropdownItem);
         }.bind(this));
 
         return dropdownItems;
     }
 
-    createSelectedViewsString(stateFilters) {
-        let selectedViewsArray = [];
-        let selectedViews = '';
-
-        for (let i = 0; i < stateFilters.length; i++) {
-            if (stateFilters[i].selected) {
-                selectedViewsArray.push(stateFilters[i].display);
-            }
-        }
-
-        for (let i = 0; i < selectedViewsArray.length; i++) {
-            selectedViews += selectedViewsArray[i];
-
-            if ((i + 1) < selectedViewsArray.length) {
-                selectedViews += ', ';
-            }
-        }
-
-        return selectedViews;
-    }
-
     render() {
-        const { stateFilters } = this.props;
+        const { filters, type } = this.props;
         let dropdownItems = [];
-        let selectedViews = '';
+        const ouiaPrefix = type.split(' ').join('-').toLowerCase();
 
-        dropdownItems = this.createDropdownArray(stateFilters);
-        selectedViews = this.createSelectedViewsString(stateFilters);
+        dropdownItems = this.createDropdownArray(filters, type);
 
         return (
             <React.Fragment>
                 <Dropdown
-                    ouiaId='state-filter-dropdown'
+                    ouiaId={ ouiaPrefix }
                     toggle={ <DropdownToggle
                         onToggle={ this.onToggle }
-                        ouiaId='state-filter-dropdown-toggle' >
-                                    View: { selectedViews }
+                        ouiaId={ `${ ouiaPrefix }-toggle` }>
+                        { type === 'State'
+                            ? `Filter by ${ type.toLowerCase() }`
+                            : 'Show'
+                        }
                     </DropdownToggle> }
                     isOpen={ this.props.filterDropdownOpened }
                     dropdownItems={ dropdownItems }
@@ -99,23 +79,23 @@ class FilterDropDown extends Component {
 
 FilterDropDown.propTypes = {
     toggleDropDown: PropTypes.func,
+    factTypeFilters: PropTypes.array,
     filterDropdownOpened: PropTypes.bool,
-    stateFilters: PropTypes.array,
-    addStateFilter: PropTypes.func,
-    setHistory: PropTypes.func
+    filters: PropTypes.array,
+    filterFunction: PropTypes.func,
+    setHistory: PropTypes.func,
+    type: PropTypes.string
 };
 
 function mapStateToProps(state) {
     return {
-        filterDropdownOpened: state.filterDropdownOpened,
-        stateFilters: state.compareState.stateFilters
+        filterDropdownOpened: state.filterDropdownOpened
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        toggleDropDown: () => dispatch(filterDropdownActions.toggleFilterDropDown()),
-        addStateFilter: (filter) => dispatch(compareActions.addStateFilter(filter))
+        toggleDropDown: () => dispatch(filterDropdownActions.toggleFilterDropDown())
     };
 }
 

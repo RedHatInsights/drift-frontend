@@ -5,7 +5,8 @@ import SearchBar from '../../SearchBar/SearchBar';
 import FilterDropDown from '../../FilterDropDown/FilterDropDown';
 
 function DriftFilterValue(props) {
-    const { activeFactFilters, factFilter, filterByFact, filterType, handleFactFilter, removeChip, setHistory, stateFilters } = props;
+    const { activeFactFilters, addStateFilter, factFilter, factTypeFilters, filterByFact, filterType, handleFactFilter, removeChip,
+        setHistory, stateFilters, toggleFactTypeFilter } = props;
 
     const setFactFilterChips = () => {
         let factFilterChips = [ ...activeFactFilters ];
@@ -17,16 +18,16 @@ function DriftFilterValue(props) {
         return factFilterChips;
     };
 
-    const setStateChips = (stateFilters) => {
-        let stateChips = [];
+    const setDropdownChips = (dropdownFilters) => {
+        let chips = [];
 
-        stateFilters.forEach(function(filter) {
-            if (filter.selected) {
-                stateChips.push(filter.display);
+        dropdownFilters.forEach(function(filter) {
+            if (filter.selected && filter.display !== 'All facts') {
+                chips.push(filter.display);
             }
         });
 
-        return stateChips;
+        return chips;
     };
 
     const renderFilterInput = (type) => {
@@ -48,21 +49,38 @@ function DriftFilterValue(props) {
                     : null
                 }
             </ToolbarFilter>
-            { /*<ToolbarFilter
-                chips={ setFactTypeChips() }
+            <ToolbarFilter
+                className='comparison-filter-input-dropdown-width'
+                chips={ setDropdownChips(factTypeFilters) }
                 deleteChip={ removeChip }
-                deleteChipGroup={ removeChip }
                 categoryName="Fact type"
             >
-                { type === 'Fact type' ? }
-            </ToolbarFilter>*/ }
+                { type === 'Fact type'
+                    ? <FilterDropDown
+                        filterFunction={ toggleFactTypeFilter }
+                        filters={ factTypeFilters }
+                        setHistory={ setHistory }
+                        type={ type }
+                    />
+                    : null
+                }
+            </ToolbarFilter>
             <ToolbarFilter
-                chips={ setStateChips(stateFilters) }
+                className='comparison-filter-input-dropdown-width'
+                chips={ setDropdownChips(stateFilters) }
                 deleteChip={ removeChip }
                 deleteChipGroup={ removeChip }
                 categoryName="State"
             >
-                { type === 'State' ? <FilterDropDown setHistory={ setHistory } /> : null }
+                { type === 'State'
+                    ? <FilterDropDown
+                        filterFunction={ addStateFilter }
+                        filters={ stateFilters }
+                        setHistory={ setHistory }
+                        type={ type }
+                    />
+                    : null
+                }
             </ToolbarFilter>
         </React.Fragment>;
     };
@@ -76,13 +94,16 @@ function DriftFilterValue(props) {
 
 DriftFilterValue.propTypes = {
     activeFactFilters: PropTypes.array,
+    addStateFilter: PropTypes.func,
     factFilter: PropTypes.string,
+    factTypeFilters: PropTypes.array,
     filterByFact: PropTypes.func,
     filterType: PropTypes.string,
     handleFactFilter: PropTypes.func,
     removeChip: PropTypes.func,
     setHistory: PropTypes.func,
-    stateFilters: PropTypes.array
+    stateFilters: PropTypes.array,
+    toggleFactTypeFilter: PropTypes.func
 };
 
 export default DriftFilterValue;

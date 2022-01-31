@@ -111,6 +111,20 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
             exportToCSV={[Function]}
             exportToJSON={[Function]}
             factFilter=""
+            factTypeFilters={
+              Array [
+                Object {
+                  "display": "All facts",
+                  "filter": "ALL",
+                  "selected": true,
+                },
+                Object {
+                  "display": "Baseline facts only",
+                  "filter": "BASELINE",
+                  "selected": false,
+                },
+              ]
+            }
             filterByFact={[Function]}
             handleBaselineSelection={[Function]}
             handleFactFilter={[Function]}
@@ -191,6 +205,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
               ]
             }
             systems={Array []}
+            toggleFactTypeFilter={[Function]}
             updatePagination={[Function]}
             updateReferenceId={[Function]}
           >
@@ -265,6 +280,20 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                             exportToCSV={[Function]}
                             exportToJSON={[Function]}
                             factFilter=""
+                            factTypeFilters={
+                              Array [
+                                Object {
+                                  "display": "All facts",
+                                  "filter": "ALL",
+                                  "selected": true,
+                                },
+                                Object {
+                                  "display": "Baseline facts only",
+                                  "filter": "BASELINE",
+                                  "selected": false,
+                                },
+                              ]
+                            }
                             filterByFact={[Function]}
                             handleFactFilter={[Function]}
                             history={
@@ -320,6 +349,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                 },
                               ]
                             }
+                            toggleFactTypeFilter={[Function]}
                             updatePagination={[Function]}
                             updateReferenceId={[Function]}
                           >
@@ -350,7 +380,22 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                       >
                                         <DriftFilter
                                           activeFactFilters={Array []}
+                                          addStateFilter={[Function]}
                                           factFilter=""
+                                          factTypeFilters={
+                                            Array [
+                                              Object {
+                                                "display": "All facts",
+                                                "filter": "ALL",
+                                                "selected": true,
+                                              },
+                                              Object {
+                                                "display": "Baseline facts only",
+                                                "filter": "BASELINE",
+                                                "selected": false,
+                                              },
+                                            ]
+                                          }
                                           filterByFact={[Function]}
                                           handleFactFilter={[Function]}
                                           removeChip={[Function]}
@@ -374,6 +419,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                               },
                                             ]
                                           }
+                                          toggleFactTypeFilter={[Function]}
                                         >
                                           <ForwardRef
                                             variant="filter-group"
@@ -398,6 +444,12 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                           onClick={[Function]}
                                                         >
                                                           Fact name
+                                                        </DropdownItem>,
+                                                        <DropdownItem
+                                                          data-ouia-component-id="fact-type-filter"
+                                                          onClick={[Function]}
+                                                        >
+                                                          Fact type
                                                         </DropdownItem>,
                                                         <DropdownItem
                                                           data-ouia-component-id="state-filter"
@@ -436,6 +488,12 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                             onClick={[Function]}
                                                           >
                                                             Fact name
+                                                          </DropdownItem>,
+                                                          <DropdownItem
+                                                            data-ouia-component-id="fact-type-filter"
+                                                            onClick={[Function]}
+                                                          >
+                                                            Fact type
                                                           </DropdownItem>,
                                                           <DropdownItem
                                                             data-ouia-component-id="state-filter"
@@ -714,7 +772,22 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                 </DriftFilterDropdown>
                                                 <DriftFilterValue
                                                   activeFactFilters={Array []}
+                                                  addStateFilter={[Function]}
                                                   factFilter=""
+                                                  factTypeFilters={
+                                                    Array [
+                                                      Object {
+                                                        "display": "All facts",
+                                                        "filter": "ALL",
+                                                        "selected": true,
+                                                      },
+                                                      Object {
+                                                        "display": "Baseline facts only",
+                                                        "filter": "BASELINE",
+                                                        "selected": false,
+                                                      },
+                                                    ]
+                                                  }
                                                   filterByFact={[Function]}
                                                   filterType="Fact name"
                                                   handleFactFilter={[Function]}
@@ -739,6 +812,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                       },
                                                     ]
                                                   }
+                                                  toggleFactTypeFilter={[Function]}
                                                 >
                                                   <ToolbarFilter
                                                     categoryName="Fact name"
@@ -1024,6 +1098,211 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                     />
                                                   </ToolbarFilter>
                                                   <ToolbarFilter
+                                                    categoryName="Fact type"
+                                                    chips={Array []}
+                                                    className="comparison-filter-input-dropdown-width"
+                                                    deleteChip={[Function]}
+                                                    showToolbarItem={true}
+                                                  >
+                                                    <ToolbarItem
+                                                      className="comparison-filter-input-dropdown-width"
+                                                    >
+                                                      <div
+                                                        className="pf-c-toolbar__item comparison-filter-input-dropdown-width"
+                                                      />
+                                                    </ToolbarItem>
+                                                    <Portal
+                                                      containerInfo={
+                                                        <div
+                                                          class="pf-c-toolbar__group"
+                                                        >
+                                                          <div
+                                                            class="pf-c-toolbar__item pf-m-chip-group"
+                                                          >
+                                                            <div
+                                                              class="pf-c-chip-group pf-m-category"
+                                                              data-ouia-component-type="PF4/ChipGroup"
+                                                              data-ouia-safe="true"
+                                                            >
+                                                              <div
+                                                                class="pf-c-chip-group__main"
+                                                              >
+                                                                <span
+                                                                  aria-hidden="true"
+                                                                  class="pf-c-chip-group__label"
+                                                                  id="pf-random-id-2"
+                                                                >
+                                                                  State
+                                                                </span>
+                                                                <ul
+                                                                  aria-labelledby="pf-random-id-2"
+                                                                  class="pf-c-chip-group__list"
+                                                                  role="list"
+                                                                >
+                                                                  <li
+                                                                    class="pf-c-chip-group__list-item"
+                                                                  >
+                                                                    <div
+                                                                      class="pf-c-chip"
+                                                                      data-ouia-component-id="OUIA-Generated-Chip-1"
+                                                                      data-ouia-component-type="PF4/Chip"
+                                                                      data-ouia-safe="true"
+                                                                    >
+                                                                      <span
+                                                                        class="pf-c-chip__text"
+                                                                        id="pf-random-id-3"
+                                                                      >
+                                                                        Same
+                                                                      </span>
+                                                                      <button
+                                                                        aria-disabled="false"
+                                                                        aria-label="close"
+                                                                        aria-labelledby="remove_pf-random-id-3 pf-random-id-3"
+                                                                        class="pf-c-button pf-m-plain"
+                                                                        data-ouia-component-id="close"
+                                                                        data-ouia-component-type="PF4/Button"
+                                                                        data-ouia-safe="true"
+                                                                        id="remove_pf-random-id-3"
+                                                                        type="button"
+                                                                      >
+                                                                        <svg
+                                                                          aria-hidden="true"
+                                                                          fill="currentColor"
+                                                                          height="1em"
+                                                                          role="img"
+                                                                          style="vertical-align: -0.125em;"
+                                                                          viewBox="0 0 352 512"
+                                                                          width="1em"
+                                                                        >
+                                                                          <path
+                                                                            d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                                                          />
+                                                                        </svg>
+                                                                      </button>
+                                                                    </div>
+                                                                  </li>
+                                                                  <li
+                                                                    class="pf-c-chip-group__list-item"
+                                                                  >
+                                                                    <div
+                                                                      class="pf-c-chip"
+                                                                      data-ouia-component-id="OUIA-Generated-Chip-2"
+                                                                      data-ouia-component-type="PF4/Chip"
+                                                                      data-ouia-safe="true"
+                                                                    >
+                                                                      <span
+                                                                        class="pf-c-chip__text"
+                                                                        id="pf-random-id-4"
+                                                                      >
+                                                                        Different
+                                                                      </span>
+                                                                      <button
+                                                                        aria-disabled="false"
+                                                                        aria-label="close"
+                                                                        aria-labelledby="remove_pf-random-id-4 pf-random-id-4"
+                                                                        class="pf-c-button pf-m-plain"
+                                                                        data-ouia-component-id="close"
+                                                                        data-ouia-component-type="PF4/Button"
+                                                                        data-ouia-safe="true"
+                                                                        id="remove_pf-random-id-4"
+                                                                        type="button"
+                                                                      >
+                                                                        <svg
+                                                                          aria-hidden="true"
+                                                                          fill="currentColor"
+                                                                          height="1em"
+                                                                          role="img"
+                                                                          style="vertical-align: -0.125em;"
+                                                                          viewBox="0 0 352 512"
+                                                                          width="1em"
+                                                                        >
+                                                                          <path
+                                                                            d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                                                          />
+                                                                        </svg>
+                                                                      </button>
+                                                                    </div>
+                                                                  </li>
+                                                                  <li
+                                                                    class="pf-c-chip-group__list-item"
+                                                                  >
+                                                                    <div
+                                                                      class="pf-c-chip"
+                                                                      data-ouia-component-id="OUIA-Generated-Chip-3"
+                                                                      data-ouia-component-type="PF4/Chip"
+                                                                      data-ouia-safe="true"
+                                                                    >
+                                                                      <span
+                                                                        class="pf-c-chip__text"
+                                                                        id="pf-random-id-5"
+                                                                      >
+                                                                        Incomplete data
+                                                                      </span>
+                                                                      <button
+                                                                        aria-disabled="false"
+                                                                        aria-label="close"
+                                                                        aria-labelledby="remove_pf-random-id-5 pf-random-id-5"
+                                                                        class="pf-c-button pf-m-plain"
+                                                                        data-ouia-component-id="close"
+                                                                        data-ouia-component-type="PF4/Button"
+                                                                        data-ouia-safe="true"
+                                                                        id="remove_pf-random-id-5"
+                                                                        type="button"
+                                                                      >
+                                                                        <svg
+                                                                          aria-hidden="true"
+                                                                          fill="currentColor"
+                                                                          height="1em"
+                                                                          role="img"
+                                                                          style="vertical-align: -0.125em;"
+                                                                          viewBox="0 0 352 512"
+                                                                          width="1em"
+                                                                        >
+                                                                          <path
+                                                                            d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                                                          />
+                                                                        </svg>
+                                                                      </button>
+                                                                    </div>
+                                                                  </li>
+                                                                </ul>
+                                                              </div>
+                                                              <div
+                                                                class="pf-c-chip-group__close"
+                                                              >
+                                                                <button
+                                                                  aria-disabled="false"
+                                                                  aria-label="Close chip group"
+                                                                  aria-labelledby="remove_group_pf-random-id-2 pf-random-id-2"
+                                                                  class="pf-c-button pf-m-plain"
+                                                                  data-ouia-component-id="Close chip group"
+                                                                  data-ouia-component-type="PF4/Button"
+                                                                  data-ouia-safe="true"
+                                                                  id="remove_group_pf-random-id-2"
+                                                                  type="button"
+                                                                >
+                                                                  <svg
+                                                                    aria-hidden="true"
+                                                                    fill="currentColor"
+                                                                    height="1em"
+                                                                    role="img"
+                                                                    style="vertical-align: -0.125em;"
+                                                                    viewBox="0 0 512 512"
+                                                                    width="1em"
+                                                                  >
+                                                                    <path
+                                                                      d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"
+                                                                    />
+                                                                  </svg>
+                                                                </button>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      }
+                                                    />
+                                                  </ToolbarFilter>
+                                                  <ToolbarFilter
                                                     categoryName="State"
                                                     chips={
                                                       Array [
@@ -1032,13 +1311,16 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                         "Incomplete data",
                                                       ]
                                                     }
+                                                    className="comparison-filter-input-dropdown-width"
                                                     deleteChip={[Function]}
                                                     deleteChipGroup={[Function]}
                                                     showToolbarItem={true}
                                                   >
-                                                    <ToolbarItem>
+                                                    <ToolbarItem
+                                                      className="comparison-filter-input-dropdown-width"
+                                                    >
                                                       <div
-                                                        className="pf-c-toolbar__item"
+                                                        className="pf-c-toolbar__item comparison-filter-input-dropdown-width"
                                                       />
                                                     </ToolbarItem>
                                                     <Portal
@@ -4806,6 +5088,20 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
             exportToCSV={[Function]}
             exportToJSON={[Function]}
             factFilter=""
+            factTypeFilters={
+              Array [
+                Object {
+                  "display": "All facts",
+                  "filter": "ALL",
+                  "selected": true,
+                },
+                Object {
+                  "display": "Baseline facts only",
+                  "filter": "BASELINE",
+                  "selected": false,
+                },
+              ]
+            }
             filterByFact={[Function]}
             handleBaselineSelection={[Function]}
             handleFactFilter={[Function]}
@@ -4886,6 +5182,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
               ]
             }
             systems={Array []}
+            toggleFactTypeFilter={[Function]}
             updatePagination={[Function]}
             updateReferenceId={[Function]}
           >
@@ -4968,6 +5265,20 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                             exportToCSV={[Function]}
                             exportToJSON={[Function]}
                             factFilter=""
+                            factTypeFilters={
+                              Array [
+                                Object {
+                                  "display": "All facts",
+                                  "filter": "ALL",
+                                  "selected": true,
+                                },
+                                Object {
+                                  "display": "Baseline facts only",
+                                  "filter": "BASELINE",
+                                  "selected": false,
+                                },
+                              ]
+                            }
                             filterByFact={[Function]}
                             handleFactFilter={[Function]}
                             history={
@@ -5023,6 +5334,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                 },
                               ]
                             }
+                            toggleFactTypeFilter={[Function]}
                             updatePagination={[Function]}
                             updateReferenceId={[Function]}
                           >
@@ -5053,7 +5365,22 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                       >
                                         <DriftFilter
                                           activeFactFilters={Array []}
+                                          addStateFilter={[Function]}
                                           factFilter=""
+                                          factTypeFilters={
+                                            Array [
+                                              Object {
+                                                "display": "All facts",
+                                                "filter": "ALL",
+                                                "selected": true,
+                                              },
+                                              Object {
+                                                "display": "Baseline facts only",
+                                                "filter": "BASELINE",
+                                                "selected": false,
+                                              },
+                                            ]
+                                          }
                                           filterByFact={[Function]}
                                           handleFactFilter={[Function]}
                                           removeChip={[Function]}
@@ -5077,6 +5404,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                               },
                                             ]
                                           }
+                                          toggleFactTypeFilter={[Function]}
                                         >
                                           <ForwardRef
                                             variant="filter-group"
@@ -5101,6 +5429,12 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                           onClick={[Function]}
                                                         >
                                                           Fact name
+                                                        </DropdownItem>,
+                                                        <DropdownItem
+                                                          data-ouia-component-id="fact-type-filter"
+                                                          onClick={[Function]}
+                                                        >
+                                                          Fact type
                                                         </DropdownItem>,
                                                         <DropdownItem
                                                           data-ouia-component-id="state-filter"
@@ -5139,6 +5473,12 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                             onClick={[Function]}
                                                           >
                                                             Fact name
+                                                          </DropdownItem>,
+                                                          <DropdownItem
+                                                            data-ouia-component-id="fact-type-filter"
+                                                            onClick={[Function]}
+                                                          >
+                                                            Fact type
                                                           </DropdownItem>,
                                                           <DropdownItem
                                                             data-ouia-component-id="state-filter"
@@ -5417,7 +5757,22 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                 </DriftFilterDropdown>
                                                 <DriftFilterValue
                                                   activeFactFilters={Array []}
+                                                  addStateFilter={[Function]}
                                                   factFilter=""
+                                                  factTypeFilters={
+                                                    Array [
+                                                      Object {
+                                                        "display": "All facts",
+                                                        "filter": "ALL",
+                                                        "selected": true,
+                                                      },
+                                                      Object {
+                                                        "display": "Baseline facts only",
+                                                        "filter": "BASELINE",
+                                                        "selected": false,
+                                                      },
+                                                    ]
+                                                  }
                                                   filterByFact={[Function]}
                                                   filterType="Fact name"
                                                   handleFactFilter={[Function]}
@@ -5442,6 +5797,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                       },
                                                     ]
                                                   }
+                                                  toggleFactTypeFilter={[Function]}
                                                 >
                                                   <ToolbarFilter
                                                     categoryName="Fact name"
@@ -5727,6 +6083,211 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                     />
                                                   </ToolbarFilter>
                                                   <ToolbarFilter
+                                                    categoryName="Fact type"
+                                                    chips={Array []}
+                                                    className="comparison-filter-input-dropdown-width"
+                                                    deleteChip={[Function]}
+                                                    showToolbarItem={true}
+                                                  >
+                                                    <ToolbarItem
+                                                      className="comparison-filter-input-dropdown-width"
+                                                    >
+                                                      <div
+                                                        className="pf-c-toolbar__item comparison-filter-input-dropdown-width"
+                                                      />
+                                                    </ToolbarItem>
+                                                    <Portal
+                                                      containerInfo={
+                                                        <div
+                                                          class="pf-c-toolbar__group"
+                                                        >
+                                                          <div
+                                                            class="pf-c-toolbar__item pf-m-chip-group"
+                                                          >
+                                                            <div
+                                                              class="pf-c-chip-group pf-m-category"
+                                                              data-ouia-component-type="PF4/ChipGroup"
+                                                              data-ouia-safe="true"
+                                                            >
+                                                              <div
+                                                                class="pf-c-chip-group__main"
+                                                              >
+                                                                <span
+                                                                  aria-hidden="true"
+                                                                  class="pf-c-chip-group__label"
+                                                                  id="pf-random-id-8"
+                                                                >
+                                                                  State
+                                                                </span>
+                                                                <ul
+                                                                  aria-labelledby="pf-random-id-8"
+                                                                  class="pf-c-chip-group__list"
+                                                                  role="list"
+                                                                >
+                                                                  <li
+                                                                    class="pf-c-chip-group__list-item"
+                                                                  >
+                                                                    <div
+                                                                      class="pf-c-chip"
+                                                                      data-ouia-component-id="OUIA-Generated-Chip-4"
+                                                                      data-ouia-component-type="PF4/Chip"
+                                                                      data-ouia-safe="true"
+                                                                    >
+                                                                      <span
+                                                                        class="pf-c-chip__text"
+                                                                        id="pf-random-id-9"
+                                                                      >
+                                                                        Same
+                                                                      </span>
+                                                                      <button
+                                                                        aria-disabled="false"
+                                                                        aria-label="close"
+                                                                        aria-labelledby="remove_pf-random-id-9 pf-random-id-9"
+                                                                        class="pf-c-button pf-m-plain"
+                                                                        data-ouia-component-id="close"
+                                                                        data-ouia-component-type="PF4/Button"
+                                                                        data-ouia-safe="true"
+                                                                        id="remove_pf-random-id-9"
+                                                                        type="button"
+                                                                      >
+                                                                        <svg
+                                                                          aria-hidden="true"
+                                                                          fill="currentColor"
+                                                                          height="1em"
+                                                                          role="img"
+                                                                          style="vertical-align: -0.125em;"
+                                                                          viewBox="0 0 352 512"
+                                                                          width="1em"
+                                                                        >
+                                                                          <path
+                                                                            d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                                                          />
+                                                                        </svg>
+                                                                      </button>
+                                                                    </div>
+                                                                  </li>
+                                                                  <li
+                                                                    class="pf-c-chip-group__list-item"
+                                                                  >
+                                                                    <div
+                                                                      class="pf-c-chip"
+                                                                      data-ouia-component-id="OUIA-Generated-Chip-5"
+                                                                      data-ouia-component-type="PF4/Chip"
+                                                                      data-ouia-safe="true"
+                                                                    >
+                                                                      <span
+                                                                        class="pf-c-chip__text"
+                                                                        id="pf-random-id-10"
+                                                                      >
+                                                                        Different
+                                                                      </span>
+                                                                      <button
+                                                                        aria-disabled="false"
+                                                                        aria-label="close"
+                                                                        aria-labelledby="remove_pf-random-id-10 pf-random-id-10"
+                                                                        class="pf-c-button pf-m-plain"
+                                                                        data-ouia-component-id="close"
+                                                                        data-ouia-component-type="PF4/Button"
+                                                                        data-ouia-safe="true"
+                                                                        id="remove_pf-random-id-10"
+                                                                        type="button"
+                                                                      >
+                                                                        <svg
+                                                                          aria-hidden="true"
+                                                                          fill="currentColor"
+                                                                          height="1em"
+                                                                          role="img"
+                                                                          style="vertical-align: -0.125em;"
+                                                                          viewBox="0 0 352 512"
+                                                                          width="1em"
+                                                                        >
+                                                                          <path
+                                                                            d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                                                          />
+                                                                        </svg>
+                                                                      </button>
+                                                                    </div>
+                                                                  </li>
+                                                                  <li
+                                                                    class="pf-c-chip-group__list-item"
+                                                                  >
+                                                                    <div
+                                                                      class="pf-c-chip"
+                                                                      data-ouia-component-id="OUIA-Generated-Chip-6"
+                                                                      data-ouia-component-type="PF4/Chip"
+                                                                      data-ouia-safe="true"
+                                                                    >
+                                                                      <span
+                                                                        class="pf-c-chip__text"
+                                                                        id="pf-random-id-11"
+                                                                      >
+                                                                        Incomplete data
+                                                                      </span>
+                                                                      <button
+                                                                        aria-disabled="false"
+                                                                        aria-label="close"
+                                                                        aria-labelledby="remove_pf-random-id-11 pf-random-id-11"
+                                                                        class="pf-c-button pf-m-plain"
+                                                                        data-ouia-component-id="close"
+                                                                        data-ouia-component-type="PF4/Button"
+                                                                        data-ouia-safe="true"
+                                                                        id="remove_pf-random-id-11"
+                                                                        type="button"
+                                                                      >
+                                                                        <svg
+                                                                          aria-hidden="true"
+                                                                          fill="currentColor"
+                                                                          height="1em"
+                                                                          role="img"
+                                                                          style="vertical-align: -0.125em;"
+                                                                          viewBox="0 0 352 512"
+                                                                          width="1em"
+                                                                        >
+                                                                          <path
+                                                                            d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                                                          />
+                                                                        </svg>
+                                                                      </button>
+                                                                    </div>
+                                                                  </li>
+                                                                </ul>
+                                                              </div>
+                                                              <div
+                                                                class="pf-c-chip-group__close"
+                                                              >
+                                                                <button
+                                                                  aria-disabled="false"
+                                                                  aria-label="Close chip group"
+                                                                  aria-labelledby="remove_group_pf-random-id-8 pf-random-id-8"
+                                                                  class="pf-c-button pf-m-plain"
+                                                                  data-ouia-component-id="Close chip group"
+                                                                  data-ouia-component-type="PF4/Button"
+                                                                  data-ouia-safe="true"
+                                                                  id="remove_group_pf-random-id-8"
+                                                                  type="button"
+                                                                >
+                                                                  <svg
+                                                                    aria-hidden="true"
+                                                                    fill="currentColor"
+                                                                    height="1em"
+                                                                    role="img"
+                                                                    style="vertical-align: -0.125em;"
+                                                                    viewBox="0 0 512 512"
+                                                                    width="1em"
+                                                                  >
+                                                                    <path
+                                                                      d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"
+                                                                    />
+                                                                  </svg>
+                                                                </button>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      }
+                                                    />
+                                                  </ToolbarFilter>
+                                                  <ToolbarFilter
                                                     categoryName="State"
                                                     chips={
                                                       Array [
@@ -5735,13 +6296,16 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                         "Incomplete data",
                                                       ]
                                                     }
+                                                    className="comparison-filter-input-dropdown-width"
                                                     deleteChip={[Function]}
                                                     deleteChipGroup={[Function]}
                                                     showToolbarItem={true}
                                                   >
-                                                    <ToolbarItem>
+                                                    <ToolbarItem
+                                                      className="comparison-filter-input-dropdown-width"
+                                                    >
                                                       <div
-                                                        className="pf-c-toolbar__item"
+                                                        className="pf-c-toolbar__item comparison-filter-input-dropdown-width"
                                                       />
                                                     </ToolbarItem>
                                                     <Portal

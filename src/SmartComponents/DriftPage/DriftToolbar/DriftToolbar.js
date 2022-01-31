@@ -89,7 +89,8 @@ export class DriftToolbar extends Component {
     }
 
     removeChip = async (type = '', id = '') => {
-        const { activeFactFilters, addStateFilter, clearAllFactFilters, handleFactFilter, filterByFact, setHistory, stateFilters } = this.props;
+        const { activeFactFilters, addStateFilter, clearAllFactFilters, factTypeFilters, filterByFact, handleFactFilter, setHistory, stateFilters,
+            toggleFactTypeFilter } = this.props;
         if (type === 'State') {
             if (id === '') {
                 this.clearAllStateChips();
@@ -100,6 +101,8 @@ export class DriftToolbar extends Component {
                     }
                 });
             }
+        } else if (type === 'Fact type') {
+            toggleFactTypeFilter(factTypeFilters[1]);
         } else {
             if (id === '') {
                 await clearAllFactFilters();
@@ -114,8 +117,8 @@ export class DriftToolbar extends Component {
     }
 
     render() {
-        const { activeFactFilters, factFilter, filterByFact, handleFactFilter, loading,
-            page, perPage, setHistory, stateFilters, totalFacts, updatePagination } = this.props;
+        const { activeFactFilters, addStateFilter, factFilter, factTypeFilters, filterByFact, handleFactFilter, loading,
+            page, perPage, setHistory, stateFilters, toggleFactTypeFilter, totalFacts, updatePagination } = this.props;
         const { actionKebabItems, dropdownItems, dropdownOpen } = this.state;
 
         return (
@@ -124,12 +127,15 @@ export class DriftToolbar extends Component {
                     <ToolbarContent>
                         <DriftFilter
                             activeFactFilters={ activeFactFilters }
+                            addStateFilter={ addStateFilter }
                             factFilter={ factFilter }
+                            factTypeFilters={ factTypeFilters }
                             filterByFact={ filterByFact }
                             handleFactFilter={ handleFactFilter }
                             removeChip={ this.removeChip }
                             setHistory={ setHistory }
                             stateFilters={ stateFilters }
+                            toggleFactTypeFilter={ toggleFactTypeFilter }
                         />
                         <ToolbarGroup variant='button-group'>
                             <ToolbarItem>
@@ -185,9 +191,11 @@ DriftToolbar.propTypes = {
     setIsFirstReference: PropTypes.func,
     updateReferenceId: PropTypes.func,
     factFilter: PropTypes.string,
+    factTypeFilters: PropTypes.array,
     filterByFact: PropTypes.func,
     stateFilters: PropTypes.array,
     addStateFilter: PropTypes.func,
+    toggleFactTypeFilter: PropTypes.func,
     activeFactFilters: PropTypes.array,
     handleFactFilter: PropTypes.func,
     clearAllFactFilters: PropTypes.func,

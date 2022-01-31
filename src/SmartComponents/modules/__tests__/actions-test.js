@@ -148,6 +148,25 @@ describe('compare actions', () => {
         });
     });
 
+    it('handles toggleFactTypeFilter', () => {
+        const filterDataTrue = ({
+            display: 'All facts',
+            filter: 'ALL',
+            selected: true
+        });
+
+        const filterDataFalse = ({
+            display: 'All facts',
+            filter: 'ALL',
+            selected: false
+        });
+
+        expect(compareActions.toggleFactTypeFilter(filterDataTrue)).toEqual({
+            type: types.TOGGLE_FACT_TYPE_FILTER,
+            payload: filterDataFalse
+        });
+    });
+
     it('handles filterByFact', () => {
         expect(compareActions.filterByFact('filter')).toEqual({
             type: types.FILTER_BY_FACT,

@@ -1348,4 +1348,30 @@ export const comparisonJSON = [
         ]
     }
 ];
+
+export const factTypeFiltersDefault = [
+    {
+        filter: 'ALL',
+        display: 'All facts',
+        selected: true
+    },
+    {
+        filter: 'BASELINE',
+        display: 'Baseline facts only',
+        selected: false
+    }
+];
+
+export const factTypeFiltersBaselineTrue = [
+    {
+        filter: 'ALL',
+        display: 'All facts',
+        selected: false
+    },
+    {
+        filter: 'BASELINE',
+        display: 'Baseline facts only',
+        selected: true
+    }
+];
 /* eslint-enable camelcase */

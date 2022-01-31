@@ -41,7 +41,7 @@ export class DriftPage extends Component {
     }
 
     setHistory = () => {
-        const { activeFactFilters, baselines, factFilter, factSort, historicalProfiles, history, referenceId, stateFilters,
+        const { activeFactFilters, baselines, factFilter, factSort, factTypeFilters, historicalProfiles, history, referenceId, stateFilters,
             stateSort, systems } = this.props;
 
         let systemIds = systems.map(system => system.id);
@@ -49,7 +49,7 @@ export class DriftPage extends Component {
         let HSPIds = historicalProfiles.map(hsp => hsp.id);
 
         setHistory(
-            history, systemIds, baselineIds, HSPIds, referenceId, activeFactFilters, factFilter, stateFilters, factSort, stateSort
+            history, systemIds, baselineIds, HSPIds, referenceId, activeFactFilters, factFilter, factTypeFilters, stateFilters, factSort, stateSort
         );
     }
 
@@ -91,10 +91,10 @@ export class DriftPage extends Component {
 
     render() {
         const { activeFactFilters, addStateFilter, baselines, clearAllFactFilters, clearAllSelections, clearComparison, clearComparisonFilters,
-            clearSelectedBaselines, emptyState, error, exportToCSV, exportToJSON, factFilter, factSort, filterByFact, handleFactFilter,
-            historicalProfiles, handleBaselineSelection, handleHSPSelection, handleSystemSelection, history, loading, page, perPage, referenceId,
-            resetComparisonFilters, selectedBaselineIds, selectedHSPIds, stateFilters, stateSort, systems, totalFacts, updatePagination,
-            updateReferenceId } = this.props;
+            clearSelectedBaselines, emptyState, error, exportToCSV, exportToJSON, factFilter, factSort, factTypeFilters, filterByFact,
+            handleFactFilter, historicalProfiles, handleBaselineSelection, handleHSPSelection, handleSystemSelection, history, loading, page, perPage,
+            referenceId, resetComparisonFilters, selectedBaselineIds, selectedHSPIds, stateFilters, stateSort, systems, toggleFactTypeFilter,
+            totalFacts, updatePagination, updateReferenceId } = this.props;
         const { isFirstReference } = this.state;
 
         return (
@@ -139,9 +139,11 @@ export class DriftPage extends Component {
                                                     setIsFirstReference={ this.setIsFirstReference }
                                                     clearSelectedBaselines={ clearSelectedBaselines }
                                                     factFilter={ factFilter }
+                                                    factTypeFilters={ factTypeFilters }
                                                     filterByFact={ filterByFact }
                                                     stateFilters={ stateFilters }
                                                     addStateFilter={ addStateFilter }
+                                                    toggleFactTypeFilter={ toggleFactTypeFilter }
                                                     activeFactFilters={ activeFactFilters }
                                                     handleFactFilter={ handleFactFilter }
                                                     clearAllFactFilters={ clearAllFactFilters }
@@ -227,11 +229,13 @@ DriftPage.propTypes = {
     exportToCSV: PropTypes.func,
     exportToJSON: PropTypes.func,
     factFilter: PropTypes.string,
+    factTypeFilters: PropTypes.array,
     activeFactFilters: PropTypes.array,
     handleFactFilter: PropTypes.func,
     filterByFact: PropTypes.func,
     stateFilters: PropTypes.array,
     addStateFilter: PropTypes.func,
+    toggleFactTypeFilter: PropTypes.func,
     clearAllFactFilters: PropTypes.func,
     factSort: PropTypes.string,
     stateSort: PropTypes.string,
@@ -261,6 +265,7 @@ function mapDispatchToProps(dispatch) {
         exportToJSON: () => dispatch(compareActions.exportToJSON()),
         filterByFact: (filter) => dispatch(compareActions.filterByFact(filter)),
         addStateFilter: (filter) => dispatch(compareActions.addStateFilter(filter)),
+        toggleFactTypeFilter: (filter) => dispatch(compareActions.toggleFactTypeFilter(filter)),
         handleFactFilter: (filter) => dispatch(compareActions.handleFactFilter(filter)),
         clearAllFactFilters: () => dispatch(compareActions.clearAllFactFilters()),
         loadEntities: () => dispatch({ type: 'LOAD_ENTITIES' }),
@@ -283,6 +288,7 @@ function mapStateToProps(state) {
         selectedHSPIds: state.historicProfilesState.selectedHSPIds,
         previousStateSystems: state.compareState.previousStateSystems,
         factFilter: state.compareState.factFilter,
+        factTypeFilters: state.compareState.factTypeFilters,
         stateFilters: state.compareState.stateFilters,
         activeFactFilters: state.compareState.activeFactFilters,
         factSort: state.compareState.factSort,
