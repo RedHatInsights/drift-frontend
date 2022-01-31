@@ -14,6 +14,10 @@ import { compareReducerPayload, compareReducerPayloadWithMultiFact, baselinesPay
 import stateFilterFixtures from '../../../modules/__tests__/state-filter.fixtures';
 import ReferenceSelector from '../ReferenceSelector/ReferenceSelector';
 import { ASC, DESC } from '../../../../constants';
+import { createMiddlewareListener } from '../../../../store';
+
+const middlewareListener = createMiddlewareListener();
+middlewareListener.getMiddleware();
 
 describe('DriftTable', () => {
     let props;
@@ -201,7 +205,9 @@ describe('ConnectedDriftTable', () => {
             permissions: {
                 hspRead: true
             },
-            updateReferenceId: jest.fn()
+            updateReferenceId: jest.fn(),
+            setIsFirstReference: jest.fn(),
+            setHistory: jest.fn()
         };
     });
 

@@ -13,6 +13,10 @@ import { allStatesTrue } from '../../modules/__tests__/state-filter.fixtures';
 import { ASC, DESC } from '../../../constants';
 import * as setHistory from '../../../Utilities/SetHistory';
 import { PermissionContext } from '../../../App';
+import { createMiddlewareListener } from '../../../store';
+
+const middlewareListener = createMiddlewareListener();
+middlewareListener.getMiddleware();
 
 describe('DriftPage', () => {
     let props;

@@ -8,7 +8,6 @@ import toJson from 'enzyme-to-json';
 
 import ConnectedEditBaselineNameModal, { EditBaselineNameModal } from '../EditBaselineNameModal';
 import editBaselineFixtures from '../../EditBaseline/__tests__/helpers.fixtures';
-import api from '../../../../../api';
 
 describe('EditBaselineNameModal', () => {
     let props;
@@ -144,7 +143,7 @@ describe('EditBaselineNameModal', () => {
 
             const actions = store.getActions();
             wrapper.find('.pf-c-button').at(1).simulate('click');
-            expect(actions).toEqual([{ type: 'PATCH_BASELINE', payload: api.patchBaselineData('blah') }]);
+            expect(actions).toMatchSnapshot();
         });
     });
 });

@@ -11,9 +11,11 @@ describe('SystemNotification', () => {
 
     beforeEach(() => {
         props = {
+            getNotifications: jest.fn(),
             permissions: {
                 notificationsWrite: true
-            }
+            },
+            fetchBaselineData: jest.fn()
         };
     });
 
@@ -37,7 +39,8 @@ describe('ConnectedSystemNotification', () => {
         props = {
             permissions: {
                 baselinesWrite: true
-            }
+            },
+            fetchBaselineData: jest.fn()
         };
 
         initialState = {

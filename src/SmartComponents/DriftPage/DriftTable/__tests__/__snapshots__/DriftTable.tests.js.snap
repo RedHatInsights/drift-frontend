@@ -57,6 +57,8 @@ exports[`ConnectedDriftTable should render correctly 1`] = `
             "hspRead": true,
           }
         }
+        setHistory={[MockFunction]}
+        setIsFirstReference={[MockFunction]}
         systems={Array []}
         updateReferenceId={[MockFunction]}
       >
@@ -115,6 +117,8 @@ exports[`ConnectedDriftTable should render correctly 1`] = `
               "hspRead": true,
             }
           }
+          setHistory={[MockFunction]}
+          setIsFirstReference={[MockFunction]}
           systems={Array []}
           updateReferenceId={[MockFunction]}
         >
@@ -181,6 +185,8 @@ exports[`ConnectedDriftTable should render correctly 1`] = `
               }
             }
             selectHistoricProfiles={[Function]}
+            setHistory={[MockFunction]}
+            setIsFirstReference={[MockFunction]}
             setSelectedBaselines={[Function]}
             systems={Array []}
             toggleFactSort={[Function]}
@@ -351,6 +357,7 @@ exports[`ConnectedDriftTable should render correctly 1`] = `
                     }
                     removeSystem={[Function]}
                     selectHistoricProfiles={[Function]}
+                    setHistory={[MockFunction]}
                     systemIds={Array []}
                     toggleFactSort={[Function]}
                     toggleStateSort={[Function]}
@@ -511,6 +518,8 @@ exports[`ConnectedDriftTable should render loading rows 1`] = `
             "hspRead": true,
           }
         }
+        setHistory={[MockFunction]}
+        setIsFirstReference={[MockFunction]}
         systems={Array []}
         updateReferenceId={[MockFunction]}
       >
@@ -569,6 +578,8 @@ exports[`ConnectedDriftTable should render loading rows 1`] = `
               "hspRead": true,
             }
           }
+          setHistory={[MockFunction]}
+          setIsFirstReference={[MockFunction]}
           systems={Array []}
           updateReferenceId={[MockFunction]}
         >
@@ -635,6 +646,8 @@ exports[`ConnectedDriftTable should render loading rows 1`] = `
               }
             }
             selectHistoricProfiles={[Function]}
+            setHistory={[MockFunction]}
+            setIsFirstReference={[MockFunction]}
             setSelectedBaselines={[Function]}
             systems={Array []}
             toggleFactSort={[Function]}
@@ -805,6 +818,7 @@ exports[`ConnectedDriftTable should render loading rows 1`] = `
                     }
                     removeSystem={[Function]}
                     selectHistoricProfiles={[Function]}
+                    setHistory={[MockFunction]}
                     systemIds={Array []}
                     toggleFactSort={[Function]}
                     toggleStateSort={[Function]}
@@ -901,380 +915,530 @@ exports[`ConnectedDriftTable should render loading rows 1`] = `
                   <tr>
                     <td>
                       <Skeleton
-                        isDark={false}
                         size="md"
                       >
-                        <div
+                        <Skeleton
                           className="ins-c-skeleton ins-c-skeleton__md"
                         >
-                           
-                        </div>
+                          <div
+                            className="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+                          >
+                            <span
+                              className="pf-u-screen-reader"
+                            />
+                          </div>
+                        </Skeleton>
                       </Skeleton>
                     </td>
                     <td>
                       <Skeleton
-                        isDark={false}
                         size="md"
                       >
-                        <div
+                        <Skeleton
                           className="ins-c-skeleton ins-c-skeleton__md"
                         >
-                           
-                        </div>
+                          <div
+                            className="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+                          >
+                            <span
+                              className="pf-u-screen-reader"
+                            />
+                          </div>
+                        </Skeleton>
                       </Skeleton>
                     </td>
                     <td>
                       <Skeleton
-                        isDark={false}
                         size="md"
                       >
-                        <div
+                        <Skeleton
                           className="ins-c-skeleton ins-c-skeleton__md"
                         >
-                           
-                        </div>
-                      </Skeleton>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <Skeleton
-                        isDark={false}
-                        size="md"
-                      >
-                        <div
-                          className="ins-c-skeleton ins-c-skeleton__md"
-                        >
-                           
-                        </div>
-                      </Skeleton>
-                    </td>
-                    <td>
-                      <Skeleton
-                        isDark={false}
-                        size="md"
-                      >
-                        <div
-                          className="ins-c-skeleton ins-c-skeleton__md"
-                        >
-                           
-                        </div>
-                      </Skeleton>
-                    </td>
-                    <td>
-                      <Skeleton
-                        isDark={false}
-                        size="md"
-                      >
-                        <div
-                          className="ins-c-skeleton ins-c-skeleton__md"
-                        >
-                           
-                        </div>
+                          <div
+                            className="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+                          >
+                            <span
+                              className="pf-u-screen-reader"
+                            />
+                          </div>
+                        </Skeleton>
                       </Skeleton>
                     </td>
                   </tr>
                   <tr>
                     <td>
                       <Skeleton
-                        isDark={false}
                         size="md"
                       >
-                        <div
+                        <Skeleton
                           className="ins-c-skeleton ins-c-skeleton__md"
                         >
-                           
-                        </div>
+                          <div
+                            className="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+                          >
+                            <span
+                              className="pf-u-screen-reader"
+                            />
+                          </div>
+                        </Skeleton>
                       </Skeleton>
                     </td>
                     <td>
                       <Skeleton
-                        isDark={false}
                         size="md"
                       >
-                        <div
+                        <Skeleton
                           className="ins-c-skeleton ins-c-skeleton__md"
                         >
-                           
-                        </div>
+                          <div
+                            className="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+                          >
+                            <span
+                              className="pf-u-screen-reader"
+                            />
+                          </div>
+                        </Skeleton>
                       </Skeleton>
                     </td>
                     <td>
                       <Skeleton
-                        isDark={false}
                         size="md"
                       >
-                        <div
+                        <Skeleton
                           className="ins-c-skeleton ins-c-skeleton__md"
                         >
-                           
-                        </div>
-                      </Skeleton>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <Skeleton
-                        isDark={false}
-                        size="md"
-                      >
-                        <div
-                          className="ins-c-skeleton ins-c-skeleton__md"
-                        >
-                           
-                        </div>
-                      </Skeleton>
-                    </td>
-                    <td>
-                      <Skeleton
-                        isDark={false}
-                        size="md"
-                      >
-                        <div
-                          className="ins-c-skeleton ins-c-skeleton__md"
-                        >
-                           
-                        </div>
-                      </Skeleton>
-                    </td>
-                    <td>
-                      <Skeleton
-                        isDark={false}
-                        size="md"
-                      >
-                        <div
-                          className="ins-c-skeleton ins-c-skeleton__md"
-                        >
-                           
-                        </div>
+                          <div
+                            className="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+                          >
+                            <span
+                              className="pf-u-screen-reader"
+                            />
+                          </div>
+                        </Skeleton>
                       </Skeleton>
                     </td>
                   </tr>
                   <tr>
                     <td>
                       <Skeleton
-                        isDark={false}
                         size="md"
                       >
-                        <div
+                        <Skeleton
                           className="ins-c-skeleton ins-c-skeleton__md"
                         >
-                           
-                        </div>
+                          <div
+                            className="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+                          >
+                            <span
+                              className="pf-u-screen-reader"
+                            />
+                          </div>
+                        </Skeleton>
                       </Skeleton>
                     </td>
                     <td>
                       <Skeleton
-                        isDark={false}
                         size="md"
                       >
-                        <div
+                        <Skeleton
                           className="ins-c-skeleton ins-c-skeleton__md"
                         >
-                           
-                        </div>
+                          <div
+                            className="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+                          >
+                            <span
+                              className="pf-u-screen-reader"
+                            />
+                          </div>
+                        </Skeleton>
                       </Skeleton>
                     </td>
                     <td>
                       <Skeleton
-                        isDark={false}
                         size="md"
                       >
-                        <div
+                        <Skeleton
                           className="ins-c-skeleton ins-c-skeleton__md"
                         >
-                           
-                        </div>
-                      </Skeleton>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <Skeleton
-                        isDark={false}
-                        size="md"
-                      >
-                        <div
-                          className="ins-c-skeleton ins-c-skeleton__md"
-                        >
-                           
-                        </div>
-                      </Skeleton>
-                    </td>
-                    <td>
-                      <Skeleton
-                        isDark={false}
-                        size="md"
-                      >
-                        <div
-                          className="ins-c-skeleton ins-c-skeleton__md"
-                        >
-                           
-                        </div>
-                      </Skeleton>
-                    </td>
-                    <td>
-                      <Skeleton
-                        isDark={false}
-                        size="md"
-                      >
-                        <div
-                          className="ins-c-skeleton ins-c-skeleton__md"
-                        >
-                           
-                        </div>
+                          <div
+                            className="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+                          >
+                            <span
+                              className="pf-u-screen-reader"
+                            />
+                          </div>
+                        </Skeleton>
                       </Skeleton>
                     </td>
                   </tr>
                   <tr>
                     <td>
                       <Skeleton
-                        isDark={false}
                         size="md"
                       >
-                        <div
+                        <Skeleton
                           className="ins-c-skeleton ins-c-skeleton__md"
                         >
-                           
-                        </div>
+                          <div
+                            className="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+                          >
+                            <span
+                              className="pf-u-screen-reader"
+                            />
+                          </div>
+                        </Skeleton>
                       </Skeleton>
                     </td>
                     <td>
                       <Skeleton
-                        isDark={false}
                         size="md"
                       >
-                        <div
+                        <Skeleton
                           className="ins-c-skeleton ins-c-skeleton__md"
                         >
-                           
-                        </div>
+                          <div
+                            className="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+                          >
+                            <span
+                              className="pf-u-screen-reader"
+                            />
+                          </div>
+                        </Skeleton>
                       </Skeleton>
                     </td>
                     <td>
                       <Skeleton
-                        isDark={false}
                         size="md"
                       >
-                        <div
+                        <Skeleton
                           className="ins-c-skeleton ins-c-skeleton__md"
                         >
-                           
-                        </div>
-                      </Skeleton>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <Skeleton
-                        isDark={false}
-                        size="md"
-                      >
-                        <div
-                          className="ins-c-skeleton ins-c-skeleton__md"
-                        >
-                           
-                        </div>
-                      </Skeleton>
-                    </td>
-                    <td>
-                      <Skeleton
-                        isDark={false}
-                        size="md"
-                      >
-                        <div
-                          className="ins-c-skeleton ins-c-skeleton__md"
-                        >
-                           
-                        </div>
-                      </Skeleton>
-                    </td>
-                    <td>
-                      <Skeleton
-                        isDark={false}
-                        size="md"
-                      >
-                        <div
-                          className="ins-c-skeleton ins-c-skeleton__md"
-                        >
-                           
-                        </div>
+                          <div
+                            className="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+                          >
+                            <span
+                              className="pf-u-screen-reader"
+                            />
+                          </div>
+                        </Skeleton>
                       </Skeleton>
                     </td>
                   </tr>
                   <tr>
                     <td>
                       <Skeleton
-                        isDark={false}
                         size="md"
                       >
-                        <div
+                        <Skeleton
                           className="ins-c-skeleton ins-c-skeleton__md"
                         >
-                           
-                        </div>
+                          <div
+                            className="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+                          >
+                            <span
+                              className="pf-u-screen-reader"
+                            />
+                          </div>
+                        </Skeleton>
                       </Skeleton>
                     </td>
                     <td>
                       <Skeleton
-                        isDark={false}
                         size="md"
                       >
-                        <div
+                        <Skeleton
                           className="ins-c-skeleton ins-c-skeleton__md"
                         >
-                           
-                        </div>
+                          <div
+                            className="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+                          >
+                            <span
+                              className="pf-u-screen-reader"
+                            />
+                          </div>
+                        </Skeleton>
                       </Skeleton>
                     </td>
                     <td>
                       <Skeleton
-                        isDark={false}
                         size="md"
                       >
-                        <div
+                        <Skeleton
                           className="ins-c-skeleton ins-c-skeleton__md"
                         >
-                           
-                        </div>
+                          <div
+                            className="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+                          >
+                            <span
+                              className="pf-u-screen-reader"
+                            />
+                          </div>
+                        </Skeleton>
                       </Skeleton>
                     </td>
                   </tr>
                   <tr>
                     <td>
                       <Skeleton
-                        isDark={false}
                         size="md"
                       >
-                        <div
+                        <Skeleton
                           className="ins-c-skeleton ins-c-skeleton__md"
                         >
-                           
-                        </div>
+                          <div
+                            className="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+                          >
+                            <span
+                              className="pf-u-screen-reader"
+                            />
+                          </div>
+                        </Skeleton>
                       </Skeleton>
                     </td>
                     <td>
                       <Skeleton
-                        isDark={false}
                         size="md"
                       >
-                        <div
+                        <Skeleton
                           className="ins-c-skeleton ins-c-skeleton__md"
                         >
-                           
-                        </div>
+                          <div
+                            className="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+                          >
+                            <span
+                              className="pf-u-screen-reader"
+                            />
+                          </div>
+                        </Skeleton>
                       </Skeleton>
                     </td>
                     <td>
                       <Skeleton
-                        isDark={false}
                         size="md"
                       >
-                        <div
+                        <Skeleton
                           className="ins-c-skeleton ins-c-skeleton__md"
                         >
-                           
-                        </div>
+                          <div
+                            className="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+                          >
+                            <span
+                              className="pf-u-screen-reader"
+                            />
+                          </div>
+                        </Skeleton>
+                      </Skeleton>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <Skeleton
+                        size="md"
+                      >
+                        <Skeleton
+                          className="ins-c-skeleton ins-c-skeleton__md"
+                        >
+                          <div
+                            className="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+                          >
+                            <span
+                              className="pf-u-screen-reader"
+                            />
+                          </div>
+                        </Skeleton>
+                      </Skeleton>
+                    </td>
+                    <td>
+                      <Skeleton
+                        size="md"
+                      >
+                        <Skeleton
+                          className="ins-c-skeleton ins-c-skeleton__md"
+                        >
+                          <div
+                            className="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+                          >
+                            <span
+                              className="pf-u-screen-reader"
+                            />
+                          </div>
+                        </Skeleton>
+                      </Skeleton>
+                    </td>
+                    <td>
+                      <Skeleton
+                        size="md"
+                      >
+                        <Skeleton
+                          className="ins-c-skeleton ins-c-skeleton__md"
+                        >
+                          <div
+                            className="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+                          >
+                            <span
+                              className="pf-u-screen-reader"
+                            />
+                          </div>
+                        </Skeleton>
+                      </Skeleton>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <Skeleton
+                        size="md"
+                      >
+                        <Skeleton
+                          className="ins-c-skeleton ins-c-skeleton__md"
+                        >
+                          <div
+                            className="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+                          >
+                            <span
+                              className="pf-u-screen-reader"
+                            />
+                          </div>
+                        </Skeleton>
+                      </Skeleton>
+                    </td>
+                    <td>
+                      <Skeleton
+                        size="md"
+                      >
+                        <Skeleton
+                          className="ins-c-skeleton ins-c-skeleton__md"
+                        >
+                          <div
+                            className="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+                          >
+                            <span
+                              className="pf-u-screen-reader"
+                            />
+                          </div>
+                        </Skeleton>
+                      </Skeleton>
+                    </td>
+                    <td>
+                      <Skeleton
+                        size="md"
+                      >
+                        <Skeleton
+                          className="ins-c-skeleton ins-c-skeleton__md"
+                        >
+                          <div
+                            className="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+                          >
+                            <span
+                              className="pf-u-screen-reader"
+                            />
+                          </div>
+                        </Skeleton>
+                      </Skeleton>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <Skeleton
+                        size="md"
+                      >
+                        <Skeleton
+                          className="ins-c-skeleton ins-c-skeleton__md"
+                        >
+                          <div
+                            className="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+                          >
+                            <span
+                              className="pf-u-screen-reader"
+                            />
+                          </div>
+                        </Skeleton>
+                      </Skeleton>
+                    </td>
+                    <td>
+                      <Skeleton
+                        size="md"
+                      >
+                        <Skeleton
+                          className="ins-c-skeleton ins-c-skeleton__md"
+                        >
+                          <div
+                            className="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+                          >
+                            <span
+                              className="pf-u-screen-reader"
+                            />
+                          </div>
+                        </Skeleton>
+                      </Skeleton>
+                    </td>
+                    <td>
+                      <Skeleton
+                        size="md"
+                      >
+                        <Skeleton
+                          className="ins-c-skeleton ins-c-skeleton__md"
+                        >
+                          <div
+                            className="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+                          >
+                            <span
+                              className="pf-u-screen-reader"
+                            />
+                          </div>
+                        </Skeleton>
+                      </Skeleton>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <Skeleton
+                        size="md"
+                      >
+                        <Skeleton
+                          className="ins-c-skeleton ins-c-skeleton__md"
+                        >
+                          <div
+                            className="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+                          >
+                            <span
+                              className="pf-u-screen-reader"
+                            />
+                          </div>
+                        </Skeleton>
+                      </Skeleton>
+                    </td>
+                    <td>
+                      <Skeleton
+                        size="md"
+                      >
+                        <Skeleton
+                          className="ins-c-skeleton ins-c-skeleton__md"
+                        >
+                          <div
+                            className="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+                          >
+                            <span
+                              className="pf-u-screen-reader"
+                            />
+                          </div>
+                        </Skeleton>
+                      </Skeleton>
+                    </td>
+                    <td>
+                      <Skeleton
+                        size="md"
+                      >
+                        <Skeleton
+                          className="ins-c-skeleton ins-c-skeleton__md"
+                        >
+                          <div
+                            className="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+                          >
+                            <span
+                              className="pf-u-screen-reader"
+                            />
+                          </div>
+                        </Skeleton>
                       </Skeleton>
                     </td>
                   </tr>
@@ -1377,6 +1541,8 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
             "hspRead": true,
           }
         }
+        setHistory={[MockFunction]}
+        setIsFirstReference={[MockFunction]}
         systems={
           Array [
             Object {
@@ -1481,6 +1647,8 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
               "hspRead": true,
             }
           }
+          setHistory={[MockFunction]}
+          setIsFirstReference={[MockFunction]}
           systems={
             Array [
               Object {
@@ -2075,6 +2243,8 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
               }
             }
             selectHistoricProfiles={[Function]}
+            setHistory={[MockFunction]}
+            setIsFirstReference={[MockFunction]}
             setSelectedBaselines={[Function]}
             systems={
               Array [
@@ -2311,6 +2481,7 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                     }
                     removeSystem={[Function]}
                     selectHistoricProfiles={[Function]}
+                    setHistory={[MockFunction]}
                     systemIds={
                       Array [
                         "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
@@ -3460,17 +3631,14 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                         >
                                           <Skeleton
                                             className="hsp-dropdown-loading"
-                                            isDark={false}
                                             size="sm"
                                           />
                                           <Skeleton
                                             className="hsp-dropdown-loading"
-                                            isDark={false}
                                             size="sm"
                                           />
                                           <Skeleton
                                             className="hsp-dropdown-loading"
-                                            isDark={false}
                                             size="sm"
                                           />
                                         </div>
@@ -3512,7 +3680,6 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                         onDocumentClick={[Function]}
                                         onDocumentKeyDown={[Function]}
                                         onTriggerClick={[Function]}
-                                        onTriggerEnter={[Function]}
                                         placement="top"
                                         popper={
                                           <FocusTrap
@@ -3548,7 +3715,10 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                                 onClose={[Function]}
                                               />
                                               <PopoverHeader
+                                                alertSeverityScreenReaderText="undefined alert:"
+                                                icon={null}
                                                 id="popover-hsp-popover-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9-header"
+                                                titleHeadingLevel="h6"
                                               >
                                                 <div>
                                                   Historical profiles for this system
@@ -3567,17 +3737,14 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                                 >
                                                   <Skeleton
                                                     className="hsp-dropdown-loading"
-                                                    isDark={false}
                                                     size="sm"
                                                   />
                                                   <Skeleton
                                                     className="hsp-dropdown-loading"
-                                                    isDark={false}
                                                     size="sm"
                                                   />
                                                   <Skeleton
                                                     className="hsp-dropdown-loading"
-                                                    isDark={false}
                                                     size="sm"
                                                   />
                                                 </div>
@@ -4136,17 +4303,14 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                         >
                                           <Skeleton
                                             className="hsp-dropdown-loading"
-                                            isDark={false}
                                             size="sm"
                                           />
                                           <Skeleton
                                             className="hsp-dropdown-loading"
-                                            isDark={false}
                                             size="sm"
                                           />
                                           <Skeleton
                                             className="hsp-dropdown-loading"
-                                            isDark={false}
                                             size="sm"
                                           />
                                         </div>
@@ -4188,7 +4352,6 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                         onDocumentClick={[Function]}
                                         onDocumentKeyDown={[Function]}
                                         onTriggerClick={[Function]}
-                                        onTriggerEnter={[Function]}
                                         placement="top"
                                         popper={
                                           <FocusTrap
@@ -4224,7 +4387,10 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                                 onClose={[Function]}
                                               />
                                               <PopoverHeader
+                                                alertSeverityScreenReaderText="undefined alert:"
+                                                icon={null}
                                                 id="popover-hsp-popover-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9-header"
+                                                titleHeadingLevel="h6"
                                               >
                                                 <div>
                                                   Historical profiles for this system
@@ -4243,17 +4409,14 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                                 >
                                                   <Skeleton
                                                     className="hsp-dropdown-loading"
-                                                    isDark={false}
                                                     size="sm"
                                                   />
                                                   <Skeleton
                                                     className="hsp-dropdown-loading"
-                                                    isDark={false}
                                                     size="sm"
                                                   />
                                                   <Skeleton
                                                     className="hsp-dropdown-loading"
-                                                    isDark={false}
                                                     size="sm"
                                                   />
                                                 </div>
@@ -4812,17 +4975,14 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                         >
                                           <Skeleton
                                             className="hsp-dropdown-loading"
-                                            isDark={false}
                                             size="sm"
                                           />
                                           <Skeleton
                                             className="hsp-dropdown-loading"
-                                            isDark={false}
                                             size="sm"
                                           />
                                           <Skeleton
                                             className="hsp-dropdown-loading"
-                                            isDark={false}
                                             size="sm"
                                           />
                                         </div>
@@ -4864,7 +5024,6 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                         onDocumentClick={[Function]}
                                         onDocumentKeyDown={[Function]}
                                         onTriggerClick={[Function]}
-                                        onTriggerEnter={[Function]}
                                         placement="top"
                                         popper={
                                           <FocusTrap
@@ -4900,7 +5059,10 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                                 onClose={[Function]}
                                               />
                                               <PopoverHeader
+                                                alertSeverityScreenReaderText="undefined alert:"
+                                                icon={null}
                                                 id="popover-hsp-popover-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9-header"
+                                                titleHeadingLevel="h6"
                                               >
                                                 <div>
                                                   Historical profiles for this system
@@ -4919,17 +5081,14 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                                 >
                                                   <Skeleton
                                                     className="hsp-dropdown-loading"
-                                                    isDark={false}
                                                     size="sm"
                                                   />
                                                   <Skeleton
                                                     className="hsp-dropdown-loading"
-                                                    isDark={false}
                                                     size="sm"
                                                   />
                                                   <Skeleton
                                                     className="hsp-dropdown-loading"
-                                                    isDark={false}
                                                     size="sm"
                                                   />
                                                 </div>
@@ -5484,17 +5643,14 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                         >
                                           <Skeleton
                                             className="hsp-dropdown-loading"
-                                            isDark={false}
                                             size="sm"
                                           />
                                           <Skeleton
                                             className="hsp-dropdown-loading"
-                                            isDark={false}
                                             size="sm"
                                           />
                                           <Skeleton
                                             className="hsp-dropdown-loading"
-                                            isDark={false}
                                             size="sm"
                                           />
                                         </div>
@@ -5536,7 +5692,6 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                         onDocumentClick={[Function]}
                                         onDocumentKeyDown={[Function]}
                                         onTriggerClick={[Function]}
-                                        onTriggerEnter={[Function]}
                                         placement="top"
                                         popper={
                                           <FocusTrap
@@ -5572,7 +5727,10 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                                 onClose={[Function]}
                                               />
                                               <PopoverHeader
+                                                alertSeverityScreenReaderText="undefined alert:"
+                                                icon={null}
                                                 id="popover-hsp-popover-f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2-header"
+                                                titleHeadingLevel="h6"
                                               >
                                                 <div>
                                                   Historical profiles for this system
@@ -5591,17 +5749,14 @@ exports[`ConnectedDriftTable should render multi fact values 1`] = `
                                                 >
                                                   <Skeleton
                                                     className="hsp-dropdown-loading"
-                                                    isDark={false}
                                                     size="sm"
                                                   />
                                                   <Skeleton
                                                     className="hsp-dropdown-loading"
-                                                    isDark={false}
                                                     size="sm"
                                                   />
                                                   <Skeleton
                                                     className="hsp-dropdown-loading"
-                                                    isDark={false}
                                                     size="sm"
                                                   />
                                                 </div>
@@ -8660,6 +8815,8 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
             "hspRead": true,
           }
         }
+        setHistory={[MockFunction]}
+        setIsFirstReference={[MockFunction]}
         systems={
           Array [
             Object {
@@ -8764,6 +8921,8 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
               "hspRead": true,
             }
           }
+          setHistory={[MockFunction]}
+          setIsFirstReference={[MockFunction]}
           systems={
             Array [
               Object {
@@ -8969,6 +9128,8 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
               }
             }
             selectHistoricProfiles={[Function]}
+            setHistory={[MockFunction]}
+            setIsFirstReference={[MockFunction]}
             setSelectedBaselines={[Function]}
             systems={
               Array [
@@ -9205,6 +9366,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                     }
                     removeSystem={[Function]}
                     selectHistoricProfiles={[Function]}
+                    setHistory={[MockFunction]}
                     systemIds={
                       Array [
                         "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
@@ -10354,17 +10516,14 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                         >
                                           <Skeleton
                                             className="hsp-dropdown-loading"
-                                            isDark={false}
                                             size="sm"
                                           />
                                           <Skeleton
                                             className="hsp-dropdown-loading"
-                                            isDark={false}
                                             size="sm"
                                           />
                                           <Skeleton
                                             className="hsp-dropdown-loading"
-                                            isDark={false}
                                             size="sm"
                                           />
                                         </div>
@@ -10406,7 +10565,6 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                         onDocumentClick={[Function]}
                                         onDocumentKeyDown={[Function]}
                                         onTriggerClick={[Function]}
-                                        onTriggerEnter={[Function]}
                                         placement="top"
                                         popper={
                                           <FocusTrap
@@ -10442,7 +10600,10 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                                 onClose={[Function]}
                                               />
                                               <PopoverHeader
+                                                alertSeverityScreenReaderText="undefined alert:"
+                                                icon={null}
                                                 id="popover-hsp-popover-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9-header"
+                                                titleHeadingLevel="h6"
                                               >
                                                 <div>
                                                   Historical profiles for this system
@@ -10461,17 +10622,14 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                                 >
                                                   <Skeleton
                                                     className="hsp-dropdown-loading"
-                                                    isDark={false}
                                                     size="sm"
                                                   />
                                                   <Skeleton
                                                     className="hsp-dropdown-loading"
-                                                    isDark={false}
                                                     size="sm"
                                                   />
                                                   <Skeleton
                                                     className="hsp-dropdown-loading"
-                                                    isDark={false}
                                                     size="sm"
                                                   />
                                                 </div>
@@ -11030,17 +11188,14 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                         >
                                           <Skeleton
                                             className="hsp-dropdown-loading"
-                                            isDark={false}
                                             size="sm"
                                           />
                                           <Skeleton
                                             className="hsp-dropdown-loading"
-                                            isDark={false}
                                             size="sm"
                                           />
                                           <Skeleton
                                             className="hsp-dropdown-loading"
-                                            isDark={false}
                                             size="sm"
                                           />
                                         </div>
@@ -11082,7 +11237,6 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                         onDocumentClick={[Function]}
                                         onDocumentKeyDown={[Function]}
                                         onTriggerClick={[Function]}
-                                        onTriggerEnter={[Function]}
                                         placement="top"
                                         popper={
                                           <FocusTrap
@@ -11118,7 +11272,10 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                                 onClose={[Function]}
                                               />
                                               <PopoverHeader
+                                                alertSeverityScreenReaderText="undefined alert:"
+                                                icon={null}
                                                 id="popover-hsp-popover-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9-header"
+                                                titleHeadingLevel="h6"
                                               >
                                                 <div>
                                                   Historical profiles for this system
@@ -11137,17 +11294,14 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                                 >
                                                   <Skeleton
                                                     className="hsp-dropdown-loading"
-                                                    isDark={false}
                                                     size="sm"
                                                   />
                                                   <Skeleton
                                                     className="hsp-dropdown-loading"
-                                                    isDark={false}
                                                     size="sm"
                                                   />
                                                   <Skeleton
                                                     className="hsp-dropdown-loading"
-                                                    isDark={false}
                                                     size="sm"
                                                   />
                                                 </div>
@@ -11706,17 +11860,14 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                         >
                                           <Skeleton
                                             className="hsp-dropdown-loading"
-                                            isDark={false}
                                             size="sm"
                                           />
                                           <Skeleton
                                             className="hsp-dropdown-loading"
-                                            isDark={false}
                                             size="sm"
                                           />
                                           <Skeleton
                                             className="hsp-dropdown-loading"
-                                            isDark={false}
                                             size="sm"
                                           />
                                         </div>
@@ -11758,7 +11909,6 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                         onDocumentClick={[Function]}
                                         onDocumentKeyDown={[Function]}
                                         onTriggerClick={[Function]}
-                                        onTriggerEnter={[Function]}
                                         placement="top"
                                         popper={
                                           <FocusTrap
@@ -11794,7 +11944,10 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                                 onClose={[Function]}
                                               />
                                               <PopoverHeader
+                                                alertSeverityScreenReaderText="undefined alert:"
+                                                icon={null}
                                                 id="popover-hsp-popover-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9-header"
+                                                titleHeadingLevel="h6"
                                               >
                                                 <div>
                                                   Historical profiles for this system
@@ -11813,17 +11966,14 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                                 >
                                                   <Skeleton
                                                     className="hsp-dropdown-loading"
-                                                    isDark={false}
                                                     size="sm"
                                                   />
                                                   <Skeleton
                                                     className="hsp-dropdown-loading"
-                                                    isDark={false}
                                                     size="sm"
                                                   />
                                                   <Skeleton
                                                     className="hsp-dropdown-loading"
-                                                    isDark={false}
                                                     size="sm"
                                                   />
                                                 </div>
@@ -12378,17 +12528,14 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                         >
                                           <Skeleton
                                             className="hsp-dropdown-loading"
-                                            isDark={false}
                                             size="sm"
                                           />
                                           <Skeleton
                                             className="hsp-dropdown-loading"
-                                            isDark={false}
                                             size="sm"
                                           />
                                           <Skeleton
                                             className="hsp-dropdown-loading"
-                                            isDark={false}
                                             size="sm"
                                           />
                                         </div>
@@ -12430,7 +12577,6 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                         onDocumentClick={[Function]}
                                         onDocumentKeyDown={[Function]}
                                         onTriggerClick={[Function]}
-                                        onTriggerEnter={[Function]}
                                         placement="top"
                                         popper={
                                           <FocusTrap
@@ -12466,7 +12612,10 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                                 onClose={[Function]}
                                               />
                                               <PopoverHeader
+                                                alertSeverityScreenReaderText="undefined alert:"
+                                                icon={null}
                                                 id="popover-hsp-popover-f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2-header"
+                                                titleHeadingLevel="h6"
                                               >
                                                 <div>
                                                   Historical profiles for this system
@@ -12485,17 +12634,14 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                                 >
                                                   <Skeleton
                                                     className="hsp-dropdown-loading"
-                                                    isDark={false}
                                                     size="sm"
                                                   />
                                                   <Skeleton
                                                     className="hsp-dropdown-loading"
-                                                    isDark={false}
                                                     size="sm"
                                                   />
                                                   <Skeleton
                                                     className="hsp-dropdown-loading"
-                                                    isDark={false}
                                                     size="sm"
                                                   />
                                                 </div>

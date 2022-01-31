@@ -28,6 +28,7 @@ describe('DriftToolbar', () => {
             filterByFact: jest.fn(),
             handleFactFilter: jest.fn(),
             clearAllFactFilters: jest.fn(),
+            clearAllSelections: jest.fn(),
             setHistory: jest.fn()
         };
     });

@@ -8,7 +8,10 @@ import baselinesTableFixtures from '../../BaselinesTable/redux/__tests__/baselin
 import _ from 'lodash';
 
 import ConnectedBaselinesPage, { BaselinesPage } from '../BaselinesPage';
-import { PermissionContext } from '../../../App';
+import { PermissionContext } from '../../../App';import { createMiddlewareListener } from '../../../store';
+
+const middlewareListener = createMiddlewareListener();
+middlewareListener.getMiddleware();
 
 describe('BaselinesPage', () => {
     let props;
@@ -283,6 +286,6 @@ describe('ConnectedBaselinesPage', () => {
 
         const actions = store.getActions();
         wrapper.find('a').simulate('click');
-        expect(actions).toEqual([{ type: 'REVERT_BASELINE_FETCH_CHECKBOX' }]);
+        expect(actions).toMatchSnapshot();
     });
 });
