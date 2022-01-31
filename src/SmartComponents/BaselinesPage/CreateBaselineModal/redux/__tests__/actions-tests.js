@@ -8,7 +8,7 @@ import types from '../types';
 import { createBaselineModalActions } from '../index';
 
 describe('create baseline modal actions', () => {
-    const middlewares = [ promiseMiddleware() ];
+    const middlewares = [ promiseMiddleware ];
     const mockStore = configureMockStore(middlewares);
 
     beforeEach(function () {

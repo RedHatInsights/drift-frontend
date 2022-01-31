@@ -5,8 +5,12 @@ import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import toJson from 'enzyme-to-json';
 import _ from 'lodash';
+import { createMiddlewareListener } from '../../../../store';
 
 import ConnectedCreateBaselineModal, { CreateBaselineModal } from '../CreateBaselineModal';
+
+const middlewareListener = createMiddlewareListener();
+middlewareListener.getMiddleware();
 
 describe('CreateBaselineModal', () => {
     let props;
@@ -14,7 +18,7 @@ describe('CreateBaselineModal', () => {
     beforeEach(() => {
         props = {
             createBaselineModalOpened: false,
-            baselineData: [],
+            baselineData: {},
             entities: {},
             permissions: {
                 hspRead: true
@@ -174,7 +178,7 @@ describe('ConnectedCreateBaselineModal', () => {
             },
             createBaselineModalState: {
                 createBaselineModalOpened: true,
-                baselineData: [],
+                baselineData: {},
                 createBaselineError: {}
             },
             entities: {},

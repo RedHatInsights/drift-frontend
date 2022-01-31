@@ -125,7 +125,7 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                           aria-disabled="false"
                           aria-label="Close"
                           class="pf-c-button pf-m-plain"
-                          data-ouia-component-id="OUIA-Generated-Button-plain-1"
+                          data-ouia-component-id="add-fact-modal-ModalBoxCloseButton"
                           data-ouia-component-type="PF4/Button"
                           data-ouia-safe="true"
                           type="button"
@@ -394,11 +394,13 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                           >
                             <ModalBoxCloseButton
                               onClose={[Function]}
+                              ouiaId="add-fact-modal"
                             >
                               <Button
                                 aria-label="Close"
                                 className=""
                                 onClick={[Function]}
+                                ouiaId="add-fact-modal-ModalBoxCloseButton"
                                 variant="plain"
                               >
                                 <ButtonBase
@@ -406,13 +408,14 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                                   className=""
                                   innerRef={null}
                                   onClick={[Function]}
+                                  ouiaId="add-fact-modal-ModalBoxCloseButton"
                                   variant="plain"
                                 >
                                   <button
                                     aria-disabled={false}
                                     aria-label="Close"
                                     className="pf-c-button pf-m-plain"
-                                    data-ouia-component-id="OUIA-Generated-Button-plain-1"
+                                    data-ouia-component-id="add-fact-modal-ModalBoxCloseButton"
                                     data-ouia-component-type="PF4/Button"
                                     data-ouia-safe={true}
                                     disabled={false}

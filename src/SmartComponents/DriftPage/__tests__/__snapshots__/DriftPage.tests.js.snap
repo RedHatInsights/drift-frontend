@@ -230,16 +230,14 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                       data-ouia-safe={true}
                       widget-type="InsightsPageHeaderTitle"
                     >
-                       
                       Comparison
-                       
                     </h1>
                   </Title>
                 </PageHeaderTitle>
               </section>
             </PageHeader>
-            <Connect(Main)>
-              <Main>
+            <Connect(InternalMain)>
+              <InternalMain>
                 <section
                   className="pf-l-page__main-section pf-c-page__main-section"
                   page-type=""
@@ -506,6 +504,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                       isGrouped={false}
                                                       isOpen={false}
                                                       isPlain={false}
+                                                      isText={false}
                                                       menuAppendTo="inline"
                                                       onSelect={[Function]}
                                                       position="left"
@@ -544,6 +543,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                           id="pf-dropdown-toggle-id-0"
                                                           isOpen={false}
                                                           isPlain={false}
+                                                          isText={false}
                                                           key=".0"
                                                           onEnter={[Function]}
                                                           onToggle={[Function]}
@@ -625,6 +625,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                             isPlain={false}
                                                             isPrimary={false}
                                                             isSplitButton={false}
+                                                            isText={false}
                                                             onEnter={[Function]}
                                                             onToggle={[Function]}
                                                             parentRef={
@@ -688,6 +689,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                 </div>,
                                                               }
                                                             }
+                                                            toggleVariant="default"
                                                           >
                                                             <button
                                                               aria-expanded={false}
@@ -2068,6 +2070,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                         isGrouped={false}
                                                         isOpen={false}
                                                         isPlain={true}
+                                                        isText={false}
                                                         menuAppendTo="inline"
                                                         onSelect={[Function]}
                                                         position="left"
@@ -2098,6 +2101,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                             id="pf-dropdown-toggle-id-1"
                                                             isOpen={false}
                                                             isPlain={true}
+                                                            isText={false}
                                                             key=".0"
                                                             onEnter={[Function]}
                                                             onToggle={[Function]}
@@ -2157,6 +2161,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                               isPlain={true}
                                                               isPrimary={false}
                                                               isSplitButton={false}
+                                                              isText={false}
                                                               onEnter={[Function]}
                                                               onToggle={[Function]}
                                                               parentRef={
@@ -2197,6 +2202,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                   </div>,
                                                                 }
                                                               }
+                                                              toggleVariant="default"
                                                             >
                                                               <button
                                                                 aria-expanded={false}
@@ -2318,6 +2324,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                         isGrouped={false}
                                                         isOpen={false}
                                                         isPlain={true}
+                                                        isText={false}
                                                         menuAppendTo="inline"
                                                         onSelect={[Function]}
                                                         position="left"
@@ -2355,6 +2362,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                             id="pf-dropdown-toggle-id-2"
                                                             isOpen={false}
                                                             isPlain={true}
+                                                            isText={false}
                                                             key=".0"
                                                             onEnter={[Function]}
                                                             onToggle={[Function]}
@@ -2412,6 +2420,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                               isPlain={true}
                                                               isPrimary={false}
                                                               isSplitButton={false}
+                                                              isText={false}
                                                               onEnter={[Function]}
                                                               onToggle={[Function]}
                                                               parentRef={
@@ -2575,6 +2584,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                     "ofWord": "of",
                                                     "optionsToggle": "Items per page",
                                                     "page": "",
+                                                    "pages": "",
                                                     "paginationTitle": "Pagination",
                                                     "perPageSuffix": "per page",
                                                     "toFirstPage": "Go to first page",
@@ -2583,7 +2593,6 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                     "toPreviousPage": "Go to previous page",
                                                   }
                                                 }
-                                                toggleTemplate={[Function]}
                                                 variant="top"
                                                 widgetId="drift-pagination-top"
                                               >
@@ -2629,6 +2638,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                     itemsTitle=""
                                                     lastIndex={0}
                                                     lastPage={0}
+                                                    ofWord="of"
                                                     onPerPageSelect={[Function]}
                                                     optionsToggle="Items per page"
                                                     page={0}
@@ -2713,6 +2723,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                       isGrouped={false}
                                                       isOpen={false}
                                                       isPlain={true}
+                                                      isText={false}
                                                       menuAppendTo="inline"
                                                       onSelect={[Function]}
                                                       position="left"
@@ -2725,6 +2736,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                           itemsPerPageTitle="Items per page"
                                                           itemsTitle=""
                                                           lastIndex={0}
+                                                          ofWord="of"
                                                           onToggle={[Function]}
                                                           optionsToggle="Items per page"
                                                           parentRef={null}
@@ -2747,11 +2759,13 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                           isDisabled={false}
                                                           isOpen={false}
                                                           isPlain={true}
+                                                          isText={false}
                                                           itemCount={0}
                                                           itemsPerPageTitle="Items per page"
                                                           itemsTitle=""
                                                           key=".0"
                                                           lastIndex={0}
+                                                          ofWord="of"
                                                           onEnter={[Function]}
                                                           onToggle={[Function]}
                                                           optionsToggle="Items per page"
@@ -2789,7 +2803,6 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                     data-ouia-component-id="OUIA-Generated-DropdownToggle-1"
                                                                     data-ouia-component-type="PF4/DropdownToggle"
                                                                     data-ouia-safe="true"
-                                                                    disabled=""
                                                                     id="drift-pagination-top-toggle-0"
                                                                     type="button"
                                                                   >
@@ -2830,6 +2843,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                 itemCount={0}
                                                                 itemsTitle=""
                                                                 lastIndex={0}
+                                                                ofWord="of"
                                                               >
                                                                 <b>
                                                                   0
@@ -2849,7 +2863,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                               aria-label="Items per page"
                                                               className="pf-c-options-menu__toggle-button"
                                                               id="drift-pagination-top-toggle-0"
-                                                              isDisabled={true}
+                                                              isDisabled={0}
                                                               isOpen={false}
                                                               onEnter={[Function]}
                                                               onToggle={[Function]}
@@ -2887,7 +2901,6 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                         data-ouia-component-id="OUIA-Generated-DropdownToggle-1"
                                                                         data-ouia-component-type="PF4/DropdownToggle"
                                                                         data-ouia-safe="true"
-                                                                        disabled=""
                                                                         id="drift-pagination-top-toggle-0"
                                                                         type="button"
                                                                       >
@@ -2924,11 +2937,12 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                 getMenuRef={null}
                                                                 id="drift-pagination-top-toggle-0"
                                                                 isActive={false}
-                                                                isDisabled={true}
+                                                                isDisabled={0}
                                                                 isOpen={false}
                                                                 isPlain={false}
                                                                 isPrimary={false}
                                                                 isSplitButton={false}
+                                                                isText={false}
                                                                 onEnter={[Function]}
                                                                 onToggle={[Function]}
                                                                 parentRef={
@@ -2965,7 +2979,6 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                           data-ouia-component-id="OUIA-Generated-DropdownToggle-1"
                                                                           data-ouia-component-type="PF4/DropdownToggle"
                                                                           data-ouia-safe="true"
-                                                                          disabled=""
                                                                           id="drift-pagination-top-toggle-0"
                                                                           type="button"
                                                                         >
@@ -2991,6 +3004,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                     </div>,
                                                                   }
                                                                 }
+                                                                toggleVariant="default"
                                                               >
                                                                 <button
                                                                   aria-expanded={false}
@@ -2999,7 +3013,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                   data-ouia-component-id="OUIA-Generated-DropdownToggle-1"
                                                                   data-ouia-component-type="PF4/DropdownToggle"
                                                                   data-ouia-safe={true}
-                                                                  disabled={true}
+                                                                  disabled={0}
                                                                   id="drift-pagination-top-toggle-0"
                                                                   onClick={[Function]}
                                                                   onKeyDown={[Function]}
@@ -3047,6 +3061,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                     firstPage={1}
                                                     isCompact={true}
                                                     isDisabled={false}
+                                                    itemCount={0}
                                                     lastPage={0}
                                                     ofWord="of"
                                                     onFirstClick={[Function]}
@@ -3057,6 +3072,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                     onSetPage={[Function]}
                                                     page={0}
                                                     pagesTitle=""
+                                                    pagesTitlePlural=""
                                                     paginationTitle="Pagination"
                                                     perPage={10}
                                                     toFirstPage="Go to first page"
@@ -3535,6 +3551,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                     collapseListedFiltersBreakpoint="lg"
                                     isExpanded={false}
                                     numberOfFilters={3}
+                                    numberOfFiltersText={[Function]}
                                     showClearFiltersButton={true}
                                   >
                                     <div
@@ -4222,6 +4239,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                   "ofWord": "of",
                                                   "optionsToggle": "Items per page",
                                                   "page": "",
+                                                  "pages": "",
                                                   "paginationTitle": "Pagination",
                                                   "perPageSuffix": "per page",
                                                   "toFirstPage": "Go to first page",
@@ -4230,7 +4248,6 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                   "toPreviousPage": "Go to previous page",
                                                 }
                                               }
-                                              toggleTemplate={[Function]}
                                               variant="bottom"
                                               widgetId="drift-pagination-bottom"
                                             >
@@ -4252,6 +4269,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                   itemsTitle=""
                                                   lastIndex={0}
                                                   lastPage={0}
+                                                  ofWord="of"
                                                   onPerPageSelect={[Function]}
                                                   optionsToggle="Items per page"
                                                   page={0}
@@ -4336,6 +4354,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                     isGrouped={false}
                                                     isOpen={false}
                                                     isPlain={true}
+                                                    isText={false}
                                                     menuAppendTo="inline"
                                                     onSelect={[Function]}
                                                     position="left"
@@ -4348,6 +4367,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                         itemsPerPageTitle="Items per page"
                                                         itemsTitle=""
                                                         lastIndex={0}
+                                                        ofWord="of"
                                                         onToggle={[Function]}
                                                         optionsToggle="Items per page"
                                                         parentRef={null}
@@ -4370,11 +4390,13 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                         isDisabled={false}
                                                         isOpen={false}
                                                         isPlain={true}
+                                                        isText={false}
                                                         itemCount={0}
                                                         itemsPerPageTitle="Items per page"
                                                         itemsTitle=""
                                                         key=".0"
                                                         lastIndex={0}
+                                                        ofWord="of"
                                                         onEnter={[Function]}
                                                         onToggle={[Function]}
                                                         optionsToggle="Items per page"
@@ -4412,7 +4434,6 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                   data-ouia-component-id="OUIA-Generated-DropdownToggle-2"
                                                                   data-ouia-component-type="PF4/DropdownToggle"
                                                                   data-ouia-safe="true"
-                                                                  disabled=""
                                                                   id="drift-pagination-bottom-toggle-1"
                                                                   type="button"
                                                                 >
@@ -4453,6 +4474,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                               itemCount={0}
                                                               itemsTitle=""
                                                               lastIndex={0}
+                                                              ofWord="of"
                                                             >
                                                               <b>
                                                                 0
@@ -4472,7 +4494,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                             aria-label="Items per page"
                                                             className="pf-c-options-menu__toggle-button"
                                                             id="drift-pagination-bottom-toggle-1"
-                                                            isDisabled={true}
+                                                            isDisabled={0}
                                                             isOpen={false}
                                                             onEnter={[Function]}
                                                             onToggle={[Function]}
@@ -4510,7 +4532,6 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                       data-ouia-component-id="OUIA-Generated-DropdownToggle-2"
                                                                       data-ouia-component-type="PF4/DropdownToggle"
                                                                       data-ouia-safe="true"
-                                                                      disabled=""
                                                                       id="drift-pagination-bottom-toggle-1"
                                                                       type="button"
                                                                     >
@@ -4547,11 +4568,12 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                               getMenuRef={null}
                                                               id="drift-pagination-bottom-toggle-1"
                                                               isActive={false}
-                                                              isDisabled={true}
+                                                              isDisabled={0}
                                                               isOpen={false}
                                                               isPlain={false}
                                                               isPrimary={false}
                                                               isSplitButton={false}
+                                                              isText={false}
                                                               onEnter={[Function]}
                                                               onToggle={[Function]}
                                                               parentRef={
@@ -4588,7 +4610,6 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                         data-ouia-component-id="OUIA-Generated-DropdownToggle-2"
                                                                         data-ouia-component-type="PF4/DropdownToggle"
                                                                         data-ouia-safe="true"
-                                                                        disabled=""
                                                                         id="drift-pagination-bottom-toggle-1"
                                                                         type="button"
                                                                       >
@@ -4614,6 +4635,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                   </div>,
                                                                 }
                                                               }
+                                                              toggleVariant="default"
                                                             >
                                                               <button
                                                                 aria-expanded={false}
@@ -4622,7 +4644,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                 data-ouia-component-id="OUIA-Generated-DropdownToggle-2"
                                                                 data-ouia-component-type="PF4/DropdownToggle"
                                                                 data-ouia-safe={true}
-                                                                disabled={true}
+                                                                disabled={0}
                                                                 id="drift-pagination-bottom-toggle-1"
                                                                 onClick={[Function]}
                                                                 onKeyDown={[Function]}
@@ -4670,6 +4692,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                   firstPage={1}
                                                   isCompact={false}
                                                   isDisabled={false}
+                                                  itemCount={0}
                                                   lastPage={0}
                                                   ofWord="of"
                                                   onFirstClick={[Function]}
@@ -4680,6 +4703,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                   onSetPage={[Function]}
                                                   page={0}
                                                   pagesTitle=""
+                                                  pagesTitlePlural=""
                                                   paginationTitle="Pagination"
                                                   perPage={10}
                                                   toFirstPage="Go to first page"
@@ -4980,6 +5004,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                   collapseListedFiltersBreakpoint="lg"
                                   isExpanded={false}
                                   numberOfFilters={0}
+                                  numberOfFiltersText={[Function]}
                                   showClearFiltersButton={false}
                                 >
                                   <div
@@ -5008,8 +5033,8 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                     </article>
                   </Card>
                 </section>
-              </Main>
-            </Connect(Main)>
+              </InternalMain>
+            </Connect(InternalMain)>
           </DriftPage>
         </Connect(DriftPage)>
       </withRouter(Connect(DriftPage))>
@@ -5252,16 +5277,14 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                       data-ouia-safe={true}
                       widget-type="InsightsPageHeaderTitle"
                     >
-                       
                       Comparison
-                       
                     </h1>
                   </Title>
                 </PageHeaderTitle>
               </section>
             </PageHeader>
-            <Connect(Main)>
-              <Main>
+            <Connect(InternalMain)>
+              <InternalMain>
                 <section
                   className="pf-l-page__main-section pf-c-page__main-section"
                   page-type=""
@@ -5536,6 +5559,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                       isGrouped={false}
                                                       isOpen={false}
                                                       isPlain={false}
+                                                      isText={false}
                                                       menuAppendTo="inline"
                                                       onSelect={[Function]}
                                                       position="left"
@@ -5574,6 +5598,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                           id="pf-dropdown-toggle-id-5"
                                                           isOpen={false}
                                                           isPlain={false}
+                                                          isText={false}
                                                           key=".0"
                                                           onEnter={[Function]}
                                                           onToggle={[Function]}
@@ -5655,6 +5680,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                             isPlain={false}
                                                             isPrimary={false}
                                                             isSplitButton={false}
+                                                            isText={false}
                                                             onEnter={[Function]}
                                                             onToggle={[Function]}
                                                             parentRef={
@@ -5718,6 +5744,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                 </div>,
                                                               }
                                                             }
+                                                            toggleVariant="default"
                                                           >
                                                             <button
                                                               aria-expanded={false}
@@ -7098,6 +7125,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                         isGrouped={false}
                                                         isOpen={false}
                                                         isPlain={true}
+                                                        isText={false}
                                                         menuAppendTo="inline"
                                                         onSelect={[Function]}
                                                         position="left"
@@ -7128,6 +7156,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                             id="pf-dropdown-toggle-id-6"
                                                             isOpen={false}
                                                             isPlain={true}
+                                                            isText={false}
                                                             key=".0"
                                                             onEnter={[Function]}
                                                             onToggle={[Function]}
@@ -7187,6 +7216,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                               isPlain={true}
                                                               isPrimary={false}
                                                               isSplitButton={false}
+                                                              isText={false}
                                                               onEnter={[Function]}
                                                               onToggle={[Function]}
                                                               parentRef={
@@ -7227,6 +7257,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                   </div>,
                                                                 }
                                                               }
+                                                              toggleVariant="default"
                                                             >
                                                               <button
                                                                 aria-expanded={false}
@@ -7348,6 +7379,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                         isGrouped={false}
                                                         isOpen={false}
                                                         isPlain={true}
+                                                        isText={false}
                                                         menuAppendTo="inline"
                                                         onSelect={[Function]}
                                                         position="left"
@@ -7385,6 +7417,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                             id="pf-dropdown-toggle-id-7"
                                                             isOpen={false}
                                                             isPlain={true}
+                                                            isText={false}
                                                             key=".0"
                                                             onEnter={[Function]}
                                                             onToggle={[Function]}
@@ -7442,6 +7475,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                               isPlain={true}
                                                               isPrimary={false}
                                                               isSplitButton={false}
+                                                              isText={false}
                                                               onEnter={[Function]}
                                                               onToggle={[Function]}
                                                               parentRef={
@@ -7605,6 +7639,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                     "ofWord": "of",
                                                     "optionsToggle": "Items per page",
                                                     "page": "",
+                                                    "pages": "",
                                                     "paginationTitle": "Pagination",
                                                     "perPageSuffix": "per page",
                                                     "toFirstPage": "Go to first page",
@@ -7613,7 +7648,6 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                     "toPreviousPage": "Go to previous page",
                                                   }
                                                 }
-                                                toggleTemplate={[Function]}
                                                 variant="top"
                                                 widgetId="drift-pagination-top"
                                               >
@@ -7659,6 +7693,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                     itemsTitle=""
                                                     lastIndex={0}
                                                     lastPage={0}
+                                                    ofWord="of"
                                                     onPerPageSelect={[Function]}
                                                     optionsToggle="Items per page"
                                                     page={0}
@@ -7743,6 +7778,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                       isGrouped={false}
                                                       isOpen={false}
                                                       isPlain={true}
+                                                      isText={false}
                                                       menuAppendTo="inline"
                                                       onSelect={[Function]}
                                                       position="left"
@@ -7755,6 +7791,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                           itemsPerPageTitle="Items per page"
                                                           itemsTitle=""
                                                           lastIndex={0}
+                                                          ofWord="of"
                                                           onToggle={[Function]}
                                                           optionsToggle="Items per page"
                                                           parentRef={null}
@@ -7777,11 +7814,13 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                           isDisabled={false}
                                                           isOpen={false}
                                                           isPlain={true}
+                                                          isText={false}
                                                           itemCount={0}
                                                           itemsPerPageTitle="Items per page"
                                                           itemsTitle=""
                                                           key=".0"
                                                           lastIndex={0}
+                                                          ofWord="of"
                                                           onEnter={[Function]}
                                                           onToggle={[Function]}
                                                           optionsToggle="Items per page"
@@ -7819,7 +7858,6 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                     data-ouia-component-id="OUIA-Generated-DropdownToggle-3"
                                                                     data-ouia-component-type="PF4/DropdownToggle"
                                                                     data-ouia-safe="true"
-                                                                    disabled=""
                                                                     id="drift-pagination-top-toggle-2"
                                                                     type="button"
                                                                   >
@@ -7860,6 +7898,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                 itemCount={0}
                                                                 itemsTitle=""
                                                                 lastIndex={0}
+                                                                ofWord="of"
                                                               >
                                                                 <b>
                                                                   0
@@ -7879,7 +7918,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                               aria-label="Items per page"
                                                               className="pf-c-options-menu__toggle-button"
                                                               id="drift-pagination-top-toggle-2"
-                                                              isDisabled={true}
+                                                              isDisabled={0}
                                                               isOpen={false}
                                                               onEnter={[Function]}
                                                               onToggle={[Function]}
@@ -7917,7 +7956,6 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                         data-ouia-component-id="OUIA-Generated-DropdownToggle-3"
                                                                         data-ouia-component-type="PF4/DropdownToggle"
                                                                         data-ouia-safe="true"
-                                                                        disabled=""
                                                                         id="drift-pagination-top-toggle-2"
                                                                         type="button"
                                                                       >
@@ -7954,11 +7992,12 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                 getMenuRef={null}
                                                                 id="drift-pagination-top-toggle-2"
                                                                 isActive={false}
-                                                                isDisabled={true}
+                                                                isDisabled={0}
                                                                 isOpen={false}
                                                                 isPlain={false}
                                                                 isPrimary={false}
                                                                 isSplitButton={false}
+                                                                isText={false}
                                                                 onEnter={[Function]}
                                                                 onToggle={[Function]}
                                                                 parentRef={
@@ -7995,7 +8034,6 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                           data-ouia-component-id="OUIA-Generated-DropdownToggle-3"
                                                                           data-ouia-component-type="PF4/DropdownToggle"
                                                                           data-ouia-safe="true"
-                                                                          disabled=""
                                                                           id="drift-pagination-top-toggle-2"
                                                                           type="button"
                                                                         >
@@ -8021,6 +8059,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                     </div>,
                                                                   }
                                                                 }
+                                                                toggleVariant="default"
                                                               >
                                                                 <button
                                                                   aria-expanded={false}
@@ -8029,7 +8068,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                   data-ouia-component-id="OUIA-Generated-DropdownToggle-3"
                                                                   data-ouia-component-type="PF4/DropdownToggle"
                                                                   data-ouia-safe={true}
-                                                                  disabled={true}
+                                                                  disabled={0}
                                                                   id="drift-pagination-top-toggle-2"
                                                                   onClick={[Function]}
                                                                   onKeyDown={[Function]}
@@ -8077,6 +8116,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                     firstPage={1}
                                                     isCompact={true}
                                                     isDisabled={false}
+                                                    itemCount={0}
                                                     lastPage={0}
                                                     ofWord="of"
                                                     onFirstClick={[Function]}
@@ -8087,6 +8127,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                     onSetPage={[Function]}
                                                     page={0}
                                                     pagesTitle=""
+                                                    pagesTitlePlural=""
                                                     paginationTitle="Pagination"
                                                     perPage={10}
                                                     toFirstPage="Go to first page"
@@ -8565,6 +8606,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                     collapseListedFiltersBreakpoint="lg"
                                     isExpanded={false}
                                     numberOfFilters={3}
+                                    numberOfFiltersText={[Function]}
                                     showClearFiltersButton={true}
                                   >
                                     <div
@@ -9264,6 +9306,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                   "ofWord": "of",
                                                   "optionsToggle": "Items per page",
                                                   "page": "",
+                                                  "pages": "",
                                                   "paginationTitle": "Pagination",
                                                   "perPageSuffix": "per page",
                                                   "toFirstPage": "Go to first page",
@@ -9272,7 +9315,6 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                   "toPreviousPage": "Go to previous page",
                                                 }
                                               }
-                                              toggleTemplate={[Function]}
                                               variant="bottom"
                                               widgetId="drift-pagination-bottom"
                                             >
@@ -9294,6 +9336,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                   itemsTitle=""
                                                   lastIndex={0}
                                                   lastPage={0}
+                                                  ofWord="of"
                                                   onPerPageSelect={[Function]}
                                                   optionsToggle="Items per page"
                                                   page={0}
@@ -9378,6 +9421,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                     isGrouped={false}
                                                     isOpen={false}
                                                     isPlain={true}
+                                                    isText={false}
                                                     menuAppendTo="inline"
                                                     onSelect={[Function]}
                                                     position="left"
@@ -9390,6 +9434,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                         itemsPerPageTitle="Items per page"
                                                         itemsTitle=""
                                                         lastIndex={0}
+                                                        ofWord="of"
                                                         onToggle={[Function]}
                                                         optionsToggle="Items per page"
                                                         parentRef={null}
@@ -9412,11 +9457,13 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                         isDisabled={false}
                                                         isOpen={false}
                                                         isPlain={true}
+                                                        isText={false}
                                                         itemCount={0}
                                                         itemsPerPageTitle="Items per page"
                                                         itemsTitle=""
                                                         key=".0"
                                                         lastIndex={0}
+                                                        ofWord="of"
                                                         onEnter={[Function]}
                                                         onToggle={[Function]}
                                                         optionsToggle="Items per page"
@@ -9454,7 +9501,6 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                   data-ouia-component-id="OUIA-Generated-DropdownToggle-4"
                                                                   data-ouia-component-type="PF4/DropdownToggle"
                                                                   data-ouia-safe="true"
-                                                                  disabled=""
                                                                   id="drift-pagination-bottom-toggle-3"
                                                                   type="button"
                                                                 >
@@ -9495,6 +9541,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                               itemCount={0}
                                                               itemsTitle=""
                                                               lastIndex={0}
+                                                              ofWord="of"
                                                             >
                                                               <b>
                                                                 0
@@ -9514,7 +9561,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                             aria-label="Items per page"
                                                             className="pf-c-options-menu__toggle-button"
                                                             id="drift-pagination-bottom-toggle-3"
-                                                            isDisabled={true}
+                                                            isDisabled={0}
                                                             isOpen={false}
                                                             onEnter={[Function]}
                                                             onToggle={[Function]}
@@ -9552,7 +9599,6 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                       data-ouia-component-id="OUIA-Generated-DropdownToggle-4"
                                                                       data-ouia-component-type="PF4/DropdownToggle"
                                                                       data-ouia-safe="true"
-                                                                      disabled=""
                                                                       id="drift-pagination-bottom-toggle-3"
                                                                       type="button"
                                                                     >
@@ -9589,11 +9635,12 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                               getMenuRef={null}
                                                               id="drift-pagination-bottom-toggle-3"
                                                               isActive={false}
-                                                              isDisabled={true}
+                                                              isDisabled={0}
                                                               isOpen={false}
                                                               isPlain={false}
                                                               isPrimary={false}
                                                               isSplitButton={false}
+                                                              isText={false}
                                                               onEnter={[Function]}
                                                               onToggle={[Function]}
                                                               parentRef={
@@ -9630,7 +9677,6 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                         data-ouia-component-id="OUIA-Generated-DropdownToggle-4"
                                                                         data-ouia-component-type="PF4/DropdownToggle"
                                                                         data-ouia-safe="true"
-                                                                        disabled=""
                                                                         id="drift-pagination-bottom-toggle-3"
                                                                         type="button"
                                                                       >
@@ -9656,6 +9702,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                   </div>,
                                                                 }
                                                               }
+                                                              toggleVariant="default"
                                                             >
                                                               <button
                                                                 aria-expanded={false}
@@ -9664,7 +9711,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                 data-ouia-component-id="OUIA-Generated-DropdownToggle-4"
                                                                 data-ouia-component-type="PF4/DropdownToggle"
                                                                 data-ouia-safe={true}
-                                                                disabled={true}
+                                                                disabled={0}
                                                                 id="drift-pagination-bottom-toggle-3"
                                                                 onClick={[Function]}
                                                                 onKeyDown={[Function]}
@@ -9712,6 +9759,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                   firstPage={1}
                                                   isCompact={false}
                                                   isDisabled={false}
+                                                  itemCount={0}
                                                   lastPage={0}
                                                   ofWord="of"
                                                   onFirstClick={[Function]}
@@ -9722,6 +9770,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                   onSetPage={[Function]}
                                                   page={0}
                                                   pagesTitle=""
+                                                  pagesTitlePlural=""
                                                   paginationTitle="Pagination"
                                                   perPage={10}
                                                   toFirstPage="Go to first page"
@@ -10022,6 +10071,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                   collapseListedFiltersBreakpoint="lg"
                                   isExpanded={false}
                                   numberOfFilters={0}
+                                  numberOfFiltersText={[Function]}
                                   showClearFiltersButton={false}
                                 >
                                   <div
@@ -10050,8 +10100,8 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                     </article>
                   </Card>
                 </section>
-              </Main>
-            </Connect(Main)>
+              </InternalMain>
+            </Connect(InternalMain)>
           </DriftPage>
         </Connect(DriftPage)>
       </withRouter(Connect(DriftPage))>

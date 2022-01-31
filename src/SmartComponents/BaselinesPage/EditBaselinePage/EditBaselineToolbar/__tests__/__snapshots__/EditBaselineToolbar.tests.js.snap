@@ -89,7 +89,6 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                       >
                         <BulkSelect
                           checked={false}
-                          className=""
                           count={null}
                           isDisabled={false}
                           items={
@@ -108,7 +107,6 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                           }
                           onSelect={[Function]}
                           ouiaId="edit-baseline-bulk-selector-dropdown"
-                          ouiaSafe={true}
                         >
                           <Dropdown
                             className="ins-c-bulk-select"
@@ -138,7 +136,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                               <DropdownToggle
                                 isDisabled={false}
                                 onToggle={[Function]}
-                                ouiaId="edit-baseline-bulk-selector-dropdown-toggle"
+                                ouiaId="edit-baseline-bulk-selector-dropdown"
                                 splitButtonItems={
                                   Array [
                                     <React.Fragment>
@@ -150,7 +148,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                         isDisabled={false}
                                         isValid={true}
                                         onChange={[Function]}
-                                        ouiaId="edit-baseline-bulk-selector-dropdown-toggle-checkbox"
+                                        ouiaId="edit-baseline-bulk-selector-dropdown"
                                       >
                                         
                                       </DropdownToggleCheckbox>
@@ -185,6 +183,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                               isGrouped={false}
                               isOpen={false}
                               isPlain={false}
+                              isText={false}
                               menuAppendTo="inline"
                               onSelect={[Function]}
                               position="left"
@@ -192,7 +191,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                 <DropdownToggle
                                   isDisabled={false}
                                   onToggle={[Function]}
-                                  ouiaId="edit-baseline-bulk-selector-dropdown-toggle"
+                                  ouiaId="edit-baseline-bulk-selector-dropdown"
                                   splitButtonItems={
                                     Array [
                                       <React.Fragment>
@@ -204,7 +203,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                           isDisabled={false}
                                           isValid={true}
                                           onChange={[Function]}
-                                          ouiaId="edit-baseline-bulk-selector-dropdown-toggle-checkbox"
+                                          ouiaId="edit-baseline-bulk-selector-dropdown"
                                         >
                                           
                                         </DropdownToggleCheckbox>
@@ -227,10 +226,11 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                   isDisabled={false}
                                   isOpen={false}
                                   isPlain={false}
+                                  isText={false}
                                   key=".0"
                                   onEnter={[Function]}
                                   onToggle={[Function]}
-                                  ouiaId="edit-baseline-bulk-selector-dropdown-toggle"
+                                  ouiaId="edit-baseline-bulk-selector-dropdown"
                                   parentRef={
                                     Object {
                                       "current": <div
@@ -249,7 +249,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                             <input
                                               aria-invalid="false"
                                               aria-label="Select all"
-                                              data-ouia-component-id="edit-baseline-bulk-selector-dropdown-toggle-checkbox"
+                                              data-ouia-component-id="edit-baseline-bulk-selector-dropdown"
                                               data-ouia-component-type="PF4/DropdownToggleCheckbox"
                                               data-ouia-safe="true"
                                               id="toggle-checkbox"
@@ -262,7 +262,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                             aria-haspopup="true"
                                             aria-label="Select"
                                             class="pf-c-dropdown__toggle-button"
-                                            data-ouia-component-id="edit-baseline-bulk-selector-dropdown-toggle"
+                                            data-ouia-component-id="edit-baseline-bulk-selector-dropdown"
                                             data-ouia-component-type="PF4/DropdownToggle"
                                             data-ouia-safe="true"
                                             id="pf-dropdown-toggle-id-0"
@@ -301,7 +301,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                           isDisabled={false}
                                           isValid={true}
                                           onChange={[Function]}
-                                          ouiaId="edit-baseline-bulk-selector-dropdown-toggle-checkbox"
+                                          ouiaId="edit-baseline-bulk-selector-dropdown"
                                         >
                                           
                                         </DropdownToggleCheckbox>
@@ -320,7 +320,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                       isDisabled={false}
                                       isValid={true}
                                       onChange={[Function]}
-                                      ouiaId="edit-baseline-bulk-selector-dropdown-toggle-checkbox"
+                                      ouiaId="edit-baseline-bulk-selector-dropdown"
                                     >
                                       <label
                                         className="pf-c-dropdown__toggle-check"
@@ -330,7 +330,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                           aria-invalid={false}
                                           aria-label="Select all"
                                           checked={false}
-                                          data-ouia-component-id="edit-baseline-bulk-selector-dropdown-toggle-checkbox"
+                                          data-ouia-component-id="edit-baseline-bulk-selector-dropdown"
                                           data-ouia-component-type="PF4/DropdownToggleCheckbox"
                                           data-ouia-safe={true}
                                           disabled={false}
@@ -345,7 +345,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                       aria-label="Select"
                                       bubbleEvent={false}
                                       className=""
-                                      data-ouia-component-id="edit-baseline-bulk-selector-dropdown-toggle"
+                                      data-ouia-component-id="edit-baseline-bulk-selector-dropdown"
                                       data-ouia-component-type="PF4/DropdownToggle"
                                       data-ouia-safe={true}
                                       getMenuRef={[Function]}
@@ -356,6 +356,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                       isPlain={false}
                                       isPrimary={false}
                                       isSplitButton={true}
+                                      isText={false}
                                       onEnter={[Function]}
                                       onToggle={[Function]}
                                       parentRef={
@@ -376,7 +377,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                                 <input
                                                   aria-invalid="false"
                                                   aria-label="Select all"
-                                                  data-ouia-component-id="edit-baseline-bulk-selector-dropdown-toggle-checkbox"
+                                                  data-ouia-component-id="edit-baseline-bulk-selector-dropdown"
                                                   data-ouia-component-type="PF4/DropdownToggleCheckbox"
                                                   data-ouia-safe="true"
                                                   id="toggle-checkbox"
@@ -389,7 +390,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                                 aria-haspopup="true"
                                                 aria-label="Select"
                                                 class="pf-c-dropdown__toggle-button"
-                                                data-ouia-component-id="edit-baseline-bulk-selector-dropdown-toggle"
+                                                data-ouia-component-id="edit-baseline-bulk-selector-dropdown"
                                                 data-ouia-component-type="PF4/DropdownToggle"
                                                 data-ouia-safe="true"
                                                 id="pf-dropdown-toggle-id-0"
@@ -417,13 +418,14 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                           </div>,
                                         }
                                       }
+                                      toggleVariant="default"
                                     >
                                       <button
                                         aria-expanded={false}
                                         aria-haspopup={true}
                                         aria-label="Select"
                                         className="pf-c-dropdown__toggle-button"
-                                        data-ouia-component-id="edit-baseline-bulk-selector-dropdown-toggle"
+                                        data-ouia-component-id="edit-baseline-bulk-selector-dropdown"
                                         data-ouia-component-type="PF4/DropdownToggle"
                                         data-ouia-safe={true}
                                         disabled={false}
@@ -625,6 +627,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                     isGrouped={false}
                                     isOpen={false}
                                     isPlain={true}
+                                    isText={false}
                                     menuAppendTo="inline"
                                     onSelect={[Function]}
                                     position="left"
@@ -655,6 +658,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                         id="pf-dropdown-toggle-id-1"
                                         isOpen={false}
                                         isPlain={true}
+                                        isText={false}
                                         key=".0"
                                         onEnter={[Function]}
                                         onToggle={[Function]}
@@ -714,6 +718,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                           isPlain={true}
                                           isPrimary={false}
                                           isSplitButton={false}
+                                          isText={false}
                                           onEnter={[Function]}
                                           onToggle={[Function]}
                                           parentRef={
@@ -754,6 +759,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                               </div>,
                                             }
                                           }
+                                          toggleVariant="default"
                                         >
                                           <button
                                             aria-expanded={false}
@@ -928,6 +934,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                       isGrouped={false}
                                       isOpen={false}
                                       isPlain={true}
+                                      isText={false}
                                       menuAppendTo="inline"
                                       onSelect={[Function]}
                                       position="left"
@@ -963,6 +970,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                           id="pf-dropdown-toggle-id-2"
                                           isOpen={false}
                                           isPlain={true}
+                                          isText={false}
                                           key=".0"
                                           onEnter={[Function]}
                                           onToggle={[Function]}
@@ -1018,6 +1026,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                             isPlain={true}
                                             isPrimary={false}
                                             isSplitButton={false}
+                                            isText={false}
                                             onEnter={[Function]}
                                             onToggle={[Function]}
                                             parentRef={
@@ -1165,6 +1174,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                 collapseListedFiltersBreakpoint="lg"
                 isExpanded={false}
                 numberOfFilters={0}
+                numberOfFiltersText={[Function]}
                 showClearFiltersButton={false}
               >
                 <div
@@ -1205,7 +1215,6 @@ exports[`EditBaselineToolbar should render correctly 1`] = `
     <ToolbarItem>
       <BulkSelect
         checked={false}
-        className=""
         count={null}
         isDisabled={false}
         items={
@@ -1224,7 +1233,6 @@ exports[`EditBaselineToolbar should render correctly 1`] = `
         }
         onSelect={[Function]}
         ouiaId="edit-baseline-bulk-selector-dropdown"
-        ouiaSafe={true}
       />
     </ToolbarItem>
     <ToolbarItem>

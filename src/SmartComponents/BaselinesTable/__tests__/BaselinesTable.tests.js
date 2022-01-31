@@ -10,6 +10,12 @@ import baselinesReducerHelpers from '../redux/helpers';
 import ConnectedBaselinesTable from '../BaselinesTable';
 import { sortable } from '@patternfly/react-table';
 
+jest.mock('../redux', () => ({
+    baselinesTableActions: {
+        fetchBaselines: jest.fn(()=> ({ type: 'null' }))
+    }
+}));
+
 describe('ConnectedBaselinesTable', () => {
     let initialState;
     let mockStore;
@@ -51,7 +57,8 @@ describe('ConnectedBaselinesTable', () => {
                 baselinesRead: true,
                 baselinesWrite: true
             },
-            basketIsVisible: false
+            basketIsVisible: false,
+            fetchBaselines: jest.fn()
         };
     });
 

@@ -6,7 +6,8 @@ const { config: webpackConfig, plugins } = config({
     debug: true,
     https: true,
     useProxy: true,
-    env: 'stage-stable'
+    env: 'stage-stable',
+    appUrl: [ '/insights/drift' ]
 });
 
 plugins.push(
@@ -14,7 +15,14 @@ plugins.push(
         root: resolve(__dirname, '../'),
         exposes: {
             './RootApp': resolve(__dirname, '../src/DevEntry')
-        }
+        },
+        exclude: [ 'react-redux' ],
+        shared: [{
+            'react-redux': {
+                requiredVersion: '*',
+                singleton: true
+            }
+        }]
     })
 );
 
