@@ -3,11 +3,12 @@ import types from '../types';
 import { ASC, DESC } from '../../../constants';
 
 import { compareReducerPayload, compareReducerPayloadWithCategory, compareReducerState,
-    sortedDesc, paginatedStatePageOne, paginatedStatePageTwo } from './reducer.fixtures';
+    sortedDesc, paginatedStatePageOne, paginatedStatePageTwo, factTypeFiltersDefault, factTypeFiltersBaselineTrue } from './reducer.fixtures';
 import { factFilteredStateOne, factFilteredStateTwo, activeFactFilteredStateOne,
     activeFactFilteredStateTwo } from './reducer.fact-filter-fixtures';
 import stateFilteredFixtures from './reducer.state-filter-fixtures';
 import stateFilters from './state-filter.fixtures';
+import { factTypeFilterPayloadWithMultiFact, factTypeFiltered } from './reducer.fact-type-filter-fixtures';
 
 describe('compare reducer', () => {
     it('should return initial state', () => {
@@ -18,6 +19,7 @@ describe('compare reducer', () => {
                 factFilter: '',
                 activeFactFilters: [],
                 stateFilters: stateFilters.allStatesTrue,
+                factTypeFilters: factTypeFiltersDefault,
                 factSort: ASC,
                 stateSort: DESC,
                 filteredCompareData: [],
@@ -61,6 +63,7 @@ describe('compare reducer', () => {
             factFilter: 'dog',
             activeFactFilters: [ 'cat', 'mouse' ],
             stateFilters: stateFilters.diffStateTrue,
+            factTypeFilters: factTypeFiltersDefault,
             factSort: DESC,
             stateSort: ASC,
             filteredCompareData: [],
@@ -94,6 +97,7 @@ describe('compare reducer', () => {
                 factSort: DESC,
                 stateSort: ASC,
                 stateFilters: stateFilters.diffStateTrue,
+                factTypeFilters: factTypeFiltersBaselineTrue,
                 factFilter: 'dog',
                 activeFactFilters: [ 'cat', 'mouse' ]}, {
                 type: `${types.CLEAR_COMPARISON_FILTERS}` })
@@ -105,6 +109,7 @@ describe('compare reducer', () => {
             factFilter: '',
             activeFactFilters: [],
             stateFilters: stateFilters.allStatesFalse,
+            factTypeFilters: factTypeFiltersDefault,
             factSort: DESC,
             stateSort: ASC,
             filteredCompareData: [],
@@ -227,6 +232,7 @@ describe('compare reducer', () => {
                 perPage: 50,
                 page: 1,
                 stateFilters: stateFilters.allStatesTrue,
+                factTypeFilters: factTypeFiltersDefault,
                 factFilter: '' },
             {
                 payload: compareReducerPayload,
@@ -244,6 +250,7 @@ describe('compare reducer', () => {
             page: 1,
             perPage: 50,
             stateFilters: stateFilters.allStatesTrue,
+            factTypeFilters: factTypeFiltersDefault,
             totalFacts: 3,
             emptyState: false
         });
@@ -255,6 +262,7 @@ describe('compare reducer', () => {
                 perPage: 50,
                 page: 1,
                 stateFilters: stateFilters.allStatesTrue,
+                factTypeFilters: factTypeFiltersDefault,
                 factFilter: '',
                 activeFactFilters: [ 'bios' ]},
             {
@@ -274,6 +282,7 @@ describe('compare reducer', () => {
             page: 1,
             perPage: 50,
             stateFilters: stateFilters.allStatesTrue,
+            factTypeFilters: factTypeFiltersDefault,
             totalFacts: 1,
             emptyState: false
         });
@@ -341,7 +350,8 @@ describe('compare reducer', () => {
                 fullCompareData: compareReducerPayload.facts,
                 systems: compareReducerPayload.systems,
                 factFilter: '',
-                stateFilters: stateFilters.allStatesTrue },
+                stateFilters: stateFilters.allStatesTrue,
+                factTypeFilters: factTypeFiltersDefault },
             {
                 payload: { perPage: 2, page: 1 },
                 type: `${types.UPDATE_DRIFT_PAGINATION}`
@@ -355,6 +365,7 @@ describe('compare reducer', () => {
             page: 1,
             perPage: 2,
             stateFilters: stateFilters.allStatesTrue,
+            factTypeFilters: factTypeFiltersDefault,
             totalFacts: 3
         });
     });
@@ -367,7 +378,8 @@ describe('compare reducer', () => {
                 fullCompareData: compareReducerPayload.facts,
                 systems: compareReducerPayload.systems,
                 factFilter: '',
-                stateFilters: stateFilters.allStatesTrue },
+                stateFilters: stateFilters.allStatesTrue,
+                factTypeFilters: factTypeFiltersDefault },
             {
                 payload: { perPage: 2, page: 2 },
                 type: `${types.UPDATE_DRIFT_PAGINATION}`
@@ -381,6 +393,7 @@ describe('compare reducer', () => {
             page: 2,
             perPage: 2,
             stateFilters: stateFilters.allStatesTrue,
+            factTypeFilters: factTypeFiltersDefault,
             totalFacts: 3
         });
     });
@@ -393,7 +406,8 @@ describe('compare reducer', () => {
                 fullCompareData: compareReducerPayload.facts,
                 systems: compareReducerPayload.systems,
                 factFilter: '',
-                stateFilters: stateFilters.allStatesTrue },
+                stateFilters: stateFilters.allStatesTrue,
+                factTypeFilters: factTypeFiltersDefault },
             {
                 payload: { perPage: 2, page: 3 },
                 type: `${types.UPDATE_DRIFT_PAGINATION}`
@@ -407,6 +421,7 @@ describe('compare reducer', () => {
             page: 3,
             perPage: 2,
             stateFilters: stateFilters.allStatesTrue,
+            factTypeFilters: factTypeFiltersDefault,
             totalFacts: 3
         });
     });
@@ -419,7 +434,8 @@ describe('compare reducer', () => {
                 fullCompareData: stateFilteredFixtures.stateFilteredStateAll.facts,
                 systems: stateFilteredFixtures.stateFilteredStateAll.systems,
                 factFilter: '',
-                stateFilters: stateFilters.allStatesFalse },
+                stateFilters: stateFilters.allStatesFalse,
+                factTypeFilters: factTypeFiltersDefault },
             {
                 payload: {
                     filter: 'SAME',
@@ -437,6 +453,7 @@ describe('compare reducer', () => {
             page: 1,
             perPage: 50,
             stateFilters: stateFilters.sameStateTrue,
+            factTypeFilters: factTypeFiltersDefault,
             totalFacts: 1
         });
     });
@@ -449,7 +466,8 @@ describe('compare reducer', () => {
                 fullCompareData: stateFilteredFixtures.stateFilteredStateAll.facts,
                 systems: stateFilteredFixtures.stateFilteredStateAll.systems,
                 factFilter: '',
-                stateFilters: stateFilters.allStatesFalse },
+                stateFilters: stateFilters.allStatesFalse,
+                factTypeFilters: factTypeFiltersDefault },
             {
                 payload: {
                     filter: 'DIFFERENT',
@@ -483,6 +501,7 @@ describe('compare reducer', () => {
                     selected: false
                 }
             ],
+            factTypeFilters: factTypeFiltersDefault,
             totalFacts: 1
         });
     });
@@ -495,7 +514,8 @@ describe('compare reducer', () => {
                 fullCompareData: stateFilteredFixtures.stateFilteredStateAll.facts,
                 systems: stateFilteredFixtures.stateFilteredStateAll.systems,
                 factFilter: '',
-                stateFilters: stateFilters.allStatesFalse },
+                stateFilters: stateFilters.allStatesFalse,
+                factTypeFilters: factTypeFiltersDefault },
             {
                 payload: {
                     filter: 'INCOMPLETE_DATA',
@@ -513,6 +533,7 @@ describe('compare reducer', () => {
             page: 1,
             perPage: 50,
             stateFilters: stateFilters.incompleteStateTrue,
+            factTypeFilters: factTypeFiltersDefault,
             totalFacts: 1
         });
     });
@@ -525,7 +546,8 @@ describe('compare reducer', () => {
                 fullCompareData: stateFilteredFixtures.stateFilteredStateAll.facts,
                 systems: stateFilteredFixtures.stateFilteredStateAll.systems,
                 factFilter: '',
-                stateFilters: stateFilters.sameStateTrue },
+                stateFilters: stateFilters.sameStateTrue,
+                factTypeFilters: factTypeFiltersDefault },
             {
                 payload: {
                     filter: 'INCOMPLETE_DATA',
@@ -543,6 +565,7 @@ describe('compare reducer', () => {
             page: 1,
             perPage: 50,
             stateFilters: stateFilters.diffStateFalse,
+            factTypeFilters: factTypeFiltersDefault,
             totalFacts: 2
         });
     });
@@ -555,7 +578,8 @@ describe('compare reducer', () => {
                 fullCompareData: stateFilteredFixtures.stateFilteredStateAll.facts,
                 systems: stateFilteredFixtures.stateFilteredStateAll.systems,
                 factFilter: '',
-                stateFilters: stateFilters.sameStateTrue },
+                stateFilters: stateFilters.sameStateTrue,
+                factTypeFilters: factTypeFiltersDefault },
             {
                 payload: {
                     filter: 'DIFFERENT',
@@ -573,6 +597,7 @@ describe('compare reducer', () => {
             page: 1,
             perPage: 50,
             stateFilters: stateFilters.incompleteStateFalse,
+            factTypeFilters: factTypeFiltersDefault,
             totalFacts: 2
         });
     });
@@ -585,7 +610,8 @@ describe('compare reducer', () => {
                 fullCompareData: stateFilteredFixtures.stateFilteredStateAll.facts,
                 systems: stateFilteredFixtures.stateFilteredStateAll.systems,
                 factFilter: '',
-                stateFilters: stateFilters.incompleteStateTrue },
+                stateFilters: stateFilters.incompleteStateTrue,
+                factTypeFilters: factTypeFiltersDefault },
             {
                 payload: {
                     filter: 'DIFFERENT',
@@ -603,6 +629,7 @@ describe('compare reducer', () => {
             page: 1,
             perPage: 50,
             stateFilters: stateFilters.sameStateFalse,
+            factTypeFilters: factTypeFiltersDefault,
             totalFacts: 2
         });
     });
@@ -615,7 +642,8 @@ describe('compare reducer', () => {
                 fullCompareData: stateFilteredFixtures.stateFilteredStateAll.facts,
                 systems: stateFilteredFixtures.stateFilteredStateAll.systems,
                 factFilter: '',
-                stateFilters: stateFilters.diffStateTrue },
+                stateFilters: stateFilters.diffStateTrue,
+                factTypeFilters: factTypeFiltersDefault },
             {
                 payload: {
                     filter: 'DIFFERENT',
@@ -633,7 +661,55 @@ describe('compare reducer', () => {
             page: 1,
             perPage: 50,
             stateFilters: stateFilters.allStatesFalse,
+            factTypeFilters: factTypeFiltersDefault,
             totalFacts: 0
+        });
+    });
+
+    it('should handle TOGGLE_FACT_TYPE_FILTER baselines true', () => {
+        expect(
+            compareReducer({
+                baselines: factTypeFilterPayloadWithMultiFact.baselines,
+                historicalProfiles: factTypeFilterPayloadWithMultiFact.historical_system_profiles,
+                page: 1,
+                perPage: 50,
+                fullCompareData: factTypeFilterPayloadWithMultiFact.facts,
+                systems: factTypeFilterPayloadWithMultiFact.systems,
+                factFilter: '',
+                stateFilters: stateFilters.allStatesTrue,
+                factTypeFilters: factTypeFiltersDefault },
+            {
+                payload: {
+                    filter: 'BASELINE',
+                    display: 'Baseline facts only',
+                    selected: true
+                },
+                type: `${types.TOGGLE_FACT_TYPE_FILTER}`
+            })
+        ).toEqual({
+            baselines: factTypeFilterPayloadWithMultiFact.baselines,
+            fullCompareData: factTypeFilterPayloadWithMultiFact.facts,
+            factFilter: '',
+            filteredCompareData: factTypeFiltered,
+            historicalProfiles: factTypeFilterPayloadWithMultiFact.historical_system_profiles,
+            sortedFilteredFacts: factTypeFiltered,
+            systems: factTypeFilterPayloadWithMultiFact.systems,
+            page: 1,
+            perPage: 50,
+            stateFilters: stateFilters.allStatesTrue,
+            factTypeFilters: [
+                {
+                    filter: 'ALL',
+                    display: 'All facts',
+                    selected: false
+                },
+                {
+                    filter: 'BASELINE',
+                    display: 'Baseline facts only',
+                    selected: true
+                }
+            ],
+            totalFacts: 3
         });
     });
 
@@ -645,7 +721,8 @@ describe('compare reducer', () => {
                 fullCompareData: compareReducerPayload.facts,
                 systems: compareReducerPayload.systems,
                 factFilter: '',
-                stateFilters: stateFilters.allStatesTrue },
+                stateFilters: stateFilters.allStatesTrue,
+                factTypeFilters: factTypeFiltersDefault },
             {
                 payload: 'i',
                 type: `${types.FILTER_BY_FACT}`
@@ -659,6 +736,7 @@ describe('compare reducer', () => {
             page: 1,
             perPage: 50,
             stateFilters: stateFilters.allStatesTrue,
+            factTypeFilters: factTypeFiltersDefault,
             totalFacts: 2
         });
     });
@@ -671,7 +749,8 @@ describe('compare reducer', () => {
                 fullCompareData: compareReducerPayload.facts,
                 systems: compareReducerPayload.systems,
                 factFilter: 'i',
-                stateFilters: stateFilters.allStatesTrue },
+                stateFilters: stateFilters.allStatesTrue,
+                factTypeFilters: factTypeFiltersDefault },
             {
                 payload: 'io',
                 type: `${types.FILTER_BY_FACT}`
@@ -685,6 +764,7 @@ describe('compare reducer', () => {
             page: 1,
             perPage: 50,
             stateFilters: stateFilters.allStatesTrue,
+            factTypeFilters: factTypeFiltersDefault,
             totalFacts: 1
         });
     });
@@ -697,7 +777,8 @@ describe('compare reducer', () => {
                 fullCompareData: compareReducerPayload.facts,
                 systems: compareReducerPayload.systems,
                 factFilter: 'io',
-                stateFilters: stateFilters.allStatesTrue },
+                stateFilters: stateFilters.allStatesTrue,
+                factTypeFilters: factTypeFiltersDefault },
             {
                 payload: 'iou',
                 type: `${types.FILTER_BY_FACT}`
@@ -711,6 +792,7 @@ describe('compare reducer', () => {
             page: 1,
             perPage: 50,
             stateFilters: stateFilters.allStatesTrue,
+            factTypeFilters: factTypeFiltersDefault,
             totalFacts: 0
         });
     });
@@ -723,7 +805,8 @@ describe('compare reducer', () => {
                 fullCompareData: compareReducerPayload.facts,
                 systems: compareReducerPayload.systems,
                 factFilter: '',
-                stateFilters: stateFilters.sameStateTrue },
+                stateFilters: stateFilters.sameStateTrue,
+                factTypeFilters: factTypeFiltersDefault },
             {
                 payload: 'io',
                 type: `${types.FILTER_BY_FACT}`
@@ -737,6 +820,7 @@ describe('compare reducer', () => {
             page: 1,
             perPage: 50,
             stateFilters: stateFilters.sameStateTrue,
+            factTypeFilters: factTypeFiltersDefault,
             totalFacts: 1
         });
     });
@@ -749,7 +833,8 @@ describe('compare reducer', () => {
                 fullCompareData: compareReducerPayload.facts,
                 systems: compareReducerPayload.systems,
                 factFilter: '',
-                stateFilters: stateFilters.diffStateTrue },
+                stateFilters: stateFilters.diffStateTrue,
+                factTypeFilters: factTypeFiltersDefault },
             {
                 payload: 'io',
                 type: `${types.FILTER_BY_FACT}`
@@ -763,6 +848,7 @@ describe('compare reducer', () => {
             page: 1,
             perPage: 50,
             stateFilters: stateFilters.diffStateTrue,
+            factTypeFilters: factTypeFiltersDefault,
             totalFacts: 0
         });
     });
@@ -776,7 +862,8 @@ describe('compare reducer', () => {
                 systems: compareReducerPayloadWithCategory.systems,
                 factFilter: '',
                 activeFactFilters: [ 'bios' ],
-                stateFilters: stateFilters.sameStateTrue },
+                stateFilters: stateFilters.sameStateTrue,
+                factTypeFilters: factTypeFiltersDefault },
             {
                 payload: 'adx',
                 type: `${types.FILTER_BY_FACT}`
@@ -791,6 +878,7 @@ describe('compare reducer', () => {
             page: 1,
             perPage: 50,
             stateFilters: stateFilters.sameStateTrue,
+            factTypeFilters: factTypeFiltersDefault,
             totalFacts: 1
         });
     });
@@ -804,7 +892,8 @@ describe('compare reducer', () => {
                 systems: compareReducerPayloadWithCategory.systems,
                 factFilter: '',
                 activeFactFilters: [ 'bios' ],
-                stateFilters: stateFilters.allStatesTrue },
+                stateFilters: stateFilters.allStatesTrue,
+                factTypeFilters: factTypeFiltersDefault },
             {
                 payload: 'abm',
                 type: `${types.FILTER_BY_FACT}`
@@ -819,6 +908,7 @@ describe('compare reducer', () => {
             page: 1,
             perPage: 50,
             stateFilters: stateFilters.allStatesTrue,
+            factTypeFilters: factTypeFiltersDefault,
             totalFacts: 2
         });
     });
@@ -832,7 +922,8 @@ describe('compare reducer', () => {
                 systems: compareReducerPayloadWithCategory.systems,
                 factFilter: 'bios',
                 activeFactFilters: [],
-                stateFilters: stateFilters.allStatesTrue },
+                stateFilters: stateFilters.allStatesTrue,
+                factTypeFilters: factTypeFiltersDefault },
             {
                 payload: 'bios',
                 type: `${types.HANDLE_FACT_FILTER}`
@@ -847,6 +938,7 @@ describe('compare reducer', () => {
             page: 1,
             perPage: 50,
             stateFilters: stateFilters.allStatesTrue,
+            factTypeFilters: factTypeFiltersDefault,
             totalFacts: 1
         });
     });
@@ -860,7 +952,8 @@ describe('compare reducer', () => {
                 systems: compareReducerPayloadWithCategory.systems,
                 factFilter: 'bios',
                 activeFactFilters: [],
-                stateFilters: stateFilters.allStatesFalse },
+                stateFilters: stateFilters.allStatesFalse,
+                factTypeFilters: factTypeFiltersDefault },
             {
                 payload: 'bios',
                 type: `${types.HANDLE_FACT_FILTER}`
@@ -875,6 +968,7 @@ describe('compare reducer', () => {
             page: 1,
             perPage: 50,
             stateFilters: stateFilters.allStatesFalse,
+            factTypeFilters: factTypeFiltersDefault,
             totalFacts: 0
         });
     });
@@ -891,6 +985,7 @@ describe('compare reducer', () => {
                 factFilter: '',
                 activeFactFilters: [ 'bios' ],
                 stateFilters: stateFilters.allStatesTrue,
+                factTypeFilters: factTypeFiltersDefault,
                 totalFacts: 1 },
             {
                 payload: 'bios',
@@ -906,6 +1001,7 @@ describe('compare reducer', () => {
             page: 1,
             perPage: 50,
             stateFilters: stateFilters.allStatesTrue,
+            factTypeFilters: factTypeFiltersDefault,
             totalFacts: 4
         });
     });
@@ -919,7 +1015,8 @@ describe('compare reducer', () => {
                 systems: compareReducerPayloadWithCategory.systems,
                 factFilter: 'BIOS',
                 activeFactFilters: [],
-                stateFilters: stateFilters.allStatesFalse },
+                stateFilters: stateFilters.allStatesFalse,
+                factTypeFilters: factTypeFiltersDefault },
             {
                 payload: 'BIOS',
                 type: `${types.HANDLE_FACT_FILTER}`
@@ -934,6 +1031,7 @@ describe('compare reducer', () => {
             page: 1,
             perPage: 50,
             stateFilters: stateFilters.allStatesFalse,
+            factTypeFilters: factTypeFiltersDefault,
             totalFacts: 0
         });
     });
@@ -950,6 +1048,7 @@ describe('compare reducer', () => {
                 factFilter: 'abm',
                 activeFactFilters: [ 'bios' ],
                 stateFilters: stateFilters.allStatesTrue,
+                factTypeFilters: factTypeFiltersDefault,
                 totalFacts: 2 },
             {
                 type: `${types.CLEAR_ALL_FACT_FILTERS}`
@@ -964,6 +1063,7 @@ describe('compare reducer', () => {
             page: 1,
             perPage: 50,
             stateFilters: stateFilters.allStatesTrue,
+            factTypeFilters: factTypeFiltersDefault,
             totalFacts: 4
         });
     });
@@ -977,7 +1077,8 @@ describe('compare reducer', () => {
                 systems: compareReducerPayload.systems,
                 factFilter: '',
                 factSort: ASC,
-                stateFilters: stateFilters.allStatesFalse },
+                stateFilters: stateFilters.allStatesFalse,
+                factTypeFilters: factTypeFiltersDefault },
             {
                 payload: DESC,
                 type: `${types.TOGGLE_FACT_SORT}`
@@ -990,6 +1091,7 @@ describe('compare reducer', () => {
             page: 1,
             perPage: 50,
             stateFilters: stateFilters.allStatesFalse,
+            factTypeFilters: factTypeFiltersDefault,
             totalFacts: 0,
             factFilter: '',
             factSort: DESC
@@ -1005,7 +1107,8 @@ describe('compare reducer', () => {
                 systems: compareReducerPayload.systems,
                 factFilter: '',
                 factSort: DESC,
-                stateFilters: stateFilters.allStatesFalse },
+                stateFilters: stateFilters.allStatesFalse,
+                factTypeFilters: factTypeFiltersDefault },
             {
                 payload: ASC,
                 type: `${types.TOGGLE_FACT_SORT}`
@@ -1018,6 +1121,7 @@ describe('compare reducer', () => {
             page: 1,
             perPage: 50,
             stateFilters: stateFilters.allStatesFalse,
+            factTypeFilters: factTypeFiltersDefault,
             totalFacts: 0,
             factFilter: '',
             factSort: ASC
@@ -1033,7 +1137,8 @@ describe('compare reducer', () => {
                 systems: compareReducerPayload.systems,
                 factFilter: '',
                 stateSort: DESC,
-                stateFilters: stateFilters.allStatesFalse },
+                stateFilters: stateFilters.allStatesFalse,
+                factTypeFilters: factTypeFiltersDefault },
             {
                 payload: ASC,
                 type: `${types.TOGGLE_STATE_SORT}`
@@ -1046,6 +1151,7 @@ describe('compare reducer', () => {
             page: 1,
             perPage: 50,
             stateFilters: stateFilters.allStatesFalse,
+            factTypeFilters: factTypeFiltersDefault,
             totalFacts: 0,
             factFilter: '',
             stateSort: ASC
@@ -1061,7 +1167,8 @@ describe('compare reducer', () => {
                 systems: compareReducerPayload.systems,
                 factFilter: '',
                 stateSort: ASC,
-                stateFilters: stateFilters.allStatesFalse },
+                stateFilters: stateFilters.allStatesFalse,
+                factTypeFilters: factTypeFiltersDefault },
             {
                 payload: '',
                 type: `${types.TOGGLE_STATE_SORT}`
@@ -1074,6 +1181,7 @@ describe('compare reducer', () => {
             page: 1,
             perPage: 50,
             stateFilters: stateFilters.allStatesFalse,
+            factTypeFilters: factTypeFiltersDefault,
             totalFacts: 0,
             factFilter: '',
             stateSort: ''
@@ -1089,7 +1197,8 @@ describe('compare reducer', () => {
                 systems: compareReducerPayload.systems,
                 factFilter: '',
                 stateSort: '',
-                stateFilters: stateFilters.allStatesFalse },
+                stateFilters: stateFilters.allStatesFalse,
+                factTypeFilters: factTypeFiltersDefault },
             {
                 payload: ASC,
                 type: `${types.TOGGLE_STATE_SORT}`
@@ -1102,6 +1211,7 @@ describe('compare reducer', () => {
             page: 1,
             perPage: 50,
             stateFilters: stateFilters.allStatesFalse,
+            factTypeFilters: factTypeFiltersDefault,
             totalFacts: 0,
             factFilter: '',
             stateSort: ASC
@@ -1117,7 +1227,8 @@ describe('compare reducer', () => {
                 systems: compareReducerPayload.systems,
                 factFilter: '',
                 expandedRows: [],
-                stateFilters: stateFilters.allStatesFalse },
+                stateFilters: stateFilters.allStatesFalse,
+                factTypeFilters: factTypeFiltersDefault },
             {
                 payload: 'bios_uuid',
                 type: `${types.EXPAND_ROW}`
@@ -1131,6 +1242,7 @@ describe('compare reducer', () => {
             page: 1,
             perPage: 50,
             stateFilters: stateFilters.allStatesFalse,
+            factTypeFilters: factTypeFiltersDefault,
             expandedRows: [ 'bios_uuid' ],
             totalFacts: 0
         });
@@ -1145,7 +1257,8 @@ describe('compare reducer', () => {
                 systems: compareReducerPayload.systems,
                 factFilter: '',
                 expandedRows: [ 'bios_uuid', 'display_name' ],
-                stateFilters: stateFilters.allStatesFalse },
+                stateFilters: stateFilters.allStatesFalse,
+                factTypeFilters: factTypeFiltersDefault },
             {
                 payload: 'bios_uuid',
                 type: `${types.EXPAND_ROW}`
@@ -1159,6 +1272,7 @@ describe('compare reducer', () => {
             page: 1,
             perPage: 50,
             stateFilters: stateFilters.allStatesFalse,
+            factTypeFilters: factTypeFiltersDefault,
             expandedRows: [ 'display_name' ],
             totalFacts: 0
         });
@@ -1175,6 +1289,18 @@ describe('compare reducer', () => {
                 factFilter: '',
                 activeFactFilters: [],
                 stateFilters: stateFilters.allStatesTrue,
+                factTypeFilters: [
+                    {
+                        filter: 'ALL',
+                        display: 'All facts',
+                        selected: true
+                    },
+                    {
+                        filter: 'BASELINE',
+                        display: 'Baseline facts only',
+                        selected: false
+                    }
+                ],
                 factSort: ASC,
                 stateSort: DESC,
                 filteredCompareData: [],
@@ -1212,6 +1338,7 @@ describe('compare reducer', () => {
         expect(
             compareReducer({
                 stateFilters: stateFilters.sameStateTrue,
+                factTypeFilters: factTypeFiltersBaselineTrue,
                 factFilter: 'bios',
                 activeFactFilters: [ 'display' ],
                 fullCompareData: stateFilteredFixtures.stateFilteredStateAll.facts
@@ -1222,6 +1349,18 @@ describe('compare reducer', () => {
         ).toEqual(
             {
                 stateFilters: stateFilters.allStatesTrue,
+                factTypeFilters: [
+                    {
+                        filter: 'ALL',
+                        display: 'All facts',
+                        selected: true
+                    },
+                    {
+                        filter: 'BASELINE',
+                        display: 'Baseline facts only',
+                        selected: false
+                    }
+                ],
                 factFilter: '',
                 activeFactFilters: [],
                 fullCompareData: stateFilteredFixtures.stateFilteredStateAll.facts,

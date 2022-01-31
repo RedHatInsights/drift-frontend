@@ -29,6 +29,18 @@ const initialState = {
             selected: true
         }
     ],
+    factTypeFilters: [
+        {
+            filter: 'ALL',
+            display: 'All facts',
+            selected: true
+        },
+        {
+            filter: 'BASELINE',
+            display: 'Baseline facts only',
+            selected: false
+        }
+    ],
     factFilter: '',
     activeFactFilters: [],
     totalFacts: 0,
@@ -51,9 +63,11 @@ export function compareReducer(state = initialState, action) {
     let response;
     let updatedStateFilters = [];
     let newStateFilters;
+    let newFactTypeFilters;
     let newActiveFactFilters = [];
     let index;
     let newFactFilter;
+    let updatedFactTypeFilters;
 
     switch (action.type) {
         case types.CLEAR_COMPARISON:
@@ -71,8 +85,12 @@ export function compareReducer(state = initialState, action) {
         case types.CLEAR_COMPARISON_FILTERS:
             newStateFilters = [ ...state.stateFilters ];
             newStateFilters.forEach(function(stateFilter) { stateFilter.selected = false; });
+            newFactTypeFilters = [ ...state.factTypeFilters ];
+            newFactTypeFilters[0].selected = true;
+            newFactTypeFilters[1].selected = false;
             filteredFacts = reducerHelpers.filterCompareData(
-                state.fullCompareData, newStateFilters, initialState.factFilter, state.referenceId, state.activeFactFilters
+                state.fullCompareData, newStateFilters, state.factTypeFilters, initialState.factFilter, state.referenceId,
+                state.activeFactFilters, state.baselines
             );
             sortedFacts = reducerHelpers.sortData(filteredFacts, state.factSort, state.stateSort);
             return {
@@ -104,7 +122,8 @@ export function compareReducer(state = initialState, action) {
             };
         case `${types.FETCH_COMPARE}_FULFILLED`:
             filteredFacts = reducerHelpers.filterCompareData(
-                action.payload.facts, state.stateFilters, state.factFilter, state.referenceId, state.activeFactFilters
+                action.payload.facts, state.stateFilters, state.factTypeFilters, state.factFilter, state.referenceId,
+                state.activeFactFilters, action.payload.baselines
             );
             sortedFacts = reducerHelpers.sortData(filteredFacts, state.factSort, state.stateSort);
             paginatedFacts = reducerHelpers.paginateData(sortedFacts, 1, state.perPage);
@@ -140,7 +159,8 @@ export function compareReducer(state = initialState, action) {
             };
         case `${types.UPDATE_DRIFT_PAGINATION}`:
             filteredFacts = reducerHelpers.filterCompareData(
-                state.fullCompareData, state.stateFilters, state.factFilter, state.referenceId, state.activeFactFilters
+                state.fullCompareData, state.stateFilters, state.factTypeFilters, state.factFilter, state.referenceId,
+                state.activeFactFilters, state.baselines
             );
             sortedFacts = reducerHelpers.sortData(filteredFacts, state.factSort, state.stateSort);
             paginatedFacts = reducerHelpers.paginateData(sortedFacts, action.payload.page, action.payload.perPage);
@@ -155,7 +175,8 @@ export function compareReducer(state = initialState, action) {
         case `${types.ADD_STATE_FILTER}`:
             updatedStateFilters = reducerHelpers.updateStateFilters(state.stateFilters, action.payload);
             filteredFacts = reducerHelpers.filterCompareData(
-                state.fullCompareData, updatedStateFilters, state.factFilter, state.referenceId, state.activeFactFilters
+                state.fullCompareData, updatedStateFilters, state.factTypeFilters, state.factFilter, state.referenceId,
+                state.activeFactFilters, state.baselines
             );
             sortedFacts = reducerHelpers.sortData(filteredFacts, state.factSort, state.stateSort);
             paginatedFacts = reducerHelpers.paginateData(sortedFacts, 1, state.perPage);
@@ -167,9 +188,26 @@ export function compareReducer(state = initialState, action) {
                 sortedFilteredFacts: sortedFacts,
                 totalFacts: filteredFacts.length
             };
+        case `${types.TOGGLE_FACT_TYPE_FILTER}`:
+            updatedFactTypeFilters = reducerHelpers.updateFactTypeFilters(state.factTypeFilters, action.payload);
+            filteredFacts = reducerHelpers.filterCompareData(
+                state.fullCompareData, state.stateFilters, updatedFactTypeFilters, state.factFilter, state.referenceId,
+                state.activeFactFilters, state.baselines
+            );
+            sortedFacts = reducerHelpers.sortData(filteredFacts, state.factSort, state.stateSort);
+            paginatedFacts = reducerHelpers.paginateData(sortedFacts, 1, state.perPage);
+            return {
+                ...state,
+                factTypeFilters: updatedFactTypeFilters,
+                page: 1,
+                filteredCompareData: paginatedFacts,
+                sortedFilteredFacts: sortedFacts,
+                totalFacts: filteredFacts.length
+            };
         case `${types.FILTER_BY_FACT}`:
             filteredFacts = reducerHelpers.filterCompareData(
-                state.fullCompareData, state.stateFilters, action.payload, state.referenceId, state.activeFactFilters
+                state.fullCompareData, state.stateFilters, state.factTypeFilters, action.payload, state.referenceId,
+                state.activeFactFilters, state.baselines
             );
             sortedFacts = reducerHelpers.sortData(filteredFacts, state.factSort, state.stateSort);
             paginatedFacts = reducerHelpers.paginateData(sortedFacts, 1, state.perPage);
@@ -194,7 +232,8 @@ export function compareReducer(state = initialState, action) {
             }
 
             filteredFacts = reducerHelpers.filterCompareData(
-                state.fullCompareData, state.stateFilters, newFactFilter, state.referenceId, newActiveFactFilters
+                state.fullCompareData, state.stateFilters, state.factTypeFilters, newFactFilter, state.referenceId,
+                newActiveFactFilters, state.baselines
             );
             sortedFacts = reducerHelpers.sortData(filteredFacts, state.factSort, state.stateSort);
             paginatedFacts = reducerHelpers.paginateData(sortedFacts, 1, state.perPage);
@@ -209,7 +248,7 @@ export function compareReducer(state = initialState, action) {
             };
         case `${types.CLEAR_ALL_FACT_FILTERS}`:
             filteredFacts = reducerHelpers.filterCompareData(
-                state.fullCompareData, state.stateFilters, '', state.referenceId, newActiveFactFilters
+                state.fullCompareData, state.stateFilters, state.factTypeFilters, '', state.referenceId, newActiveFactFilters, state.baselines
             );
             sortedFacts = reducerHelpers.sortData(filteredFacts, state.factSort, state.stateSort);
             paginatedFacts = reducerHelpers.paginateData(sortedFacts, 1, state.perPage);
@@ -223,7 +262,8 @@ export function compareReducer(state = initialState, action) {
             };
         case `${types.TOGGLE_FACT_SORT}`:
             filteredFacts = reducerHelpers.filterCompareData(
-                state.fullCompareData, state.stateFilters, state.factFilter, state.referenceId, state.activeFactFilters
+                state.fullCompareData, state.stateFilters, state.factTypeFilters, state.factFilter, state.referenceId,
+                state.activeFactFilters, state.baselines
             );
             sortedFacts = reducerHelpers.sortData(filteredFacts, action.payload, state.stateSort);
             paginatedFacts = reducerHelpers.paginateData(sortedFacts, 1, state.perPage);
@@ -237,7 +277,8 @@ export function compareReducer(state = initialState, action) {
             };
         case `${types.TOGGLE_STATE_SORT}`:
             filteredFacts = reducerHelpers.filterCompareData(
-                state.fullCompareData, state.stateFilters, state.factFilter, state.referenceId, state.activeFactFilters
+                state.fullCompareData, state.stateFilters, state.factTypeFilters, state.factFilter, state.referenceId,
+                state.activeFactFilters, state.baselines
             );
             sortedFacts = reducerHelpers.sortData(filteredFacts, state.factSort, action.payload);
             paginatedFacts = reducerHelpers.paginateData(sortedFacts, 1, state.perPage);
@@ -266,7 +307,8 @@ export function compareReducer(state = initialState, action) {
         case `${types.EXPAND_ROW}`:
             newExpandedRows = reducerHelpers.toggleExpandedRow(state.expandedRows, action.payload);
             filteredFacts = reducerHelpers.filterCompareData(
-                state.fullCompareData, state.stateFilters, state.factFilter, state.referenceId, state.activeFactFilters
+                state.fullCompareData, state.stateFilters, state.factTypeFilters, state.factFilter, state.referenceId,
+                state.activeFactFilters, state.baselines
             );
             sortedFacts = reducerHelpers.sortData(filteredFacts, state.factSort, state.stateSort);
             paginatedFacts = reducerHelpers.paginateData(sortedFacts, state.page, state.perPage);
@@ -301,8 +343,21 @@ export function compareReducer(state = initialState, action) {
                 }
             ];
 
+            newFactTypeFilters = [
+                {
+                    filter: 'ALL',
+                    display: 'All facts',
+                    selected: true
+                },
+                {
+                    filter: 'BASELINE',
+                    display: 'Baseline facts only',
+                    selected: false
+                }
+            ];
+
             filteredFacts = reducerHelpers.filterCompareData(
-                state.fullCompareData, newStateFilters, '', state.referenceId, []
+                state.fullCompareData, newStateFilters, newFactTypeFilters, '', state.referenceId, [], state.baselines
             );
             sortedFacts = reducerHelpers.sortData(filteredFacts, state.factSort, state.stateSort);
             paginatedFacts = reducerHelpers.paginateData(sortedFacts, 1, state.perPage);
@@ -310,6 +365,7 @@ export function compareReducer(state = initialState, action) {
             return {
                 ...state,
                 stateFilters: newStateFilters,
+                factTypeFilters: newFactTypeFilters,
                 factFilter: '',
                 activeFactFilters: [],
                 filteredCompareData: paginatedFacts,

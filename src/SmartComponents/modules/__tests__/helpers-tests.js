@@ -2,7 +2,7 @@ import helpers from '../helpers';
 import stateFiltersFixtures from './state-filter.fixtures';
 import { compareReducerPayloadWithCategory, compareReducerPayloadWithMultiFact, compareReducerPayloadWithUppercase,
     sortedPayloadWithMultiFactAscDesc, sortedPayloadWithMultiFactAscAsc, compareReducerPayloadWithUpperCaseSubFact,
-    comparisonCSV, comparisonJSON, fullSimpleComparison } from './reducer.fixtures';
+    comparisonCSV, comparisonJSON, fullSimpleComparison, factTypeFiltersDefault } from './reducer.fixtures';
 import { filteredCategory, filteredCategoryAndFact, filteredUpperCaseFact, filteredUpperCaseSubFact } from './reducer.fact-filter-fixtures';
 import { multivalues, comparisonsWithMultivalues, multivaluesWithTooltips, comparisonsWithMultivaluesTooltips } from './multiFact-filter-fixtures';
 
@@ -53,94 +53,102 @@ describe('helpers', () => {
     it('should return full category when filtered by full category name', () => {
         const data = compareReducerPayloadWithCategory.facts;
         const stateFilters = stateFiltersFixtures.allStatesTrue;
+        const factTypeFilters = factTypeFiltersDefault;
         const factFilter = 'cpu_flags';
         const referenceId = undefined;
         const activeFactFilters = [];
 
         expect(
-            helpers.filterCompareData(data, stateFilters, factFilter, referenceId, activeFactFilters)
+            helpers.filterCompareData(data, stateFilters, factTypeFilters, factFilter, referenceId, activeFactFilters)
         ).toEqual(filteredCategory);
     });
 
     it('should return full category with full category name in active filter', () => {
         const data = compareReducerPayloadWithCategory.facts;
         const stateFilters = stateFiltersFixtures.allStatesTrue;
+        const factTypeFilters = factTypeFiltersDefault;
         const factFilter = '';
         const referenceId = undefined;
         const activeFactFilters = [ 'cpu_flags' ];
 
         expect(
-            helpers.filterCompareData(data, stateFilters, factFilter, referenceId, activeFactFilters)
+            helpers.filterCompareData(data, stateFilters, factTypeFilters, factFilter, referenceId, activeFactFilters)
         ).toEqual(filteredCategory);
     });
 
     it('should return full category with full category name in active filter and separate filter', () => {
         const data = compareReducerPayloadWithCategory.facts;
         const stateFilters = stateFiltersFixtures.allStatesTrue;
+        const factTypeFilters = factTypeFiltersDefault;
         const factFilter = 'bios';
         const referenceId = undefined;
         const activeFactFilters = [ 'cpu_flags' ];
 
         expect(
-            helpers.filterCompareData(data, stateFilters, factFilter, referenceId, activeFactFilters)
+            helpers.filterCompareData(data, stateFilters, factTypeFilters, factFilter, referenceId, activeFactFilters)
         ).toEqual(filteredCategoryAndFact);
     });
 
     it('should return uppercase fact name with lowercase fact filter', () => {
         const data = compareReducerPayloadWithUppercase.facts;
         const stateFilters = stateFiltersFixtures.allStatesTrue;
+        const factTypeFilters = factTypeFiltersDefault;
         const factFilter = 'cpus';
         const referenceId = undefined;
         const activeFactFilters = [];
 
         expect(
-            helpers.filterCompareData(data, stateFilters, factFilter, referenceId, activeFactFilters)
+            helpers.filterCompareData(data, stateFilters, factTypeFilters, factFilter, referenceId, activeFactFilters)
         ).toEqual(filteredUpperCaseFact);
     });
 
     it('should filterComparisons with multivalues with all states true', () => {
         const comparisons = comparisonsWithMultivalues;
         const stateFilters = stateFiltersFixtures.allStatesTrue;
+        const factTypeFilters = factTypeFiltersDefault;
         const factFilter = '';
         const referenceId = undefined;
         const activeFactFilters = [];
 
         expect(
-            helpers.filterComparisons(comparisons, stateFilters, factFilter, referenceId, activeFactFilters)
+            helpers.filterComparisons(comparisons, stateFilters, factTypeFilters, factFilter, referenceId, activeFactFilters)
         ).toEqual(comparisonsWithMultivaluesTooltips);
     });
 
     it('should filterCompareData with upper case sub fact', () => {
         const data = compareReducerPayloadWithUpperCaseSubFact.facts;
         const stateFilters = stateFiltersFixtures.allStatesTrue;
+        const factTypeFilters = factTypeFiltersDefault;
         const factFilter = 'abm';
         const referenceId = undefined;
         const activeFactFilters = [];
 
         expect(
-            helpers.filterCompareData(data, stateFilters, factFilter, referenceId, activeFactFilters)
+            helpers.filterCompareData(data, stateFilters, factTypeFilters, factFilter, referenceId, activeFactFilters)
         ).toEqual(filteredUpperCaseSubFact);
     });
 
     it('should filterCompareData with upper case activeFactFilter', () => {
         const data = compareReducerPayloadWithUppercase.facts;
         const stateFilters = stateFiltersFixtures.allStatesTrue;
+        const factTypeFilters = factTypeFiltersDefault;
         const factFilter = '';
         const referenceId = undefined;
         const activeFactFilters = [ 'CPU' ];
 
         expect(
-            helpers.filterCompareData(data, stateFilters, factFilter, referenceId, activeFactFilters)
+            helpers.filterCompareData(data, stateFilters, factTypeFilters, factFilter, referenceId, activeFactFilters)
         ).toEqual(filteredUpperCaseFact);
     });
 
     it('should filterMultiFacts with all states true', () => {
         const multivalueItems = multivalues;
         const stateFilters = stateFiltersFixtures.allStatesTrue;
+        const factTypeFilters = factTypeFiltersDefault;
         const referenceId = undefined;
 
         expect(
-            helpers.filterMultiFacts(multivalueItems, stateFilters, referenceId)
+            helpers.filterMultiFacts(multivalueItems, stateFilters, factTypeFilters, referenceId)
         ).toEqual(multivaluesWithTooltips);
     });
 

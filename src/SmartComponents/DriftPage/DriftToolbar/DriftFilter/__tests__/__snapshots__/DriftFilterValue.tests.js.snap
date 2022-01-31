@@ -16,6 +16,12 @@ exports[`DriftFilterValue should render correctly 1`] = `
     />
   </ToolbarFilter>
   <ToolbarFilter
+    categoryName="Fact type"
+    chips={Array []}
+    className="comparison-filter-input-dropdown-width"
+    showToolbarItem={true}
+  />
+  <ToolbarFilter
     categoryName="State"
     chips={
       Array [
@@ -24,6 +30,7 @@ exports[`DriftFilterValue should render correctly 1`] = `
         "Incomplete data",
       ]
     }
+    className="comparison-filter-input-dropdown-width"
     showToolbarItem={true}
   />
 </Fragment>
@@ -56,6 +63,12 @@ exports[`DriftFilterValue should render with fact filter chips 1`] = `
     />
   </ToolbarFilter>
   <ToolbarFilter
+    categoryName="Fact type"
+    chips={Array []}
+    className="comparison-filter-input-dropdown-width"
+    showToolbarItem={true}
+  />
+  <ToolbarFilter
     categoryName="State"
     chips={
       Array [
@@ -64,6 +77,58 @@ exports[`DriftFilterValue should render with fact filter chips 1`] = `
         "Incomplete data",
       ]
     }
+    className="comparison-filter-input-dropdown-width"
+    showToolbarItem={true}
+  />
+</Fragment>
+`;
+
+exports[`DriftFilterValue should render with fact type filter chips 1`] = `
+<Fragment>
+  <ToolbarFilter
+    categoryName="Fact name"
+    chips={Array []}
+    showToolbarItem={true}
+  />
+  <ToolbarFilter
+    categoryName="Fact type"
+    chips={
+      Array [
+        "Baseline facts only",
+      ]
+    }
+    className="comparison-filter-input-dropdown-width"
+    showToolbarItem={true}
+  >
+    <Connect(FilterDropDown)
+      filters={
+        Array [
+          Object {
+            "display": "All facts",
+            "filter": "ALL",
+            "selected": false,
+          },
+          Object {
+            "display": "Baseline facts only",
+            "filter": "BASELINE",
+            "selected": true,
+          },
+        ]
+      }
+      setHistory={[MockFunction]}
+      type="Fact type"
+    />
+  </ToolbarFilter>
+  <ToolbarFilter
+    categoryName="State"
+    chips={
+      Array [
+        "Same",
+        "Different",
+        "Incomplete data",
+      ]
+    }
+    className="comparison-filter-input-dropdown-width"
     showToolbarItem={true}
   />
 </Fragment>
@@ -77,6 +142,12 @@ exports[`DriftFilterValue should render with state filter deselected 1`] = `
     showToolbarItem={true}
   />
   <ToolbarFilter
+    categoryName="Fact type"
+    chips={Array []}
+    className="comparison-filter-input-dropdown-width"
+    showToolbarItem={true}
+  />
+  <ToolbarFilter
     categoryName="State"
     chips={
       Array [
@@ -84,10 +155,32 @@ exports[`DriftFilterValue should render with state filter deselected 1`] = `
         "Incomplete data",
       ]
     }
+    className="comparison-filter-input-dropdown-width"
     showToolbarItem={true}
   >
     <Connect(FilterDropDown)
+      filterFunction={[MockFunction]}
+      filters={
+        Array [
+          Object {
+            "display": "Same",
+            "filter": "SAME",
+            "selected": false,
+          },
+          Object {
+            "display": "Different",
+            "filter": "DIFFERENT",
+            "selected": true,
+          },
+          Object {
+            "display": "Incomplete data",
+            "filter": "INCOMPLETE_DATA",
+            "selected": true,
+          },
+        ]
+      }
       setHistory={[MockFunction]}
+      type="State"
     />
   </ToolbarFilter>
 </Fragment>

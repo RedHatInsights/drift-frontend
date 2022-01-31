@@ -67,6 +67,14 @@ function addStateFilter(filterData) {
     };
 }
 
+function toggleFactTypeFilter(filterData) {
+    filterData.selected = !filterData.selected;
+    return {
+        type: types.TOGGLE_FACT_TYPE_FILTER,
+        payload: filterData
+    };
+}
+
 function filterByFact(filter) {
     return {
         type: types.FILTER_BY_FACT,
@@ -155,6 +163,7 @@ export default {
     setSelectedSystemIds,
     toggleFactSort,
     addStateFilter,
+    toggleFactTypeFilter,
     toggleStateSort,
     filterByFact,
     handleFactFilter,

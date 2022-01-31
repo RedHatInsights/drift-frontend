@@ -2,10 +2,12 @@ import queryString from 'query-string';
 import { ASC, DESC } from '../constants';
 
 export function setHistory(
-    history, systemIds = [], baselineIds = [], hspIds = [], referenceId, activeFactFilters = [], factFilter, stateFilters, factSort, stateSort
+    history, systemIds = [], baselineIds = [], hspIds = [], referenceId, activeFactFilters = [], factFilter, factTypeFilters, stateFilters, factSort,
+    stateSort
 ) {
     let nameFilters = [ ...activeFactFilters, ...factFilter && !activeFactFilters.includes(factFilter) ? [ factFilter ] : [] ];
-    let filterState = [ ...stateFilters?.filter(({ selected }) => selected)?.map(({ filter }) => filter?.toLowerCase()) || [] ];
+    let filterState = stateFilters?.filter(({ selected }) => selected)?.map(({ filter }) => filter?.toLowerCase()) || [];
+    let filterFactType = factTypeFilters?.filter(({ selected }) => selected)?.map(({ filter }) => filter?.toLowerCase()) || [];
     let sort = [
         ...[ ASC, DESC ].includes(stateSort) ? [ `${ stateSort === DESC ? '-' : '' }state` ] : [],
         ...[ ASC, DESC ].includes(factSort) ? [ `${ factSort === DESC ? '-' : '' }fact` ] : []
@@ -32,6 +34,7 @@ export function setHistory(
         search: history.location.search + searchPrefix + queryString.stringify({
             'filter[name]': nameFilters,
             'filter[state]': filterState,
+            'filter[show]': filterFactType,
             sort
         }, { arrayFormat: 'comma', encode: false })
     });

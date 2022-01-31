@@ -20,14 +20,13 @@ function DriftFilterDropdown(props) {
         >
             Fact name
         </DropdownItem>,
-        // Using this code block for the next PR.
-        /*<DropdownItem
+        <DropdownItem
             data-ouia-component-id='fact-type-filter'
             key='fact-type'
             onClick={ () => selectFilter('Fact type') }
         >
             Fact type
-        </DropdownItem>,*/
+        </DropdownItem>,
         <DropdownItem
             data-ouia-component-id='state-filter'
             key='state'

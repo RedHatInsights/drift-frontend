@@ -7,7 +7,8 @@ import { Provider } from 'react-redux';
 import toJson from 'enzyme-to-json';
 
 import ConnectedDriftPage, { DriftPage } from '../DriftPage';
-import { compareReducerPayload, systemsPayload, baselinesPayload, historicalProfilesPayload } from '../../modules/__tests__/reducer.fixtures';
+import { compareReducerPayload, systemsPayload, baselinesPayload,
+    historicalProfilesPayload, factTypeFiltersDefault } from '../../modules/__tests__/reducer.fixtures';
 import { systemIds, baselineIds, HSPIds } from './fixtures/DriftPage.fixtures';
 import { allStatesTrue } from '../../modules/__tests__/state-filter.fixtures';
 import { ASC, DESC } from '../../../constants';
@@ -31,6 +32,7 @@ describe('DriftPage', () => {
             stateSort: ASC,
             referenceId: undefined,
             stateFilters: allStatesTrue,
+            factTypeFilters: factTypeFiltersDefault,
             history: { location: { search: '' }, push: jest.fn() },
             location: { search: '' },
             clearSelectedBaselines: jest.fn(),
@@ -82,7 +84,7 @@ describe('DriftPage', () => {
 
         await wrapper.instance().setHistory();
         await expect(setHistorySpy).toHaveBeenCalledWith(
-            props.history, systemIds, baselineIds, HSPIds, undefined, [], '', allStatesTrue, DESC, ASC
+            props.history, systemIds, baselineIds, HSPIds, undefined, [], '', factTypeFiltersDefault, allStatesTrue, DESC, ASC
         );
     });
 
@@ -98,7 +100,7 @@ describe('DriftPage', () => {
 
         await wrapper.instance().setHistory();
         await expect(setHistorySpy).toHaveBeenCalledWith(
-            props.history, systemIds, baselineIds, HSPIds, undefined, [], '', allStatesTrue, DESC, ASC
+            props.history, systemIds, baselineIds, HSPIds, undefined, [], '', factTypeFiltersDefault, allStatesTrue, DESC, ASC
         );
     });
 
@@ -124,7 +126,7 @@ describe('DriftPage', () => {
         });
         wrapper.instance().componentDidUpdate(prevProps);
         await expect(setHistorySpy).toHaveBeenCalledWith(
-            props.history, [], [ '9bbbefcc-8f23-4d97-07f2-142asdl234e9' ], [], undefined, [], '', allStatesTrue, DESC, ASC
+            props.history, [], [ '9bbbefcc-8f23-4d97-07f2-142asdl234e9' ], [], undefined, [], '', factTypeFiltersDefault, allStatesTrue, DESC, ASC
         );
     });
 });
@@ -151,6 +153,7 @@ describe('ConnectedDriftPage', () => {
                     { filter: 'DIFFERENT', display: 'Different', selected: true },
                     { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
                 ],
+                factTypeFilters: factTypeFiltersDefault,
                 factFilter: '',
                 activeFactFilters: []
             },
