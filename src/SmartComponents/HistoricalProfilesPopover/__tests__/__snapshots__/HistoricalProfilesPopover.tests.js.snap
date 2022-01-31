@@ -545,17 +545,14 @@ exports[`ConnectedHistoricalProfilesPopover should render correctly 1`] = `
                   >
                     <Skeleton
                       className="hsp-dropdown-loading"
-                      isDark={false}
                       size="sm"
                     />
                     <Skeleton
                       className="hsp-dropdown-loading"
-                      isDark={false}
                       size="sm"
                     />
                     <Skeleton
                       className="hsp-dropdown-loading"
-                      isDark={false}
                       size="sm"
                     />
                   </div>
@@ -589,7 +586,6 @@ exports[`ConnectedHistoricalProfilesPopover should render correctly 1`] = `
                   onDocumentClick={[Function]}
                   onDocumentKeyDown={[Function]}
                   onTriggerClick={[Function]}
-                  onTriggerEnter={[Function]}
                   placement="top"
                   popper={
                     <FocusTrap
@@ -625,7 +621,10 @@ exports[`ConnectedHistoricalProfilesPopover should render correctly 1`] = `
                           onClose={[Function]}
                         />
                         <PopoverHeader
+                          alertSeverityScreenReaderText="undefined alert:"
+                          icon={null}
                           id="popover-hsp-popover-undefined-header"
+                          titleHeadingLevel="h6"
                         >
                           <div>
                             Historical profiles for this system
@@ -644,17 +643,14 @@ exports[`ConnectedHistoricalProfilesPopover should render correctly 1`] = `
                           >
                             <Skeleton
                               className="hsp-dropdown-loading"
-                              isDark={false}
                               size="sm"
                             />
                             <Skeleton
                               className="hsp-dropdown-loading"
-                              isDark={false}
                               size="sm"
                             />
                             <Skeleton
                               className="hsp-dropdown-loading"
-                              isDark={false}
                               size="sm"
                             />
                           </div>
@@ -1111,17 +1107,14 @@ exports[`HistoricalProfilesPopover should render correctly 1`] = `
         >
           <Skeleton
             className="hsp-dropdown-loading"
-            isDark={false}
             size="sm"
           />
           <Skeleton
             className="hsp-dropdown-loading"
-            isDark={false}
             size="sm"
           />
           <Skeleton
             className="hsp-dropdown-loading"
-            isDark={false}
             size="sm"
           />
         </div>
@@ -1182,17 +1175,14 @@ exports[`HistoricalProfilesPopover should render mount correctly 1`] = `
         >
           <Skeleton
             className="hsp-dropdown-loading"
-            isDark={false}
             size="sm"
           />
           <Skeleton
             className="hsp-dropdown-loading"
-            isDark={false}
             size="sm"
           />
           <Skeleton
             className="hsp-dropdown-loading"
-            isDark={false}
             size="sm"
           />
         </div>
@@ -1226,7 +1216,6 @@ exports[`HistoricalProfilesPopover should render mount correctly 1`] = `
         onDocumentClick={[Function]}
         onDocumentKeyDown={[Function]}
         onTriggerClick={[Function]}
-        onTriggerEnter={[Function]}
         placement="top"
         popper={
           <FocusTrap
@@ -1262,7 +1251,10 @@ exports[`HistoricalProfilesPopover should render mount correctly 1`] = `
                 onClose={[Function]}
               />
               <PopoverHeader
+                alertSeverityScreenReaderText="undefined alert:"
+                icon={null}
                 id="popover-hsp-popover-4416c520-a339-4dde-b303-f317ea9efc5f-header"
+                titleHeadingLevel="h6"
               >
                 <div>
                   Historical profiles for this system
@@ -1281,17 +1273,14 @@ exports[`HistoricalProfilesPopover should render mount correctly 1`] = `
                 >
                   <Skeleton
                     className="hsp-dropdown-loading"
-                    isDark={false}
                     size="sm"
                   />
                   <Skeleton
                     className="hsp-dropdown-loading"
-                    isDark={false}
                     size="sm"
                   />
                   <Skeleton
                     className="hsp-dropdown-loading"
-                    isDark={false}
                     size="sm"
                   />
                 </div>

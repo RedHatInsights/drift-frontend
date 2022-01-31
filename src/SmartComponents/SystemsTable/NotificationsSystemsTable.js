@@ -236,7 +236,7 @@ const SystemsTableWithContext = (props) => {
 
     useEffect(() => {
         listener.current = new MiddlewareListener();
-        setRegistry(() => new ReducerRegistry({}, [ listener.current.getMiddleware(), promiseMiddleware() ]));
+        setRegistry(() => new ReducerRegistry({}, [ listener.current.getMiddleware(), promiseMiddleware ]));
     }, []);
     return registry?.store ? <Provider store={ registry.store }>
         <SystemsTable { ...props } registry={ registry } addNewListener={ (...args) => listener.current.addNew(...args) } />

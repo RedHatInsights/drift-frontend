@@ -49,6 +49,21 @@ exports[`ConnectedSystemNotification should render correctly 1`] = `
       }
     >
       <Connect(SystemNotification)
+        fetchBaselineData={
+          [MockFunction] {
+            "calls": Array [
+              Array [
+                undefined,
+              ],
+            ],
+            "results": Array [
+              Object {
+                "type": "return",
+                "value": undefined,
+              },
+            ],
+          }
+        }
         permissions={
           Object {
             "baselinesWrite": true,
@@ -59,6 +74,21 @@ exports[`ConnectedSystemNotification should render correctly 1`] = `
           addNotifications={[Function]}
           deleteNotifications={[Function]}
           deleteNotificationsModalOpened={false}
+          fetchBaselineData={
+            [MockFunction] {
+              "calls": Array [
+                Array [
+                  undefined,
+                ],
+              ],
+              "results": Array [
+                Object {
+                  "type": "return",
+                  "value": undefined,
+                },
+              ],
+            }
+          }
           getNotifications={[Function]}
           permissions={
             Object {

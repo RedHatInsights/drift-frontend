@@ -98,7 +98,7 @@ exports[`ConnectedCreateBaselineModal should render correctly 1`] = `
           }
         >
           <CreateBaselineModal
-            baselineData={Array []}
+            baselineData={Object {}}
             baselineTableData={Array []}
             clearSelectedBaselines={[Function]}
             createBaseline={[Function]}
@@ -220,7 +220,7 @@ exports[`ConnectedCreateBaselineModal should render correctly 1`] = `
                             aria-disabled="false"
                             aria-label="Close"
                             class="pf-c-button pf-m-plain"
-                            data-ouia-component-id="OUIA-Generated-Button-plain-5"
+                            data-ouia-component-id="OUIA-Generated-Modal-default-6-ModalBoxCloseButton"
                             data-ouia-component-type="PF4/Button"
                             data-ouia-safe="true"
                             type="button"
@@ -496,11 +496,13 @@ exports[`ConnectedCreateBaselineModal should render correctly 1`] = `
                             >
                               <ModalBoxCloseButton
                                 onClose={[Function]}
+                                ouiaId="OUIA-Generated-Modal-default-6"
                               >
                                 <Button
                                   aria-label="Close"
                                   className=""
                                   onClick={[Function]}
+                                  ouiaId="OUIA-Generated-Modal-default-6-ModalBoxCloseButton"
                                   variant="plain"
                                 >
                                   <ButtonBase
@@ -508,13 +510,14 @@ exports[`ConnectedCreateBaselineModal should render correctly 1`] = `
                                     className=""
                                     innerRef={null}
                                     onClick={[Function]}
+                                    ouiaId="OUIA-Generated-Modal-default-6-ModalBoxCloseButton"
                                     variant="plain"
                                   >
                                     <button
                                       aria-disabled={false}
                                       aria-label="Close"
                                       className="pf-c-button pf-m-plain"
-                                      data-ouia-component-id="OUIA-Generated-Button-plain-5"
+                                      data-ouia-component-id="OUIA-Generated-Modal-default-6-ModalBoxCloseButton"
                                       data-ouia-component-type="PF4/Button"
                                       data-ouia-safe={true}
                                       disabled={false}
@@ -1067,7 +1070,7 @@ exports[`CreateBaselineModal should render error correctly 1`] = `
 
 exports[`CreateBaselineModal should render mount correctly 1`] = `
 <CreateBaselineModal
-  baselineData={Array []}
+  baselineData={Object {}}
   clearSelectedBaselines={[MockFunction]}
   createBaselineError={Object {}}
   createBaselineModalOpened={false}

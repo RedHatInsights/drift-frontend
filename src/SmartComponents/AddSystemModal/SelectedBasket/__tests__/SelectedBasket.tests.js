@@ -25,8 +25,23 @@ describe('SelectedBasket', () => {
             selectedSystemContent: [
                 { id: 'efgh5678', name: 'system', icon: <ServerIcon /> }
             ],
+            systems: [
+                { id: 'efgh5678', display_name: 'system' }
+            ],
+            baselines: [
+                { id: 'abcd1234', display_name: 'baseline' }
+            ],
+            historicalProfiles: [
+                {
+                    id: 'ijkl9101',
+                    updated: '2021-03-03T06:40:32+00:00',
+                    display_name: 'system',
+                    system_id: 'efgh5678'
+                }
+            ],
             handleBaselineSelection: jest.fn(),
             handleHSPSelection: jest.fn(),
+            handleSystemSelection: jest.fn(),
             selectBaseline: jest.fn(),
             selectHistoricProfiles: jest.fn(),
             selectEntity: jest.fn(),
@@ -44,6 +59,12 @@ describe('SelectedBasket', () => {
                 { ...props }
             />
         );
+
+        wrapper.setState({
+            systemsToDeselect: [],
+            baselinesToDeselect: [],
+            hspsToDeselect: []
+        });
 
         expect(toJson(wrapper)).toMatchSnapshot();
     });

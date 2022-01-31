@@ -95,13 +95,11 @@ const baselinesTableReducer = (tableId = '') => {
                 };
             case `SET_SELECTED_BASELINES_${tableId}`:
                 newBaselineTableData = [ ...state.baselineTableData ];
-                //rows = baselinesReducerHelpers.setSelected(newBaselineTableData, state.selectedBaselineIds);
                 rows = baselinesReducerHelpers.setSelected(newBaselineTableData, action.payload);
 
                 return {
                     ...state,
                     baselineTableData: rows,
-                    //selectedBaselineIds: action.payload.length ? action.payload : state.selectedBaselineIds
                     selectedBaselineIds: action.payload
                 };
             case `CLEAR_SELECTED_BASELINES_${tableId}`:

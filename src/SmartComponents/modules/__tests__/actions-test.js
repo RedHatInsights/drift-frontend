@@ -9,7 +9,7 @@ import { ASC, DESC } from '../../../constants';
 import { compareActions } from '../index';
 
 describe('compare actions', () => {
-    const middlewares = [ promiseMiddleware() ];
+    const middlewares = [ promiseMiddleware ];
     const mockStore = configureMockStore(middlewares);
 
     beforeEach(function () {

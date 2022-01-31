@@ -1,5 +1,5 @@
 import { configure, mount, render, shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import React from 'react';
 configure({ adapter: new Adapter() });
 global.shallow = shallow;
@@ -32,5 +32,29 @@ global.window.insights = {
                 resourceDefinitions: []
             }
         ]))
+    }
+};
+
+global.window.__scalprum__ = {
+    scalprumOptions: {
+        cacheTimeout: 999999
+    },
+    appsConfig: {
+        inventory: {
+            manifestLocation: 'https://console.stage.redhat.com/apps/inventory/fed-mods.json?ts=1643875037626',
+            module: 'inventory#./RootApp',
+            name: 'inventory'
+        }
+    },
+    factories: {
+        inventory: {
+            expiration: new Date('01-01-3000'),
+            modules: {
+                './InventoryTable': {
+                    __esModule: true,
+                    default: () => <div><h1>Inventory mock</h1></div>
+                }
+            }
+        }
     }
 };

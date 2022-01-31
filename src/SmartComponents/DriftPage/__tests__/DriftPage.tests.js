@@ -13,6 +13,32 @@ import { allStatesTrue } from '../../modules/__tests__/state-filter.fixtures';
 import { ASC, DESC } from '../../../constants';
 import * as setHistory from '../../../Utilities/SetHistory';
 import { PermissionContext } from '../../../App';
+import { createMiddlewareListener } from '../../../store';
+
+const middlewareListener = createMiddlewareListener();
+middlewareListener.getMiddleware();
+
+jest.mock('../../BaselinesTable/redux', () => ({
+    baselinesTableActions: {
+        setSelectedBaselines: jest.fn(()=> ({ type: 'null' })),
+        fetchCompare: jest.fn(()=> ({ type: 'null' }))
+    }
+}));
+
+jest.mock('../../AddSystemModal/redux', () => ({
+    addSystemModalActions: { }
+}));
+
+jest.mock('../../HistoricalProfilesPopover/redux', () => ({
+    historicProfilesActions: { }
+}));
+
+jest.mock('../../modules', () => ({
+    compareActions: {
+        updateReferenceId: jest.fn(()=> ({ type: 'null' })),
+        fetchCompare: jest.fn(()=> ({ type: 'null' }))
+    }
+}));
 
 describe('DriftPage', () => {
     let props;

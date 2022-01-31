@@ -1,5 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`EditBaselineNameModal ConnectedEditBaselineNameModal should render correctly 1`] = `
+Array [
+  Object {
+    "payload": Promise {},
+    "type": "PATCH_BASELINE",
+  },
+]
+`;
+
 exports[`EditBaselineNameModal should render correctly 1`] = `
 <Modal
   actions={
@@ -244,7 +253,7 @@ exports[`EditBaselineNameModal should render mount correctly 1`] = `
                   aria-disabled="false"
                   aria-label="Close"
                   class="pf-c-button pf-m-plain"
-                  data-ouia-component-id="OUIA-Generated-Button-plain-1"
+                  data-ouia-component-id="OUIA-Generated-Modal-small-1-ModalBoxCloseButton"
                   data-ouia-component-type="PF4/Button"
                   data-ouia-safe="true"
                   type="button"
@@ -445,11 +454,13 @@ exports[`EditBaselineNameModal should render mount correctly 1`] = `
                   >
                     <ModalBoxCloseButton
                       onClose={[Function]}
+                      ouiaId="OUIA-Generated-Modal-small-1"
                     >
                       <Button
                         aria-label="Close"
                         className=""
                         onClick={[Function]}
+                        ouiaId="OUIA-Generated-Modal-small-1-ModalBoxCloseButton"
                         variant="plain"
                       >
                         <ButtonBase
@@ -457,13 +468,14 @@ exports[`EditBaselineNameModal should render mount correctly 1`] = `
                           className=""
                           innerRef={null}
                           onClick={[Function]}
+                          ouiaId="OUIA-Generated-Modal-small-1-ModalBoxCloseButton"
                           variant="plain"
                         >
                           <button
                             aria-disabled={false}
                             aria-label="Close"
                             className="pf-c-button pf-m-plain"
-                            data-ouia-component-id="OUIA-Generated-Button-plain-1"
+                            data-ouia-component-id="OUIA-Generated-Modal-small-1-ModalBoxCloseButton"
                             data-ouia-component-type="PF4/Button"
                             data-ouia-safe={true}
                             disabled={false}
