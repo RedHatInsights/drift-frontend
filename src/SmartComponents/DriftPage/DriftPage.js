@@ -177,6 +177,8 @@ export class DriftPage extends Component {
                                                 historicalProfiles={ historicalProfiles }
                                                 selectedHSPIds={ selectedHSPIds }
                                                 selectedBaselineIds={ selectedBaselineIds }
+                                                factTypeFilters={ factTypeFilters }
+                                                toggleFactTypeFilter={ toggleFactTypeFilter }
                                             />
                                             { !emptyState && !loading ?
                                                 <Toolbar className="drift-toolbar">
