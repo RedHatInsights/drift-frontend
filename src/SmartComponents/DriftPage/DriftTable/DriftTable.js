@@ -183,8 +183,22 @@ export class DriftTable extends Component {
         }
     }
 
+    addFilters(newFilters, filters, addFunction) {
+        if (newFilters?.length > 0) {
+            filters.forEach(function(filter) {
+                let x = { ...filter };
+
+                if (newFilters?.includes(filter.filter.toLowerCase())) {
+                    x.selected = false;
+                }
+
+                addFunction(x);
+            });
+        }
+    }
+
     setFilters() {
-        const { addStateFilter, handleFactFilter, location, stateFilters } = this.props;
+        const { addStateFilter, factTypeFilters, handleFactFilter, location, stateFilters, toggleFactTypeFilter } = this.props;
         let searchParams = new URLSearchParams(location.search);
 
         searchParams.get('filter[name]')?.split(',').forEach(function(factFilter) {
@@ -192,18 +206,10 @@ export class DriftTable extends Component {
         });
 
         let newStateFilters = searchParams.get('filter[state]')?.split(',');
+        let newFactTypeFilters = searchParams.get('filter[show]')?.split(',');
 
-        if (newStateFilters?.length > 0) {
-            stateFilters.forEach(function(stateFilter) {
-                let filter = { ...stateFilter };
-
-                if (newStateFilters?.includes(stateFilter.filter.toLowerCase())) {
-                    filter.selected = false;
-                }
-
-                addStateFilter(filter);
-            });
-        }
+        this.addFilters(newStateFilters, stateFilters, addStateFilter);
+        this.addFilters(newFactTypeFilters, factTypeFilters, toggleFactTypeFilter);
     }
 
     setSort() {
@@ -558,7 +564,9 @@ DriftTable.propTypes = {
     handleBaselineSelection: PropTypes.func,
     handleHSPSelection: PropTypes.func,
     handleSystemSelection: PropTypes.func,
-    hasHSPReadPermissions: PropTypes.bool
+    hasHSPReadPermissions: PropTypes.bool,
+    factTypeFilters: PropTypes.array,
+    toggleFactTypeFilters: PropTypes.func
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DriftTable));

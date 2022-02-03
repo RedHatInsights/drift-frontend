@@ -3598,6 +3598,20 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                             clearComparison={[Function]}
                             error={Object {}}
                             factFilter=""
+                            factTypeFilters={
+                              Array [
+                                Object {
+                                  "display": "All facts",
+                                  "filter": "ALL",
+                                  "selected": true,
+                                },
+                                Object {
+                                  "display": "Baseline facts only",
+                                  "filter": "BASELINE",
+                                  "selected": false,
+                                },
+                              ]
+                            }
                             handleBaselineSelection={[Function]}
                             handleFactFilter={[Function]}
                             handleHSPSelection={[Function]}
@@ -3633,6 +3647,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                               ]
                             }
                             systems={Array []}
+                            toggleFactTypeFilter={[Function]}
                             updateReferenceId={[Function]}
                           >
                             <Connect(DriftTable)
@@ -3642,6 +3657,20 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                               clearComparison={[Function]}
                               error={Object {}}
                               factFilter=""
+                              factTypeFilters={
+                                Array [
+                                  Object {
+                                    "display": "All facts",
+                                    "filter": "ALL",
+                                    "selected": true,
+                                  },
+                                  Object {
+                                    "display": "Baseline facts only",
+                                    "filter": "BASELINE",
+                                    "selected": false,
+                                  },
+                                ]
+                              }
                               handleBaselineSelection={[Function]}
                               handleFactFilter={[Function]}
                               handleHSPSelection={[Function]}
@@ -3723,6 +3752,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                 ]
                               }
                               systems={Array []}
+                              toggleFactTypeFilter={[Function]}
                               updateReferenceId={[Function]}
                             >
                               <DriftTable
@@ -3735,6 +3765,20 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                 error={Object {}}
                                 expandRow={[Function]}
                                 factFilter=""
+                                factTypeFilters={
+                                  Array [
+                                    Object {
+                                      "display": "All facts",
+                                      "filter": "ALL",
+                                      "selected": true,
+                                    },
+                                    Object {
+                                      "display": "Baseline facts only",
+                                      "filter": "BASELINE",
+                                      "selected": false,
+                                    },
+                                  ]
+                                }
                                 fetchCompare={[Function]}
                                 fullCompareData={Array []}
                                 handleBaselineSelection={[Function]}
@@ -3822,6 +3866,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                 }
                                 systems={Array []}
                                 toggleFactSort={[Function]}
+                                toggleFactTypeFilter={[Function]}
                                 toggleStateSort={[Function]}
                                 updateReferenceId={[Function]}
                               >
@@ -8587,6 +8632,20 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                               }
                             }
                             factFilter=""
+                            factTypeFilters={
+                              Array [
+                                Object {
+                                  "display": "All facts",
+                                  "filter": "ALL",
+                                  "selected": true,
+                                },
+                                Object {
+                                  "display": "Baseline facts only",
+                                  "filter": "BASELINE",
+                                  "selected": false,
+                                },
+                              ]
+                            }
                             handleBaselineSelection={[Function]}
                             handleFactFilter={[Function]}
                             handleHSPSelection={[Function]}
@@ -8622,6 +8681,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                               ]
                             }
                             systems={Array []}
+                            toggleFactTypeFilter={[Function]}
                             updateReferenceId={[Function]}
                           >
                             <Connect(DriftTable)
@@ -8635,6 +8695,20 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                 }
                               }
                               factFilter=""
+                              factTypeFilters={
+                                Array [
+                                  Object {
+                                    "display": "All facts",
+                                    "filter": "ALL",
+                                    "selected": true,
+                                  },
+                                  Object {
+                                    "display": "Baseline facts only",
+                                    "filter": "BASELINE",
+                                    "selected": false,
+                                  },
+                                ]
+                              }
                               handleBaselineSelection={[Function]}
                               handleFactFilter={[Function]}
                               handleHSPSelection={[Function]}
@@ -8716,6 +8790,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                 ]
                               }
                               systems={Array []}
+                              toggleFactTypeFilter={[Function]}
                               updateReferenceId={[Function]}
                             >
                               <DriftTable
@@ -8732,6 +8807,20 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                 }
                                 expandRow={[Function]}
                                 factFilter=""
+                                factTypeFilters={
+                                  Array [
+                                    Object {
+                                      "display": "All facts",
+                                      "filter": "ALL",
+                                      "selected": true,
+                                    },
+                                    Object {
+                                      "display": "Baseline facts only",
+                                      "filter": "BASELINE",
+                                      "selected": false,
+                                    },
+                                  ]
+                                }
                                 fetchCompare={[Function]}
                                 fullCompareData={Array []}
                                 handleBaselineSelection={[Function]}
@@ -8819,6 +8908,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                 }
                                 systems={Array []}
                                 toggleFactSort={[Function]}
+                                toggleFactTypeFilter={[Function]}
                                 toggleStateSort={[Function]}
                                 updateReferenceId={[Function]}
                               >
