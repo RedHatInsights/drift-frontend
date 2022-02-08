@@ -183,16 +183,22 @@ export class DriftTable extends Component {
         }
     }
 
-    addFilters(newFilters, filters, addFunction) {
+    addFilters(newFilters, filters, addFunction, type) {
         if (newFilters?.length > 0) {
             filters.forEach(function(filter) {
                 let x = { ...filter };
 
                 if (newFilters?.includes(filter.filter.toLowerCase())) {
                     x.selected = false;
+                    
+                    if (type === 'fact') {
+                        addFunction(x);
+                    }
                 }
 
-                addFunction(x);
+                if (type === 'state') {
+                    addFunction(x);
+                }
             });
         }
     }
@@ -208,8 +214,8 @@ export class DriftTable extends Component {
         let newStateFilters = searchParams.get('filter[state]')?.split(',');
         let newFactTypeFilters = searchParams.get('filter[show]')?.split(',');
 
-        this.addFilters(newStateFilters, stateFilters, addStateFilter);
-        this.addFilters(newFactTypeFilters, factTypeFilters, toggleFactTypeFilter);
+        this.addFilters(newStateFilters, stateFilters, addStateFilter, 'state');
+        this.addFilters(newFactTypeFilters, factTypeFilters, toggleFactTypeFilter, 'fact');
     }
 
     setSort() {
