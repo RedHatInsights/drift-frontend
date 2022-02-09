@@ -227,6 +227,7 @@ export class BaselinesTable extends Component {
                         rows={ tableRows }
                         canSelectAll={ false }
                         selectVariant={ !hasMultiSelect ? RowSelectVariant.radio : RowSelectVariant.checkbox }
+                        isStickyHeader
                     >
                         <TableHeader />
                         <TableBody />

@@ -45,10 +45,10 @@ class EditBaseline extends Component {
                 key='edit-baseline-table-header'
                 data-ouia-component-type='PF4/TableHeaderRow'
                 data-ouia-component-id='edit-baseline-table-header-row'>
-                { baselinesWrite ? <th></th> : null }
-                <th className="edit-baseline-header"><div>Fact</div></th>
-                <th className="edit-baseline-header"><div>Value</div></th>
-                <th></th>
+                { baselinesWrite ? <th className="sticky-header"></th> : null }
+                <th className="edit-baseline-header sticky-header"><div>Fact</div></th>
+                <th className="edit-baseline-header sticky-header"><div>Value</div></th>
+                <th className="sticky-header"></th>
             </tr>
         );
     }

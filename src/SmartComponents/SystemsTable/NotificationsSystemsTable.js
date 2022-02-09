@@ -77,14 +77,16 @@ export const SystemsTable = connect(null, mapDispatchToProps)(({
             return {
                 canSelectAll: false,
                 selectVariant,
-                ouiaId: 'systems-table'
+                ouiaId: 'systems-table',
+                isStickyHeader: true
             };
         } else {
             return {
                 canSelectAll: false,
                 selectVariant,
                 ouiaId: 'systems-table',
-                onSelect: false
+                onSelect: false,
+                isStickyHeader: true
             };
         }
     };
