@@ -93,7 +93,8 @@ export const SystemsTable = ({
                         canSelectAll: false,
                         selectVariant,
                         ouiaId: 'systems-table',
-                        className: 'inventory-align'
+                        className: 'inventory-align',
+                        isStickyHeader: true
                     }}
                     getEntities={ systemNotificationIds && !isAddSystemNotifications
                         ? async (_items, config) => {
