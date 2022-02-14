@@ -15,6 +15,17 @@ import { createMiddlewareListener } from '../../../store';
 const middlewareListener = createMiddlewareListener();
 middlewareListener.getMiddleware();
 
+jest.mock('../redux', () => ({
+    addSystemModalActions: {
+        handleSystemSelection: jest.fn(() => ({ type: 'null' }))
+    }
+}));
+jest.mock('../../BaselinesTable/redux', () => ({
+    baselinesTableActions: {
+        fetchBaselines: jest.fn(() => ({ type: 'null' }))
+    }
+}));
+
 describe('AddSystemModal', () => {
     let props;
 

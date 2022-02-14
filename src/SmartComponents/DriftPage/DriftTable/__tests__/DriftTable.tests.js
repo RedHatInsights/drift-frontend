@@ -19,6 +19,21 @@ import { createMiddlewareListener } from '../../../../store';
 const middlewareListener = createMiddlewareListener();
 middlewareListener.getMiddleware();
 
+jest.mock('../../../BaselinesTable/redux', () => ({
+    baselinesTableActions: {
+        selectBaseline: jest.fn(()=> ({ type: 'null' })),
+        revertBaselineFetch: jest.fn(()=> ({ type: 'null' })),
+        fetchBaselines: jest.fn(()=> ({ type: 'null' })),
+        setSelectedBaselines: jest.fn(()=> ({ type: 'null' }))
+    }
+}));
+
+jest.mock('../../../modules', () => ({
+    compareActions: {
+        fetchCompare: jest.fn(()=> ({ type: 'null' }))
+    }
+}));
+
 describe('DriftTable', () => {
     let props;
 

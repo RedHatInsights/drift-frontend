@@ -13,6 +13,14 @@ import { PermissionContext } from '../../../App';import { createMiddlewareListen
 const middlewareListener = createMiddlewareListener();
 middlewareListener.getMiddleware();
 
+jest.mock('../../BaselinesTable/redux', () => ({
+    baselinesTableActions: {
+        selectBaseline: jest.fn(()=> ({ type: 'null' })),
+        revertBaselineFetch: jest.fn(()=> ({ type: 'null' })),
+        fetchBaselines: jest.fn(()=> ({ type: 'null' }))
+    }
+}));
+
 describe('BaselinesPage', () => {
     let props;
     let value;

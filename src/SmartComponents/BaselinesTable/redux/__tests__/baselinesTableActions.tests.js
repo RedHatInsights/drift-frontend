@@ -1,10 +1,15 @@
 import { baselinesTableActions } from '../index';
 import fixtures from './baselinesTableReducer.fixtures';
+import api from '../../../../api';
+
+jest.mock('../../../../api', () => ({
+    getBaselineList: jest.fn(()=> ({ type: 'null' }))
+}));
 
 describe('baselines table actions', () => {
     it('fetchBaselines', () => {
         const promise = new Promise(() => {});
-
+        api.getBaselineList.mockImplementation(() => (promise));
         expect(baselinesTableActions.fetchBaselines('CHECKBOX')).toEqual({
             type: `FETCH_BASELINE_LIST_CHECKBOX`,
             payload: promise

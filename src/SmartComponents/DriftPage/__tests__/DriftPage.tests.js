@@ -18,6 +18,28 @@ import { createMiddlewareListener } from '../../../store';
 const middlewareListener = createMiddlewareListener();
 middlewareListener.getMiddleware();
 
+jest.mock('../../BaselinesTable/redux', () => ({
+    baselinesTableActions: {
+        setSelectedBaselines: jest.fn(()=> ({ type: 'null' })),
+        fetchCompare: jest.fn(()=> ({ type: 'null' }))
+    }
+}));
+
+jest.mock('../../AddSystemModal/redux', () => ({
+    addSystemModalActions: { }
+}));
+
+jest.mock('../../HistoricalProfilesPopover/redux', () => ({
+    historicProfilesActions: { }
+}));
+
+jest.mock('../../modules', () => ({
+    compareActions: {
+        updateReferenceId: jest.fn(()=> ({ type: 'null' })),
+        fetchCompare: jest.fn(()=> ({ type: 'null' }))
+    }
+}));
+
 describe('DriftPage', () => {
     let props;
 
