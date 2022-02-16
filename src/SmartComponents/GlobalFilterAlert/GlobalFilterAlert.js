@@ -7,12 +7,31 @@ export class GlobalFilterAlert extends Component {
         super(props);
     }
 
+    isFilterSelected = (workloadsFilter) => {
+        return workloadsFilter?.SAP?.isSelected || workloadsFilter['Ansible Automation Platform']?.isSelected;
+    }
+
     buildBody = () => {
         const { sidsFilter, tagsFilter, workloadsFilter } = this.props.globalFilterState;
+        let filters = '';
 
-        let filters = Object.keys(workloadsFilter).length
-            ? 'Workloads: ' + Object.keys(workloadsFilter)[0] + '. '
-            : '';
+        if (this.isFilterSelected(workloadsFilter)) {
+            filters = 'Workloads:';
+            let first = true;
+
+            for (const workload in workloadsFilter) {
+                if (workloadsFilter[workload].isSelected) {
+                    if (!first) {
+                        filters = `${ filters }, ${ workload }`;
+                    } else {
+                        filters = `${ filters } ${ workload }`;
+                        first = false;
+                    }
+                }
+            }
+
+            filters += '. ';
+        }
 
         if (sidsFilter.length) {
             filters += 'SAP ID (SID): ';
@@ -64,7 +83,7 @@ export class GlobalFilterAlert extends Component {
 
         return (
             <React.Fragment>
-                { workloadsFilter.SAP?.isSelected || sidsFilter.length > 0 || tagsFilter.length > 0
+                { this.isFilterSelected(workloadsFilter) || sidsFilter.length > 0 || tagsFilter.length > 0
                     ? <Alert
                         variant='info'
                         title='Your systems are pre-filtered by the global context selector.'

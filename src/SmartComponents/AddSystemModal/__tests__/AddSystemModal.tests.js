@@ -9,6 +9,7 @@ import toJson from 'enzyme-to-json';
 import ConnectedAddSystemModal, { AddSystemModal } from '../AddSystemModal';
 import { compareReducerPayload } from '../../modules/__tests__/reducer.fixtures';
 import modalFixtures from '../redux/__tests__/addSystemModalReducer.fixtures';
+import globalFilterAlertFixtures from '../../GlobalFilterAlert/__tests__/GlobalFilterAlert.fixtures';
 
 import { createMiddlewareListener } from '../../../store';
 
@@ -410,17 +411,7 @@ describe('ConnectedAddSystemModal', () => {
     });
 
     it('should render GlobalFilterAlert', () => {
-        initialState.globalFilterState.workloadsFilter = {
-            SAP: {
-                group: {
-                    name: 'Workloads'
-                },
-                item: {
-                    value: 'SAP'
-                }
-            }
-        };
-
+        initialState.globalFilterState.workloadsFilter = globalFilterAlertFixtures.workloadsFilterSAPTrue;
         initialState.globalFilterState.sidsFilter = [ 'AB1', 'XY1' ];
         initialState.globalFilterState.tagsFilter = [
             'patch/rest=patchman-engine', 'patch/dev=patchman-engine', 'insights-client/group=XmygroupX'
