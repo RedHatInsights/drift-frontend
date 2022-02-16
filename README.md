@@ -2,15 +2,31 @@
 
 # Drift Frontend
 
-# how to install
+## Getting Started
+There is a [comprehensive quick start guide in the Storybook Documentation](https://github.com/RedHatInsights/insights-frontend-storybook/blob/master/src/docs/welcome/quickStart/DOC.md) to setting up an Insights environment complete with:
+- [Insights Chroming](https://github.com/RedHatInsights/insights-chrome)
+- [Insights Proxy](https://github.com/RedHatInsights/insights-proxy)
 
-```
-git clone https://github.com/RedHatInsights/drift-frontend
-cd drift-frontend
-npm install
-npm run start
-```
+Note: You will need to set up the Insights environment if you want to develop with the app due to the consumption of the chroming service as well as setting up your global/app navigation through the API.
 
+## Developing
+
+### First time setup
+1. Make sure you have [`Node.js`](https://nodejs.org/en/) and [`npm`](https://www.npmjs.com/) installed
+2. Run [script to patch your `/etc/hosts`](https://github.com/RedHatInsights/insights-proxy/blob/master/scripts/patch-etc-hosts.sh)
+3. Make sure you are using [Red Hat proxy](http://hdn.corp.redhat.com/proxy.pac)
+4. Clone this repository
+5. Run ```npm install``` to install dependencies
+
+### Running locally
+1. Run ```npm run start:proxy``` to start chrome proxy and webpack bundler which serves the files with webpack dev server
+2. App will be running at ```https://stage.foo.redhat.com:1337/insights/drift/```
+## Testing
+### Testing locally
+- `npm run test` will run all tests
+- `npm run lint` will run linter
+
+## Debug
 Ensure the following entry is in your `/etc/hosts` file:
 ```
 127.0.0.1 prod.foo.redhat.com
@@ -19,7 +35,7 @@ Ensure the following entry is in your `/etc/hosts` file:
 127.0.0.1 ci.foo.redhat.com
 ```
 
-# how to run with Clowder drift-backend
+## how to run with Clowder drift-backend
 
 OBS: First go through the steps in [drift-dev-setup](https://github.com/RedHatInsights/drift-dev-setup#run-with-clowder).
 
@@ -36,7 +52,7 @@ Finally, hit the following URL in your browser. If you are not logged in, you wi
 
 https://ci.foo.redhat.com:1337/insights/drift
 
-# how to run with Stage drift-backend
+## how to run with Stage drift-backend
 
 In terminal run:
 ```
@@ -52,7 +68,7 @@ Finally, hit the following URL in your browser. If you are not logged in, you wi
 https://stage.foo.redhat.com:1337/apps/drift/
 
 
-# how to run with local drift-backend
+## how to run with local drift-backend
 
 OBS: First go through the steps in [drift-dev-setup](https://github.com/RedHatInsights/drift-dev-setup#run-with-clowder).
 
@@ -69,7 +85,7 @@ Finally, hit the following URL in your browser. If you are not logged in, you wi
 
 https://ci.foo.redhat.com:1337/insights/drift
 
-# troubleshooting
+## troubleshooting
 
 If you are updating the drift-frontend app after a long period of time away, your node_modules folder may not be up to date with the packages outlined in the `package.json` file. The easiest way to update this quickly and efficiently is to fun the following commands in a terminal window.
 ```
@@ -80,7 +96,7 @@ npm i
 
 After the packages are installed, you should be able to run `npm run start` in the same terminal to get the app up and running.
 
-# to run sonarqube
+## to run sonarqube
 1. Make sure that you have SonarQube scanner installed.
 2. Duplicate the `sonar-scanner.properties.sample` config file.
 ```
