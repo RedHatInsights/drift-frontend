@@ -8,28 +8,32 @@ export class GlobalFilterAlert extends Component {
     }
 
     isFilterSelected = (workloadsFilter) => {
-        return workloadsFilter?.SAP?.isSelected || workloadsFilter['Ansible Automation Platform']?.isSelected;
+        for (const workload in workloadsFilter) {
+            if (workloadsFilter[workload].isSelected) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     buildBody = () => {
         const { sidsFilter, tagsFilter, workloadsFilter } = this.props.globalFilterState;
         let filters = '';
+        let first = true;
 
-        if (this.isFilterSelected(workloadsFilter)) {
-            filters = 'Workloads:';
-            let first = true;
-
-            for (const workload in workloadsFilter) {
-                if (workloadsFilter[workload].isSelected) {
-                    if (!first) {
-                        filters = `${ filters }, ${ workload }`;
-                    } else {
-                        filters = `${ filters } ${ workload }`;
-                        first = false;
-                    }
+        for (const workload in workloadsFilter) {
+            if (workloadsFilter[workload].isSelected) {
+                if (!first) {
+                    filters = `${ filters }, ${ workload }`;
+                } else {
+                    filters = `Workloads: ${ workload }`;
+                    first = false;
                 }
             }
+        }
 
+        if (!first) {
             filters += '. ';
         }
 

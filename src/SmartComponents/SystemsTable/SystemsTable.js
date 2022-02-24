@@ -83,8 +83,10 @@ export const SystemsTable = ({
                         filter: {
                             system_profile: {
                                 ...workloadsFilter?.SAP?.isSelected && { sap_system: true },
-                                ...workloadsFilter && workloadsFilter['Ansible Automation Platform']?.isSelected
-                                    && { ansible: { controller_version: true }},
+                                ...workloadsFilter?.['Ansible Automation Platform']?.isSelected
+                                    && { ansible: 'not_nil' },
+                                ...workloadsFilter?.['Microsoft SQL']?.isSelected
+                                    && { mssql: 'not_nil' },
                                 ...sidsFilter?.length > 0 && { sap_sids: sidsFilter }
                             }
                         }
