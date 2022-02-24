@@ -143,6 +143,10 @@ export const SystemsTable = connect(null, mapDispatchToProps)(({
                     filter: {
                         system_profile: {
                             ...workloadsFilter?.SAP?.isSelected && { sap_system: true },
+                            ...workloadsFilter?.['Ansible Automation Platform']?.isSelected
+                                && { ansible: { controller_version: true }},
+                            ...workloadsFilter?.['Microsoft SQL']?.isSelected
+                                && { mssql: { version: 'not_nil' }},
                             ...sidsFilter?.length > 0 && { sap_sids: sidsFilter }
                         }
                     }
