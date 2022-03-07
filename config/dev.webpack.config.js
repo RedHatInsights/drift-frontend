@@ -7,8 +7,9 @@ const { config: webpackConfig, plugins } = config({
     https: true,
     useProxy: true,
     routesPath: process.env.CONFIG_PATH,
-    appUrl: [ '/insights/drift' ],
-    env: process.env.BETA ? 'stage-beta' : 'stage-stable'
+    appUrl: process.env.BETA ? [ '/beta/insights/drift' ] : [ '/insights/drift' ],
+    env: process.env.BETA ? 'stage-beta' : 'stage-stable',
+    deployment: process.env.BETA ? 'beta/apps' : 'apps'
 });
 
 plugins.push(
