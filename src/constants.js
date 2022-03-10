@@ -37,3 +37,7 @@ export const EMPTY_BASELINE_TITLE = 'No facts or categories yet';
 export const EMPTY_BASELINE_MESSAGE = [
     'To get started, add a fact or category to this baseline.'
 ];
+export const EMPTY_RADIO_MESSAGE = [
+    'You currently have no baselines displayed.',
+    'Create a baseline first in order to copy from it. '
+];

@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import { RowSelectVariant, Table, TableBody, TableHeader } from '@patternfly/react-table';
 import { EmptyTable, SkeletonTable } from '@redhat-cloud-services/frontend-components';
 import { Toolbar, ToolbarGroup, ToolbarItem } from '@patternfly/react-core';
-import { LockIcon } from '@patternfly/react-icons';
+import { LockIcon, UndoIcon, ExclamationCircleIcon } from '@patternfly/react-icons';
+import _ from 'lodash';
 
 import BaselineTableKebab from './BaselineTableKebab/BaselineTableKebab';
 import { baselinesTableActions } from './redux';
@@ -14,9 +15,12 @@ import BaselinesToolbar from './BaselinesToolbar/BaselinesToolbar';
 import EmptyStateDisplay from '../EmptyStateDisplay/EmptyStateDisplay';
 import TablePagination from '../Pagination/Pagination';
 import NotificationDetails from './NotificationDetails/NotificationDetails';
+import { AddCircleOIcon } from '@patternfly/react-icons';
+import CreateBaselineButton from '../BaselinesPage/CreateBaselineButton/CreateBaselineButton';
+import { Card, CardBody } from '@patternfly/react-core';
 
 import { EMPTY_BASELINES_TITLE, EMPTY_BASELINES_MESSAGE,
-    EMPTY_BASELINES_FILTER_TITLE, EMPTY_FILTER_MESSAGE } from '../../constants';
+    EMPTY_BASELINES_FILTER_TITLE, EMPTY_FILTER_MESSAGE, EMPTY_RADIO_MESSAGE } from '../../constants';
 
 export class BaselinesTable extends Component {
     constructor(props) {
@@ -37,7 +41,13 @@ export class BaselinesTable extends Component {
 
     async componentDidMount() {
         await window.insights.chrome.auth.getUser();
-        this.fetchWithParams();
+        await this.fetchWithParams();
+    }
+
+    async componentDidUpdate(prevProps) {
+        if (!_.isEmpty(prevProps.baselineError) && _.isEmpty(this.props.baselineError)) {
+            this.fetchWithParams();
+        }
     }
 
     fetchWithParams = (fetchParams) => {
@@ -162,8 +172,44 @@ export class BaselinesTable extends Component {
         return table;
     }
 
+    renderError() {
+        const { baselineError, revertBaselineFetch } = this.props;
+        const { errorMessage } = this.state;
+
+        return <EmptyStateDisplay
+            icon={ ExclamationCircleIcon }
+            color='#c9190b'
+            title={ 'Baselines cannot be displayed' }
+            text={ errorMessage }
+            error={ 'Error ' + baselineError.status + ': ' + baselineError.detail }
+            button={ <a onClick={ () => revertBaselineFetch() }>
+                <UndoIcon className='reload-button' />
+                    Retry
+            </a> }
+        />;
+    }
+
+    renderBaselinesPageError() {
+        const { emptyState, loading, permissions, baselineError } = this.props;
+
+        if (baselineError.status !== 200 && baselineError.status !== undefined) {
+            return this.renderError();
+        } else {
+            return <EmptyStateDisplay
+                icon={ AddCircleOIcon }
+                title={ EMPTY_BASELINES_TITLE }
+                text={ EMPTY_BASELINES_MESSAGE }
+                button={ <CreateBaselineButton
+                    emptyState={ emptyState }
+                    permissions={ permissions }
+                    loading={ loading } /> }
+            />;
+        }
+    }
+
     renderTable({ baselinesWrite, baselinesRead }) {
         const { columns, createButton, emptyState, hasMultiSelect, kebab, loading, onSelect, tableData, tableId } = this.props;
+
         let tableRows = [];
         let table;
         let emptyRow;
@@ -245,53 +291,120 @@ export class BaselinesTable extends Component {
             />;
         }
 
+        return <Card className='pf-t-light pf-m-opaque-100'>
+            <CardBody>
+                { table }
+            </CardBody>
+        </Card>;
+    }
+
+    renderEmptyState = (permissions) => {
+        const { baselineError, columns, tableId } = this.props;
+        let tableRows = [];
+        let table;
+        let emptyRow;
+
+        if (baselineError.status !== 200 && baselineError.status !== undefined) {
+            return this.renderError();
+        }
+
+        if (tableId === 'RADIO') {
+            emptyRow = <EmptyTable>
+                <EmptyStateDisplay
+                    title={ EMPTY_BASELINES_TITLE }
+                    text={ EMPTY_RADIO_MESSAGE }
+                />
+            </EmptyTable>;
+        } else if (tableId === 'COMPARISON') {
+            if (permissions.baselinesRead === false) {
+                emptyRow = <EmptyStateDisplay
+                    icon={ LockIcon }
+                    color='#6a6e73'
+                    title={ 'You do not have access to Baselines' }
+                    text={ [ 'Contact your organization administrator(s) for more information.' ] }
+                />;
+            } else {
+                emptyRow = <EmptyTable>
+                    <EmptyStateDisplay
+                        title={ EMPTY_BASELINES_TITLE }
+                        text={ EMPTY_BASELINES_MESSAGE }
+                    />
+                </EmptyTable>;
+            }
+        }
+
+        tableRows.push({
+            cells: [{
+                title: emptyRow,
+                props: { colSpan: columns.length }
+            }]
+        });
+
+        table = <Table
+            aria-label="Baselines Table"
+            data-ouia-component-id='baselines-table'
+            cells={ columns }
+            rows={ tableRows }
+            canSelectAll={ false }
+        >
+            <TableHeader />
+            <TableBody />
+        </Table>;
         return table;
     }
 
     render() {
-        const { kebab, createButton, exportToCSV, exportToJSON, exportButton, hasMultiSelect, leftAlignToolbar, loading,
-            onBulkSelect, permissions, selectedBaselineIds, tableData, tableId, totalBaselines } = this.props;
+        const { permissions, emptyState, loading, tableId, kebab, createButton, exportToCSV, exportToJSON, exportButton, hasMultiSelect,
+            leftAlignToolbar, onBulkSelect, selectedBaselineIds, tableData, totalBaselines } = this.props;
         const { page, perPage } = this.state;
 
         return (
             <React.Fragment>
-                <BaselinesToolbar
-                    createButton={ createButton }
-                    exportButton={ exportButton }
-                    kebab={ kebab }
-                    onSearch={ this.onSearch }
-                    tableId={ tableId }
-                    fetchWithParams={ this.fetchWithParams }
-                    tableData={ tableData }
-                    onBulkSelect={ onBulkSelect }
-                    hasMultiSelect={ hasMultiSelect }
-                    selectedBaselineIds={ selectedBaselineIds }
-                    isDeleteDisabled={ selectedBaselineIds?.length < 1 }
-                    page={ page }
-                    perPage={ perPage }
-                    totalBaselines={ totalBaselines }
-                    updatePagination={ this.updatePagination }
-                    exportToCSV={ exportToCSV }
-                    exportToJSON={ exportToJSON }
-                    leftAlignToolbar={ leftAlignToolbar }
-                    loading={ loading }
-                    permissions={ permissions }
-                />
-                { this.renderTable(permissions) }
-                <Toolbar>
-                    <ToolbarGroup className='pf-c-pagination'>
-                        <ToolbarItem>
-                            <TablePagination
-                                page={ page }
-                                perPage={ perPage }
-                                total={ !permissions.baselinesRead ? 0 : totalBaselines }
-                                isCompact={ false }
-                                updatePagination={ this.updatePagination }
-                                tableId={ tableId }
-                            />
-                        </ToolbarItem>
-                    </ToolbarGroup>
-                </Toolbar>
+                { tableId === 'CHECKBOX' && emptyState && !loading
+                    ? this.renderBaselinesPageError()
+                    : <React.Fragment>
+                        <BaselinesToolbar
+                            createButton={ createButton }
+                            exportButton={ exportButton }
+                            kebab={ kebab }
+                            onSearch={ this.onSearch }
+                            tableId={ tableId }
+                            fetchWithParams={ this.fetchWithParams }
+                            tableData={ tableData }
+                            onBulkSelect={ onBulkSelect }
+                            hasMultiSelect={ hasMultiSelect }
+                            selectedBaselineIds={ selectedBaselineIds }
+                            isDeleteDisabled={ selectedBaselineIds?.length < 1 }
+                            page={ page }
+                            perPage={ perPage }
+                            totalBaselines={ totalBaselines }
+                            updatePagination={ this.updatePagination }
+                            exportToCSV={ exportToCSV }
+                            exportToJSON={ exportToJSON }
+                            leftAlignToolbar={ leftAlignToolbar }
+                            loading={ loading }
+                            permissions={ permissions }
+                        />
+                        { emptyState && !loading
+                            ? this.renderEmptyState(permissions)
+                            : this.renderTable(permissions)
+                        }
+                        <Toolbar>
+                            <ToolbarGroup className='pf-c-pagination'>
+                                <ToolbarItem>
+                                    <TablePagination
+                                        page={ page }
+                                        perPage={ perPage }
+                                        total={ !permissions.baselinesRead ? 0 : totalBaselines }
+                                        isCompact={ false }
+                                        updatePagination={ this.updatePagination }
+                                        tableId={ tableId }
+                                    />
+                                </ToolbarItem>
+                            </ToolbarGroup>
+                        </Toolbar>
+                    </React.Fragment>
+                }
             </React.Fragment>
         );
     }
@@ -322,7 +435,9 @@ BaselinesTable.propTypes = {
     emptyState: PropTypes.bool,
     toggleNotificationPending: PropTypes.func,
     toggleNotificationFulfilled: PropTypes.func,
-    toggleNotificationRejected: PropTypes.func
+    toggleNotificationRejected: PropTypes.func,
+    baselineError: PropTypes.object,
+    revertBaselineFetch: PropTypes.func
 };
 
 /*eslint-disable camelcase*/

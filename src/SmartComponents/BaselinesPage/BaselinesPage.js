@@ -4,21 +4,17 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import { Main, PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components';
-import { Card, CardBody } from '@patternfly/react-core';
-import { AddCircleOIcon, ExclamationCircleIcon, LockIcon, UndoIcon } from '@patternfly/react-icons';
+import { LockIcon } from '@patternfly/react-icons';
 import { sortable, cellWidth } from '@patternfly/react-table';
 
 import BaselinesTable from '../BaselinesTable/BaselinesTable';
-import CreateBaselineButton from './CreateBaselineButton/CreateBaselineButton';
 import CreateBaselineModal from './CreateBaselineModal/CreateBaselineModal';
 import EmptyStateDisplay from '../EmptyStateDisplay/EmptyStateDisplay';
-import ErrorAlert from '../ErrorAlert/ErrorAlert';
 import { addSystemModalActions } from '../AddSystemModal/redux';
 import { baselinesTableActions } from '../BaselinesTable/redux';
 import { editBaselineActions } from './EditBaselinePage/redux';
 import { historicProfilesActions } from '../HistoricalProfilesPopover/redux';
 import { PermissionContext } from '../../App';
-import { EMPTY_BASELINES_TITLE, EMPTY_BASELINES_MESSAGE } from '../../constants';
 
 export class BaselinesPage extends Component {
     constructor(props) {
@@ -90,70 +86,42 @@ export class BaselinesPage extends Component {
 
     renderTable(permissions) {
         const { baselineTableData, clearEditBaselineData, emptyState, loading, notificationsSwitchError, selectedBaselineIds,
-            totalBaselines } = this.props;
-        const { columns } = this.state;
+            totalBaselines, revertBaselineFetch, baselineError } = this.props;
+        const { columns, error } = this.state;
 
         clearEditBaselineData();
 
         return (
-            <CardBody>
-                <div>
-                    <BaselinesTable
-                        tableId='CHECKBOX'
-                        hasMultiSelect={ true }
-                        onSelect={ this.onSelect }
-                        tableData={ baselineTableData }
-                        loading={ loading }
-                        columns={ columns }
-                        kebab={ true }
-                        createButton={ true }
-                        exportButton={ true }
-                        onClick={ this.fetchBaseline }
-                        onBulkSelect={ this.onBulkSelect }
-                        selectedBaselineIds={ selectedBaselineIds }
-                        totalBaselines={ totalBaselines }
-                        permissions={ permissions }
-                        hasSwitch={ true }
-                        notificationsSwitchError={ notificationsSwitchError }
-                        emptyState={ emptyState }
-                    />
-                </div>
-            </CardBody>
+
+            <div>
+                <BaselinesTable
+                    tableId='CHECKBOX'
+                    hasMultiSelect={ true }
+                    onSelect={ this.onSelect }
+                    tableData={ baselineTableData }
+                    loading={ loading }
+                    columns={ columns }
+                    kebab={ true }
+                    createButton={ true }
+                    exportButton={ true }
+                    onClick={ this.fetchBaseline }
+                    onBulkSelect={ this.onBulkSelect }
+                    selectedBaselineIds={ selectedBaselineIds }
+                    totalBaselines={ totalBaselines }
+                    permissions={ permissions }
+                    hasSwitch={ true }
+                    notificationsSwitchError={ notificationsSwitchError }
+                    emptyState={ emptyState }
+                    revertBaselineFetch={ revertBaselineFetch }
+                    baselineError={ baselineError }
+                    error={ error }
+                />
+            </div>
         );
     }
 
-    renderEmptyState = (permissions) => {
-        const { baselineError, emptyState, loading, revertBaselineFetch } = this.props;
-        const { errorMessage } = this.state;
-
-        if (!baselineError.status) {
-            return <EmptyStateDisplay
-                icon={ AddCircleOIcon }
-                title={ EMPTY_BASELINES_TITLE }
-                text={ EMPTY_BASELINES_MESSAGE }
-                button={ <CreateBaselineButton
-                    emptyState={ emptyState }
-                    permissions={ permissions }
-                    loading={ loading } /> }
-            />;
-        } else if (baselineError.status !== 200 && baselineError.status !== undefined) {
-            return <EmptyStateDisplay
-                icon={ ExclamationCircleIcon }
-                color='#c9190b'
-                title={ 'Baselines cannot be displayed' }
-                text={ errorMessage }
-                error={ 'Error ' + baselineError.status + ': ' + baselineError.detail }
-                button={ <a onClick={ () => revertBaselineFetch('CHECKBOX') }>
-                    <UndoIcon className='reload-button' />
-                        Retry
-                </a> }
-            />;
-        }
-    }
-
     render() {
-        const { error } = this.state;
-        const { emptyState, loading, revertBaselineFetch, selectHistoricProfiles, setSelectedSystemIds } = this.props;
+        const { selectHistoricProfiles, setSelectedSystemIds } = this.props;
 
         return (
             <PermissionContext.Consumer>
@@ -175,20 +143,9 @@ export class BaselinesPage extends Component {
                                     title={ 'You do not have access to Baselines' }
                                     text={ [ 'Contact your organization administrator(s) for more information.' ] }
                                 />
-                                : emptyState && !loading
-                                    ? this.renderEmptyState(value.permissions)
-                                    : <React.Fragment>
-                                        <ErrorAlert
-                                            error={ !emptyState && error ? error : {} }
-                                            onClose={ revertBaselineFetch }
-                                            tableId={ 'CHECKBOX' }
-                                        />
-                                        <Card className='pf-t-light pf-m-opaque-100'>
-                                            {
-                                                this.renderTable(value.permissions)
-                                            }
-                                        </Card>
-                                    </React.Fragment>
+                                : <React.Fragment>
+                                    {this.renderTable(value.permissions)}
+                                </React.Fragment>
                             }
                         </Main>
                     </React.Fragment>
@@ -230,7 +187,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         selectBaseline: (id, isSelected, tableId) => dispatch(baselinesTableActions.selectBaseline(id, isSelected, tableId)),
-        revertBaselineFetch: (tableId) => dispatch(baselinesTableActions.revertBaselineFetch(tableId)),
+        revertBaselineFetch: () => dispatch(baselinesTableActions.revertBaselineFetch('CHECKBOX')),
         clearEditBaselineData: () => dispatch(editBaselineActions.clearEditBaselineData()),
         selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds)),
         setSelectedSystemIds: (selectedSystemIds) => dispatch(addSystemModalActions.setSelectedSystemIds(selectedSystemIds))
