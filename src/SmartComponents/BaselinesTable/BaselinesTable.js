@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import { RowSelectVariant, Table, TableBody, TableHeader } from '@patternfly/react-table';
 import { EmptyTable, SkeletonTable } from '@redhat-cloud-services/frontend-components';
 import { Toolbar, ToolbarGroup, ToolbarItem } from '@patternfly/react-core';
-import { LockIcon } from '@patternfly/react-icons';
+import { LockIcon, UndoIcon, ExclamationCircleIcon } from '@patternfly/react-icons';
+import _ from 'lodash';
 
 import BaselineTableKebab from './BaselineTableKebab/BaselineTableKebab';
 import { baselinesTableActions } from './redux';
@@ -14,6 +15,9 @@ import BaselinesToolbar from './BaselinesToolbar/BaselinesToolbar';
 import EmptyStateDisplay from '../EmptyStateDisplay/EmptyStateDisplay';
 import TablePagination from '../Pagination/Pagination';
 import NotificationDetails from './NotificationDetails/NotificationDetails';
+import { AddCircleOIcon } from '@patternfly/react-icons';
+import CreateBaselineButton from '../BaselinesPage/CreateBaselineButton/CreateBaselineButton';
+import { Card } from '@patternfly/react-core';
 
 import { EMPTY_BASELINES_TITLE, EMPTY_BASELINES_MESSAGE,
     EMPTY_BASELINES_FILTER_TITLE, EMPTY_FILTER_MESSAGE } from '../../constants';
@@ -37,9 +41,14 @@ export class BaselinesTable extends Component {
 
     async componentDidMount() {
         await window.insights.chrome.auth.getUser();
-        this.fetchWithParams();
+        await this.fetchWithParams();
     }
 
+    async componentDidUpdate(prevProps) {
+        if (!_.isEmpty(prevProps.baselineError) && _.isEmpty(this.props.baselineError))
+        { this.fetchWithParams();
+        }
+    }
     fetchWithParams = (fetchParams) => {
         const { tableId, fetchBaselines } = this.props;
 
@@ -248,50 +257,93 @@ export class BaselinesTable extends Component {
         return table;
     }
 
+    renderEmptyState = (permissions) => {
+        const { baselineError, emptyState, loading, revertBaselineFetch } = this.props;
+        const { errorMessage } = this.state;
+
+        if (!baselineError.status) {
+            return <EmptyStateDisplay
+                icon={ AddCircleOIcon }
+                title={ EMPTY_BASELINES_TITLE }
+                text={ EMPTY_BASELINES_MESSAGE }
+                button={ <CreateBaselineButton
+                    emptyState={ emptyState }
+                    permissions={ permissions }
+                    loading={ loading } /> }
+            />;
+        } else if (baselineError.status !== 200 && baselineError.status !== undefined) {
+            return <EmptyStateDisplay
+                icon={ ExclamationCircleIcon }
+                color='#c9190b'
+                title={ 'Baselines cannot be displayed' }
+                text={ errorMessage }
+                error={ 'Error ' + baselineError.status + ': ' + baselineError.detail }
+                button={ <a onClick={ () => revertBaselineFetch('CHECKBOX') }>
+                    <UndoIcon className='reload-button' />
+                        Retry
+                </a> }
+            />;
+        }
+    }
+
     render() {
         const { kebab, createButton, exportToCSV, exportToJSON, exportButton, hasMultiSelect, leftAlignToolbar, loading,
-            onBulkSelect, permissions, selectedBaselineIds, tableData, tableId, totalBaselines } = this.props;
+            onBulkSelect, permissions, selectedBaselineIds, tableData, tableId, totalBaselines, emptyState } = this.props;
         const { page, perPage } = this.state;
 
         return (
             <React.Fragment>
-                <BaselinesToolbar
-                    createButton={ createButton }
-                    exportButton={ exportButton }
-                    kebab={ kebab }
-                    onSearch={ this.onSearch }
-                    tableId={ tableId }
-                    fetchWithParams={ this.fetchWithParams }
-                    tableData={ tableData }
-                    onBulkSelect={ onBulkSelect }
-                    hasMultiSelect={ hasMultiSelect }
-                    selectedBaselineIds={ selectedBaselineIds }
-                    isDeleteDisabled={ selectedBaselineIds?.length < 1 }
-                    page={ page }
-                    perPage={ perPage }
-                    totalBaselines={ totalBaselines }
-                    updatePagination={ this.updatePagination }
-                    exportToCSV={ exportToCSV }
-                    exportToJSON={ exportToJSON }
-                    leftAlignToolbar={ leftAlignToolbar }
-                    loading={ loading }
-                    permissions={ permissions }
-                />
-                { this.renderTable(permissions) }
-                <Toolbar>
-                    <ToolbarGroup className='pf-c-pagination'>
-                        <ToolbarItem>
-                            <TablePagination
+
+                { permissions.baselinesRead === false
+                    ? <EmptyStateDisplay
+                        icon={ LockIcon }
+                        color='#6a6e73'
+                        title={ 'You do not have access to Baselines' }
+                        text={ [ 'Contact your organization administrator(s) for more information.' ] }
+                    />
+                    : emptyState && !loading
+                        ? this.renderEmptyState(permissions)
+                        :
+                        <Card className='pf-t-light pf-m-opaque-100' >
+                            <BaselinesToolbar
+                                createButton={ createButton }
+                                exportButton={ exportButton }
+                                kebab={ kebab }
+                                onSearch={ this.onSearch }
+                                tableId={ tableId }
+                                fetchWithParams={ this.fetchWithParams }
+                                tableData={ tableData }
+                                onBulkSelect={ onBulkSelect }
+                                hasMultiSelect={ hasMultiSelect }
+                                selectedBaselineIds={ selectedBaselineIds }
+                                isDeleteDisabled={ selectedBaselineIds?.length < 1 }
                                 page={ page }
                                 perPage={ perPage }
-                                total={ !permissions.baselinesRead ? 0 : totalBaselines }
-                                isCompact={ false }
+                                totalBaselines={ totalBaselines }
                                 updatePagination={ this.updatePagination }
-                                tableId={ tableId }
+                                exportToCSV={ exportToCSV }
+                                exportToJSON={ exportToJSON }
+                                leftAlignToolbar={ leftAlignToolbar }
+                                loading={ loading }
+                                permissions={ permissions }
                             />
-                        </ToolbarItem>
-                    </ToolbarGroup>
-                </Toolbar>
+                            {this.renderTable(permissions)}
+                            <Toolbar>
+                                <ToolbarGroup className='pf-c-pagination'>
+                                    <ToolbarItem>
+                                        <TablePagination
+                                            page={ page }
+                                            perPage={ perPage }
+                                            total={ !permissions.baselinesRead ? 0 : totalBaselines }
+                                            isCompact={ false }
+                                            updatePagination={ this.updatePagination }
+                                            tableId={ tableId }
+                                        />
+                                    </ToolbarItem>
+                                </ToolbarGroup>
+                            </Toolbar>
+                        </Card>
+                }
             </React.Fragment>
         );
     }
@@ -322,7 +374,9 @@ BaselinesTable.propTypes = {
     emptyState: PropTypes.bool,
     toggleNotificationPending: PropTypes.func,
     toggleNotificationFulfilled: PropTypes.func,
-    toggleNotificationRejected: PropTypes.func
+    toggleNotificationRejected: PropTypes.func,
+    baselineError: PropTypes.object,
+    revertBaselineFetch: PropTypes.func
 };
 
 /*eslint-disable camelcase*/
@@ -339,7 +393,8 @@ function mapDispatchToProps(dispatch) {
         toggleNotificationFulfilled: (data) => dispatch(editBaselineActions.toggleNotificationFulfilled(data)),
         toggleNotificationRejected: (error, id, display_name) => {
             dispatch(editBaselineActions.toggleNotificationRejected(error, id, display_name));
-        }
+        },
+        revertBaselineFetch: (tableId) => dispatch(baselinesTableActions.revertBaselineFetch(tableId))
     };
 }
 /*eslint-enable camelcase*/
