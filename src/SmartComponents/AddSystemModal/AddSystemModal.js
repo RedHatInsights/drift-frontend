@@ -220,7 +220,7 @@ export class AddSystemModal extends Component {
         const { activeTab, addSystemModalOpened, baselines, baselineTableData, emptyState, globalFilterState, handleBaselineSelection,
             handleHSPSelection, handleSystemSelection, historicalProfiles, loading, entities, permissions, selectEntity, selectHistoricProfiles,
             selectedBaselineIds, selectedBaselineContent, selectedHSPContent, selectedHSPIds, selectBaseline, selectedSystemContent,
-            selectedSystemIds, setSelectedSystemIds, systems, totalBaselines } = this.props;
+            selectedSystemIds, setSelectedSystemIds, systems, totalBaselines, baselineError, revertBaselineFetch } = this.props;
         const { columns, basketIsVisible, systemColumns } = this.state;
 
         return (
@@ -326,6 +326,8 @@ export class AddSystemModal extends Component {
                                 leftAlignToolbar={ true }
                                 hasSwitch={ false }
                                 emptyState={ emptyState }
+                                baselineError={ baselineError }
+                                revertBaselineFetch={ revertBaselineFetch }
                             />
                         </Tab>
                     </Tabs>
@@ -369,7 +371,9 @@ AddSystemModal.propTypes = {
     disableSystemTable: PropTypes.func,
     setSelectedBaselines: PropTypes.func,
     updateReferenceId: PropTypes.func,
-    emptyState: PropTypes.bool
+    emptyState: PropTypes.bool,
+    baselineError: PropTypes.object,
+    revertBaselineFetch: PropTypes.func
 };
 
 function mapStateToProps(state) {
@@ -389,7 +393,8 @@ function mapStateToProps(state) {
         selectedHSPContent: state.addSystemModalState.selectedHSPContent,
         selectedBaselineContent: state.addSystemModalState.selectedBaselineContent,
         selectedSystemContent: state.addSystemModalState.selectedSystemContent,
-        emptyState: state.baselinesTableState.comparisonTable.emptyState
+        emptyState: state.baselinesTableState.comparisonTable.emptyState,
+        baselineError: state.baselinesTableState.comparisonTable.baselineError
     };
 }
 
@@ -405,7 +410,8 @@ function mapDispatchToProps(dispatch) {
         selectEntity: (id, isSelected) => dispatch({ type: 'SELECT_ENTITY', payload: { id, isSelected }}),
         setSelectedSystemIds: (selectedSystemIds) => dispatch(addSystemModalActions.setSelectedSystemIds(selectedSystemIds)),
         disableSystemTable: (isDisabled) => dispatch(systemsTableActions.disableSystemTable(isDisabled)),
-        setSelectedBaselines: (ids, tableId) => dispatch(baselinesTableActions.setSelectedBaselines(ids, tableId))
+        setSelectedBaselines: (ids, tableId) => dispatch(baselinesTableActions.setSelectedBaselines(ids, tableId)),
+        revertBaselineFetch: () => dispatch(baselinesTableActions.revertBaselineFetch('COMPARISON'))
     };
 }
 

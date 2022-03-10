@@ -203,7 +203,8 @@ export class CreateBaselineModal extends Component {
     }
 
     renderCopyBaseline() {
-        const { baselineTableData, loading, permissions, selectedBaselineIds, totalBaselines } = this.props;
+        const { baselineTableData, loading, permissions, selectedBaselineIds, totalBaselines,
+            revertBaselineFetch, baselineError, emptyState } = this.props;
         const { columns } = this.state;
 
         return (<React.Fragment>
@@ -220,6 +221,9 @@ export class CreateBaselineModal extends Component {
                 selectedBaselineIds={ selectedBaselineIds }
                 leftAlignToolbar={ true }
                 hasSwitch={ false }
+                revertBaselineFetch={ revertBaselineFetch }
+                baselineError={ baselineError }
+                emptyState={ emptyState }
             />
         </React.Fragment>
         );
@@ -389,7 +393,10 @@ CreateBaselineModal.propTypes = {
     selectHistoricProfiles: PropTypes.func,
     setSelectedSystemIds: PropTypes.func,
     selectSingleHSP: PropTypes.func,
-    updateColumns: PropTypes.func
+    updateColumns: PropTypes.func,
+    baselineError: PropTypes.object,
+    revertBaselineFetch: PropTypes.func,
+    emptyState: PropTypes.bool
 };
 
 function mapStateToProps(state) {
@@ -404,7 +411,8 @@ function mapStateToProps(state) {
         baselineTableData: state.baselinesTableState.radioTable.baselineTableData,
         totalBaselines: state.baselinesTableState.radioTable.totalBaselines,
         historicalProfiles: state.compareState.historicalProfiles,
-        globalFilterState: state.globalFilterState
+        globalFilterState: state.globalFilterState,
+        baselineError: state.baselinesTableState.radioTable.baselineError
     };
 }
 
@@ -415,7 +423,8 @@ function mapDispatchToProps(dispatch) {
         selectBaseline: (id, isSelected, tableId) => dispatch(baselinesTableActions.selectBaseline(id, isSelected, tableId)),
         clearSelectedBaselines: (tableId) => dispatch(baselinesTableActions.clearSelectedBaselines(tableId)),
         selectSingleHSP: (profile) => dispatch(systemsTableActions.selectSingleHSP(profile)),
-        updateColumns: (key) => dispatch(systemsTableActions.updateColumns(key))
+        updateColumns: (key) => dispatch(systemsTableActions.updateColumns(key)),
+        revertBaselineFetch: () => dispatch(baselinesTableActions.revertBaselineFetch('RADIO'))
     };
 }
 
