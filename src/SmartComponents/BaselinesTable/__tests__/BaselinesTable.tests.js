@@ -7,7 +7,8 @@ import toJson from 'enzyme-to-json';
 import baselinesTableFixtures from '../redux/__tests__/baselinesTableReducer.fixtures';
 import baselinesReducerHelpers from '../redux/helpers';
 
-import ConnectedBaselinesTable from '../BaselinesTable';
+import ConnectedBaselinesTable, { BaselinesTable } from '../BaselinesTable';
+import { PermissionContext } from '../../../App';
 import { sortable } from '@patternfly/react-table';
 
 jest.mock('../redux', () => ({
@@ -15,6 +16,122 @@ jest.mock('../redux', () => ({
         fetchBaselines: jest.fn(()=> ({ type: 'null' }))
     }
 }));
+
+describe('BaselinesTable', () => {
+    let props;
+    let value;
+
+    beforeEach(() => {
+        props = {
+            loading: false,
+            tableData: baselinesTableFixtures.baselineTableDataRows,
+            tableId: 'CHECKBOX',
+            hasMultiSelect: true,
+            kebab: true,
+            createButton: true,
+            exportButton: true,
+            columns: [
+                { title: 'Name', transforms: [ sortable ]},
+                { title: 'Last updated', transforms: [ sortable ]},
+                { title: 'Associated systems' },
+                { title: '' }
+            ],
+            selectedBaselineIds: [],
+            permissions: {
+                baselinesRead: true,
+                baselinesWrite: true
+            },
+            basketIsVisible: false,
+            totalBaselines: 2,
+            selectBaseline: jest.fn(),
+            fetchBaselines: jest.fn(),
+            bulkSelectItems: jest.fn()
+        };
+
+        value = {
+            permissions: {
+                compareRead: true,
+                baselinesRead: true,
+                baselinesWrite: true
+            }
+        };
+    });
+
+    it('should call page onBulkSelect with isSelected true', async () => {
+        props.tableData = [
+            [ '1234', 'baseline 1', '1 month ago' ],
+            [ '5678', 'baseline 2', '2 months ago' ]
+        ];
+
+        const wrapper = shallow(
+            <PermissionContext.Provider value={ value }>
+                <BaselinesTable
+                    { ...props }
+                />
+            </PermissionContext.Provider>
+        );
+
+        wrapper.find(BaselinesTable).dive().instance().onBulkSelect('page');
+        expect(props.selectBaseline).toHaveBeenCalledWith([ '1234', '5678' ], true, 'CHECKBOX');
+    });
+
+    it('should call page onBulkSelect with isSelected false', async () => {
+        props.tableData = [
+            [ '1234', 'baseline 1', '1 month ago' ],
+            [ '5678', 'baseline 2', '2 months ago' ]
+        ];
+        props.tableData.forEach(baseline => baseline.selected = true);
+        props.selectedBaselineIds = [ '1234', '5678' ];
+
+        const wrapper = shallow(
+            <PermissionContext.Provider value={ value }>
+                <BaselinesTable
+                    { ...props }
+                />
+            </PermissionContext.Provider>
+        );
+
+        wrapper.find(BaselinesTable).dive().instance().onBulkSelect('page');
+        expect(props.selectBaseline).toHaveBeenCalledWith([ '1234', '5678' ], false, 'CHECKBOX');
+    });
+
+    it('should call page onBulkSelect with isSelected true', async () => {
+        props.baselineTableData = [
+            [ '1234', 'baseline 1', '1 month ago' ],
+            [ '5678', 'baseline 2', '2 months ago' ]
+        ];
+
+        const wrapper = shallow(
+            <PermissionContext.Provider value={ value }>
+                <BaselinesTable
+                    { ...props }
+                />
+            </PermissionContext.Provider>
+        );
+
+        await wrapper.find(BaselinesTable).dive().instance().onBulkSelect('page');
+        expect(props.selectBaseline).toHaveBeenCalledWith([ '1234', 'abcd' ], true, 'CHECKBOX');
+    });
+
+    it('should call none onBulkSelect with isSelected false', async () => {
+        props.baselineTableData = [
+            [ '1234', 'baseline 1', '1 month ago' ],
+            [ '5678', 'baseline 2', '2 months ago' ]
+        ];
+        props.selectedBaselineIds = [ '1234' ];
+
+        const wrapper = shallow(
+            <PermissionContext.Provider value={ value }>
+                <BaselinesTable
+                    { ...props }
+                />
+            </PermissionContext.Provider>
+        );
+
+        await wrapper.find(BaselinesTable).dive().instance().onBulkSelect('none');
+        expect(props.selectBaseline).toHaveBeenCalledWith([ '1234' ], false, 'CHECKBOX');
+    });
+});
 
 describe('ConnectedBaselinesTable', () => {
     let initialState;
@@ -58,7 +175,9 @@ describe('ConnectedBaselinesTable', () => {
                 baselinesWrite: true
             },
             basketIsVisible: false,
-            fetchBaselines: jest.fn()
+            totalBaselines: 2,
+            selectBaseline: jest.fn(),
+            bulkSelectItems: jest.fn()
         };
     });
 
@@ -213,7 +332,7 @@ describe('ConnectedBaselinesTable', () => {
 
     it('should sort by display_name', () => {
         const store = mockStore(initialState);
-        baselinesReducerHelpers.fetchBaselines = jest.fn();
+        baselinesReducerHelpers.returnParams = jest.fn();
         props.selectedBaselineIds = [ '1234' ];
         const onSelect = jest.fn();
         const wrapper = mount(
@@ -228,9 +347,7 @@ describe('ConnectedBaselinesTable', () => {
         );
 
         wrapper.find('.pf-c-table__button').at(0).simulate('click');
-        expect(baselinesReducerHelpers.fetchBaselines).toHaveBeenCalledWith(
-            'CHECKBOX',
-            expect.any(Function),
+        expect(baselinesReducerHelpers.returnParams).toHaveBeenCalledWith(
             {
                 orderBy: 'display_name',
                 orderHow: 'DESC',
@@ -245,9 +362,7 @@ describe('ConnectedBaselinesTable', () => {
         );
 
         wrapper.find('.pf-c-table__button').at(0).simulate('click');
-        expect(baselinesReducerHelpers.fetchBaselines).toHaveBeenCalledWith(
-            'CHECKBOX',
-            expect.any(Function),
+        expect(baselinesReducerHelpers.returnParams).toHaveBeenCalledWith(
             {
                 orderBy: 'display_name',
                 orderHow: 'ASC',

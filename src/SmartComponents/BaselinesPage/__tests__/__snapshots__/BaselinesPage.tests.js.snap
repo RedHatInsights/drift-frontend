@@ -450,7 +450,6 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                       kebab={true}
                       loading={false}
                       notificationsSwitchError={Object {}}
-                      onBulkSelect={[Function]}
                       onClick={[Function]}
                       onSelect={[Function]}
                       permissions={
@@ -461,6 +460,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                         }
                       }
                       revertBaselineFetch={[Function]}
+                      selectBaseline={[Function]}
                       selectedBaselineIds={Array []}
                       tableData={Array []}
                       tableId="CHECKBOX"
@@ -509,7 +509,6 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                         kebab={true}
                         loading={false}
                         notificationsSwitchError={Object {}}
-                        onBulkSelect={[Function]}
                         onClick={[Function]}
                         onSelect={[Function]}
                         permissions={
@@ -520,6 +519,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                           }
                         }
                         revertBaselineFetch={[Function]}
+                        selectBaseline={[Function]}
                         selectedBaselineIds={Array []}
                         tableData={Array []}
                         tableId="CHECKBOX"
@@ -688,21 +688,22 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                               >
                                                 <BulkSelect
                                                   checked={false}
-                                                  count={null}
+                                                  count={0}
+                                                  id="baselines-bulk-select"
                                                   isDisabled={true}
                                                   items={
                                                     Array [
                                                       Object {
-                                                        "key": "select-all",
+                                                        "key": "select-page",
                                                         "onClick": [Function],
-                                                        "ouiaId": "select-all",
-                                                        "title": "Select all",
+                                                        "ouiaId": "baselines-select-page",
+                                                        "title": "Select page (0)",
                                                       },
                                                       Object {
                                                         "key": "select-none",
                                                         "onClick": [Function],
-                                                        "ouiaId": "select-none",
-                                                        "title": "Select none",
+                                                        "ouiaId": "baselines-select-none",
+                                                        "title": "Select none (0)",
                                                       },
                                                     ]
                                                   }
@@ -715,16 +716,16 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                         <DropdownItem
                                                           component="button"
                                                           onClick={[Function]}
-                                                          ouiaId="OUIA-Generated-RHI/BulkSelect-1-select-all"
+                                                          ouiaId="OUIA-Generated-RHI/BulkSelect-1-select-page"
                                                         >
-                                                          Select all
+                                                          Select page (0)
                                                         </DropdownItem>,
                                                         <DropdownItem
                                                           component="button"
                                                           onClick={[Function]}
                                                           ouiaId="OUIA-Generated-RHI/BulkSelect-1-select-none"
                                                         >
-                                                          Select none
+                                                          Select none (0)
                                                         </DropdownItem>,
                                                       ]
                                                     }
@@ -743,7 +744,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                               <DropdownToggleCheckbox
                                                                 aria-label="Select all"
                                                                 className=""
-                                                                id="toggle-checkbox"
+                                                                id="baselines-bulk-select-toggle-checkbox"
                                                                 isChecked={false}
                                                                 isDisabled={false}
                                                                 isValid={true}
@@ -767,16 +768,16 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                           <DropdownItem
                                                             component="button"
                                                             onClick={[Function]}
-                                                            ouiaId="OUIA-Generated-RHI/BulkSelect-1-select-all"
+                                                            ouiaId="OUIA-Generated-RHI/BulkSelect-1-select-page"
                                                           >
-                                                            Select all
+                                                            Select page (0)
                                                           </DropdownItem>,
                                                           <DropdownItem
                                                             component="button"
                                                             onClick={[Function]}
                                                             ouiaId="OUIA-Generated-RHI/BulkSelect-1-select-none"
                                                           >
-                                                            Select none
+                                                            Select none (0)
                                                           </DropdownItem>,
                                                         ]
                                                       }
@@ -798,7 +799,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                 <DropdownToggleCheckbox
                                                                   aria-label="Select all"
                                                                   className=""
-                                                                  id="toggle-checkbox"
+                                                                  id="baselines-bulk-select-toggle-checkbox"
                                                                   isChecked={false}
                                                                   isDisabled={false}
                                                                   isValid={true}
@@ -844,7 +845,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                 >
                                                                   <label
                                                                     class="pf-c-dropdown__toggle-check"
-                                                                    for="toggle-checkbox"
+                                                                    for="baselines-bulk-select-toggle-checkbox"
                                                                   >
                                                                     <input
                                                                       aria-invalid="false"
@@ -852,7 +853,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                       data-ouia-component-id="OUIA-Generated-RHI/BulkSelect-1"
                                                                       data-ouia-component-type="PF4/DropdownToggleCheckbox"
                                                                       data-ouia-safe="true"
-                                                                      id="toggle-checkbox"
+                                                                      id="baselines-bulk-select-toggle-checkbox"
                                                                       type="checkbox"
                                                                     />
                                                                     
@@ -897,7 +898,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                 <DropdownToggleCheckbox
                                                                   aria-label="Select all"
                                                                   className=""
-                                                                  id="toggle-checkbox"
+                                                                  id="baselines-bulk-select-toggle-checkbox"
                                                                   isChecked={false}
                                                                   isDisabled={false}
                                                                   isValid={true}
@@ -916,7 +917,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                             <DropdownToggleCheckbox
                                                               aria-label="Select all"
                                                               className=""
-                                                              id="toggle-checkbox"
+                                                              id="baselines-bulk-select-toggle-checkbox"
                                                               isChecked={false}
                                                               isDisabled={false}
                                                               isValid={true}
@@ -925,7 +926,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                             >
                                                               <label
                                                                 className="pf-c-dropdown__toggle-check"
-                                                                htmlFor="toggle-checkbox"
+                                                                htmlFor="baselines-bulk-select-toggle-checkbox"
                                                               >
                                                                 <input
                                                                   aria-invalid={false}
@@ -935,7 +936,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                   data-ouia-component-type="PF4/DropdownToggleCheckbox"
                                                                   data-ouia-safe={true}
                                                                   disabled={false}
-                                                                  id="toggle-checkbox"
+                                                                  id="baselines-bulk-select-toggle-checkbox"
                                                                   onChange={[Function]}
                                                                   type="checkbox"
                                                                 />
@@ -973,7 +974,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                     >
                                                                       <label
                                                                         class="pf-c-dropdown__toggle-check"
-                                                                        for="toggle-checkbox"
+                                                                        for="baselines-bulk-select-toggle-checkbox"
                                                                       >
                                                                         <input
                                                                           aria-invalid="false"
@@ -981,7 +982,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                           data-ouia-component-id="OUIA-Generated-RHI/BulkSelect-1"
                                                                           data-ouia-component-type="PF4/DropdownToggleCheckbox"
                                                                           data-ouia-safe="true"
-                                                                          id="toggle-checkbox"
+                                                                          id="baselines-bulk-select-toggle-checkbox"
                                                                           type="checkbox"
                                                                         />
                                                                         
@@ -6365,7 +6366,6 @@ exports[`ConnectedBaselinesPage should render empty state 1`] = `
                       kebab={true}
                       loading={false}
                       notificationsSwitchError={Object {}}
-                      onBulkSelect={[Function]}
                       onClick={[Function]}
                       onSelect={[Function]}
                       permissions={
@@ -6376,6 +6376,7 @@ exports[`ConnectedBaselinesPage should render empty state 1`] = `
                         }
                       }
                       revertBaselineFetch={[Function]}
+                      selectBaseline={[Function]}
                       selectedBaselineIds={Array []}
                       tableData={Array []}
                       tableId="CHECKBOX"
@@ -6424,7 +6425,6 @@ exports[`ConnectedBaselinesPage should render empty state 1`] = `
                         kebab={true}
                         loading={false}
                         notificationsSwitchError={Object {}}
-                        onBulkSelect={[Function]}
                         onClick={[Function]}
                         onSelect={[Function]}
                         permissions={
@@ -6435,6 +6435,7 @@ exports[`ConnectedBaselinesPage should render empty state 1`] = `
                           }
                         }
                         revertBaselineFetch={[Function]}
+                        selectBaseline={[Function]}
                         selectedBaselineIds={Array []}
                         tableData={Array []}
                         tableId="CHECKBOX"

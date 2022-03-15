@@ -100,44 +100,6 @@ describe('BaselinesPage', () => {
         wrapper.find(BaselinesPage).dive().instance().onSelect(_, true, -1);
         expect(selectBaseline).toHaveBeenCalledWith([ '1234', '5678' ], true, 'CHECKBOX');
     });
-
-    it('should call onBulkSelect with isSelected true', () => {
-        props.baselineTableData = [
-            [ '1234', 'baseline 1', '1 month ago' ],
-            [ '5678', 'baseline 2', '2 months ago' ]
-        ];
-        const selectBaseline = jest.fn();
-        const wrapper = shallow(
-            <PermissionContext.Provider value={ value }>
-                <BaselinesPage
-                    { ...props }
-                    selectBaseline={ selectBaseline }
-                />
-            </PermissionContext.Provider>
-        );
-
-        wrapper.find(BaselinesPage).dive().instance().onBulkSelect(true);
-        expect(selectBaseline).toHaveBeenCalledWith([ '1234', '5678' ], true, 'CHECKBOX');
-    });
-
-    it('should call onBulkSelect with isSelected false', () => {
-        props.baselineTableData = [
-            [ '1234', 'baseline 1', '1 month ago' ],
-            [ '5678', 'baseline 2', '2 months ago' ]
-        ];
-        const selectBaseline = jest.fn();
-        const wrapper = shallow(
-            <PermissionContext.Provider value={ value }>
-                <BaselinesPage
-                    { ...props }
-                    selectBaseline={ selectBaseline }
-                />
-            </PermissionContext.Provider>
-        );
-
-        wrapper.find(BaselinesPage).dive().instance().onBulkSelect(false);
-        expect(selectBaseline).toHaveBeenCalledWith([ '1234', '5678' ], false, 'CHECKBOX');
-    });
 });
 
 describe('ConnectedBaselinesPage', () => {

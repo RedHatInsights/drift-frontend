@@ -4,6 +4,7 @@ exports[`jest-tests BaselinesToolbar should render correctly 1`] = `
 <Fragment>
   <Connect(DeleteBaselinesModal)
     modalOpened={false}
+    selectedBaselineIds={Array []}
     tableId="CHECKBOX"
     toggleModal={[Function]}
   />
@@ -21,21 +22,22 @@ exports[`jest-tests BaselinesToolbar should render correctly 1`] = `
         <ToolbarItem>
           <BulkSelect
             checked={false}
-            count={null}
+            count={0}
+            id="baselines-bulk-select"
             isDisabled={false}
             items={
               Array [
                 Object {
-                  "key": "select-all",
+                  "key": "select-page",
                   "onClick": [Function],
-                  "ouiaId": "select-all",
-                  "title": "Select all",
+                  "ouiaId": "baselines-select-page",
+                  "title": "Select page (2)",
                 },
                 Object {
                   "key": "select-none",
                   "onClick": [Function],
-                  "ouiaId": "select-none",
-                  "title": "Select none",
+                  "ouiaId": "baselines-select-none",
+                  "title": "Select none (0)",
                 },
               ]
             }
@@ -131,6 +133,7 @@ exports[`jest-tests BaselinesToolbar should render correctly 1`] = `
         <TablePagination
           isCompact={true}
           tableId="CHECKBOX"
+          total={2}
         />
       </ToolbarItem>
     </ToolbarContent>
@@ -217,6 +220,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
           ]
         }
         tableId="CHECKBOX"
+        totalBaselines={2}
       >
         <Connect(DeleteBaselinesModal)
           modalOpened={false}
@@ -351,21 +355,22 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                             >
                               <BulkSelect
                                 checked={false}
-                                count={null}
+                                count={0}
+                                id="baselines-bulk-select"
                                 isDisabled={false}
                                 items={
                                   Array [
                                     Object {
-                                      "key": "select-all",
+                                      "key": "select-page",
                                       "onClick": [Function],
-                                      "ouiaId": "select-all",
-                                      "title": "Select all",
+                                      "ouiaId": "baselines-select-page",
+                                      "title": "Select page (2)",
                                     },
                                     Object {
                                       "key": "select-none",
                                       "onClick": [Function],
-                                      "ouiaId": "select-none",
-                                      "title": "Select none",
+                                      "ouiaId": "baselines-select-none",
+                                      "title": "Select none (0)",
                                     },
                                   ]
                                 }
@@ -378,16 +383,16 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                       <DropdownItem
                                         component="button"
                                         onClick={[Function]}
-                                        ouiaId="OUIA-Generated-RHI/BulkSelect-1-select-all"
+                                        ouiaId="OUIA-Generated-RHI/BulkSelect-1-select-page"
                                       >
-                                        Select all
+                                        Select page (2)
                                       </DropdownItem>,
                                       <DropdownItem
                                         component="button"
                                         onClick={[Function]}
                                         ouiaId="OUIA-Generated-RHI/BulkSelect-1-select-none"
                                       >
-                                        Select none
+                                        Select none (0)
                                       </DropdownItem>,
                                     ]
                                   }
@@ -406,7 +411,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                             <DropdownToggleCheckbox
                                               aria-label="Select all"
                                               className=""
-                                              id="toggle-checkbox"
+                                              id="baselines-bulk-select-toggle-checkbox"
                                               isChecked={false}
                                               isDisabled={false}
                                               isValid={true}
@@ -430,16 +435,16 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                         <DropdownItem
                                           component="button"
                                           onClick={[Function]}
-                                          ouiaId="OUIA-Generated-RHI/BulkSelect-1-select-all"
+                                          ouiaId="OUIA-Generated-RHI/BulkSelect-1-select-page"
                                         >
-                                          Select all
+                                          Select page (2)
                                         </DropdownItem>,
                                         <DropdownItem
                                           component="button"
                                           onClick={[Function]}
                                           ouiaId="OUIA-Generated-RHI/BulkSelect-1-select-none"
                                         >
-                                          Select none
+                                          Select none (0)
                                         </DropdownItem>,
                                       ]
                                     }
@@ -461,7 +466,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                               <DropdownToggleCheckbox
                                                 aria-label="Select all"
                                                 className=""
-                                                id="toggle-checkbox"
+                                                id="baselines-bulk-select-toggle-checkbox"
                                                 isChecked={false}
                                                 isDisabled={false}
                                                 isValid={true}
@@ -507,7 +512,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                               >
                                                 <label
                                                   class="pf-c-dropdown__toggle-check"
-                                                  for="toggle-checkbox"
+                                                  for="baselines-bulk-select-toggle-checkbox"
                                                 >
                                                   <input
                                                     aria-invalid="false"
@@ -515,7 +520,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                                     data-ouia-component-id="OUIA-Generated-RHI/BulkSelect-1"
                                                     data-ouia-component-type="PF4/DropdownToggleCheckbox"
                                                     data-ouia-safe="true"
-                                                    id="toggle-checkbox"
+                                                    id="baselines-bulk-select-toggle-checkbox"
                                                     type="checkbox"
                                                   />
                                                   
@@ -559,7 +564,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                               <DropdownToggleCheckbox
                                                 aria-label="Select all"
                                                 className=""
-                                                id="toggle-checkbox"
+                                                id="baselines-bulk-select-toggle-checkbox"
                                                 isChecked={false}
                                                 isDisabled={false}
                                                 isValid={true}
@@ -578,7 +583,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                           <DropdownToggleCheckbox
                                             aria-label="Select all"
                                             className=""
-                                            id="toggle-checkbox"
+                                            id="baselines-bulk-select-toggle-checkbox"
                                             isChecked={false}
                                             isDisabled={false}
                                             isValid={true}
@@ -587,7 +592,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                           >
                                             <label
                                               className="pf-c-dropdown__toggle-check"
-                                              htmlFor="toggle-checkbox"
+                                              htmlFor="baselines-bulk-select-toggle-checkbox"
                                             >
                                               <input
                                                 aria-invalid={false}
@@ -597,7 +602,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                                 data-ouia-component-type="PF4/DropdownToggleCheckbox"
                                                 data-ouia-safe={true}
                                                 disabled={false}
-                                                id="toggle-checkbox"
+                                                id="baselines-bulk-select-toggle-checkbox"
                                                 onChange={[Function]}
                                                 type="checkbox"
                                               />
@@ -635,7 +640,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                                   >
                                                     <label
                                                       class="pf-c-dropdown__toggle-check"
-                                                      for="toggle-checkbox"
+                                                      for="baselines-bulk-select-toggle-checkbox"
                                                     >
                                                       <input
                                                         aria-invalid="false"
@@ -643,7 +648,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                                         data-ouia-component-id="OUIA-Generated-RHI/BulkSelect-1"
                                                         data-ouia-component-type="PF4/DropdownToggleCheckbox"
                                                         data-ouia-safe="true"
-                                                        id="toggle-checkbox"
+                                                        id="baselines-bulk-select-toggle-checkbox"
                                                         type="checkbox"
                                                       />
                                                       
@@ -1605,6 +1610,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                         <TablePagination
                           isCompact={true}
                           tableId="CHECKBOX"
+                          total={2}
                         >
                           <Pagination
                             className=""
@@ -1613,7 +1619,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                             isCompact={true}
                             isDisabled={false}
                             isSticky={false}
-                            itemCount={0}
+                            itemCount={2}
                             itemsEnd={null}
                             itemsStart={null}
                             offset={0}
@@ -1678,22 +1684,22 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                 className="pf-c-pagination__total-items"
                               >
                                 <ToggleTemplate
-                                  firstIndex={0}
-                                  itemCount={0}
+                                  firstIndex={-9}
+                                  itemCount={2}
                                   itemsTitle=""
-                                  lastIndex={0}
+                                  lastIndex={2}
                                   ofWord="of"
                                 >
                                   <b>
-                                    0
+                                    -9
                                      - 
-                                    0
+                                    2
                                   </b>
                                    
                                   of
                                    
                                   <b>
-                                    0
+                                    2
                                   </b>
                                    
                                 </ToggleTemplate>
@@ -1702,17 +1708,17 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                 className=""
                                 defaultToFullPage={false}
                                 dropDirection="down"
-                                firstIndex={0}
+                                firstIndex={-9}
                                 isDisabled={false}
-                                itemCount={0}
+                                itemCount={2}
                                 itemsPerPageTitle="Items per page"
                                 itemsTitle=""
-                                lastIndex={0}
-                                lastPage={0}
+                                lastIndex={2}
+                                lastPage={1}
                                 ofWord="of"
                                 onPerPageSelect={[Function]}
                                 optionsToggle="Items per page"
-                                page={0}
+                                page={1}
                                 perPage={10}
                                 perPageOptions={
                                   Array [
@@ -1800,13 +1806,13 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                   position="left"
                                   toggle={
                                     <OptionsToggle
-                                      firstIndex={0}
+                                      firstIndex={-9}
                                       isDisabled={false}
                                       isOpen={false}
-                                      itemCount={0}
+                                      itemCount={2}
                                       itemsPerPageTitle="Items per page"
                                       itemsTitle=""
-                                      lastIndex={0}
+                                      lastIndex={2}
                                       ofWord="of"
                                       onToggle={[Function]}
                                       optionsToggle="Items per page"
@@ -1824,18 +1830,18 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                   >
                                     <OptionsToggle
                                       aria-haspopup={true}
-                                      firstIndex={0}
+                                      firstIndex={-9}
                                       getMenuRef={[Function]}
                                       id="pf-dropdown-toggle-id-3"
                                       isDisabled={false}
                                       isOpen={false}
                                       isPlain={true}
                                       isText={false}
-                                      itemCount={0}
+                                      itemCount={2}
                                       itemsPerPageTitle="Items per page"
                                       itemsTitle=""
                                       key=".0"
-                                      lastIndex={0}
+                                      lastIndex={2}
                                       ofWord="of"
                                       onEnter={[Function]}
                                       onToggle={[Function]}
@@ -1854,15 +1860,15 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                                 class="pf-c-options-menu__toggle-text"
                                               >
                                                 <b>
-                                                  0
+                                                  -9
                                                    - 
-                                                  0
+                                                  2
                                                 </b>
                                                  
                                                 of
                                                  
                                                 <b>
-                                                  0
+                                                  2
                                                 </b>
                                                  
                                                 
@@ -1910,22 +1916,22 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                           className="pf-c-options-menu__toggle-text"
                                         >
                                           <ToggleTemplate
-                                            firstIndex={0}
-                                            itemCount={0}
+                                            firstIndex={-9}
+                                            itemCount={2}
                                             itemsTitle=""
-                                            lastIndex={0}
+                                            lastIndex={2}
                                             ofWord="of"
                                           >
                                             <b>
-                                              0
+                                              -9
                                                - 
-                                              0
+                                              2
                                             </b>
                                              
                                             of
                                              
                                             <b>
-                                              0
+                                              2
                                             </b>
                                              
                                           </ToggleTemplate>
@@ -1934,7 +1940,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                           aria-label="Items per page"
                                           className="pf-c-options-menu__toggle-button"
                                           id="pagination-options-menu-toggle-0"
-                                          isDisabled={0}
+                                          isDisabled={false}
                                           isOpen={false}
                                           onEnter={[Function]}
                                           onToggle={[Function]}
@@ -1952,15 +1958,15 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                                     class="pf-c-options-menu__toggle-text"
                                                   >
                                                     <b>
-                                                      0
+                                                      -9
                                                        - 
-                                                      0
+                                                      2
                                                     </b>
                                                      
                                                     of
                                                      
                                                     <b>
-                                                      0
+                                                      2
                                                     </b>
                                                      
                                                     
@@ -2008,7 +2014,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                             getMenuRef={null}
                                             id="pagination-options-menu-toggle-0"
                                             isActive={false}
-                                            isDisabled={0}
+                                            isDisabled={false}
                                             isOpen={false}
                                             isPlain={false}
                                             isPrimary={false}
@@ -2030,15 +2036,15 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                                       class="pf-c-options-menu__toggle-text"
                                                     >
                                                       <b>
-                                                        0
+                                                        -9
                                                          - 
-                                                        0
+                                                        2
                                                       </b>
                                                        
                                                       of
                                                        
                                                       <b>
-                                                        0
+                                                        2
                                                       </b>
                                                        
                                                       
@@ -2084,7 +2090,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                               data-ouia-component-id="OUIA-Generated-DropdownToggle-1"
                                               data-ouia-component-type="PF4/DropdownToggle"
                                               data-ouia-safe={true}
-                                              disabled={0}
+                                              disabled={false}
                                               id="pagination-options-menu-toggle-0"
                                               onClick={[Function]}
                                               onKeyDown={[Function]}
@@ -2132,8 +2138,8 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                 firstPage={1}
                                 isCompact={true}
                                 isDisabled={false}
-                                itemCount={0}
-                                lastPage={0}
+                                itemCount={2}
+                                lastPage={1}
                                 ofWord="of"
                                 onFirstClick={[Function]}
                                 onLastClick={[Function]}
@@ -2141,7 +2147,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                 onPageInput={[Function]}
                                 onPreviousClick={[Function]}
                                 onSetPage={[Function]}
-                                page={0}
+                                page={1}
                                 pagesTitle=""
                                 pagesTitlePlural=""
                                 paginationTitle="Pagination"

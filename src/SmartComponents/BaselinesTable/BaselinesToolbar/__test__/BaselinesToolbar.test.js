@@ -26,6 +26,8 @@ describe('jest-tests', () => {
                     baselinesWrite: true,
                     baselinesRead: true
                 },
+                selectedBaselineIds: [],
+                totalBaselines: 2,
                 onSearch: jest.fn()
             };
         });
@@ -133,7 +135,8 @@ describe('jest-tests', () => {
                     baselinesWrite: true,
                     baselinesRead: true
                 },
-                selectedBaselineIds: []
+                selectedBaselineIds: [],
+                totalBaselines: 2
             };
         });
 
@@ -166,7 +169,7 @@ describe('jest-tests', () => {
 
             wrapper.find('.pf-c-dropdown__toggle-button').simulate('click');
             wrapper.find('.pf-c-dropdown__menu-item').at(0).simulate('click');
-            expect(onBulkSelect).toHaveBeenCalledWith(true);
+            expect(onBulkSelect).toHaveBeenCalledWith('page');
         });
 
         it('should call onBulkSelect with false', () => {
@@ -185,7 +188,7 @@ describe('jest-tests', () => {
 
             wrapper.find('.pf-c-dropdown__toggle-button').simulate('click');
             wrapper.find('.pf-c-dropdown__menu-item').at(1).simulate('click');
-            expect(onBulkSelect).toHaveBeenCalledWith(false);
+            expect(onBulkSelect).toHaveBeenCalledWith('none');
         });
 
         it('should set checked false in BulkSelect', () => {
@@ -205,6 +208,7 @@ describe('jest-tests', () => {
 
         it('should set checked null in BulkSelect', () => {
             props.tableData[1].selected = true;
+            props.selectedBaselineIds = [ 'abcd' ];
 
             const store = mockStore(initialState);
             const wrapper = mount(
@@ -224,6 +228,7 @@ describe('jest-tests', () => {
             props.tableData.forEach(function(baseline) {
                 baseline.selected = true;
             });
+            props.selectedBaselineIds = [ 'abcd', '1234' ];
 
             const store = mockStore(initialState);
             const wrapper = mount(

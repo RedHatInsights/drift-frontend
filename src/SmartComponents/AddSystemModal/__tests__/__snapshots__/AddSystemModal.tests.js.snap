@@ -165,6 +165,7 @@ exports[`AddSystemModal should render correctly 1`] = `
       >
         <Connect(BaselinesTable)
           basketIsVisible={false}
+          bulkSelectBasket={[Function]}
           columns={
             Array [
               Object {
@@ -193,7 +194,6 @@ exports[`AddSystemModal should render correctly 1`] = `
           kebab={false}
           leftAlignToolbar={true}
           loading={false}
-          onBulkSelect={[Function]}
           onSelect={[Function]}
           permissions={
             Object {
@@ -201,6 +201,7 @@ exports[`AddSystemModal should render correctly 1`] = `
               "inventoryRead": true,
             }
           }
+          selectBaseline={[MockFunction]}
           selectedBaselineIds={Array []}
           tableData={Array []}
           tableId="COMPARISON"
@@ -337,7 +338,6 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
             ]
           }
           toggleAddSystemModal={[Function]}
-          totalBaselines={0}
         >
           <Modal
             actions={
@@ -633,7 +633,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                         >
                                           <label
                                             class="pf-c-dropdown__toggle-check"
-                                            for="toggle-checkbox"
+                                            for="baselines-bulk-select-toggle-checkbox"
                                           >
                                             <input
                                               aria-invalid="false"
@@ -641,7 +641,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                               data-ouia-component-id="OUIA-Generated-RHI/BulkSelect-4"
                                               data-ouia-component-type="PF4/DropdownToggleCheckbox"
                                               data-ouia-safe="true"
-                                              id="toggle-checkbox"
+                                              id="baselines-bulk-select-toggle-checkbox"
                                               type="checkbox"
                                             />
                                             
@@ -2370,6 +2370,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                   Object {
                                                     "checked": false,
                                                     "count": 0,
+                                                    "id": "systems-bulk-select",
                                                     "isDisabled": false,
                                                     "items": Array [
                                                       Object {
@@ -2459,6 +2460,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                     Object {
                                                       "checked": false,
                                                       "count": 0,
+                                                      "id": "systems-bulk-select",
                                                       "isDisabled": false,
                                                       "items": Array [
                                                         Object {
@@ -2565,6 +2567,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                               Object {
                                                                 "checked": false,
                                                                 "count": 0,
+                                                                "id": "systems-bulk-select",
                                                                 "isDisabled": false,
                                                                 "items": Array [
                                                                   Object {
@@ -2696,6 +2699,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                           Object {
                                                             "checked": false,
                                                             "count": 0,
+                                                            "id": "systems-bulk-select",
                                                             "isDisabled": false,
                                                             "items": Array [
                                                               Object {
@@ -2830,6 +2834,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                 Object {
                                                                   "checked": false,
                                                                   "count": 0,
+                                                                  "id": "systems-bulk-select",
                                                                   "isDisabled": false,
                                                                   "items": Array [
                                                                     Object {
@@ -2961,6 +2966,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                             Object {
                                                               "checked": false,
                                                               "count": 0,
+                                                              "id": "systems-bulk-select",
                                                               "isDisabled": false,
                                                               "items": Array [
                                                                 Object {
@@ -3095,6 +3101,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                               Object {
                                                                 "checked": false,
                                                                 "count": 0,
+                                                                "id": "systems-bulk-select",
                                                                 "isDisabled": false,
                                                                 "items": Array [
                                                                   Object {
@@ -3238,6 +3245,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                   Object {
                                                                     "checked": false,
                                                                     "count": 0,
+                                                                    "id": "systems-bulk-select",
                                                                     "isDisabled": false,
                                                                     "items": Array [
                                                                       Object {
@@ -3384,6 +3392,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                       >
                                         <Memo(Connect(BaselinesTable))
                                           basketIsVisible={false}
+                                          bulkSelectBasket={[Function]}
                                           columns={
                                             Array [
                                               Object {
@@ -3412,7 +3421,6 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                           kebab={false}
                                           leftAlignToolbar={true}
                                           loading={false}
-                                          onBulkSelect={[Function]}
                                           onSelect={[Function]}
                                           permissions={
                                             Object {
@@ -3421,10 +3429,10 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                             }
                                           }
                                           revertBaselineFetch={[Function]}
+                                          selectBaseline={[Function]}
                                           selectedBaselineIds={Array []}
                                           tableData={Array []}
                                           tableId="COMPARISON"
-                                          totalBaselines={0}
                                         />
                                       </Tab>
                                     }
@@ -3442,6 +3450,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                         >
                                           <Memo(Connect(BaselinesTable))
                                             basketIsVisible={false}
+                                            bulkSelectBasket={[Function]}
                                             columns={
                                               Array [
                                                 Object {
@@ -3470,7 +3479,6 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                             kebab={false}
                                             leftAlignToolbar={true}
                                             loading={false}
-                                            onBulkSelect={[Function]}
                                             onSelect={[Function]}
                                             permissions={
                                               Object {
@@ -3479,10 +3487,10 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                               }
                                             }
                                             revertBaselineFetch={[Function]}
+                                            selectBaseline={[Function]}
                                             selectedBaselineIds={Array []}
                                             tableData={Array []}
                                             tableId="COMPARISON"
-                                            totalBaselines={0}
                                           />
                                         </Tab>
                                       }
@@ -3501,6 +3509,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                       >
                                         <Connect(BaselinesTable)
                                           basketIsVisible={false}
+                                          bulkSelectBasket={[Function]}
                                           columns={
                                             Array [
                                               Object {
@@ -3529,7 +3538,6 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                           kebab={false}
                                           leftAlignToolbar={true}
                                           loading={false}
-                                          onBulkSelect={[Function]}
                                           onSelect={[Function]}
                                           permissions={
                                             Object {
@@ -3538,13 +3546,14 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                             }
                                           }
                                           revertBaselineFetch={[Function]}
+                                          selectBaseline={[Function]}
                                           selectedBaselineIds={Array []}
                                           tableData={Array []}
                                           tableId="COMPARISON"
-                                          totalBaselines={0}
                                         >
                                           <BaselinesTable
                                             basketIsVisible={false}
+                                            bulkSelectBasket={[Function]}
                                             columns={
                                               Array [
                                                 Object {
@@ -3576,7 +3585,6 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                             kebab={false}
                                             leftAlignToolbar={true}
                                             loading={false}
-                                            onBulkSelect={[Function]}
                                             onSelect={[Function]}
                                             permissions={
                                               Object {
@@ -3585,13 +3593,13 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                               }
                                             }
                                             revertBaselineFetch={[Function]}
+                                            selectBaseline={[Function]}
                                             selectedBaselineIds={Array []}
                                             tableData={Array []}
                                             tableId="COMPARISON"
                                             toggleNotificationFulfilled={[Function]}
                                             toggleNotificationPending={[Function]}
                                             toggleNotificationRejected={[Function]}
-                                            totalBaselines={0}
                                           >
                                             <BaselinesToolbar
                                               exportToCSV={[Function]}
@@ -3615,7 +3623,6 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                               selectedBaselineIds={Array []}
                                               tableData={Array []}
                                               tableId="COMPARISON"
-                                              totalBaselines={0}
                                               updatePagination={[Function]}
                                             >
                                               <Connect(DeleteBaselinesModal)
@@ -3757,21 +3764,22 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                   >
                                                                     <BulkSelect
                                                                       checked={false}
-                                                                      count={null}
+                                                                      count={0}
+                                                                      id="baselines-bulk-select"
                                                                       isDisabled={true}
                                                                       items={
                                                                         Array [
                                                                           Object {
-                                                                            "key": "select-all",
+                                                                            "key": "select-page",
                                                                             "onClick": [Function],
-                                                                            "ouiaId": "select-all",
-                                                                            "title": "Select all",
+                                                                            "ouiaId": "baselines-select-page",
+                                                                            "title": "Select page (0)",
                                                                           },
                                                                           Object {
                                                                             "key": "select-none",
                                                                             "onClick": [Function],
-                                                                            "ouiaId": "select-none",
-                                                                            "title": "Select none",
+                                                                            "ouiaId": "baselines-select-none",
+                                                                            "title": "Select none (0)",
                                                                           },
                                                                         ]
                                                                       }
@@ -3784,16 +3792,16 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                             <DropdownItem
                                                                               component="button"
                                                                               onClick={[Function]}
-                                                                              ouiaId="OUIA-Generated-RHI/BulkSelect-4-select-all"
+                                                                              ouiaId="OUIA-Generated-RHI/BulkSelect-4-select-page"
                                                                             >
-                                                                              Select all
+                                                                              Select page (0)
                                                                             </DropdownItem>,
                                                                             <DropdownItem
                                                                               component="button"
                                                                               onClick={[Function]}
                                                                               ouiaId="OUIA-Generated-RHI/BulkSelect-4-select-none"
                                                                             >
-                                                                              Select none
+                                                                              Select none (0)
                                                                             </DropdownItem>,
                                                                           ]
                                                                         }
@@ -3812,7 +3820,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                                   <DropdownToggleCheckbox
                                                                                     aria-label="Select all"
                                                                                     className=""
-                                                                                    id="toggle-checkbox"
+                                                                                    id="baselines-bulk-select-toggle-checkbox"
                                                                                     isChecked={false}
                                                                                     isDisabled={false}
                                                                                     isValid={true}
@@ -3836,16 +3844,16 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                               <DropdownItem
                                                                                 component="button"
                                                                                 onClick={[Function]}
-                                                                                ouiaId="OUIA-Generated-RHI/BulkSelect-4-select-all"
+                                                                                ouiaId="OUIA-Generated-RHI/BulkSelect-4-select-page"
                                                                               >
-                                                                                Select all
+                                                                                Select page (0)
                                                                               </DropdownItem>,
                                                                               <DropdownItem
                                                                                 component="button"
                                                                                 onClick={[Function]}
                                                                                 ouiaId="OUIA-Generated-RHI/BulkSelect-4-select-none"
                                                                               >
-                                                                                Select none
+                                                                                Select none (0)
                                                                               </DropdownItem>,
                                                                             ]
                                                                           }
@@ -3867,7 +3875,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                                     <DropdownToggleCheckbox
                                                                                       aria-label="Select all"
                                                                                       className=""
-                                                                                      id="toggle-checkbox"
+                                                                                      id="baselines-bulk-select-toggle-checkbox"
                                                                                       isChecked={false}
                                                                                       isDisabled={false}
                                                                                       isValid={true}
@@ -3913,7 +3921,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                                     >
                                                                                       <label
                                                                                         class="pf-c-dropdown__toggle-check"
-                                                                                        for="toggle-checkbox"
+                                                                                        for="baselines-bulk-select-toggle-checkbox"
                                                                                       >
                                                                                         <input
                                                                                           aria-invalid="false"
@@ -3921,7 +3929,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                                           data-ouia-component-id="OUIA-Generated-RHI/BulkSelect-4"
                                                                                           data-ouia-component-type="PF4/DropdownToggleCheckbox"
                                                                                           data-ouia-safe="true"
-                                                                                          id="toggle-checkbox"
+                                                                                          id="baselines-bulk-select-toggle-checkbox"
                                                                                           type="checkbox"
                                                                                         />
                                                                                         
@@ -3966,7 +3974,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                                     <DropdownToggleCheckbox
                                                                                       aria-label="Select all"
                                                                                       className=""
-                                                                                      id="toggle-checkbox"
+                                                                                      id="baselines-bulk-select-toggle-checkbox"
                                                                                       isChecked={false}
                                                                                       isDisabled={false}
                                                                                       isValid={true}
@@ -3985,7 +3993,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                                 <DropdownToggleCheckbox
                                                                                   aria-label="Select all"
                                                                                   className=""
-                                                                                  id="toggle-checkbox"
+                                                                                  id="baselines-bulk-select-toggle-checkbox"
                                                                                   isChecked={false}
                                                                                   isDisabled={false}
                                                                                   isValid={true}
@@ -3994,7 +4002,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                                 >
                                                                                   <label
                                                                                     className="pf-c-dropdown__toggle-check"
-                                                                                    htmlFor="toggle-checkbox"
+                                                                                    htmlFor="baselines-bulk-select-toggle-checkbox"
                                                                                   >
                                                                                     <input
                                                                                       aria-invalid={false}
@@ -4004,7 +4012,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                                       data-ouia-component-type="PF4/DropdownToggleCheckbox"
                                                                                       data-ouia-safe={true}
                                                                                       disabled={false}
-                                                                                      id="toggle-checkbox"
+                                                                                      id="baselines-bulk-select-toggle-checkbox"
                                                                                       onChange={[Function]}
                                                                                       type="checkbox"
                                                                                     />
@@ -4042,7 +4050,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                                         >
                                                                                           <label
                                                                                             class="pf-c-dropdown__toggle-check"
-                                                                                            for="toggle-checkbox"
+                                                                                            for="baselines-bulk-select-toggle-checkbox"
                                                                                           >
                                                                                             <input
                                                                                               aria-invalid="false"
@@ -4050,7 +4058,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                                               data-ouia-component-id="OUIA-Generated-RHI/BulkSelect-4"
                                                                                               data-ouia-component-type="PF4/DropdownToggleCheckbox"
                                                                                               data-ouia-safe="true"
-                                                                                              id="toggle-checkbox"
+                                                                                              id="baselines-bulk-select-toggle-checkbox"
                                                                                               type="checkbox"
                                                                                             />
                                                                                             
@@ -8140,7 +8148,6 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
             ]
           }
           toggleAddSystemModal={[Function]}
-          totalBaselines={0}
         >
           <Modal
             actions={
@@ -8436,7 +8443,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                         >
                                           <label
                                             class="pf-c-dropdown__toggle-check"
-                                            for="toggle-checkbox"
+                                            for="baselines-bulk-select-toggle-checkbox"
                                           >
                                             <input
                                               aria-invalid="false"
@@ -8444,7 +8451,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                               data-ouia-component-id="OUIA-Generated-RHI/BulkSelect-1"
                                               data-ouia-component-type="PF4/DropdownToggleCheckbox"
                                               data-ouia-safe="true"
-                                              id="toggle-checkbox"
+                                              id="baselines-bulk-select-toggle-checkbox"
                                               type="checkbox"
                                             />
                                             
@@ -10173,6 +10180,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                   Object {
                                                     "checked": false,
                                                     "count": 0,
+                                                    "id": "systems-bulk-select",
                                                     "isDisabled": false,
                                                     "items": Array [
                                                       Object {
@@ -10262,6 +10270,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                     Object {
                                                       "checked": false,
                                                       "count": 0,
+                                                      "id": "systems-bulk-select",
                                                       "isDisabled": false,
                                                       "items": Array [
                                                         Object {
@@ -10368,6 +10377,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                               Object {
                                                                 "checked": false,
                                                                 "count": 0,
+                                                                "id": "systems-bulk-select",
                                                                 "isDisabled": false,
                                                                 "items": Array [
                                                                   Object {
@@ -10499,6 +10509,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                           Object {
                                                             "checked": false,
                                                             "count": 0,
+                                                            "id": "systems-bulk-select",
                                                             "isDisabled": false,
                                                             "items": Array [
                                                               Object {
@@ -10633,6 +10644,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                 Object {
                                                                   "checked": false,
                                                                   "count": 0,
+                                                                  "id": "systems-bulk-select",
                                                                   "isDisabled": false,
                                                                   "items": Array [
                                                                     Object {
@@ -10764,6 +10776,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                             Object {
                                                               "checked": false,
                                                               "count": 0,
+                                                              "id": "systems-bulk-select",
                                                               "isDisabled": false,
                                                               "items": Array [
                                                                 Object {
@@ -10898,6 +10911,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                               Object {
                                                                 "checked": false,
                                                                 "count": 0,
+                                                                "id": "systems-bulk-select",
                                                                 "isDisabled": false,
                                                                 "items": Array [
                                                                   Object {
@@ -11041,6 +11055,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                   Object {
                                                                     "checked": false,
                                                                     "count": 0,
+                                                                    "id": "systems-bulk-select",
                                                                     "isDisabled": false,
                                                                     "items": Array [
                                                                       Object {
@@ -11187,6 +11202,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                       >
                                         <Memo(Connect(BaselinesTable))
                                           basketIsVisible={false}
+                                          bulkSelectBasket={[Function]}
                                           columns={
                                             Array [
                                               Object {
@@ -11215,7 +11231,6 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                           kebab={false}
                                           leftAlignToolbar={true}
                                           loading={false}
-                                          onBulkSelect={[Function]}
                                           onSelect={[Function]}
                                           permissions={
                                             Object {
@@ -11224,10 +11239,10 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                             }
                                           }
                                           revertBaselineFetch={[Function]}
+                                          selectBaseline={[Function]}
                                           selectedBaselineIds={Array []}
                                           tableData={Array []}
                                           tableId="COMPARISON"
-                                          totalBaselines={0}
                                         />
                                       </Tab>
                                     }
@@ -11245,6 +11260,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                         >
                                           <Memo(Connect(BaselinesTable))
                                             basketIsVisible={false}
+                                            bulkSelectBasket={[Function]}
                                             columns={
                                               Array [
                                                 Object {
@@ -11273,7 +11289,6 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                             kebab={false}
                                             leftAlignToolbar={true}
                                             loading={false}
-                                            onBulkSelect={[Function]}
                                             onSelect={[Function]}
                                             permissions={
                                               Object {
@@ -11282,10 +11297,10 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                               }
                                             }
                                             revertBaselineFetch={[Function]}
+                                            selectBaseline={[Function]}
                                             selectedBaselineIds={Array []}
                                             tableData={Array []}
                                             tableId="COMPARISON"
-                                            totalBaselines={0}
                                           />
                                         </Tab>
                                       }
@@ -11304,6 +11319,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                       >
                                         <Connect(BaselinesTable)
                                           basketIsVisible={false}
+                                          bulkSelectBasket={[Function]}
                                           columns={
                                             Array [
                                               Object {
@@ -11332,7 +11348,6 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                           kebab={false}
                                           leftAlignToolbar={true}
                                           loading={false}
-                                          onBulkSelect={[Function]}
                                           onSelect={[Function]}
                                           permissions={
                                             Object {
@@ -11341,13 +11356,14 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                             }
                                           }
                                           revertBaselineFetch={[Function]}
+                                          selectBaseline={[Function]}
                                           selectedBaselineIds={Array []}
                                           tableData={Array []}
                                           tableId="COMPARISON"
-                                          totalBaselines={0}
                                         >
                                           <BaselinesTable
                                             basketIsVisible={false}
+                                            bulkSelectBasket={[Function]}
                                             columns={
                                               Array [
                                                 Object {
@@ -11379,7 +11395,6 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                             kebab={false}
                                             leftAlignToolbar={true}
                                             loading={false}
-                                            onBulkSelect={[Function]}
                                             onSelect={[Function]}
                                             permissions={
                                               Object {
@@ -11388,13 +11403,13 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                               }
                                             }
                                             revertBaselineFetch={[Function]}
+                                            selectBaseline={[Function]}
                                             selectedBaselineIds={Array []}
                                             tableData={Array []}
                                             tableId="COMPARISON"
                                             toggleNotificationFulfilled={[Function]}
                                             toggleNotificationPending={[Function]}
                                             toggleNotificationRejected={[Function]}
-                                            totalBaselines={0}
                                           >
                                             <BaselinesToolbar
                                               exportToCSV={[Function]}
@@ -11418,7 +11433,6 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                               selectedBaselineIds={Array []}
                                               tableData={Array []}
                                               tableId="COMPARISON"
-                                              totalBaselines={0}
                                               updatePagination={[Function]}
                                             >
                                               <Connect(DeleteBaselinesModal)
@@ -11560,21 +11574,22 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                   >
                                                                     <BulkSelect
                                                                       checked={false}
-                                                                      count={null}
+                                                                      count={0}
+                                                                      id="baselines-bulk-select"
                                                                       isDisabled={true}
                                                                       items={
                                                                         Array [
                                                                           Object {
-                                                                            "key": "select-all",
+                                                                            "key": "select-page",
                                                                             "onClick": [Function],
-                                                                            "ouiaId": "select-all",
-                                                                            "title": "Select all",
+                                                                            "ouiaId": "baselines-select-page",
+                                                                            "title": "Select page (0)",
                                                                           },
                                                                           Object {
                                                                             "key": "select-none",
                                                                             "onClick": [Function],
-                                                                            "ouiaId": "select-none",
-                                                                            "title": "Select none",
+                                                                            "ouiaId": "baselines-select-none",
+                                                                            "title": "Select none (0)",
                                                                           },
                                                                         ]
                                                                       }
@@ -11587,16 +11602,16 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                             <DropdownItem
                                                                               component="button"
                                                                               onClick={[Function]}
-                                                                              ouiaId="OUIA-Generated-RHI/BulkSelect-1-select-all"
+                                                                              ouiaId="OUIA-Generated-RHI/BulkSelect-1-select-page"
                                                                             >
-                                                                              Select all
+                                                                              Select page (0)
                                                                             </DropdownItem>,
                                                                             <DropdownItem
                                                                               component="button"
                                                                               onClick={[Function]}
                                                                               ouiaId="OUIA-Generated-RHI/BulkSelect-1-select-none"
                                                                             >
-                                                                              Select none
+                                                                              Select none (0)
                                                                             </DropdownItem>,
                                                                           ]
                                                                         }
@@ -11615,7 +11630,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                                   <DropdownToggleCheckbox
                                                                                     aria-label="Select all"
                                                                                     className=""
-                                                                                    id="toggle-checkbox"
+                                                                                    id="baselines-bulk-select-toggle-checkbox"
                                                                                     isChecked={false}
                                                                                     isDisabled={false}
                                                                                     isValid={true}
@@ -11639,16 +11654,16 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                               <DropdownItem
                                                                                 component="button"
                                                                                 onClick={[Function]}
-                                                                                ouiaId="OUIA-Generated-RHI/BulkSelect-1-select-all"
+                                                                                ouiaId="OUIA-Generated-RHI/BulkSelect-1-select-page"
                                                                               >
-                                                                                Select all
+                                                                                Select page (0)
                                                                               </DropdownItem>,
                                                                               <DropdownItem
                                                                                 component="button"
                                                                                 onClick={[Function]}
                                                                                 ouiaId="OUIA-Generated-RHI/BulkSelect-1-select-none"
                                                                               >
-                                                                                Select none
+                                                                                Select none (0)
                                                                               </DropdownItem>,
                                                                             ]
                                                                           }
@@ -11670,7 +11685,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                                     <DropdownToggleCheckbox
                                                                                       aria-label="Select all"
                                                                                       className=""
-                                                                                      id="toggle-checkbox"
+                                                                                      id="baselines-bulk-select-toggle-checkbox"
                                                                                       isChecked={false}
                                                                                       isDisabled={false}
                                                                                       isValid={true}
@@ -11716,7 +11731,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                                     >
                                                                                       <label
                                                                                         class="pf-c-dropdown__toggle-check"
-                                                                                        for="toggle-checkbox"
+                                                                                        for="baselines-bulk-select-toggle-checkbox"
                                                                                       >
                                                                                         <input
                                                                                           aria-invalid="false"
@@ -11724,7 +11739,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                                           data-ouia-component-id="OUIA-Generated-RHI/BulkSelect-1"
                                                                                           data-ouia-component-type="PF4/DropdownToggleCheckbox"
                                                                                           data-ouia-safe="true"
-                                                                                          id="toggle-checkbox"
+                                                                                          id="baselines-bulk-select-toggle-checkbox"
                                                                                           type="checkbox"
                                                                                         />
                                                                                         
@@ -11769,7 +11784,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                                     <DropdownToggleCheckbox
                                                                                       aria-label="Select all"
                                                                                       className=""
-                                                                                      id="toggle-checkbox"
+                                                                                      id="baselines-bulk-select-toggle-checkbox"
                                                                                       isChecked={false}
                                                                                       isDisabled={false}
                                                                                       isValid={true}
@@ -11788,7 +11803,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                                 <DropdownToggleCheckbox
                                                                                   aria-label="Select all"
                                                                                   className=""
-                                                                                  id="toggle-checkbox"
+                                                                                  id="baselines-bulk-select-toggle-checkbox"
                                                                                   isChecked={false}
                                                                                   isDisabled={false}
                                                                                   isValid={true}
@@ -11797,7 +11812,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                                 >
                                                                                   <label
                                                                                     className="pf-c-dropdown__toggle-check"
-                                                                                    htmlFor="toggle-checkbox"
+                                                                                    htmlFor="baselines-bulk-select-toggle-checkbox"
                                                                                   >
                                                                                     <input
                                                                                       aria-invalid={false}
@@ -11807,7 +11822,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                                       data-ouia-component-type="PF4/DropdownToggleCheckbox"
                                                                                       data-ouia-safe={true}
                                                                                       disabled={false}
-                                                                                      id="toggle-checkbox"
+                                                                                      id="baselines-bulk-select-toggle-checkbox"
                                                                                       onChange={[Function]}
                                                                                       type="checkbox"
                                                                                     />
@@ -11845,7 +11860,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                                         >
                                                                                           <label
                                                                                             class="pf-c-dropdown__toggle-check"
-                                                                                            for="toggle-checkbox"
+                                                                                            for="baselines-bulk-select-toggle-checkbox"
                                                                                           >
                                                                                             <input
                                                                                               aria-invalid="false"
@@ -11853,7 +11868,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                                               data-ouia-component-id="OUIA-Generated-RHI/BulkSelect-1"
                                                                                               data-ouia-component-type="PF4/DropdownToggleCheckbox"
                                                                                               data-ouia-safe="true"
-                                                                                              id="toggle-checkbox"
+                                                                                              id="baselines-bulk-select-toggle-checkbox"
                                                                                               type="checkbox"
                                                                                             />
                                                                                             
@@ -15943,7 +15958,6 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
             ]
           }
           toggleAddSystemModal={[Function]}
-          totalBaselines={0}
         >
           <Modal
             actions={
@@ -16263,7 +16277,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                         >
                                           <label
                                             class="pf-c-dropdown__toggle-check"
-                                            for="toggle-checkbox"
+                                            for="baselines-bulk-select-toggle-checkbox"
                                           >
                                             <input
                                               aria-invalid="false"
@@ -16271,7 +16285,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                               data-ouia-component-id="OUIA-Generated-RHI/BulkSelect-2"
                                               data-ouia-component-type="PF4/DropdownToggleCheckbox"
                                               data-ouia-safe="true"
-                                              id="toggle-checkbox"
+                                              id="baselines-bulk-select-toggle-checkbox"
                                               type="checkbox"
                                             />
                                             
@@ -18086,6 +18100,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                       >
                                         <Memo(Connect(BaselinesTable))
                                           basketIsVisible={false}
+                                          bulkSelectBasket={[Function]}
                                           columns={
                                             Array [
                                               Object {
@@ -18114,7 +18129,6 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                           kebab={false}
                                           leftAlignToolbar={true}
                                           loading={false}
-                                          onBulkSelect={[Function]}
                                           onSelect={[Function]}
                                           permissions={
                                             Object {
@@ -18123,10 +18137,10 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                             }
                                           }
                                           revertBaselineFetch={[Function]}
+                                          selectBaseline={[Function]}
                                           selectedBaselineIds={Array []}
                                           tableData={Array []}
                                           tableId="COMPARISON"
-                                          totalBaselines={0}
                                         />
                                       </Tab>
                                     }
@@ -18144,6 +18158,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                         >
                                           <Memo(Connect(BaselinesTable))
                                             basketIsVisible={false}
+                                            bulkSelectBasket={[Function]}
                                             columns={
                                               Array [
                                                 Object {
@@ -18172,7 +18187,6 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                             kebab={false}
                                             leftAlignToolbar={true}
                                             loading={false}
-                                            onBulkSelect={[Function]}
                                             onSelect={[Function]}
                                             permissions={
                                               Object {
@@ -18181,10 +18195,10 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                               }
                                             }
                                             revertBaselineFetch={[Function]}
+                                            selectBaseline={[Function]}
                                             selectedBaselineIds={Array []}
                                             tableData={Array []}
                                             tableId="COMPARISON"
-                                            totalBaselines={0}
                                           />
                                         </Tab>
                                       }
@@ -18203,6 +18217,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                       >
                                         <Connect(BaselinesTable)
                                           basketIsVisible={false}
+                                          bulkSelectBasket={[Function]}
                                           columns={
                                             Array [
                                               Object {
@@ -18231,7 +18246,6 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                           kebab={false}
                                           leftAlignToolbar={true}
                                           loading={false}
-                                          onBulkSelect={[Function]}
                                           onSelect={[Function]}
                                           permissions={
                                             Object {
@@ -18240,13 +18254,14 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                             }
                                           }
                                           revertBaselineFetch={[Function]}
+                                          selectBaseline={[Function]}
                                           selectedBaselineIds={Array []}
                                           tableData={Array []}
                                           tableId="COMPARISON"
-                                          totalBaselines={0}
                                         >
                                           <BaselinesTable
                                             basketIsVisible={false}
+                                            bulkSelectBasket={[Function]}
                                             columns={
                                               Array [
                                                 Object {
@@ -18278,7 +18293,6 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                             kebab={false}
                                             leftAlignToolbar={true}
                                             loading={false}
-                                            onBulkSelect={[Function]}
                                             onSelect={[Function]}
                                             permissions={
                                               Object {
@@ -18287,13 +18301,13 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                               }
                                             }
                                             revertBaselineFetch={[Function]}
+                                            selectBaseline={[Function]}
                                             selectedBaselineIds={Array []}
                                             tableData={Array []}
                                             tableId="COMPARISON"
                                             toggleNotificationFulfilled={[Function]}
                                             toggleNotificationPending={[Function]}
                                             toggleNotificationRejected={[Function]}
-                                            totalBaselines={0}
                                           >
                                             <BaselinesToolbar
                                               exportToCSV={[Function]}
@@ -18317,7 +18331,6 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                               selectedBaselineIds={Array []}
                                               tableData={Array []}
                                               tableId="COMPARISON"
-                                              totalBaselines={0}
                                               updatePagination={[Function]}
                                             >
                                               <Connect(DeleteBaselinesModal)
@@ -18459,21 +18472,22 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                   >
                                                                     <BulkSelect
                                                                       checked={false}
-                                                                      count={null}
+                                                                      count={0}
+                                                                      id="baselines-bulk-select"
                                                                       isDisabled={true}
                                                                       items={
                                                                         Array [
                                                                           Object {
-                                                                            "key": "select-all",
+                                                                            "key": "select-page",
                                                                             "onClick": [Function],
-                                                                            "ouiaId": "select-all",
-                                                                            "title": "Select all",
+                                                                            "ouiaId": "baselines-select-page",
+                                                                            "title": "Select page (0)",
                                                                           },
                                                                           Object {
                                                                             "key": "select-none",
                                                                             "onClick": [Function],
-                                                                            "ouiaId": "select-none",
-                                                                            "title": "Select none",
+                                                                            "ouiaId": "baselines-select-none",
+                                                                            "title": "Select none (0)",
                                                                           },
                                                                         ]
                                                                       }
@@ -18486,16 +18500,16 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                             <DropdownItem
                                                                               component="button"
                                                                               onClick={[Function]}
-                                                                              ouiaId="OUIA-Generated-RHI/BulkSelect-2-select-all"
+                                                                              ouiaId="OUIA-Generated-RHI/BulkSelect-2-select-page"
                                                                             >
-                                                                              Select all
+                                                                              Select page (0)
                                                                             </DropdownItem>,
                                                                             <DropdownItem
                                                                               component="button"
                                                                               onClick={[Function]}
                                                                               ouiaId="OUIA-Generated-RHI/BulkSelect-2-select-none"
                                                                             >
-                                                                              Select none
+                                                                              Select none (0)
                                                                             </DropdownItem>,
                                                                           ]
                                                                         }
@@ -18514,7 +18528,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                   <DropdownToggleCheckbox
                                                                                     aria-label="Select all"
                                                                                     className=""
-                                                                                    id="toggle-checkbox"
+                                                                                    id="baselines-bulk-select-toggle-checkbox"
                                                                                     isChecked={false}
                                                                                     isDisabled={false}
                                                                                     isValid={true}
@@ -18538,16 +18552,16 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                               <DropdownItem
                                                                                 component="button"
                                                                                 onClick={[Function]}
-                                                                                ouiaId="OUIA-Generated-RHI/BulkSelect-2-select-all"
+                                                                                ouiaId="OUIA-Generated-RHI/BulkSelect-2-select-page"
                                                                               >
-                                                                                Select all
+                                                                                Select page (0)
                                                                               </DropdownItem>,
                                                                               <DropdownItem
                                                                                 component="button"
                                                                                 onClick={[Function]}
                                                                                 ouiaId="OUIA-Generated-RHI/BulkSelect-2-select-none"
                                                                               >
-                                                                                Select none
+                                                                                Select none (0)
                                                                               </DropdownItem>,
                                                                             ]
                                                                           }
@@ -18569,7 +18583,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                     <DropdownToggleCheckbox
                                                                                       aria-label="Select all"
                                                                                       className=""
-                                                                                      id="toggle-checkbox"
+                                                                                      id="baselines-bulk-select-toggle-checkbox"
                                                                                       isChecked={false}
                                                                                       isDisabled={false}
                                                                                       isValid={true}
@@ -18615,7 +18629,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                     >
                                                                                       <label
                                                                                         class="pf-c-dropdown__toggle-check"
-                                                                                        for="toggle-checkbox"
+                                                                                        for="baselines-bulk-select-toggle-checkbox"
                                                                                       >
                                                                                         <input
                                                                                           aria-invalid="false"
@@ -18623,7 +18637,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                           data-ouia-component-id="OUIA-Generated-RHI/BulkSelect-2"
                                                                                           data-ouia-component-type="PF4/DropdownToggleCheckbox"
                                                                                           data-ouia-safe="true"
-                                                                                          id="toggle-checkbox"
+                                                                                          id="baselines-bulk-select-toggle-checkbox"
                                                                                           type="checkbox"
                                                                                         />
                                                                                         
@@ -18668,7 +18682,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                     <DropdownToggleCheckbox
                                                                                       aria-label="Select all"
                                                                                       className=""
-                                                                                      id="toggle-checkbox"
+                                                                                      id="baselines-bulk-select-toggle-checkbox"
                                                                                       isChecked={false}
                                                                                       isDisabled={false}
                                                                                       isValid={true}
@@ -18687,7 +18701,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                 <DropdownToggleCheckbox
                                                                                   aria-label="Select all"
                                                                                   className=""
-                                                                                  id="toggle-checkbox"
+                                                                                  id="baselines-bulk-select-toggle-checkbox"
                                                                                   isChecked={false}
                                                                                   isDisabled={false}
                                                                                   isValid={true}
@@ -18696,7 +18710,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                 >
                                                                                   <label
                                                                                     className="pf-c-dropdown__toggle-check"
-                                                                                    htmlFor="toggle-checkbox"
+                                                                                    htmlFor="baselines-bulk-select-toggle-checkbox"
                                                                                   >
                                                                                     <input
                                                                                       aria-invalid={false}
@@ -18706,7 +18720,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                       data-ouia-component-type="PF4/DropdownToggleCheckbox"
                                                                                       data-ouia-safe={true}
                                                                                       disabled={false}
-                                                                                      id="toggle-checkbox"
+                                                                                      id="baselines-bulk-select-toggle-checkbox"
                                                                                       onChange={[Function]}
                                                                                       type="checkbox"
                                                                                     />
@@ -18744,7 +18758,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                         >
                                                                                           <label
                                                                                             class="pf-c-dropdown__toggle-check"
-                                                                                            for="toggle-checkbox"
+                                                                                            for="baselines-bulk-select-toggle-checkbox"
                                                                                           >
                                                                                             <input
                                                                                               aria-invalid="false"
@@ -18752,7 +18766,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                               data-ouia-component-id="OUIA-Generated-RHI/BulkSelect-2"
                                                                                               data-ouia-component-type="PF4/DropdownToggleCheckbox"
                                                                                               data-ouia-safe="true"
-                                                                                              id="toggle-checkbox"
+                                                                                              id="baselines-bulk-select-toggle-checkbox"
                                                                                               type="checkbox"
                                                                                             />
                                                                                             

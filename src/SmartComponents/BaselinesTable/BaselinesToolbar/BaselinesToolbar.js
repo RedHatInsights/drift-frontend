@@ -11,6 +11,7 @@ import ActionKebab from '../../DriftPage/ActionKebab/ActionKebab';
 import DeleteBaselinesModal from '../../BaselinesPage/DeleteBaselinesModal/DeleteBaselinesModal';
 import helpers from '../../helpers';
 import { TablePagination } from '../../Pagination/Pagination';
+import { bulkSelectItems } from '../../../constants';
 
 export class BaselinesToolbar extends Component {
     constructor(props) {
@@ -18,19 +19,6 @@ export class BaselinesToolbar extends Component {
         this.state = {
             nameSearch: '',
             modalOpened: false,
-            bulkSelectItems: [
-                {
-                    title: 'Select all',
-                    key: 'select-all',
-                    ouiaId: 'select-all',
-                    onClick: () => this.props.onBulkSelect(true)
-                }, {
-                    title: 'Select none',
-                    key: 'select-none',
-                    ouiaId: 'select-none',
-                    onClick: () => this.props.onBulkSelect(false)
-                }
-            ],
             dropdownOpen: false,
             dropdownItems: [
                 <DropdownItem
@@ -116,8 +104,7 @@ export class BaselinesToolbar extends Component {
     render() {
         const { createButton, exportButton, fetchWithParams, hasMultiSelect, kebab, leftAlignToolbar, loading, onBulkSelect,
             tableData, tableId, page, permissions, perPage, selectedBaselineIds, totalBaselines, updatePagination } = this.props;
-        const { bulkSelectItems, dropdownItems, dropdownOpen, modalOpened, nameSearch } = this.state;
-        let selected = tableData.filter(baseline => baseline.selected === true).length;
+        const { dropdownItems, dropdownOpen, modalOpened, nameSearch } = this.state;
 
         return (
             <React.Fragment>
@@ -136,10 +123,11 @@ export class BaselinesToolbar extends Component {
                             ? <ToolbarGroup variant='filter-group'>
                                 <ToolbarItem>
                                     <BulkSelect
-                                        count={ selected > 0 ? selected : null }
-                                        items={ bulkSelectItems }
-                                        checked={ helpers.findCheckedValue(tableData.length, selected) }
-                                        onSelect={ () => onBulkSelect(!selected > 0) }
+                                        id='baselines-bulk-select'
+                                        count={ selectedBaselineIds.length }
+                                        items={ bulkSelectItems(onBulkSelect, tableData.length) }
+                                        checked={ helpers.findCheckedValue(totalBaselines, selectedBaselineIds.length) }
+                                        onSelect={ () => onBulkSelect('page') }
                                         isDisabled={ tableData.length === 0
                                             || (!permissions.baselinesWrite && kebab)
                                             || (!permissions.baselinesRead && !createButton) }

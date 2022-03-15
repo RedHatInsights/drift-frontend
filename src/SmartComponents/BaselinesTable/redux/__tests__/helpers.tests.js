@@ -2,16 +2,19 @@ import baselinesReducerHelpers from '../helpers';
 import fixtures from './baselinesTableReducer.fixtures';
 
 describe('baselines table helpers', () => {
-    it('calls fetchBaselines', () => {
-        const fetchBaselines = jest.fn();
-        baselinesReducerHelpers.fetchBaselines('CHECKBOX', fetchBaselines, {});
+    /*eslint-disable camelcase*/
+    it('returns empty object in returnParams', () => {
+        const params = {
+            limit: undefined,
+            offset: NaN,
+            order_by: undefined,
+            order_how: undefined
+        };
 
-        expect(fetchBaselines).toHaveBeenCalled();
+        expect(baselinesReducerHelpers.returnParams({})).toEqual(params);
     });
 
-    /*eslint-disable camelcase*/
-    it('calls fetchBaselines with params', () => {
-        const fetchBaselines = jest.fn();
+    it('returns correct params in returnParams', () => {
         const fetchParams = {
             orderBy: 'display_name',
             orderHow: 'ASC',
@@ -25,9 +28,7 @@ describe('baselines table helpers', () => {
             offset: NaN
         };
 
-        baselinesReducerHelpers.fetchBaselines('CHECKBOX', fetchBaselines, fetchParams);
-
-        expect(fetchBaselines).toHaveBeenCalledWith('CHECKBOX', params);
+        expect(baselinesReducerHelpers.returnParams(fetchParams)).toEqual(params);
     });
 
     it('converts baseline list to csv', () => {
