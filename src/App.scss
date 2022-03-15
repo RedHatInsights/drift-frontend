@@ -54,7 +54,7 @@
   top: 0;
   position: sticky;
   background-color: white;
-  z-index: 9999;
+  z-index: 9998;
 }
 
 .comparison-header {
@@ -518,4 +518,10 @@ th.sticky-column {
 
 .state-loading-width {
   width: 100px;
+}
+
+.edit-baseline-toolbar {
+  .pf-c-dropdown__menu {
+    z-index: 9999;
+  }
 }

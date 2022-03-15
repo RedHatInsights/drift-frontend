@@ -126,6 +126,7 @@ export const SystemsTable = ({
                             return { ...data };
                         } }
                     bulkSelect={ onSelect && !isAddSystemNotifications && {
+                        id: 'systems-bulk-select',
                         isDisabled: !hasMultiSelect,
                         count: entities?.selectedSystemIds?.length,
                         items: [{

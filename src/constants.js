@@ -41,3 +41,18 @@ export const EMPTY_RADIO_MESSAGE = [
     'You currently have no baselines displayed.',
     'Create a baseline first in order to copy from it. '
 ];
+
+export const bulkSelectItems = (onBulkSelect, page) => ([
+    {
+        title: `Select page (${ page })`,
+        key: 'select-page',
+        ouiaId: 'baselines-select-page',
+        onClick: () => onBulkSelect('page')
+    },
+    {
+        title: 'Select none (0)',
+        key: 'select-none',
+        ouiaId: 'baselines-select-none',
+        onClick: () => onBulkSelect('none')
+    }
+]);

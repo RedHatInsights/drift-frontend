@@ -128,25 +128,6 @@ describe('AddSystemModal', () => {
         expect(props.handleBaselineSelection).toHaveBeenCalledWith(modalFixtures.baselineContent2, true);
     });
 
-    it('should handle onBulkSelect', () => {
-        const selectBaseline = jest.fn();
-
-        props.baselineTableData = [
-            [ 'abcd1234', 'baseline1', '1 month ago' ],
-            [ 'efgh5678', 'baseline2', '2 months ago' ]
-        ];
-        const wrapper = shallow(
-            <AddSystemModal
-                { ...props }
-                selectBaseline={ selectBaseline }
-            />
-        );
-
-        wrapper.instance().onBulkSelect(true);
-        expect(selectBaseline).toHaveBeenCalledWith([ 'abcd1234', 'efgh5678' ], true, 'COMPARISON');
-        expect(props.handleBaselineSelection).toHaveBeenCalledWith(modalFixtures.baselineContent2, true);
-    });
-
     it('should confirm modal', () => {
         props.entities.selectedSystemIds = [ 'abcd1234' ];
         props.selectedBaselineIds = [ 'efgh5678' ];

@@ -27,15 +27,22 @@ export class BaselinesTable extends Component {
         super(props);
 
         this.state = {
-            sortBy: {
-                index: 1,
-                direction: 'asc'
+            params: {
+                sortBy: {
+                    index: 1,
+                    direction: 'asc'
+                },
+                search: undefined,
+                orderBy: 'display_name',
+                orderHow: 'ASC',
+                page: 1,
+                perPage: 20
             },
-            search: undefined,
-            orderBy: 'display_name',
-            orderHow: 'ASC',
-            page: 1,
-            perPage: 20
+            bulkSelectType: '',
+            errorMessage: [ 'The list of baselines cannot be displayed at this time. Please retry and if',
+                'the problem persists contact your system administrator.',
+                ''
+            ]
         };
     }
 
@@ -54,15 +61,16 @@ export class BaselinesTable extends Component {
         const { tableId, fetchBaselines } = this.props;
 
         fetchParams = {
-            ...this.state,
+            ...this.state.params,
             ...fetchParams
         };
 
-        baselinesReducerHelpers.fetchBaselines(tableId, fetchBaselines, fetchParams);
+        let formattedParams = baselinesReducerHelpers.returnParams(fetchParams);
+        fetchBaselines(tableId, formattedParams);
     }
 
     onSearch = (search) => {
-        const { orderBy, orderHow } = this.state;
+        const { orderBy, orderHow } = this.state.params;
 
         let newSearch = search;
         this.setState({ search });
@@ -70,7 +78,7 @@ export class BaselinesTable extends Component {
     }
 
     onSort = (_event, index, direction) => {
-        const { search } = this.state;
+        const { search } = this.state.params;
         const { permissions } = this.props;
         let orderBy = '';
 
@@ -83,19 +91,70 @@ export class BaselinesTable extends Component {
         }
 
         this.setState({
-            sortBy: {
-                index,
-                direction
-            },
-            orderHow: direction.toUpperCase(),
-            orderBy
+            params: {
+                ...this.state.params,
+                sortBy: {
+                    index,
+                    direction
+                },
+                orderHow: direction.toUpperCase(),
+                orderBy
+            }
         });
 
         this.fetchWithParams({ orderBy, orderHow: direction.toUpperCase(), search });
     }
 
+    setSelectedIds = (tableData) => {
+        let ids = [];
+
+        tableData.forEach(function(baseline) {
+            ids.push(Array.isArray(baseline) ? baseline[0] : baseline.id);
+        });
+
+        return ids;
+    }
+
+    isAnyBaselineSelectedOnPage = (tableData) => {
+        let isSomethingSelected = false;
+
+        tableData.map(baseline => {
+            console.log(baseline.selected, 'baseline.selected');
+            if (baseline.selected === true) {
+                isSomethingSelected = true;
+            }
+        });
+
+        return isSomethingSelected;
+    }
+
+    onBulkSelect = async (param) => {
+        const { bulkSelectBasket, tableData, tableId, selectBaseline, selectedBaselineIds } = this.props;
+        let isSelected;
+        let ids;
+        this.setState({ bulkSelectType: param });
+
+        if (param === 'none') {
+            isSelected = false;
+            ids = selectedBaselineIds;
+        } else {
+            ids = this.setSelectedIds(tableData);
+            if (this.isAnyBaselineSelectedOnPage(tableData)) {
+                isSelected = false;
+            } else {
+                isSelected = true;
+            }
+        }
+
+        if (tableId === 'COMPARISON') {
+            bulkSelectBasket(tableData, isSelected);
+        }
+
+        selectBaseline(ids, isSelected, tableId);
+    }
+
     updatePagination = (pagination) => {
-        this.setState({ page: pagination.page, perPage: pagination.perPage });
+        this.setState({ params: { page: pagination.page, perPage: pagination.perPage }});
         this.fetchWithParams({ page: pagination.page, perPage: pagination.perPage });
     }
 
@@ -268,7 +327,7 @@ export class BaselinesTable extends Component {
                         onSelect={ baselinesWrite || ((tableId === 'CHECKBOX' || tableId === 'COMPARISON') && !kebab)
                             ? onSelect
                             : false }
-                        sortBy={ this.state.sortBy }
+                        sortBy={ this.state.params.sortBy }
                         cells={ columns }
                         rows={ tableRows }
                         canSelectAll={ false }
@@ -354,9 +413,9 @@ export class BaselinesTable extends Component {
     }
 
     render() {
-        const { permissions, emptyState, loading, tableId, kebab, createButton, exportToCSV, exportToJSON, exportButton, hasMultiSelect,
-            leftAlignToolbar, onBulkSelect, selectedBaselineIds, tableData, totalBaselines } = this.props;
-        const { page, perPage } = this.state;
+        const { createButton, emptyState, exportToCSV, exportToJSON, exportButton, hasMultiSelect, kebab, leftAlignToolbar,
+            loading, permissions, selectedBaselineIds, tableData, tableId, totalBaselines } = this.props;
+        const { page, perPage } = this.state.params;
 
         return (
             <React.Fragment>
@@ -371,7 +430,7 @@ export class BaselinesTable extends Component {
                             tableId={ tableId }
                             fetchWithParams={ this.fetchWithParams }
                             tableData={ tableData }
-                            onBulkSelect={ onBulkSelect }
+                            onBulkSelect={ this.onBulkSelect }
                             hasMultiSelect={ hasMultiSelect }
                             selectedBaselineIds={ selectedBaselineIds }
                             isDeleteDisabled={ selectedBaselineIds?.length < 1 }
@@ -422,7 +481,6 @@ BaselinesTable.propTypes = {
     exportButton: PropTypes.bool,
     onSelect: PropTypes.func,
     columns: PropTypes.array,
-    onBulkSelect: PropTypes.func,
     selectedBaselineIds: PropTypes.array,
     totalBaselines: PropTypes.number,
     exportToCSV: PropTypes.func,
@@ -433,11 +491,13 @@ BaselinesTable.propTypes = {
     hasSwitch: PropTypes.bool,
     notificationsSwitchError: PropTypes.object,
     emptyState: PropTypes.bool,
+    selectBaseline: PropTypes.func,
     toggleNotificationPending: PropTypes.func,
     toggleNotificationFulfilled: PropTypes.func,
     toggleNotificationRejected: PropTypes.func,
     baselineError: PropTypes.object,
-    revertBaselineFetch: PropTypes.func
+    revertBaselineFetch: PropTypes.func,
+    bulkSelectBasket: PropTypes.func
 };
 
 /*eslint-disable camelcase*/

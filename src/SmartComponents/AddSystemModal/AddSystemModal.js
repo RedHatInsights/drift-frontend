@@ -165,20 +165,12 @@ export class AddSystemModal extends Component {
         selectActiveTab(tabIndex);
     }
 
-    onBulkSelect = (isSelected) => {
-        const { baselineTableData, handleBaselineSelection, selectBaseline } = this.props;
-        let ids = [];
-        let selectedContent = [];
-
-        baselineTableData.forEach(function(baseline) {
-            ids.push(baseline[0]);
-        });
-
-        selectedContent = baselineTableData.map(function(baseline) {
+    bulkSelectBasket = (baselineTableData, isSelected) => {
+        const { handleBaselineSelection } = this.props;
+        let selectedContent = baselineTableData.map(function(baseline) {
             return this.createContent(baseline[0], 'Baseline', <BlueprintIcon />, baseline[1]);
         }.bind(this));
 
-        selectBaseline(ids, isSelected, 'COMPARISON');
         handleBaselineSelection(selectedContent, isSelected);
     }
 
@@ -317,7 +309,7 @@ export class AddSystemModal extends Component {
                                 tableData={ baselineTableData }
                                 loading={ loading }
                                 columns={ columns }
-                                onBulkSelect={ this.onBulkSelect }
+                                bulkSelectBasket={ this.bulkSelectBasket }
                                 selectedBaselineIds={ selectedBaselineIds }
                                 totalBaselines={ totalBaselines }
                                 permissions={ permissions }
@@ -328,6 +320,7 @@ export class AddSystemModal extends Component {
                                 emptyState={ emptyState }
                                 baselineError={ baselineError }
                                 revertBaselineFetch={ revertBaselineFetch }
+                                selectBaseline={ selectBaseline }
                             />
                         </Tab>
                     </Tabs>
@@ -388,7 +381,7 @@ function mapStateToProps(state) {
         loading: state.baselinesTableState.comparisonTable.loading,
         baselineTableData: state.baselinesTableState.comparisonTable.baselineTableData,
         historicalProfiles: state.compareState.historicalProfiles,
-        totalBaselines: state.baselinesTableState.checkboxTable.totalBaselines,
+        totalBaselines: state.baselinesTableState.comparisonTable.totalBaselines,
         globalFilterState: state.globalFilterState,
         selectedHSPContent: state.addSystemModalState.selectedHSPContent,
         selectedBaselineContent: state.addSystemModalState.selectedBaselineContent,

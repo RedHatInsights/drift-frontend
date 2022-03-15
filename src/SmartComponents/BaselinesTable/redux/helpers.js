@@ -1,6 +1,6 @@
 import moment from 'moment';
 
-function fetchBaselines (tableId, fetchBaselines, fetchParams = {}) {
+function returnParams (fetchParams = {}) {
     let params = {};
 
     /*eslint-disable camelcase*/
@@ -14,7 +14,7 @@ function fetchBaselines (tableId, fetchBaselines, fetchParams = {}) {
     }
     /*eslint-enable camelcase*/
 
-    fetchBaselines(tableId, params);
+    return params;
 }
 
 function buildBaselinesTable(data, selectedBaselineIds) {
@@ -132,7 +132,7 @@ function convertListToJSON(data) {
 /*eslint-enable camelcase*/
 
 export default {
-    fetchBaselines,
+    returnParams,
     buildBaselinesTable,
     setBaselineArray,
     toggleExpandedRow,

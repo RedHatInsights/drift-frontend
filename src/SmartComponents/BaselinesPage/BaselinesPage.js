@@ -27,10 +27,6 @@ export class BaselinesPage extends Component {
                 { title: 'Associated systems', transforms: [ cellWidth(20) ]},
                 { title: '', transforms: [ cellWidth(5) ]}
             ],
-            errorMessage: [ 'The list of baselines cannot be displayed at this time. Please retry and if',
-                'the problem persists contact your system administrator.',
-                ''
-            ],
             error: {}
         };
     }
@@ -73,26 +69,14 @@ export class BaselinesPage extends Component {
         selectBaseline(ids, isSelected, 'CHECKBOX');
     }
 
-    onBulkSelect = (isSelected) => {
-        const { baselineTableData, selectBaseline } = this.props;
-        let ids = [];
-
-        baselineTableData.forEach(function(baseline) {
-            ids.push(baseline[0]);
-        });
-
-        selectBaseline(ids, isSelected, 'CHECKBOX');
-    }
-
     renderTable(permissions) {
-        const { baselineTableData, clearEditBaselineData, emptyState, loading, notificationsSwitchError, selectedBaselineIds,
-            totalBaselines, revertBaselineFetch, baselineError } = this.props;
+        const { baselineError, baselineTableData, clearEditBaselineData, emptyState, loading, notificationsSwitchError, revertBaselineFetch,
+            selectBaseline, selectedBaselineIds, totalBaselines } = this.props;
         const { columns, error } = this.state;
 
         clearEditBaselineData();
 
         return (
-
             <div>
                 <BaselinesTable
                     tableId='CHECKBOX'
@@ -105,7 +89,7 @@ export class BaselinesPage extends Component {
                     createButton={ true }
                     exportButton={ true }
                     onClick={ this.fetchBaseline }
-                    onBulkSelect={ this.onBulkSelect }
+                    selectBaseline={ selectBaseline }
                     selectedBaselineIds={ selectedBaselineIds }
                     totalBaselines={ totalBaselines }
                     permissions={ permissions }

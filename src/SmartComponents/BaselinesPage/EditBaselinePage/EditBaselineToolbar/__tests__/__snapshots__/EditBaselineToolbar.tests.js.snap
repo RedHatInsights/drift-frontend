@@ -61,13 +61,13 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
         totalFacts={2}
       >
         <Toolbar
-          className="drift-toolbar"
+          className="edit-baseline-toolbar"
         >
           <GenerateId
             prefix="pf-random-id-"
           >
             <div
-              className="pf-c-toolbar drift-toolbar"
+              className="pf-c-toolbar edit-baseline-toolbar"
               data-ouia-component-id="OUIA-Generated-Toolbar-1"
               data-ouia-component-type="PF4/Toolbar"
               data-ouia-safe={true}
@@ -101,7 +101,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                               Object {
                                 "key": "select-none",
                                 "onClick": [Function],
-                                "title": "Select none",
+                                "title": "Select none (0)",
                               },
                             ]
                           }
@@ -124,7 +124,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                   onClick={[Function]}
                                   ouiaId="edit-baseline-bulk-selector-dropdown-select-none"
                                 >
-                                  Select none
+                                  Select none (0)
                                 </DropdownItem>,
                               ]
                             }
@@ -176,7 +176,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                     onClick={[Function]}
                                     ouiaId="edit-baseline-bulk-selector-dropdown-select-none"
                                   >
-                                    Select none
+                                    Select none (0)
                                   </DropdownItem>,
                                 ]
                               }
@@ -1206,7 +1206,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
 
 exports[`EditBaselineToolbar should render correctly 1`] = `
 <Toolbar
-  className="drift-toolbar"
+  className="edit-baseline-toolbar"
 >
   <ToolbarContent
     isExpanded={false}
@@ -1227,7 +1227,7 @@ exports[`EditBaselineToolbar should render correctly 1`] = `
             Object {
               "key": "select-none",
               "onClick": [Function],
-              "title": "Select none",
+              "title": "Select none (0)",
             },
           ]
         }

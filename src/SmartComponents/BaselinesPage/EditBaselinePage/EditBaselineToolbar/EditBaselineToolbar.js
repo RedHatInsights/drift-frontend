@@ -18,7 +18,7 @@ export class EditBaselineToolbar extends Component {
                     key: 'select-all',
                     onClick: () => this.props.onBulkSelect(true)
                 }, {
-                    title: 'Select none',
+                    title: 'Select none (0)',
                     key: 'select-none',
                     onClick: () => this.props.onBulkSelect(false)
                 }
@@ -45,6 +45,20 @@ export class EditBaselineToolbar extends Component {
         };
     }
 
+    componentDidUpdate(prevProps) {
+        const { totalFacts } = this.props;
+
+        if (totalFacts !== prevProps.totalFacts) {
+            this.setState(prevState => ({
+                bulkSelectItems: prevState.bulkSelectItems.map(
+                    obj => (
+                        obj.key === 'select-all' ? Object.assign(obj, { title: `Select all (${totalFacts})` }) : obj
+                    )
+                )
+            }));
+        }
+    }
+
     onToggle = () => {
         const { dropdownOpen } = this.state;
 
@@ -58,7 +72,7 @@ export class EditBaselineToolbar extends Component {
         const { bulkSelectItems, dropdownItems, dropdownOpen } = this.state;
 
         return (
-            <Toolbar className='drift-toolbar'>
+            <Toolbar className='edit-baseline-toolbar'>
                 <ToolbarContent>
                     <ToolbarItem>
                         <BulkSelect
