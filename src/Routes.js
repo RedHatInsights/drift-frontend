@@ -7,6 +7,7 @@ import asyncComponent from './Utilities/asyncComponent';
 const DriftPage = asyncComponent(() => import ('./SmartComponents/DriftPage/DriftPage'));
 const BaselinesPage = asyncComponent(() => import ('./SmartComponents/BaselinesPage/BaselinesPage'));
 const EditBaselinePage = asyncComponent(() => import ('./SmartComponents/BaselinesPage/EditBaselinePage/EditBaselinePage'));
+const EventingAutomation = asyncComponent(() => import('./SmartComponents/EventingAutomation/EventingAutomation'));
 
 const InsightsRoute = ({ component: Component, title, ...rest }) => {
     title ? document.title = title : null;
@@ -32,6 +33,11 @@ export const Routes = () => {
                 exact path='/'
                 component={ DriftPage }
                 title='Comparison - Drift | Red Hat Insights'
+            />
+            <InsightsRoute
+                exact path='/eventingTest'
+                component={ EventingAutomation }
+                title='Eventing Automation Test'
             />
             <Redirect to='/'/>
         </Switch>
