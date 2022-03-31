@@ -1,4 +1,5 @@
 import api from '../../../../api';
+import { ASC, DESC } from '../../../../constants';
 
 /*eslint-disable camelcase*/
 async function toggleNotificationSwitch(
@@ -15,6 +16,33 @@ async function toggleNotificationSwitch(
 }
 
 /*eslint-enable camelcase*/
+
+export function getNewNameSort(currentSort) {
+    let newSort;
+
+    if (currentSort === ASC) {
+        newSort = DESC;
+    } else {
+        newSort = ASC;
+    }
+
+    return newSort;
+}
+
+export function getNewValueSort(currentSort) {
+    let newSort;
+
+    if (currentSort === ASC) {
+        newSort = DESC;
+    }
+    else if (currentSort === DESC) {
+        newSort = '';
+    } else {
+        newSort = ASC;
+    }
+
+    return newSort;
+}
 
 export default {
     toggleNotificationSwitch

@@ -3,15 +3,29 @@ import PropTypes from 'prop-types';
 
 import { Card, CardBody, Checkbox } from '@patternfly/react-core';
 import { SkeletonTable } from '@redhat-cloud-services/frontend-components';
-import { AngleDownIcon, AngleRightIcon, ExclamationCircleIcon, UndoIcon } from '@patternfly/react-icons';
-import { cellWidth } from '@patternfly/react-table';
+import {
+    AngleDownIcon,
+    AngleRightIcon, ArrowsAltVIcon,
+    ExclamationCircleIcon, LongArrowAltDownIcon,
+    LongArrowAltUpIcon,
+    UndoIcon
+} from '@patternfly/react-icons';
+import { cellWidth, sortable } from '@patternfly/react-table';
 
 import EditBaselineToolbar from '../EditBaselineToolbar/EditBaselineToolbar';
 import ErrorAlert from '../../../ErrorAlert/ErrorAlert';
 import FactModal from '../FactModal/FactModal';
 import AddFactButton from '../AddFactButton/AddFactButton';
 import editBaselineHelpers from './helpers';
-import { EMPTY_BASELINE_MESSAGE, EMPTY_BASELINE_TITLE, FACT_ID, FACT_NAME, FACT_VALUE } from '../../../../constants';
+import {
+    ASC,
+    DESC,
+    EMPTY_BASELINE_MESSAGE,
+    EMPTY_BASELINE_TITLE,
+    FACT_ID,
+    FACT_NAME,
+    FACT_VALUE
+} from '../../../../constants';
 import EmptyStateDisplay from '../../../EmptyStateDisplay/EmptyStateDisplay';
 
 class EditBaseline extends Component {
@@ -25,11 +39,38 @@ class EditBaseline extends Component {
                 ''
             ],
             loadingColumns: [
-                { title: 'Fact', transforms: [ cellWidth(40) ]},
-                { title: 'Value', transforms: [ cellWidth(45) ]},
+                { title: 'Fact', transforms: [ sortable, cellWidth(40) ]},
+                { title: 'Value', transforms: [ sortable, cellWidth(45) ]},
                 { title: '', transforms: [ cellWidth(5) ]}
             ]
         };
+    }
+
+    renderSortButton(sort) {
+        let sortIcon;
+
+        if (sort === ASC) {
+            sortIcon = <LongArrowAltUpIcon className="active-blue" />;
+        }
+        else if (sort === DESC) {
+            sortIcon = <LongArrowAltDownIcon className="active-blue" />;
+        }
+        else {
+            sortIcon = <ArrowsAltVIcon className="not-active" />;
+        }
+
+        return sortIcon;
+    }
+
+    async toggleSort(sortType, sort) {
+        const { toggleNameSort, toggleValueSort } = this.props;
+
+        if (sortType === 'name') {
+            await toggleNameSort(sort);
+        } else {
+            await toggleValueSort(sort);
+        }
+
     }
 
     retryBaselineFetch = () => {
@@ -40,14 +81,33 @@ class EditBaseline extends Component {
     }
 
     renderHeaderRow(baselinesWrite) {
+        const { nameSort, valueSort } = this.props;
         return (
             <tr
                 key='edit-baseline-table-header'
                 data-ouia-component-type='PF4/TableHeaderRow'
                 data-ouia-component-id='edit-baseline-table-header-row'>
                 { baselinesWrite ? <th className="sticky-header"></th> : null }
-                <th className="edit-baseline-header sticky-header"><div>Fact</div></th>
-                <th className="edit-baseline-header sticky-header"><div>Value</div></th>
+                <th
+                    className="edit-baseline-header sticky-header pointer"
+                    key='fact-header'
+                    id={ nameSort }
+                    onClick={ () => this.toggleSort('name', nameSort) }
+                    data-ouia-component-type="PF4/Button"
+                    data-ouia-component-id="fact-sort-button"
+                >
+                    <div className={ (nameSort !== '') ? 'active-blue' : '' }>Fact { this.renderSortButton(nameSort) }</div>
+                </th>
+                <th
+                    className="edit-baseline-header sticky-header pointer"
+                    key='state-header'
+                    id={ valueSort || 'disabled' }
+                    data-ouia-component-type='PF4/Button'
+                    data-ouia-component-id='value-sort-button'
+                    onClick={ () => this.toggleSort('value', valueSort) }
+                >
+                    <div className={ (valueSort !== '') ? 'active-blue' : '' }>Value { this.renderSortButton(valueSort) }</div>
+                </th>
                 <th className="sticky-header"></th>
             </tr>
         );
@@ -338,7 +398,11 @@ EditBaseline.propTypes = {
     editBaselineEmptyState: PropTypes.bool,
     exportToCSV: PropTypes.func,
     exportToJSON: PropTypes.func,
-    permissions: PropTypes.object
+    permissions: PropTypes.object,
+    toggleNameSort: PropTypes.func,
+    toggleValueSort: PropTypes.func,
+    nameSort: PropTypes.string,
+    valueSort: PropTypes.string
 };
 
 export default EditBaseline;

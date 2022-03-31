@@ -1,4 +1,4 @@
-import { ASC, DESC, COLUMN_DELIMITER, LINE_DELIMITER } from '../../constants';
+import { ASC, COLUMN_DELIMITER, DESC, LINE_DELIMITER } from '../../constants';
 import { downloadFile } from '@redhat-cloud-services/frontend-components-utilities/helpers';
 import moment from 'moment';
 
@@ -249,6 +249,65 @@ function sortData(filteredFacts, factSort, stateSort) {
     return newFilteredFacts;
 }
 /*eslint-enable camelcase*/
+
+function sortNameEditBaselineTableData(filteredFacts, nameSort) {
+    return applyNameSort(filteredFacts, nameSort);
+}
+
+function sortValueEditBaselineTableData(filteredFacts, valueSort) {
+    let facts = filteredFacts;
+    if (valueSort === '') {
+        facts = applyNameSort(filteredFacts, ASC);
+    }
+
+    return applyValueSort(facts, valueSort);
+}
+
+function applyNameSort(facts, nameSort) {
+    const sortAlgorithm = (nameSort === DESC) ? sortDescNameEditBaselineTableData : sortAscNameEditBaselineTableData;
+    let sortedFacts = facts.sort(sortAlgorithm);
+    sortCategories(sortedFacts, sortAlgorithm);
+    return sortedFacts;
+}
+
+function applyValueSort(facts, valueSort) {
+    if (valueSort === '') {
+        return facts;
+    }
+
+    const sortAlgorithm = (valueSort === DESC) ? sortDescValueEditBaselineTableData : sortAscValueEditBaselineTableData;
+    let sortedFacts = facts.sort(sortAlgorithm);
+    sortCategories(sortedFacts, sortAlgorithm);
+    return sortedFacts;
+}
+
+function sortCategories(facts, sortAlgorithm) {
+    facts.forEach((fact) => {
+        if (Array.isArray(fact[2])) {
+            fact[2].sort(sortAlgorithm);
+        }
+    });
+}
+
+function sortDescNameEditBaselineTableData(a, b) {
+    return a[1] < b[1] ? 1 : -1;
+}
+
+function sortAscNameEditBaselineTableData(a, b) {
+    return a[1] > b[1] ? 1 : -1;
+}
+
+function sortDescValueEditBaselineTableData(a, b) {
+    return getValue(a[2]) < getValue(b[2]) ? 1 : -1;
+}
+
+function sortAscValueEditBaselineTableData(a, b) {
+    return getValue(a[2]) > getValue(b[2]) ? 1 : -1;
+}
+
+function getValue(value) {
+    return Array.isArray(value) ? '' : value;
+}
 
 function sortFacts(filteredFacts, factSort, stateSort) {
     if (stateSort === ASC) {
@@ -521,6 +580,8 @@ export default {
     convertFactsToCSV,
     convertFactsToJSON,
     sortData,
+    sortNameEditBaselineTableData,
+    sortValueEditBaselineTableData,
     downloadHelper,
     toggleExpandedRow,
     updateStateFilters,

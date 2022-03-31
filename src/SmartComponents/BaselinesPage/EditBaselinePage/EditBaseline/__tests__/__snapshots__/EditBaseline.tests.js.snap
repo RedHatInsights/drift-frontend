@@ -36,17 +36,42 @@ exports[`EditBaseline should render correctly 1`] = `
               className="sticky-header"
             />
             <th
-              className="edit-baseline-header sticky-header"
+              className="edit-baseline-header sticky-header pointer"
+              data-ouia-component-id="fact-sort-button"
+              data-ouia-component-type="PF4/Button"
+              key="fact-header"
+              onClick={[Function]}
             >
-              <div>
-                Fact
+              <div
+                className="active-blue"
+              >
+                Fact 
+                <ArrowsAltVIcon
+                  className="not-active"
+                  color="currentColor"
+                  noVerticalAlign={false}
+                  size="sm"
+                />
               </div>
             </th>
             <th
-              className="edit-baseline-header sticky-header"
+              className="edit-baseline-header sticky-header pointer"
+              data-ouia-component-id="value-sort-button"
+              data-ouia-component-type="PF4/Button"
+              id="disabled"
+              key="state-header"
+              onClick={[Function]}
             >
-              <div>
-                Value
+              <div
+                className="active-blue"
+              >
+                Value 
+                <ArrowsAltVIcon
+                  className="not-active"
+                  color="currentColor"
+                  noVerticalAlign={false}
+                  size="sm"
+                />
               </div>
             </th>
             <th
@@ -246,17 +271,42 @@ exports[`EditBaseline should render expandable rows closed 1`] = `
               className="sticky-header"
             />
             <th
-              className="edit-baseline-header sticky-header"
+              className="edit-baseline-header sticky-header pointer"
+              data-ouia-component-id="fact-sort-button"
+              data-ouia-component-type="PF4/Button"
+              key="fact-header"
+              onClick={[Function]}
             >
-              <div>
-                Fact
+              <div
+                className="active-blue"
+              >
+                Fact 
+                <ArrowsAltVIcon
+                  className="not-active"
+                  color="currentColor"
+                  noVerticalAlign={false}
+                  size="sm"
+                />
               </div>
             </th>
             <th
-              className="edit-baseline-header sticky-header"
+              className="edit-baseline-header sticky-header pointer"
+              data-ouia-component-id="value-sort-button"
+              data-ouia-component-type="PF4/Button"
+              id="disabled"
+              key="state-header"
+              onClick={[Function]}
             >
-              <div>
-                Value
+              <div
+                className="active-blue"
+              >
+                Value 
+                <ArrowsAltVIcon
+                  className="not-active"
+                  color="currentColor"
+                  noVerticalAlign={false}
+                  size="sm"
+                />
               </div>
             </th>
             <th
@@ -595,17 +645,42 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
               className="sticky-header"
             />
             <th
-              className="edit-baseline-header sticky-header"
+              className="edit-baseline-header sticky-header pointer"
+              data-ouia-component-id="fact-sort-button"
+              data-ouia-component-type="PF4/Button"
+              key="fact-header"
+              onClick={[Function]}
             >
-              <div>
-                Fact
+              <div
+                className="active-blue"
+              >
+                Fact 
+                <ArrowsAltVIcon
+                  className="not-active"
+                  color="currentColor"
+                  noVerticalAlign={false}
+                  size="sm"
+                />
               </div>
             </th>
             <th
-              className="edit-baseline-header sticky-header"
+              className="edit-baseline-header sticky-header pointer"
+              data-ouia-component-id="value-sort-button"
+              data-ouia-component-type="PF4/Button"
+              id="disabled"
+              key="state-header"
+              onClick={[Function]}
             >
-              <div>
-                Value
+              <div
+                className="active-blue"
+              >
+                Value 
+                <ArrowsAltVIcon
+                  className="not-active"
+                  color="currentColor"
+                  noVerticalAlign={false}
+                  size="sm"
+                />
               </div>
             </th>
             <th
@@ -1565,11 +1640,13 @@ exports[`EditBaseline should render loading rows 1`] = `
               "title": "Fact",
               "transforms": Array [
                 [Function],
+                [Function],
               ],
             },
             Object {
               "title": "Value",
               "transforms": Array [
+                [Function],
                 [Function],
               ],
             },
@@ -1754,17 +1831,42 @@ exports[`EditBaseline should render with baseline facts 1`] = `
               className="sticky-header"
             />
             <th
-              className="edit-baseline-header sticky-header"
+              className="edit-baseline-header sticky-header pointer"
+              data-ouia-component-id="fact-sort-button"
+              data-ouia-component-type="PF4/Button"
+              key="fact-header"
+              onClick={[Function]}
             >
-              <div>
-                Fact
+              <div
+                className="active-blue"
+              >
+                Fact 
+                <ArrowsAltVIcon
+                  className="not-active"
+                  color="currentColor"
+                  noVerticalAlign={false}
+                  size="sm"
+                />
               </div>
             </th>
             <th
-              className="edit-baseline-header sticky-header"
+              className="edit-baseline-header sticky-header pointer"
+              data-ouia-component-id="value-sort-button"
+              data-ouia-component-type="PF4/Button"
+              id="disabled"
+              key="state-header"
+              onClick={[Function]}
             >
-              <div>
-                Value
+              <div
+                className="active-blue"
+              >
+                Value 
+                <ArrowsAltVIcon
+                  className="not-active"
+                  color="currentColor"
+                  noVerticalAlign={false}
+                  size="sm"
+                />
               </div>
             </th>
             <th
@@ -2116,17 +2218,42 @@ exports[`EditBaseline should render with baseline facts with same name 1`] = `
               className="sticky-header"
             />
             <th
-              className="edit-baseline-header sticky-header"
+              className="edit-baseline-header sticky-header pointer"
+              data-ouia-component-id="fact-sort-button"
+              data-ouia-component-type="PF4/Button"
+              key="fact-header"
+              onClick={[Function]}
             >
-              <div>
-                Fact
+              <div
+                className="active-blue"
+              >
+                Fact 
+                <ArrowsAltVIcon
+                  className="not-active"
+                  color="currentColor"
+                  noVerticalAlign={false}
+                  size="sm"
+                />
               </div>
             </th>
             <th
-              className="edit-baseline-header sticky-header"
+              className="edit-baseline-header sticky-header pointer"
+              data-ouia-component-id="value-sort-button"
+              data-ouia-component-type="PF4/Button"
+              id="disabled"
+              key="state-header"
+              onClick={[Function]}
             >
-              <div>
-                Value
+              <div
+                className="active-blue"
+              >
+                Value 
+                <ArrowsAltVIcon
+                  className="not-active"
+                  color="currentColor"
+                  noVerticalAlign={false}
+                  size="sm"
+                />
               </div>
             </th>
             <th

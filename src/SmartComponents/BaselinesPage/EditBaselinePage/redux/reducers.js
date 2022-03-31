@@ -1,7 +1,8 @@
 import types from './types';
 import editBaselineHelpers from '../EditBaseline/helpers';
 import helpers from '../../../helpers';
-import { FACT_VALUE } from '../../../../constants';
+import { ASC, FACT_VALUE } from '../../../../constants';
+import reducerHelpers from '../../../modules/helpers';
 
 const initialState = {
     baselineData: undefined,
@@ -17,7 +18,9 @@ const initialState = {
     isCategory: false,
     isSubFact: false,
     editBaselineEmptyState: false,
-    notificationsSwitchError: {}
+    notificationsSwitchError: {},
+    nameSort: ASC,
+    valueSort: ''
 };
 
 export function editBaselineReducer(state = initialState, action) {
@@ -26,6 +29,7 @@ export function editBaselineReducer(state = initialState, action) {
     let newExpandedRows = [];
     let response;
     let error;
+    let sortedFacts;
 
     switch (action.type) {
         case `${types.FETCH_BASELINE_DATA}_PENDING`:
@@ -37,6 +41,7 @@ export function editBaselineReducer(state = initialState, action) {
             };
         case `${types.FETCH_BASELINE_DATA}_FULFILLED`:
             newEditBaselineTableData = editBaselineHelpers.buildBaselineTableData(action.payload.baseline_facts);
+            newEditBaselineTableData = reducerHelpers.sortNameEditBaselineTableData(newEditBaselineTableData, state.nameSort);
             return {
                 ...state,
                 baselineDataLoading: false,
@@ -211,6 +216,22 @@ export function editBaselineReducer(state = initialState, action) {
             return {
                 ...state,
                 notificationsSwitchError: errorObject
+            };
+        case types.TOGGLE_FACT :
+            sortedFacts = reducerHelpers.sortNameEditBaselineTableData(state.editBaselineTableData, action.payload);
+            return {
+                ...state,
+                nameSort: action.payload,
+                valueSort: '',
+                editBaselineTableData: sortedFacts
+            };
+        case types.TOGGLE_VALUE :
+            sortedFacts = reducerHelpers.sortValueEditBaselineTableData(state.editBaselineTableData, action.payload);
+            return {
+                ...state,
+                valueSort: action.payload,
+                nameSort: (action.payload === '') ? ASC : '',
+                editBaselineTableData: sortedFacts
             };
         default:
             return state;
