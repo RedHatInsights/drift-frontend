@@ -237,7 +237,8 @@ export class EditBaselinePage extends Component {
     renderMain(permissions) {
         const { baselineData, baselineDataLoading, clearErrorData, driftClearFilters, editBaselineEmptyState, editBaselineError,
             editBaselineTableData, entities, expandRow, expandedRows, exportToCSV, exportToJSON, factModalOpened, fetchBaselineData,
-            selectFact, match: { params }, selectEntities, selectHistoricProfiles, setSelectedSystemIds } = this.props;
+            selectFact, match: { params }, selectEntities, selectHistoricProfiles, setSelectedSystemIds, toggleNameSort,
+            toggleValueSort, nameSort, valueSort } = this.props;
         const { activeTab } = this.state;
         let body;
 
@@ -258,6 +259,10 @@ export class EditBaselinePage extends Component {
                 permissions={ permissions }
                 history={ history }
                 selectFact={ selectFact }
+                toggleNameSort={ toggleNameSort }
+                toggleValueSort= { toggleValueSort }
+                nameSort= { nameSort }
+                valueSort= { valueSort }
             />;
         } else {
             body = <SystemNotification
@@ -329,7 +334,11 @@ EditBaselinePage.propTypes = {
     selectEntities: PropTypes.func,
     toggleNotificationPending: PropTypes.func,
     toggleNotificationFulfilled: PropTypes.func,
-    toggleNotificationRejected: PropTypes.func
+    toggleNotificationRejected: PropTypes.func,
+    toggleNameSort: PropTypes.func,
+    toggleValueSort: PropTypes.func,
+    nameSort: PropTypes.string,
+    valueSort: PropTypes.string
 };
 
 function mapStateToProps(state) {
@@ -343,6 +352,8 @@ function mapStateToProps(state) {
         notificationsSwitchError: state.editBaselineState.notificationsSwitchError,
         editBaselineEmptyState: state.editBaselineState.editBaselineEmptyState,
         inlineError: state.editBaselineState.inlineError,
+        nameSort: state.editBaselineState.nameSort,
+        valueSort: state.editBaselineState.valueSort,
         entities: state.entities
     };
 }
@@ -370,7 +381,9 @@ function mapDispatchToProps(dispatch) {
         toggleNotificationFulfilled: (data) => dispatch(editBaselineActions.toggleNotificationFulfilled(data)),
         toggleNotificationRejected: (error, id, display_name) => {
             dispatch(editBaselineActions.toggleNotificationRejected(error, id, display_name));
-        }
+        },
+        toggleNameSort: (sortType) => dispatch(editBaselineActions.toggleNameSort(sortType)),
+        toggleValueSort: (sortType) => dispatch(editBaselineActions.toggleValueSort(sortType))
     };
 }
 /*eslint-enable camelcase*/

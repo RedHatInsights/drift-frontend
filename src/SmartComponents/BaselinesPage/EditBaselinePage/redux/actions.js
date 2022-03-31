@@ -1,5 +1,6 @@
 import types from './types';
 import api from '../../../../api';
+import { getNewNameSort, getNewValueSort } from './helpers';
 
 function expandRow(factName) {
     return {
@@ -101,6 +102,20 @@ function toggleNotificationFulfilled(data) {
     };
 }
 
+function toggleNameSort(currentSort) {
+    return {
+        type: types.TOGGLE_FACT,
+        payload: getNewNameSort(currentSort)
+    };
+}
+
+function toggleValueSort(currentSort) {
+    return {
+        type: types.TOGGLE_VALUE,
+        payload: getNewValueSort(currentSort)
+    };
+}
+
 /*eslint-disable camelcase*/
 function toggleNotificationRejected(error, id, display_name) {
     return {
@@ -124,6 +139,7 @@ export default {
     exportToJSON,
     toggleNotificationPending,
     toggleNotificationFulfilled,
-    toggleNotificationRejected
-
+    toggleNotificationRejected,
+    toggleValueSort,
+    toggleNameSort
 };

@@ -26,6 +26,9 @@ Note: You will need to set up the Insights environment if you want to develop wi
 - `npm run test` will run all tests
 - `npm run lint` will run linter
 
+### Update test snapshots
+- `npm run test -- -u`
+
 ## Debug
 Ensure the following entry is in your `/etc/hosts` file:
 ```
