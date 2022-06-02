@@ -24,11 +24,20 @@ describe('ConnectedSystemsTable', () => {
     beforeEach(() => {
         mockStore = configureStore();
         initialState = {
+            setSelectedSystemIds: jest.fn(),
+            driftClearFilters: jest.fn(),
+            selectHistoricProfiles: jest.fn(),
+            selectEntities: jest.fn(),
+            selectSingleHSP: jest.fn()
+        };
+        props = {
+            bulkSelectDisabled: false,
             selectedSystemIds: [],
             createBaselineModal: false,
             hasHistoricalDropdown: false,
             historicalProfiles: [],
             hasMultiSelect: true,
+            selectVariant: 'checkbox',
             entities: {
                 columns: fixtures.columns,
                 rows: fixtures.rows,
@@ -36,14 +45,6 @@ describe('ConnectedSystemsTable', () => {
                 count: 3,
                 selectedSystemIds: []
             },
-            selectVariant: 'checkbox',
-            setSelectedSystemIds: jest.fn(),
-            driftClearFilters: jest.fn(),
-            selectHistoricProfiles: jest.fn(),
-            updateColumns: jest.fn(),
-            selectEntities: jest.fn()
-        };
-        props = {
             permissions: {
                 inventoryRead: true
             }
@@ -64,6 +65,21 @@ describe('ConnectedSystemsTable', () => {
 
     it('should render correctly', () => {
         const store = mockStore(initialState);
+
+        const wrapper = mount(
+            <MemoryRouter keyLength={ 0 }>
+                <Provider store={ store }>
+                    <ConnectedSystemsTable { ...props } />
+                </Provider>
+            </MemoryRouter>
+        );
+
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('should render bulk select disabled correctly', () => {
+        const store = mockStore(initialState);
+        props.bulkSelectDisabled = true;
 
         const wrapper = mount(
             <MemoryRouter keyLength={ 0 }>

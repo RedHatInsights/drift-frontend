@@ -36,7 +36,11 @@ describe('AddSystemModal', () => {
             addSystemModalOpened: true,
             systems: [],
             activeTab: 0,
-            entities: { selectedSystemIds: []},
+            entities: {
+                selectedSystemIds: [],
+                total: 10,
+                count: 5
+            },
             selectedBaselineIds: [],
             baselines: [],
             selectedHSPIds: [],
@@ -310,7 +314,9 @@ describe('ConnectedAddSystemModal', () => {
             },
             entities: {
                 selectedSystemIds: [],
-                rows: modalFixtures.rows
+                rows: modalFixtures.rows,
+                count: 2,
+                total: 5
             },
             addSystemModalActions: {
                 toggleAddSystemModal: jest.fn()

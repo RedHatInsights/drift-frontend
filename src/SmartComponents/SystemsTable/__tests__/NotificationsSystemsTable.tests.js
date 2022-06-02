@@ -25,11 +25,18 @@ describe('ConnectedNotificationsSystemsTable', () => {
     beforeEach(() => {
         mockStore = configureStore();
         initialState = {
+            setSelectedSystemIds: jest.fn(),
+            driftClearFilters: jest.fn(),
+            selectHistoricProfiles: jest.fn(),
+            selectEntities: jest.fn()
+        };
+        props = {
             selectedSystemIds: [],
             createBaselineModal: false,
             hasHistoricalDropdown: false,
             historicalProfiles: [],
             hasMultiSelect: true,
+            selectVariant: 'checkbox',
             entities: {
                 columns: fixtures.columns,
                 rows: fixtures.rows,
@@ -37,14 +44,6 @@ describe('ConnectedNotificationsSystemsTable', () => {
                 count: 3,
                 selectedSystemIds: []
             },
-            selectVariant: 'checkbox',
-            setSelectedSystemIds: jest.fn(),
-            driftClearFilters: jest.fn(),
-            selectHistoricProfiles: jest.fn(),
-            updateColumns: jest.fn(),
-            selectEntities: jest.fn()
-        };
-        props = {
             permissions: {
                 inventoryRead: true,
                 notificationsWrite: true

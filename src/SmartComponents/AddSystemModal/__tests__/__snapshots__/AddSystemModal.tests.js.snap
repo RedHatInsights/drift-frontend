@@ -65,7 +65,9 @@ exports[`AddSystemModal should render correctly 1`] = `
             baselines={Array []}
             entities={
               Object {
+                "count": 5,
                 "selectedSystemIds": Array [],
+                "total": 10,
               }
             }
             handleBaselineSelection={[MockFunction]}
@@ -108,9 +110,12 @@ exports[`AddSystemModal should render correctly 1`] = `
         title="Systems"
       >
         <Connect(SystemsTable)
+          bulkSelectDisabled={true}
           entities={
             Object {
+              "count": 5,
               "selectedSystemIds": Array [],
+              "total": 10,
             }
           }
           hasMultiSelect={true}
@@ -280,6 +285,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
           disableSystemTable={[Function]}
           entities={
             Object {
+              "count": 2,
               "rows": Array [
                 Object {
                   "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
@@ -291,6 +297,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                 },
               ],
               "selectedSystemIds": Array [],
+              "total": 5,
             }
           }
           globalFilterState={
@@ -1662,6 +1669,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                               <ToolbarItem
                                                 variant="pagination"
                                               >
+<<<<<<< HEAD
                                                 <div
                                                   className="pf-c-toolbar__item pf-m-pagination"
                                                 >
@@ -1695,6 +1703,14 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                     selectedSystemContent={Array []}
                                                     systems={
                                                       Array [
+=======
+                                                <SelectedBasket
+                                                  baselines={Array []}
+                                                  entities={
+                                                    Object {
+                                                      "count": 2,
+                                                      "rows": Array [
+>>>>>>> e080606 ([DRFT-233] Fix bugs with bulk select)
                                                         Object {
                                                           "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
                                                           "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
@@ -1705,7 +1721,13 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                           "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                                           "last_updated": "2019-01-15T15:25:16.304899Z",
                                                         },
+<<<<<<< HEAD
                                                       ]
+=======
+                                                      ],
+                                                      "selectedSystemIds": Array [],
+                                                      "total": 5,
+>>>>>>> e080606 ([DRFT-233] Fix bugs with bulk select)
                                                     }
                                                     toggleBasketVisible={[Function]}
                                                   >
@@ -2149,6 +2171,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                           noVerticalAlign={false}
                                           size="sm"
                                         >
+<<<<<<< HEAD
                                           <svg
                                             aria-hidden={true}
                                             aria-labelledby={null}
@@ -2159,6 +2182,41 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                               Object {
                                                 "verticalAlign": "-0.125em",
                                               }
+=======
+                                          <path
+                                            d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                                          />
+                                        </svg>
+                                      </AngleRightIcon>
+                                    </button>
+                                  </div>
+                                  <ForwardRef
+                                    activeKey={1}
+                                    child={
+                                      <Tab
+                                        data-ouia-component-id="systems-tab-button"
+                                        eventKey={0}
+                                        id="systems-tab"
+                                        title="Systems"
+                                      >
+                                        <Memo(Connect(SystemsTable))
+                                          bulkSelectDisabled={true}
+                                          entities={
+                                            Object {
+                                              "count": 2,
+                                              "rows": Array [
+                                                Object {
+                                                  "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                  "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                                },
+                                                Object {
+                                                  "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                  "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                                },
+                                              ],
+                                              "selectedSystemIds": Array [],
+                                              "total": 5,
+>>>>>>> e080606 ([DRFT-233] Fix bugs with bulk select)
                                             }
                                             viewBox="0 0 256 512"
                                             width="1em"
@@ -2180,8 +2238,10 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                           title="Systems"
                                         >
                                           <Memo(Connect(SystemsTable))
+                                            bulkSelectDisabled={true}
                                             entities={
                                               Object {
+                                                "count": 2,
                                                 "rows": Array [
                                                   Object {
                                                     "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
@@ -2193,6 +2253,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                   },
                                                 ],
                                                 "selectedSystemIds": Array [],
+                                                "total": 5,
                                               }
                                             }
                                             hasMultiSelect={true}
@@ -2322,6 +2383,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                         id="systems-tab"
                                         innerRef={null}
                                       >
+<<<<<<< HEAD
                                         <section
                                           aria-labelledby="pf-tab-0-systems-tab"
                                           className="pf-c-tab-content"
@@ -2333,8 +2395,79 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                           tabIndex={0}
                                         >
                                           <Connect(SystemsTable)
+=======
+                                        <Connect(SystemsTable)
+                                          bulkSelectDisabled={true}
+                                          entities={
+                                            Object {
+                                              "count": 2,
+                                              "rows": Array [
+                                                Object {
+                                                  "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                  "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                                },
+                                                Object {
+                                                  "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                  "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                                },
+                                              ],
+                                              "selectedSystemIds": Array [],
+                                              "total": 5,
+                                            }
+                                          }
+                                          hasMultiSelect={true}
+                                          historicalProfiles={Array []}
+                                          onSystemSelect={[Function]}
+                                          permissions={
+                                            Object {
+                                              "hspRead": true,
+                                              "inventoryRead": true,
+                                            }
+                                          }
+                                          selectVariant="checkbox"
+                                          selectedSystemIds={Array []}
+                                          systemColumns={
+                                            Array [
+                                              Object {
+                                                "key": "display_name",
+                                                "props": Object {
+                                                  "width": 20,
+                                                },
+                                                "title": "Name",
+                                              },
+                                              Object {
+                                                "key": "tags",
+                                                "props": Object {
+                                                  "isStatic": true,
+                                                  "width": 10,
+                                                },
+                                                "title": "Tags",
+                                              },
+                                              Object {
+                                                "key": "updated",
+                                                "props": Object {
+                                                  "width": 10,
+                                                },
+                                                "title": "Last seen",
+                                              },
+                                              Object {
+                                                "key": "historical_profiles",
+                                                "props": Object {
+                                                  "isStatic": true,
+                                                  "width": 10,
+                                                },
+                                                "title": "Historical profiles",
+                                              },
+                                            ]
+                                          }
+                                        >
+                                          <SystemsTable
+                                            bulkSelectDisabled={true}
+                                            driftClearFilters={[Function]}
+>>>>>>> e080606 ([DRFT-233] Fix bugs with bulk select)
                                             entities={
                                               Object {
+                                                "count": 2,
                                                 "rows": Array [
                                                   Object {
                                                     "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
@@ -2346,6 +2479,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                   },
                                                 ],
                                                 "selectedSystemIds": Array [],
+                                                "total": 5,
                                               }
                                             }
                                             hasMultiSelect={true}
@@ -2461,8 +2595,101 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                 ]
                                               }
                                             >
+<<<<<<< HEAD
                                               <div
                                                 className="inventory-toolbar-no-padding"
+=======
+                                              <ForwardRef
+                                                bulkSelect={
+                                                  Object {
+                                                    "checked": false,
+                                                    "count": 0,
+                                                    "id": "systems-bulk-select",
+                                                    "isDisabled": true,
+                                                    "items": Array [
+                                                      Object {
+                                                        "onClick": [Function],
+                                                        "title": "Select none (0)",
+                                                      },
+                                                      Object {
+                                                        "onClick": [Function],
+                                                        "title": "Select page (2)",
+                                                      },
+                                                      Object {
+                                                        "onClick": [Function],
+                                                        "title": "Select all (5)",
+                                                      },
+                                                    ],
+                                                    "onSelect": [Function],
+                                                    "toggleProps": null,
+                                                  }
+                                                }
+                                                columns={
+                                                  Array [
+                                                    Object {
+                                                      "key": "display_name",
+                                                      "props": Object {
+                                                        "width": 20,
+                                                      },
+                                                      "title": "Name",
+                                                    },
+                                                    Object {
+                                                      "key": "tags",
+                                                      "props": Object {
+                                                        "isStatic": true,
+                                                        "width": 10,
+                                                      },
+                                                      "title": "Tags",
+                                                    },
+                                                    Object {
+                                                      "key": "updated",
+                                                      "props": Object {
+                                                        "width": 10,
+                                                      },
+                                                      "title": "Last seen",
+                                                    },
+                                                    Object {
+                                                      "key": "historical_profiles",
+                                                      "props": Object {
+                                                        "isStatic": true,
+                                                        "width": 10,
+                                                      },
+                                                      "title": "Historical profiles",
+                                                    },
+                                                  ]
+                                                }
+                                                component="section"
+                                                customFilters={
+                                                  Object {
+                                                    "filter": Object {
+                                                      "system_profile": Object {},
+                                                    },
+                                                    "tags": Array [],
+                                                  }
+                                                }
+                                                fallback={
+                                                  <Bullseye
+                                                    className="pf-u-p-lg"
+                                                  >
+                                                    <Spinner
+                                                      size="xl"
+                                                    />
+                                                  </Bullseye>
+                                                }
+                                                getEntities={[Function]}
+                                                noDetail={true}
+                                                onLoad={[Function]}
+                                                showTags={true}
+                                                tableProps={
+                                                  Object {
+                                                    "canSelectAll": false,
+                                                    "className": "inventory-align",
+                                                    "isStickyHeader": true,
+                                                    "ouiaId": "systems-table",
+                                                    "selectVariant": "checkbox",
+                                                  }
+                                                }
+>>>>>>> e080606 ([DRFT-233] Fix bugs with bulk select)
                                               >
                                                 <ForwardRef
                                                   bulkSelect={
@@ -2470,7 +2697,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                       "checked": false,
                                                       "count": 0,
                                                       "id": "systems-bulk-select",
-                                                      "isDisabled": false,
+                                                      "isDisabled": true,
                                                       "items": Array [
                                                         Object {
                                                           "onClick": [Function],
@@ -2478,14 +2705,15 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                         },
                                                         Object {
                                                           "onClick": [Function],
-                                                          "title": "Select page (0)",
+                                                          "title": "Select page (2)",
                                                         },
                                                         Object {
                                                           "onClick": [Function],
-                                                          "title": "Deselect page (0)",
+                                                          "title": "Select all (5)",
                                                         },
                                                       ],
                                                       "onSelect": [Function],
+                                                      "toggleProps": null,
                                                     }
                                                   }
                                                   columns={
@@ -2648,7 +2876,213 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                     <section
                                                       className="inventory"
                                                     >
+<<<<<<< HEAD
                                                       <Suspense
+=======
+                                                      <ForwardRef
+                                                        ErrorComponent={
+                                                          <InventoryLoadError
+                                                            bulkSelect={
+                                                              Object {
+                                                                "checked": false,
+                                                                "count": 0,
+                                                                "id": "systems-bulk-select",
+                                                                "isDisabled": true,
+                                                                "items": Array [
+                                                                  Object {
+                                                                    "onClick": [Function],
+                                                                    "title": "Select none (0)",
+                                                                  },
+                                                                  Object {
+                                                                    "onClick": [Function],
+                                                                    "title": "Select page (2)",
+                                                                  },
+                                                                  Object {
+                                                                    "onClick": [Function],
+                                                                    "title": "Select all (5)",
+                                                                  },
+                                                                ],
+                                                                "onSelect": [Function],
+                                                                "toggleProps": null,
+                                                              }
+                                                            }
+                                                            columns={
+                                                              Array [
+                                                                Object {
+                                                                  "key": "display_name",
+                                                                  "props": Object {
+                                                                    "width": 20,
+                                                                  },
+                                                                  "title": "Name",
+                                                                },
+                                                                Object {
+                                                                  "key": "tags",
+                                                                  "props": Object {
+                                                                    "isStatic": true,
+                                                                    "width": 10,
+                                                                  },
+                                                                  "title": "Tags",
+                                                                },
+                                                                Object {
+                                                                  "key": "updated",
+                                                                  "props": Object {
+                                                                    "width": 10,
+                                                                  },
+                                                                  "title": "Last seen",
+                                                                },
+                                                                Object {
+                                                                  "key": "historical_profiles",
+                                                                  "props": Object {
+                                                                    "isStatic": true,
+                                                                    "width": 10,
+                                                                  },
+                                                                  "title": "Historical profiles",
+                                                                },
+                                                              ]
+                                                            }
+                                                            component="section"
+                                                            customFilters={
+                                                              Object {
+                                                                "filter": Object {
+                                                                  "system_profile": Object {},
+                                                                },
+                                                                "tags": Array [],
+                                                              }
+                                                            }
+                                                            fallback={
+                                                              <Bullseye
+                                                                className="pf-u-p-lg"
+                                                              >
+                                                                <Spinner
+                                                                  size="xl"
+                                                                />
+                                                              </Bullseye>
+                                                            }
+                                                            getEntities={[Function]}
+                                                            history={
+                                                              Object {
+                                                                "action": "POP",
+                                                                "block": [Function],
+                                                                "canGo": [Function],
+                                                                "createHref": [Function],
+                                                                "entries": Array [
+                                                                  Object {
+                                                                    "hash": "",
+                                                                    "pathname": "/",
+                                                                    "search": "",
+                                                                    "state": undefined,
+                                                                  },
+                                                                ],
+                                                                "go": [Function],
+                                                                "goBack": [Function],
+                                                                "goForward": [Function],
+                                                                "index": 0,
+                                                                "length": 1,
+                                                                "listen": [Function],
+                                                                "location": Object {
+                                                                  "hash": "",
+                                                                  "pathname": "/",
+                                                                  "search": "",
+                                                                  "state": undefined,
+                                                                },
+                                                                "push": [Function],
+                                                                "replace": [Function],
+                                                              }
+                                                            }
+                                                            innerRef={null}
+                                                            noDetail={true}
+                                                            onLoad={[Function]}
+                                                            showTags={true}
+                                                            store={
+                                                              Object {
+                                                                "clearActions": [Function],
+                                                                "dispatch": [Function],
+                                                                "getActions": [Function],
+                                                                "getState": [Function],
+                                                                "replaceReducer": [Function],
+                                                                "subscribe": [Function],
+                                                              }
+                                                            }
+                                                            tableProps={
+                                                              Object {
+                                                                "canSelectAll": false,
+                                                                "className": "inventory-align",
+                                                                "isStickyHeader": true,
+                                                                "ouiaId": "systems-table",
+                                                                "selectVariant": "checkbox",
+                                                              }
+                                                            }
+                                                          />
+                                                        }
+                                                        appName="inventory"
+                                                        bulkSelect={
+                                                          Object {
+                                                            "checked": false,
+                                                            "count": 0,
+                                                            "id": "systems-bulk-select",
+                                                            "isDisabled": true,
+                                                            "items": Array [
+                                                              Object {
+                                                                "onClick": [Function],
+                                                                "title": "Select none (0)",
+                                                              },
+                                                              Object {
+                                                                "onClick": [Function],
+                                                                "title": "Select page (2)",
+                                                              },
+                                                              Object {
+                                                                "onClick": [Function],
+                                                                "title": "Select all (5)",
+                                                              },
+                                                            ],
+                                                            "onSelect": [Function],
+                                                            "toggleProps": null,
+                                                          }
+                                                        }
+                                                        columns={
+                                                          Array [
+                                                            Object {
+                                                              "key": "display_name",
+                                                              "props": Object {
+                                                                "width": 20,
+                                                              },
+                                                              "title": "Name",
+                                                            },
+                                                            Object {
+                                                              "key": "tags",
+                                                              "props": Object {
+                                                                "isStatic": true,
+                                                                "width": 10,
+                                                              },
+                                                              "title": "Tags",
+                                                            },
+                                                            Object {
+                                                              "key": "updated",
+                                                              "props": Object {
+                                                                "width": 10,
+                                                              },
+                                                              "title": "Last seen",
+                                                            },
+                                                            Object {
+                                                              "key": "historical_profiles",
+                                                              "props": Object {
+                                                                "isStatic": true,
+                                                                "width": 10,
+                                                              },
+                                                              "title": "Historical profiles",
+                                                            },
+                                                          ]
+                                                        }
+                                                        component="section"
+                                                        customFilters={
+                                                          Object {
+                                                            "filter": Object {
+                                                              "system_profile": Object {},
+                                                            },
+                                                            "tags": Array [],
+                                                          }
+                                                        }
+>>>>>>> e080606 ([DRFT-233] Fix bugs with bulk select)
                                                         fallback={
                                                           <Bullseye
                                                             className="pf-u-p-lg"
@@ -2667,7 +3101,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                   "checked": false,
                                                                   "count": 0,
                                                                   "id": "systems-bulk-select",
-                                                                  "isDisabled": false,
+                                                                  "isDisabled": true,
                                                                   "items": Array [
                                                                     Object {
                                                                       "onClick": [Function],
@@ -2675,14 +3109,15 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                     },
                                                                     Object {
                                                                       "onClick": [Function],
-                                                                      "title": "Select page (0)",
+                                                                      "title": "Select page (2)",
                                                                     },
                                                                     Object {
                                                                       "onClick": [Function],
-                                                                      "title": "Deselect page (0)",
+                                                                      "title": "Select all (5)",
                                                                     },
                                                                   ],
                                                                   "onSelect": [Function],
+                                                                  "toggleProps": null,
                                                                 }
                                                               }
                                                               columns={
@@ -2799,7 +3234,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                               "checked": false,
                                                               "count": 0,
                                                               "id": "systems-bulk-select",
-                                                              "isDisabled": false,
+                                                              "isDisabled": true,
                                                               "items": Array [
                                                                 Object {
                                                                   "onClick": [Function],
@@ -2807,14 +3242,15 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                 },
                                                                 Object {
                                                                   "onClick": [Function],
-                                                                  "title": "Select page (0)",
+                                                                  "title": "Select page (2)",
                                                                 },
                                                                 Object {
                                                                   "onClick": [Function],
-                                                                  "title": "Deselect page (0)",
+                                                                  "title": "Select all (5)",
                                                                 },
                                                               ],
                                                               "onSelect": [Function],
+                                                              "toggleProps": null,
                                                             }
                                                           }
                                                           columns={
@@ -3066,7 +3502,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                 "checked": false,
                                                                 "count": 0,
                                                                 "id": "systems-bulk-select",
-                                                                "isDisabled": false,
+                                                                "isDisabled": true,
                                                                 "items": Array [
                                                                   Object {
                                                                     "onClick": [Function],
@@ -3074,14 +3510,15 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                   },
                                                                   Object {
                                                                     "onClick": [Function],
-                                                                    "title": "Select page (0)",
+                                                                    "title": "Select page (2)",
                                                                   },
                                                                   Object {
                                                                     "onClick": [Function],
-                                                                    "title": "Deselect page (0)",
+                                                                    "title": "Select all (5)",
                                                                   },
                                                                 ],
                                                                 "onSelect": [Function],
+                                                                "toggleProps": null,
                                                               }
                                                             }
                                                             columns={
@@ -3271,6 +3708,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                   />
                                                                 </Bullseye>
                                                               }
+<<<<<<< HEAD
                                                               getEntities={[Function]}
                                                               history={
                                                                 Object {
@@ -3279,6 +3717,36 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                   "canGo": [Function],
                                                                   "createHref": [Function],
                                                                   "entries": Array [
+=======
+                                                            >
+                                                              <_default
+                                                                bulkSelect={
+                                                                  Object {
+                                                                    "checked": false,
+                                                                    "count": 0,
+                                                                    "id": "systems-bulk-select",
+                                                                    "isDisabled": true,
+                                                                    "items": Array [
+                                                                      Object {
+                                                                        "onClick": [Function],
+                                                                        "title": "Select none (0)",
+                                                                      },
+                                                                      Object {
+                                                                        "onClick": [Function],
+                                                                        "title": "Select page (2)",
+                                                                      },
+                                                                      Object {
+                                                                        "onClick": [Function],
+                                                                        "title": "Select all (5)",
+                                                                      },
+                                                                    ],
+                                                                    "onSelect": [Function],
+                                                                    "toggleProps": null,
+                                                                  }
+                                                                }
+                                                                columns={
+                                                                  Array [
+>>>>>>> e080606 ([DRFT-233] Fix bugs with bulk select)
                                                                     Object {
                                                                       "hash": "",
                                                                       "pathname": "/",
@@ -8258,6 +8726,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
           disableSystemTable={[Function]}
           entities={
             Object {
+              "count": 2,
               "rows": Array [
                 Object {
                   "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
@@ -8269,6 +8738,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                 },
               ],
               "selectedSystemIds": Array [],
+              "total": 5,
             }
           }
           globalFilterState={
@@ -9640,6 +10110,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                               <ToolbarItem
                                                 variant="pagination"
                                               >
+<<<<<<< HEAD
                                                 <div
                                                   className="pf-c-toolbar__item pf-m-pagination"
                                                 >
@@ -9673,6 +10144,14 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                     selectedSystemContent={Array []}
                                                     systems={
                                                       Array [
+=======
+                                                <SelectedBasket
+                                                  baselines={Array []}
+                                                  entities={
+                                                    Object {
+                                                      "count": 2,
+                                                      "rows": Array [
+>>>>>>> e080606 ([DRFT-233] Fix bugs with bulk select)
                                                         Object {
                                                           "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
                                                           "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
@@ -9683,7 +10162,13 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                           "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                                           "last_updated": "2019-01-15T15:25:16.304899Z",
                                                         },
+<<<<<<< HEAD
                                                       ]
+=======
+                                                      ],
+                                                      "selectedSystemIds": Array [],
+                                                      "total": 5,
+>>>>>>> e080606 ([DRFT-233] Fix bugs with bulk select)
                                                     }
                                                     toggleBasketVisible={[Function]}
                                                   >
@@ -10127,6 +10612,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                           noVerticalAlign={false}
                                           size="sm"
                                         >
+<<<<<<< HEAD
                                           <svg
                                             aria-hidden={true}
                                             aria-labelledby={null}
@@ -10137,6 +10623,41 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                               Object {
                                                 "verticalAlign": "-0.125em",
                                               }
+=======
+                                          <path
+                                            d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                                          />
+                                        </svg>
+                                      </AngleRightIcon>
+                                    </button>
+                                  </div>
+                                  <ForwardRef
+                                    activeKey={0}
+                                    child={
+                                      <Tab
+                                        data-ouia-component-id="systems-tab-button"
+                                        eventKey={0}
+                                        id="systems-tab"
+                                        title="Systems"
+                                      >
+                                        <Memo(Connect(SystemsTable))
+                                          bulkSelectDisabled={true}
+                                          entities={
+                                            Object {
+                                              "count": 2,
+                                              "rows": Array [
+                                                Object {
+                                                  "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                  "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                                },
+                                                Object {
+                                                  "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                  "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                                },
+                                              ],
+                                              "selectedSystemIds": Array [],
+                                              "total": 5,
+>>>>>>> e080606 ([DRFT-233] Fix bugs with bulk select)
                                             }
                                             viewBox="0 0 256 512"
                                             width="1em"
@@ -10158,8 +10679,10 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                           title="Systems"
                                         >
                                           <Memo(Connect(SystemsTable))
+                                            bulkSelectDisabled={true}
                                             entities={
                                               Object {
+                                                "count": 2,
                                                 "rows": Array [
                                                   Object {
                                                     "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
@@ -10171,6 +10694,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                   },
                                                 ],
                                                 "selectedSystemIds": Array [],
+                                                "total": 5,
                                               }
                                             }
                                             hasMultiSelect={true}
@@ -10300,6 +10824,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                         id="systems-tab"
                                         innerRef={null}
                                       >
+<<<<<<< HEAD
                                         <section
                                           aria-labelledby="pf-tab-0-systems-tab"
                                           className="pf-c-tab-content"
@@ -10311,8 +10836,79 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                           tabIndex={0}
                                         >
                                           <Connect(SystemsTable)
+=======
+                                        <Connect(SystemsTable)
+                                          bulkSelectDisabled={true}
+                                          entities={
+                                            Object {
+                                              "count": 2,
+                                              "rows": Array [
+                                                Object {
+                                                  "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                  "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
+                                                },
+                                                Object {
+                                                  "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                  "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
+                                                },
+                                              ],
+                                              "selectedSystemIds": Array [],
+                                              "total": 5,
+                                            }
+                                          }
+                                          hasMultiSelect={true}
+                                          historicalProfiles={Array []}
+                                          onSystemSelect={[Function]}
+                                          permissions={
+                                            Object {
+                                              "hspRead": true,
+                                              "inventoryRead": true,
+                                            }
+                                          }
+                                          selectVariant="checkbox"
+                                          selectedSystemIds={Array []}
+                                          systemColumns={
+                                            Array [
+                                              Object {
+                                                "key": "display_name",
+                                                "props": Object {
+                                                  "width": 20,
+                                                },
+                                                "title": "Name",
+                                              },
+                                              Object {
+                                                "key": "tags",
+                                                "props": Object {
+                                                  "isStatic": true,
+                                                  "width": 10,
+                                                },
+                                                "title": "Tags",
+                                              },
+                                              Object {
+                                                "key": "updated",
+                                                "props": Object {
+                                                  "width": 10,
+                                                },
+                                                "title": "Last seen",
+                                              },
+                                              Object {
+                                                "key": "historical_profiles",
+                                                "props": Object {
+                                                  "isStatic": true,
+                                                  "width": 10,
+                                                },
+                                                "title": "Historical profiles",
+                                              },
+                                            ]
+                                          }
+                                        >
+                                          <SystemsTable
+                                            bulkSelectDisabled={true}
+                                            driftClearFilters={[Function]}
+>>>>>>> e080606 ([DRFT-233] Fix bugs with bulk select)
                                             entities={
                                               Object {
+                                                "count": 2,
                                                 "rows": Array [
                                                   Object {
                                                     "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
@@ -10324,6 +10920,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                   },
                                                 ],
                                                 "selectedSystemIds": Array [],
+                                                "total": 5,
                                               }
                                             }
                                             hasMultiSelect={true}
@@ -10439,8 +11036,101 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                 ]
                                               }
                                             >
+<<<<<<< HEAD
                                               <div
                                                 className="inventory-toolbar-no-padding"
+=======
+                                              <ForwardRef
+                                                bulkSelect={
+                                                  Object {
+                                                    "checked": false,
+                                                    "count": 0,
+                                                    "id": "systems-bulk-select",
+                                                    "isDisabled": true,
+                                                    "items": Array [
+                                                      Object {
+                                                        "onClick": [Function],
+                                                        "title": "Select none (0)",
+                                                      },
+                                                      Object {
+                                                        "onClick": [Function],
+                                                        "title": "Select page (2)",
+                                                      },
+                                                      Object {
+                                                        "onClick": [Function],
+                                                        "title": "Select all (5)",
+                                                      },
+                                                    ],
+                                                    "onSelect": [Function],
+                                                    "toggleProps": null,
+                                                  }
+                                                }
+                                                columns={
+                                                  Array [
+                                                    Object {
+                                                      "key": "display_name",
+                                                      "props": Object {
+                                                        "width": 20,
+                                                      },
+                                                      "title": "Name",
+                                                    },
+                                                    Object {
+                                                      "key": "tags",
+                                                      "props": Object {
+                                                        "isStatic": true,
+                                                        "width": 10,
+                                                      },
+                                                      "title": "Tags",
+                                                    },
+                                                    Object {
+                                                      "key": "updated",
+                                                      "props": Object {
+                                                        "width": 10,
+                                                      },
+                                                      "title": "Last seen",
+                                                    },
+                                                    Object {
+                                                      "key": "historical_profiles",
+                                                      "props": Object {
+                                                        "isStatic": true,
+                                                        "width": 10,
+                                                      },
+                                                      "title": "Historical profiles",
+                                                    },
+                                                  ]
+                                                }
+                                                component="section"
+                                                customFilters={
+                                                  Object {
+                                                    "filter": Object {
+                                                      "system_profile": Object {},
+                                                    },
+                                                    "tags": Array [],
+                                                  }
+                                                }
+                                                fallback={
+                                                  <Bullseye
+                                                    className="pf-u-p-lg"
+                                                  >
+                                                    <Spinner
+                                                      size="xl"
+                                                    />
+                                                  </Bullseye>
+                                                }
+                                                getEntities={[Function]}
+                                                noDetail={true}
+                                                onLoad={[Function]}
+                                                showTags={true}
+                                                tableProps={
+                                                  Object {
+                                                    "canSelectAll": false,
+                                                    "className": "inventory-align",
+                                                    "isStickyHeader": true,
+                                                    "ouiaId": "systems-table",
+                                                    "selectVariant": "checkbox",
+                                                  }
+                                                }
+>>>>>>> e080606 ([DRFT-233] Fix bugs with bulk select)
                                               >
                                                 <ForwardRef
                                                   bulkSelect={
@@ -10448,7 +11138,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                       "checked": false,
                                                       "count": 0,
                                                       "id": "systems-bulk-select",
-                                                      "isDisabled": false,
+                                                      "isDisabled": true,
                                                       "items": Array [
                                                         Object {
                                                           "onClick": [Function],
@@ -10456,14 +11146,15 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                         },
                                                         Object {
                                                           "onClick": [Function],
-                                                          "title": "Select page (0)",
+                                                          "title": "Select page (2)",
                                                         },
                                                         Object {
                                                           "onClick": [Function],
-                                                          "title": "Deselect page (0)",
+                                                          "title": "Select all (5)",
                                                         },
                                                       ],
                                                       "onSelect": [Function],
+                                                      "toggleProps": null,
                                                     }
                                                   }
                                                   columns={
@@ -10626,7 +11317,213 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                     <section
                                                       className="inventory"
                                                     >
+<<<<<<< HEAD
                                                       <Suspense
+=======
+                                                      <ForwardRef
+                                                        ErrorComponent={
+                                                          <InventoryLoadError
+                                                            bulkSelect={
+                                                              Object {
+                                                                "checked": false,
+                                                                "count": 0,
+                                                                "id": "systems-bulk-select",
+                                                                "isDisabled": true,
+                                                                "items": Array [
+                                                                  Object {
+                                                                    "onClick": [Function],
+                                                                    "title": "Select none (0)",
+                                                                  },
+                                                                  Object {
+                                                                    "onClick": [Function],
+                                                                    "title": "Select page (2)",
+                                                                  },
+                                                                  Object {
+                                                                    "onClick": [Function],
+                                                                    "title": "Select all (5)",
+                                                                  },
+                                                                ],
+                                                                "onSelect": [Function],
+                                                                "toggleProps": null,
+                                                              }
+                                                            }
+                                                            columns={
+                                                              Array [
+                                                                Object {
+                                                                  "key": "display_name",
+                                                                  "props": Object {
+                                                                    "width": 20,
+                                                                  },
+                                                                  "title": "Name",
+                                                                },
+                                                                Object {
+                                                                  "key": "tags",
+                                                                  "props": Object {
+                                                                    "isStatic": true,
+                                                                    "width": 10,
+                                                                  },
+                                                                  "title": "Tags",
+                                                                },
+                                                                Object {
+                                                                  "key": "updated",
+                                                                  "props": Object {
+                                                                    "width": 10,
+                                                                  },
+                                                                  "title": "Last seen",
+                                                                },
+                                                                Object {
+                                                                  "key": "historical_profiles",
+                                                                  "props": Object {
+                                                                    "isStatic": true,
+                                                                    "width": 10,
+                                                                  },
+                                                                  "title": "Historical profiles",
+                                                                },
+                                                              ]
+                                                            }
+                                                            component="section"
+                                                            customFilters={
+                                                              Object {
+                                                                "filter": Object {
+                                                                  "system_profile": Object {},
+                                                                },
+                                                                "tags": Array [],
+                                                              }
+                                                            }
+                                                            fallback={
+                                                              <Bullseye
+                                                                className="pf-u-p-lg"
+                                                              >
+                                                                <Spinner
+                                                                  size="xl"
+                                                                />
+                                                              </Bullseye>
+                                                            }
+                                                            getEntities={[Function]}
+                                                            history={
+                                                              Object {
+                                                                "action": "POP",
+                                                                "block": [Function],
+                                                                "canGo": [Function],
+                                                                "createHref": [Function],
+                                                                "entries": Array [
+                                                                  Object {
+                                                                    "hash": "",
+                                                                    "pathname": "/",
+                                                                    "search": "",
+                                                                    "state": undefined,
+                                                                  },
+                                                                ],
+                                                                "go": [Function],
+                                                                "goBack": [Function],
+                                                                "goForward": [Function],
+                                                                "index": 0,
+                                                                "length": 1,
+                                                                "listen": [Function],
+                                                                "location": Object {
+                                                                  "hash": "",
+                                                                  "pathname": "/",
+                                                                  "search": "",
+                                                                  "state": undefined,
+                                                                },
+                                                                "push": [Function],
+                                                                "replace": [Function],
+                                                              }
+                                                            }
+                                                            innerRef={null}
+                                                            noDetail={true}
+                                                            onLoad={[Function]}
+                                                            showTags={true}
+                                                            store={
+                                                              Object {
+                                                                "clearActions": [Function],
+                                                                "dispatch": [Function],
+                                                                "getActions": [Function],
+                                                                "getState": [Function],
+                                                                "replaceReducer": [Function],
+                                                                "subscribe": [Function],
+                                                              }
+                                                            }
+                                                            tableProps={
+                                                              Object {
+                                                                "canSelectAll": false,
+                                                                "className": "inventory-align",
+                                                                "isStickyHeader": true,
+                                                                "ouiaId": "systems-table",
+                                                                "selectVariant": "checkbox",
+                                                              }
+                                                            }
+                                                          />
+                                                        }
+                                                        appName="inventory"
+                                                        bulkSelect={
+                                                          Object {
+                                                            "checked": false,
+                                                            "count": 0,
+                                                            "id": "systems-bulk-select",
+                                                            "isDisabled": true,
+                                                            "items": Array [
+                                                              Object {
+                                                                "onClick": [Function],
+                                                                "title": "Select none (0)",
+                                                              },
+                                                              Object {
+                                                                "onClick": [Function],
+                                                                "title": "Select page (2)",
+                                                              },
+                                                              Object {
+                                                                "onClick": [Function],
+                                                                "title": "Select all (5)",
+                                                              },
+                                                            ],
+                                                            "onSelect": [Function],
+                                                            "toggleProps": null,
+                                                          }
+                                                        }
+                                                        columns={
+                                                          Array [
+                                                            Object {
+                                                              "key": "display_name",
+                                                              "props": Object {
+                                                                "width": 20,
+                                                              },
+                                                              "title": "Name",
+                                                            },
+                                                            Object {
+                                                              "key": "tags",
+                                                              "props": Object {
+                                                                "isStatic": true,
+                                                                "width": 10,
+                                                              },
+                                                              "title": "Tags",
+                                                            },
+                                                            Object {
+                                                              "key": "updated",
+                                                              "props": Object {
+                                                                "width": 10,
+                                                              },
+                                                              "title": "Last seen",
+                                                            },
+                                                            Object {
+                                                              "key": "historical_profiles",
+                                                              "props": Object {
+                                                                "isStatic": true,
+                                                                "width": 10,
+                                                              },
+                                                              "title": "Historical profiles",
+                                                            },
+                                                          ]
+                                                        }
+                                                        component="section"
+                                                        customFilters={
+                                                          Object {
+                                                            "filter": Object {
+                                                              "system_profile": Object {},
+                                                            },
+                                                            "tags": Array [],
+                                                          }
+                                                        }
+>>>>>>> e080606 ([DRFT-233] Fix bugs with bulk select)
                                                         fallback={
                                                           <Bullseye
                                                             className="pf-u-p-lg"
@@ -10645,7 +11542,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                   "checked": false,
                                                                   "count": 0,
                                                                   "id": "systems-bulk-select",
-                                                                  "isDisabled": false,
+                                                                  "isDisabled": true,
                                                                   "items": Array [
                                                                     Object {
                                                                       "onClick": [Function],
@@ -10653,14 +11550,15 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                     },
                                                                     Object {
                                                                       "onClick": [Function],
-                                                                      "title": "Select page (0)",
+                                                                      "title": "Select page (2)",
                                                                     },
                                                                     Object {
                                                                       "onClick": [Function],
-                                                                      "title": "Deselect page (0)",
+                                                                      "title": "Select all (5)",
                                                                     },
                                                                   ],
                                                                   "onSelect": [Function],
+                                                                  "toggleProps": null,
                                                                 }
                                                               }
                                                               columns={
@@ -10777,7 +11675,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                               "checked": false,
                                                               "count": 0,
                                                               "id": "systems-bulk-select",
-                                                              "isDisabled": false,
+                                                              "isDisabled": true,
                                                               "items": Array [
                                                                 Object {
                                                                   "onClick": [Function],
@@ -10785,14 +11683,15 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                 },
                                                                 Object {
                                                                   "onClick": [Function],
-                                                                  "title": "Select page (0)",
+                                                                  "title": "Select page (2)",
                                                                 },
                                                                 Object {
                                                                   "onClick": [Function],
-                                                                  "title": "Deselect page (0)",
+                                                                  "title": "Select all (5)",
                                                                 },
                                                               ],
                                                               "onSelect": [Function],
+                                                              "toggleProps": null,
                                                             }
                                                           }
                                                           columns={
@@ -11044,7 +11943,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                 "checked": false,
                                                                 "count": 0,
                                                                 "id": "systems-bulk-select",
-                                                                "isDisabled": false,
+                                                                "isDisabled": true,
                                                                 "items": Array [
                                                                   Object {
                                                                     "onClick": [Function],
@@ -11052,14 +11951,15 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                   },
                                                                   Object {
                                                                     "onClick": [Function],
-                                                                    "title": "Select page (0)",
+                                                                    "title": "Select page (2)",
                                                                   },
                                                                   Object {
                                                                     "onClick": [Function],
-                                                                    "title": "Deselect page (0)",
+                                                                    "title": "Select all (5)",
                                                                   },
                                                                 ],
                                                                 "onSelect": [Function],
+                                                                "toggleProps": null,
                                                               }
                                                             }
                                                             columns={
@@ -11249,6 +12149,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                   />
                                                                 </Bullseye>
                                                               }
+<<<<<<< HEAD
                                                               getEntities={[Function]}
                                                               history={
                                                                 Object {
@@ -11257,6 +12158,36 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                   "canGo": [Function],
                                                                   "createHref": [Function],
                                                                   "entries": Array [
+=======
+                                                            >
+                                                              <_default
+                                                                bulkSelect={
+                                                                  Object {
+                                                                    "checked": false,
+                                                                    "count": 0,
+                                                                    "id": "systems-bulk-select",
+                                                                    "isDisabled": true,
+                                                                    "items": Array [
+                                                                      Object {
+                                                                        "onClick": [Function],
+                                                                        "title": "Select none (0)",
+                                                                      },
+                                                                      Object {
+                                                                        "onClick": [Function],
+                                                                        "title": "Select page (2)",
+                                                                      },
+                                                                      Object {
+                                                                        "onClick": [Function],
+                                                                        "title": "Select all (5)",
+                                                                      },
+                                                                    ],
+                                                                    "onSelect": [Function],
+                                                                    "toggleProps": null,
+                                                                  }
+                                                                }
+                                                                columns={
+                                                                  Array [
+>>>>>>> e080606 ([DRFT-233] Fix bugs with bulk select)
                                                                     Object {
                                                                       "hash": "",
                                                                       "pathname": "/",
@@ -16236,6 +17167,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
           disableSystemTable={[Function]}
           entities={
             Object {
+              "count": 2,
               "rows": Array [
                 Object {
                   "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
@@ -16247,6 +17179,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                 },
               ],
               "selectedSystemIds": Array [],
+              "total": 5,
             }
           }
           globalFilterState={
@@ -16304,6 +17237,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
             disableSystemTable={[Function]}
             entities={
               Object {
+                "count": 2,
                 "rows": Array [
                   Object {
                     "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
@@ -16315,6 +17249,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                   },
                 ],
                 "selectedSystemIds": Array [],
+                "total": 5,
               }
             }
             globalFilterState={
@@ -16500,7 +17435,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                 </div>
                                 <div
                                   class="pf-c-toolbar__expandable-content"
-                                  id="pf-random-id-3-expandable-content-3"
+                                  id="pf-random-id-3-expandable-content-2"
                                 >
                                   <div
                                     class="pf-c-toolbar__group"
@@ -16934,7 +17869,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                   </div>
                                   <div
                                     class="pf-c-toolbar__expandable-content"
-                                    id="pf-random-id-4-expandable-content-5"
+                                    id="pf-random-id-4-expandable-content-4"
                                   >
                                     <div
                                       class="pf-c-toolbar__group"
@@ -17649,6 +18584,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                     baselines={Array []}
                                                     entities={
                                                       Object {
+                                                        "count": 2,
                                                         "rows": Array [
                                                           Object {
                                                             "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
@@ -17660,6 +18596,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                           },
                                                         ],
                                                         "selectedSystemIds": Array [],
+                                                        "total": 5,
                                                       }
                                                     }
                                                     handleBaselineSelection={[Function]}
@@ -17895,7 +18832,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                 Object {
                                                   "current": <div
                                                     class="pf-c-toolbar__expandable-content"
-                                                    id="pf-random-id-3-expandable-content-3"
+                                                    id="pf-random-id-3-expandable-content-2"
                                                   >
                                                     <div
                                                       class="pf-c-toolbar__group"
@@ -17903,13 +18840,13 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                   </div>,
                                                 }
                                               }
-                                              id="pf-random-id-3-expandable-content-3"
+                                              id="pf-random-id-3-expandable-content-2"
                                               isExpanded={false}
                                               showClearFiltersButton={false}
                                             >
                                               <div
                                                 className="pf-c-toolbar__expandable-content"
-                                                id="pf-random-id-3-expandable-content-3"
+                                                id="pf-random-id-3-expandable-content-2"
                                               >
                                                 <ForwardRef>
                                                   <ToolbarGroupWithRef
@@ -18160,8 +19097,10 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                           title="Systems"
                                         >
                                           <Memo(Connect(SystemsTable))
+                                            bulkSelectDisabled={true}
                                             entities={
                                               Object {
+                                                "count": 2,
                                                 "rows": Array [
                                                   Object {
                                                     "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
@@ -18173,6 +19112,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                   },
                                                 ],
                                                 "selectedSystemIds": Array [],
+                                                "total": 5,
                                               }
                                             }
                                             hasMultiSelect={true}
@@ -18236,8 +19176,10 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                             title="Systems"
                                           >
                                             <Memo(Connect(SystemsTable))
+                                              bulkSelectDisabled={true}
                                               entities={
                                                 Object {
+                                                  "count": 2,
                                                   "rows": Array [
                                                     Object {
                                                       "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
@@ -18249,6 +19191,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                     },
                                                   ],
                                                   "selectedSystemIds": Array [],
+                                                  "total": 5,
                                                 }
                                               }
                                               hasMultiSelect={true}
@@ -18313,8 +19256,10 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                           tabIndex={0}
                                         >
                                           <Connect(SystemsTable)
+                                            bulkSelectDisabled={true}
                                             entities={
                                               Object {
+                                                "count": 2,
                                                 "rows": Array [
                                                   Object {
                                                     "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
@@ -18326,6 +19271,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                   },
                                                 ],
                                                 "selectedSystemIds": Array [],
+                                                "total": 5,
                                               }
                                             }
                                             hasMultiSelect={true}
@@ -18375,9 +19321,11 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                             }
                                           >
                                             <SystemsTable
+                                              bulkSelectDisabled={true}
                                               driftClearFilters={[Function]}
                                               entities={
                                                 Object {
+                                                  "count": 2,
                                                   "rows": Array [
                                                     Object {
                                                       "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
@@ -18389,6 +19337,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                     },
                                                   ],
                                                   "selectedSystemIds": Array [],
+                                                  "total": 5,
                                                 }
                                               }
                                               hasMultiSelect={true}
@@ -20172,7 +21121,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                               Object {
                                                                 "current": <div
                                                                   class="pf-c-toolbar__expandable-content"
-                                                                  id="pf-random-id-4-expandable-content-5"
+                                                                  id="pf-random-id-4-expandable-content-4"
                                                                 >
                                                                   <div
                                                                     class="pf-c-toolbar__group"
@@ -20180,13 +21129,13 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                 </div>,
                                                               }
                                                             }
-                                                            id="pf-random-id-4-expandable-content-5"
+                                                            id="pf-random-id-4-expandable-content-4"
                                                             isExpanded={false}
                                                             showClearFiltersButton={false}
                                                           >
                                                             <div
                                                               className="pf-c-toolbar__expandable-content"
-                                                              id="pf-random-id-4-expandable-content-5"
+                                                              id="pf-random-id-4-expandable-content-4"
                                                             >
                                                               <ForwardRef>
                                                                 <ToolbarGroupWithRef

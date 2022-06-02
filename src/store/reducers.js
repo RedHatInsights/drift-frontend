@@ -81,10 +81,11 @@ function selectedReducer(
 
             return {
                 ...state,
+                selectedSystemIds: systemNotificationIds || state.selectedSystemIds,
                 rows: state.selectedHSP && !hasMultiSelect
                     ? helpers.buildSystemsTableWithSelectedHSP(rows, state.selectedHSP, deselectHistoricalProfiles)
                     : rows,
-                selectedSystems: helpers.findSelectedOnPage(rows, state.selectedSystemIds)
+                selectedSystems: helpers.createSelectedSystems(rows, state.selectedSystemIds)
             };
         },
         [types.DRIFT_CLEAR_ALL_FILTERS]: (state) => ({
@@ -126,7 +127,9 @@ function selectedReducer(
                         let ids = state.rows.map(function (item) {
                             return item.id;
                         });
-                        selectedSystemIds = [ ...new Set(selectedSystemIds.concat(ids)) ];
+
+                        selectedSystemIds = [ ...new Set(selectedSystemIds.concat(action.payload.systemIds || ids)) ];
+
                     } else {
                         if (action.payload.bulk) {
                             selectedSystemIds = [];
@@ -162,8 +165,12 @@ function selectedReducer(
             }
 
             if (newRows.length === 0) {
-                selectedSystems = helpers.findSelectedOnPage(state.rows, selectedSystemIds);
+                selectedSystems = helpers.createSelectedSystems(state.rows, selectedSystemIds);
             }
+
+            console.log(selectedSystemIds, 'selectedSystemIds');
+            console.log(selectedSystems, 'selectedSystems');
+            console.log(newRows, 'newRows');
 
             return {
                 ...state,
@@ -173,11 +180,12 @@ function selectedReducer(
             };
         },
         [types.SET_SELECTED_SYSTEM_IDS]: (state, action) => {
+            console.log(action.payload, 'action.payload');
             return {
                 ...state,
-                rows: [],
+                //rows: [],
                 loaded: false,
-                selectedSystemIds: action.payload.selectedSystemIds
+                selectedSystemIds: action.payload.selectedSystemIds || action.payload
             };
         },
         [types.SELECT_SINGLE_HSP]: (state, action) => {

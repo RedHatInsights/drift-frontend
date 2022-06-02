@@ -246,6 +246,7 @@ export class CreateBaselineModal extends Component {
                 selectVariant='radio'
                 systemColumns={ this.buildSystemColumns }
                 deselectHistoricalProfiles={ this.deselectHistoricalProfiles }
+                bulkSelectDisabled={ true }
             />
         </React.Fragment>
         );

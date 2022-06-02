@@ -6,7 +6,7 @@ import baselinesTableHelpers from './BaselinesTable/redux/helpers';
 import editBaselineHelpers from './BaselinesPage/EditBaselinePage/EditBaseline/helpers';
 import { downloadFile } from '@redhat-cloud-services/frontend-components-utilities/helpers';
 
-function findSelectedOnPage(rows, selectedSystemIds) {
+function createSelectedSystems(rows, selectedSystemIds) {
     let selectedSystems = [];
 
     rows.forEach(function(row) {
@@ -32,7 +32,7 @@ function findSelectedOnPage(rows, selectedSystemIds) {
 function findCheckedValue(total, selected) {
     if (selected === total && total > 0) {
         return true;
-    } else if (selected > 0 && selected < total) {
+    } else if (selected > 0) {
         return null;
     } else {
         return false;
@@ -113,10 +113,17 @@ function downloadHelper(baselineData) {
     downloadFile(file, filename, baselineData.type);
 }
 
+function findSelectedCountOnPage(rows) {
+    const selected = rows ? rows.filter(row => row.selected) : [];
+
+    return selected.length;
+}
+
 export default {
-    findSelectedOnPage,
+    createSelectedSystems,
     findCheckedValue,
     paginateData,
     buildSystemsTableWithSelectedHSP,
-    downloadHelper
+    downloadHelper,
+    findSelectedCountOnPage
 };
