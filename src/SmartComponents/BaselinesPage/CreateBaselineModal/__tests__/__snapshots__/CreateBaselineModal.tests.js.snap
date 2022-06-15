@@ -454,6 +454,9 @@ exports[`ConnectedCreateBaselineModal should render correctly 1`] = `
                         focusTrapOptions={
                           Object {
                             "clickOutsideDeactivates": true,
+                            "tabbableOptions": Object {
+                              "displayCheck": "none",
+                            },
                           }
                         }
                         paused={false}
@@ -757,6 +760,7 @@ exports[`ConnectedCreateBaselineModal should render correctly 1`] = `
                                                   className="fact-value"
                                                   innerRef={null}
                                                   isDisabled={false}
+                                                  isIconSprite={false}
                                                   isLeftTruncated={false}
                                                   isReadOnly={false}
                                                   isRequired={false}

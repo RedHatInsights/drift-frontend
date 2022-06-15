@@ -419,6 +419,9 @@ exports[`EditBaselineNameModal should render mount correctly 1`] = `
               focusTrapOptions={
                 Object {
                   "clickOutsideDeactivates": true,
+                  "tabbableOptions": Object {
+                    "displayCheck": "none",
+                  },
                 }
               }
               paused={false}
@@ -600,6 +603,7 @@ exports[`EditBaselineNameModal should render mount correctly 1`] = `
                                         className=""
                                         innerRef={null}
                                         isDisabled={false}
+                                        isIconSprite={false}
                                         isLeftTruncated={false}
                                         isReadOnly={false}
                                         isRequired={false}

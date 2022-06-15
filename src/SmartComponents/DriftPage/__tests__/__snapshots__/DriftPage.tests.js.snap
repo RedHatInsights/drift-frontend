@@ -507,6 +507,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                           </DropdownItem>,
                                                         ]
                                                       }
+                                                      isFlipEnabled={false}
                                                       isGrouped={false}
                                                       isOpen={false}
                                                       isPlain={false}
@@ -876,6 +877,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                         id="filterByFact"
                                                                         innerRef={null}
                                                                         isDisabled={false}
+                                                                        isIconSprite={false}
                                                                         isLeftTruncated={false}
                                                                         isReadOnly={false}
                                                                         isRequired={false}
@@ -923,15 +925,16 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                             class="pf-c-toolbar__item pf-m-chip-group"
                                                           >
                                                             <div
+                                                              aria-labelledby="pf-random-id-2"
                                                               class="pf-c-chip-group pf-m-category"
                                                               data-ouia-component-type="PF4/ChipGroup"
                                                               data-ouia-safe="true"
+                                                              role="group"
                                                             >
                                                               <div
                                                                 class="pf-c-chip-group__main"
                                                               >
                                                                 <span
-                                                                  aria-hidden="true"
                                                                   class="pf-c-chip-group__label"
                                                                   id="pf-random-id-2"
                                                                 >
@@ -1128,15 +1131,16 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                             class="pf-c-toolbar__item pf-m-chip-group"
                                                           >
                                                             <div
+                                                              aria-labelledby="pf-random-id-2"
                                                               class="pf-c-chip-group pf-m-category"
                                                               data-ouia-component-type="PF4/ChipGroup"
                                                               data-ouia-safe="true"
+                                                              role="group"
                                                             >
                                                               <div
                                                                 class="pf-c-chip-group__main"
                                                               >
                                                                 <span
-                                                                  aria-hidden="true"
                                                                   class="pf-c-chip-group__label"
                                                                   id="pf-random-id-2"
                                                                 >
@@ -1340,15 +1344,16 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                             class="pf-c-toolbar__item pf-m-chip-group"
                                                           >
                                                             <div
+                                                              aria-labelledby="pf-random-id-2"
                                                               class="pf-c-chip-group pf-m-category"
                                                               data-ouia-component-type="PF4/ChipGroup"
                                                               data-ouia-safe="true"
+                                                              role="group"
                                                             >
                                                               <div
                                                                 class="pf-c-chip-group__main"
                                                               >
                                                                 <span
-                                                                  aria-hidden="true"
                                                                   class="pf-c-chip-group__label"
                                                                   id="pf-random-id-2"
                                                                 >
@@ -1545,15 +1550,16 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                               prefix="pf-random-id-"
                                                             >
                                                               <div
+                                                                aria-labelledby="pf-random-id-2"
                                                                 className="pf-c-chip-group pf-m-category"
                                                                 data-ouia-component-type="PF4/ChipGroup"
                                                                 data-ouia-safe={true}
+                                                                role="group"
                                                               >
                                                                 <div
                                                                   className="pf-c-chip-group__main"
                                                                 >
                                                                   <span
-                                                                    aria-hidden="true"
                                                                     className="pf-c-chip-group__label"
                                                                     id="pf-random-id-2"
                                                                   >
@@ -2073,6 +2079,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                             </DropdownItem>,
                                                           ]
                                                         }
+                                                        isFlipEnabled={false}
                                                         isGrouped={false}
                                                         isOpen={false}
                                                         isPlain={true}
@@ -2327,6 +2334,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                           ]
                                                         }
                                                         id="action-kebab"
+                                                        isFlipEnabled={false}
                                                         isGrouped={false}
                                                         isOpen={false}
                                                         isPlain={true}
@@ -2562,6 +2570,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                 ouiaSafe={true}
                                                 page={0}
                                                 perPage={10}
+                                                perPageComponent="div"
                                                 perPageOptions={
                                                   Array [
                                                     Object {
@@ -2588,7 +2597,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                     "items": "",
                                                     "itemsPerPage": "Items per page",
                                                     "ofWord": "of",
-                                                    "optionsToggle": "Items per page",
+                                                    "optionsToggle": "",
                                                     "page": "",
                                                     "pages": "",
                                                     "paginationTitle": "Pagination",
@@ -2646,9 +2655,10 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                     lastPage={0}
                                                     ofWord="of"
                                                     onPerPageSelect={[Function]}
-                                                    optionsToggle="Items per page"
+                                                    optionsToggle=""
                                                     page={0}
                                                     perPage={10}
+                                                    perPageComponent="div"
                                                     perPageOptions={
                                                       Array [
                                                         Object {
@@ -2726,6 +2736,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                           </DropdownItem>,
                                                         ]
                                                       }
+                                                      isFlipEnabled={false}
                                                       isGrouped={false}
                                                       isOpen={false}
                                                       isPlain={true}
@@ -2744,8 +2755,9 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                           lastIndex={0}
                                                           ofWord="of"
                                                           onToggle={[Function]}
-                                                          optionsToggle="Items per page"
+                                                          optionsToggle=""
                                                           parentRef={null}
+                                                          perPageComponent="div"
                                                           showToggle={true}
                                                           toggleTemplate={[Function]}
                                                           widgetId="drift-pagination-top"
@@ -2774,7 +2786,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                           ofWord="of"
                                                           onEnter={[Function]}
                                                           onToggle={[Function]}
-                                                          optionsToggle="Items per page"
+                                                          optionsToggle=""
                                                           parentRef={
                                                             Object {
                                                               "current": <div
@@ -2804,6 +2816,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                   </span>
                                                                   <button
                                                                     aria-expanded="false"
+                                                                    aria-haspopup="listbox"
                                                                     aria-label="Items per page"
                                                                     class="  pf-c-options-menu__toggle-button"
                                                                     data-ouia-component-id="OUIA-Generated-DropdownToggle-1"
@@ -2834,6 +2847,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                               </div>,
                                                             }
                                                           }
+                                                          perPageComponent="div"
                                                           showToggle={true}
                                                           toggleTemplate={[Function]}
                                                           widgetId="drift-pagination-top"
@@ -2866,6 +2880,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                               </ToggleTemplate>
                                                             </span>
                                                             <DropdownToggle
+                                                              aria-haspopup="listbox"
                                                               aria-label="Items per page"
                                                               className="pf-c-options-menu__toggle-button"
                                                               id="drift-pagination-top-toggle-0"
@@ -2902,6 +2917,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                       </span>
                                                                       <button
                                                                         aria-expanded="false"
+                                                                        aria-haspopup="listbox"
                                                                         aria-label="Items per page"
                                                                         class="  pf-c-options-menu__toggle-button"
                                                                         data-ouia-component-id="OUIA-Generated-DropdownToggle-1"
@@ -2934,6 +2950,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                               }
                                                             >
                                                               <Toggle
+                                                                aria-haspopup="listbox"
                                                                 aria-label="Items per page"
                                                                 bubbleEvent={false}
                                                                 className="pf-c-options-menu__toggle-button"
@@ -2980,6 +2997,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                         </span>
                                                                         <button
                                                                           aria-expanded="false"
+                                                                          aria-haspopup="listbox"
                                                                           aria-label="Items per page"
                                                                           class="  pf-c-options-menu__toggle-button"
                                                                           data-ouia-component-id="OUIA-Generated-DropdownToggle-1"
@@ -3014,6 +3032,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                               >
                                                                 <button
                                                                   aria-expanded={false}
+                                                                  aria-haspopup="listbox"
                                                                   aria-label="Items per page"
                                                                   className="  pf-c-options-menu__toggle-button"
                                                                   data-ouia-component-id="OUIA-Generated-DropdownToggle-1"
@@ -3356,15 +3375,16 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                               class="pf-c-toolbar__item pf-m-chip-group"
                                             >
                                               <div
+                                                aria-labelledby="pf-random-id-2"
                                                 class="pf-c-chip-group pf-m-category"
                                                 data-ouia-component-type="PF4/ChipGroup"
                                                 data-ouia-safe="true"
+                                                role="group"
                                               >
                                                 <div
                                                   class="pf-c-chip-group__main"
                                                 >
                                                   <span
-                                                    aria-hidden="true"
                                                     class="pf-c-chip-group__label"
                                                     id="pf-random-id-2"
                                                   >
@@ -4252,6 +4272,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                               ouiaSafe={true}
                                               page={0}
                                               perPage={10}
+                                              perPageComponent="div"
                                               perPageOptions={
                                                 Array [
                                                   Object {
@@ -4278,7 +4299,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                   "items": "",
                                                   "itemsPerPage": "Items per page",
                                                   "ofWord": "of",
-                                                  "optionsToggle": "Items per page",
+                                                  "optionsToggle": "",
                                                   "page": "",
                                                   "pages": "",
                                                   "paginationTitle": "Pagination",
@@ -4312,9 +4333,10 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                   lastPage={0}
                                                   ofWord="of"
                                                   onPerPageSelect={[Function]}
-                                                  optionsToggle="Items per page"
+                                                  optionsToggle=""
                                                   page={0}
                                                   perPage={10}
+                                                  perPageComponent="div"
                                                   perPageOptions={
                                                     Array [
                                                       Object {
@@ -4392,6 +4414,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                         </DropdownItem>,
                                                       ]
                                                     }
+                                                    isFlipEnabled={false}
                                                     isGrouped={false}
                                                     isOpen={false}
                                                     isPlain={true}
@@ -4410,8 +4433,9 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                         lastIndex={0}
                                                         ofWord="of"
                                                         onToggle={[Function]}
-                                                        optionsToggle="Items per page"
+                                                        optionsToggle=""
                                                         parentRef={null}
+                                                        perPageComponent="div"
                                                         showToggle={true}
                                                         toggleTemplate={[Function]}
                                                         widgetId="drift-pagination-bottom"
@@ -4440,7 +4464,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                         ofWord="of"
                                                         onEnter={[Function]}
                                                         onToggle={[Function]}
-                                                        optionsToggle="Items per page"
+                                                        optionsToggle=""
                                                         parentRef={
                                                           Object {
                                                             "current": <div
@@ -4470,6 +4494,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                 </span>
                                                                 <button
                                                                   aria-expanded="false"
+                                                                  aria-haspopup="listbox"
                                                                   aria-label="Items per page"
                                                                   class="  pf-c-options-menu__toggle-button"
                                                                   data-ouia-component-id="OUIA-Generated-DropdownToggle-2"
@@ -4500,6 +4525,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                             </div>,
                                                           }
                                                         }
+                                                        perPageComponent="div"
                                                         showToggle={true}
                                                         toggleTemplate={[Function]}
                                                         widgetId="drift-pagination-bottom"
@@ -4532,6 +4558,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                             </ToggleTemplate>
                                                           </span>
                                                           <DropdownToggle
+                                                            aria-haspopup="listbox"
                                                             aria-label="Items per page"
                                                             className="pf-c-options-menu__toggle-button"
                                                             id="drift-pagination-bottom-toggle-1"
@@ -4568,6 +4595,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                     </span>
                                                                     <button
                                                                       aria-expanded="false"
+                                                                      aria-haspopup="listbox"
                                                                       aria-label="Items per page"
                                                                       class="  pf-c-options-menu__toggle-button"
                                                                       data-ouia-component-id="OUIA-Generated-DropdownToggle-2"
@@ -4600,6 +4628,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                             }
                                                           >
                                                             <Toggle
+                                                              aria-haspopup="listbox"
                                                               aria-label="Items per page"
                                                               bubbleEvent={false}
                                                               className="pf-c-options-menu__toggle-button"
@@ -4646,6 +4675,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                                       </span>
                                                                       <button
                                                                         aria-expanded="false"
+                                                                        aria-haspopup="listbox"
                                                                         aria-label="Items per page"
                                                                         class="  pf-c-options-menu__toggle-button"
                                                                         data-ouia-component-id="OUIA-Generated-DropdownToggle-2"
@@ -4680,6 +4710,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                                             >
                                                               <button
                                                                 aria-expanded={false}
+                                                                aria-haspopup="listbox"
                                                                 aria-label="Items per page"
                                                                 className="  pf-c-options-menu__toggle-button"
                                                                 data-ouia-component-id="OUIA-Generated-DropdownToggle-2"
@@ -5603,6 +5634,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                           </DropdownItem>,
                                                         ]
                                                       }
+                                                      isFlipEnabled={false}
                                                       isGrouped={false}
                                                       isOpen={false}
                                                       isPlain={false}
@@ -5972,6 +6004,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                         id="filterByFact"
                                                                         innerRef={null}
                                                                         isDisabled={false}
+                                                                        isIconSprite={false}
                                                                         isLeftTruncated={false}
                                                                         isReadOnly={false}
                                                                         isRequired={false}
@@ -6019,15 +6052,16 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                             class="pf-c-toolbar__item pf-m-chip-group"
                                                           >
                                                             <div
+                                                              aria-labelledby="pf-random-id-8"
                                                               class="pf-c-chip-group pf-m-category"
                                                               data-ouia-component-type="PF4/ChipGroup"
                                                               data-ouia-safe="true"
+                                                              role="group"
                                                             >
                                                               <div
                                                                 class="pf-c-chip-group__main"
                                                               >
                                                                 <span
-                                                                  aria-hidden="true"
                                                                   class="pf-c-chip-group__label"
                                                                   id="pf-random-id-8"
                                                                 >
@@ -6224,15 +6258,16 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                             class="pf-c-toolbar__item pf-m-chip-group"
                                                           >
                                                             <div
+                                                              aria-labelledby="pf-random-id-8"
                                                               class="pf-c-chip-group pf-m-category"
                                                               data-ouia-component-type="PF4/ChipGroup"
                                                               data-ouia-safe="true"
+                                                              role="group"
                                                             >
                                                               <div
                                                                 class="pf-c-chip-group__main"
                                                               >
                                                                 <span
-                                                                  aria-hidden="true"
                                                                   class="pf-c-chip-group__label"
                                                                   id="pf-random-id-8"
                                                                 >
@@ -6436,15 +6471,16 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                             class="pf-c-toolbar__item pf-m-chip-group"
                                                           >
                                                             <div
+                                                              aria-labelledby="pf-random-id-8"
                                                               class="pf-c-chip-group pf-m-category"
                                                               data-ouia-component-type="PF4/ChipGroup"
                                                               data-ouia-safe="true"
+                                                              role="group"
                                                             >
                                                               <div
                                                                 class="pf-c-chip-group__main"
                                                               >
                                                                 <span
-                                                                  aria-hidden="true"
                                                                   class="pf-c-chip-group__label"
                                                                   id="pf-random-id-8"
                                                                 >
@@ -6641,15 +6677,16 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                               prefix="pf-random-id-"
                                                             >
                                                               <div
+                                                                aria-labelledby="pf-random-id-8"
                                                                 className="pf-c-chip-group pf-m-category"
                                                                 data-ouia-component-type="PF4/ChipGroup"
                                                                 data-ouia-safe={true}
+                                                                role="group"
                                                               >
                                                                 <div
                                                                   className="pf-c-chip-group__main"
                                                                 >
                                                                   <span
-                                                                    aria-hidden="true"
                                                                     className="pf-c-chip-group__label"
                                                                     id="pf-random-id-8"
                                                                   >
@@ -7169,6 +7206,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                             </DropdownItem>,
                                                           ]
                                                         }
+                                                        isFlipEnabled={false}
                                                         isGrouped={false}
                                                         isOpen={false}
                                                         isPlain={true}
@@ -7423,6 +7461,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                           ]
                                                         }
                                                         id="action-kebab"
+                                                        isFlipEnabled={false}
                                                         isGrouped={false}
                                                         isOpen={false}
                                                         isPlain={true}
@@ -7658,6 +7697,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                 ouiaSafe={true}
                                                 page={0}
                                                 perPage={10}
+                                                perPageComponent="div"
                                                 perPageOptions={
                                                   Array [
                                                     Object {
@@ -7684,7 +7724,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                     "items": "",
                                                     "itemsPerPage": "Items per page",
                                                     "ofWord": "of",
-                                                    "optionsToggle": "Items per page",
+                                                    "optionsToggle": "",
                                                     "page": "",
                                                     "pages": "",
                                                     "paginationTitle": "Pagination",
@@ -7742,9 +7782,10 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                     lastPage={0}
                                                     ofWord="of"
                                                     onPerPageSelect={[Function]}
-                                                    optionsToggle="Items per page"
+                                                    optionsToggle=""
                                                     page={0}
                                                     perPage={10}
+                                                    perPageComponent="div"
                                                     perPageOptions={
                                                       Array [
                                                         Object {
@@ -7822,6 +7863,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                           </DropdownItem>,
                                                         ]
                                                       }
+                                                      isFlipEnabled={false}
                                                       isGrouped={false}
                                                       isOpen={false}
                                                       isPlain={true}
@@ -7840,8 +7882,9 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                           lastIndex={0}
                                                           ofWord="of"
                                                           onToggle={[Function]}
-                                                          optionsToggle="Items per page"
+                                                          optionsToggle=""
                                                           parentRef={null}
+                                                          perPageComponent="div"
                                                           showToggle={true}
                                                           toggleTemplate={[Function]}
                                                           widgetId="drift-pagination-top"
@@ -7870,7 +7913,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                           ofWord="of"
                                                           onEnter={[Function]}
                                                           onToggle={[Function]}
-                                                          optionsToggle="Items per page"
+                                                          optionsToggle=""
                                                           parentRef={
                                                             Object {
                                                               "current": <div
@@ -7900,6 +7943,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                   </span>
                                                                   <button
                                                                     aria-expanded="false"
+                                                                    aria-haspopup="listbox"
                                                                     aria-label="Items per page"
                                                                     class="  pf-c-options-menu__toggle-button"
                                                                     data-ouia-component-id="OUIA-Generated-DropdownToggle-3"
@@ -7930,6 +7974,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                               </div>,
                                                             }
                                                           }
+                                                          perPageComponent="div"
                                                           showToggle={true}
                                                           toggleTemplate={[Function]}
                                                           widgetId="drift-pagination-top"
@@ -7962,6 +8007,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                               </ToggleTemplate>
                                                             </span>
                                                             <DropdownToggle
+                                                              aria-haspopup="listbox"
                                                               aria-label="Items per page"
                                                               className="pf-c-options-menu__toggle-button"
                                                               id="drift-pagination-top-toggle-2"
@@ -7998,6 +8044,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                       </span>
                                                                       <button
                                                                         aria-expanded="false"
+                                                                        aria-haspopup="listbox"
                                                                         aria-label="Items per page"
                                                                         class="  pf-c-options-menu__toggle-button"
                                                                         data-ouia-component-id="OUIA-Generated-DropdownToggle-3"
@@ -8030,6 +8077,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                               }
                                                             >
                                                               <Toggle
+                                                                aria-haspopup="listbox"
                                                                 aria-label="Items per page"
                                                                 bubbleEvent={false}
                                                                 className="pf-c-options-menu__toggle-button"
@@ -8076,6 +8124,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                         </span>
                                                                         <button
                                                                           aria-expanded="false"
+                                                                          aria-haspopup="listbox"
                                                                           aria-label="Items per page"
                                                                           class="  pf-c-options-menu__toggle-button"
                                                                           data-ouia-component-id="OUIA-Generated-DropdownToggle-3"
@@ -8110,6 +8159,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                               >
                                                                 <button
                                                                   aria-expanded={false}
+                                                                  aria-haspopup="listbox"
                                                                   aria-label="Items per page"
                                                                   className="  pf-c-options-menu__toggle-button"
                                                                   data-ouia-component-id="OUIA-Generated-DropdownToggle-3"
@@ -8452,15 +8502,16 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                               class="pf-c-toolbar__item pf-m-chip-group"
                                             >
                                               <div
+                                                aria-labelledby="pf-random-id-8"
                                                 class="pf-c-chip-group pf-m-category"
                                                 data-ouia-component-type="PF4/ChipGroup"
                                                 data-ouia-safe="true"
+                                                role="group"
                                               >
                                                 <div
                                                   class="pf-c-chip-group__main"
                                                 >
                                                   <span
-                                                    aria-hidden="true"
                                                     class="pf-c-chip-group__label"
                                                     id="pf-random-id-8"
                                                   >
@@ -9360,6 +9411,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                               ouiaSafe={true}
                                               page={0}
                                               perPage={10}
+                                              perPageComponent="div"
                                               perPageOptions={
                                                 Array [
                                                   Object {
@@ -9386,7 +9438,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                   "items": "",
                                                   "itemsPerPage": "Items per page",
                                                   "ofWord": "of",
-                                                  "optionsToggle": "Items per page",
+                                                  "optionsToggle": "",
                                                   "page": "",
                                                   "pages": "",
                                                   "paginationTitle": "Pagination",
@@ -9420,9 +9472,10 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                   lastPage={0}
                                                   ofWord="of"
                                                   onPerPageSelect={[Function]}
-                                                  optionsToggle="Items per page"
+                                                  optionsToggle=""
                                                   page={0}
                                                   perPage={10}
+                                                  perPageComponent="div"
                                                   perPageOptions={
                                                     Array [
                                                       Object {
@@ -9500,6 +9553,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                         </DropdownItem>,
                                                       ]
                                                     }
+                                                    isFlipEnabled={false}
                                                     isGrouped={false}
                                                     isOpen={false}
                                                     isPlain={true}
@@ -9518,8 +9572,9 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                         lastIndex={0}
                                                         ofWord="of"
                                                         onToggle={[Function]}
-                                                        optionsToggle="Items per page"
+                                                        optionsToggle=""
                                                         parentRef={null}
+                                                        perPageComponent="div"
                                                         showToggle={true}
                                                         toggleTemplate={[Function]}
                                                         widgetId="drift-pagination-bottom"
@@ -9548,7 +9603,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                         ofWord="of"
                                                         onEnter={[Function]}
                                                         onToggle={[Function]}
-                                                        optionsToggle="Items per page"
+                                                        optionsToggle=""
                                                         parentRef={
                                                           Object {
                                                             "current": <div
@@ -9578,6 +9633,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                 </span>
                                                                 <button
                                                                   aria-expanded="false"
+                                                                  aria-haspopup="listbox"
                                                                   aria-label="Items per page"
                                                                   class="  pf-c-options-menu__toggle-button"
                                                                   data-ouia-component-id="OUIA-Generated-DropdownToggle-4"
@@ -9608,6 +9664,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                             </div>,
                                                           }
                                                         }
+                                                        perPageComponent="div"
                                                         showToggle={true}
                                                         toggleTemplate={[Function]}
                                                         widgetId="drift-pagination-bottom"
@@ -9640,6 +9697,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                             </ToggleTemplate>
                                                           </span>
                                                           <DropdownToggle
+                                                            aria-haspopup="listbox"
                                                             aria-label="Items per page"
                                                             className="pf-c-options-menu__toggle-button"
                                                             id="drift-pagination-bottom-toggle-3"
@@ -9676,6 +9734,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                     </span>
                                                                     <button
                                                                       aria-expanded="false"
+                                                                      aria-haspopup="listbox"
                                                                       aria-label="Items per page"
                                                                       class="  pf-c-options-menu__toggle-button"
                                                                       data-ouia-component-id="OUIA-Generated-DropdownToggle-4"
@@ -9708,6 +9767,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                             }
                                                           >
                                                             <Toggle
+                                                              aria-haspopup="listbox"
                                                               aria-label="Items per page"
                                                               bubbleEvent={false}
                                                               className="pf-c-options-menu__toggle-button"
@@ -9754,6 +9814,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                                       </span>
                                                                       <button
                                                                         aria-expanded="false"
+                                                                        aria-haspopup="listbox"
                                                                         aria-label="Items per page"
                                                                         class="  pf-c-options-menu__toggle-button"
                                                                         data-ouia-component-id="OUIA-Generated-DropdownToggle-4"
@@ -9788,6 +9849,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                                             >
                                                               <button
                                                                 aria-expanded={false}
+                                                                aria-haspopup="listbox"
                                                                 aria-label="Items per page"
                                                                 className="  pf-c-options-menu__toggle-button"
                                                                 data-ouia-component-id="OUIA-Generated-DropdownToggle-4"
