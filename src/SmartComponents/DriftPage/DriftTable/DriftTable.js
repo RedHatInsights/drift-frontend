@@ -57,8 +57,8 @@ export class DriftTable extends Component {
         }
     }
 
-    async shouldComponentUpdate(nextProps) {
-        if (!nextProps.emptyState) {
+    async componentDidUpdate(prevProps) {
+        if (!this.props.emptyState && prevProps.emptyState) {
             await window.insights?.chrome?.appAction?.('comparison-view');
         }
     }
