@@ -359,6 +359,9 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                       focusTrapOptions={
                         Object {
                           "clickOutsideDeactivates": true,
+                          "tabbableOptions": Object {
+                            "displayCheck": "none",
+                          },
                         }
                       }
                       paused={false}
@@ -486,6 +489,7 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                                 <Checkbox
                                   aria-label="controlled checkbox example"
                                   className="sm-padding-bottom"
+                                  component="div"
                                   data-ouia-component-id="category-checkbox"
                                   data-ouia-component-type="PF4/Checkbox"
                                   id="isCategory"
@@ -584,6 +588,7 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                                                 data-ouia-component-type="PF4/TextInput"
                                                 innerRef={null}
                                                 isDisabled={false}
+                                                isIconSprite={false}
                                                 isLeftTruncated={false}
                                                 isReadOnly={false}
                                                 isRequired={false}
@@ -674,6 +679,7 @@ exports[`ConnectedFactModal should render correctly 1`] = `
                                                 data-ouia-component-type="PF4/TextInput"
                                                 innerRef={null}
                                                 isDisabled={false}
+                                                isIconSprite={false}
                                                 isLeftTruncated={false}
                                                 isReadOnly={false}
                                                 isRequired={false}
@@ -828,6 +834,7 @@ exports[`FactModal should render category correctly 1`] = `
   <Checkbox
     aria-label="controlled checkbox example"
     className="sm-padding-bottom"
+    component="div"
     data-ouia-component-id="category-checkbox"
     data-ouia-component-type="PF4/Checkbox"
     id="isCategory"
@@ -906,6 +913,7 @@ exports[`FactModal should render empty correctly 1`] = `
   <Checkbox
     aria-label="controlled checkbox example"
     className="sm-padding-bottom"
+    component="div"
     data-ouia-component-id="category-checkbox"
     data-ouia-component-type="PF4/Checkbox"
     id="isCategory"
@@ -1007,6 +1015,7 @@ exports[`FactModal should render error correctly 1`] = `
   <Checkbox
     aria-label="controlled checkbox example"
     className="sm-padding-bottom"
+    component="div"
     data-ouia-component-id="category-checkbox"
     data-ouia-component-type="PF4/Checkbox"
     id="isCategory"
