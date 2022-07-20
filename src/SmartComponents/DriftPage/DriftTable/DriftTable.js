@@ -17,6 +17,10 @@ export class DriftTable extends Component {
     constructor(props) {
         super(props);
 
+        this.state = {
+            columnHeaderWidth: 0
+        };
+
         this.masterList = [];
 
         this.setSystemIds();
@@ -31,6 +35,10 @@ export class DriftTable extends Component {
         this.doubleScroll = this.doubleScroll.bind(this);
         this.fetchCompare = this.fetchCompare.bind(this);
         this.removeSystem = this.removeSystem.bind(this);
+    }
+
+    setColumnHeaderWidth = (width) => {
+        this.setState({ columnHeaderWidth: width });
     }
 
     doubleScroll() {
@@ -372,6 +380,7 @@ export class DriftTable extends Component {
 
     renderRow(fact) {
         const { expandedRows, expandRow, referenceId, stateSort } = this.props;
+        const { columnHeaderWidth } = this.state;
         let rows = [];
 
         if (fact.comparisons) {
@@ -383,6 +392,7 @@ export class DriftTable extends Component {
                 referenceId={ referenceId }
                 stateSort={ stateSort }
                 type={ 'category' }
+                columnWidth={ columnHeaderWidth }
             />);
 
             if (expandedRows.includes(fact.name)) {
@@ -396,6 +406,7 @@ export class DriftTable extends Component {
                             referenceId={ referenceId }
                             stateSort={ stateSort }
                             type={ 'multi fact' }
+                            columnWidth={ columnHeaderWidth }
                         />);
 
                         if (expandedRows.includes(comparison.name)) {
@@ -407,6 +418,7 @@ export class DriftTable extends Component {
                                     referenceId={ referenceId }
                                     stateSort={ stateSort }
                                     type={ 'multi value' }
+                                    columnWidth={ columnHeaderWidth }
                                 />);
                             });
                         }
@@ -418,6 +430,7 @@ export class DriftTable extends Component {
                             referenceId={ referenceId }
                             stateSort={ stateSort }
                             type={ 'sub fact' }
+                            columnWidth={ columnHeaderWidth }
                         />);
                     }
                 });
@@ -430,6 +443,7 @@ export class DriftTable extends Component {
                 referenceId={ referenceId }
                 stateSort={ stateSort }
                 type={ 'fact' }
+                columnWidth={ columnHeaderWidth }
             />);
         }
 
@@ -479,6 +493,7 @@ export class DriftTable extends Component {
                                     selectedHSPIds={ selectedHSPIds }
                                     selectHistoricProfiles={ selectHistoricProfiles }
                                     selectedBaselineIds={ selectedBaselineIds }
+                                    setColumnHeaderWidth={ this.setColumnHeaderWidth }
                                 />
                             </thead>
                         </table>

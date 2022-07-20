@@ -363,6 +363,7 @@ exports[`ConnectedDriftTable should render correctly 1`] = `
                       }
                       removeSystem={[Function]}
                       selectHistoricProfiles={[Function]}
+                      setColumnHeaderWidth={[Function]}
                       setHistory={[MockFunction]}
                       systemIds={Array []}
                       toggleFactSort={[Function]}
@@ -861,6 +862,7 @@ exports[`ConnectedDriftTable should render loading rows 1`] = `
                       }
                       removeSystem={[Function]}
                       selectHistoricProfiles={[Function]}
+                      setColumnHeaderWidth={[Function]}
                       setHistory={[MockFunction]}
                       systemIds={Array []}
                       toggleFactSort={[Function]}
@@ -10139,6 +10141,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                       }
                       removeSystem={[Function]}
                       selectHistoricProfiles={[Function]}
+                      setColumnHeaderWidth={[Function]}
                       setHistory={[MockFunction]}
                       systemIds={
                         Array [
@@ -13693,6 +13696,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
               >
                 <tbody>
                   <DriftTableRow
+                    columnWidth={0}
                     expandedRows={Array []}
                     fact={
                       Object {
@@ -13917,29 +13921,60 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                       </td>
                       <td
                         className="comparison-cell highlight"
+                        style={
+                          Object {
+                            "width": 0,
+                          }
+                        }
                       />
                       <td
                         className="comparison-cell highlight"
+                        style={
+                          Object {
+                            "width": 0,
+                          }
+                        }
                       />
                       <td
                         className="comparison-cell highlight"
+                        style={
+                          Object {
+                            "width": 0,
+                          }
+                        }
                       >
                         4
                       </td>
                       <td
                         className="comparison-cell highlight"
+                        style={
+                          Object {
+                            "width": 0,
+                          }
+                        }
                       />
                       <td
                         className="comparison-cell highlight"
+                        style={
+                          Object {
+                            "width": 0,
+                          }
+                        }
                       />
                       <td
                         className="comparison-cell highlight"
+                        style={
+                          Object {
+                            "width": 0,
+                          }
+                        }
                       >
                         3
                       </td>
                     </tr>
                   </DriftTableRow>
                   <DriftTableRow
+                    columnWidth={0}
                     expandedRows={Array []}
                     fact={
                       Object {
@@ -14156,29 +14191,60 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                       </td>
                       <td
                         className="comparison-cell"
+                        style={
+                          Object {
+                            "width": 0,
+                          }
+                        }
                       />
                       <td
                         className="comparison-cell"
+                        style={
+                          Object {
+                            "width": 0,
+                          }
+                        }
                       />
                       <td
                         className="comparison-cell"
+                        style={
+                          Object {
+                            "width": 0,
+                          }
+                        }
                       >
                         FAKE-BIOS
                       </td>
                       <td
                         className="comparison-cell"
+                        style={
+                          Object {
+                            "width": 0,
+                          }
+                        }
                       />
                       <td
                         className="comparison-cell"
+                        style={
+                          Object {
+                            "width": 0,
+                          }
+                        }
                       />
                       <td
                         className="comparison-cell"
+                        style={
+                          Object {
+                            "width": 0,
+                          }
+                        }
                       >
                         FAKE-BIOS
                       </td>
                     </tr>
                   </DriftTableRow>
                   <DriftTableRow
+                    columnWidth={0}
                     expandedRows={Array []}
                     fact={
                       Object {
@@ -14395,23 +14461,53 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                       </td>
                       <td
                         className="comparison-cell"
+                        style={
+                          Object {
+                            "width": 0,
+                          }
+                        }
                       />
                       <td
                         className="comparison-cell"
+                        style={
+                          Object {
+                            "width": 0,
+                          }
+                        }
                       />
                       <td
                         className="comparison-cell"
+                        style={
+                          Object {
+                            "width": 0,
+                          }
+                        }
                       >
                         PC-NAME
                       </td>
                       <td
                         className="comparison-cell"
+                        style={
+                          Object {
+                            "width": 0,
+                          }
+                        }
                       />
                       <td
                         className="comparison-cell"
+                        style={
+                          Object {
+                            "width": 0,
+                          }
+                        }
                       />
                       <td
                         className="comparison-cell"
+                        style={
+                          Object {
+                            "width": 0,
+                          }
+                        }
                       >
                         PC-NAME
                       </td>
@@ -14477,6 +14573,7 @@ exports[`DriftTable should render correctly 1`] = `
             }
             removeSystem={[Function]}
             selectHistoricProfiles={[MockFunction]}
+            setColumnHeaderWidth={[Function]}
             setHistory={[MockFunction]}
             stateSort="desc"
             systemIds={Array []}

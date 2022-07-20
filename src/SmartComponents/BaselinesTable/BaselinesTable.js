@@ -119,7 +119,6 @@ export class BaselinesTable extends Component {
         let isSomethingSelected = false;
 
         tableData.map(baseline => {
-            console.log(baseline.selected, 'baseline.selected');
             if (baseline.selected === true) {
                 isSomethingSelected = true;
             }
