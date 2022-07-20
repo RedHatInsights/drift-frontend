@@ -7,7 +7,7 @@ import StateIcon from '../../../StateIcon/StateIcon';
 import RowFact from './RowFact';
 
 function DriftTableRow(props) {
-    const { expandedRows, expandRow, fact, masterList, referenceId, stateSort, type } = props;
+    const { columnWidth, expandedRows, expandRow, fact, masterList, referenceId, stateSort, type } = props;
 
     const findSystem = (systems, id) => {
         return systems.find(system => system.id === id);
@@ -39,6 +39,7 @@ function DriftTableRow(props) {
     const createCells = () => {
         let cell = [];
         let system;
+        let cellWidth;
 
         for (let i = 0; i < masterList.length; i++) {
             if (fact.systems) {
@@ -46,8 +47,11 @@ function DriftTableRow(props) {
             }
 
             let className = createClassname(system);
+            if (className.includes('comparison-cell')) {
+                cellWidth = columnWidth;
+            }
 
-            cell.push(<td className={ className.join(' ') }>
+            cell.push(<td style={{ width: cellWidth }} className={ className.join(' ') }>
                 { system?.value === null ? 'No Data' : system?.value }
                 { system?.is_obfuscated ?
                     <span
@@ -88,6 +92,7 @@ function DriftTableRow(props) {
 }
 
 DriftTableRow.propTypes = {
+    columnWidth: PropTypes.number,
     expandedRows: PropTypes.array,
     expandRow: PropTypes.func,
     fact: PropTypes.object,

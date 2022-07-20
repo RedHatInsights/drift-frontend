@@ -5,6 +5,7 @@ import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-componen
 import { ArrowsAltVIcon, BlueprintIcon, ClockIcon, DisconnectedIcon, ExclamationTriangleIcon,
     LongArrowAltUpIcon, LongArrowAltDownIcon, ServerIcon, TimesIcon } from '@patternfly/react-icons';
 import moment from 'moment';
+import debounce from 'lodash/debounce';
 
 import { ASC, DESC } from '../../../../constants';
 
@@ -14,6 +15,22 @@ import ReferenceSelector from '../ReferenceSelector/ReferenceSelector';
 class ComparisonHeader extends Component {
     constructor(props) {
         super(props);
+        this.columnWidth = React.createRef();
+
+        this.state = {
+            refState: null
+        };
+    }
+
+    setColumnWidth = () => {
+        if (this.columnWidth) {
+            this.props.setColumnHeaderWidth(this.columnWidth.current.offsetWidth);
+            this.setState({ refState: this.columnWidth });
+        }
+    };
+
+    componentDidMount() {
+        window.addEventListener('resize', debounce(this.setColumnWidth, 500));
     }
 
     formatDate = (dateString) => {
@@ -112,6 +129,7 @@ class ComparisonHeader extends Component {
 
             row.push(
                 <th
+                    ref={ this.columnWidth }
                     header-id={ item.id }
                     key={ item.id }
                     className={ item.id === referenceId
@@ -178,6 +196,10 @@ class ComparisonHeader extends Component {
             );
         });
 
+        if (this.state.refState === null && this.columnWidth?.current !== null) {
+            this.setColumnWidth();
+        }
+
         return row;
     }
 
@@ -239,7 +261,9 @@ ComparisonHeader.propTypes = {
     setHistory: PropTypes.func,
     selectedHSPIds: PropTypes.array,
     selectHistoricProfiles: PropTypes.func,
-    selectedBaselineIds: PropTypes.array
+    selectedBaselineIds: PropTypes.array,
+    columnWidth: PropTypes.number,
+    setColumnHeaderWidth: PropTypes.func.isRequired
 };
 
 export default ComparisonHeader;
