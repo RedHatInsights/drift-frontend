@@ -59,7 +59,7 @@ export class EditBaselineNameModal extends Component {
         return (<div className='fact-value'>
             <Form>
                 <FormGroup
-                    label='Baseline title'
+                    label='Baseline name'
                     isRequired
                     fieldId='baseline name'
                     helperTextInvalid={ Object.prototype.hasOwnProperty.call(error, 'detail') ? error.detail : null }
