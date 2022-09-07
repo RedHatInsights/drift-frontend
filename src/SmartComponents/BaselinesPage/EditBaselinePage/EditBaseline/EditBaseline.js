@@ -27,6 +27,7 @@ import {
     FACT_VALUE
 } from '../../../../constants';
 import EmptyStateDisplay from '../../../EmptyStateDisplay/EmptyStateDisplay';
+import { RegistryContext } from '../../../../Utilities/registry';
 
 class EditBaseline extends Component {
     constructor(props) {
@@ -342,43 +343,50 @@ class EditBaseline extends Component {
     }
 
     render() {
-        const { baselineData, baselineDataLoading, editBaselineTableData, exportToCSV, exportToJSON, factModalOpened,
-            editBaselineEmptyState, editBaselineError, clearErrorData, permissions } = this.props;
+        const { baselineData, baselineDataLoading, editBaselineTableData, exportStatus, exportToCSV, exportToJSON, factModalOpened,
+            editBaselineEmptyState, editBaselineError, clearErrorData, permissions, resetBaselineDataExportStatus } = this.props;
         let selected = editBaselineHelpers.findSelected(editBaselineTableData);
 
         return (
-            <React.Fragment>
-                { factModalOpened
-                    ? <FactModal />
-                    : <div></div>
-                }
-                <ErrorAlert
-                    error={ !editBaselineEmptyState && editBaselineError.status ? editBaselineError : {} }
-                    onClose={ clearErrorData }
-                />
-                { editBaselineEmptyState
-                    ? this.renderEmptyState(permissions)
-                    : <Card className='pf-t-light pf-m-opaque-100'>
-                        <CardBody>
-                            <EditBaselineToolbar
-                                selected={ selected }
-                                onBulkSelect={ this.onBulkSelect }
-                                isDisabled={ editBaselineTableData.length === 0 || !permissions.baselinesWrite }
-                                totalFacts={ editBaselineHelpers.findFactCount(editBaselineTableData) }
-                                baselineData={ baselineData }
-                                exportToCSV={ exportToCSV }
-                                exportToJSON={ exportToJSON }
-                                tableData={ editBaselineTableData }
-                                permissions={ permissions }
-                            />
-                            { baselineDataLoading
-                                ? this.renderLoadingRows()
-                                : this.renderTable(permissions)
+            <RegistryContext.Consumer>
+                {
+                    registryContextValue =>
+                        (<>
+                            { factModalOpened
+                                ? <FactModal />
+                                : <div></div>
                             }
-                        </CardBody>
-                    </Card>
-                }
-            </React.Fragment>
+                            <ErrorAlert
+                                error={ !editBaselineEmptyState && editBaselineError.status ? editBaselineError : {} }
+                                onClose={ clearErrorData }
+                            />
+                            { editBaselineEmptyState
+                                ? this.renderEmptyState(permissions)
+                                : <Card className='pf-t-light pf-m-opaque-100'>
+                                    <CardBody>
+                                        <EditBaselineToolbar
+                                            selected={ selected }
+                                            onBulkSelect={ this.onBulkSelect }
+                                            isDisabled={ editBaselineTableData.length === 0 || !permissions.baselinesWrite }
+                                            totalFacts={ editBaselineHelpers.findFactCount(editBaselineTableData) }
+                                            baselineData={ baselineData }
+                                            exportStatus={ exportStatus }
+                                            exportToCSV={ exportToCSV }
+                                            exportToJSON={ exportToJSON }
+                                            tableData={ editBaselineTableData }
+                                            permissions={ permissions }
+                                            resetBaselineDataExportStatus={ resetBaselineDataExportStatus }
+                                            store={ registryContextValue?.registry.getStore() }
+                                        />
+                                        { baselineDataLoading
+                                            ? this.renderLoadingRows()
+                                            : this.renderTable(permissions)
+                                        }
+                                    </CardBody>
+                                </Card>
+                            }
+                        </>)}
+            </RegistryContext.Consumer>
         );
     }
 }
@@ -392,6 +400,7 @@ EditBaseline.propTypes = {
     editBaselineTableData: PropTypes.array,
     expandRow: PropTypes.func,
     expandedRows: PropTypes.array,
+    exportStatus: PropTypes.string,
     selectFact: PropTypes.func,
     clearErrorData: PropTypes.func,
     editBaselineError: PropTypes.object,
@@ -402,7 +411,8 @@ EditBaseline.propTypes = {
     toggleNameSort: PropTypes.func,
     toggleValueSort: PropTypes.func,
     nameSort: PropTypes.string,
-    valueSort: PropTypes.string
+    valueSort: PropTypes.string,
+    resetBaselineDataExportStatus: PropTypes.func
 };
 
 export default EditBaseline;

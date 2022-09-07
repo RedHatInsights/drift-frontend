@@ -92,10 +92,10 @@ export class DriftPage extends Component {
 
     render() {
         const { activeFactFilters, addStateFilter, baselines, clearAllFactFilters, clearAllSelections, clearComparison, clearComparisonFilters,
-            clearSelectedBaselines, emptyState, error, exportToCSV, exportToJSON, factFilter, factSort, factTypeFilters, filterByFact,
+            clearSelectedBaselines, emptyState, error, exportToCSV, exportToJSON, exportStatus, factFilter, factSort, factTypeFilters, filterByFact,
             handleFactFilter, historicalProfiles, handleBaselineSelection, handleHSPSelection, handleSystemSelection, history, loading, page, perPage,
-            referenceId, resetComparisonFilters, selectedBaselineIds, selectedHSPIds, stateFilters, stateSort, systems, toggleFactTypeFilter,
-            totalFacts, updatePagination, updateReferenceId } = this.props;
+            referenceId, resetComparisonFilters, resetExportStatus, selectedBaselineIds, selectedHSPIds, stateFilters, stateSort, systems,
+            toggleFactTypeFilter, totalFacts, updatePagination, updateReferenceId } = this.props;
         const { isFirstReference } = this.state;
 
         return (
@@ -154,6 +154,9 @@ export class DriftPage extends Component {
                                                                 setHistory={ this.setHistory }
                                                                 resetComparisonFilters={ resetComparisonFilters }
                                                                 clearAllSelections={ clearAllSelections }
+                                                                exportStatus={ exportStatus }
+                                                                resetExportStatus={ resetExportStatus }
+                                                                store={ registryContextValue?.registry.getStore() }
                                                             />
                                                             : null
                                                         }
@@ -256,7 +259,9 @@ DriftPage.propTypes = {
     handleHSPSelection: PropTypes.func,
     handleSystemSelection: PropTypes.func,
     resetComparisonFilters: PropTypes.func,
-    clearAllSelections: PropTypes.func
+    clearAllSelections: PropTypes.func,
+    exportStatus: PropTypes.string,
+    resetExportStatus: PropTypes.func
 };
 
 function mapDispatchToProps(dispatch) {
@@ -280,7 +285,8 @@ function mapDispatchToProps(dispatch) {
         handleBaselineSelection: (content, isSelected) => dispatch(addSystemModalActions.handleBaselineSelection(content, isSelected)),
         handleHSPSelection: (content) => dispatch(addSystemModalActions.handleHSPSelection(content)),
         resetComparisonFilters: () => dispatch(compareActions.resetComparisonFilters()),
-        clearAllSelections: () => dispatch(addSystemModalActions.clearAllSelections())
+        clearAllSelections: () => dispatch(addSystemModalActions.clearAllSelections()),
+        resetExportStatus: () => dispatch(compareActions.resetExportStatus())
     };
 }
 
@@ -304,7 +310,8 @@ function mapStateToProps(state) {
         systems: state.compareState.systems,
         baselines: state.compareState.baselines,
         historicalProfiles: state.compareState.historicalProfiles,
-        selectedBaselineIds: state.baselinesTableState.comparisonTable.selectedBaselineIds
+        selectedBaselineIds: state.baselinesTableState.comparisonTable.selectedBaselineIds,
+        exportStatus: state.compareState.exportStatus
     };
 }
 

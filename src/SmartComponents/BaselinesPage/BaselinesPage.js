@@ -71,8 +71,8 @@ export class BaselinesPage extends Component {
     }
 
     renderTable(permissions) {
-        const { baselineError, baselineTableData, clearEditBaselineData, emptyState, loading, notificationsSwitchError, revertBaselineFetch,
-            selectBaseline, selectedBaselineIds, totalBaselines } = this.props;
+        const { baselineError, baselineTableData, clearEditBaselineData, emptyState, exportStatus, loading, notificationsSwitchError,
+            resetBaselinesExportStatus, revertBaselineFetch, selectBaseline, selectedBaselineIds, totalBaselines } = this.props;
         const { columns, error } = this.state;
 
         clearEditBaselineData();
@@ -89,6 +89,7 @@ export class BaselinesPage extends Component {
                     kebab={ true }
                     createButton={ true }
                     exportButton={ true }
+                    exportStatus={ exportStatus }
                     onClick={ this.fetchBaseline }
                     selectBaseline={ selectBaseline }
                     selectedBaselineIds={ selectedBaselineIds }
@@ -100,6 +101,7 @@ export class BaselinesPage extends Component {
                     revertBaselineFetch={ revertBaselineFetch }
                     baselineError={ baselineError }
                     error={ error }
+                    resetBaselinesExportStatus={ resetBaselinesExportStatus }
                 />
             </div>
         );
@@ -150,6 +152,7 @@ BaselinesPage.propTypes = {
     loading: PropTypes.bool,
     baselineTableData: PropTypes.array,
     emptyState: PropTypes.bool,
+    exportStatus: PropTypes.string,
     selectBaseline: PropTypes.func,
     history: PropTypes.object,
     baselineError: PropTypes.object,
@@ -160,13 +163,15 @@ BaselinesPage.propTypes = {
     selectHistoricProfiles: PropTypes.func,
     setSelectedSystemIds: PropTypes.func,
     entitiesLoading: PropTypes.func,
-    notificationsSwitchError: PropTypes.object
+    notificationsSwitchError: PropTypes.object,
+    resetBaselinesExportStatus: PropTypes.func
 };
 
 function mapStateToProps(state) {
     return {
         loading: state.baselinesTableState.checkboxTable.loading,
         emptyState: state.baselinesTableState.checkboxTable.emptyState,
+        exportStatus: state.baselinesTableState.checkboxTable.exportStatus,
         baselineTableData: state.baselinesTableState.checkboxTable.baselineTableData,
         baselineError: state.baselinesTableState.checkboxTable.baselineError,
         notificationsSwitchError: state.editBaselineState.notificationsSwitchError,
@@ -181,7 +186,8 @@ function mapDispatchToProps(dispatch) {
         revertBaselineFetch: () => dispatch(baselinesTableActions.revertBaselineFetch('CHECKBOX')),
         clearEditBaselineData: () => dispatch(editBaselineActions.clearEditBaselineData()),
         selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds)),
-        setSelectedSystemIds: (selectedSystemIds) => dispatch(addSystemModalActions.setSelectedSystemIds(selectedSystemIds))
+        setSelectedSystemIds: (selectedSystemIds) => dispatch(addSystemModalActions.setSelectedSystemIds(selectedSystemIds)),
+        resetBaselinesExportStatus: () => dispatch(baselinesTableActions.resetBaselinesExportStatus())
     };
 }
 

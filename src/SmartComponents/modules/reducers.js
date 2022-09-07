@@ -51,7 +51,8 @@ const initialState = {
     loading: false,
     expandedRows: [],
     error: {},
-    emptyState: true
+    emptyState: true,
+    exportStatus: 'null'
 };
 
 export function compareReducer(state = initialState, action) {
@@ -68,6 +69,7 @@ export function compareReducer(state = initialState, action) {
     let index;
     let newFactFilter;
     let updatedFactTypeFilters;
+    let exportStatus;
 
     switch (action.type) {
         case types.CLEAR_COMPARISON:
@@ -291,18 +293,25 @@ export function compareReducer(state = initialState, action) {
                 totalFacts: filteredFacts.length
             };
         case `${types.EXPORT_TO_CSV}`:
-            reducerHelpers.downloadHelper(
+            exportStatus = reducerHelpers.downloadHelper(
                 'csv', state.sortedFilteredFacts, state.referenceId, [ ...state.baselines, ...state.systems, ...state.historicalProfiles ]
             );
             return {
-                ...state
+                ...state,
+                exportStatus
             };
         case `${types.EXPORT_TO_JSON}`:
-            reducerHelpers.downloadHelper(
+            exportStatus = reducerHelpers.downloadHelper(
                 'json', state.sortedFilteredFacts, state.referenceId, [ ...state.baselines, ...state.systems, ...state.historicalProfiles ]
             );
             return {
-                ...state
+                ...state,
+                exportStatus
+            };
+        case `${types.RESET_EXPORT_STATUS}`:
+            return {
+                ...state,
+                exportStatus: 'null'
             };
         case `${types.EXPAND_ROW}`:
             newExpandedRows = reducerHelpers.toggleExpandedRow(state.expandedRows, action.payload);

@@ -508,14 +508,15 @@ function convertFactsToJSON(data, referenceId, systems, factName) {
 
 function downloadHelper(type, driftData, referenceId, systems) {
     let file;
+
     if (type === 'csv') {
         file = convertFactsToCSV(driftData, referenceId, systems);
     } else {
         file = JSON.stringify(convertFactsToJSON(driftData, referenceId, systems));
     }
 
-    if (file === null) {
-        return;
+    if (file === undefined) {
+        return 'failure';
     }
 
     let filename = 'system-comparison-export-';
@@ -523,6 +524,7 @@ function downloadHelper(type, driftData, referenceId, systems) {
     filename += today.toISOString();
 
     downloadFile(file, filename, type);
+    return 'success';
 }
 
 function toggleExpandedRow(expandedRows, factName) {

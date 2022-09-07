@@ -89,6 +89,12 @@ function exportToJSON(baselineData) {
     };
 }
 
+function resetBaselineDataExportStatus() {
+    return {
+        type: `RESET_BASELINE_DATA_EXPORT_STATUS`
+    };
+}
+
 function toggleNotificationPending() {
     return {
         type: `TOGGLE_NOTIFICATIONS_SWITCH_PENDING`
@@ -137,6 +143,7 @@ export default {
     clearErrorData,
     exportToCSV,
     exportToJSON,
+    resetBaselineDataExportStatus,
     toggleNotificationPending,
     toggleNotificationFulfilled,
     toggleNotificationRejected,

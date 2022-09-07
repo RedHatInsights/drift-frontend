@@ -21,6 +21,7 @@ import { Card, CardBody } from '@patternfly/react-core';
 
 import { EMPTY_BASELINES_TITLE, EMPTY_BASELINES_MESSAGE,
     EMPTY_BASELINES_FILTER_TITLE, EMPTY_FILTER_MESSAGE, EMPTY_RADIO_MESSAGE } from '../../constants';
+import { RegistryContext } from '../../Utilities/registry';
 
 export class BaselinesTable extends Component {
     constructor(props) {
@@ -412,58 +413,65 @@ export class BaselinesTable extends Component {
     }
 
     render() {
-        const { createButton, emptyState, exportToCSV, exportToJSON, exportButton, hasMultiSelect, kebab, leftAlignToolbar,
-            loading, permissions, selectedBaselineIds, tableData, tableId, totalBaselines } = this.props;
+        const { createButton, emptyState, exportStatus, exportToCSV, exportToJSON, exportButton, hasMultiSelect, kebab, leftAlignToolbar,
+            loading, permissions, resetBaselinesExportStatus, selectedBaselineIds, tableData, tableId, totalBaselines } = this.props;
         const { page, perPage } = this.state.params;
 
         return (
-            <React.Fragment>
-                { tableId === 'CHECKBOX' && emptyState && !loading
-                    ? this.renderBaselinesPageError()
-                    : <React.Fragment>
-                        <BaselinesToolbar
-                            createButton={ createButton }
-                            exportButton={ exportButton }
-                            kebab={ kebab }
-                            onSearch={ this.onSearch }
-                            tableId={ tableId }
-                            fetchWithParams={ this.fetchWithParams }
-                            tableData={ tableData }
-                            onBulkSelect={ this.onBulkSelect }
-                            hasMultiSelect={ hasMultiSelect }
-                            selectedBaselineIds={ selectedBaselineIds }
-                            isDeleteDisabled={ selectedBaselineIds?.length < 1 }
-                            page={ page }
-                            perPage={ perPage }
-                            totalBaselines={ totalBaselines }
-                            updatePagination={ this.updatePagination }
-                            exportToCSV={ exportToCSV }
-                            exportToJSON={ exportToJSON }
-                            leftAlignToolbar={ leftAlignToolbar }
-                            loading={ loading }
-                            permissions={ permissions }
-                        />
-                        { emptyState && !loading
-                            ? this.renderEmptyState(permissions)
-                            : this.renderTable(permissions)
-                        }
-                        <Toolbar>
-                            <ToolbarGroup className='pf-c-pagination'>
-                                <ToolbarItem>
-                                    <TablePagination
+            <RegistryContext.Consumer>
+                {
+                    registryContextValue =>
+                        (<>
+                            { tableId === 'CHECKBOX' && emptyState && !loading
+                                ? this.renderBaselinesPageError()
+                                : <React.Fragment>
+                                    <BaselinesToolbar
+                                        createButton={ createButton }
+                                        exportButton={ exportButton }
+                                        exportStatus={ exportStatus }
+                                        kebab={ kebab }
+                                        onSearch={ this.onSearch }
+                                        tableId={ tableId }
+                                        fetchWithParams={ this.fetchWithParams }
+                                        tableData={ tableData }
+                                        onBulkSelect={ this.onBulkSelect }
+                                        hasMultiSelect={ hasMultiSelect }
+                                        selectedBaselineIds={ selectedBaselineIds }
+                                        isDeleteDisabled={ selectedBaselineIds?.length < 1 }
                                         page={ page }
                                         perPage={ perPage }
-                                        total={ !permissions.baselinesRead ? 0 : totalBaselines }
-                                        isCompact={ false }
+                                        totalBaselines={ totalBaselines }
                                         updatePagination={ this.updatePagination }
-                                        tableId={ tableId }
+                                        exportToCSV={ exportToCSV }
+                                        exportToJSON={ exportToJSON }
+                                        leftAlignToolbar={ leftAlignToolbar }
+                                        loading={ loading }
+                                        permissions={ permissions }
+                                        resetBaselinesExportStatus={ resetBaselinesExportStatus }
+                                        store={ registryContextValue?.registry.getStore() }
                                     />
-                                </ToolbarItem>
-                            </ToolbarGroup>
-                        </Toolbar>
-                    </React.Fragment>
-                }
-            </React.Fragment>
+                                    { emptyState && !loading
+                                        ? this.renderEmptyState(permissions)
+                                        : this.renderTable(permissions)
+                                    }
+                                    <Toolbar>
+                                        <ToolbarGroup className='pf-c-pagination'>
+                                            <ToolbarItem>
+                                                <TablePagination
+                                                    page={ page }
+                                                    perPage={ perPage }
+                                                    total={ !permissions.baselinesRead ? 0 : totalBaselines }
+                                                    isCompact={ false }
+                                                    updatePagination={ this.updatePagination }
+                                                    tableId={ tableId }
+                                                />
+                                            </ToolbarItem>
+                                        </ToolbarGroup>
+                                    </Toolbar>
+                                </React.Fragment>
+                            }
+                        </>)}
+            </RegistryContext.Consumer>
         );
     }
 }
@@ -478,6 +486,7 @@ BaselinesTable.propTypes = {
     kebab: PropTypes.bool,
     createButton: PropTypes.bool,
     exportButton: PropTypes.bool,
+    exportStatus: PropTypes.string,
     onSelect: PropTypes.func,
     columns: PropTypes.array,
     selectedBaselineIds: PropTypes.array,
@@ -496,18 +505,19 @@ BaselinesTable.propTypes = {
     toggleNotificationRejected: PropTypes.func,
     baselineError: PropTypes.object,
     revertBaselineFetch: PropTypes.func,
-    bulkSelectBasket: PropTypes.func
+    bulkSelectBasket: PropTypes.func,
+    resetBaselinesExportStatus: PropTypes.func
 };
 
 /*eslint-disable camelcase*/
 function mapDispatchToProps(dispatch) {
     return {
         fetchBaselines: (tableId, params) => dispatch(baselinesTableActions.fetchBaselines(tableId, params)),
-        exportToCSV: (exportData)=> {
-            dispatch(baselinesTableActions.exportToCSV(exportData));
+        exportToCSV: (tableId, exportData)=> {
+            dispatch(baselinesTableActions.exportToCSV(tableId, exportData));
         },
-        exportToJSON: (exportData)=> {
-            dispatch(baselinesTableActions.exportToJSON(exportData));
+        exportToJSON: (tableId, exportData)=> {
+            dispatch(baselinesTableActions.exportToJSON(tableId, exportData));
         },
         toggleNotificationPending: () => dispatch(editBaselineActions.toggleNotificationPending()),
         toggleNotificationFulfilled: (data) => dispatch(editBaselineActions.toggleNotificationFulfilled(data)),

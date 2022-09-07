@@ -11,7 +11,7 @@ import ActionKebab from '../../DriftPage/ActionKebab/ActionKebab';
 import DeleteBaselinesModal from '../../BaselinesPage/DeleteBaselinesModal/DeleteBaselinesModal';
 import helpers from '../../helpers';
 import { TablePagination } from '../../Pagination/Pagination';
-import { bulkSelectItems } from '../../../constants';
+import { bulkSelectItems, errorExportNotification, preparingExportNotification, successfulExportNotification } from '../../../constants';
 
 export class BaselinesToolbar extends Component {
     constructor(props) {
@@ -25,7 +25,7 @@ export class BaselinesToolbar extends Component {
                     key='export-to-CSV'
                     component='button'
                     data-ouia-component-id='export-to-csv-dropdown-item-baselines'
-                    onClick={ () => this.props.exportToCSV(this.props.tableData) }
+                    onClick={ () => this.prepareExport(this.props.exportToCSV) }
                 >
                     Export to CSV
                 </DropdownItem>,
@@ -33,7 +33,7 @@ export class BaselinesToolbar extends Component {
                     key='export-to-JSON'
                     component='button'
                     data-ouia-component-id='export-to-json-dropdown-item-baselines'
-                    onClick={ () => this.props.exportToJSON(this.props.tableData) }
+                    onClick={ () => this.prepareExport(this.props.exportToJSON) }
                 >
                     Export to JSON
                 </DropdownItem>
@@ -42,6 +42,27 @@ export class BaselinesToolbar extends Component {
 
         this.handleSearch = this.handleSearch.bind(this);
         this.clearFilters = this.clearFilters.bind(this);
+    }
+
+    componentDidUpdate(prevProps) {
+        const { exportStatus, resetBaselinesExportStatus, store } = this.props;
+        if (exportStatus === 'success' && prevProps.exportStatus !== 'success') {
+            successfulExportNotification(store);
+            resetBaselinesExportStatus();
+        }
+
+        if (exportStatus === 'failure' && prevProps.exportStatus !== 'failure') {
+            errorExportNotification(store);
+            resetBaselinesExportStatus();
+        }
+    }
+
+    prepareExport = (exportFunc) => {
+        const { store, tableData, tableId } = this.props;
+
+        preparingExportNotification(store);
+
+        exportFunc(tableId, tableData);
     }
 
     onToggle = () => {
@@ -218,11 +239,14 @@ BaselinesToolbar.propTypes = {
     perPage: PropTypes.number,
     totalBaselines: PropTypes.number,
     updatePagination: PropTypes.func,
+    exportStatus: PropTypes.string,
     exportToCSV: PropTypes.func,
     exportToJSON: PropTypes.func,
     loading: PropTypes.bool,
     permissions: PropTypes.object,
-    leftAlignToolbar: PropTypes.bool
+    leftAlignToolbar: PropTypes.bool,
+    resetBaselinesExportStatus: PropTypes.func,
+    store: PropTypes.object
 };
 
 export default BaselinesToolbar;

@@ -237,9 +237,9 @@ export class EditBaselinePage extends Component {
 
     renderMain(permissions) {
         const { baselineData, baselineDataLoading, clearErrorData, driftClearFilters, editBaselineEmptyState, editBaselineError,
-            editBaselineTableData, entities, expandRow, expandedRows, exportToCSV, exportToJSON, factModalOpened, fetchBaselineData,
-            selectFact, match: { params }, selectEntities, selectHistoricProfiles, setSelectedSystemIds, toggleNameSort,
-            toggleValueSort, nameSort, valueSort } = this.props;
+            editBaselineTableData, entities, expandRow, expandedRows, exportStatus, exportToCSV, exportToJSON, factModalOpened, fetchBaselineData,
+            resetBaselineDataExportStatus, selectFact, match: { params }, selectEntities, selectHistoricProfiles, setSelectedSystemIds,
+            toggleNameSort, toggleValueSort, nameSort, valueSort } = this.props;
         const { activeTab } = this.state;
         let body;
 
@@ -254,6 +254,7 @@ export class EditBaselinePage extends Component {
                 editBaselineTableData={ editBaselineTableData }
                 expandRow={ expandRow }
                 expandedRows={ expandedRows }
+                exportStatus={ exportStatus }
                 exportToCSV={ exportToCSV }
                 exportToJSON={ exportToJSON }
                 factModalOpened={ factModalOpened }
@@ -264,6 +265,7 @@ export class EditBaselinePage extends Component {
                 toggleValueSort= { toggleValueSort }
                 nameSort= { nameSort }
                 valueSort= { valueSort }
+                resetBaselineDataExportStatus={ resetBaselineDataExportStatus }
             />;
         } else {
             body = <SystemNotification
@@ -323,6 +325,7 @@ EditBaselinePage.propTypes = {
     factModalOpened: PropTypes.bool,
     editBaselineTableData: PropTypes.array,
     expandRow: PropTypes.func,
+    exportStatus: PropTypes.string,
     expandedRows: PropTypes.array,
     selectFact: PropTypes.func,
     clearErrorData: PropTypes.func,
@@ -344,7 +347,8 @@ EditBaselinePage.propTypes = {
     toggleNameSort: PropTypes.func,
     toggleValueSort: PropTypes.func,
     nameSort: PropTypes.string,
-    valueSort: PropTypes.string
+    valueSort: PropTypes.string,
+    resetBaselineDataExportStatus: PropTypes.func
 };
 
 function mapStateToProps(state) {
@@ -354,6 +358,7 @@ function mapStateToProps(state) {
         factModalOpened: state.editBaselineState.factModalOpened,
         editBaselineTableData: state.editBaselineState.editBaselineTableData,
         expandedRows: state.editBaselineState.expandedRows,
+        exportStatus: state.editBaselineState.exportStatus,
         editBaselineError: state.editBaselineState.editBaselineError,
         notificationsSwitchError: state.editBaselineState.notificationsSwitchError,
         editBaselineEmptyState: state.editBaselineState.editBaselineEmptyState,
@@ -389,7 +394,8 @@ function mapDispatchToProps(dispatch) {
             dispatch(editBaselineActions.toggleNotificationRejected(error, id, display_name));
         },
         toggleNameSort: (sortType) => dispatch(editBaselineActions.toggleNameSort(sortType)),
-        toggleValueSort: (sortType) => dispatch(editBaselineActions.toggleValueSort(sortType))
+        toggleValueSort: (sortType) => dispatch(editBaselineActions.toggleValueSort(sortType)),
+        resetBaselineDataExportStatus: () => dispatch(editBaselineActions.resetBaselineDataExportStatus())
     };
 }
 /*eslint-enable camelcase*/

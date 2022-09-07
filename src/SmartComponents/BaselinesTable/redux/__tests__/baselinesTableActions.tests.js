@@ -42,7 +42,7 @@ describe('baselines table actions', () => {
     });
 
     it('handles exportToCSV', () => {
-        expect(baselinesTableActions.exportToCSV(fixtures.baselineTableDataRows)).toEqual({
+        expect(baselinesTableActions.exportToCSV('CHECKBOX', fixtures.baselineTableDataRows)).toEqual({
             type: `EXPORT_BASELINES_LIST_TO_CSV_CHECKBOX`,
             payload: {
                 type: 'csv',
@@ -53,7 +53,7 @@ describe('baselines table actions', () => {
     });
 
     it('handles exportToJSON', () => {
-        expect(baselinesTableActions.exportToJSON(fixtures.baselineTableDataRows)).toEqual({
+        expect(baselinesTableActions.exportToJSON('CHECKBOX', fixtures.baselineTableDataRows)).toEqual({
             type: `EXPORT_BASELINES_LIST_TO_JSON_CHECKBOX`,
             payload: {
                 type: 'json',

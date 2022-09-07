@@ -11,6 +11,7 @@ import stateFilters from './state-filter.fixtures';
 import { factTypeFilterPayloadWithMultiFact, factTypeFiltered } from './reducer.fact-type-filter-fixtures';
 
 describe('compare reducer', () => {
+    global.URL.createObjectURL = jest.fn();
     it('should return initial state', () => {
         expect(compareReducer(undefined, {})).toEqual(
             {
@@ -32,6 +33,7 @@ describe('compare reducer', () => {
                 baselines: [],
                 loading: false,
                 expandedRows: [],
+                exportStatus: 'null',
                 error: {},
                 emptyState: true,
                 referenceId: undefined
@@ -53,7 +55,8 @@ describe('compare reducer', () => {
                 stateFilters: stateFilters.diffStateTrue,
                 factFilter: 'dog',
                 activeFactFilters: [ 'cat', 'mouse' ],
-                expandedRows: [ 'something', 'something-else' ]}, {
+                expandedRows: [ 'something', 'something-else' ],
+                exportStatus: 'null' }, {
                 type: `${types.CLEAR_COMPARISON}` })
         ).toEqual({
             baselines: [],
@@ -75,6 +78,7 @@ describe('compare reducer', () => {
             totalFacts: 0,
             loading: false,
             expandedRows: [],
+            exportStatus: 'null',
             error: {},
             emptyState: true
         });
@@ -1312,6 +1316,7 @@ describe('compare reducer', () => {
                 totalFacts: 0,
                 loading: false,
                 expandedRows: [],
+                exportStatus: 'success',
                 error: {},
                 emptyState: true,
                 referenceId: undefined
