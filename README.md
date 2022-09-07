@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/RedHatInsights/insights-frontend-starter-app.svg?branch=master)](https://travis-ci.org/RedHatInsights/insights-frontend-starter-app)
+[![Build Status](https://app.travis-ci.com/RedHatInsights/drift-frontend.svg?branch=master)](https://app.travis-ci.com/RedHatInsights/drift-frontend)
 
 # Drift Frontend
 
