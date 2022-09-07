@@ -83,34 +83,35 @@ function buildSystemsTableWithSelectedHSP (rows, selectedHSP, deselectHistorical
     return rows;
 }
 
-function downloadHelper(baselineData) {
+function downloadHelper(data) {
     let filename;
     let file;
 
-    if (baselineData.exportType === 'baseline list') {
+    if (data.exportType === 'baseline list') {
         filename = 'baseline-list-export';
-        if (baselineData.type === 'csv') {
-            file = baselinesTableHelpers.convertListToCSV(baselineData.exportData);
-        } else if (baselineData.type === 'json') {
-            file = baselinesTableHelpers.convertListToJSON(baselineData.exportData);
+        if (data.type === 'csv') {
+            file = baselinesTableHelpers.convertListToCSV(data.exportData);
+        } else if (data.type === 'json') {
+            file = baselinesTableHelpers.convertListToJSON(data.exportData);
         }
-    } else if (baselineData.exportType === 'baselines data') {
+    } else if (data.exportType === 'baselines data') {
         filename = 'baseline-data-export';
-        if (baselineData.type === 'csv') {
-            file = editBaselineHelpers.convertDataToCSV(baselineData.exportData, baselineData.baselineRowData);
-        } else if (baselineData.type === 'json') {
-            file = JSON.stringify(editBaselineHelpers.convertDataToJSON(baselineData.exportData));
+        if (data.type === 'csv') {
+            file = editBaselineHelpers.convertDataToCSV(data.exportData, data.baselineRowData);
+        } else if (data.type === 'json') {
+            file = JSON.stringify(editBaselineHelpers.convertDataToJSON(data.exportData));
         }
     }
 
-    if (file === null) {
-        return;
+    if (file === undefined) {
+        return 'failure';
     }
 
     let today = new Date();
     filename += today.toISOString();
 
-    downloadFile(file, filename, baselineData.type);
+    downloadFile(file, filename, data.type);
+    return 'success';
 }
 
 export default {

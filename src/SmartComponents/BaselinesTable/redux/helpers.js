@@ -93,7 +93,7 @@ function convertListToCSV(data) {
     let columnDelimiter = data.columnDelimiter || ',';
     let lineDelimiter = data.lineDelimiter || '\n';
 
-    let headers = 'UUID,Name,Last updated,Associated systems';
+    let headers = 'UUID,Name,Last updated,Associated systems,Notifications enabled';
     let result = headers + lineDelimiter;
 
     data.forEach(function(baseline) {
