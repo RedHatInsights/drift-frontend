@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { dispatchNotification } from '../../../../Utilities/Dispatcher';
 import { Button, Form, FormGroup, Modal, ModalVariant, TextInput, ValidatedOptions } from '@patternfly/react-core';
 
 import { editBaselineActions } from '../redux';
@@ -32,6 +33,12 @@ export class EditBaselineNameModal extends Component {
             /*eslint-enable camelcase*/
 
             toggleEditNameModal();
+            dispatchNotification({
+                variant: 'success',
+                title: `Updated baseline name to ${baselineName}`,
+                dismissable: true,
+                autoDismiss: false
+            });
         } catch (e) {
             // do nothing and let redux handle
         }
