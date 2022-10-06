@@ -92,14 +92,15 @@ export const SystemsTable = connect(null, mapDispatchToProps)(({
     };
 
     const buildDeleteNotificationsKebab = () => {
-        return <div
-            className='pointer'
-            key="delete-baseline-notification"
-            onClick={ () => deleteNotifications(entities?.selectedSystemIds) }
-            isDisabled={ !entities?.selectedSystemIds?.length }
-        >
-            { entities?.selectedSystemIds?.length > 1 ? 'Delete associated systems' : 'Delete associated system' }
-        </div>;
+        return {
+            label: entities?.selectedSystemIds?.length > 1 ? 'Delete associated systems' : 'Delete associated system',
+            onClick: () => deleteNotifications(entities?.selectedSystemIds),
+            props: {
+                className: 'pointer',
+                key: 'delete-baseline-notification',
+                isDisabled: !entities?.selectedSystemIds?.length
+            }
+        };
     };
 
     const buildActionsConfig = () => {
