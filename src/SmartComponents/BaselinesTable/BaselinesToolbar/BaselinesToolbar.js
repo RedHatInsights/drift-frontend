@@ -148,7 +148,7 @@ export class BaselinesToolbar extends Component {
                                     data-ouia-component-type='PF4/TextInput'
                                     data-ouia-component-id='filter-by-name-baselines-table'
                                     onChange={ (event, value) => this.setTextFilter(value) }
-                                    isDisabled={ !permissions.baselinesRead || !permissions.baselinesWrite }
+                                    isDisabled={ !permissions.baselinesRead }
                                 />
                             </ToolbarFilter>
                         </ToolbarGroup>
