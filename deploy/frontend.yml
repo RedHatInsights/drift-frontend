@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: Template
+metadata:
+  name: drift-frontend
+objects:
+  - apiVersion: cloud.redhat.com/v1alpha1
+    kind: Frontend
+    metadata:
+      name: drift
+    spec:
+      envName: ${ENV_NAME}
+      title: Drift Analysis
+      deploymentRepo: https://github.com/RedHatInsights/drift-frontend
+      API:
+        versions:
+          - v1
+      frontend:
+        paths:
+          - /apps/drift
+      image: ${IMAGE}:${IMAGE_TAG}
+      navItems:
+        - title: Drift
+          expandable: true
+          routes:
+            - appId: drift
+              title: Comparison
+              href: /insights/drift/
+              product: Red Hat Insights
+            - appId: drift
+              title: Baselines
+              href: /insights/drift/baselines
+              product: Red Hat Insights
+      module:
+        manifestLocation: /apps/drift/fed-mods.json
+        modules:
+          - id: drift
+            module: ./RootApp
+            routes:
+              - pathName: /ansible/drift
+parameters:
+  - name: ENV_NAME
+    required: true
+  - name: IMAGE_TAG
+    required: true
+  - name: IMAGE
+    value: quay.io/cloudservices/drift-frontend
