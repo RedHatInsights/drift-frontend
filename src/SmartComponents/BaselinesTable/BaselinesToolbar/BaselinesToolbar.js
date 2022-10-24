@@ -73,7 +73,7 @@ export class BaselinesToolbar extends Component {
             onClick={ this.toggleModal }
             isDisabled={ isDeleteDisabled }
         >
-            Delete baselines
+            Delete selected baselines
         </DropdownItem>);
 
         return actionKebabItems;

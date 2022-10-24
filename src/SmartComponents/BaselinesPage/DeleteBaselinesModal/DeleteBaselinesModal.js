@@ -44,7 +44,9 @@ export class DeleteBaselinesModal extends Component {
 
     render() {
         const { baselineId, modalOpened, selectedBaselineIds, toggleModal } = this.props;
-        const deleteMessage = baselineId || selectedBaselineIds.length === 1 ? 'Delete baseline' : 'Delete baselines';
+        const deleteMessage = baselineId || selectedBaselineIds.length === 1
+            ? `Delete 1 selected baseline`
+            : `Delete ${selectedBaselineIds.length} selected baselines`;
 
         return (
             <Modal
