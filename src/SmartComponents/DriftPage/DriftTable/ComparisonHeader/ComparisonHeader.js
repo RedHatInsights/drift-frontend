@@ -139,10 +139,12 @@ class ComparisonHeader extends Component {
                                     <ExclamationTriangleIcon color="#f0ab00"/>
                                 </Tooltip> : ''
                             }
-                            { item.last_updated
-                                ? this.formatDate(item.last_updated)
-                                : this.formatDate(item.updated)
-                            }
+                            <span className='margin-right-4-px'>
+                                { item.last_updated
+                                    ? this.formatDate(item.last_updated)
+                                    : this.formatDate(item.updated)
+                                }
+                            </span>
                             { permissions.hspRead &&
                                 (item.type === 'system' || item.type === 'historical-system-profile')
                                 ? <HistoricalProfilesPopover
