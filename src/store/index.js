@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import promiseMiddleware from 'redux-promise-middleware';
 import { getRegistry } from '@redhat-cloud-services/frontend-components-utilities/Registry';
 
@@ -14,24 +15,23 @@ import MiddlewareListener from '@redhat-cloud-services/frontend-components-utili
 import { notifications } from '@redhat-cloud-services/frontend-components-notifications';
 export { default as reducers } from './reducers';
 
-let registry;
-let middlewareListener;
-
 export const createMiddlewareListener = () => {
-    middlewareListener = new MiddlewareListener();
-    return middlewareListener;
+    const [ middle, setMiddle ] = useState();
+    setMiddle(new MiddlewareListener());
+    return [ middle, setMiddle ];
 };
 
 export function init (...middleware) {
-    createMiddlewareListener();
+    const [ reg, setReg ] = useState();
+    const [ middle ] = createMiddlewareListener();
 
-    registry = getRegistry({}, [
+    setReg(getRegistry({}, [
         promiseMiddleware,
-        middlewareListener.getMiddleware(),
+        middle.getMiddleware(),
         ...middleware.filter(item => typeof item !== 'undefined')
-    ]);
+    ]));
 
-    registry.register({
+    reg.register({
         compareState: compareReducer,
         addSystemModalState: addSystemModalReducer,
         baselinesTableState: baselinesTableRootReducer,
@@ -44,19 +44,22 @@ export function init (...middleware) {
         globalFilterState: globalFilterReducer
     });
 
-    return registry;
+    return [ reg, middle ];
 }
 
 export function getStore () {
-    return registry.getStore();
+    const temp = init();
+    return temp.getStore();
 }
 
 export function register (...args) {
-    return registry.register(...args);
+    const temp = init();
+    return temp.register(...args);
 }
 
 export function addNewListener ({ actionType, callback }) {
-    return middlewareListener.addNew({
+    const [ setMiddle ] = createMiddlewareListener();
+    return setMiddle.addNew({
         on: actionType,
         callback
     });
