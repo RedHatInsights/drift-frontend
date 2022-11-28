@@ -15,6 +15,7 @@ import { baselinesTableActions } from '../BaselinesTable/redux';
 import { editBaselineActions } from './EditBaselinePage/redux';
 import { historicProfilesActions } from '../HistoricalProfilesPopover/redux';
 import { PermissionContext } from '../../App';
+import { RegistryContext } from '../../Utilities/registry';
 
 export class BaselinesPage extends Component {
     constructor(props) {
@@ -110,29 +111,35 @@ export class BaselinesPage extends Component {
         return (
             <PermissionContext.Consumer>
                 { value =>
-                    <React.Fragment>
-                        <CreateBaselineModal
-                            permissions={ value.permissions }
-                            selectHistoricProfiles={ selectHistoricProfiles }
-                            setSelectedSystemIds={ setSelectedSystemIds }
-                        />
-                        <PageHeader>
-                            <PageHeaderTitle title='Baselines'/>
-                        </PageHeader>
-                        <Main>
-                            { value.permissions.baselinesRead === false
-                                ? <EmptyStateDisplay
-                                    icon={ LockIcon }
-                                    color='#6a6e73'
-                                    title={ 'You do not have access to Baselines' }
-                                    text={ [ 'Contact your organization administrator(s) for more information.' ] }
+                    <RegistryContext.Consumer>
+                        { registryContextValue =>
+                            <React.Fragment>
+                                <CreateBaselineModal
+                                    permissions={ value.permissions }
+                                    selectHistoricProfiles={ selectHistoricProfiles }
+                                    setSelectedSystemIds={ setSelectedSystemIds }
+                                    middlewareListener={ registryContextValue?.middlewareListener }
                                 />
-                                : <React.Fragment>
-                                    {this.renderTable(value.permissions)}
-                                </React.Fragment>
-                            }
-                        </Main>
-                    </React.Fragment>
+                                <PageHeader>
+                                    <PageHeaderTitle title='Baselines'/>
+                                </PageHeader>
+
+                                <Main store={ registryContextValue?.registry?.getStore() }>
+                                    { value.permissions.baselinesRead === false
+                                        ? <EmptyStateDisplay
+                                            icon={ LockIcon }
+                                            color='#6a6e73'
+                                            title={ 'You do not have access to Baselines' }
+                                            text={ [ 'Contact your organization administrator(s) for more information.' ] }
+                                        />
+                                        : <React.Fragment>
+                                            {this.renderTable(value.permissions)}
+                                        </React.Fragment>
+                                    }
+                                </Main> </React.Fragment>
+                        }
+                    </RegistryContext.Consumer>
+
                 }
             </PermissionContext.Consumer>
         );

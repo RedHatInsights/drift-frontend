@@ -3,7 +3,6 @@ import React, { useRef } from 'react';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getRegistry } from '@redhat-cloud-services/frontend-components-utilities/Registry';
 import { InventoryTable } from '@redhat-cloud-services/frontend-components/Inventory';
 import { LockIcon } from '@patternfly/react-icons';
 import selectedReducer from '../../store/reducers';
@@ -12,6 +11,7 @@ import systemsTableActions from './actions';
 import EmptyStateDisplay from '../EmptyStateDisplay/EmptyStateDisplay';
 import { historicProfilesActions } from '../HistoricalProfilesPopover/redux';
 import helpers from '../helpers';
+import { RegistryContext } from '../../Utilities/registry';
 
 export const SystemsTable = ({
     baselineId,
@@ -62,101 +62,105 @@ export const SystemsTable = ({
     return (
         permissions.inventoryRead ? (
             <div className='inventory-toolbar-no-padding'>
-                <InventoryTable
-                    columns={ systemColumns }
-                    onLoad={ ({ mergeWithEntities, INVENTORY_ACTION_TYPES, api }) => {
-                        getEntities.current = api?.getEntities;
-                        driftClearFilters();
-                        getRegistry().register(mergeWithEntities(
-                            selectedReducer(
-                                INVENTORY_ACTION_TYPES, baselineId, createBaselineModal, historicalProfiles,
-                                hasMultiSelect, deselectHistoricalProfiles, isAddSystemNotifications,
-                                selectHistoricProfiles, systemNotificationIds, selectSystemsToAdd
-                            )
-                        ));
-                        createBaselineModal ? setSelectedSystemIds([]) : setSelectedSystemIds(selectedSystemIds);
-                    } }
-                    showTags
-                    noDetail
-                    customFilters={{
-                        tags: tagsFilter,
-                        filter: {
-                            system_profile: {
-                                ...workloadsFilter?.SAP?.isSelected && { sap_system: true },
-                                ...workloadsFilter?.['Ansible Automation Platform']?.isSelected
+                <RegistryContext.Consumer>
+                    { registryContextValue =>
+                        <InventoryTable
+                            columns={ systemColumns }
+                            onLoad={ ({ mergeWithEntities, INVENTORY_ACTION_TYPES, api }) => {
+                                getEntities.current = api?.getEntities;
+                                driftClearFilters();
+                                registryContextValue?.registry?.register(mergeWithEntities(
+                                    selectedReducer(
+                                        INVENTORY_ACTION_TYPES, baselineId, createBaselineModal, historicalProfiles,
+                                        hasMultiSelect, deselectHistoricalProfiles, isAddSystemNotifications,
+                                        selectHistoricProfiles, systemNotificationIds, selectSystemsToAdd
+                                    )
+                                ));
+                                createBaselineModal ? setSelectedSystemIds([]) : setSelectedSystemIds(selectedSystemIds);
+                            } }
+                            showTags
+                            noDetail
+                            customFilters={{
+                                tags: tagsFilter,
+                                filter: {
+                                    system_profile: {
+                                        ...workloadsFilter?.SAP?.isSelected && { sap_system: true },
+                                        ...workloadsFilter?.['Ansible Automation Platform']?.isSelected
                                     && { ansible: 'not_nil' },
-                                ...workloadsFilter?.['Microsoft SQL']?.isSelected
+                                        ...workloadsFilter?.['Microsoft SQL']?.isSelected
                                     && { mssql: 'not_nil' },
-                                ...sidsFilter?.length > 0 && { sap_sids: sidsFilter }
-                            }
-                        }
-                    }}
-                    tableProps={{
-                        canSelectAll: false,
-                        selectVariant,
-                        ouiaId: 'systems-table',
-                        className: 'inventory-align',
-                        isStickyHeader: true
-                    }}
-                    getEntities={ systemNotificationIds && !isAddSystemNotifications
-                        ? async (_items, config) => {
-                            const currIds = (systemNotificationIds || [])
-                            .slice((config.page - 1) * config.per_page, config.page * config.per_page);
-                            const data = await getEntities.current?.(
-                                currIds,
-                                {
-                                    hasItems: true
-                                },
-                                true
-                            );
+                                        ...sidsFilter?.length > 0 && { sap_sids: sidsFilter }
+                                    }
+                                }
+                            }}
+                            tableProps={{
+                                canSelectAll: false,
+                                selectVariant,
+                                ouiaId: 'systems-table',
+                                className: 'inventory-align',
+                                isStickyHeader: true
+                            }}
+                            getEntities={ systemNotificationIds && !isAddSystemNotifications
+                                ? async (_items, config) => {
+                                    const currIds = (systemNotificationIds || [])
+                                    .slice((config.page - 1) * config.per_page, config.page * config.per_page);
+                                    const data = await getEntities.current?.(
+                                        currIds,
+                                        {
+                                            hasItems: true
+                                        },
+                                        true
+                                    );
 
-                            return {
-                                ...data,
-                                results: data.results.map((system) => ({
-                                    ...system,
-                                    ...currIds.find(({ uuid }) => uuid === system.id) || {}
-                                })),
-                                total: (systemNotificationIds || []).length,
-                                page: config.page,
-                                per_page: config.per_page
-                            };
-                        }
-                        : async (_items, config) => {
-                            const data = await getEntities.current?.([], config, true);
-                            return { ...data };
-                        } }
-                    bulkSelect={ onSelect && !isAddSystemNotifications && {
-                        id: 'systems-bulk-select',
-                        isDisabled: !hasMultiSelect,
-                        count: entities?.selectedSystemIds?.length,
-                        items: [{
-                            title: `Select none (0)`,
-                            onClick: () => {
-                                onSelect('none');
-                            }
-                        }, {
-                            title: `Select page (${ entities?.count || 0 })`,
-                            onClick: () => {
-                                onSelect('page');
-                            }
-                        }, {
-                            title: `Deselect page (${ entities?.count || 0 })`,
-                            onClick: () => {
-                                onSelect('deselect-page');
-                            }
-                        }],
-                        onSelect: () => {
-                            if (entities?.rows.length === entities?.selectedSystems?.length) {
-                                onSelect('deselect-page');
-                            } else {
-                                onSelect('page');
-                            }
-                        },
-                        checked: entities && entities.selectedSystemIds
-                            ? helpers.findCheckedValue(entities?.total, entities?.selectedSystemIds.length)
-                            : null
-                    } }
-                />
+                                    return {
+                                        ...data,
+                                        results: data.results.map((system) => ({
+                                            ...system,
+                                            ...currIds.find(({ uuid }) => uuid === system.id) || {}
+                                        })),
+                                        total: (systemNotificationIds || []).length,
+                                        page: config.page,
+                                        per_page: config.per_page
+                                    };
+                                }
+                                : async (_items, config) => {
+                                    const data = await getEntities.current?.([], config, true);
+                                    return { ...data };
+                                } }
+                            bulkSelect={ onSelect && !isAddSystemNotifications && {
+                                id: 'systems-bulk-select',
+                                isDisabled: !hasMultiSelect,
+                                count: entities?.selectedSystemIds?.length,
+                                items: [{
+                                    title: `Select none (0)`,
+                                    onClick: () => {
+                                        onSelect('none');
+                                    }
+                                }, {
+                                    title: `Select page (${ entities?.count || 0 })`,
+                                    onClick: () => {
+                                        onSelect('page');
+                                    }
+                                }, {
+                                    title: `Deselect page (${ entities?.count || 0 })`,
+                                    onClick: () => {
+                                        onSelect('deselect-page');
+                                    }
+                                }],
+                                onSelect: () => {
+                                    if (entities?.rows.length === entities?.selectedSystems?.length) {
+                                        onSelect('deselect-page');
+                                    } else {
+                                        onSelect('page');
+                                    }
+                                },
+                                checked: entities && entities.selectedSystemIds
+                                    ? helpers.findCheckedValue(entities?.total, entities?.selectedSystemIds.length)
+                                    : null
+                            } }
+                        />
+                    }
+                </RegistryContext.Consumer>
             </div>
         )
             : <EmptyStateDisplay

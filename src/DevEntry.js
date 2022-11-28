@@ -1,18 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import logger from 'redux-logger';
 import { init } from './store';
 import App from './App';
-import logger from 'redux-logger';
-
+import { RegistryContext } from './Utilities/registry';
 import getBaseName from './Utilities/getBaseName';
 
-const DriftDev = () => (
-    <Provider store={ init(logger).getStore() }>
-        <Router basename={ getBaseName(window.location.pathname) }>
-            <App/>
-        </Router>
-    </Provider>
-);
+const Drift = () => {
+    const [ registry, setRegistry ] = useState();
+    const store = registry?.registry.getStore();
+    const basename = useMemo(() => getBaseName(window.location.pathname), []);
 
-export default DriftDev;
+    useEffect(() =>{
+        setRegistry(init(logger));
+
+        return () => {
+            setRegistry(undefined);
+        };
+    }, []);
+
+    return registry ?
+        <RegistryContext.Provider value={{
+            ...registry
+        }}>
+            <Provider store={ store }>
+                <Router basename={ basename }>
+                    <App/>
+                </Router>
+            </Provider>
+        </RegistryContext.Provider> : '';
+};
+
+export default Drift;

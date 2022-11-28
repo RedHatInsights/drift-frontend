@@ -4,20 +4,20 @@ import moment from 'moment';
 const baselinesListPayload = ({
     data: [
         {
-            created: '2019-01-18T13:30:00.000000Z',
+            created: '2020-01-18T13:30:00.000000Z',
             display_name: 'beavs baseline',
             fact_count: 2,
             id: '1234',
-            updated: '2019-05-18T15:00:00.000000Z',
+            updated: '2020-05-18T15:00:00.000000Z',
             mapped_system_count: 3,
             notifications_enabled: true
         },
         {
-            created: '2019-02-18T13:30:00.000000Z',
+            created: '2020-02-18T13:30:00.000000Z',
             display_name: 'micjohns baseline',
             fact_count: 2,
             id: 'abcd',
-            updated: '2019-05-19T15:00:00.000000Z',
+            updated: '2020-05-19T15:00:00.000000Z',
             mapped_system_count: 0,
             notifications_enabled: false
         }
@@ -38,33 +38,33 @@ const baselinesListEmptyPayload = ({
 
 const baselinesListPayloadResults = ([
     {
-        created: '2019-01-18T13:30:00.000000Z',
+        created: '2020-01-18T13:30:00.000000Z',
         display_name: 'beavs baseline',
         fact_count: 2,
         id: '1234',
-        updated: '2019-05-18T15:00:00.000000Z'
+        updated: '2020-05-18T15:00:00.000000Z'
     },
     {
-        created: '2019-02-18T13:30:00.000000Z',
+        created: '2020-02-18T13:30:00.000000Z',
         display_name: 'micjohns baseline',
         fact_count: 2,
         id: 'abcd',
-        updated: '2019-05-19T15:00:00.000000Z'
+        updated: '2020-05-19T15:00:00.000000Z'
     }
 ]);
 /*eslint-enable camelcase*/
 
 const baselineTableDataRows = ([
-    [ '1234', 'beavs baseline', moment('18 May 2019, 15:00 UTC').fromNow(), 3, true ],
-    [ 'abcd', 'micjohns baseline', moment('19 May 2019, 15:00 UTC').fromNow(), 0, false ]
+    [ '1234', 'beavs baseline', moment('18 May 2020, 15:00 UTC').fromNow(), 3, true ],
+    [ 'abcd', 'micjohns baseline', moment('19 May 2020, 15:00 UTC').fromNow(), 0, false ]
 ]);
 
 const baselineTableDataRow1 = ([
-    [ '1234', 'beavs baseline', moment('18 May 2019, 15:00 UTC').fromNow() ]
+    [ '1234', 'beavs baseline', moment('18 May 2020, 15:00 UTC').fromNow() ]
 ]);
 
 const baselineTableDataRow2 = ([
-    [ 'abcd', 'micjohns baseline', moment('19 May 2019, 15:00 UTC').fromNow() ]
+    [ 'abcd', 'micjohns baseline', moment('19 May 2020, 15:00 UTC').fromNow() ]
 ]);
 
 function baselineTableDataTwoSelected() {

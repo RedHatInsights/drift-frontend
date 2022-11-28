@@ -74,19 +74,21 @@ export class CreateBaselineModal extends Component {
     };
 
     async componentDidMount() {
-        window.entityListener = addNewListener({
-            actionType: 'SELECT_ENTITY',
-            callback: () => {
-                this.props.createBaselineModalOpened ? this.deselectHistoricalProfiles() : null;
-            }
-        });
+        if (this.props.middlewareListener) {
+            window.entityListener = addNewListener(this.props.middlewareListener, {
+                actionType: 'SELECT_ENTITY',
+                callback: () => {
+                    this.props.createBaselineModalOpened ? this.deselectHistoricalProfiles() : null;
+                }
+            });
 
-        window.entityListener = addNewListener({
-            actionType: 'SELECT_SINGLE_HSP',
-            callback: () => {
-                this.props.updateColumns('display_selected_hsp');
-            }
-        });
+            window.entityListener = addNewListener(this.props.middlewareListener, {
+                actionType: 'SELECT_SINGLE_HSP',
+                callback: () => {
+                    this.props.updateColumns('display_selected_hsp');
+                }
+            });
+        }
     }
 
     async componentWillUnmount() {
@@ -396,7 +398,8 @@ CreateBaselineModal.propTypes = {
     updateColumns: PropTypes.func,
     baselineError: PropTypes.object,
     revertBaselineFetch: PropTypes.func,
-    emptyState: PropTypes.bool
+    emptyState: PropTypes.bool,
+    middlewareListener: PropTypes.object
 };
 
 function mapStateToProps(state) {

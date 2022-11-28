@@ -15,14 +15,7 @@ plugins.push(
         root: resolve(__dirname, '../'),
         exposes: {
             './RootApp': resolve(__dirname, '../src/DevEntry')
-        },
-        exclude: [ 'react-redux' ],
-        shared: [{
-            'react-redux': {
-                requiredVersion: '*',
-                singleton: true
-            }
-        }]
+        }
     })
 );
 
