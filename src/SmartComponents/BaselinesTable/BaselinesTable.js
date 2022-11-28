@@ -153,7 +153,7 @@ export class BaselinesTable extends Component {
     }
 
     updatePagination = (pagination) => {
-        this.setState({ params: { page: pagination.page, perPage: pagination.perPage }});
+        this.setState({ params: { ...this.state.params, page: pagination.page, perPage: pagination.perPage }});
         this.fetchWithParams({ page: pagination.page, perPage: pagination.perPage });
     }
 
