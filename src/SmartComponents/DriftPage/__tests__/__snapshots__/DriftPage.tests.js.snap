@@ -3913,7 +3913,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                 toggleStateSort={[Function]}
                                 updateReferenceId={[Function]}
                               >
-                                <Connect(AddSystemModal)
+                                <Connect(WrappedAddSystemModal)
                                   confirmModal={[Function]}
                                   permissions={
                                     Object {
@@ -3923,7 +3923,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                   selectedSystemIds={Array []}
                                   updateReferenceId={[Function]}
                                 >
-                                  <AddSystemModal
+                                  <WrappedAddSystemModal
                                     addSystemModalOpened={false}
                                     baselines={Array []}
                                     confirmModal={[Function]}
@@ -3951,103 +3951,132 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                     toggleAddSystemModal={[Function]}
                                     updateReferenceId={[Function]}
                                   >
-                                    <Modal
-                                      actions={
-                                        Array [
-                                          <Button
-                                            isDisabled={false}
-                                            onClick={[Function]}
-                                            ouiaId="add-to-comparison-submit-button"
-                                            variant="primary"
-                                          >
-                                            Submit
-                                          </Button>,
-                                          <Button
-                                            isDisabled={false}
-                                            onClick={[Function]}
-                                            ouiaId="add-to-comparison-cancel-button"
-                                            variant="link"
-                                          >
-                                            Cancel
-                                          </Button>,
-                                        ]
-                                      }
-                                      appendTo={[Function]}
-                                      aria-describedby=""
-                                      aria-label=""
-                                      aria-labelledby=""
-                                      className="drift"
-                                      hasNoBodyWrapper={false}
-                                      isOpen={false}
-                                      onClose={[Function]}
-                                      onScroll={null}
-                                      ouiaId="add-to-comparison-modal"
-                                      ouiaSafe={true}
-                                      showClose={true}
-                                      style={
+                                    <AddSystemModal
+                                      addSystemModalOpened={false}
+                                      baselines={Array []}
+                                      confirmModal={[Function]}
+                                      disableSystemTable={[Function]}
+                                      handleBaselineSelection={[Function]}
+                                      handleHSPSelection={[Function]}
+                                      handleSystemSelection={[Function]}
+                                      historicalProfiles={Array []}
+                                      permissions={
                                         Object {
-                                          "maxHeight": "600px",
+                                          "compareRead": true,
                                         }
                                       }
-                                      title="Add to comparison"
-                                      titleIconVariant={null}
-                                      titleLabel=""
-                                      variant="default"
-                                      width="1200px"
+                                      revertBaselineFetch={[Function]}
+                                      selectActiveTab={[Function]}
+                                      selectBaseline={[Function]}
+                                      selectEntity={[Function]}
+                                      selectHistoricProfiles={[Function]}
+                                      selectedBaselineIds={Array []}
+                                      selectedHSPIds={Array []}
+                                      selectedSystemIds={Array []}
+                                      setSelectedBaselines={[Function]}
+                                      setSelectedSystemIds={[Function]}
+                                      systems={Array []}
+                                      toggleAddSystemModal={[Function]}
+                                      updateReferenceId={[Function]}
                                     >
-                                      <Portal
-                                        containerInfo={<div />}
+                                      <Modal
+                                        actions={
+                                          Array [
+                                            <Button
+                                              isDisabled={false}
+                                              onClick={[Function]}
+                                              ouiaId="add-to-comparison-submit-button"
+                                              variant="primary"
+                                            >
+                                              Submit
+                                            </Button>,
+                                            <Button
+                                              isDisabled={false}
+                                              onClick={[Function]}
+                                              ouiaId="add-to-comparison-cancel-button"
+                                              variant="link"
+                                            >
+                                              Cancel
+                                            </Button>,
+                                          ]
+                                        }
+                                        appendTo={[Function]}
+                                        aria-describedby=""
+                                        aria-label=""
+                                        aria-labelledby=""
+                                        className="drift"
+                                        hasNoBodyWrapper={false}
+                                        isOpen={false}
+                                        onClose={[Function]}
+                                        onScroll={null}
+                                        ouiaId="add-to-comparison-modal"
+                                        ouiaSafe={true}
+                                        showClose={true}
+                                        style={
+                                          Object {
+                                            "maxHeight": "600px",
+                                          }
+                                        }
+                                        title="Add to comparison"
+                                        titleIconVariant={null}
+                                        titleLabel=""
+                                        variant="default"
+                                        width="1200px"
                                       >
-                                        <ModalContent
-                                          actions={
-                                            Array [
-                                              <Button
-                                                isDisabled={false}
-                                                onClick={[Function]}
-                                                ouiaId="add-to-comparison-submit-button"
-                                                variant="primary"
-                                              >
-                                                Submit
-                                              </Button>,
-                                              <Button
-                                                isDisabled={false}
-                                                onClick={[Function]}
-                                                ouiaId="add-to-comparison-cancel-button"
-                                                variant="link"
-                                              >
-                                                Cancel
-                                              </Button>,
-                                            ]
-                                          }
-                                          aria-describedby=""
-                                          aria-label=""
-                                          aria-labelledby=""
-                                          boxId="pf-modal-part-0"
-                                          className="drift"
-                                          descriptorId="pf-modal-part-2"
-                                          hasNoBodyWrapper={false}
-                                          isOpen={false}
-                                          labelId="pf-modal-part-1"
-                                          onClose={[Function]}
-                                          onScroll={null}
-                                          ouiaId="add-to-comparison-modal"
-                                          ouiaSafe={true}
-                                          showClose={true}
-                                          style={
-                                            Object {
-                                              "maxHeight": "600px",
+                                        <Portal
+                                          containerInfo={<div />}
+                                        >
+                                          <ModalContent
+                                            actions={
+                                              Array [
+                                                <Button
+                                                  isDisabled={false}
+                                                  onClick={[Function]}
+                                                  ouiaId="add-to-comparison-submit-button"
+                                                  variant="primary"
+                                                >
+                                                  Submit
+                                                </Button>,
+                                                <Button
+                                                  isDisabled={false}
+                                                  onClick={[Function]}
+                                                  ouiaId="add-to-comparison-cancel-button"
+                                                  variant="link"
+                                                >
+                                                  Cancel
+                                                </Button>,
+                                              ]
                                             }
-                                          }
-                                          title="Add to comparison"
-                                          titleIconVariant={null}
-                                          titleLabel=""
-                                          variant="default"
-                                          width="1200px"
-                                        />
-                                      </Portal>
-                                    </Modal>
-                                  </AddSystemModal>
-                                </Connect(AddSystemModal)>
+                                            aria-describedby=""
+                                            aria-label=""
+                                            aria-labelledby=""
+                                            boxId="pf-modal-part-0"
+                                            className="drift"
+                                            descriptorId="pf-modal-part-2"
+                                            hasNoBodyWrapper={false}
+                                            isOpen={false}
+                                            labelId="pf-modal-part-1"
+                                            onClose={[Function]}
+                                            onScroll={null}
+                                            ouiaId="add-to-comparison-modal"
+                                            ouiaSafe={true}
+                                            showClose={true}
+                                            style={
+                                              Object {
+                                                "maxHeight": "600px",
+                                              }
+                                            }
+                                            title="Add to comparison"
+                                            titleIconVariant={null}
+                                            titleLabel=""
+                                            variant="default"
+                                            width="1200px"
+                                          />
+                                        </Portal>
+                                      </Modal>
+                                    </AddSystemModal>
+                                  </WrappedAddSystemModal>
+                                </Connect(WrappedAddSystemModal)>
                                 <div
                                   className="sticky-table-header"
                                 >
@@ -9053,7 +9082,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                 toggleStateSort={[Function]}
                                 updateReferenceId={[Function]}
                               >
-                                <Connect(AddSystemModal)
+                                <Connect(WrappedAddSystemModal)
                                   confirmModal={[Function]}
                                   permissions={
                                     Object {
@@ -9063,7 +9092,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                   selectedSystemIds={Array []}
                                   updateReferenceId={[Function]}
                                 >
-                                  <AddSystemModal
+                                  <WrappedAddSystemModal
                                     addSystemModalOpened={false}
                                     baselines={Array []}
                                     confirmModal={[Function]}
@@ -9091,103 +9120,132 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                     toggleAddSystemModal={[Function]}
                                     updateReferenceId={[Function]}
                                   >
-                                    <Modal
-                                      actions={
-                                        Array [
-                                          <Button
-                                            isDisabled={false}
-                                            onClick={[Function]}
-                                            ouiaId="add-to-comparison-submit-button"
-                                            variant="primary"
-                                          >
-                                            Submit
-                                          </Button>,
-                                          <Button
-                                            isDisabled={false}
-                                            onClick={[Function]}
-                                            ouiaId="add-to-comparison-cancel-button"
-                                            variant="link"
-                                          >
-                                            Cancel
-                                          </Button>,
-                                        ]
-                                      }
-                                      appendTo={[Function]}
-                                      aria-describedby=""
-                                      aria-label=""
-                                      aria-labelledby=""
-                                      className="drift"
-                                      hasNoBodyWrapper={false}
-                                      isOpen={false}
-                                      onClose={[Function]}
-                                      onScroll={null}
-                                      ouiaId="add-to-comparison-modal"
-                                      ouiaSafe={true}
-                                      showClose={true}
-                                      style={
+                                    <AddSystemModal
+                                      addSystemModalOpened={false}
+                                      baselines={Array []}
+                                      confirmModal={[Function]}
+                                      disableSystemTable={[Function]}
+                                      handleBaselineSelection={[Function]}
+                                      handleHSPSelection={[Function]}
+                                      handleSystemSelection={[Function]}
+                                      historicalProfiles={Array []}
+                                      permissions={
                                         Object {
-                                          "maxHeight": "600px",
+                                          "compareRead": true,
                                         }
                                       }
-                                      title="Add to comparison"
-                                      titleIconVariant={null}
-                                      titleLabel=""
-                                      variant="default"
-                                      width="1200px"
+                                      revertBaselineFetch={[Function]}
+                                      selectActiveTab={[Function]}
+                                      selectBaseline={[Function]}
+                                      selectEntity={[Function]}
+                                      selectHistoricProfiles={[Function]}
+                                      selectedBaselineIds={Array []}
+                                      selectedHSPIds={Array []}
+                                      selectedSystemIds={Array []}
+                                      setSelectedBaselines={[Function]}
+                                      setSelectedSystemIds={[Function]}
+                                      systems={Array []}
+                                      toggleAddSystemModal={[Function]}
+                                      updateReferenceId={[Function]}
                                     >
-                                      <Portal
-                                        containerInfo={<div />}
+                                      <Modal
+                                        actions={
+                                          Array [
+                                            <Button
+                                              isDisabled={false}
+                                              onClick={[Function]}
+                                              ouiaId="add-to-comparison-submit-button"
+                                              variant="primary"
+                                            >
+                                              Submit
+                                            </Button>,
+                                            <Button
+                                              isDisabled={false}
+                                              onClick={[Function]}
+                                              ouiaId="add-to-comparison-cancel-button"
+                                              variant="link"
+                                            >
+                                              Cancel
+                                            </Button>,
+                                          ]
+                                        }
+                                        appendTo={[Function]}
+                                        aria-describedby=""
+                                        aria-label=""
+                                        aria-labelledby=""
+                                        className="drift"
+                                        hasNoBodyWrapper={false}
+                                        isOpen={false}
+                                        onClose={[Function]}
+                                        onScroll={null}
+                                        ouiaId="add-to-comparison-modal"
+                                        ouiaSafe={true}
+                                        showClose={true}
+                                        style={
+                                          Object {
+                                            "maxHeight": "600px",
+                                          }
+                                        }
+                                        title="Add to comparison"
+                                        titleIconVariant={null}
+                                        titleLabel=""
+                                        variant="default"
+                                        width="1200px"
                                       >
-                                        <ModalContent
-                                          actions={
-                                            Array [
-                                              <Button
-                                                isDisabled={false}
-                                                onClick={[Function]}
-                                                ouiaId="add-to-comparison-submit-button"
-                                                variant="primary"
-                                              >
-                                                Submit
-                                              </Button>,
-                                              <Button
-                                                isDisabled={false}
-                                                onClick={[Function]}
-                                                ouiaId="add-to-comparison-cancel-button"
-                                                variant="link"
-                                              >
-                                                Cancel
-                                              </Button>,
-                                            ]
-                                          }
-                                          aria-describedby=""
-                                          aria-label=""
-                                          aria-labelledby=""
-                                          boxId="pf-modal-part-2"
-                                          className="drift"
-                                          descriptorId="pf-modal-part-4"
-                                          hasNoBodyWrapper={false}
-                                          isOpen={false}
-                                          labelId="pf-modal-part-3"
-                                          onClose={[Function]}
-                                          onScroll={null}
-                                          ouiaId="add-to-comparison-modal"
-                                          ouiaSafe={true}
-                                          showClose={true}
-                                          style={
-                                            Object {
-                                              "maxHeight": "600px",
+                                        <Portal
+                                          containerInfo={<div />}
+                                        >
+                                          <ModalContent
+                                            actions={
+                                              Array [
+                                                <Button
+                                                  isDisabled={false}
+                                                  onClick={[Function]}
+                                                  ouiaId="add-to-comparison-submit-button"
+                                                  variant="primary"
+                                                >
+                                                  Submit
+                                                </Button>,
+                                                <Button
+                                                  isDisabled={false}
+                                                  onClick={[Function]}
+                                                  ouiaId="add-to-comparison-cancel-button"
+                                                  variant="link"
+                                                >
+                                                  Cancel
+                                                </Button>,
+                                              ]
                                             }
-                                          }
-                                          title="Add to comparison"
-                                          titleIconVariant={null}
-                                          titleLabel=""
-                                          variant="default"
-                                          width="1200px"
-                                        />
-                                      </Portal>
-                                    </Modal>
-                                  </AddSystemModal>
-                                </Connect(AddSystemModal)>
+                                            aria-describedby=""
+                                            aria-label=""
+                                            aria-labelledby=""
+                                            boxId="pf-modal-part-2"
+                                            className="drift"
+                                            descriptorId="pf-modal-part-4"
+                                            hasNoBodyWrapper={false}
+                                            isOpen={false}
+                                            labelId="pf-modal-part-3"
+                                            onClose={[Function]}
+                                            onScroll={null}
+                                            ouiaId="add-to-comparison-modal"
+                                            ouiaSafe={true}
+                                            showClose={true}
+                                            style={
+                                              Object {
+                                                "maxHeight": "600px",
+                                              }
+                                            }
+                                            title="Add to comparison"
+                                            titleIconVariant={null}
+                                            titleLabel=""
+                                            variant="default"
+                                            width="1200px"
+                                          />
+                                        </Portal>
+                                      </Modal>
+                                    </AddSystemModal>
+                                  </WrappedAddSystemModal>
+                                </Connect(WrappedAddSystemModal)>
                                 <div
                                   className="sticky-table-header"
                                 >

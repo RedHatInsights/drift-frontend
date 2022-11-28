@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useStore } from 'react-redux';
 import actions from './SmartComponents/modules/actions';
 import { withRouter, useHistory } from 'react-router-dom';
 import { NotificationsPortal } from '@redhat-cloud-services/frontend-components-notifications';
@@ -12,6 +12,8 @@ export const PermissionContext = createContext();
 const App = (props) => {
     const history = useHistory();
     const dispatch = useDispatch();
+    const store = useStore();
+
     const [{
         hasCompareReadPermissions,
         hasBaselinesReadPermissions,
@@ -105,7 +107,7 @@ const App = (props) => {
                         notificationsRead: hasNotificationsReadPermissions
                     }
                 }}>
-                <NotificationsPortal />
+                <NotificationsPortal store={ store }/>
                 <Routes childProps={ props } />
             </PermissionContext.Provider>
             : null

@@ -15,6 +15,7 @@ import { addSystemModalActions } from './redux';
 import { baselinesTableActions } from '../BaselinesTable/redux';
 import { historicProfilesActions } from '../HistoricalProfilesPopover/redux';
 import systemsTableActions from '../SystemsTable/actions';
+import { RegistryContext } from '../../Utilities/registry';
 
 export class AddSystemModal extends Component {
     constructor(props) {
@@ -40,12 +41,14 @@ export class AddSystemModal extends Component {
     async componentDidMount() {
         await window.insights.chrome.auth.getUser();
 
-        window.entityListener = addNewListener({
-            actionType: 'SELECT_ENTITY',
-            callback: ({ data }) => {
-                this.props.addSystemModalOpened ? this.systemContentSelect(data) : null;
-            }
-        });
+        if (this.props.middlewareListener) {
+            window.entityListener = addNewListener(this.props.middlewareListener, {
+                actionType: 'SELECT_ENTITY',
+                callback: ({ data }) => {
+                    this.props.addSystemModalOpened ? this.systemContentSelect(data) : null;
+                }
+            });
+        }
     }
 
     closePopover = () => {
@@ -366,7 +369,8 @@ AddSystemModal.propTypes = {
     updateReferenceId: PropTypes.func,
     emptyState: PropTypes.bool,
     baselineError: PropTypes.object,
-    revertBaselineFetch: PropTypes.func
+    revertBaselineFetch: PropTypes.func,
+    middlewareListener: PropTypes.object
 };
 
 function mapStateToProps(state) {
@@ -408,4 +412,15 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddSystemModal);
+const WrappedAddSystemModal = (props) => {
+    return <RegistryContext.Consumer>
+        {
+            registryContextValue =>
+                <AddSystemModal
+                    { ...props }
+                    middlewareListener={ registryContextValue?.middlewareListener } />
+        }
+    </RegistryContext.Consumer>;
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(WrappedAddSystemModal);

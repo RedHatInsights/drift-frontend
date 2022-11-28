@@ -202,7 +202,7 @@ export class DriftTable extends Component {
 
                 if (newFilters?.includes(filter.filter.toLowerCase())) {
                     x.selected = false;
-                    
+
                     if (type === 'fact') {
                         addFunction(x);
                     }

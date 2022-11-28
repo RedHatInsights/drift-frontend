@@ -23,9 +23,8 @@ export const createMiddlewareListener = () => {
 };
 
 export function init (...middleware) {
-    createMiddlewareListener();
-
-    registry = getRegistry({}, [
+    const middlewareListener = new MiddlewareListener();
+    const registry = getRegistry({}, [
         promiseMiddleware,
         middlewareListener.getMiddleware(),
         ...middleware.filter(item => typeof item !== 'undefined')
@@ -44,7 +43,7 @@ export function init (...middleware) {
         globalFilterState: globalFilterReducer
     });
 
-    return registry;
+    return { registry, middlewareListener };
 }
 
 export function getStore () {
@@ -55,7 +54,7 @@ export function register (...args) {
     return registry.register(...args);
 }
 
-export function addNewListener ({ actionType, callback }) {
+export function addNewListener (middlewareListener, { actionType, callback }) {
     return middlewareListener.addNew({
         on: actionType,
         callback
