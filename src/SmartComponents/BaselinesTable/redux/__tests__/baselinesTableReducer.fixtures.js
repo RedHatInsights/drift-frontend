@@ -93,14 +93,14 @@ function baselineTableDataOneSelected() {
 }
 
 const tableDataCSV = 'UUID,Name,Last updated,Associated systems\n\
-1234,beavs baseline,4 years ago,3,true\n\
-abcd,micjohns baseline,4 years ago,0,false\n\
+1234,beavs baseline,3 years ago,3,true\n\
+abcd,micjohns baseline,3 years ago,0,false\n\
 ';
 
 /*eslint-disable camelcase*/
 const tableDataJSON = [
-    { name: 'beavs baseline', last_updated: '4 years ago', associated_systems: 3, notifications_enabled: true },
-    { name: 'micjohns baseline', last_updated: '4 years ago', associated_systems: 0, notifications_enabled: false }
+    { name: 'beavs baseline', last_updated: '3 years ago', associated_systems: 3, notifications_enabled: true },
+    { name: 'micjohns baseline', last_updated: '3 years ago', associated_systems: 0, notifications_enabled: false }
 ];
 /*eslint-enable camelcase*/
 
