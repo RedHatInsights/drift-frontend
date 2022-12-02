@@ -19,6 +19,7 @@ import AddSystemButton from './AddSystemButton/AddSystemButton';
 import DriftToolbar from './DriftToolbar/DriftToolbar';
 import EmptyStateDisplay from '../EmptyStateDisplay/EmptyStateDisplay';
 import { PermissionContext } from '../../App';
+import { RegistryContext } from '../../Utilities/registry';
 
 import { EMPTY_COMPARISON_TITLE, EMPTY_COMPARISON_MESSAGE } from '../../constants';
 
@@ -98,114 +99,118 @@ export class DriftPage extends Component {
         const { isFirstReference } = this.state;
 
         return (
-            <React.Fragment>
-                <PageHeader>
-                    <PageHeaderTitle title='Comparison'/>
-                </PageHeader>
-                <Main>
-                    <PermissionContext.Consumer>
-                        { value =>
-                            value.permissions.compareRead === false
-                                ? <EmptyStateDisplay
-                                    icon={ LockIcon }
-                                    color='#6a6e73'
-                                    title={ 'You do not have access to Drift comparison' }
-                                    text={ [ 'Contact your organization administrator(s) for more information.' ] }
-                                />
-                                : <React.Fragment>
-                                    <ErrorAlert
-                                        error={ error }
-                                        onClose={ this.onClose }
-                                    />
-                                    { emptyState && !loading
-                                        ? this.renderEmptyState()
-                                        : <div></div>
-                                    }
-                                    <Card className='pf-t-light pf-m-opaque-100'>
-                                        <CardBody>
-                                            { !emptyState
-                                                ? <DriftToolbar
-                                                    loading={ loading }
-                                                    history={ history }
-                                                    page={ page }
-                                                    perPage={ perPage }
-                                                    totalFacts={ totalFacts }
-                                                    updatePagination={ updatePagination }
-                                                    clearComparison={ clearComparison }
-                                                    clearComparisonFilters={ clearComparisonFilters }
-                                                    exportToCSV={ exportToCSV }
-                                                    exportToJSON={ exportToJSON }
-                                                    updateReferenceId={ updateReferenceId }
-                                                    setIsFirstReference={ this.setIsFirstReference }
-                                                    clearSelectedBaselines={ clearSelectedBaselines }
-                                                    factFilter={ factFilter }
-                                                    factTypeFilters={ factTypeFilters }
-                                                    filterByFact={ filterByFact }
-                                                    stateFilters={ stateFilters }
-                                                    addStateFilter={ addStateFilter }
-                                                    toggleFactTypeFilter={ toggleFactTypeFilter }
-                                                    activeFactFilters={ activeFactFilters }
-                                                    handleFactFilter={ handleFactFilter }
-                                                    clearAllFactFilters={ clearAllFactFilters }
-                                                    setHistory={ this.setHistory }
-                                                    resetComparisonFilters={ resetComparisonFilters }
-                                                    clearAllSelections={ clearAllSelections }
-                                                />
-                                                : null
-                                            }
-                                            <DriftTable
-                                                updateReferenceId={ updateReferenceId }
-                                                error={ error }
-                                                isFirstReference={ isFirstReference }
-                                                setIsFirstReference={ this.setIsFirstReference }
-                                                clearComparison= { clearComparison }
-                                                handleBaselineSelection={ handleBaselineSelection }
-                                                handleHSPSelection={ handleHSPSelection }
-                                                handleSystemSelection={ handleSystemSelection }
-                                                permissions={ value.permissions }
-                                                handleFactFilter={ handleFactFilter }
-                                                addStateFilter={ addStateFilter }
-                                                stateFilters={ stateFilters }
-                                                activeFactFilters={ activeFactFilters }
-                                                factFilter={ factFilter }
-                                                setHistory={ this.setHistory }
-                                                factSort={ factSort }
-                                                stateSort={ stateSort }
-                                                referenceId={ referenceId }
-                                                systems={ systems }
-                                                baselines={ baselines }
-                                                historicalProfiles={ historicalProfiles }
-                                                selectedHSPIds={ selectedHSPIds }
-                                                selectedBaselineIds={ selectedBaselineIds }
-                                                factTypeFilters={ factTypeFilters }
-                                                toggleFactTypeFilter={ toggleFactTypeFilter }
+            <RegistryContext.Consumer>
+                {
+                    registryContextValue =>
+                        (<>
+                            <PageHeader>
+                                <PageHeaderTitle title='Comparison'/>
+                            </PageHeader>
+                            <Main store={ registryContextValue?.registry.getStore() }>
+                                <PermissionContext.Consumer>
+                                    { value =>
+                                        value.permissions.compareRead === false
+                                            ? <EmptyStateDisplay
+                                                icon={ LockIcon }
+                                                color='#6a6e73'
+                                                title={ 'You do not have access to Drift comparison' }
+                                                text={ [ 'Contact your organization administrator(s) for more information.' ] }
                                             />
-                                            { !emptyState && !loading ?
-                                                <Toolbar className="drift-toolbar">
-                                                    <ToolbarGroup className="pf-c-pagination">
-                                                        <ToolbarItem>
-                                                            <TablePagination
+                                            : <React.Fragment>
+                                                <ErrorAlert
+                                                    error={ error }
+                                                    onClose={ this.onClose }
+                                                />
+                                                { emptyState && !loading
+                                                    ? this.renderEmptyState()
+                                                    : <div></div>
+                                                }
+                                                <Card className='pf-t-light pf-m-opaque-100'>
+                                                    <CardBody>
+                                                        { !emptyState
+                                                            ? <DriftToolbar
+                                                                loading={ loading }
+                                                                history={ history }
                                                                 page={ page }
                                                                 perPage={ perPage }
-                                                                total={ totalFacts }
-                                                                isCompact={ false }
+                                                                totalFacts={ totalFacts }
                                                                 updatePagination={ updatePagination }
-                                                                widgetId='drift-pagination-bottom'
-                                                                ouiaId='drift-pagination-bottom'
-                                                                variant={ PaginationVariant.bottom }
+                                                                clearComparison={ clearComparison }
+                                                                clearComparisonFilters={ clearComparisonFilters }
+                                                                exportToCSV={ exportToCSV }
+                                                                exportToJSON={ exportToJSON }
+                                                                updateReferenceId={ updateReferenceId }
+                                                                setIsFirstReference={ this.setIsFirstReference }
+                                                                clearSelectedBaselines={ clearSelectedBaselines }
+                                                                factFilter={ factFilter }
+                                                                factTypeFilters={ factTypeFilters }
+                                                                filterByFact={ filterByFact }
+                                                                stateFilters={ stateFilters }
+                                                                addStateFilter={ addStateFilter }
+                                                                toggleFactTypeFilter={ toggleFactTypeFilter }
+                                                                activeFactFilters={ activeFactFilters }
+                                                                handleFactFilter={ handleFactFilter }
+                                                                clearAllFactFilters={ clearAllFactFilters }
+                                                                setHistory={ this.setHistory }
+                                                                resetComparisonFilters={ resetComparisonFilters }
+                                                                clearAllSelections={ clearAllSelections }
                                                             />
-                                                        </ToolbarItem>
-                                                    </ToolbarGroup>
-                                                </Toolbar>
-                                                : null
-                                            }
-                                        </CardBody>
-                                    </Card>
-                                </React.Fragment>
-                        }
-                    </PermissionContext.Consumer>
-                </Main>
-            </React.Fragment>
+                                                            : null
+                                                        }
+                                                        <DriftTable
+                                                            updateReferenceId={ updateReferenceId }
+                                                            error={ error }
+                                                            isFirstReference={ isFirstReference }
+                                                            setIsFirstReference={ this.setIsFirstReference }
+                                                            clearComparison= { clearComparison }
+                                                            handleBaselineSelection={ handleBaselineSelection }
+                                                            handleHSPSelection={ handleHSPSelection }
+                                                            handleSystemSelection={ handleSystemSelection }
+                                                            permissions={ value.permissions }
+                                                            handleFactFilter={ handleFactFilter }
+                                                            addStateFilter={ addStateFilter }
+                                                            stateFilters={ stateFilters }
+                                                            activeFactFilters={ activeFactFilters }
+                                                            factFilter={ factFilter }
+                                                            setHistory={ this.setHistory }
+                                                            factSort={ factSort }
+                                                            stateSort={ stateSort }
+                                                            referenceId={ referenceId }
+                                                            systems={ systems }
+                                                            baselines={ baselines }
+                                                            historicalProfiles={ historicalProfiles }
+                                                            selectedHSPIds={ selectedHSPIds }
+                                                            selectedBaselineIds={ selectedBaselineIds }
+                                                            factTypeFilters={ factTypeFilters }
+                                                            toggleFactTypeFilter={ toggleFactTypeFilter }
+                                                        />
+                                                        { !emptyState && !loading ?
+                                                            <Toolbar className="drift-toolbar">
+                                                                <ToolbarGroup className="pf-c-pagination">
+                                                                    <ToolbarItem>
+                                                                        <TablePagination
+                                                                            page={ page }
+                                                                            perPage={ perPage }
+                                                                            total={ totalFacts }
+                                                                            isCompact={ false }
+                                                                            updatePagination={ updatePagination }
+                                                                            widgetId='drift-pagination-bottom'
+                                                                            ouiaId='drift-pagination-bottom'
+                                                                            variant={ PaginationVariant.bottom }
+                                                                        />
+                                                                    </ToolbarItem>
+                                                                </ToolbarGroup>
+                                                            </Toolbar>
+                                                            : null
+                                                        }
+                                                    </CardBody>
+                                                </Card>
+                                            </React.Fragment>
+                                    }
+                                </PermissionContext.Consumer>
+                            </Main>
+                        </>)}
+            </RegistryContext.Consumer>
         );
     }
 }

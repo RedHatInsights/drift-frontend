@@ -20,6 +20,7 @@ import { historicProfilesActions } from '../../HistoricalProfilesPopover/redux';
 import EmptyStateDisplay from '../../EmptyStateDisplay/EmptyStateDisplay';
 import { PermissionContext } from '../../../App';
 import NotificationDetails from '../../BaselinesTable/NotificationDetails/NotificationDetails';
+import { RegistryContext } from '../../../Utilities/registry';
 
 import _ from 'lodash';
 
@@ -284,24 +285,29 @@ export class EditBaselinePage extends Component {
     /*eslint-disable*/
     render() {
         return (
-            <PermissionContext.Consumer>
-                { value =>
-                    <React.Fragment>
-                        { this.renderPageHeader(value.permissions) }
-                        <Main>
-                            { value.permissions.baselinesRead === false
-                                ? <EmptyStateDisplay
-                                    icon={ LockIcon }
-                                    color='#6a6e73'
-                                    title={ 'You do not have access to view this Baseline' }
-                                    text={ [ 'Contact your organization administrator(s) for more information.' ] }
-                                />
-                                : this.renderMain(value.permissions)
-                            }
-                        </Main>
-                    </React.Fragment>
-                }
-            </PermissionContext.Consumer>
+            <RegistryContext.Consumer>
+            {
+                registryContextValue =>
+                <PermissionContext.Consumer>
+                    { value =>
+                        <React.Fragment>
+                            { this.renderPageHeader(value.permissions) }
+                            <Main store={ registryContextValue?.registry.getStore() }>
+                                { value.permissions.baselinesRead === false
+                                    ? <EmptyStateDisplay
+                                        icon={ LockIcon }
+                                        color='#6a6e73'
+                                        title={ 'You do not have access to view this Baseline' }
+                                        text={ [ 'Contact your organization administrator(s) for more information.' ] }
+                                    />
+                                    : this.renderMain(value.permissions)
+                                }
+                            </Main>
+                        </React.Fragment>
+                    }
+                </PermissionContext.Consumer>
+            }
+            </RegistryContext.Consumer>
         );
     }
 }
