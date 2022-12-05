@@ -1,5 +1,7 @@
 import moment from 'moment';
 
+const threeYearsAgo = moment.utc().subtract(3, 'years');
+
 /*eslint-disable camelcase*/
 const baselinesListPayload = ({
     data: [
@@ -8,7 +10,7 @@ const baselinesListPayload = ({
             display_name: 'beavs baseline',
             fact_count: 2,
             id: '1234',
-            updated: '2020-05-18T15:00:00.000000Z',
+            updated: threeYearsAgo.format(),
             mapped_system_count: 3,
             notifications_enabled: true
         },
@@ -17,7 +19,7 @@ const baselinesListPayload = ({
             display_name: 'micjohns baseline',
             fact_count: 2,
             id: 'abcd',
-            updated: '2020-05-19T15:00:00.000000Z',
+            updated: threeYearsAgo.format(),
             mapped_system_count: 0,
             notifications_enabled: false
         }
@@ -42,29 +44,29 @@ const baselinesListPayloadResults = ([
         display_name: 'beavs baseline',
         fact_count: 2,
         id: '1234',
-        updated: '2020-05-18T15:00:00.000000Z'
+        updated: threeYearsAgo.format()
     },
     {
         created: '2020-02-18T13:30:00.000000Z',
         display_name: 'micjohns baseline',
         fact_count: 2,
         id: 'abcd',
-        updated: '2020-05-19T15:00:00.000000Z'
+        updated: threeYearsAgo.format()
     }
 ]);
 /*eslint-enable camelcase*/
 
 const baselineTableDataRows = ([
-    [ '1234', 'beavs baseline', moment('18 May 2020, 15:00 UTC').fromNow(), 3, true ],
-    [ 'abcd', 'micjohns baseline', moment('19 May 2020, 15:00 UTC').fromNow(), 0, false ]
+    [ '1234', 'beavs baseline', threeYearsAgo.fromNow(), 3, true ],
+    [ 'abcd', 'micjohns baseline', threeYearsAgo.fromNow(), 0, false ]
 ]);
 
 const baselineTableDataRow1 = ([
-    [ '1234', 'beavs baseline', moment('18 May 2020, 15:00 UTC').fromNow() ]
+    [ '1234', 'beavs baseline', threeYearsAgo.fromNow() ]
 ]);
 
 const baselineTableDataRow2 = ([
-    [ 'abcd', 'micjohns baseline', moment('19 May 2020, 15:00 UTC').fromNow() ]
+    [ 'abcd', 'micjohns baseline', threeYearsAgo.fromNow() ]
 ]);
 
 function baselineTableDataTwoSelected() {
@@ -93,14 +95,14 @@ function baselineTableDataOneSelected() {
 }
 
 const tableDataCSV = 'UUID,Name,Last updated,Associated systems\n\
-1234,beavs baseline,4 years ago,3,true\n\
-abcd,micjohns baseline,4 years ago,0,false\n\
+1234,beavs baseline,3 years ago,3,true\n\
+abcd,micjohns baseline,3 years ago,0,false\n\
 ';
 
 /*eslint-disable camelcase*/
 const tableDataJSON = [
-    { name: 'beavs baseline', last_updated: '4 years ago', associated_systems: 3, notifications_enabled: true },
-    { name: 'micjohns baseline', last_updated: '4 years ago', associated_systems: 0, notifications_enabled: false }
+    { name: 'beavs baseline', last_updated: '3 years ago', associated_systems: 3, notifications_enabled: true },
+    { name: 'micjohns baseline', last_updated: '3 years ago', associated_systems: 0, notifications_enabled: false }
 ];
 /*eslint-enable camelcase*/
 
