@@ -33,7 +33,7 @@ class DeleteFactModal extends Component {
                 className="drift"
                 ouiaId='delete-fact-modal'
                 variant={ ModalVariant.small }
-                title="Delete facts"
+                title={ `Delete ${factMessage}` }
                 isOpen={ modalOpened }
                 onClose={ this.props.toggleModal }
                 actions = { [
@@ -43,7 +43,7 @@ class DeleteFactModal extends Component {
                         variant="danger"
                         onClick={ deleteFact ? deleteFact : this.deleteFacts }
                     >
-                    Delete facts
+                        {`Delete ${factMessage}`}
                     </Button>,
                     <Button
                         key="cancel"
@@ -55,7 +55,7 @@ class DeleteFactModal extends Component {
                     </Button>
                 ] }
             >
-                You have selected { ' ' }
+                You have { ' ' }
                 { categoryMessage ? <b>{ categoryMessage }</b> : null }
                 { categoryMessage && factMessage ? ' and ' : null }
                 { factMessage ? <b>{ factMessage }</b> : null }
