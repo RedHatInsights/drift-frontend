@@ -66,7 +66,7 @@ class EditBaselineKebab extends Component {
         }
 
         if (facts > 0) {
-            factMessage = facts === 1 ? '1 fact' : facts + ' facts';
+            factMessage = facts === 1 ? '1 selected fact' : facts + ' selected facts';
         }
 
         dropdownItems = [
@@ -77,7 +77,7 @@ class EditBaselineKebab extends Component {
                 onClick={ this.toggleModalOpened }
                 isDisabled={ editBaselineTableData.length > 0 ? this.isDisabled() : true }
             >
-                Delete facts
+                Delete selected facts
             </DropdownItem>
         ];
 
