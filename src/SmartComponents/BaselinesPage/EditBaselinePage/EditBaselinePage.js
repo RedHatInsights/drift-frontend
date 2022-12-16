@@ -295,7 +295,7 @@ export class EditBaselinePage extends Component {
                     { value =>
                         <React.Fragment>
                             { this.renderPageHeader(value.permissions, registryContextValue?.registry.getStore()) }
-                            <Main store={ registryContextValue?.registry.getStore() }>
+                            <Main store={ registryContextValue?.registry.getStore() } data-hj-suppress>
                                 { value.permissions.baselinesRead === false
                                     ? <EmptyStateDisplay
                                         icon={ LockIcon }

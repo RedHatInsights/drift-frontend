@@ -126,7 +126,7 @@ export class BaselinesPage extends Component {
                                     <PageHeaderTitle title='Baselines'/>
                                 </PageHeader>
 
-                                <Main store={ registryContextValue?.registry?.getStore() }>
+                                <Main store={ registryContextValue?.registry?.getStore() } data-hj-suppress>
                                     { value.permissions.baselinesRead === false
                                         ? <EmptyStateDisplay
                                             icon={ LockIcon }

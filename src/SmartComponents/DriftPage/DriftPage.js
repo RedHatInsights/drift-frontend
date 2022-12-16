@@ -106,7 +106,7 @@ export class DriftPage extends Component {
                             <PageHeader>
                                 <PageHeaderTitle title='Comparison'/>
                             </PageHeader>
-                            <Main store={ registryContextValue?.registry.getStore() }>
+                            <Main store={ registryContextValue?.registry.getStore() } data-hj-suppress>
                                 <PermissionContext.Consumer>
                                     { value =>
                                         value.permissions.compareRead === false
