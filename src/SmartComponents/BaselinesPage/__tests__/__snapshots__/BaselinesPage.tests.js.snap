@@ -403,10 +403,15 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                 </PageHeaderTitle>
               </section>
             </PageHeader>
-            <Connect(InternalMain)>
-              <InternalMain>
+            <Connect(InternalMain)
+              data-hj-suppress={true}
+            >
+              <InternalMain
+                data-hj-suppress={true}
+              >
                 <section
                   className="pf-l-page__main-section pf-c-page__main-section"
+                  data-hj-suppress={true}
                   page-type=""
                 >
                   <div>
@@ -6413,10 +6418,15 @@ exports[`ConnectedBaselinesPage should render empty state 1`] = `
                 </PageHeaderTitle>
               </section>
             </PageHeader>
-            <Connect(InternalMain)>
-              <InternalMain>
+            <Connect(InternalMain)
+              data-hj-suppress={true}
+            >
+              <InternalMain
+                data-hj-suppress={true}
+              >
                 <section
                   className="pf-l-page__main-section pf-c-page__main-section"
+                  data-hj-suppress={true}
                   page-type=""
                 >
                   <div>
