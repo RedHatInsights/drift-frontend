@@ -121,6 +121,11 @@ export class HistoricalProfilesPopover extends Component {
     }
     /*eslint-enable camelcase*/
 
+    hasHistoricalData = () => {
+        const { historicalData } = this.state;
+        return historicalData && historicalData.profiles.length > 0;
+    }
+
     createDropdownArray = () => {
         const { hasMultiSelect, selectedHSPIds } = this.props;
         const { historicalData, error } = this.state;
@@ -130,7 +135,7 @@ export class HistoricalProfilesPopover extends Component {
         let onSelectFunc = this.onSelect;
         let onSingleSelectFunc = this.onSingleSelect;
 
-        if (historicalData && historicalData.profiles.length > 0) {
+        if (this.hasHistoricalData()) {
             historicalData.profiles.forEach(function(profile, index) {
                 dropdownItems.push(
                     <div className={ index > 0 ? 'sm-padding-top' : null }>
@@ -234,6 +239,7 @@ export class HistoricalProfilesPopover extends Component {
                             ? <Button
                                 variant='primary'
                                 ouiaId="hsp-popover-compare"
+                                isDisabled={ !this.hasHistoricalData() }
                                 onClick={ () => this.fetchCompare() }>
                                 Compare
                             </Button>
