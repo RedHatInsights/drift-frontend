@@ -1,6 +1,6 @@
 /*eslint-disable camelcase*/
 import axios from 'axios';
-import { DRIFT_API_ROOT, BASELINE_API_ROOT, HISTORICAL_PROFILES_API_ROOT } from './constants';
+import { DRIFT_API_ROOT, BASELINE_API_ROOT, HISTORICAL_PROFILES_API_ROOT, INVENTORY_API_ROOT } from './constants';
 
 async function post(path, body = {}) {
     const request = await axios.post(DRIFT_API_ROOT.concat(path), body);
@@ -59,6 +59,11 @@ async function getHistoricalData(path) {
     }
 
     return response;
+}
+
+async function getSystems(path) {
+    const request = await axios.get(INVENTORY_API_ROOT.concat(path));
+    return request;
 }
 
 function getCompare(systemIds = [], baselineIds = [], historicalSystemProfileIds = [], referenceId = '') {
@@ -138,6 +143,31 @@ function deleteSystemNotifications(baselineId, systems) {
     return postSystemNotifications(path, body);
 }
 
+async function buildBatchRequests(page, totalSystems) {
+    let path = `/hosts?per_page=100&page=${page}&order_by=updated&order_how=DESC&staleness=fresh&staleness=stale`;
+    let systems = await getSystems(path);
+    let systemIds = systems.data.results.map(system => system.id);
+    systemIds.forEach(systemId => totalSystems.push(systemId));
+}
+
+async function systemFetch(count) {
+    let totalSystems = [];
+    let batchRequests = [];
+    for (let i = 1; Math.ceil(count / 100) >= i; i++) {
+        batchRequests.push(
+            new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve(buildBatchRequests(i, totalSystems));
+                }, 100);
+            })
+        );
+
+    }
+
+    await Promise.all(batchRequests);
+    return totalSystems;
+}
+
 export default {
     getCompare,
     getBaselineList,
@@ -148,6 +178,7 @@ export default {
     fetchHistoricalData,
     getBaselineNotification,
     addSystemNotification,
-    deleteSystemNotifications
+    deleteSystemNotifications,
+    systemFetch
 };
 /*eslint-enable camelcase*/

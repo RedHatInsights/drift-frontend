@@ -297,6 +297,7 @@ export class AddSystemModal extends Component {
                                 selectVariant='checkbox'
                                 onSystemSelect={ setSelectedSystemIds }
                                 systemColumns={ systemColumns }
+                                bulkSelectDisabled={ true }
                             />
                         </Tab>
                         <Tab

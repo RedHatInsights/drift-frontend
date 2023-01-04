@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ConnectedSystemsTable should render correctly 1`] = `
+exports[`ConnectedSystemsTable should render bulk select disabled correctly 1`] = `
 <MemoryRouter
   keyLength={0}
 >
@@ -49,14 +49,146 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
       }
     >
       <Connect(SystemsTable)
+        bulkSelectDisabled={true}
+        createBaselineModal={false}
+        entities={
+          Object {
+            "columns": Array [
+              Object {
+                "key": "display_name",
+                "title": "Name",
+              },
+              Object {
+                "key": "tags",
+                "title": "Tags",
+              },
+              Object {
+                "key": "updated",
+                "title": "Last seen",
+              },
+              Object {
+                "key": "historical_profiles",
+                "title": "Historical profiles",
+              },
+            ],
+            "count": 3,
+            "rows": Array [
+              Object {
+                "id": "ec67f65c-2bc8-4ce8-82e2-6a27cada8d31",
+                "tags": Array [
+                  Object {
+                    "key": "group",
+                    "namespace": "insights-client",
+                    "value": "XmygroupX",
+                  },
+                ],
+                "updated": "2020-10-13T16:17:56.253419+00:00",
+              },
+              Object {
+                "id": "7672c0c3-db27-4b59-ace9-5724d5a2dd1b",
+                "tags": Array [
+                  Object {
+                    "key": "group",
+                    "namespace": "insights-client",
+                    "value": "XmygroupX",
+                  },
+                ],
+                "updated": "2020-10-13T16:17:54.952780+00:00",
+              },
+              Object {
+                "id": "45ef6cea-b80f-46b6-90fc-00363a6f3b70",
+                "tags": Array [
+                  Object {
+                    "key": "group",
+                    "namespace": "insights-client",
+                    "value": "XmygroupX",
+                  },
+                ],
+                "updated": "2020-10-13T16:17:54.686193+00:00",
+              },
+            ],
+            "selectedSystemIds": Array [],
+            "total": 3,
+          }
+        }
+        hasHistoricalDropdown={false}
+        hasMultiSelect={true}
+        historicalProfiles={Array []}
         permissions={
           Object {
             "inventoryRead": true,
           }
         }
+        selectVariant="checkbox"
+        selectedSystemIds={Array []}
       >
         <SystemsTable
+          bulkSelectDisabled={true}
+          createBaselineModal={false}
           driftClearFilters={[Function]}
+          entities={
+            Object {
+              "columns": Array [
+                Object {
+                  "key": "display_name",
+                  "title": "Name",
+                },
+                Object {
+                  "key": "tags",
+                  "title": "Tags",
+                },
+                Object {
+                  "key": "updated",
+                  "title": "Last seen",
+                },
+                Object {
+                  "key": "historical_profiles",
+                  "title": "Historical profiles",
+                },
+              ],
+              "count": 3,
+              "rows": Array [
+                Object {
+                  "id": "ec67f65c-2bc8-4ce8-82e2-6a27cada8d31",
+                  "tags": Array [
+                    Object {
+                      "key": "group",
+                      "namespace": "insights-client",
+                      "value": "XmygroupX",
+                    },
+                  ],
+                  "updated": "2020-10-13T16:17:56.253419+00:00",
+                },
+                Object {
+                  "id": "7672c0c3-db27-4b59-ace9-5724d5a2dd1b",
+                  "tags": Array [
+                    Object {
+                      "key": "group",
+                      "namespace": "insights-client",
+                      "value": "XmygroupX",
+                    },
+                  ],
+                  "updated": "2020-10-13T16:17:54.952780+00:00",
+                },
+                Object {
+                  "id": "45ef6cea-b80f-46b6-90fc-00363a6f3b70",
+                  "tags": Array [
+                    Object {
+                      "key": "group",
+                      "namespace": "insights-client",
+                      "value": "XmygroupX",
+                    },
+                  ],
+                  "updated": "2020-10-13T16:17:54.686193+00:00",
+                },
+              ],
+              "selectedSystemIds": Array [],
+              "total": 3,
+            }
+          }
+          hasHistoricalDropdown={false}
+          hasMultiSelect={true}
+          historicalProfiles={Array []}
           permissions={
             Object {
               "inventoryRead": true,
@@ -65,6 +197,7 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
           selectEntities={[Function]}
           selectHistoricProfiles={[Function]}
           selectSingleHSP={[Function]}
+          selectVariant="checkbox"
           selectedSystemIds={Array []}
           setSelectedSystemIds={[Function]}
         >
@@ -74,8 +207,8 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
             <ForwardRef
               bulkSelect={
                 Object {
-                  "checked": null,
-                  "count": undefined,
+                  "checked": false,
+                  "count": 0,
                   "id": "systems-bulk-select",
                   "isDisabled": true,
                   "items": Array [
@@ -85,14 +218,15 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
                     },
                     Object {
                       "onClick": [Function],
-                      "title": "Select page (0)",
+                      "title": "Select page (3)",
                     },
                     Object {
                       "onClick": [Function],
-                      "title": "Deselect page (0)",
+                      "title": "Select all (3)",
                     },
                   ],
                   "onSelect": [Function],
+                  "toggleProps": null,
                 }
               }
               component="section"
@@ -123,15 +257,15 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
                   "className": "inventory-align",
                   "isStickyHeader": true,
                   "ouiaId": "systems-table",
-                  "selectVariant": undefined,
+                  "selectVariant": "checkbox",
                 }
               }
             >
               <BaseInvTable
                 bulkSelect={
                   Object {
-                    "checked": null,
-                    "count": undefined,
+                    "checked": false,
+                    "count": 0,
                     "id": "systems-bulk-select",
                     "isDisabled": true,
                     "items": Array [
@@ -141,14 +275,15 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
                       },
                       Object {
                         "onClick": [Function],
-                        "title": "Select page (0)",
+                        "title": "Select page (3)",
                       },
                       Object {
                         "onClick": [Function],
-                        "title": "Deselect page (0)",
+                        "title": "Select all (3)",
                       },
                     ],
                     "onSelect": [Function],
+                    "toggleProps": null,
                   }
                 }
                 component="section"
@@ -180,7 +315,7 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
                     "className": "inventory-align",
                     "isStickyHeader": true,
                     "ouiaId": "systems-table",
-                    "selectVariant": undefined,
+                    "selectVariant": "checkbox",
                   }
                 }
               >
@@ -203,8 +338,8 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
                         <InventoryLoadError
                           bulkSelect={
                             Object {
-                              "checked": null,
-                              "count": undefined,
+                              "checked": false,
+                              "count": 0,
                               "id": "systems-bulk-select",
                               "isDisabled": true,
                               "items": Array [
@@ -214,14 +349,15 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
                                 },
                                 Object {
                                   "onClick": [Function],
-                                  "title": "Select page (0)",
+                                  "title": "Select page (3)",
                                 },
                                 Object {
                                   "onClick": [Function],
-                                  "title": "Deselect page (0)",
+                                  "title": "Select all (3)",
                                 },
                               ],
                               "onSelect": [Function],
+                              "toggleProps": null,
                             }
                           }
                           component="section"
@@ -293,7 +429,7 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
                               "className": "inventory-align",
                               "isStickyHeader": true,
                               "ouiaId": "systems-table",
-                              "selectVariant": undefined,
+                              "selectVariant": "checkbox",
                             }
                           }
                         />
@@ -301,8 +437,8 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
                       appName="inventory"
                       bulkSelect={
                         Object {
-                          "checked": null,
-                          "count": undefined,
+                          "checked": false,
+                          "count": 0,
                           "id": "systems-bulk-select",
                           "isDisabled": true,
                           "items": Array [
@@ -312,14 +448,15 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
                             },
                             Object {
                               "onClick": [Function],
-                              "title": "Select page (0)",
+                              "title": "Select page (3)",
                             },
                             Object {
                               "onClick": [Function],
-                              "title": "Deselect page (0)",
+                              "title": "Select all (3)",
                             },
                           ],
                           "onSelect": [Function],
+                          "toggleProps": null,
                         }
                       }
                       component="section"
@@ -393,7 +530,7 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
                           "className": "inventory-align",
                           "isStickyHeader": true,
                           "ouiaId": "systems-table",
-                          "selectVariant": undefined,
+                          "selectVariant": "checkbox",
                         }
                       }
                     >
@@ -402,8 +539,8 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
                           <InventoryLoadError
                             bulkSelect={
                               Object {
-                                "checked": null,
-                                "count": undefined,
+                                "checked": false,
+                                "count": 0,
                                 "id": "systems-bulk-select",
                                 "isDisabled": true,
                                 "items": Array [
@@ -413,14 +550,15 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
                                   },
                                   Object {
                                     "onClick": [Function],
-                                    "title": "Select page (0)",
+                                    "title": "Select page (3)",
                                   },
                                   Object {
                                     "onClick": [Function],
-                                    "title": "Deselect page (0)",
+                                    "title": "Select all (3)",
                                   },
                                 ],
                                 "onSelect": [Function],
+                                "toggleProps": null,
                               }
                             }
                             component="section"
@@ -492,7 +630,7 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
                                 "className": "inventory-align",
                                 "isStickyHeader": true,
                                 "ouiaId": "systems-table",
-                                "selectVariant": undefined,
+                                "selectVariant": "checkbox",
                               }
                             }
                           />
@@ -500,8 +638,8 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
                         appName="inventory"
                         bulkSelect={
                           Object {
-                            "checked": null,
-                            "count": undefined,
+                            "checked": false,
+                            "count": 0,
                             "id": "systems-bulk-select",
                             "isDisabled": true,
                             "items": Array [
@@ -511,14 +649,15 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
                               },
                               Object {
                                 "onClick": [Function],
-                                "title": "Select page (0)",
+                                "title": "Select page (3)",
                               },
                               Object {
                                 "onClick": [Function],
-                                "title": "Deselect page (0)",
+                                "title": "Select all (3)",
                               },
                             ],
                             "onSelect": [Function],
+                            "toggleProps": null,
                           }
                         }
                         component="section"
@@ -592,7 +731,7 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
                             "className": "inventory-align",
                             "isStickyHeader": true,
                             "ouiaId": "systems-table",
-                            "selectVariant": undefined,
+                            "selectVariant": "checkbox",
                           }
                         }
                       >
@@ -601,8 +740,8 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
                           appName="inventory"
                           bulkSelect={
                             Object {
-                              "checked": null,
-                              "count": undefined,
+                              "checked": false,
+                              "count": 0,
                               "id": "systems-bulk-select",
                               "isDisabled": true,
                               "items": Array [
@@ -612,14 +751,15 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
                                 },
                                 Object {
                                   "onClick": [Function],
-                                  "title": "Select page (0)",
+                                  "title": "Select page (3)",
                                 },
                                 Object {
                                   "onClick": [Function],
-                                  "title": "Deselect page (0)",
+                                  "title": "Select all (3)",
                                 },
                               ],
                               "onSelect": [Function],
+                              "toggleProps": null,
                             }
                           }
                           component="section"
@@ -693,7 +833,7 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
                               "className": "inventory-align",
                               "isStickyHeader": true,
                               "ouiaId": "systems-table",
-                              "selectVariant": undefined,
+                              "selectVariant": "checkbox",
                             }
                           }
                         >
@@ -711,8 +851,8 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
                             <_default
                               bulkSelect={
                                 Object {
-                                  "checked": null,
-                                  "count": undefined,
+                                  "checked": false,
+                                  "count": 0,
                                   "id": "systems-bulk-select",
                                   "isDisabled": true,
                                   "items": Array [
@@ -722,14 +862,15 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
                                     },
                                     Object {
                                       "onClick": [Function],
-                                      "title": "Select page (0)",
+                                      "title": "Select page (3)",
                                     },
                                     Object {
                                       "onClick": [Function],
-                                      "title": "Deselect page (0)",
+                                      "title": "Select all (3)",
                                     },
                                   ],
                                   "onSelect": [Function],
+                                  "toggleProps": null,
                                 }
                               }
                               component="section"
@@ -791,7 +932,965 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
                                   "className": "inventory-align",
                                   "isStickyHeader": true,
                                   "ouiaId": "systems-table",
-                                  "selectVariant": undefined,
+                                  "selectVariant": "checkbox",
+                                }
+                              }
+                            >
+                              <div>
+                                <h1>
+                                  Inventory mock
+                                </h1>
+                              </div>
+                            </_default>
+                          </Suspense>
+                        </LoadModule>
+                      </BaseScalprumComponent>
+                    </ForwardRef>
+                  </Suspense>
+                </section>
+              </BaseInvTable>
+            </ForwardRef>
+          </div>
+        </SystemsTable>
+      </Connect(SystemsTable)>
+    </Provider>
+  </Router>
+</MemoryRouter>
+`;
+
+exports[`ConnectedSystemsTable should render correctly 1`] = `
+<MemoryRouter
+  keyLength={0}
+>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Provider
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+    >
+      <Connect(SystemsTable)
+        bulkSelectDisabled={false}
+        createBaselineModal={false}
+        entities={
+          Object {
+            "columns": Array [
+              Object {
+                "key": "display_name",
+                "title": "Name",
+              },
+              Object {
+                "key": "tags",
+                "title": "Tags",
+              },
+              Object {
+                "key": "updated",
+                "title": "Last seen",
+              },
+              Object {
+                "key": "historical_profiles",
+                "title": "Historical profiles",
+              },
+            ],
+            "count": 3,
+            "rows": Array [
+              Object {
+                "id": "ec67f65c-2bc8-4ce8-82e2-6a27cada8d31",
+                "tags": Array [
+                  Object {
+                    "key": "group",
+                    "namespace": "insights-client",
+                    "value": "XmygroupX",
+                  },
+                ],
+                "updated": "2020-10-13T16:17:56.253419+00:00",
+              },
+              Object {
+                "id": "7672c0c3-db27-4b59-ace9-5724d5a2dd1b",
+                "tags": Array [
+                  Object {
+                    "key": "group",
+                    "namespace": "insights-client",
+                    "value": "XmygroupX",
+                  },
+                ],
+                "updated": "2020-10-13T16:17:54.952780+00:00",
+              },
+              Object {
+                "id": "45ef6cea-b80f-46b6-90fc-00363a6f3b70",
+                "tags": Array [
+                  Object {
+                    "key": "group",
+                    "namespace": "insights-client",
+                    "value": "XmygroupX",
+                  },
+                ],
+                "updated": "2020-10-13T16:17:54.686193+00:00",
+              },
+            ],
+            "selectedSystemIds": Array [],
+            "total": 3,
+          }
+        }
+        hasHistoricalDropdown={false}
+        hasMultiSelect={true}
+        historicalProfiles={Array []}
+        permissions={
+          Object {
+            "inventoryRead": true,
+          }
+        }
+        selectVariant="checkbox"
+        selectedSystemIds={Array []}
+      >
+        <SystemsTable
+          bulkSelectDisabled={false}
+          createBaselineModal={false}
+          driftClearFilters={[Function]}
+          entities={
+            Object {
+              "columns": Array [
+                Object {
+                  "key": "display_name",
+                  "title": "Name",
+                },
+                Object {
+                  "key": "tags",
+                  "title": "Tags",
+                },
+                Object {
+                  "key": "updated",
+                  "title": "Last seen",
+                },
+                Object {
+                  "key": "historical_profiles",
+                  "title": "Historical profiles",
+                },
+              ],
+              "count": 3,
+              "rows": Array [
+                Object {
+                  "id": "ec67f65c-2bc8-4ce8-82e2-6a27cada8d31",
+                  "tags": Array [
+                    Object {
+                      "key": "group",
+                      "namespace": "insights-client",
+                      "value": "XmygroupX",
+                    },
+                  ],
+                  "updated": "2020-10-13T16:17:56.253419+00:00",
+                },
+                Object {
+                  "id": "7672c0c3-db27-4b59-ace9-5724d5a2dd1b",
+                  "tags": Array [
+                    Object {
+                      "key": "group",
+                      "namespace": "insights-client",
+                      "value": "XmygroupX",
+                    },
+                  ],
+                  "updated": "2020-10-13T16:17:54.952780+00:00",
+                },
+                Object {
+                  "id": "45ef6cea-b80f-46b6-90fc-00363a6f3b70",
+                  "tags": Array [
+                    Object {
+                      "key": "group",
+                      "namespace": "insights-client",
+                      "value": "XmygroupX",
+                    },
+                  ],
+                  "updated": "2020-10-13T16:17:54.686193+00:00",
+                },
+              ],
+              "selectedSystemIds": Array [],
+              "total": 3,
+            }
+          }
+          hasHistoricalDropdown={false}
+          hasMultiSelect={true}
+          historicalProfiles={Array []}
+          permissions={
+            Object {
+              "inventoryRead": true,
+            }
+          }
+          selectEntities={[Function]}
+          selectHistoricProfiles={[Function]}
+          selectSingleHSP={[Function]}
+          selectVariant="checkbox"
+          selectedSystemIds={Array []}
+          setSelectedSystemIds={[Function]}
+        >
+          <div
+            className="inventory-toolbar-no-padding"
+          >
+            <ForwardRef
+              bulkSelect={
+                Object {
+                  "checked": false,
+                  "count": 0,
+                  "id": "systems-bulk-select",
+                  "isDisabled": false,
+                  "items": Array [
+                    Object {
+                      "onClick": [Function],
+                      "title": "Select none (0)",
+                    },
+                    Object {
+                      "onClick": [Function],
+                      "title": "Select page (3)",
+                    },
+                    Object {
+                      "onClick": [Function],
+                      "title": "Select all (3)",
+                    },
+                  ],
+                  "onSelect": [Function],
+                  "toggleProps": null,
+                }
+              }
+              component="section"
+              customFilters={
+                Object {
+                  "filter": Object {
+                    "system_profile": Object {},
+                  },
+                  "tags": undefined,
+                }
+              }
+              fallback={
+                <Bullseye
+                  className="pf-u-p-lg"
+                >
+                  <Spinner
+                    size="xl"
+                  />
+                </Bullseye>
+              }
+              getEntities={[Function]}
+              noDetail={true}
+              onLoad={[Function]}
+              showTags={true}
+              tableProps={
+                Object {
+                  "canSelectAll": false,
+                  "className": "inventory-align",
+                  "isStickyHeader": true,
+                  "ouiaId": "systems-table",
+                  "selectVariant": "checkbox",
+                }
+              }
+            >
+              <BaseInvTable
+                bulkSelect={
+                  Object {
+                    "checked": false,
+                    "count": 0,
+                    "id": "systems-bulk-select",
+                    "isDisabled": false,
+                    "items": Array [
+                      Object {
+                        "onClick": [Function],
+                        "title": "Select none (0)",
+                      },
+                      Object {
+                        "onClick": [Function],
+                        "title": "Select page (3)",
+                      },
+                      Object {
+                        "onClick": [Function],
+                        "title": "Select all (3)",
+                      },
+                    ],
+                    "onSelect": [Function],
+                    "toggleProps": null,
+                  }
+                }
+                component="section"
+                customFilters={
+                  Object {
+                    "filter": Object {
+                      "system_profile": Object {},
+                    },
+                    "tags": undefined,
+                  }
+                }
+                fallback={
+                  <Bullseye
+                    className="pf-u-p-lg"
+                  >
+                    <Spinner
+                      size="xl"
+                    />
+                  </Bullseye>
+                }
+                getEntities={[Function]}
+                innerRef={null}
+                noDetail={true}
+                onLoad={[Function]}
+                showTags={true}
+                tableProps={
+                  Object {
+                    "canSelectAll": false,
+                    "className": "inventory-align",
+                    "isStickyHeader": true,
+                    "ouiaId": "systems-table",
+                    "selectVariant": "checkbox",
+                  }
+                }
+              >
+                <section
+                  className="inventory"
+                >
+                  <Suspense
+                    fallback={
+                      <Bullseye
+                        className="pf-u-p-lg"
+                      >
+                        <Spinner
+                          size="xl"
+                        />
+                      </Bullseye>
+                    }
+                  >
+                    <ForwardRef
+                      ErrorComponent={
+                        <InventoryLoadError
+                          bulkSelect={
+                            Object {
+                              "checked": false,
+                              "count": 0,
+                              "id": "systems-bulk-select",
+                              "isDisabled": false,
+                              "items": Array [
+                                Object {
+                                  "onClick": [Function],
+                                  "title": "Select none (0)",
+                                },
+                                Object {
+                                  "onClick": [Function],
+                                  "title": "Select page (3)",
+                                },
+                                Object {
+                                  "onClick": [Function],
+                                  "title": "Select all (3)",
+                                },
+                              ],
+                              "onSelect": [Function],
+                              "toggleProps": null,
+                            }
+                          }
+                          component="section"
+                          customFilters={
+                            Object {
+                              "filter": Object {
+                                "system_profile": Object {},
+                              },
+                              "tags": undefined,
+                            }
+                          }
+                          fallback={
+                            <Bullseye
+                              className="pf-u-p-lg"
+                            >
+                              <Spinner
+                                size="xl"
+                              />
+                            </Bullseye>
+                          }
+                          getEntities={[Function]}
+                          history={
+                            Object {
+                              "action": "POP",
+                              "block": [Function],
+                              "canGo": [Function],
+                              "createHref": [Function],
+                              "entries": Array [
+                                Object {
+                                  "hash": "",
+                                  "pathname": "/",
+                                  "search": "",
+                                  "state": undefined,
+                                },
+                              ],
+                              "go": [Function],
+                              "goBack": [Function],
+                              "goForward": [Function],
+                              "index": 0,
+                              "length": 1,
+                              "listen": [Function],
+                              "location": Object {
+                                "hash": "",
+                                "pathname": "/",
+                                "search": "",
+                                "state": undefined,
+                              },
+                              "push": [Function],
+                              "replace": [Function],
+                            }
+                          }
+                          innerRef={null}
+                          noDetail={true}
+                          onLoad={[Function]}
+                          showTags={true}
+                          store={
+                            Object {
+                              "clearActions": [Function],
+                              "dispatch": [Function],
+                              "getActions": [Function],
+                              "getState": [Function],
+                              "replaceReducer": [Function],
+                              "subscribe": [Function],
+                            }
+                          }
+                          tableProps={
+                            Object {
+                              "canSelectAll": false,
+                              "className": "inventory-align",
+                              "isStickyHeader": true,
+                              "ouiaId": "systems-table",
+                              "selectVariant": "checkbox",
+                            }
+                          }
+                        />
+                      }
+                      appName="inventory"
+                      bulkSelect={
+                        Object {
+                          "checked": false,
+                          "count": 0,
+                          "id": "systems-bulk-select",
+                          "isDisabled": false,
+                          "items": Array [
+                            Object {
+                              "onClick": [Function],
+                              "title": "Select none (0)",
+                            },
+                            Object {
+                              "onClick": [Function],
+                              "title": "Select page (3)",
+                            },
+                            Object {
+                              "onClick": [Function],
+                              "title": "Select all (3)",
+                            },
+                          ],
+                          "onSelect": [Function],
+                          "toggleProps": null,
+                        }
+                      }
+                      component="section"
+                      customFilters={
+                        Object {
+                          "filter": Object {
+                            "system_profile": Object {},
+                          },
+                          "tags": undefined,
+                        }
+                      }
+                      fallback={
+                        <Bullseye
+                          className="pf-u-p-lg"
+                        >
+                          <Spinner
+                            size="xl"
+                          />
+                        </Bullseye>
+                      }
+                      getEntities={[Function]}
+                      history={
+                        Object {
+                          "action": "POP",
+                          "block": [Function],
+                          "canGo": [Function],
+                          "createHref": [Function],
+                          "entries": Array [
+                            Object {
+                              "hash": "",
+                              "pathname": "/",
+                              "search": "",
+                              "state": undefined,
+                            },
+                          ],
+                          "go": [Function],
+                          "goBack": [Function],
+                          "goForward": [Function],
+                          "index": 0,
+                          "length": 1,
+                          "listen": [Function],
+                          "location": Object {
+                            "hash": "",
+                            "pathname": "/",
+                            "search": "",
+                            "state": undefined,
+                          },
+                          "push": [Function],
+                          "replace": [Function],
+                        }
+                      }
+                      innerRef={null}
+                      module="./InventoryTable"
+                      noDetail={true}
+                      onLoad={[Function]}
+                      scope="inventory"
+                      showTags={true}
+                      store={
+                        Object {
+                          "clearActions": [Function],
+                          "dispatch": [Function],
+                          "getActions": [Function],
+                          "getState": [Function],
+                          "replaceReducer": [Function],
+                          "subscribe": [Function],
+                        }
+                      }
+                      tableProps={
+                        Object {
+                          "canSelectAll": false,
+                          "className": "inventory-align",
+                          "isStickyHeader": true,
+                          "ouiaId": "systems-table",
+                          "selectVariant": "checkbox",
+                        }
+                      }
+                    >
+                      <BaseScalprumComponent
+                        ErrorComponent={
+                          <InventoryLoadError
+                            bulkSelect={
+                              Object {
+                                "checked": false,
+                                "count": 0,
+                                "id": "systems-bulk-select",
+                                "isDisabled": false,
+                                "items": Array [
+                                  Object {
+                                    "onClick": [Function],
+                                    "title": "Select none (0)",
+                                  },
+                                  Object {
+                                    "onClick": [Function],
+                                    "title": "Select page (3)",
+                                  },
+                                  Object {
+                                    "onClick": [Function],
+                                    "title": "Select all (3)",
+                                  },
+                                ],
+                                "onSelect": [Function],
+                                "toggleProps": null,
+                              }
+                            }
+                            component="section"
+                            customFilters={
+                              Object {
+                                "filter": Object {
+                                  "system_profile": Object {},
+                                },
+                                "tags": undefined,
+                              }
+                            }
+                            fallback={
+                              <Bullseye
+                                className="pf-u-p-lg"
+                              >
+                                <Spinner
+                                  size="xl"
+                                />
+                              </Bullseye>
+                            }
+                            getEntities={[Function]}
+                            history={
+                              Object {
+                                "action": "POP",
+                                "block": [Function],
+                                "canGo": [Function],
+                                "createHref": [Function],
+                                "entries": Array [
+                                  Object {
+                                    "hash": "",
+                                    "pathname": "/",
+                                    "search": "",
+                                    "state": undefined,
+                                  },
+                                ],
+                                "go": [Function],
+                                "goBack": [Function],
+                                "goForward": [Function],
+                                "index": 0,
+                                "length": 1,
+                                "listen": [Function],
+                                "location": Object {
+                                  "hash": "",
+                                  "pathname": "/",
+                                  "search": "",
+                                  "state": undefined,
+                                },
+                                "push": [Function],
+                                "replace": [Function],
+                              }
+                            }
+                            innerRef={null}
+                            noDetail={true}
+                            onLoad={[Function]}
+                            showTags={true}
+                            store={
+                              Object {
+                                "clearActions": [Function],
+                                "dispatch": [Function],
+                                "getActions": [Function],
+                                "getState": [Function],
+                                "replaceReducer": [Function],
+                                "subscribe": [Function],
+                              }
+                            }
+                            tableProps={
+                              Object {
+                                "canSelectAll": false,
+                                "className": "inventory-align",
+                                "isStickyHeader": true,
+                                "ouiaId": "systems-table",
+                                "selectVariant": "checkbox",
+                              }
+                            }
+                          />
+                        }
+                        appName="inventory"
+                        bulkSelect={
+                          Object {
+                            "checked": false,
+                            "count": 0,
+                            "id": "systems-bulk-select",
+                            "isDisabled": false,
+                            "items": Array [
+                              Object {
+                                "onClick": [Function],
+                                "title": "Select none (0)",
+                              },
+                              Object {
+                                "onClick": [Function],
+                                "title": "Select page (3)",
+                              },
+                              Object {
+                                "onClick": [Function],
+                                "title": "Select all (3)",
+                              },
+                            ],
+                            "onSelect": [Function],
+                            "toggleProps": null,
+                          }
+                        }
+                        component="section"
+                        customFilters={
+                          Object {
+                            "filter": Object {
+                              "system_profile": Object {},
+                            },
+                            "tags": undefined,
+                          }
+                        }
+                        fallback={
+                          <Bullseye
+                            className="pf-u-p-lg"
+                          >
+                            <Spinner
+                              size="xl"
+                            />
+                          </Bullseye>
+                        }
+                        getEntities={[Function]}
+                        history={
+                          Object {
+                            "action": "POP",
+                            "block": [Function],
+                            "canGo": [Function],
+                            "createHref": [Function],
+                            "entries": Array [
+                              Object {
+                                "hash": "",
+                                "pathname": "/",
+                                "search": "",
+                                "state": undefined,
+                              },
+                            ],
+                            "go": [Function],
+                            "goBack": [Function],
+                            "goForward": [Function],
+                            "index": 0,
+                            "length": 1,
+                            "listen": [Function],
+                            "location": Object {
+                              "hash": "",
+                              "pathname": "/",
+                              "search": "",
+                              "state": undefined,
+                            },
+                            "push": [Function],
+                            "replace": [Function],
+                          }
+                        }
+                        innerRef={null}
+                        module="./InventoryTable"
+                        noDetail={true}
+                        onLoad={[Function]}
+                        scope="inventory"
+                        showTags={true}
+                        store={
+                          Object {
+                            "clearActions": [Function],
+                            "dispatch": [Function],
+                            "getActions": [Function],
+                            "getState": [Function],
+                            "replaceReducer": [Function],
+                            "subscribe": [Function],
+                          }
+                        }
+                        tableProps={
+                          Object {
+                            "canSelectAll": false,
+                            "className": "inventory-align",
+                            "isStickyHeader": true,
+                            "ouiaId": "systems-table",
+                            "selectVariant": "checkbox",
+                          }
+                        }
+                      >
+                        <LoadModule
+                          ErrorComponent={[Function]}
+                          appName="inventory"
+                          bulkSelect={
+                            Object {
+                              "checked": false,
+                              "count": 0,
+                              "id": "systems-bulk-select",
+                              "isDisabled": false,
+                              "items": Array [
+                                Object {
+                                  "onClick": [Function],
+                                  "title": "Select none (0)",
+                                },
+                                Object {
+                                  "onClick": [Function],
+                                  "title": "Select page (3)",
+                                },
+                                Object {
+                                  "onClick": [Function],
+                                  "title": "Select all (3)",
+                                },
+                              ],
+                              "onSelect": [Function],
+                              "toggleProps": null,
+                            }
+                          }
+                          component="section"
+                          customFilters={
+                            Object {
+                              "filter": Object {
+                                "system_profile": Object {},
+                              },
+                              "tags": undefined,
+                            }
+                          }
+                          fallback={
+                            <Bullseye
+                              className="pf-u-p-lg"
+                            >
+                              <Spinner
+                                size="xl"
+                              />
+                            </Bullseye>
+                          }
+                          getEntities={[Function]}
+                          history={
+                            Object {
+                              "action": "POP",
+                              "block": [Function],
+                              "canGo": [Function],
+                              "createHref": [Function],
+                              "entries": Array [
+                                Object {
+                                  "hash": "",
+                                  "pathname": "/",
+                                  "search": "",
+                                  "state": undefined,
+                                },
+                              ],
+                              "go": [Function],
+                              "goBack": [Function],
+                              "goForward": [Function],
+                              "index": 0,
+                              "length": 1,
+                              "listen": [Function],
+                              "location": Object {
+                                "hash": "",
+                                "pathname": "/",
+                                "search": "",
+                                "state": undefined,
+                              },
+                              "push": [Function],
+                              "replace": [Function],
+                            }
+                          }
+                          innerRef={null}
+                          module="./InventoryTable"
+                          noDetail={true}
+                          onLoad={[Function]}
+                          scope="inventory"
+                          showTags={true}
+                          store={
+                            Object {
+                              "clearActions": [Function],
+                              "dispatch": [Function],
+                              "getActions": [Function],
+                              "getState": [Function],
+                              "replaceReducer": [Function],
+                              "subscribe": [Function],
+                            }
+                          }
+                          tableProps={
+                            Object {
+                              "canSelectAll": false,
+                              "className": "inventory-align",
+                              "isStickyHeader": true,
+                              "ouiaId": "systems-table",
+                              "selectVariant": "checkbox",
+                            }
+                          }
+                        >
+                          <Suspense
+                            fallback={
+                              <Bullseye
+                                className="pf-u-p-lg"
+                              >
+                                <Spinner
+                                  size="xl"
+                                />
+                              </Bullseye>
+                            }
+                          >
+                            <_default
+                              bulkSelect={
+                                Object {
+                                  "checked": false,
+                                  "count": 0,
+                                  "id": "systems-bulk-select",
+                                  "isDisabled": false,
+                                  "items": Array [
+                                    Object {
+                                      "onClick": [Function],
+                                      "title": "Select none (0)",
+                                    },
+                                    Object {
+                                      "onClick": [Function],
+                                      "title": "Select page (3)",
+                                    },
+                                    Object {
+                                      "onClick": [Function],
+                                      "title": "Select all (3)",
+                                    },
+                                  ],
+                                  "onSelect": [Function],
+                                  "toggleProps": null,
+                                }
+                              }
+                              component="section"
+                              customFilters={
+                                Object {
+                                  "filter": Object {
+                                    "system_profile": Object {},
+                                  },
+                                  "tags": undefined,
+                                }
+                              }
+                              getEntities={[Function]}
+                              history={
+                                Object {
+                                  "action": "POP",
+                                  "block": [Function],
+                                  "canGo": [Function],
+                                  "createHref": [Function],
+                                  "entries": Array [
+                                    Object {
+                                      "hash": "",
+                                      "pathname": "/",
+                                      "search": "",
+                                      "state": undefined,
+                                    },
+                                  ],
+                                  "go": [Function],
+                                  "goBack": [Function],
+                                  "goForward": [Function],
+                                  "index": 0,
+                                  "length": 1,
+                                  "listen": [Function],
+                                  "location": Object {
+                                    "hash": "",
+                                    "pathname": "/",
+                                    "search": "",
+                                    "state": undefined,
+                                  },
+                                  "push": [Function],
+                                  "replace": [Function],
+                                }
+                              }
+                              noDetail={true}
+                              onLoad={[Function]}
+                              showTags={true}
+                              store={
+                                Object {
+                                  "clearActions": [Function],
+                                  "dispatch": [Function],
+                                  "getActions": [Function],
+                                  "getState": [Function],
+                                  "replaceReducer": [Function],
+                                  "subscribe": [Function],
+                                }
+                              }
+                              tableProps={
+                                Object {
+                                  "canSelectAll": false,
+                                  "className": "inventory-align",
+                                  "isStickyHeader": true,
+                                  "ouiaId": "systems-table",
+                                  "selectVariant": "checkbox",
                                 }
                               }
                             >
@@ -866,14 +1965,146 @@ exports[`ConnectedSystemsTable should render correctly with no inventory read pe
       }
     >
       <Connect(SystemsTable)
+        bulkSelectDisabled={false}
+        createBaselineModal={false}
+        entities={
+          Object {
+            "columns": Array [
+              Object {
+                "key": "display_name",
+                "title": "Name",
+              },
+              Object {
+                "key": "tags",
+                "title": "Tags",
+              },
+              Object {
+                "key": "updated",
+                "title": "Last seen",
+              },
+              Object {
+                "key": "historical_profiles",
+                "title": "Historical profiles",
+              },
+            ],
+            "count": 3,
+            "rows": Array [
+              Object {
+                "id": "ec67f65c-2bc8-4ce8-82e2-6a27cada8d31",
+                "tags": Array [
+                  Object {
+                    "key": "group",
+                    "namespace": "insights-client",
+                    "value": "XmygroupX",
+                  },
+                ],
+                "updated": "2020-10-13T16:17:56.253419+00:00",
+              },
+              Object {
+                "id": "7672c0c3-db27-4b59-ace9-5724d5a2dd1b",
+                "tags": Array [
+                  Object {
+                    "key": "group",
+                    "namespace": "insights-client",
+                    "value": "XmygroupX",
+                  },
+                ],
+                "updated": "2020-10-13T16:17:54.952780+00:00",
+              },
+              Object {
+                "id": "45ef6cea-b80f-46b6-90fc-00363a6f3b70",
+                "tags": Array [
+                  Object {
+                    "key": "group",
+                    "namespace": "insights-client",
+                    "value": "XmygroupX",
+                  },
+                ],
+                "updated": "2020-10-13T16:17:54.686193+00:00",
+              },
+            ],
+            "selectedSystemIds": Array [],
+            "total": 3,
+          }
+        }
+        hasHistoricalDropdown={false}
+        hasMultiSelect={true}
+        historicalProfiles={Array []}
         permissions={
           Object {
             "inventoryRead": false,
           }
         }
+        selectVariant="checkbox"
+        selectedSystemIds={Array []}
       >
         <SystemsTable
+          bulkSelectDisabled={false}
+          createBaselineModal={false}
           driftClearFilters={[Function]}
+          entities={
+            Object {
+              "columns": Array [
+                Object {
+                  "key": "display_name",
+                  "title": "Name",
+                },
+                Object {
+                  "key": "tags",
+                  "title": "Tags",
+                },
+                Object {
+                  "key": "updated",
+                  "title": "Last seen",
+                },
+                Object {
+                  "key": "historical_profiles",
+                  "title": "Historical profiles",
+                },
+              ],
+              "count": 3,
+              "rows": Array [
+                Object {
+                  "id": "ec67f65c-2bc8-4ce8-82e2-6a27cada8d31",
+                  "tags": Array [
+                    Object {
+                      "key": "group",
+                      "namespace": "insights-client",
+                      "value": "XmygroupX",
+                    },
+                  ],
+                  "updated": "2020-10-13T16:17:56.253419+00:00",
+                },
+                Object {
+                  "id": "7672c0c3-db27-4b59-ace9-5724d5a2dd1b",
+                  "tags": Array [
+                    Object {
+                      "key": "group",
+                      "namespace": "insights-client",
+                      "value": "XmygroupX",
+                    },
+                  ],
+                  "updated": "2020-10-13T16:17:54.952780+00:00",
+                },
+                Object {
+                  "id": "45ef6cea-b80f-46b6-90fc-00363a6f3b70",
+                  "tags": Array [
+                    Object {
+                      "key": "group",
+                      "namespace": "insights-client",
+                      "value": "XmygroupX",
+                    },
+                  ],
+                  "updated": "2020-10-13T16:17:54.686193+00:00",
+                },
+              ],
+              "selectedSystemIds": Array [],
+              "total": 3,
+            }
+          }
+          hasHistoricalDropdown={false}
+          hasMultiSelect={true}
+          historicalProfiles={Array []}
           permissions={
             Object {
               "inventoryRead": false,
@@ -882,6 +2113,7 @@ exports[`ConnectedSystemsTable should render correctly with no inventory read pe
           selectEntities={[Function]}
           selectHistoricProfiles={[Function]}
           selectSingleHSP={[Function]}
+          selectVariant="checkbox"
           selectedSystemIds={Array []}
           setSelectedSystemIds={[Function]}
         >

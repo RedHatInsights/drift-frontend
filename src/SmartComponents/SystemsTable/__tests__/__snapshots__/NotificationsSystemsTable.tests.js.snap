@@ -49,12 +49,78 @@ exports[`ConnectedNotificationsSystemsTable should render correctly 1`] = `
       }
     >
       <SystemsTableWithContext
+        createBaselineModal={false}
+        entities={
+          Object {
+            "columns": Array [
+              Object {
+                "key": "display_name",
+                "title": "Name",
+              },
+              Object {
+                "key": "tags",
+                "title": "Tags",
+              },
+              Object {
+                "key": "updated",
+                "title": "Last seen",
+              },
+              Object {
+                "key": "historical_profiles",
+                "title": "Historical profiles",
+              },
+            ],
+            "count": 3,
+            "rows": Array [
+              Object {
+                "id": "ec67f65c-2bc8-4ce8-82e2-6a27cada8d31",
+                "tags": Array [
+                  Object {
+                    "key": "group",
+                    "namespace": "insights-client",
+                    "value": "XmygroupX",
+                  },
+                ],
+                "updated": "2020-10-13T16:17:56.253419+00:00",
+              },
+              Object {
+                "id": "7672c0c3-db27-4b59-ace9-5724d5a2dd1b",
+                "tags": Array [
+                  Object {
+                    "key": "group",
+                    "namespace": "insights-client",
+                    "value": "XmygroupX",
+                  },
+                ],
+                "updated": "2020-10-13T16:17:54.952780+00:00",
+              },
+              Object {
+                "id": "45ef6cea-b80f-46b6-90fc-00363a6f3b70",
+                "tags": Array [
+                  Object {
+                    "key": "group",
+                    "namespace": "insights-client",
+                    "value": "XmygroupX",
+                  },
+                ],
+                "updated": "2020-10-13T16:17:54.686193+00:00",
+              },
+            ],
+            "selectedSystemIds": Array [],
+            "total": 3,
+          }
+        }
+        hasHistoricalDropdown={false}
+        hasMultiSelect={true}
+        historicalProfiles={Array []}
         permissions={
           Object {
             "inventoryRead": true,
             "notificationsWrite": true,
           }
         }
+        selectVariant="checkbox"
+        selectedSystemIds={Array []}
         toolbarButton={
           <Button
             isDisabled={false}
@@ -79,6 +145,70 @@ exports[`ConnectedNotificationsSystemsTable should render correctly 1`] = `
         >
           <Connect(Component)
             addNewListener={[Function]}
+            createBaselineModal={false}
+            entities={
+              Object {
+                "columns": Array [
+                  Object {
+                    "key": "display_name",
+                    "title": "Name",
+                  },
+                  Object {
+                    "key": "tags",
+                    "title": "Tags",
+                  },
+                  Object {
+                    "key": "updated",
+                    "title": "Last seen",
+                  },
+                  Object {
+                    "key": "historical_profiles",
+                    "title": "Historical profiles",
+                  },
+                ],
+                "count": 3,
+                "rows": Array [
+                  Object {
+                    "id": "ec67f65c-2bc8-4ce8-82e2-6a27cada8d31",
+                    "tags": Array [
+                      Object {
+                        "key": "group",
+                        "namespace": "insights-client",
+                        "value": "XmygroupX",
+                      },
+                    ],
+                    "updated": "2020-10-13T16:17:56.253419+00:00",
+                  },
+                  Object {
+                    "id": "7672c0c3-db27-4b59-ace9-5724d5a2dd1b",
+                    "tags": Array [
+                      Object {
+                        "key": "group",
+                        "namespace": "insights-client",
+                        "value": "XmygroupX",
+                      },
+                    ],
+                    "updated": "2020-10-13T16:17:54.952780+00:00",
+                  },
+                  Object {
+                    "id": "45ef6cea-b80f-46b6-90fc-00363a6f3b70",
+                    "tags": Array [
+                      Object {
+                        "key": "group",
+                        "namespace": "insights-client",
+                        "value": "XmygroupX",
+                      },
+                    ],
+                    "updated": "2020-10-13T16:17:54.686193+00:00",
+                  },
+                ],
+                "selectedSystemIds": Array [],
+                "total": 3,
+              }
+            }
+            hasHistoricalDropdown={false}
+            hasMultiSelect={true}
+            historicalProfiles={Array []}
             permissions={
               Object {
                 "inventoryRead": true,
@@ -97,6 +227,7 @@ exports[`ConnectedNotificationsSystemsTable should render correctly 1`] = `
                 },
               }
             }
+            selectVariant="checkbox"
             selectedSystemIds={Array []}
             toolbarButton={
               <Button
@@ -111,7 +242,71 @@ exports[`ConnectedNotificationsSystemsTable should render correctly 1`] = `
           >
             <Component
               addNewListener={[Function]}
+              createBaselineModal={false}
               driftClearFilters={[Function]}
+              entities={
+                Object {
+                  "columns": Array [
+                    Object {
+                      "key": "display_name",
+                      "title": "Name",
+                    },
+                    Object {
+                      "key": "tags",
+                      "title": "Tags",
+                    },
+                    Object {
+                      "key": "updated",
+                      "title": "Last seen",
+                    },
+                    Object {
+                      "key": "historical_profiles",
+                      "title": "Historical profiles",
+                    },
+                  ],
+                  "count": 3,
+                  "rows": Array [
+                    Object {
+                      "id": "ec67f65c-2bc8-4ce8-82e2-6a27cada8d31",
+                      "tags": Array [
+                        Object {
+                          "key": "group",
+                          "namespace": "insights-client",
+                          "value": "XmygroupX",
+                        },
+                      ],
+                      "updated": "2020-10-13T16:17:56.253419+00:00",
+                    },
+                    Object {
+                      "id": "7672c0c3-db27-4b59-ace9-5724d5a2dd1b",
+                      "tags": Array [
+                        Object {
+                          "key": "group",
+                          "namespace": "insights-client",
+                          "value": "XmygroupX",
+                        },
+                      ],
+                      "updated": "2020-10-13T16:17:54.952780+00:00",
+                    },
+                    Object {
+                      "id": "45ef6cea-b80f-46b6-90fc-00363a6f3b70",
+                      "tags": Array [
+                        Object {
+                          "key": "group",
+                          "namespace": "insights-client",
+                          "value": "XmygroupX",
+                        },
+                      ],
+                      "updated": "2020-10-13T16:17:54.686193+00:00",
+                    },
+                  ],
+                  "selectedSystemIds": Array [],
+                  "total": 3,
+                }
+              }
+              hasHistoricalDropdown={false}
+              hasMultiSelect={true}
+              historicalProfiles={Array []}
               permissions={
                 Object {
                   "inventoryRead": true,
@@ -131,6 +326,7 @@ exports[`ConnectedNotificationsSystemsTable should render correctly 1`] = `
                 }
               }
               selectEntities={[Function]}
+              selectVariant="checkbox"
               selectedSystemIds={Array []}
               setSelectedSystemIds={[Function]}
               toolbarButton={
@@ -171,8 +367,9 @@ exports[`ConnectedNotificationsSystemsTable should render correctly 1`] = `
                 bulkSelect={
                   Object {
                     "checked": null,
-                    "count": 0,
-                    "isDisabled": true,
+                    "count": undefined,
+                    "id": "notifications-system-bulk-select",
+                    "isDisabled": false,
                     "items": Array [
                       Object {
                         "onClick": [Function],
@@ -182,8 +379,13 @@ exports[`ConnectedNotificationsSystemsTable should render correctly 1`] = `
                         "onClick": [Function],
                         "title": "Select page (0)",
                       },
+                      Object {
+                        "onClick": [Function],
+                        "title": "Select all (undefined)",
+                      },
                     ],
                     "onSelect": [Function],
+                    "toggleProps": null,
                   }
                 }
                 component="section"
@@ -213,7 +415,7 @@ exports[`ConnectedNotificationsSystemsTable should render correctly 1`] = `
                     "canSelectAll": false,
                     "isStickyHeader": true,
                     "ouiaId": "systems-table",
-                    "selectVariant": undefined,
+                    "selectVariant": "checkbox",
                   }
                 }
               >
@@ -244,8 +446,9 @@ exports[`ConnectedNotificationsSystemsTable should render correctly 1`] = `
                   bulkSelect={
                     Object {
                       "checked": null,
-                      "count": 0,
-                      "isDisabled": true,
+                      "count": undefined,
+                      "id": "notifications-system-bulk-select",
+                      "isDisabled": false,
                       "items": Array [
                         Object {
                           "onClick": [Function],
@@ -255,8 +458,13 @@ exports[`ConnectedNotificationsSystemsTable should render correctly 1`] = `
                           "onClick": [Function],
                           "title": "Select page (0)",
                         },
+                        Object {
+                          "onClick": [Function],
+                          "title": "Select all (undefined)",
+                        },
                       ],
                       "onSelect": [Function],
+                      "toggleProps": null,
                     }
                   }
                   component="section"
@@ -287,7 +495,7 @@ exports[`ConnectedNotificationsSystemsTable should render correctly 1`] = `
                       "canSelectAll": false,
                       "isStickyHeader": true,
                       "ouiaId": "systems-table",
-                      "selectVariant": undefined,
+                      "selectVariant": "checkbox",
                     }
                   }
                 >
@@ -334,8 +542,9 @@ exports[`ConnectedNotificationsSystemsTable should render correctly 1`] = `
                             bulkSelect={
                               Object {
                                 "checked": null,
-                                "count": 0,
-                                "isDisabled": true,
+                                "count": undefined,
+                                "id": "notifications-system-bulk-select",
+                                "isDisabled": false,
                                 "items": Array [
                                   Object {
                                     "onClick": [Function],
@@ -345,8 +554,13 @@ exports[`ConnectedNotificationsSystemsTable should render correctly 1`] = `
                                     "onClick": [Function],
                                     "title": "Select page (0)",
                                   },
+                                  Object {
+                                    "onClick": [Function],
+                                    "title": "Select all (undefined)",
+                                  },
                                 ],
                                 "onSelect": [Function],
+                                "toggleProps": null,
                               }
                             }
                             component="section"
@@ -416,7 +630,7 @@ exports[`ConnectedNotificationsSystemsTable should render correctly 1`] = `
                                 "canSelectAll": false,
                                 "isStickyHeader": true,
                                 "ouiaId": "systems-table",
-                                "selectVariant": undefined,
+                                "selectVariant": "checkbox",
                               }
                             }
                           />
@@ -448,8 +662,9 @@ exports[`ConnectedNotificationsSystemsTable should render correctly 1`] = `
                         bulkSelect={
                           Object {
                             "checked": null,
-                            "count": 0,
-                            "isDisabled": true,
+                            "count": undefined,
+                            "id": "notifications-system-bulk-select",
+                            "isDisabled": false,
                             "items": Array [
                               Object {
                                 "onClick": [Function],
@@ -459,8 +674,13 @@ exports[`ConnectedNotificationsSystemsTable should render correctly 1`] = `
                                 "onClick": [Function],
                                 "title": "Select page (0)",
                               },
+                              Object {
+                                "onClick": [Function],
+                                "title": "Select all (undefined)",
+                              },
                             ],
                             "onSelect": [Function],
+                            "toggleProps": null,
                           }
                         }
                         component="section"
@@ -532,7 +752,7 @@ exports[`ConnectedNotificationsSystemsTable should render correctly 1`] = `
                             "canSelectAll": false,
                             "isStickyHeader": true,
                             "ouiaId": "systems-table",
-                            "selectVariant": undefined,
+                            "selectVariant": "checkbox",
                           }
                         }
                       >
@@ -565,8 +785,9 @@ exports[`ConnectedNotificationsSystemsTable should render correctly 1`] = `
                               bulkSelect={
                                 Object {
                                   "checked": null,
-                                  "count": 0,
-                                  "isDisabled": true,
+                                  "count": undefined,
+                                  "id": "notifications-system-bulk-select",
+                                  "isDisabled": false,
                                   "items": Array [
                                     Object {
                                       "onClick": [Function],
@@ -576,8 +797,13 @@ exports[`ConnectedNotificationsSystemsTable should render correctly 1`] = `
                                       "onClick": [Function],
                                       "title": "Select page (0)",
                                     },
+                                    Object {
+                                      "onClick": [Function],
+                                      "title": "Select all (undefined)",
+                                    },
                                   ],
                                   "onSelect": [Function],
+                                  "toggleProps": null,
                                 }
                               }
                               component="section"
@@ -647,7 +873,7 @@ exports[`ConnectedNotificationsSystemsTable should render correctly 1`] = `
                                   "canSelectAll": false,
                                   "isStickyHeader": true,
                                   "ouiaId": "systems-table",
-                                  "selectVariant": undefined,
+                                  "selectVariant": "checkbox",
                                 }
                               }
                             />
@@ -679,8 +905,9 @@ exports[`ConnectedNotificationsSystemsTable should render correctly 1`] = `
                           bulkSelect={
                             Object {
                               "checked": null,
-                              "count": 0,
-                              "isDisabled": true,
+                              "count": undefined,
+                              "id": "notifications-system-bulk-select",
+                              "isDisabled": false,
                               "items": Array [
                                 Object {
                                   "onClick": [Function],
@@ -690,8 +917,13 @@ exports[`ConnectedNotificationsSystemsTable should render correctly 1`] = `
                                   "onClick": [Function],
                                   "title": "Select page (0)",
                                 },
+                                Object {
+                                  "onClick": [Function],
+                                  "title": "Select all (undefined)",
+                                },
                               ],
                               "onSelect": [Function],
+                              "toggleProps": null,
                             }
                           }
                           component="section"
@@ -763,7 +995,7 @@ exports[`ConnectedNotificationsSystemsTable should render correctly 1`] = `
                               "canSelectAll": false,
                               "isStickyHeader": true,
                               "ouiaId": "systems-table",
-                              "selectVariant": undefined,
+                              "selectVariant": "checkbox",
                             }
                           }
                         >
@@ -796,8 +1028,9 @@ exports[`ConnectedNotificationsSystemsTable should render correctly 1`] = `
                             bulkSelect={
                               Object {
                                 "checked": null,
-                                "count": 0,
-                                "isDisabled": true,
+                                "count": undefined,
+                                "id": "notifications-system-bulk-select",
+                                "isDisabled": false,
                                 "items": Array [
                                   Object {
                                     "onClick": [Function],
@@ -807,8 +1040,13 @@ exports[`ConnectedNotificationsSystemsTable should render correctly 1`] = `
                                     "onClick": [Function],
                                     "title": "Select page (0)",
                                   },
+                                  Object {
+                                    "onClick": [Function],
+                                    "title": "Select all (undefined)",
+                                  },
                                 ],
                                 "onSelect": [Function],
+                                "toggleProps": null,
                               }
                             }
                             component="section"
@@ -880,7 +1118,7 @@ exports[`ConnectedNotificationsSystemsTable should render correctly 1`] = `
                                 "canSelectAll": false,
                                 "isStickyHeader": true,
                                 "ouiaId": "systems-table",
-                                "selectVariant": undefined,
+                                "selectVariant": "checkbox",
                               }
                             }
                           >
@@ -922,8 +1160,9 @@ exports[`ConnectedNotificationsSystemsTable should render correctly 1`] = `
                                 bulkSelect={
                                   Object {
                                     "checked": null,
-                                    "count": 0,
-                                    "isDisabled": true,
+                                    "count": undefined,
+                                    "id": "notifications-system-bulk-select",
+                                    "isDisabled": false,
                                     "items": Array [
                                       Object {
                                         "onClick": [Function],
@@ -933,8 +1172,13 @@ exports[`ConnectedNotificationsSystemsTable should render correctly 1`] = `
                                         "onClick": [Function],
                                         "title": "Select page (0)",
                                       },
+                                      Object {
+                                        "onClick": [Function],
+                                        "title": "Select all (undefined)",
+                                      },
                                     ],
                                     "onSelect": [Function],
+                                    "toggleProps": null,
                                   }
                                 }
                                 component="section"
@@ -994,7 +1238,7 @@ exports[`ConnectedNotificationsSystemsTable should render correctly 1`] = `
                                     "canSelectAll": false,
                                     "isStickyHeader": true,
                                     "ouiaId": "systems-table",
-                                    "selectVariant": undefined,
+                                    "selectVariant": "checkbox",
                                   }
                                 }
                               >
@@ -1070,12 +1314,78 @@ exports[`ConnectedNotificationsSystemsTable should render correctly with no inve
       }
     >
       <SystemsTableWithContext
+        createBaselineModal={false}
+        entities={
+          Object {
+            "columns": Array [
+              Object {
+                "key": "display_name",
+                "title": "Name",
+              },
+              Object {
+                "key": "tags",
+                "title": "Tags",
+              },
+              Object {
+                "key": "updated",
+                "title": "Last seen",
+              },
+              Object {
+                "key": "historical_profiles",
+                "title": "Historical profiles",
+              },
+            ],
+            "count": 3,
+            "rows": Array [
+              Object {
+                "id": "ec67f65c-2bc8-4ce8-82e2-6a27cada8d31",
+                "tags": Array [
+                  Object {
+                    "key": "group",
+                    "namespace": "insights-client",
+                    "value": "XmygroupX",
+                  },
+                ],
+                "updated": "2020-10-13T16:17:56.253419+00:00",
+              },
+              Object {
+                "id": "7672c0c3-db27-4b59-ace9-5724d5a2dd1b",
+                "tags": Array [
+                  Object {
+                    "key": "group",
+                    "namespace": "insights-client",
+                    "value": "XmygroupX",
+                  },
+                ],
+                "updated": "2020-10-13T16:17:54.952780+00:00",
+              },
+              Object {
+                "id": "45ef6cea-b80f-46b6-90fc-00363a6f3b70",
+                "tags": Array [
+                  Object {
+                    "key": "group",
+                    "namespace": "insights-client",
+                    "value": "XmygroupX",
+                  },
+                ],
+                "updated": "2020-10-13T16:17:54.686193+00:00",
+              },
+            ],
+            "selectedSystemIds": Array [],
+            "total": 3,
+          }
+        }
+        hasHistoricalDropdown={false}
+        hasMultiSelect={true}
+        historicalProfiles={Array []}
         permissions={
           Object {
             "inventoryRead": true,
             "notificationsWrite": false,
           }
         }
+        selectVariant="checkbox"
+        selectedSystemIds={Array []}
         toolbarButton={
           <Button
             isDisabled={false}
@@ -1100,6 +1410,70 @@ exports[`ConnectedNotificationsSystemsTable should render correctly with no inve
         >
           <Connect(Component)
             addNewListener={[Function]}
+            createBaselineModal={false}
+            entities={
+              Object {
+                "columns": Array [
+                  Object {
+                    "key": "display_name",
+                    "title": "Name",
+                  },
+                  Object {
+                    "key": "tags",
+                    "title": "Tags",
+                  },
+                  Object {
+                    "key": "updated",
+                    "title": "Last seen",
+                  },
+                  Object {
+                    "key": "historical_profiles",
+                    "title": "Historical profiles",
+                  },
+                ],
+                "count": 3,
+                "rows": Array [
+                  Object {
+                    "id": "ec67f65c-2bc8-4ce8-82e2-6a27cada8d31",
+                    "tags": Array [
+                      Object {
+                        "key": "group",
+                        "namespace": "insights-client",
+                        "value": "XmygroupX",
+                      },
+                    ],
+                    "updated": "2020-10-13T16:17:56.253419+00:00",
+                  },
+                  Object {
+                    "id": "7672c0c3-db27-4b59-ace9-5724d5a2dd1b",
+                    "tags": Array [
+                      Object {
+                        "key": "group",
+                        "namespace": "insights-client",
+                        "value": "XmygroupX",
+                      },
+                    ],
+                    "updated": "2020-10-13T16:17:54.952780+00:00",
+                  },
+                  Object {
+                    "id": "45ef6cea-b80f-46b6-90fc-00363a6f3b70",
+                    "tags": Array [
+                      Object {
+                        "key": "group",
+                        "namespace": "insights-client",
+                        "value": "XmygroupX",
+                      },
+                    ],
+                    "updated": "2020-10-13T16:17:54.686193+00:00",
+                  },
+                ],
+                "selectedSystemIds": Array [],
+                "total": 3,
+              }
+            }
+            hasHistoricalDropdown={false}
+            hasMultiSelect={true}
+            historicalProfiles={Array []}
             permissions={
               Object {
                 "inventoryRead": true,
@@ -1118,6 +1492,7 @@ exports[`ConnectedNotificationsSystemsTable should render correctly with no inve
                 },
               }
             }
+            selectVariant="checkbox"
             selectedSystemIds={Array []}
             toolbarButton={
               <Button
@@ -1132,7 +1507,71 @@ exports[`ConnectedNotificationsSystemsTable should render correctly with no inve
           >
             <Component
               addNewListener={[Function]}
+              createBaselineModal={false}
               driftClearFilters={[Function]}
+              entities={
+                Object {
+                  "columns": Array [
+                    Object {
+                      "key": "display_name",
+                      "title": "Name",
+                    },
+                    Object {
+                      "key": "tags",
+                      "title": "Tags",
+                    },
+                    Object {
+                      "key": "updated",
+                      "title": "Last seen",
+                    },
+                    Object {
+                      "key": "historical_profiles",
+                      "title": "Historical profiles",
+                    },
+                  ],
+                  "count": 3,
+                  "rows": Array [
+                    Object {
+                      "id": "ec67f65c-2bc8-4ce8-82e2-6a27cada8d31",
+                      "tags": Array [
+                        Object {
+                          "key": "group",
+                          "namespace": "insights-client",
+                          "value": "XmygroupX",
+                        },
+                      ],
+                      "updated": "2020-10-13T16:17:56.253419+00:00",
+                    },
+                    Object {
+                      "id": "7672c0c3-db27-4b59-ace9-5724d5a2dd1b",
+                      "tags": Array [
+                        Object {
+                          "key": "group",
+                          "namespace": "insights-client",
+                          "value": "XmygroupX",
+                        },
+                      ],
+                      "updated": "2020-10-13T16:17:54.952780+00:00",
+                    },
+                    Object {
+                      "id": "45ef6cea-b80f-46b6-90fc-00363a6f3b70",
+                      "tags": Array [
+                        Object {
+                          "key": "group",
+                          "namespace": "insights-client",
+                          "value": "XmygroupX",
+                        },
+                      ],
+                      "updated": "2020-10-13T16:17:54.686193+00:00",
+                    },
+                  ],
+                  "selectedSystemIds": Array [],
+                  "total": 3,
+                }
+              }
+              hasHistoricalDropdown={false}
+              hasMultiSelect={true}
+              historicalProfiles={Array []}
               permissions={
                 Object {
                   "inventoryRead": true,
@@ -1152,6 +1591,7 @@ exports[`ConnectedNotificationsSystemsTable should render correctly with no inve
                 }
               }
               selectEntities={[Function]}
+              selectVariant="checkbox"
               selectedSystemIds={Array []}
               setSelectedSystemIds={[Function]}
               toolbarButton={
@@ -1174,8 +1614,9 @@ exports[`ConnectedNotificationsSystemsTable should render correctly with no inve
                 bulkSelect={
                   Object {
                     "checked": null,
-                    "count": 0,
-                    "isDisabled": true,
+                    "count": undefined,
+                    "id": "notifications-system-bulk-select",
+                    "isDisabled": false,
                     "items": Array [
                       Object {
                         "onClick": [Function],
@@ -1185,8 +1626,13 @@ exports[`ConnectedNotificationsSystemsTable should render correctly with no inve
                         "onClick": [Function],
                         "title": "Select page (0)",
                       },
+                      Object {
+                        "onClick": [Function],
+                        "title": "Select all (undefined)",
+                      },
                     ],
                     "onSelect": [Function],
+                    "toggleProps": null,
                   }
                 }
                 component="section"
@@ -1217,7 +1663,7 @@ exports[`ConnectedNotificationsSystemsTable should render correctly with no inve
                     "isStickyHeader": true,
                     "onSelect": false,
                     "ouiaId": "systems-table",
-                    "selectVariant": undefined,
+                    "selectVariant": "checkbox",
                   }
                 }
               >
@@ -1230,8 +1676,9 @@ exports[`ConnectedNotificationsSystemsTable should render correctly with no inve
                   bulkSelect={
                     Object {
                       "checked": null,
-                      "count": 0,
-                      "isDisabled": true,
+                      "count": undefined,
+                      "id": "notifications-system-bulk-select",
+                      "isDisabled": false,
                       "items": Array [
                         Object {
                           "onClick": [Function],
@@ -1241,8 +1688,13 @@ exports[`ConnectedNotificationsSystemsTable should render correctly with no inve
                           "onClick": [Function],
                           "title": "Select page (0)",
                         },
+                        Object {
+                          "onClick": [Function],
+                          "title": "Select all (undefined)",
+                        },
                       ],
                       "onSelect": [Function],
+                      "toggleProps": null,
                     }
                   }
                   component="section"
@@ -1274,7 +1726,7 @@ exports[`ConnectedNotificationsSystemsTable should render correctly with no inve
                       "isStickyHeader": true,
                       "onSelect": false,
                       "ouiaId": "systems-table",
-                      "selectVariant": undefined,
+                      "selectVariant": "checkbox",
                     }
                   }
                 >
@@ -1303,8 +1755,9 @@ exports[`ConnectedNotificationsSystemsTable should render correctly with no inve
                             bulkSelect={
                               Object {
                                 "checked": null,
-                                "count": 0,
-                                "isDisabled": true,
+                                "count": undefined,
+                                "id": "notifications-system-bulk-select",
+                                "isDisabled": false,
                                 "items": Array [
                                   Object {
                                     "onClick": [Function],
@@ -1314,8 +1767,13 @@ exports[`ConnectedNotificationsSystemsTable should render correctly with no inve
                                     "onClick": [Function],
                                     "title": "Select page (0)",
                                   },
+                                  Object {
+                                    "onClick": [Function],
+                                    "title": "Select all (undefined)",
+                                  },
                                 ],
                                 "onSelect": [Function],
+                                "toggleProps": null,
                               }
                             }
                             component="section"
@@ -1386,7 +1844,7 @@ exports[`ConnectedNotificationsSystemsTable should render correctly with no inve
                                 "isStickyHeader": true,
                                 "onSelect": false,
                                 "ouiaId": "systems-table",
-                                "selectVariant": undefined,
+                                "selectVariant": "checkbox",
                               }
                             }
                           />
@@ -1400,8 +1858,9 @@ exports[`ConnectedNotificationsSystemsTable should render correctly with no inve
                         bulkSelect={
                           Object {
                             "checked": null,
-                            "count": 0,
-                            "isDisabled": true,
+                            "count": undefined,
+                            "id": "notifications-system-bulk-select",
+                            "isDisabled": false,
                             "items": Array [
                               Object {
                                 "onClick": [Function],
@@ -1411,8 +1870,13 @@ exports[`ConnectedNotificationsSystemsTable should render correctly with no inve
                                 "onClick": [Function],
                                 "title": "Select page (0)",
                               },
+                              Object {
+                                "onClick": [Function],
+                                "title": "Select all (undefined)",
+                              },
                             ],
                             "onSelect": [Function],
+                            "toggleProps": null,
                           }
                         }
                         component="section"
@@ -1485,7 +1949,7 @@ exports[`ConnectedNotificationsSystemsTable should render correctly with no inve
                             "isStickyHeader": true,
                             "onSelect": false,
                             "ouiaId": "systems-table",
-                            "selectVariant": undefined,
+                            "selectVariant": "checkbox",
                           }
                         }
                       >
@@ -1500,8 +1964,9 @@ exports[`ConnectedNotificationsSystemsTable should render correctly with no inve
                               bulkSelect={
                                 Object {
                                   "checked": null,
-                                  "count": 0,
-                                  "isDisabled": true,
+                                  "count": undefined,
+                                  "id": "notifications-system-bulk-select",
+                                  "isDisabled": false,
                                   "items": Array [
                                     Object {
                                       "onClick": [Function],
@@ -1511,8 +1976,13 @@ exports[`ConnectedNotificationsSystemsTable should render correctly with no inve
                                       "onClick": [Function],
                                       "title": "Select page (0)",
                                     },
+                                    Object {
+                                      "onClick": [Function],
+                                      "title": "Select all (undefined)",
+                                    },
                                   ],
                                   "onSelect": [Function],
+                                  "toggleProps": null,
                                 }
                               }
                               component="section"
@@ -1583,7 +2053,7 @@ exports[`ConnectedNotificationsSystemsTable should render correctly with no inve
                                   "isStickyHeader": true,
                                   "onSelect": false,
                                   "ouiaId": "systems-table",
-                                  "selectVariant": undefined,
+                                  "selectVariant": "checkbox",
                                 }
                               }
                             />
@@ -1597,8 +2067,9 @@ exports[`ConnectedNotificationsSystemsTable should render correctly with no inve
                           bulkSelect={
                             Object {
                               "checked": null,
-                              "count": 0,
-                              "isDisabled": true,
+                              "count": undefined,
+                              "id": "notifications-system-bulk-select",
+                              "isDisabled": false,
                               "items": Array [
                                 Object {
                                   "onClick": [Function],
@@ -1608,8 +2079,13 @@ exports[`ConnectedNotificationsSystemsTable should render correctly with no inve
                                   "onClick": [Function],
                                   "title": "Select page (0)",
                                 },
+                                Object {
+                                  "onClick": [Function],
+                                  "title": "Select all (undefined)",
+                                },
                               ],
                               "onSelect": [Function],
+                              "toggleProps": null,
                             }
                           }
                           component="section"
@@ -1682,7 +2158,7 @@ exports[`ConnectedNotificationsSystemsTable should render correctly with no inve
                               "isStickyHeader": true,
                               "onSelect": false,
                               "ouiaId": "systems-table",
-                              "selectVariant": undefined,
+                              "selectVariant": "checkbox",
                             }
                           }
                         >
@@ -1697,8 +2173,9 @@ exports[`ConnectedNotificationsSystemsTable should render correctly with no inve
                             bulkSelect={
                               Object {
                                 "checked": null,
-                                "count": 0,
-                                "isDisabled": true,
+                                "count": undefined,
+                                "id": "notifications-system-bulk-select",
+                                "isDisabled": false,
                                 "items": Array [
                                   Object {
                                     "onClick": [Function],
@@ -1708,8 +2185,13 @@ exports[`ConnectedNotificationsSystemsTable should render correctly with no inve
                                     "onClick": [Function],
                                     "title": "Select page (0)",
                                   },
+                                  Object {
+                                    "onClick": [Function],
+                                    "title": "Select all (undefined)",
+                                  },
                                 ],
                                 "onSelect": [Function],
+                                "toggleProps": null,
                               }
                             }
                             component="section"
@@ -1782,7 +2264,7 @@ exports[`ConnectedNotificationsSystemsTable should render correctly with no inve
                                 "isStickyHeader": true,
                                 "onSelect": false,
                                 "ouiaId": "systems-table",
-                                "selectVariant": undefined,
+                                "selectVariant": "checkbox",
                               }
                             }
                           >
@@ -1806,8 +2288,9 @@ exports[`ConnectedNotificationsSystemsTable should render correctly with no inve
                                 bulkSelect={
                                   Object {
                                     "checked": null,
-                                    "count": 0,
-                                    "isDisabled": true,
+                                    "count": undefined,
+                                    "id": "notifications-system-bulk-select",
+                                    "isDisabled": false,
                                     "items": Array [
                                       Object {
                                         "onClick": [Function],
@@ -1817,8 +2300,13 @@ exports[`ConnectedNotificationsSystemsTable should render correctly with no inve
                                         "onClick": [Function],
                                         "title": "Select page (0)",
                                       },
+                                      Object {
+                                        "onClick": [Function],
+                                        "title": "Select all (undefined)",
+                                      },
                                     ],
                                     "onSelect": [Function],
+                                    "toggleProps": null,
                                   }
                                 }
                                 component="section"
@@ -1879,7 +2367,7 @@ exports[`ConnectedNotificationsSystemsTable should render correctly with no inve
                                     "isStickyHeader": true,
                                     "onSelect": false,
                                     "ouiaId": "systems-table",
-                                    "selectVariant": undefined,
+                                    "selectVariant": "checkbox",
                                   }
                                 }
                               >

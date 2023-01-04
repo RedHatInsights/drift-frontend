@@ -10,11 +10,12 @@ import { compareActions } from '../modules';
 import systemsTableActions from './actions';
 import EmptyStateDisplay from '../EmptyStateDisplay/EmptyStateDisplay';
 import { historicProfilesActions } from '../HistoricalProfilesPopover/redux';
-import helpers from '../helpers';
 import { RegistryContext } from '../../Utilities/registry';
+import useSystemsBulkSelect from './systemsHooks';
 
 export const SystemsTable = ({
     baselineId,
+    bulkSelectDisabled,
     createBaselineModal,
     deselectHistoricalProfiles,
     driftClearFilters,
@@ -36,28 +37,12 @@ export const SystemsTable = ({
     const workloadsFilter = useSelector(({ globalFilterState }) => globalFilterState?.workloadsFilter);
     const sidsFilter = useSelector(({ globalFilterState }) => globalFilterState?.sidsFilter);
     const getEntities = useRef(() => undefined);
-
-    const onSelect = (event) => {
-        let toSelect = [];
-        switch (event) {
-            case 'none': {
-                toSelect = { id: 0, selected: false, bulk: true };
-                break;
-            }
-
-            case 'deselect-page': {
-                toSelect = { id: 0, selected: false };
-                break;
-            }
-
-            case 'page': {
-                toSelect = { id: 0, selected: true };
-                break;
-            }
-        }
-
-        selectEntities(toSelect);
-    };
+    const bulkSelect = useSystemsBulkSelect(
+        'systems-bulk-select', entities, selectEntities, bulkSelectDisabled, isAddSystemNotifications
+    );
+    console.log(systemNotificationIds, 'systemNotificationIds');
+    console.log(isAddSystemNotifications, 'isAddSystemNotifications');
+    //console.log(entities, 'entitiesTable');
 
     return (
         permissions.inventoryRead ? (
@@ -111,7 +96,6 @@ export const SystemsTable = ({
                                         },
                                         true
                                     );
-
                                     return {
                                         ...data,
                                         results: data.results.map((system) => ({
@@ -124,40 +108,12 @@ export const SystemsTable = ({
                                     };
                                 }
                                 : async (_items, config) => {
+                                    console.log('here');
                                     const data = await getEntities.current?.([], config, true);
+                                    console.log(data, 'data');
                                     return { ...data };
                                 } }
-                            bulkSelect={ onSelect && !isAddSystemNotifications && {
-                                id: 'systems-bulk-select',
-                                isDisabled: !hasMultiSelect,
-                                count: entities?.selectedSystemIds?.length,
-                                items: [{
-                                    title: `Select none (0)`,
-                                    onClick: () => {
-                                        onSelect('none');
-                                    }
-                                }, {
-                                    title: `Select page (${ entities?.count || 0 })`,
-                                    onClick: () => {
-                                        onSelect('page');
-                                    }
-                                }, {
-                                    title: `Deselect page (${ entities?.count || 0 })`,
-                                    onClick: () => {
-                                        onSelect('deselect-page');
-                                    }
-                                }],
-                                onSelect: () => {
-                                    if (entities?.rows.length === entities?.selectedSystems?.length) {
-                                        onSelect('deselect-page');
-                                    } else {
-                                        onSelect('page');
-                                    }
-                                },
-                                checked: entities && entities.selectedSystemIds
-                                    ? helpers.findCheckedValue(entities?.total, entities?.selectedSystemIds.length)
-                                    : null
-                            } }
+                            bulkSelect={ bulkSelect }
                         />
                     }
                 </RegistryContext.Consumer>
@@ -190,7 +146,8 @@ SystemsTable.propTypes = {
     selectSystemsToAdd: PropTypes.func,
     selectSingleHSP: PropTypes.func,
     deselectHistoricalProfiles: PropTypes.func,
-    systemColumns: PropTypes.array
+    systemColumns: PropTypes.array,
+    bulkSelectDisabled: PropTypes.bool
 };
 
 function mapDispatchToProps(dispatch) {

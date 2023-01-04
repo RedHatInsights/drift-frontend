@@ -14,8 +14,8 @@ import selectedReducer from '../../store/reducers';
 import { compareActions } from '../modules';
 import systemsTableActions from './actions';
 import EmptyStateDisplay from '../EmptyStateDisplay/EmptyStateDisplay';
-import helpers from '../helpers';
 import isEqual from 'lodash/isEqual';
+import useSystemsBulkSelect from './systemsHooks';
 
 function mapDispatchToProps(dispatch) {
     return {
@@ -52,25 +52,7 @@ export const SystemsTable = connect(null, mapDispatchToProps)(({
     const selected = useSelector(({ entities }) => entities?.selectedSystemIds || []);
     const getEntities = useRef(() => undefined);
     const selectedRef = useRef([]);
-
-    const onSelect = (event) => {
-        let toSelect = [];
-        switch (event) {
-            case 'none': {
-                toSelect = { id: 0, selected: false, bulk: true };
-
-                break;
-            }
-
-            case 'page': {
-                toSelect = { id: 0, selected: true };
-
-                break;
-            }
-        }
-
-        selectEntities(toSelect);
-    };
+    const bulkSelect = useSystemsBulkSelect('notifications-system-bulk-select', entities, selectEntities)
 
     const buildTableProps = () => {
         if (permissions.notificationsWrite) {
@@ -169,32 +151,12 @@ export const SystemsTable = connect(null, mapDispatchToProps)(({
                             ...system,
                             ...currIds.find(({ uuid }) => uuid === system.id) || {}
                         })),
-                        total: (systemNotificationIds || []).length,
+                        total: (data.results || []).length,
                         page: config.page,
                         per_page: config.per_page
                     };
                 } }
-                bulkSelect={ onSelect && {
-                    isDisabled: !hasMultiSelect || !permissions.notificationsWrite,
-                    count: entities?.selectedSystemIds ? entities.selectedSystemIds.length : 0,
-                    items: [{
-                        title: `Select none (0)`,
-                        onClick: () => {
-                            onSelect('none');
-                        }
-                    }, {
-                        title: `Select page (${ entities?.count || 0 })`,
-                        onClick: () => {
-                            onSelect('page');
-                        }
-                    }],
-                    onSelect: (value) => {
-                        value ? onSelect('page') : onSelect('none');
-                    },
-                    checked: entities?.selectedSystemIds
-                        ? helpers.findCheckedValue(entities?.total, entities?.selectedSystemIds.length)
-                        : null
-                } }
+                bulkSelect={ bulkSelect }
                 actionsConfig={{
                     actions: buildActionsConfig()
                 }}

@@ -148,7 +148,6 @@ export class SystemNotification extends Component {
                         baselineId={ baselineId }
                         isAddSystemNotifications={ true }
                         driftClearFilters={ driftClearFilters }
-                        selectEntities={ selectEntities }
                         selectHistoricProfiles={ selectHistoricProfiles }
                         selectSystemsToAdd={ this.selectSystemsToAdd }
                         selectedSystemIds={ entities?.selectedSystemIds || [] }
