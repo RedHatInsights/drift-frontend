@@ -12,6 +12,19 @@ class DeleteFactModal extends Component {
         this.deleteFacts = this.deleteFacts.bind(this);
     }
 
+    buildMessage = () => {
+        const { categoryMessage, factMessage } = this.props;
+        let message;
+
+        if (factMessage?.length > 0 && categoryMessage?.length > 0) {
+            message = 'selected facts';
+        } else {
+            message = factMessage || categoryMessage;
+        }
+
+        return message;
+    }
+
     async deleteFacts() {
         const { deleteBaselineData, fetchBaselineData, baselineData, editBaselineTableData } = this.props;
         let apiBody = editBaselineHelpers.makeDeleteFactsPatch(editBaselineTableData, baselineData);
@@ -33,7 +46,7 @@ class DeleteFactModal extends Component {
                 className="drift"
                 ouiaId='delete-fact-modal'
                 variant={ ModalVariant.small }
-                title={ `Delete ${factMessage}` }
+                title={ `Delete ${this.buildMessage()}` }
                 isOpen={ modalOpened }
                 onClose={ this.props.toggleModal }
                 actions = { [
@@ -43,7 +56,7 @@ class DeleteFactModal extends Component {
                         variant="danger"
                         onClick={ deleteFact ? deleteFact : this.deleteFacts }
                     >
-                        {`Delete ${factMessage}`}
+                        {`Delete ${this.buildMessage()}`}
                     </Button>,
                     <Button
                         key="cancel"

@@ -125,8 +125,8 @@ export class FactKebab extends Component {
                     deleteFact={ this.deleteFact.bind(this) }
                     isCategory={ isCategory }
                     modalOpened={ modalOpened }
-                    categoryMessage={ isCategory ? '1 category' : null }
-                    factMessage={ isCategory ? null : '1 fact' }
+                    categoryMessage={ isCategory ? '1 selected category' : null }
+                    factMessage={ isCategory ? null : '1 selected fact' }
                 /> : null }
                 <Dropdown
                     position={ DropdownPosition.right }

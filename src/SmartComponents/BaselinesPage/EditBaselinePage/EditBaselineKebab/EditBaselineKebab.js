@@ -62,7 +62,7 @@ class EditBaselineKebab extends Component {
         let { categories, facts } = deleteFactModalHelpers.countFacts(editBaselineTableData);
 
         if (categories > 0) {
-            categoryMessage = categories === 1 ? '1 category' : categories + ' categories';
+            categoryMessage = categories === 1 ? '1 selected category' : categories + ' selected categories';
         }
 
         if (facts > 0) {
