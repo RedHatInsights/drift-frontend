@@ -25,7 +25,7 @@ export class EditBaselineNameModal extends Component {
 
     async confirmModal() {
         const { baselineName } = this.state;
-        const { baselineData, patchBaseline, toggleEditNameModal } = this.props;
+        const { baselineData, patchBaseline, store, toggleEditNameModal } = this.props;
 
         try {
             /*eslint-disable camelcase*/
@@ -38,7 +38,7 @@ export class EditBaselineNameModal extends Component {
                 title: `Updated baseline name to ${baselineName}`,
                 dismissable: true,
                 autoDismiss: false
-            });
+            }, store);
         } catch (e) {
             // do nothing and let redux handle
         }
@@ -123,7 +123,8 @@ EditBaselineNameModal.propTypes = {
     toggleEditNameModal: PropTypes.func,
     modalOpened: PropTypes.bool,
     patchBaseline: PropTypes.func,
-    error: PropTypes.object
+    error: PropTypes.object,
+    store: PropTypes.object
 };
 
 function mapDispatchToProps(dispatch) {
