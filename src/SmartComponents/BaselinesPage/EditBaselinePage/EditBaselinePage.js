@@ -150,7 +150,7 @@ export class EditBaselinePage extends Component {
         return pageTitle;
     }
 
-    renderPageHeader = ({ baselinesRead, baselinesWrite, notificationsRead }) => {
+    renderPageHeader = ({ baselinesRead, baselinesWrite, notificationsRead }, store) => {
         const { modalOpened } = this.state;
         const { baselineData, baselineDataLoading, notificationsSwitchError, inlineError,
             toggleNotificationPending, toggleNotificationFulfilled, toggleNotificationRejected } = this.props;
@@ -169,6 +169,7 @@ export class EditBaselinePage extends Component {
                         modalOpened={ modalOpened }
                         toggleEditNameModal={ this.toggleEditNameModal }
                         error={ inlineError }
+                        store={ store }
                     />
                     <PageHeader className={ notificationsRead ? 'bottom-padding-0' : '' }>
                         { this.renderBreadcrumb(baselineData, baselinesRead) }
@@ -293,7 +294,7 @@ export class EditBaselinePage extends Component {
                 <PermissionContext.Consumer>
                     { value =>
                         <React.Fragment>
-                            { this.renderPageHeader(value.permissions) }
+                            { this.renderPageHeader(value.permissions, registryContextValue?.registry.getStore()) }
                             <Main store={ registryContextValue?.registry.getStore() }>
                                 { value.permissions.baselinesRead === false
                                     ? <EmptyStateDisplay
