@@ -37,7 +37,7 @@ export class EditBaselineNameModal extends Component {
                 variant: 'success',
                 title: `Updated baseline name to ${baselineName}`,
                 dismissable: true,
-                autoDismiss: false
+                autoDismiss: true
             }, store);
         } catch (e) {
             // do nothing and let redux handle

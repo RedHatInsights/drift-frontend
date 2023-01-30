@@ -72,7 +72,8 @@ export const successfulExportNotification = (store) => (
     dispatchNotification({
         variant: 'success',
         title: 'Downloading export',
-        dismissable: true
+        dismissable: true,
+        autoDismiss: true
     }, store)
 );
 
