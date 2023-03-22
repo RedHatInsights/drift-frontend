@@ -3,6 +3,10 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
 
+jest.mock('@redhat-cloud-services/frontend-components/useChrome', () => ({
+    useChrome: () => null
+}));
+
 configure({ adapter: new Adapter() });
 global.shallow = shallow;
 global.render = render;

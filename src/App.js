@@ -3,6 +3,7 @@ import { useDispatch, useStore } from 'react-redux';
 import actions from './SmartComponents/modules/actions';
 import { withRouter, useHistory } from 'react-router-dom';
 import { NotificationsPortal } from '@redhat-cloud-services/frontend-components-notifications';
+import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
 
 import { Routes } from './Routes';
 import './App.scss';
@@ -13,6 +14,7 @@ const App = (props) => {
     const history = useHistory();
     const dispatch = useDispatch();
     const store = useStore();
+    const chrome = useChrome();
 
     const [{
         hasCompareReadPermissions,
@@ -61,16 +63,15 @@ const App = (props) => {
     };
 
     useEffect(() => {
-        insights.chrome.init();
-        insights.chrome.identifyApp('drift');
-        insights.chrome.on('APP_NAVIGATION', event => {
+        chrome.identifyApp('drift');
+        chrome.on('APP_NAVIGATION', event => {
             if (event.domEvent !== undefined && event.domEvent.type === 'click') {
                 history.push(`/${event.navId}`);
             }
         });
         (async () => {
-            const driftPermissions = await window.insights.chrome.getUserPermissions('drift');
-            const fullPermissions = driftPermissions.concat(await window.insights.chrome.getUserPermissions('inventory'));
+            const driftPermissions = await chrome.getUserPermissions('drift');
+            const fullPermissions = driftPermissions.concat(await chrome.getUserPermissions('inventory'));
             const permissionsList = fullPermissions.map(permissions => permissions.permission);
             handlePermissionsUpdate(
                 permissionsList.some((permission) => hasPermission(permission, [ 'drift:*:*', 'drift:comparisons:read', 'drift:*:read' ])),
@@ -85,8 +86,8 @@ const App = (props) => {
             );
         })();
 
-        insights.chrome.on('GLOBAL_FILTER_UPDATE', ({ data }) => {
-            const [ workloads, SID, tags ] = insights.chrome?.mapGlobalFilter?.(data, false, true) || [];
+        chrome.on('GLOBAL_FILTER_UPDATE', ({ data }) => {
+            const [ workloads, SID, tags ] = chrome?.mapGlobalFilter?.(data, false, true) || [];
             dispatch(actions.setGlobalFilterTags(tags));
             dispatch(actions.setGlobalFilterWorkloads(workloads));
             dispatch(actions.setGlobalFilterSIDs(SID));

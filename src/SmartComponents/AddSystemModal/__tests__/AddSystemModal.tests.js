@@ -329,7 +329,8 @@ describe('ConnectedAddSystemModal', () => {
             },
             selectedSystemIds: [],
             selectedBaselineIds: [],
-            selectedHSPIds: []
+            selectedHSPIds: [],
+            chrome: { appAction: jest.fn(() => null) }
         };
     });
 

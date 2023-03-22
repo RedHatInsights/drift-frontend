@@ -34,6 +34,10 @@ jest.mock('../../../modules', () => ({
     }
 }));
 
+// jest.mock('@redhat-cloud-services/frontend-components/useChrome', () => ({
+//     useChrome: () => null
+// }));
+
 describe('DriftTable', () => {
     let props;
 

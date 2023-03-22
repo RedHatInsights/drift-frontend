@@ -14,6 +14,11 @@ exports[`EditBaseline should render correctly 1`] = `
 >
   <EditBaseline
     baselineData={Object {}}
+    chrome={
+      Object {
+        "appAction": [MockFunction],
+      }
+    }
     editBaselineEmptyState={false}
     editBaselineError={Object {}}
     editBaselineTableData={Array []}
@@ -1272,6 +1277,11 @@ exports[`EditBaseline should render empty baseline 1`] = `
 >
   <EditBaseline
     baselineData={Object {}}
+    chrome={
+      Object {
+        "appAction": [MockFunction],
+      }
+    }
     editBaselineEmptyState={true}
     editBaselineError={Object {}}
     editBaselineTableData={Array []}
@@ -1291,7 +1301,7 @@ exports[`EditBaseline should render empty baseline 1`] = `
         error={Object {}}
       />
     </Connect(ErrorAlert)>
-    <EmptyStateDisplay
+    <EmptyStateDisplayWithChrome
       button={
         <Memo(Connect(AddFactButton))
           editBaselineEmptyState={true}
@@ -1309,88 +1319,108 @@ exports[`EditBaseline should render empty baseline 1`] = `
       }
       title="No facts or categories yet"
     >
-      <EmptyState
-        variant="large"
+      <EmptyStateDisplay
+        button={
+          <Memo(Connect(AddFactButton))
+            editBaselineEmptyState={true}
+            permissions={
+              Object {
+                "baselinesWrite": true,
+              }
+            }
+          />
+        }
+        chrome={null}
+        text={
+          Array [
+            "To get started, add a fact or category to this baseline.",
+          ]
+        }
+        title="No facts or categories yet"
       >
-        <div
-          className="pf-c-empty-state pf-m-lg"
+        <EmptyState
+          variant="large"
         >
           <div
-            className="pf-c-empty-state__content"
+            className="pf-c-empty-state pf-m-lg"
           >
-            <br />
-            <Title
-              headingLevel="h1"
-              size="lg"
+            <div
+              className="pf-c-empty-state__content"
             >
-              <h1
-                className="pf-c-title pf-m-lg"
-                data-ouia-component-id="OUIA-Generated-Title-1"
-                data-ouia-component-type="PF4/Title"
-                data-ouia-safe={true}
+              <br />
+              <Title
+                headingLevel="h1"
+                size="lg"
               >
-                No facts or categories yet
-              </h1>
-            </Title>
-            <EmptyStateBody>
-              <div
-                className="pf-c-empty-state__body"
-              >
-                To get started, add a fact or category to this baseline.
-                <br />
-              </div>
-            </EmptyStateBody>
-            <Connect(AddFactButton)
-              editBaselineEmptyState={true}
-              permissions={
-                Object {
-                  "baselinesWrite": true,
-                }
-              }
-            >
-              <AddFactButton
+                <h1
+                  className="pf-c-title pf-m-lg"
+                  data-ouia-component-id="OUIA-Generated-Title-1"
+                  data-ouia-component-type="PF4/Title"
+                  data-ouia-safe={true}
+                >
+                  No facts or categories yet
+                </h1>
+              </Title>
+              <EmptyStateBody>
+                <div
+                  className="pf-c-empty-state__body"
+                >
+                  To get started, add a fact or category to this baseline.
+                  <br />
+                </div>
+              </EmptyStateBody>
+              <Connect(AddFactButton)
                 editBaselineEmptyState={true}
                 permissions={
                   Object {
                     "baselinesWrite": true,
                   }
                 }
-                setFactData={[Function]}
-                toggleFactModal={[Function]}
               >
-                <Button
-                  onClick={[Function]}
-                  ouiaId="add-fact-or-category-button"
-                  variant="primary"
+                <AddFactButton
+                  editBaselineEmptyState={true}
+                  permissions={
+                    Object {
+                      "baselinesWrite": true,
+                    }
+                  }
+                  setFactData={[Function]}
+                  toggleFactModal={[Function]}
                 >
-                  <ButtonBase
-                    innerRef={null}
+                  <Button
                     onClick={[Function]}
                     ouiaId="add-fact-or-category-button"
                     variant="primary"
                   >
-                    <button
-                      aria-disabled={false}
-                      aria-label={null}
-                      className="pf-c-button pf-m-primary"
-                      data-ouia-component-id="add-fact-or-category-button"
-                      data-ouia-component-type="PF4/Button"
-                      data-ouia-safe={true}
-                      disabled={false}
+                    <ButtonBase
+                      innerRef={null}
                       onClick={[Function]}
-                      role={null}
-                      type="button"
+                      ouiaId="add-fact-or-category-button"
+                      variant="primary"
                     >
-                      Add fact or category
-                    </button>
-                  </ButtonBase>
-                </Button>
-              </AddFactButton>
-            </Connect(AddFactButton)>
+                      <button
+                        aria-disabled={false}
+                        aria-label={null}
+                        className="pf-c-button pf-m-primary"
+                        data-ouia-component-id="add-fact-or-category-button"
+                        data-ouia-component-type="PF4/Button"
+                        data-ouia-safe={true}
+                        disabled={false}
+                        onClick={[Function]}
+                        role={null}
+                        type="button"
+                      >
+                        Add fact or category
+                      </button>
+                    </ButtonBase>
+                  </Button>
+                </AddFactButton>
+              </Connect(AddFactButton)>
+            </div>
           </div>
-        </div>
-      </EmptyState>
-    </EmptyStateDisplay>
+        </EmptyState>
+      </EmptyStateDisplay>
+    </EmptyStateDisplayWithChrome>
   </EditBaseline>
 </Provider>
 `;
@@ -1463,6 +1493,11 @@ exports[`EditBaseline should render expandable rows closed 1`] = `
         ],
         "display_name": "lotr_baseline",
         "id": "38gnw73l-fn36-5829-1287-2m5ghs46801c",
+      }
+    }
+    chrome={
+      Object {
+        "appAction": [MockFunction],
       }
     }
     editBaselineEmptyState={false}
@@ -4017,6 +4052,11 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
         ],
         "display_name": "lotr_baseline",
         "id": "38gnw73l-fn36-5829-1287-2m5ghs46801c",
+      }
+    }
+    chrome={
+      Object {
+        "appAction": [MockFunction],
       }
     }
     editBaselineEmptyState={false}
@@ -10067,6 +10107,11 @@ exports[`EditBaseline should render loading rows 1`] = `
 >
   <EditBaseline
     baselineDataLoading={true}
+    chrome={
+      Object {
+        "appAction": [MockFunction],
+      }
+    }
     editBaselineEmptyState={false}
     editBaselineError={Object {}}
     editBaselineTableData={Array []}
@@ -20418,6 +20463,11 @@ exports[`EditBaseline should render with baseline facts 1`] = `
         "updated": "2020-02-06T21:48:30.661510Z",
       }
     }
+    chrome={
+      Object {
+        "appAction": [MockFunction],
+      }
+    }
     editBaselineEmptyState={false}
     editBaselineError={Object {}}
     editBaselineTableData={
@@ -22982,6 +23032,11 @@ exports[`EditBaseline should render with baseline facts with same name 1`] = `
         "fact_count": 3,
         "id": "jf8alskj-jf74-aje8-ke83-jf84ldjru439k",
         "updated": "2020-02-06T21:48:30.661510Z",
+      }
+    }
+    chrome={
+      Object {
+        "appAction": [MockFunction],
       }
     }
     editBaselineEmptyState={false}

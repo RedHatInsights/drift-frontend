@@ -39,7 +39,6 @@ export class AddSystemModal extends Component {
     }
 
     async componentDidMount() {
-        await window.insights.chrome.auth.getUser();
 
         if (this.props.middlewareListener) {
             window.entityListener = addNewListener(this.props.middlewareListener, {
