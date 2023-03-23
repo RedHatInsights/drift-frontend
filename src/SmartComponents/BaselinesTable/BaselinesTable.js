@@ -48,7 +48,6 @@ export class BaselinesTable extends Component {
     }
 
     async componentDidMount() {
-        await window.insights.chrome.auth.getUser();
         await this.fetchWithParams();
     }
 

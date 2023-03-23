@@ -23,6 +23,7 @@ import NotificationDetails from '../../BaselinesTable/NotificationDetails/Notifi
 import { RegistryContext } from '../../../Utilities/registry';
 
 import _ from 'lodash';
+import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
 
 export class EditBaselinePage extends Component {
     constructor(props) {
@@ -54,10 +55,9 @@ export class EditBaselinePage extends Component {
 
     async componentDidMount() {
         const { match: { params }} = this.props;
-
-        await window.insights.chrome.auth.getUser();
-        await window.insights?.chrome?.appAction?.('baseline-view');
-        await window.insights?.chrome?.appObjectId(params.id);
+        const chrome = this.props.chrome;
+        await chrome?.appAction('baseline-view');
+        await chrome.appObjectId(params.id);
     }
 
     componentDidUpdate(prevProps) {
@@ -349,7 +349,8 @@ EditBaselinePage.propTypes = {
     toggleValueSort: PropTypes.func,
     nameSort: PropTypes.string,
     valueSort: PropTypes.string,
-    resetBaselineDataExportStatus: PropTypes.func
+    resetBaselineDataExportStatus: PropTypes.func,
+    chrome: PropTypes.object
 };
 
 function mapStateToProps(state) {
@@ -401,4 +402,11 @@ function mapDispatchToProps(dispatch) {
 }
 /*eslint-enable camelcase*/
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(EditBaselinePage));
+const EditBaselinePageWithChrome = props => {
+    const chrome = useChrome();
+    return (
+        <EditBaselinePage { ...props } chrome={ chrome } />
+    );
+};
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(EditBaselinePageWithChrome));

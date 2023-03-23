@@ -12,6 +12,10 @@ import EditBaseline from '../EditBaseline';
 import { RegistryContext } from '../../../../../Utilities/registry';
 //import api from '../../../../../api';
 
+// jest.mock('@redhat-cloud-services/frontend-components/useChrome', () => ({
+//     useChrome: () => null
+// }));
+
 describe('EditBaseline', () => {
     let initialState;
     let props;
@@ -45,7 +49,8 @@ describe('EditBaseline', () => {
             expandedRows: [],
             permissions: {
                 baselinesWrite: true
-            }
+            },
+            chrome: { appAction: jest.fn(() => null) }
         };
     });
 

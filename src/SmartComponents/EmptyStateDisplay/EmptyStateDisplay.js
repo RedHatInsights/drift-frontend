@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { EmptyState, EmptyStateBody, EmptyStateIcon, EmptyStateVariant, Title } from '@patternfly/react-core';
+import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
 
 export class EmptyStateDisplay extends Component {
     constructor(props) {
@@ -9,7 +10,8 @@ export class EmptyStateDisplay extends Component {
     }
 
     async componentDidMount() {
-        await window.insights?.chrome?.appAction?.('comparison-list');
+        const chrome = this.props.chrome;
+        await chrome?.appAction('comparison-list');
     }
 
     render() {
@@ -57,7 +59,15 @@ EmptyStateDisplay.propTypes = {
     icon: PropTypes.any,
     isSmall: PropTypes.bool,
     text: PropTypes.array,
-    title: PropTypes.string
+    title: PropTypes.string,
+    chrome: PropTypes.object
 };
 
-export default EmptyStateDisplay;
+const EmptyStateDisplayWithChrome = props => {
+    const chrome = useChrome();
+    return (
+        <EmptyStateDisplay { ...props } chrome={ chrome } />
+    );
+};
+
+export default EmptyStateDisplayWithChrome;

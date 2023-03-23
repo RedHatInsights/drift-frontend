@@ -12,6 +12,7 @@ import { compareActions } from '../../modules';
 import { baselinesTableActions } from '../../BaselinesTable/redux';
 import { historicProfilesActions } from '../../HistoricalProfilesPopover/redux';
 import DriftTableRow from './DriftTableRow/DriftTableRow';
+import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
 
 export class DriftTable extends Component {
     constructor(props) {
@@ -58,8 +59,6 @@ export class DriftTable extends Component {
     }
 
     async componentDidMount() {
-        await window.insights.chrome.auth.getUser();
-
         if (this.systemIds.length > 0 || this.baselineIds.length > 0 || this.HSPIds.length > 0) {
             await this.fetchCompare(this.systemIds, this.baselineIds, this.HSPIds, this.props.referenceId);
         }
@@ -67,7 +66,8 @@ export class DriftTable extends Component {
 
     async componentDidUpdate(prevProps) {
         if (!this.props.emptyState && prevProps.emptyState) {
-            await window.insights?.chrome?.appAction?.('comparison-view');
+            const chrome = this.props.chrome;
+            await chrome?.appAction('comparison-view');
         }
     }
 
@@ -606,7 +606,15 @@ DriftTable.propTypes = {
     handleSystemSelection: PropTypes.func,
     hasHSPReadPermissions: PropTypes.bool,
     factTypeFilters: PropTypes.array,
-    toggleFactTypeFilters: PropTypes.func
+    toggleFactTypeFilters: PropTypes.func,
+    chrome: PropTypes.object
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DriftTable));
+const DriftTableWithChrome = props => {
+    const chrome = useChrome();
+    return (
+        <DriftTable { ...props } chrome={ chrome } />
+    );
+};
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DriftTableWithChrome));

@@ -262,6 +262,11 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
       }
     >
       <Connect(WrappedAddSystemModal)
+        chrome={
+          Object {
+            "appAction": [MockFunction],
+          }
+        }
         permissions={
           Object {
             "hspRead": true,
@@ -277,6 +282,11 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
           addSystemModalOpened={true}
           baselineTableData={Array []}
           baselines={Array []}
+          chrome={
+            Object {
+              "appAction": [MockFunction],
+            }
+          }
           disableSystemTable={[Function]}
           entities={
             Object {
@@ -345,6 +355,11 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
             addSystemModalOpened={true}
             baselineTableData={Array []}
             baselines={Array []}
+            chrome={
+              Object {
+                "appAction": [MockFunction],
+              }
+            }
             disableSystemTable={[Function]}
             entities={
               Object {
@@ -1720,7 +1735,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                               }
                                                             }
                                                           >
-                                                            <EmptyStateDisplay
+                                                            <EmptyStateDisplayWithChrome
                                                               text={
                                                                 Array [
                                                                   "Select systems and baselines to compare.",
@@ -1833,7 +1848,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                       }
                                                                     }
                                                                   >
-                                                                    <EmptyStateDisplay
+                                                                    <EmptyStateDisplayWithChrome
                                                                       text={
                                                                         Array [
                                                                           "Select systems and baselines to compare.",
@@ -5267,7 +5282,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                     "colSpan": 3,
                                                                   },
                                                                   "title": <EmptyTable>
-                                                                    <EmptyStateDisplay
+                                                                    <EmptyStateDisplayWithChrome
                                                                       text={
                                                                         Array [
                                                                           "To continue, edit your filter settings and search again.",
@@ -6317,7 +6332,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                                 "colSpan": 3,
                                                                               },
                                                                               "title": <EmptyTable>
-                                                                                <EmptyStateDisplay
+                                                                                <EmptyStateDisplayWithChrome
                                                                                   text={
                                                                                     Array [
                                                                                       "To continue, edit your filter settings and search again.",
@@ -6344,7 +6359,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                                   "colSpan": 3,
                                                                                 },
                                                                                 "title": <EmptyTable>
-                                                                                  <EmptyStateDisplay
+                                                                                  <EmptyStateDisplayWithChrome
                                                                                     text={
                                                                                       Array [
                                                                                         "To continue, edit your filter settings and search again.",
@@ -6368,7 +6383,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                                 "isVisible": true,
                                                                               },
                                                                               "title": <EmptyTable>
-                                                                                <EmptyStateDisplay
+                                                                                <EmptyStateDisplayWithChrome
                                                                                   text={
                                                                                     Array [
                                                                                       "To continue, edit your filter settings and search again.",
@@ -6393,7 +6408,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                                   "colSpan": 3,
                                                                                 },
                                                                                 "title": <EmptyTable>
-                                                                                  <EmptyStateDisplay
+                                                                                  <EmptyStateDisplayWithChrome
                                                                                     text={
                                                                                       Array [
                                                                                         "To continue, edit your filter settings and search again.",
@@ -6417,7 +6432,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                                 "isVisible": true,
                                                                               },
                                                                               "title": <EmptyTable>
-                                                                                <EmptyStateDisplay
+                                                                                <EmptyStateDisplayWithChrome
                                                                                   text={
                                                                                     Array [
                                                                                       "To continue, edit your filter settings and search again.",
@@ -6605,7 +6620,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                                     "colSpan": 3,
                                                                                   },
                                                                                   "title": <EmptyTable>
-                                                                                    <EmptyStateDisplay
+                                                                                    <EmptyStateDisplayWithChrome
                                                                                       text={
                                                                                         Array [
                                                                                           "To continue, edit your filter settings and search again.",
@@ -6629,7 +6644,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                                   "isVisible": true,
                                                                                 },
                                                                                 "title": <EmptyTable>
-                                                                                  <EmptyStateDisplay
+                                                                                  <EmptyStateDisplayWithChrome
                                                                                     text={
                                                                                       Array [
                                                                                         "To continue, edit your filter settings and search again.",
@@ -6678,7 +6693,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                                     "colSpan": 3,
                                                                                   },
                                                                                   "title": <EmptyTable>
-                                                                                    <EmptyStateDisplay
+                                                                                    <EmptyStateDisplayWithChrome
                                                                                       text={
                                                                                         Array [
                                                                                           "To continue, edit your filter settings and search again.",
@@ -6702,7 +6717,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                                   "isVisible": true,
                                                                                 },
                                                                                 "title": <EmptyTable>
-                                                                                  <EmptyStateDisplay
+                                                                                  <EmptyStateDisplayWithChrome
                                                                                     text={
                                                                                       Array [
                                                                                         "To continue, edit your filter settings and search again.",
@@ -6729,7 +6744,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                                       "colSpan": 3,
                                                                                     },
                                                                                     "title": <EmptyTable>
-                                                                                      <EmptyStateDisplay
+                                                                                      <EmptyStateDisplayWithChrome
                                                                                         text={
                                                                                           Array [
                                                                                             "To continue, edit your filter settings and search again.",
@@ -6753,7 +6768,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                                     "isVisible": true,
                                                                                   },
                                                                                   "title": <EmptyTable>
-                                                                                    <EmptyStateDisplay
+                                                                                    <EmptyStateDisplayWithChrome
                                                                                       text={
                                                                                         Array [
                                                                                           "To continue, edit your filter settings and search again.",
@@ -6958,7 +6973,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                                             "colSpan": 3,
                                                                                           },
                                                                                           "title": <EmptyTable>
-                                                                                            <EmptyStateDisplay
+                                                                                            <EmptyStateDisplayWithChrome
                                                                                               text={
                                                                                                 Array [
                                                                                                   "To continue, edit your filter settings and search again.",
@@ -6982,7 +6997,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                                           "isVisible": true,
                                                                                         },
                                                                                         "title": <EmptyTable>
-                                                                                          <EmptyStateDisplay
+                                                                                          <EmptyStateDisplayWithChrome
                                                                                             text={
                                                                                               Array [
                                                                                                 "To continue, edit your filter settings and search again.",
@@ -7010,7 +7025,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                                               "colSpan": 3,
                                                                                             },
                                                                                             "title": <EmptyTable>
-                                                                                              <EmptyStateDisplay
+                                                                                              <EmptyStateDisplayWithChrome
                                                                                                 text={
                                                                                                   Array [
                                                                                                     "To continue, edit your filter settings and search again.",
@@ -7034,7 +7049,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                                             "isVisible": true,
                                                                                           },
                                                                                           "title": <EmptyTable>
-                                                                                            <EmptyStateDisplay
+                                                                                            <EmptyStateDisplayWithChrome
                                                                                               text={
                                                                                                 Array [
                                                                                                   "To continue, edit your filter settings and search again.",
@@ -7112,7 +7127,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                                                       className="ins-c-table__empty"
                                                                                                     >
                                                                                                        
-                                                                                                      <EmptyStateDisplay
+                                                                                                      <EmptyStateDisplayWithChrome
                                                                                                         text={
                                                                                                           Array [
                                                                                                             "To continue, edit your filter settings and search again.",
@@ -7120,41 +7135,51 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                                                                         }
                                                                                                         title="No matching baselines found"
                                                                                                       >
-                                                                                                        <EmptyState
-                                                                                                          variant="large"
+                                                                                                        <EmptyStateDisplay
+                                                                                                          chrome={null}
+                                                                                                          text={
+                                                                                                            Array [
+                                                                                                              "To continue, edit your filter settings and search again.",
+                                                                                                            ]
+                                                                                                          }
+                                                                                                          title="No matching baselines found"
                                                                                                         >
-                                                                                                          <div
-                                                                                                            className="pf-c-empty-state pf-m-lg"
+                                                                                                          <EmptyState
+                                                                                                            variant="large"
                                                                                                           >
                                                                                                             <div
-                                                                                                              className="pf-c-empty-state__content"
+                                                                                                              className="pf-c-empty-state pf-m-lg"
                                                                                                             >
-                                                                                                              <br />
-                                                                                                              <Title
-                                                                                                                headingLevel="h1"
-                                                                                                                size="lg"
+                                                                                                              <div
+                                                                                                                className="pf-c-empty-state__content"
                                                                                                               >
-                                                                                                                <h1
-                                                                                                                  className="pf-c-title pf-m-lg"
-                                                                                                                  data-ouia-component-id="OUIA-Generated-Title-5"
-                                                                                                                  data-ouia-component-type="PF4/Title"
-                                                                                                                  data-ouia-safe={true}
+                                                                                                                <br />
+                                                                                                                <Title
+                                                                                                                  headingLevel="h1"
+                                                                                                                  size="lg"
                                                                                                                 >
-                                                                                                                  No matching baselines found
-                                                                                                                </h1>
-                                                                                                              </Title>
-                                                                                                              <EmptyStateBody>
-                                                                                                                <div
-                                                                                                                  className="pf-c-empty-state__body"
-                                                                                                                >
-                                                                                                                  To continue, edit your filter settings and search again.
-                                                                                                                  <br />
-                                                                                                                </div>
-                                                                                                              </EmptyStateBody>
+                                                                                                                  <h1
+                                                                                                                    className="pf-c-title pf-m-lg"
+                                                                                                                    data-ouia-component-id="OUIA-Generated-Title-5"
+                                                                                                                    data-ouia-component-type="PF4/Title"
+                                                                                                                    data-ouia-safe={true}
+                                                                                                                  >
+                                                                                                                    No matching baselines found
+                                                                                                                  </h1>
+                                                                                                                </Title>
+                                                                                                                <EmptyStateBody>
+                                                                                                                  <div
+                                                                                                                    className="pf-c-empty-state__body"
+                                                                                                                  >
+                                                                                                                    To continue, edit your filter settings and search again.
+                                                                                                                    <br />
+                                                                                                                  </div>
+                                                                                                                </EmptyStateBody>
+                                                                                                              </div>
                                                                                                             </div>
-                                                                                                          </div>
-                                                                                                        </EmptyState>
-                                                                                                      </EmptyStateDisplay>
+                                                                                                          </EmptyState>
+                                                                                                        </EmptyStateDisplay>
+                                                                                                      </EmptyStateDisplayWithChrome>
                                                                                                     </div>
                                                                                                   </EmptyTable>
                                                                                                 </td>
@@ -8240,6 +8265,11 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
       }
     >
       <Connect(WrappedAddSystemModal)
+        chrome={
+          Object {
+            "appAction": [MockFunction],
+          }
+        }
         permissions={
           Object {
             "hspRead": true,
@@ -8255,6 +8285,11 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
           addSystemModalOpened={true}
           baselineTableData={Array []}
           baselines={Array []}
+          chrome={
+            Object {
+              "appAction": [MockFunction],
+            }
+          }
           disableSystemTable={[Function]}
           entities={
             Object {
@@ -8323,6 +8358,11 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
             addSystemModalOpened={true}
             baselineTableData={Array []}
             baselines={Array []}
+            chrome={
+              Object {
+                "appAction": [MockFunction],
+              }
+            }
             disableSystemTable={[Function]}
             entities={
               Object {
@@ -9698,7 +9738,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                               }
                                                             }
                                                           >
-                                                            <EmptyStateDisplay
+                                                            <EmptyStateDisplayWithChrome
                                                               text={
                                                                 Array [
                                                                   "Select systems and baselines to compare.",
@@ -9811,7 +9851,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                       }
                                                                     }
                                                                   >
-                                                                    <EmptyStateDisplay
+                                                                    <EmptyStateDisplayWithChrome
                                                                       text={
                                                                         Array [
                                                                           "Select systems and baselines to compare.",
@@ -13245,7 +13285,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                     "colSpan": 3,
                                                                   },
                                                                   "title": <EmptyTable>
-                                                                    <EmptyStateDisplay
+                                                                    <EmptyStateDisplayWithChrome
                                                                       text={
                                                                         Array [
                                                                           "To continue, edit your filter settings and search again.",
@@ -14295,7 +14335,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                                 "colSpan": 3,
                                                                               },
                                                                               "title": <EmptyTable>
-                                                                                <EmptyStateDisplay
+                                                                                <EmptyStateDisplayWithChrome
                                                                                   text={
                                                                                     Array [
                                                                                       "To continue, edit your filter settings and search again.",
@@ -14322,7 +14362,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                                   "colSpan": 3,
                                                                                 },
                                                                                 "title": <EmptyTable>
-                                                                                  <EmptyStateDisplay
+                                                                                  <EmptyStateDisplayWithChrome
                                                                                     text={
                                                                                       Array [
                                                                                         "To continue, edit your filter settings and search again.",
@@ -14346,7 +14386,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                                 "isVisible": true,
                                                                               },
                                                                               "title": <EmptyTable>
-                                                                                <EmptyStateDisplay
+                                                                                <EmptyStateDisplayWithChrome
                                                                                   text={
                                                                                     Array [
                                                                                       "To continue, edit your filter settings and search again.",
@@ -14371,7 +14411,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                                   "colSpan": 3,
                                                                                 },
                                                                                 "title": <EmptyTable>
-                                                                                  <EmptyStateDisplay
+                                                                                  <EmptyStateDisplayWithChrome
                                                                                     text={
                                                                                       Array [
                                                                                         "To continue, edit your filter settings and search again.",
@@ -14395,7 +14435,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                                 "isVisible": true,
                                                                               },
                                                                               "title": <EmptyTable>
-                                                                                <EmptyStateDisplay
+                                                                                <EmptyStateDisplayWithChrome
                                                                                   text={
                                                                                     Array [
                                                                                       "To continue, edit your filter settings and search again.",
@@ -14583,7 +14623,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                                     "colSpan": 3,
                                                                                   },
                                                                                   "title": <EmptyTable>
-                                                                                    <EmptyStateDisplay
+                                                                                    <EmptyStateDisplayWithChrome
                                                                                       text={
                                                                                         Array [
                                                                                           "To continue, edit your filter settings and search again.",
@@ -14607,7 +14647,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                                   "isVisible": true,
                                                                                 },
                                                                                 "title": <EmptyTable>
-                                                                                  <EmptyStateDisplay
+                                                                                  <EmptyStateDisplayWithChrome
                                                                                     text={
                                                                                       Array [
                                                                                         "To continue, edit your filter settings and search again.",
@@ -14656,7 +14696,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                                     "colSpan": 3,
                                                                                   },
                                                                                   "title": <EmptyTable>
-                                                                                    <EmptyStateDisplay
+                                                                                    <EmptyStateDisplayWithChrome
                                                                                       text={
                                                                                         Array [
                                                                                           "To continue, edit your filter settings and search again.",
@@ -14680,7 +14720,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                                   "isVisible": true,
                                                                                 },
                                                                                 "title": <EmptyTable>
-                                                                                  <EmptyStateDisplay
+                                                                                  <EmptyStateDisplayWithChrome
                                                                                     text={
                                                                                       Array [
                                                                                         "To continue, edit your filter settings and search again.",
@@ -14707,7 +14747,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                                       "colSpan": 3,
                                                                                     },
                                                                                     "title": <EmptyTable>
-                                                                                      <EmptyStateDisplay
+                                                                                      <EmptyStateDisplayWithChrome
                                                                                         text={
                                                                                           Array [
                                                                                             "To continue, edit your filter settings and search again.",
@@ -14731,7 +14771,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                                     "isVisible": true,
                                                                                   },
                                                                                   "title": <EmptyTable>
-                                                                                    <EmptyStateDisplay
+                                                                                    <EmptyStateDisplayWithChrome
                                                                                       text={
                                                                                         Array [
                                                                                           "To continue, edit your filter settings and search again.",
@@ -14936,7 +14976,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                                             "colSpan": 3,
                                                                                           },
                                                                                           "title": <EmptyTable>
-                                                                                            <EmptyStateDisplay
+                                                                                            <EmptyStateDisplayWithChrome
                                                                                               text={
                                                                                                 Array [
                                                                                                   "To continue, edit your filter settings and search again.",
@@ -14960,7 +15000,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                                           "isVisible": true,
                                                                                         },
                                                                                         "title": <EmptyTable>
-                                                                                          <EmptyStateDisplay
+                                                                                          <EmptyStateDisplayWithChrome
                                                                                             text={
                                                                                               Array [
                                                                                                 "To continue, edit your filter settings and search again.",
@@ -14988,7 +15028,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                                               "colSpan": 3,
                                                                                             },
                                                                                             "title": <EmptyTable>
-                                                                                              <EmptyStateDisplay
+                                                                                              <EmptyStateDisplayWithChrome
                                                                                                 text={
                                                                                                   Array [
                                                                                                     "To continue, edit your filter settings and search again.",
@@ -15012,7 +15052,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                                             "isVisible": true,
                                                                                           },
                                                                                           "title": <EmptyTable>
-                                                                                            <EmptyStateDisplay
+                                                                                            <EmptyStateDisplayWithChrome
                                                                                               text={
                                                                                                 Array [
                                                                                                   "To continue, edit your filter settings and search again.",
@@ -15090,7 +15130,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                                                       className="ins-c-table__empty"
                                                                                                     >
                                                                                                        
-                                                                                                      <EmptyStateDisplay
+                                                                                                      <EmptyStateDisplayWithChrome
                                                                                                         text={
                                                                                                           Array [
                                                                                                             "To continue, edit your filter settings and search again.",
@@ -15098,41 +15138,51 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                                                                         }
                                                                                                         title="No matching baselines found"
                                                                                                       >
-                                                                                                        <EmptyState
-                                                                                                          variant="large"
+                                                                                                        <EmptyStateDisplay
+                                                                                                          chrome={null}
+                                                                                                          text={
+                                                                                                            Array [
+                                                                                                              "To continue, edit your filter settings and search again.",
+                                                                                                            ]
+                                                                                                          }
+                                                                                                          title="No matching baselines found"
                                                                                                         >
-                                                                                                          <div
-                                                                                                            className="pf-c-empty-state pf-m-lg"
+                                                                                                          <EmptyState
+                                                                                                            variant="large"
                                                                                                           >
                                                                                                             <div
-                                                                                                              className="pf-c-empty-state__content"
+                                                                                                              className="pf-c-empty-state pf-m-lg"
                                                                                                             >
-                                                                                                              <br />
-                                                                                                              <Title
-                                                                                                                headingLevel="h1"
-                                                                                                                size="lg"
+                                                                                                              <div
+                                                                                                                className="pf-c-empty-state__content"
                                                                                                               >
-                                                                                                                <h1
-                                                                                                                  className="pf-c-title pf-m-lg"
-                                                                                                                  data-ouia-component-id="OUIA-Generated-Title-1"
-                                                                                                                  data-ouia-component-type="PF4/Title"
-                                                                                                                  data-ouia-safe={true}
+                                                                                                                <br />
+                                                                                                                <Title
+                                                                                                                  headingLevel="h1"
+                                                                                                                  size="lg"
                                                                                                                 >
-                                                                                                                  No matching baselines found
-                                                                                                                </h1>
-                                                                                                              </Title>
-                                                                                                              <EmptyStateBody>
-                                                                                                                <div
-                                                                                                                  className="pf-c-empty-state__body"
-                                                                                                                >
-                                                                                                                  To continue, edit your filter settings and search again.
-                                                                                                                  <br />
-                                                                                                                </div>
-                                                                                                              </EmptyStateBody>
+                                                                                                                  <h1
+                                                                                                                    className="pf-c-title pf-m-lg"
+                                                                                                                    data-ouia-component-id="OUIA-Generated-Title-1"
+                                                                                                                    data-ouia-component-type="PF4/Title"
+                                                                                                                    data-ouia-safe={true}
+                                                                                                                  >
+                                                                                                                    No matching baselines found
+                                                                                                                  </h1>
+                                                                                                                </Title>
+                                                                                                                <EmptyStateBody>
+                                                                                                                  <div
+                                                                                                                    className="pf-c-empty-state__body"
+                                                                                                                  >
+                                                                                                                    To continue, edit your filter settings and search again.
+                                                                                                                    <br />
+                                                                                                                  </div>
+                                                                                                                </EmptyStateBody>
+                                                                                                              </div>
                                                                                                             </div>
-                                                                                                          </div>
-                                                                                                        </EmptyState>
-                                                                                                      </EmptyStateDisplay>
+                                                                                                          </EmptyState>
+                                                                                                        </EmptyStateDisplay>
+                                                                                                      </EmptyStateDisplayWithChrome>
                                                                                                     </div>
                                                                                                   </EmptyTable>
                                                                                                 </td>
@@ -16218,6 +16268,11 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
       }
     >
       <Connect(WrappedAddSystemModal)
+        chrome={
+          Object {
+            "appAction": [MockFunction],
+          }
+        }
         permissions={
           Object {
             "hspRead": true,
@@ -16233,6 +16288,11 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
           addSystemModalOpened={true}
           baselineTableData={Array []}
           baselines={Array []}
+          chrome={
+            Object {
+              "appAction": [MockFunction],
+            }
+          }
           disableSystemTable={[Function]}
           entities={
             Object {
@@ -16301,6 +16361,11 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
             addSystemModalOpened={true}
             baselineTableData={Array []}
             baselines={Array []}
+            chrome={
+              Object {
+                "appAction": [MockFunction],
+              }
+            }
             disableSystemTable={[Function]}
             entities={
               Object {
@@ -17700,7 +17765,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                               }
                                                             }
                                                           >
-                                                            <EmptyStateDisplay
+                                                            <EmptyStateDisplayWithChrome
                                                               text={
                                                                 Array [
                                                                   "Select systems and baselines to compare.",
@@ -17813,7 +17878,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                       }
                                                                     }
                                                                   >
-                                                                    <EmptyStateDisplay
+                                                                    <EmptyStateDisplayWithChrome
                                                                       text={
                                                                         Array [
                                                                           "Select systems and baselines to compare.",
@@ -18441,7 +18506,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                 ]
                                               }
                                             >
-                                              <EmptyStateDisplay
+                                              <EmptyStateDisplayWithChrome
                                                 color="#6a6e73"
                                                 icon={[Function]}
                                                 text={
@@ -18451,74 +18516,86 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                 }
                                                 title="You do not have access to the inventory"
                                               >
-                                                <EmptyState
-                                                  variant="large"
+                                                <EmptyStateDisplay
+                                                  chrome={null}
+                                                  color="#6a6e73"
+                                                  icon={[Function]}
+                                                  text={
+                                                    Array [
+                                                      "Contact your organization administrator(s) for more information.",
+                                                    ]
+                                                  }
+                                                  title="You do not have access to the inventory"
                                                 >
-                                                  <div
-                                                    className="pf-c-empty-state pf-m-lg"
+                                                  <EmptyState
+                                                    variant="large"
                                                   >
                                                     <div
-                                                      className="pf-c-empty-state__content"
+                                                      className="pf-c-empty-state pf-m-lg"
                                                     >
-                                                      <EmptyStateIcon
-                                                        className={null}
-                                                        color="#6a6e73"
-                                                        icon={[Function]}
+                                                      <div
+                                                        className="pf-c-empty-state__content"
                                                       >
-                                                        <LockIcon
-                                                          aria-hidden="true"
-                                                          className="pf-c-empty-state__icon"
+                                                        <EmptyStateIcon
+                                                          className={null}
                                                           color="#6a6e73"
-                                                          noVerticalAlign={false}
-                                                          size="sm"
+                                                          icon={[Function]}
                                                         >
-                                                          <svg
+                                                          <LockIcon
                                                             aria-hidden="true"
-                                                            aria-labelledby={null}
                                                             className="pf-c-empty-state__icon"
-                                                            fill="#6a6e73"
-                                                            height="1em"
-                                                            role="img"
-                                                            style={
-                                                              Object {
-                                                                "verticalAlign": "-0.125em",
-                                                              }
-                                                            }
-                                                            viewBox="0 0 448 512"
-                                                            width="1em"
+                                                            color="#6a6e73"
+                                                            noVerticalAlign={false}
+                                                            size="sm"
                                                           >
-                                                            <path
-                                                              d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"
-                                                            />
-                                                          </svg>
-                                                        </LockIcon>
-                                                      </EmptyStateIcon>
-                                                      <br />
-                                                      <Title
-                                                        headingLevel="h1"
-                                                        size="lg"
-                                                      >
-                                                        <h1
-                                                          className="pf-c-title pf-m-lg"
-                                                          data-ouia-component-id="OUIA-Generated-Title-2"
-                                                          data-ouia-component-type="PF4/Title"
-                                                          data-ouia-safe={true}
+                                                            <svg
+                                                              aria-hidden="true"
+                                                              aria-labelledby={null}
+                                                              className="pf-c-empty-state__icon"
+                                                              fill="#6a6e73"
+                                                              height="1em"
+                                                              role="img"
+                                                              style={
+                                                                Object {
+                                                                  "verticalAlign": "-0.125em",
+                                                                }
+                                                              }
+                                                              viewBox="0 0 448 512"
+                                                              width="1em"
+                                                            >
+                                                              <path
+                                                                d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"
+                                                              />
+                                                            </svg>
+                                                          </LockIcon>
+                                                        </EmptyStateIcon>
+                                                        <br />
+                                                        <Title
+                                                          headingLevel="h1"
+                                                          size="lg"
                                                         >
-                                                          You do not have access to the inventory
-                                                        </h1>
-                                                      </Title>
-                                                      <EmptyStateBody>
-                                                        <div
-                                                          className="pf-c-empty-state__body"
-                                                        >
-                                                          Contact your organization administrator(s) for more information.
-                                                          <br />
-                                                        </div>
-                                                      </EmptyStateBody>
+                                                          <h1
+                                                            className="pf-c-title pf-m-lg"
+                                                            data-ouia-component-id="OUIA-Generated-Title-2"
+                                                            data-ouia-component-type="PF4/Title"
+                                                            data-ouia-safe={true}
+                                                          >
+                                                            You do not have access to the inventory
+                                                          </h1>
+                                                        </Title>
+                                                        <EmptyStateBody>
+                                                          <div
+                                                            className="pf-c-empty-state__body"
+                                                          >
+                                                            Contact your organization administrator(s) for more information.
+                                                            <br />
+                                                          </div>
+                                                        </EmptyStateBody>
+                                                      </div>
                                                     </div>
-                                                  </div>
-                                                </EmptyState>
-                                              </EmptyStateDisplay>
+                                                  </EmptyState>
+                                                </EmptyStateDisplay>
+                                              </EmptyStateDisplayWithChrome>
                                             </SystemsTable>
                                           </Connect(SystemsTable)>
                                         </section>
@@ -20311,7 +20388,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                     "colSpan": 3,
                                                                   },
                                                                   "title": <EmptyTable>
-                                                                    <EmptyStateDisplay
+                                                                    <EmptyStateDisplayWithChrome
                                                                       text={
                                                                         Array [
                                                                           "To continue, edit your filter settings and search again.",
@@ -21361,7 +21438,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                 "colSpan": 3,
                                                                               },
                                                                               "title": <EmptyTable>
-                                                                                <EmptyStateDisplay
+                                                                                <EmptyStateDisplayWithChrome
                                                                                   text={
                                                                                     Array [
                                                                                       "To continue, edit your filter settings and search again.",
@@ -21388,7 +21465,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                   "colSpan": 3,
                                                                                 },
                                                                                 "title": <EmptyTable>
-                                                                                  <EmptyStateDisplay
+                                                                                  <EmptyStateDisplayWithChrome
                                                                                     text={
                                                                                       Array [
                                                                                         "To continue, edit your filter settings and search again.",
@@ -21412,7 +21489,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                 "isVisible": true,
                                                                               },
                                                                               "title": <EmptyTable>
-                                                                                <EmptyStateDisplay
+                                                                                <EmptyStateDisplayWithChrome
                                                                                   text={
                                                                                     Array [
                                                                                       "To continue, edit your filter settings and search again.",
@@ -21437,7 +21514,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                   "colSpan": 3,
                                                                                 },
                                                                                 "title": <EmptyTable>
-                                                                                  <EmptyStateDisplay
+                                                                                  <EmptyStateDisplayWithChrome
                                                                                     text={
                                                                                       Array [
                                                                                         "To continue, edit your filter settings and search again.",
@@ -21461,7 +21538,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                 "isVisible": true,
                                                                               },
                                                                               "title": <EmptyTable>
-                                                                                <EmptyStateDisplay
+                                                                                <EmptyStateDisplayWithChrome
                                                                                   text={
                                                                                     Array [
                                                                                       "To continue, edit your filter settings and search again.",
@@ -21649,7 +21726,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                     "colSpan": 3,
                                                                                   },
                                                                                   "title": <EmptyTable>
-                                                                                    <EmptyStateDisplay
+                                                                                    <EmptyStateDisplayWithChrome
                                                                                       text={
                                                                                         Array [
                                                                                           "To continue, edit your filter settings and search again.",
@@ -21673,7 +21750,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                   "isVisible": true,
                                                                                 },
                                                                                 "title": <EmptyTable>
-                                                                                  <EmptyStateDisplay
+                                                                                  <EmptyStateDisplayWithChrome
                                                                                     text={
                                                                                       Array [
                                                                                         "To continue, edit your filter settings and search again.",
@@ -21722,7 +21799,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                     "colSpan": 3,
                                                                                   },
                                                                                   "title": <EmptyTable>
-                                                                                    <EmptyStateDisplay
+                                                                                    <EmptyStateDisplayWithChrome
                                                                                       text={
                                                                                         Array [
                                                                                           "To continue, edit your filter settings and search again.",
@@ -21746,7 +21823,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                   "isVisible": true,
                                                                                 },
                                                                                 "title": <EmptyTable>
-                                                                                  <EmptyStateDisplay
+                                                                                  <EmptyStateDisplayWithChrome
                                                                                     text={
                                                                                       Array [
                                                                                         "To continue, edit your filter settings and search again.",
@@ -21773,7 +21850,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                       "colSpan": 3,
                                                                                     },
                                                                                     "title": <EmptyTable>
-                                                                                      <EmptyStateDisplay
+                                                                                      <EmptyStateDisplayWithChrome
                                                                                         text={
                                                                                           Array [
                                                                                             "To continue, edit your filter settings and search again.",
@@ -21797,7 +21874,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                     "isVisible": true,
                                                                                   },
                                                                                   "title": <EmptyTable>
-                                                                                    <EmptyStateDisplay
+                                                                                    <EmptyStateDisplayWithChrome
                                                                                       text={
                                                                                         Array [
                                                                                           "To continue, edit your filter settings and search again.",
@@ -22002,7 +22079,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                             "colSpan": 3,
                                                                                           },
                                                                                           "title": <EmptyTable>
-                                                                                            <EmptyStateDisplay
+                                                                                            <EmptyStateDisplayWithChrome
                                                                                               text={
                                                                                                 Array [
                                                                                                   "To continue, edit your filter settings and search again.",
@@ -22026,7 +22103,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                           "isVisible": true,
                                                                                         },
                                                                                         "title": <EmptyTable>
-                                                                                          <EmptyStateDisplay
+                                                                                          <EmptyStateDisplayWithChrome
                                                                                             text={
                                                                                               Array [
                                                                                                 "To continue, edit your filter settings and search again.",
@@ -22054,7 +22131,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                               "colSpan": 3,
                                                                                             },
                                                                                             "title": <EmptyTable>
-                                                                                              <EmptyStateDisplay
+                                                                                              <EmptyStateDisplayWithChrome
                                                                                                 text={
                                                                                                   Array [
                                                                                                     "To continue, edit your filter settings and search again.",
@@ -22078,7 +22155,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                             "isVisible": true,
                                                                                           },
                                                                                           "title": <EmptyTable>
-                                                                                            <EmptyStateDisplay
+                                                                                            <EmptyStateDisplayWithChrome
                                                                                               text={
                                                                                                 Array [
                                                                                                   "To continue, edit your filter settings and search again.",
@@ -22156,7 +22233,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                                       className="ins-c-table__empty"
                                                                                                     >
                                                                                                        
-                                                                                                      <EmptyStateDisplay
+                                                                                                      <EmptyStateDisplayWithChrome
                                                                                                         text={
                                                                                                           Array [
                                                                                                             "To continue, edit your filter settings and search again.",
@@ -22164,41 +22241,51 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                                         }
                                                                                                         title="No matching baselines found"
                                                                                                       >
-                                                                                                        <EmptyState
-                                                                                                          variant="large"
+                                                                                                        <EmptyStateDisplay
+                                                                                                          chrome={null}
+                                                                                                          text={
+                                                                                                            Array [
+                                                                                                              "To continue, edit your filter settings and search again.",
+                                                                                                            ]
+                                                                                                          }
+                                                                                                          title="No matching baselines found"
                                                                                                         >
-                                                                                                          <div
-                                                                                                            className="pf-c-empty-state pf-m-lg"
+                                                                                                          <EmptyState
+                                                                                                            variant="large"
                                                                                                           >
                                                                                                             <div
-                                                                                                              className="pf-c-empty-state__content"
+                                                                                                              className="pf-c-empty-state pf-m-lg"
                                                                                                             >
-                                                                                                              <br />
-                                                                                                              <Title
-                                                                                                                headingLevel="h1"
-                                                                                                                size="lg"
+                                                                                                              <div
+                                                                                                                className="pf-c-empty-state__content"
                                                                                                               >
-                                                                                                                <h1
-                                                                                                                  className="pf-c-title pf-m-lg"
-                                                                                                                  data-ouia-component-id="OUIA-Generated-Title-3"
-                                                                                                                  data-ouia-component-type="PF4/Title"
-                                                                                                                  data-ouia-safe={true}
+                                                                                                                <br />
+                                                                                                                <Title
+                                                                                                                  headingLevel="h1"
+                                                                                                                  size="lg"
                                                                                                                 >
-                                                                                                                  No matching baselines found
-                                                                                                                </h1>
-                                                                                                              </Title>
-                                                                                                              <EmptyStateBody>
-                                                                                                                <div
-                                                                                                                  className="pf-c-empty-state__body"
-                                                                                                                >
-                                                                                                                  To continue, edit your filter settings and search again.
-                                                                                                                  <br />
-                                                                                                                </div>
-                                                                                                              </EmptyStateBody>
+                                                                                                                  <h1
+                                                                                                                    className="pf-c-title pf-m-lg"
+                                                                                                                    data-ouia-component-id="OUIA-Generated-Title-3"
+                                                                                                                    data-ouia-component-type="PF4/Title"
+                                                                                                                    data-ouia-safe={true}
+                                                                                                                  >
+                                                                                                                    No matching baselines found
+                                                                                                                  </h1>
+                                                                                                                </Title>
+                                                                                                                <EmptyStateBody>
+                                                                                                                  <div
+                                                                                                                    className="pf-c-empty-state__body"
+                                                                                                                  >
+                                                                                                                    To continue, edit your filter settings and search again.
+                                                                                                                    <br />
+                                                                                                                  </div>
+                                                                                                                </EmptyStateBody>
+                                                                                                              </div>
                                                                                                             </div>
-                                                                                                          </div>
-                                                                                                        </EmptyState>
-                                                                                                      </EmptyStateDisplay>
+                                                                                                          </EmptyState>
+                                                                                                        </EmptyStateDisplay>
+                                                                                                      </EmptyStateDisplayWithChrome>
                                                                                                     </div>
                                                                                                   </EmptyTable>
                                                                                                 </td>

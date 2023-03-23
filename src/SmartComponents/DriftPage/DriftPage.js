@@ -31,10 +31,6 @@ export class DriftPage extends Component {
         };
     }
 
-    async componentDidMount() {
-        await window.insights.chrome.auth.getUser();
-    }
-
     componentDidUpdate(prevProps) {
         if (prevProps.location.search !== '' && this.props.location.search === '') {
             this.setHistory();

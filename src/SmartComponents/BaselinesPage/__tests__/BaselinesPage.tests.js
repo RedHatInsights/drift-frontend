@@ -31,7 +31,8 @@ describe('BaselinesPage', () => {
             loading: false,
             emptyState: false,
             baselineError: {},
-            clearEditBaselineData: jest.fn()
+            clearEditBaselineData: jest.fn(),
+            chrome: { appAction: jest.fn(() => null) }
         };
 
         value = {

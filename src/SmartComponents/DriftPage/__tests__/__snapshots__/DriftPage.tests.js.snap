@@ -3630,7 +3630,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                               </GenerateId>
                             </Toolbar>
                           </DriftToolbar>
-                          <withRouter(Connect(DriftTable))
+                          <withRouter(Connect(DriftTableWithChrome))
                             activeFactFilters={Array []}
                             addStateFilter={[Function]}
                             baselines={Array []}
@@ -3689,7 +3689,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                             toggleFactTypeFilter={[Function]}
                             updateReferenceId={[Function]}
                           >
-                            <Connect(DriftTable)
+                            <Connect(DriftTableWithChrome)
                               activeFactFilters={Array []}
                               addStateFilter={[Function]}
                               baselines={Array []}
@@ -3794,7 +3794,7 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                               toggleFactTypeFilter={[Function]}
                               updateReferenceId={[Function]}
                             >
-                              <DriftTable
+                              <DriftTableWithChrome
                                 activeFactFilters={Array []}
                                 addStateFilter={[Function]}
                                 addSystemModalOpened={false}
@@ -3909,45 +3909,133 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                 toggleStateSort={[Function]}
                                 updateReferenceId={[Function]}
                               >
-                                <Connect(WrappedAddSystemModal)
-                                  confirmModal={[Function]}
+                                <DriftTable
+                                  activeFactFilters={Array []}
+                                  addStateFilter={[Function]}
+                                  addSystemModalOpened={false}
+                                  baselines={Array []}
+                                  chrome={null}
+                                  clearComparison={[Function]}
+                                  emptyState={false}
+                                  error={Object {}}
+                                  expandRow={[Function]}
+                                  factFilter=""
+                                  factTypeFilters={
+                                    Array [
+                                      Object {
+                                        "display": "All facts",
+                                        "filter": "ALL",
+                                        "selected": true,
+                                      },
+                                      Object {
+                                        "display": "Baseline facts only",
+                                        "filter": "BASELINE",
+                                        "selected": false,
+                                      },
+                                    ]
+                                  }
+                                  fetchCompare={[Function]}
+                                  fullCompareData={Array []}
+                                  handleBaselineSelection={[Function]}
+                                  handleFactFilter={[Function]}
+                                  handleHSPSelection={[Function]}
+                                  handleSystemSelection={[Function]}
+                                  historicalProfiles={Array []}
+                                  history={
+                                    Object {
+                                      "action": "POP",
+                                      "block": [Function],
+                                      "canGo": [Function],
+                                      "createHref": [Function],
+                                      "entries": Array [
+                                        Object {
+                                          "hash": "",
+                                          "pathname": "/",
+                                          "search": "",
+                                          "state": undefined,
+                                        },
+                                      ],
+                                      "go": [Function],
+                                      "goBack": [Function],
+                                      "goForward": [Function],
+                                      "index": 0,
+                                      "length": 1,
+                                      "listen": [Function],
+                                      "location": Object {
+                                        "hash": "",
+                                        "pathname": "/",
+                                        "search": "",
+                                        "state": undefined,
+                                      },
+                                      "push": [Function],
+                                      "replace": [Function],
+                                    }
+                                  }
+                                  isFirstReference={true}
+                                  loading={false}
+                                  location={
+                                    Object {
+                                      "hash": "",
+                                      "pathname": "/",
+                                      "search": "",
+                                      "state": undefined,
+                                    }
+                                  }
+                                  match={
+                                    Object {
+                                      "isExact": true,
+                                      "params": Object {},
+                                      "path": "/",
+                                      "url": "/",
+                                    }
+                                  }
                                   permissions={
                                     Object {
                                       "compareRead": true,
                                     }
                                   }
-                                  selectedSystemIds={Array []}
+                                  selectHistoricProfiles={[Function]}
+                                  selectedBaselineIds={Array []}
+                                  selectedHSPIds={Array []}
+                                  setHistory={[Function]}
+                                  setIsFirstReference={[Function]}
+                                  setSelectedBaselines={[Function]}
+                                  stateFilters={
+                                    Array [
+                                      Object {
+                                        "display": "Same",
+                                        "filter": "SAME",
+                                        "selected": true,
+                                      },
+                                      Object {
+                                        "display": "Different",
+                                        "filter": "DIFFERENT",
+                                        "selected": true,
+                                      },
+                                      Object {
+                                        "display": "Incomplete data",
+                                        "filter": "INCOMPLETE_DATA",
+                                        "selected": true,
+                                      },
+                                    ]
+                                  }
+                                  systems={Array []}
+                                  toggleFactSort={[Function]}
+                                  toggleFactTypeFilter={[Function]}
+                                  toggleStateSort={[Function]}
                                   updateReferenceId={[Function]}
                                 >
-                                  <WrappedAddSystemModal
-                                    addSystemModalOpened={false}
-                                    baselines={Array []}
+                                  <Connect(WrappedAddSystemModal)
                                     confirmModal={[Function]}
-                                    disableSystemTable={[Function]}
-                                    handleBaselineSelection={[Function]}
-                                    handleHSPSelection={[Function]}
-                                    handleSystemSelection={[Function]}
-                                    historicalProfiles={Array []}
                                     permissions={
                                       Object {
                                         "compareRead": true,
                                       }
                                     }
-                                    revertBaselineFetch={[Function]}
-                                    selectActiveTab={[Function]}
-                                    selectBaseline={[Function]}
-                                    selectEntity={[Function]}
-                                    selectHistoricProfiles={[Function]}
-                                    selectedBaselineIds={Array []}
-                                    selectedHSPIds={Array []}
                                     selectedSystemIds={Array []}
-                                    setSelectedBaselines={[Function]}
-                                    setSelectedSystemIds={[Function]}
-                                    systems={Array []}
-                                    toggleAddSystemModal={[Function]}
                                     updateReferenceId={[Function]}
                                   >
-                                    <AddSystemModal
+                                    <WrappedAddSystemModal
                                       addSystemModalOpened={false}
                                       baselines={Array []}
                                       confirmModal={[Function]}
@@ -3975,122 +4063,288 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                       toggleAddSystemModal={[Function]}
                                       updateReferenceId={[Function]}
                                     >
-                                      <Modal
-                                        actions={
-                                          Array [
-                                            <Button
-                                              isDisabled={false}
-                                              onClick={[Function]}
-                                              ouiaId="add-to-comparison-submit-button"
-                                              variant="primary"
-                                            >
-                                              Submit
-                                            </Button>,
-                                            <Button
-                                              isDisabled={false}
-                                              onClick={[Function]}
-                                              ouiaId="add-to-comparison-cancel-button"
-                                              variant="link"
-                                            >
-                                              Cancel
-                                            </Button>,
-                                          ]
-                                        }
-                                        appendTo={[Function]}
-                                        aria-describedby=""
-                                        aria-label=""
-                                        aria-labelledby=""
-                                        className="drift"
-                                        hasNoBodyWrapper={false}
-                                        isOpen={false}
-                                        onClose={[Function]}
-                                        onScroll={null}
-                                        ouiaId="add-to-comparison-modal"
-                                        ouiaSafe={true}
-                                        showClose={true}
-                                        style={
+                                      <AddSystemModal
+                                        addSystemModalOpened={false}
+                                        baselines={Array []}
+                                        confirmModal={[Function]}
+                                        disableSystemTable={[Function]}
+                                        handleBaselineSelection={[Function]}
+                                        handleHSPSelection={[Function]}
+                                        handleSystemSelection={[Function]}
+                                        historicalProfiles={Array []}
+                                        permissions={
                                           Object {
-                                            "maxHeight": "600px",
+                                            "compareRead": true,
                                           }
                                         }
-                                        title="Add to comparison"
-                                        titleIconVariant={null}
-                                        titleLabel=""
-                                        variant="default"
-                                        width="1200px"
+                                        revertBaselineFetch={[Function]}
+                                        selectActiveTab={[Function]}
+                                        selectBaseline={[Function]}
+                                        selectEntity={[Function]}
+                                        selectHistoricProfiles={[Function]}
+                                        selectedBaselineIds={Array []}
+                                        selectedHSPIds={Array []}
+                                        selectedSystemIds={Array []}
+                                        setSelectedBaselines={[Function]}
+                                        setSelectedSystemIds={[Function]}
+                                        systems={Array []}
+                                        toggleAddSystemModal={[Function]}
+                                        updateReferenceId={[Function]}
                                       >
-                                        <Portal
-                                          containerInfo={<div />}
+                                        <Modal
+                                          actions={
+                                            Array [
+                                              <Button
+                                                isDisabled={false}
+                                                onClick={[Function]}
+                                                ouiaId="add-to-comparison-submit-button"
+                                                variant="primary"
+                                              >
+                                                Submit
+                                              </Button>,
+                                              <Button
+                                                isDisabled={false}
+                                                onClick={[Function]}
+                                                ouiaId="add-to-comparison-cancel-button"
+                                                variant="link"
+                                              >
+                                                Cancel
+                                              </Button>,
+                                            ]
+                                          }
+                                          appendTo={[Function]}
+                                          aria-describedby=""
+                                          aria-label=""
+                                          aria-labelledby=""
+                                          className="drift"
+                                          hasNoBodyWrapper={false}
+                                          isOpen={false}
+                                          onClose={[Function]}
+                                          onScroll={null}
+                                          ouiaId="add-to-comparison-modal"
+                                          ouiaSafe={true}
+                                          showClose={true}
+                                          style={
+                                            Object {
+                                              "maxHeight": "600px",
+                                            }
+                                          }
+                                          title="Add to comparison"
+                                          titleIconVariant={null}
+                                          titleLabel=""
+                                          variant="default"
+                                          width="1200px"
                                         >
-                                          <ModalContent
-                                            actions={
-                                              Array [
-                                                <Button
-                                                  isDisabled={false}
-                                                  onClick={[Function]}
-                                                  ouiaId="add-to-comparison-submit-button"
-                                                  variant="primary"
-                                                >
-                                                  Submit
-                                                </Button>,
-                                                <Button
-                                                  isDisabled={false}
-                                                  onClick={[Function]}
-                                                  ouiaId="add-to-comparison-cancel-button"
-                                                  variant="link"
-                                                >
-                                                  Cancel
-                                                </Button>,
-                                              ]
-                                            }
-                                            aria-describedby=""
-                                            aria-label=""
-                                            aria-labelledby=""
-                                            boxId="pf-modal-part-0"
-                                            className="drift"
-                                            descriptorId="pf-modal-part-2"
-                                            hasNoBodyWrapper={false}
-                                            isOpen={false}
-                                            labelId="pf-modal-part-1"
-                                            onClose={[Function]}
-                                            onScroll={null}
-                                            ouiaId="add-to-comparison-modal"
-                                            ouiaSafe={true}
-                                            showClose={true}
-                                            style={
-                                              Object {
-                                                "maxHeight": "600px",
+                                          <Portal
+                                            containerInfo={<div />}
+                                          >
+                                            <ModalContent
+                                              actions={
+                                                Array [
+                                                  <Button
+                                                    isDisabled={false}
+                                                    onClick={[Function]}
+                                                    ouiaId="add-to-comparison-submit-button"
+                                                    variant="primary"
+                                                  >
+                                                    Submit
+                                                  </Button>,
+                                                  <Button
+                                                    isDisabled={false}
+                                                    onClick={[Function]}
+                                                    ouiaId="add-to-comparison-cancel-button"
+                                                    variant="link"
+                                                  >
+                                                    Cancel
+                                                  </Button>,
+                                                ]
                                               }
-                                            }
-                                            title="Add to comparison"
-                                            titleIconVariant={null}
-                                            titleLabel=""
-                                            variant="default"
-                                            width="1200px"
-                                          />
-                                        </Portal>
-                                      </Modal>
-                                    </AddSystemModal>
-                                  </WrappedAddSystemModal>
-                                </Connect(WrappedAddSystemModal)>
-                                <div
-                                  className="sticky-table-header"
-                                >
+                                              aria-describedby=""
+                                              aria-label=""
+                                              aria-labelledby=""
+                                              boxId="pf-modal-part-0"
+                                              className="drift"
+                                              descriptorId="pf-modal-part-2"
+                                              hasNoBodyWrapper={false}
+                                              isOpen={false}
+                                              labelId="pf-modal-part-1"
+                                              onClose={[Function]}
+                                              onScroll={null}
+                                              ouiaId="add-to-comparison-modal"
+                                              ouiaSafe={true}
+                                              showClose={true}
+                                              style={
+                                                Object {
+                                                  "maxHeight": "600px",
+                                                }
+                                              }
+                                              title="Add to comparison"
+                                              titleIconVariant={null}
+                                              titleLabel=""
+                                              variant="default"
+                                              width="1200px"
+                                            />
+                                          </Portal>
+                                        </Modal>
+                                      </AddSystemModal>
+                                    </WrappedAddSystemModal>
+                                  </Connect(WrappedAddSystemModal)>
                                   <div
-                                    className="second-scroll-wrapper"
-                                    onScroll={[Function]}
+                                    className="sticky-table-header"
                                   >
                                     <div
-                                      className="second-scroll"
-                                      style={
-                                        Object {
-                                          "width": "",
+                                      className="second-scroll-wrapper"
+                                      onScroll={[Function]}
+                                    >
+                                      <div
+                                        className="second-scroll"
+                                        style={
+                                          Object {
+                                            "width": "",
+                                          }
                                         }
-                                      }
-                                    />
+                                      />
+                                    </div>
+                                    <div
+                                      className="drift-table-wrapper"
+                                      onScroll={[Function]}
+                                    >
+                                      <table
+                                        className="pf-c-table pf-m-compact drift-table"
+                                        data-ouia-component-id="comparison-table"
+                                        data-ouia-component-type="PF4/Table"
+                                      >
+                                        <thead>
+                                          <ComparisonHeader
+                                            fetchCompare={[Function]}
+                                            masterList={Array []}
+                                            permissions={
+                                              Object {
+                                                "compareRead": true,
+                                              }
+                                            }
+                                            removeSystem={[Function]}
+                                            selectHistoricProfiles={[Function]}
+                                            selectedBaselineIds={Array []}
+                                            selectedHSPIds={Array []}
+                                            setColumnHeaderWidth={[Function]}
+                                            setHistory={[Function]}
+                                            systemIds={Array []}
+                                            toggleFactSort={[Function]}
+                                            toggleStateSort={[Function]}
+                                            updateReferenceId={[Function]}
+                                          >
+                                            <tr
+                                              className="sticky-column-header"
+                                              data-ouia-component-id="comparison-table-header-row"
+                                              data-ouia-component-type="PF4/TableRow"
+                                            >
+                                              <th
+                                                className="fact-header sticky-column fixed-column-1 pointer sticky-header"
+                                                data-ouia-component-id="fact-sort-button"
+                                                data-ouia-component-type="PF4/Button"
+                                                key="fact-header"
+                                                onClick={[Function]}
+                                              >
+                                                <div
+                                                  className="active-blue"
+                                                >
+                                                  Fact 
+                                                  <ArrowsAltVIcon
+                                                    className="not-active"
+                                                    color="currentColor"
+                                                    noVerticalAlign={false}
+                                                    size="sm"
+                                                  >
+                                                    <svg
+                                                      aria-hidden={true}
+                                                      aria-labelledby={null}
+                                                      className="not-active"
+                                                      fill="currentColor"
+                                                      height="1em"
+                                                      role="img"
+                                                      style={
+                                                        Object {
+                                                          "verticalAlign": "-0.125em",
+                                                        }
+                                                      }
+                                                      viewBox="0 0 256 512"
+                                                      width="1em"
+                                                    >
+                                                      <path
+                                                        d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                                                      />
+                                                    </svg>
+                                                  </ArrowsAltVIcon>
+                                                </div>
+                                              </th>
+                                              <th
+                                                className="state-header sticky-column fixed-column-2 pointer right-border sticky-header"
+                                                data-ouia-component-id="state-sort-button"
+                                                data-ouia-component-type="PF4/Button"
+                                                id="disabled"
+                                                key="state-header"
+                                                onClick={[Function]}
+                                              >
+                                                <div
+                                                  className="active-blue"
+                                                >
+                                                  State 
+                                                  <ArrowsAltVIcon
+                                                    className="not-active"
+                                                    color="currentColor"
+                                                    noVerticalAlign={false}
+                                                    size="sm"
+                                                  >
+                                                    <svg
+                                                      aria-hidden={true}
+                                                      aria-labelledby={null}
+                                                      className="not-active"
+                                                      fill="currentColor"
+                                                      height="1em"
+                                                      role="img"
+                                                      style={
+                                                        Object {
+                                                          "verticalAlign": "-0.125em",
+                                                        }
+                                                      }
+                                                      viewBox="0 0 256 512"
+                                                      width="1em"
+                                                    >
+                                                      <path
+                                                        d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                                                      />
+                                                    </svg>
+                                                  </ArrowsAltVIcon>
+                                                </div>
+                                              </th>
+                                              <td
+                                                key="loading-systems-header"
+                                              >
+                                                <Skeleton
+                                                  size="md"
+                                                >
+                                                  <Skeleton
+                                                    className="ins-c-skeleton ins-c-skeleton__md"
+                                                  >
+                                                    <div
+                                                      className="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+                                                    >
+                                                      <span
+                                                        className="pf-u-screen-reader"
+                                                      />
+                                                    </div>
+                                                  </Skeleton>
+                                                </Skeleton>
+                                              </td>
+                                            </tr>
+                                          </ComparisonHeader>
+                                        </thead>
+                                      </table>
+                                    </div>
                                   </div>
                                   <div
-                                    className="drift-table-wrapper"
+                                    className="drift-table-wrapper table-body-scroll"
                                     onScroll={[Function]}
                                   >
                                     <table
@@ -4098,150 +4352,13 @@ exports[`ConnectedDriftPage should render correctly 1`] = `
                                       data-ouia-component-id="comparison-table"
                                       data-ouia-component-type="PF4/Table"
                                     >
-                                      <thead>
-                                        <ComparisonHeader
-                                          fetchCompare={[Function]}
-                                          masterList={Array []}
-                                          permissions={
-                                            Object {
-                                              "compareRead": true,
-                                            }
-                                          }
-                                          removeSystem={[Function]}
-                                          selectHistoricProfiles={[Function]}
-                                          selectedBaselineIds={Array []}
-                                          selectedHSPIds={Array []}
-                                          setColumnHeaderWidth={[Function]}
-                                          setHistory={[Function]}
-                                          systemIds={Array []}
-                                          toggleFactSort={[Function]}
-                                          toggleStateSort={[Function]}
-                                          updateReferenceId={[Function]}
-                                        >
-                                          <tr
-                                            className="sticky-column-header"
-                                            data-ouia-component-id="comparison-table-header-row"
-                                            data-ouia-component-type="PF4/TableRow"
-                                          >
-                                            <th
-                                              className="fact-header sticky-column fixed-column-1 pointer sticky-header"
-                                              data-ouia-component-id="fact-sort-button"
-                                              data-ouia-component-type="PF4/Button"
-                                              key="fact-header"
-                                              onClick={[Function]}
-                                            >
-                                              <div
-                                                className="active-blue"
-                                              >
-                                                Fact 
-                                                <ArrowsAltVIcon
-                                                  className="not-active"
-                                                  color="currentColor"
-                                                  noVerticalAlign={false}
-                                                  size="sm"
-                                                >
-                                                  <svg
-                                                    aria-hidden={true}
-                                                    aria-labelledby={null}
-                                                    className="not-active"
-                                                    fill="currentColor"
-                                                    height="1em"
-                                                    role="img"
-                                                    style={
-                                                      Object {
-                                                        "verticalAlign": "-0.125em",
-                                                      }
-                                                    }
-                                                    viewBox="0 0 256 512"
-                                                    width="1em"
-                                                  >
-                                                    <path
-                                                      d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
-                                                    />
-                                                  </svg>
-                                                </ArrowsAltVIcon>
-                                              </div>
-                                            </th>
-                                            <th
-                                              className="state-header sticky-column fixed-column-2 pointer right-border sticky-header"
-                                              data-ouia-component-id="state-sort-button"
-                                              data-ouia-component-type="PF4/Button"
-                                              id="disabled"
-                                              key="state-header"
-                                              onClick={[Function]}
-                                            >
-                                              <div
-                                                className="active-blue"
-                                              >
-                                                State 
-                                                <ArrowsAltVIcon
-                                                  className="not-active"
-                                                  color="currentColor"
-                                                  noVerticalAlign={false}
-                                                  size="sm"
-                                                >
-                                                  <svg
-                                                    aria-hidden={true}
-                                                    aria-labelledby={null}
-                                                    className="not-active"
-                                                    fill="currentColor"
-                                                    height="1em"
-                                                    role="img"
-                                                    style={
-                                                      Object {
-                                                        "verticalAlign": "-0.125em",
-                                                      }
-                                                    }
-                                                    viewBox="0 0 256 512"
-                                                    width="1em"
-                                                  >
-                                                    <path
-                                                      d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
-                                                    />
-                                                  </svg>
-                                                </ArrowsAltVIcon>
-                                              </div>
-                                            </th>
-                                            <td
-                                              key="loading-systems-header"
-                                            >
-                                              <Skeleton
-                                                size="md"
-                                              >
-                                                <Skeleton
-                                                  className="ins-c-skeleton ins-c-skeleton__md"
-                                                >
-                                                  <div
-                                                    className="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
-                                                  >
-                                                    <span
-                                                      className="pf-u-screen-reader"
-                                                    />
-                                                  </div>
-                                                </Skeleton>
-                                              </Skeleton>
-                                            </td>
-                                          </tr>
-                                        </ComparisonHeader>
-                                      </thead>
+                                      <tbody />
                                     </table>
                                   </div>
-                                </div>
-                                <div
-                                  className="drift-table-wrapper table-body-scroll"
-                                  onScroll={[Function]}
-                                >
-                                  <table
-                                    className="pf-c-table pf-m-compact drift-table"
-                                    data-ouia-component-id="comparison-table"
-                                    data-ouia-component-type="PF4/Table"
-                                  >
-                                    <tbody />
-                                  </table>
-                                </div>
-                              </DriftTable>
-                            </Connect(DriftTable)>
-                          </withRouter(Connect(DriftTable))>
+                                </DriftTable>
+                              </DriftTableWithChrome>
+                            </Connect(DriftTableWithChrome)>
+                          </withRouter(Connect(DriftTableWithChrome))>
                           <Toolbar
                             className="drift-toolbar"
                           >
@@ -8783,7 +8900,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                               </GenerateId>
                             </Toolbar>
                           </DriftToolbar>
-                          <withRouter(Connect(DriftTable))
+                          <withRouter(Connect(DriftTableWithChrome))
                             activeFactFilters={Array []}
                             addStateFilter={[Function]}
                             baselines={Array []}
@@ -8846,7 +8963,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                             toggleFactTypeFilter={[Function]}
                             updateReferenceId={[Function]}
                           >
-                            <Connect(DriftTable)
+                            <Connect(DriftTableWithChrome)
                               activeFactFilters={Array []}
                               addStateFilter={[Function]}
                               baselines={Array []}
@@ -8955,7 +9072,7 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                               toggleFactTypeFilter={[Function]}
                               updateReferenceId={[Function]}
                             >
-                              <DriftTable
+                              <DriftTableWithChrome
                                 activeFactFilters={Array []}
                                 addStateFilter={[Function]}
                                 addSystemModalOpened={false}
@@ -9074,45 +9191,137 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                 toggleStateSort={[Function]}
                                 updateReferenceId={[Function]}
                               >
-                                <Connect(WrappedAddSystemModal)
-                                  confirmModal={[Function]}
+                                <DriftTable
+                                  activeFactFilters={Array []}
+                                  addStateFilter={[Function]}
+                                  addSystemModalOpened={false}
+                                  baselines={Array []}
+                                  chrome={null}
+                                  clearComparison={[Function]}
+                                  emptyState={false}
+                                  error={
+                                    Object {
+                                      "detail": "something",
+                                    }
+                                  }
+                                  expandRow={[Function]}
+                                  factFilter=""
+                                  factTypeFilters={
+                                    Array [
+                                      Object {
+                                        "display": "All facts",
+                                        "filter": "ALL",
+                                        "selected": true,
+                                      },
+                                      Object {
+                                        "display": "Baseline facts only",
+                                        "filter": "BASELINE",
+                                        "selected": false,
+                                      },
+                                    ]
+                                  }
+                                  fetchCompare={[Function]}
+                                  fullCompareData={Array []}
+                                  handleBaselineSelection={[Function]}
+                                  handleFactFilter={[Function]}
+                                  handleHSPSelection={[Function]}
+                                  handleSystemSelection={[Function]}
+                                  historicalProfiles={Array []}
+                                  history={
+                                    Object {
+                                      "action": "POP",
+                                      "block": [Function],
+                                      "canGo": [Function],
+                                      "createHref": [Function],
+                                      "entries": Array [
+                                        Object {
+                                          "hash": "",
+                                          "pathname": "/",
+                                          "search": "",
+                                          "state": undefined,
+                                        },
+                                      ],
+                                      "go": [Function],
+                                      "goBack": [Function],
+                                      "goForward": [Function],
+                                      "index": 0,
+                                      "length": 1,
+                                      "listen": [Function],
+                                      "location": Object {
+                                        "hash": "",
+                                        "pathname": "/",
+                                        "search": "",
+                                        "state": undefined,
+                                      },
+                                      "push": [Function],
+                                      "replace": [Function],
+                                    }
+                                  }
+                                  isFirstReference={true}
+                                  loading={false}
+                                  location={
+                                    Object {
+                                      "hash": "",
+                                      "pathname": "/",
+                                      "search": "",
+                                      "state": undefined,
+                                    }
+                                  }
+                                  match={
+                                    Object {
+                                      "isExact": true,
+                                      "params": Object {},
+                                      "path": "/",
+                                      "url": "/",
+                                    }
+                                  }
                                   permissions={
                                     Object {
                                       "compareRead": true,
                                     }
                                   }
-                                  selectedSystemIds={Array []}
+                                  selectHistoricProfiles={[Function]}
+                                  selectedBaselineIds={Array []}
+                                  selectedHSPIds={Array []}
+                                  setHistory={[Function]}
+                                  setIsFirstReference={[Function]}
+                                  setSelectedBaselines={[Function]}
+                                  stateFilters={
+                                    Array [
+                                      Object {
+                                        "display": "Same",
+                                        "filter": "SAME",
+                                        "selected": true,
+                                      },
+                                      Object {
+                                        "display": "Different",
+                                        "filter": "DIFFERENT",
+                                        "selected": true,
+                                      },
+                                      Object {
+                                        "display": "Incomplete data",
+                                        "filter": "INCOMPLETE_DATA",
+                                        "selected": true,
+                                      },
+                                    ]
+                                  }
+                                  systems={Array []}
+                                  toggleFactSort={[Function]}
+                                  toggleFactTypeFilter={[Function]}
+                                  toggleStateSort={[Function]}
                                   updateReferenceId={[Function]}
                                 >
-                                  <WrappedAddSystemModal
-                                    addSystemModalOpened={false}
-                                    baselines={Array []}
+                                  <Connect(WrappedAddSystemModal)
                                     confirmModal={[Function]}
-                                    disableSystemTable={[Function]}
-                                    handleBaselineSelection={[Function]}
-                                    handleHSPSelection={[Function]}
-                                    handleSystemSelection={[Function]}
-                                    historicalProfiles={Array []}
                                     permissions={
                                       Object {
                                         "compareRead": true,
                                       }
                                     }
-                                    revertBaselineFetch={[Function]}
-                                    selectActiveTab={[Function]}
-                                    selectBaseline={[Function]}
-                                    selectEntity={[Function]}
-                                    selectHistoricProfiles={[Function]}
-                                    selectedBaselineIds={Array []}
-                                    selectedHSPIds={Array []}
                                     selectedSystemIds={Array []}
-                                    setSelectedBaselines={[Function]}
-                                    setSelectedSystemIds={[Function]}
-                                    systems={Array []}
-                                    toggleAddSystemModal={[Function]}
                                     updateReferenceId={[Function]}
                                   >
-                                    <AddSystemModal
+                                    <WrappedAddSystemModal
                                       addSystemModalOpened={false}
                                       baselines={Array []}
                                       confirmModal={[Function]}
@@ -9140,122 +9349,288 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                       toggleAddSystemModal={[Function]}
                                       updateReferenceId={[Function]}
                                     >
-                                      <Modal
-                                        actions={
-                                          Array [
-                                            <Button
-                                              isDisabled={false}
-                                              onClick={[Function]}
-                                              ouiaId="add-to-comparison-submit-button"
-                                              variant="primary"
-                                            >
-                                              Submit
-                                            </Button>,
-                                            <Button
-                                              isDisabled={false}
-                                              onClick={[Function]}
-                                              ouiaId="add-to-comparison-cancel-button"
-                                              variant="link"
-                                            >
-                                              Cancel
-                                            </Button>,
-                                          ]
-                                        }
-                                        appendTo={[Function]}
-                                        aria-describedby=""
-                                        aria-label=""
-                                        aria-labelledby=""
-                                        className="drift"
-                                        hasNoBodyWrapper={false}
-                                        isOpen={false}
-                                        onClose={[Function]}
-                                        onScroll={null}
-                                        ouiaId="add-to-comparison-modal"
-                                        ouiaSafe={true}
-                                        showClose={true}
-                                        style={
+                                      <AddSystemModal
+                                        addSystemModalOpened={false}
+                                        baselines={Array []}
+                                        confirmModal={[Function]}
+                                        disableSystemTable={[Function]}
+                                        handleBaselineSelection={[Function]}
+                                        handleHSPSelection={[Function]}
+                                        handleSystemSelection={[Function]}
+                                        historicalProfiles={Array []}
+                                        permissions={
                                           Object {
-                                            "maxHeight": "600px",
+                                            "compareRead": true,
                                           }
                                         }
-                                        title="Add to comparison"
-                                        titleIconVariant={null}
-                                        titleLabel=""
-                                        variant="default"
-                                        width="1200px"
+                                        revertBaselineFetch={[Function]}
+                                        selectActiveTab={[Function]}
+                                        selectBaseline={[Function]}
+                                        selectEntity={[Function]}
+                                        selectHistoricProfiles={[Function]}
+                                        selectedBaselineIds={Array []}
+                                        selectedHSPIds={Array []}
+                                        selectedSystemIds={Array []}
+                                        setSelectedBaselines={[Function]}
+                                        setSelectedSystemIds={[Function]}
+                                        systems={Array []}
+                                        toggleAddSystemModal={[Function]}
+                                        updateReferenceId={[Function]}
                                       >
-                                        <Portal
-                                          containerInfo={<div />}
+                                        <Modal
+                                          actions={
+                                            Array [
+                                              <Button
+                                                isDisabled={false}
+                                                onClick={[Function]}
+                                                ouiaId="add-to-comparison-submit-button"
+                                                variant="primary"
+                                              >
+                                                Submit
+                                              </Button>,
+                                              <Button
+                                                isDisabled={false}
+                                                onClick={[Function]}
+                                                ouiaId="add-to-comparison-cancel-button"
+                                                variant="link"
+                                              >
+                                                Cancel
+                                              </Button>,
+                                            ]
+                                          }
+                                          appendTo={[Function]}
+                                          aria-describedby=""
+                                          aria-label=""
+                                          aria-labelledby=""
+                                          className="drift"
+                                          hasNoBodyWrapper={false}
+                                          isOpen={false}
+                                          onClose={[Function]}
+                                          onScroll={null}
+                                          ouiaId="add-to-comparison-modal"
+                                          ouiaSafe={true}
+                                          showClose={true}
+                                          style={
+                                            Object {
+                                              "maxHeight": "600px",
+                                            }
+                                          }
+                                          title="Add to comparison"
+                                          titleIconVariant={null}
+                                          titleLabel=""
+                                          variant="default"
+                                          width="1200px"
                                         >
-                                          <ModalContent
-                                            actions={
-                                              Array [
-                                                <Button
-                                                  isDisabled={false}
-                                                  onClick={[Function]}
-                                                  ouiaId="add-to-comparison-submit-button"
-                                                  variant="primary"
-                                                >
-                                                  Submit
-                                                </Button>,
-                                                <Button
-                                                  isDisabled={false}
-                                                  onClick={[Function]}
-                                                  ouiaId="add-to-comparison-cancel-button"
-                                                  variant="link"
-                                                >
-                                                  Cancel
-                                                </Button>,
-                                              ]
-                                            }
-                                            aria-describedby=""
-                                            aria-label=""
-                                            aria-labelledby=""
-                                            boxId="pf-modal-part-2"
-                                            className="drift"
-                                            descriptorId="pf-modal-part-4"
-                                            hasNoBodyWrapper={false}
-                                            isOpen={false}
-                                            labelId="pf-modal-part-3"
-                                            onClose={[Function]}
-                                            onScroll={null}
-                                            ouiaId="add-to-comparison-modal"
-                                            ouiaSafe={true}
-                                            showClose={true}
-                                            style={
-                                              Object {
-                                                "maxHeight": "600px",
+                                          <Portal
+                                            containerInfo={<div />}
+                                          >
+                                            <ModalContent
+                                              actions={
+                                                Array [
+                                                  <Button
+                                                    isDisabled={false}
+                                                    onClick={[Function]}
+                                                    ouiaId="add-to-comparison-submit-button"
+                                                    variant="primary"
+                                                  >
+                                                    Submit
+                                                  </Button>,
+                                                  <Button
+                                                    isDisabled={false}
+                                                    onClick={[Function]}
+                                                    ouiaId="add-to-comparison-cancel-button"
+                                                    variant="link"
+                                                  >
+                                                    Cancel
+                                                  </Button>,
+                                                ]
                                               }
-                                            }
-                                            title="Add to comparison"
-                                            titleIconVariant={null}
-                                            titleLabel=""
-                                            variant="default"
-                                            width="1200px"
-                                          />
-                                        </Portal>
-                                      </Modal>
-                                    </AddSystemModal>
-                                  </WrappedAddSystemModal>
-                                </Connect(WrappedAddSystemModal)>
-                                <div
-                                  className="sticky-table-header"
-                                >
+                                              aria-describedby=""
+                                              aria-label=""
+                                              aria-labelledby=""
+                                              boxId="pf-modal-part-2"
+                                              className="drift"
+                                              descriptorId="pf-modal-part-4"
+                                              hasNoBodyWrapper={false}
+                                              isOpen={false}
+                                              labelId="pf-modal-part-3"
+                                              onClose={[Function]}
+                                              onScroll={null}
+                                              ouiaId="add-to-comparison-modal"
+                                              ouiaSafe={true}
+                                              showClose={true}
+                                              style={
+                                                Object {
+                                                  "maxHeight": "600px",
+                                                }
+                                              }
+                                              title="Add to comparison"
+                                              titleIconVariant={null}
+                                              titleLabel=""
+                                              variant="default"
+                                              width="1200px"
+                                            />
+                                          </Portal>
+                                        </Modal>
+                                      </AddSystemModal>
+                                    </WrappedAddSystemModal>
+                                  </Connect(WrappedAddSystemModal)>
                                   <div
-                                    className="second-scroll-wrapper"
-                                    onScroll={[Function]}
+                                    className="sticky-table-header"
                                   >
                                     <div
-                                      className="second-scroll"
-                                      style={
-                                        Object {
-                                          "width": "",
+                                      className="second-scroll-wrapper"
+                                      onScroll={[Function]}
+                                    >
+                                      <div
+                                        className="second-scroll"
+                                        style={
+                                          Object {
+                                            "width": "",
+                                          }
                                         }
-                                      }
-                                    />
+                                      />
+                                    </div>
+                                    <div
+                                      className="drift-table-wrapper"
+                                      onScroll={[Function]}
+                                    >
+                                      <table
+                                        className="pf-c-table pf-m-compact drift-table"
+                                        data-ouia-component-id="comparison-table"
+                                        data-ouia-component-type="PF4/Table"
+                                      >
+                                        <thead>
+                                          <ComparisonHeader
+                                            fetchCompare={[Function]}
+                                            masterList={Array []}
+                                            permissions={
+                                              Object {
+                                                "compareRead": true,
+                                              }
+                                            }
+                                            removeSystem={[Function]}
+                                            selectHistoricProfiles={[Function]}
+                                            selectedBaselineIds={Array []}
+                                            selectedHSPIds={Array []}
+                                            setColumnHeaderWidth={[Function]}
+                                            setHistory={[Function]}
+                                            systemIds={Array []}
+                                            toggleFactSort={[Function]}
+                                            toggleStateSort={[Function]}
+                                            updateReferenceId={[Function]}
+                                          >
+                                            <tr
+                                              className="sticky-column-header"
+                                              data-ouia-component-id="comparison-table-header-row"
+                                              data-ouia-component-type="PF4/TableRow"
+                                            >
+                                              <th
+                                                className="fact-header sticky-column fixed-column-1 pointer sticky-header"
+                                                data-ouia-component-id="fact-sort-button"
+                                                data-ouia-component-type="PF4/Button"
+                                                key="fact-header"
+                                                onClick={[Function]}
+                                              >
+                                                <div
+                                                  className="active-blue"
+                                                >
+                                                  Fact 
+                                                  <ArrowsAltVIcon
+                                                    className="not-active"
+                                                    color="currentColor"
+                                                    noVerticalAlign={false}
+                                                    size="sm"
+                                                  >
+                                                    <svg
+                                                      aria-hidden={true}
+                                                      aria-labelledby={null}
+                                                      className="not-active"
+                                                      fill="currentColor"
+                                                      height="1em"
+                                                      role="img"
+                                                      style={
+                                                        Object {
+                                                          "verticalAlign": "-0.125em",
+                                                        }
+                                                      }
+                                                      viewBox="0 0 256 512"
+                                                      width="1em"
+                                                    >
+                                                      <path
+                                                        d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                                                      />
+                                                    </svg>
+                                                  </ArrowsAltVIcon>
+                                                </div>
+                                              </th>
+                                              <th
+                                                className="state-header sticky-column fixed-column-2 pointer right-border sticky-header"
+                                                data-ouia-component-id="state-sort-button"
+                                                data-ouia-component-type="PF4/Button"
+                                                id="disabled"
+                                                key="state-header"
+                                                onClick={[Function]}
+                                              >
+                                                <div
+                                                  className="active-blue"
+                                                >
+                                                  State 
+                                                  <ArrowsAltVIcon
+                                                    className="not-active"
+                                                    color="currentColor"
+                                                    noVerticalAlign={false}
+                                                    size="sm"
+                                                  >
+                                                    <svg
+                                                      aria-hidden={true}
+                                                      aria-labelledby={null}
+                                                      className="not-active"
+                                                      fill="currentColor"
+                                                      height="1em"
+                                                      role="img"
+                                                      style={
+                                                        Object {
+                                                          "verticalAlign": "-0.125em",
+                                                        }
+                                                      }
+                                                      viewBox="0 0 256 512"
+                                                      width="1em"
+                                                    >
+                                                      <path
+                                                        d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                                                      />
+                                                    </svg>
+                                                  </ArrowsAltVIcon>
+                                                </div>
+                                              </th>
+                                              <td
+                                                key="loading-systems-header"
+                                              >
+                                                <Skeleton
+                                                  size="md"
+                                                >
+                                                  <Skeleton
+                                                    className="ins-c-skeleton ins-c-skeleton__md"
+                                                  >
+                                                    <div
+                                                      className="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+                                                    >
+                                                      <span
+                                                        className="pf-u-screen-reader"
+                                                      />
+                                                    </div>
+                                                  </Skeleton>
+                                                </Skeleton>
+                                              </td>
+                                            </tr>
+                                          </ComparisonHeader>
+                                        </thead>
+                                      </table>
+                                    </div>
                                   </div>
                                   <div
-                                    className="drift-table-wrapper"
+                                    className="drift-table-wrapper table-body-scroll"
                                     onScroll={[Function]}
                                   >
                                     <table
@@ -9263,150 +9638,13 @@ exports[`ConnectedDriftPage should render with error alert 1`] = `
                                       data-ouia-component-id="comparison-table"
                                       data-ouia-component-type="PF4/Table"
                                     >
-                                      <thead>
-                                        <ComparisonHeader
-                                          fetchCompare={[Function]}
-                                          masterList={Array []}
-                                          permissions={
-                                            Object {
-                                              "compareRead": true,
-                                            }
-                                          }
-                                          removeSystem={[Function]}
-                                          selectHistoricProfiles={[Function]}
-                                          selectedBaselineIds={Array []}
-                                          selectedHSPIds={Array []}
-                                          setColumnHeaderWidth={[Function]}
-                                          setHistory={[Function]}
-                                          systemIds={Array []}
-                                          toggleFactSort={[Function]}
-                                          toggleStateSort={[Function]}
-                                          updateReferenceId={[Function]}
-                                        >
-                                          <tr
-                                            className="sticky-column-header"
-                                            data-ouia-component-id="comparison-table-header-row"
-                                            data-ouia-component-type="PF4/TableRow"
-                                          >
-                                            <th
-                                              className="fact-header sticky-column fixed-column-1 pointer sticky-header"
-                                              data-ouia-component-id="fact-sort-button"
-                                              data-ouia-component-type="PF4/Button"
-                                              key="fact-header"
-                                              onClick={[Function]}
-                                            >
-                                              <div
-                                                className="active-blue"
-                                              >
-                                                Fact 
-                                                <ArrowsAltVIcon
-                                                  className="not-active"
-                                                  color="currentColor"
-                                                  noVerticalAlign={false}
-                                                  size="sm"
-                                                >
-                                                  <svg
-                                                    aria-hidden={true}
-                                                    aria-labelledby={null}
-                                                    className="not-active"
-                                                    fill="currentColor"
-                                                    height="1em"
-                                                    role="img"
-                                                    style={
-                                                      Object {
-                                                        "verticalAlign": "-0.125em",
-                                                      }
-                                                    }
-                                                    viewBox="0 0 256 512"
-                                                    width="1em"
-                                                  >
-                                                    <path
-                                                      d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
-                                                    />
-                                                  </svg>
-                                                </ArrowsAltVIcon>
-                                              </div>
-                                            </th>
-                                            <th
-                                              className="state-header sticky-column fixed-column-2 pointer right-border sticky-header"
-                                              data-ouia-component-id="state-sort-button"
-                                              data-ouia-component-type="PF4/Button"
-                                              id="disabled"
-                                              key="state-header"
-                                              onClick={[Function]}
-                                            >
-                                              <div
-                                                className="active-blue"
-                                              >
-                                                State 
-                                                <ArrowsAltVIcon
-                                                  className="not-active"
-                                                  color="currentColor"
-                                                  noVerticalAlign={false}
-                                                  size="sm"
-                                                >
-                                                  <svg
-                                                    aria-hidden={true}
-                                                    aria-labelledby={null}
-                                                    className="not-active"
-                                                    fill="currentColor"
-                                                    height="1em"
-                                                    role="img"
-                                                    style={
-                                                      Object {
-                                                        "verticalAlign": "-0.125em",
-                                                      }
-                                                    }
-                                                    viewBox="0 0 256 512"
-                                                    width="1em"
-                                                  >
-                                                    <path
-                                                      d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
-                                                    />
-                                                  </svg>
-                                                </ArrowsAltVIcon>
-                                              </div>
-                                            </th>
-                                            <td
-                                              key="loading-systems-header"
-                                            >
-                                              <Skeleton
-                                                size="md"
-                                              >
-                                                <Skeleton
-                                                  className="ins-c-skeleton ins-c-skeleton__md"
-                                                >
-                                                  <div
-                                                    className="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
-                                                  >
-                                                    <span
-                                                      className="pf-u-screen-reader"
-                                                    />
-                                                  </div>
-                                                </Skeleton>
-                                              </Skeleton>
-                                            </td>
-                                          </tr>
-                                        </ComparisonHeader>
-                                      </thead>
+                                      <tbody />
                                     </table>
                                   </div>
-                                </div>
-                                <div
-                                  className="drift-table-wrapper table-body-scroll"
-                                  onScroll={[Function]}
-                                >
-                                  <table
-                                    className="pf-c-table pf-m-compact drift-table"
-                                    data-ouia-component-id="comparison-table"
-                                    data-ouia-component-type="PF4/Table"
-                                  >
-                                    <tbody />
-                                  </table>
-                                </div>
-                              </DriftTable>
-                            </Connect(DriftTable)>
-                          </withRouter(Connect(DriftTable))>
+                                </DriftTable>
+                              </DriftTableWithChrome>
+                            </Connect(DriftTableWithChrome)>
+                          </withRouter(Connect(DriftTableWithChrome))>
                           <Toolbar
                             className="drift-toolbar"
                           >

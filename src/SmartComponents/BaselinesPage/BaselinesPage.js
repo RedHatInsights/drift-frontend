@@ -16,6 +16,7 @@ import { editBaselineActions } from './EditBaselinePage/redux';
 import { historicProfilesActions } from '../HistoricalProfilesPopover/redux';
 import { PermissionContext } from '../../App';
 import { RegistryContext } from '../../Utilities/registry';
+import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
 
 export class BaselinesPage extends Component {
     constructor(props) {
@@ -33,8 +34,8 @@ export class BaselinesPage extends Component {
     }
 
     async componentDidMount() {
-        await window.insights.chrome.auth.getUser();
-        await window.insights?.chrome?.appAction?.('baseline-list');
+        const chrome = this.props.chrome;
+        await chrome?.appAction('baseline-list');
     }
 
     componentDidUpdate(prevProps) {
@@ -164,7 +165,8 @@ BaselinesPage.propTypes = {
     setSelectedSystemIds: PropTypes.func,
     entitiesLoading: PropTypes.func,
     notificationsSwitchError: PropTypes.object,
-    resetBaselinesExportStatus: PropTypes.func
+    resetBaselinesExportStatus: PropTypes.func,
+    chrome: PropTypes.object
 };
 
 function mapStateToProps(state) {
@@ -191,4 +193,11 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BaselinesPage));
+const BaselinesPageWithChrome = props => {
+    const chrome = useChrome();
+    return (
+        <BaselinesPage { ...props } chrome={ chrome } />
+    );
+};
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BaselinesPageWithChrome));
