@@ -194,7 +194,7 @@ exports[`EditBaseline should render correctly 1`] = `
                                         </DropdownItem>,
                                       ]
                                     }
-                                    isFlipEnabled={false}
+                                    isFlipEnabled={true}
                                     isGrouped={false}
                                     isOpen={false}
                                     isPlain={false}
@@ -202,6 +202,7 @@ exports[`EditBaseline should render correctly 1`] = `
                                     menuAppendTo="inline"
                                     onSelect={[Function]}
                                     position="left"
+                                    removeFindDomNode={false}
                                     toggle={
                                       <DropdownToggle
                                         isDisabled={true}
@@ -227,6 +228,7 @@ exports[`EditBaseline should render correctly 1`] = `
                                         }
                                       />
                                     }
+                                    zIndex={9999}
                                   >
                                     <div
                                       className="pf-c-dropdown ins-c-bulk-select"
@@ -642,7 +644,7 @@ exports[`EditBaseline should render correctly 1`] = `
                                               </DropdownItem>,
                                             ]
                                           }
-                                          isFlipEnabled={false}
+                                          isFlipEnabled={true}
                                           isGrouped={false}
                                           isOpen={false}
                                           isPlain={true}
@@ -650,6 +652,7 @@ exports[`EditBaseline should render correctly 1`] = `
                                           menuAppendTo="inline"
                                           onSelect={[Function]}
                                           position="left"
+                                          removeFindDomNode={false}
                                           toggle={
                                             <DropdownToggle
                                               onToggle={[Function]}
@@ -664,6 +667,7 @@ exports[`EditBaseline should render correctly 1`] = `
                                               />
                                             </DropdownToggle>
                                           }
+                                          zIndex={9999}
                                         >
                                           <div
                                             className="pf-c-dropdown"
@@ -886,7 +890,7 @@ exports[`EditBaseline should render correctly 1`] = `
                                                 </DropdownItem>,
                                               ]
                                             }
-                                            isFlipEnabled={false}
+                                            isFlipEnabled={true}
                                             isGrouped={false}
                                             isOpen={false}
                                             isPlain={true}
@@ -894,6 +898,7 @@ exports[`EditBaseline should render correctly 1`] = `
                                             menuAppendTo="inline"
                                             onSelect={[Function]}
                                             position="left"
+                                            removeFindDomNode={false}
                                             style={
                                               Object {
                                                 "float": "left",
@@ -906,6 +911,7 @@ exports[`EditBaseline should render correctly 1`] = `
                                                 onToggle={[Function]}
                                               />
                                             }
+                                            zIndex={9999}
                                           >
                                             <div
                                               className="pf-c-dropdown"
@@ -1859,7 +1865,7 @@ exports[`EditBaseline should render expandable rows closed 1`] = `
                                         </DropdownItem>,
                                       ]
                                     }
-                                    isFlipEnabled={false}
+                                    isFlipEnabled={true}
                                     isGrouped={false}
                                     isOpen={false}
                                     isPlain={false}
@@ -1867,6 +1873,7 @@ exports[`EditBaseline should render expandable rows closed 1`] = `
                                     menuAppendTo="inline"
                                     onSelect={[Function]}
                                     position="left"
+                                    removeFindDomNode={false}
                                     toggle={
                                       <DropdownToggle
                                         isDisabled={false}
@@ -1892,6 +1899,7 @@ exports[`EditBaseline should render expandable rows closed 1`] = `
                                         }
                                       />
                                     }
+                                    zIndex={9999}
                                   >
                                     <div
                                       className="pf-c-dropdown ins-c-bulk-select"
@@ -2304,7 +2312,7 @@ exports[`EditBaseline should render expandable rows closed 1`] = `
                                               </DropdownItem>,
                                             ]
                                           }
-                                          isFlipEnabled={false}
+                                          isFlipEnabled={true}
                                           isGrouped={false}
                                           isOpen={false}
                                           isPlain={true}
@@ -2312,6 +2320,7 @@ exports[`EditBaseline should render expandable rows closed 1`] = `
                                           menuAppendTo="inline"
                                           onSelect={[Function]}
                                           position="left"
+                                          removeFindDomNode={false}
                                           toggle={
                                             <DropdownToggle
                                               onToggle={[Function]}
@@ -2326,6 +2335,7 @@ exports[`EditBaseline should render expandable rows closed 1`] = `
                                               />
                                             </DropdownToggle>
                                           }
+                                          zIndex={9999}
                                         >
                                           <div
                                             className="pf-c-dropdown"
@@ -2548,7 +2558,7 @@ exports[`EditBaseline should render expandable rows closed 1`] = `
                                                 </DropdownItem>,
                                               ]
                                             }
-                                            isFlipEnabled={false}
+                                            isFlipEnabled={true}
                                             isGrouped={false}
                                             isOpen={false}
                                             isPlain={true}
@@ -2556,6 +2566,7 @@ exports[`EditBaseline should render expandable rows closed 1`] = `
                                             menuAppendTo="inline"
                                             onSelect={[Function]}
                                             position="left"
+                                            removeFindDomNode={false}
                                             style={
                                               Object {
                                                 "float": "left",
@@ -2568,6 +2579,7 @@ exports[`EditBaseline should render expandable rows closed 1`] = `
                                                 onToggle={[Function]}
                                               />
                                             }
+                                            zIndex={9999}
                                           >
                                             <div
                                               className="pf-c-dropdown"
@@ -2932,6 +2944,7 @@ exports[`EditBaseline should render expandable rows closed 1`] = `
                       id="fact-0"
                       isChecked={false}
                       isDisabled={false}
+                      isRequired={false}
                       isValid={true}
                       name={0}
                       onChange={[Function]}
@@ -2951,6 +2964,7 @@ exports[`EditBaseline should render expandable rows closed 1`] = `
                           id="fact-0"
                           name={0}
                           onChange={[Function]}
+                          required={false}
                           type="checkbox"
                         />
                       </div>
@@ -3046,7 +3060,7 @@ exports[`EditBaseline should render expandable rows closed 1`] = `
                                 </DropdownItem>,
                               ]
                             }
-                            isFlipEnabled={false}
+                            isFlipEnabled={true}
                             isGrouped={false}
                             isOpen={false}
                             isPlain={true}
@@ -3054,6 +3068,7 @@ exports[`EditBaseline should render expandable rows closed 1`] = `
                             menuAppendTo="inline"
                             onSelect={[Function]}
                             position="right"
+                            removeFindDomNode={false}
                             style={
                               Object {
                                 "float": "right",
@@ -3066,6 +3081,7 @@ exports[`EditBaseline should render expandable rows closed 1`] = `
                                 onToggle={[Function]}
                               />
                             }
+                            zIndex={9999}
                           >
                             <div
                               className="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
@@ -3245,6 +3261,7 @@ exports[`EditBaseline should render expandable rows closed 1`] = `
                       id="fact-1"
                       isChecked={false}
                       isDisabled={false}
+                      isRequired={false}
                       isValid={true}
                       name={1}
                       onChange={[Function]}
@@ -3264,6 +3281,7 @@ exports[`EditBaseline should render expandable rows closed 1`] = `
                           id="fact-1"
                           name={1}
                           onChange={[Function]}
+                          required={false}
                           type="checkbox"
                         />
                       </div>
@@ -3359,7 +3377,7 @@ exports[`EditBaseline should render expandable rows closed 1`] = `
                                 </DropdownItem>,
                               ]
                             }
-                            isFlipEnabled={false}
+                            isFlipEnabled={true}
                             isGrouped={false}
                             isOpen={false}
                             isPlain={true}
@@ -3367,6 +3385,7 @@ exports[`EditBaseline should render expandable rows closed 1`] = `
                             menuAppendTo="inline"
                             onSelect={[Function]}
                             position="right"
+                            removeFindDomNode={false}
                             style={
                               Object {
                                 "float": "right",
@@ -3379,6 +3398,7 @@ exports[`EditBaseline should render expandable rows closed 1`] = `
                                 onToggle={[Function]}
                               />
                             }
+                            zIndex={9999}
                           >
                             <div
                               className="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
@@ -3558,6 +3578,7 @@ exports[`EditBaseline should render expandable rows closed 1`] = `
                       id="category-2"
                       isChecked={false}
                       isDisabled={false}
+                      isRequired={false}
                       isValid={true}
                       name={2}
                       onChange={[Function]}
@@ -3577,6 +3598,7 @@ exports[`EditBaseline should render expandable rows closed 1`] = `
                           id="category-2"
                           name={2}
                           onChange={[Function]}
+                          required={false}
                           type="checkbox"
                         />
                       </div>
@@ -3791,7 +3813,7 @@ exports[`EditBaseline should render expandable rows closed 1`] = `
                                 </DropdownItem>,
                               ]
                             }
-                            isFlipEnabled={false}
+                            isFlipEnabled={true}
                             isGrouped={false}
                             isOpen={false}
                             isPlain={true}
@@ -3799,6 +3821,7 @@ exports[`EditBaseline should render expandable rows closed 1`] = `
                             menuAppendTo="inline"
                             onSelect={[Function]}
                             position="right"
+                            removeFindDomNode={false}
                             style={
                               Object {
                                 "float": "right",
@@ -3811,6 +3834,7 @@ exports[`EditBaseline should render expandable rows closed 1`] = `
                                 onToggle={[Function]}
                               />
                             }
+                            zIndex={9999}
                           >
                             <div
                               className="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
@@ -4422,7 +4446,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                                         </DropdownItem>,
                                       ]
                                     }
-                                    isFlipEnabled={false}
+                                    isFlipEnabled={true}
                                     isGrouped={false}
                                     isOpen={false}
                                     isPlain={false}
@@ -4430,6 +4454,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                                     menuAppendTo="inline"
                                     onSelect={[Function]}
                                     position="left"
+                                    removeFindDomNode={false}
                                     toggle={
                                       <DropdownToggle
                                         isDisabled={false}
@@ -4455,6 +4480,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                                         }
                                       />
                                     }
+                                    zIndex={9999}
                                   >
                                     <div
                                       className="pf-c-dropdown ins-c-bulk-select"
@@ -4867,7 +4893,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                                               </DropdownItem>,
                                             ]
                                           }
-                                          isFlipEnabled={false}
+                                          isFlipEnabled={true}
                                           isGrouped={false}
                                           isOpen={false}
                                           isPlain={true}
@@ -4875,6 +4901,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                                           menuAppendTo="inline"
                                           onSelect={[Function]}
                                           position="left"
+                                          removeFindDomNode={false}
                                           toggle={
                                             <DropdownToggle
                                               onToggle={[Function]}
@@ -4889,6 +4916,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                                               />
                                             </DropdownToggle>
                                           }
+                                          zIndex={9999}
                                         >
                                           <div
                                             className="pf-c-dropdown"
@@ -5111,7 +5139,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                                                 </DropdownItem>,
                                               ]
                                             }
-                                            isFlipEnabled={false}
+                                            isFlipEnabled={true}
                                             isGrouped={false}
                                             isOpen={false}
                                             isPlain={true}
@@ -5119,6 +5147,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                                             menuAppendTo="inline"
                                             onSelect={[Function]}
                                             position="left"
+                                            removeFindDomNode={false}
                                             style={
                                               Object {
                                                 "float": "left",
@@ -5131,6 +5160,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                                                 onToggle={[Function]}
                                               />
                                             }
+                                            zIndex={9999}
                                           >
                                             <div
                                               className="pf-c-dropdown"
@@ -5495,6 +5525,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                       id="fact-0"
                       isChecked={false}
                       isDisabled={false}
+                      isRequired={false}
                       isValid={true}
                       name={0}
                       onChange={[Function]}
@@ -5514,6 +5545,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                           id="fact-0"
                           name={0}
                           onChange={[Function]}
+                          required={false}
                           type="checkbox"
                         />
                       </div>
@@ -5609,7 +5641,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                                 </DropdownItem>,
                               ]
                             }
-                            isFlipEnabled={false}
+                            isFlipEnabled={true}
                             isGrouped={false}
                             isOpen={false}
                             isPlain={true}
@@ -5617,6 +5649,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                             menuAppendTo="inline"
                             onSelect={[Function]}
                             position="right"
+                            removeFindDomNode={false}
                             style={
                               Object {
                                 "float": "right",
@@ -5629,6 +5662,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                                 onToggle={[Function]}
                               />
                             }
+                            zIndex={9999}
                           >
                             <div
                               className="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
@@ -5808,6 +5842,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                       id="fact-1"
                       isChecked={false}
                       isDisabled={false}
+                      isRequired={false}
                       isValid={true}
                       name={1}
                       onChange={[Function]}
@@ -5827,6 +5862,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                           id="fact-1"
                           name={1}
                           onChange={[Function]}
+                          required={false}
                           type="checkbox"
                         />
                       </div>
@@ -5922,7 +5958,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                                 </DropdownItem>,
                               ]
                             }
-                            isFlipEnabled={false}
+                            isFlipEnabled={true}
                             isGrouped={false}
                             isOpen={false}
                             isPlain={true}
@@ -5930,6 +5966,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                             menuAppendTo="inline"
                             onSelect={[Function]}
                             position="right"
+                            removeFindDomNode={false}
                             style={
                               Object {
                                 "float": "right",
@@ -5942,6 +5979,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                                 onToggle={[Function]}
                               />
                             }
+                            zIndex={9999}
                           >
                             <div
                               className="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
@@ -6121,6 +6159,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                       id="category-2"
                       isChecked={false}
                       isDisabled={false}
+                      isRequired={false}
                       isValid={true}
                       name={2}
                       onChange={[Function]}
@@ -6140,6 +6179,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                           id="category-2"
                           name={2}
                           onChange={[Function]}
+                          required={false}
                           type="checkbox"
                         />
                       </div>
@@ -6354,7 +6394,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                                 </DropdownItem>,
                               ]
                             }
-                            isFlipEnabled={false}
+                            isFlipEnabled={true}
                             isGrouped={false}
                             isOpen={false}
                             isPlain={true}
@@ -6362,6 +6402,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                             menuAppendTo="inline"
                             onSelect={[Function]}
                             position="right"
+                            removeFindDomNode={false}
                             style={
                               Object {
                                 "float": "right",
@@ -6374,6 +6415,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                                 onToggle={[Function]}
                               />
                             }
+                            zIndex={9999}
                           >
                             <div
                               className="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
@@ -6554,6 +6596,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                       id="fact-3"
                       isChecked={false}
                       isDisabled={false}
+                      isRequired={false}
                       isValid={true}
                       name={3}
                       onChange={[Function]}
@@ -6573,6 +6616,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                           id="fact-3"
                           name={3}
                           onChange={[Function]}
+                          required={false}
                           type="checkbox"
                         />
                       </div>
@@ -6748,7 +6792,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                                 </DropdownItem>,
                               ]
                             }
-                            isFlipEnabled={false}
+                            isFlipEnabled={true}
                             isGrouped={false}
                             isOpen={false}
                             isPlain={true}
@@ -6756,6 +6800,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                             menuAppendTo="inline"
                             onSelect={[Function]}
                             position="right"
+                            removeFindDomNode={false}
                             style={
                               Object {
                                 "float": "right",
@@ -6768,6 +6813,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                                 onToggle={[Function]}
                               />
                             }
+                            zIndex={9999}
                           >
                             <div
                               className="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
@@ -6948,6 +6994,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                       id="fact-4"
                       isChecked={false}
                       isDisabled={false}
+                      isRequired={false}
                       isValid={true}
                       name={4}
                       onChange={[Function]}
@@ -6967,6 +7014,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                           id="fact-4"
                           name={4}
                           onChange={[Function]}
+                          required={false}
                           type="checkbox"
                         />
                       </div>
@@ -7142,7 +7190,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                                 </DropdownItem>,
                               ]
                             }
-                            isFlipEnabled={false}
+                            isFlipEnabled={true}
                             isGrouped={false}
                             isOpen={false}
                             isPlain={true}
@@ -7150,6 +7198,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                             menuAppendTo="inline"
                             onSelect={[Function]}
                             position="right"
+                            removeFindDomNode={false}
                             style={
                               Object {
                                 "float": "right",
@@ -7162,6 +7211,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                                 onToggle={[Function]}
                               />
                             }
+                            zIndex={9999}
                           >
                             <div
                               className="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
@@ -7342,6 +7392,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                       id="fact-5"
                       isChecked={false}
                       isDisabled={false}
+                      isRequired={false}
                       isValid={true}
                       name={5}
                       onChange={[Function]}
@@ -7361,6 +7412,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                           id="fact-5"
                           name={5}
                           onChange={[Function]}
+                          required={false}
                           type="checkbox"
                         />
                       </div>
@@ -7536,7 +7588,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                                 </DropdownItem>,
                               ]
                             }
-                            isFlipEnabled={false}
+                            isFlipEnabled={true}
                             isGrouped={false}
                             isOpen={false}
                             isPlain={true}
@@ -7544,6 +7596,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                             menuAppendTo="inline"
                             onSelect={[Function]}
                             position="right"
+                            removeFindDomNode={false}
                             style={
                               Object {
                                 "float": "right",
@@ -7556,6 +7609,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                                 onToggle={[Function]}
                               />
                             }
+                            zIndex={9999}
                           >
                             <div
                               className="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
@@ -7736,6 +7790,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                       id="fact-6"
                       isChecked={false}
                       isDisabled={false}
+                      isRequired={false}
                       isValid={true}
                       name={6}
                       onChange={[Function]}
@@ -7755,6 +7810,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                           id="fact-6"
                           name={6}
                           onChange={[Function]}
+                          required={false}
                           type="checkbox"
                         />
                       </div>
@@ -7930,7 +7986,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                                 </DropdownItem>,
                               ]
                             }
-                            isFlipEnabled={false}
+                            isFlipEnabled={true}
                             isGrouped={false}
                             isOpen={false}
                             isPlain={true}
@@ -7938,6 +7994,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                             menuAppendTo="inline"
                             onSelect={[Function]}
                             position="right"
+                            removeFindDomNode={false}
                             style={
                               Object {
                                 "float": "right",
@@ -7950,6 +8007,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                                 onToggle={[Function]}
                               />
                             }
+                            zIndex={9999}
                           >
                             <div
                               className="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
@@ -8130,6 +8188,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                       id="fact-7"
                       isChecked={false}
                       isDisabled={false}
+                      isRequired={false}
                       isValid={true}
                       name={7}
                       onChange={[Function]}
@@ -8149,6 +8208,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                           id="fact-7"
                           name={7}
                           onChange={[Function]}
+                          required={false}
                           type="checkbox"
                         />
                       </div>
@@ -8324,7 +8384,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                                 </DropdownItem>,
                               ]
                             }
-                            isFlipEnabled={false}
+                            isFlipEnabled={true}
                             isGrouped={false}
                             isOpen={false}
                             isPlain={true}
@@ -8332,6 +8392,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                             menuAppendTo="inline"
                             onSelect={[Function]}
                             position="right"
+                            removeFindDomNode={false}
                             style={
                               Object {
                                 "float": "right",
@@ -8344,6 +8405,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                                 onToggle={[Function]}
                               />
                             }
+                            zIndex={9999}
                           >
                             <div
                               className="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
@@ -8524,6 +8586,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                       id="fact-8"
                       isChecked={false}
                       isDisabled={false}
+                      isRequired={false}
                       isValid={true}
                       name={8}
                       onChange={[Function]}
@@ -8543,6 +8606,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                           id="fact-8"
                           name={8}
                           onChange={[Function]}
+                          required={false}
                           type="checkbox"
                         />
                       </div>
@@ -8718,7 +8782,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                                 </DropdownItem>,
                               ]
                             }
-                            isFlipEnabled={false}
+                            isFlipEnabled={true}
                             isGrouped={false}
                             isOpen={false}
                             isPlain={true}
@@ -8726,6 +8790,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                             menuAppendTo="inline"
                             onSelect={[Function]}
                             position="right"
+                            removeFindDomNode={false}
                             style={
                               Object {
                                 "float": "right",
@@ -8738,6 +8803,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                                 onToggle={[Function]}
                               />
                             }
+                            zIndex={9999}
                           >
                             <div
                               className="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
@@ -8918,6 +8984,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                       id="fact-9"
                       isChecked={false}
                       isDisabled={false}
+                      isRequired={false}
                       isValid={true}
                       name={9}
                       onChange={[Function]}
@@ -8937,6 +9004,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                           id="fact-9"
                           name={9}
                           onChange={[Function]}
+                          required={false}
                           type="checkbox"
                         />
                       </div>
@@ -9112,7 +9180,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                                 </DropdownItem>,
                               ]
                             }
-                            isFlipEnabled={false}
+                            isFlipEnabled={true}
                             isGrouped={false}
                             isOpen={false}
                             isPlain={true}
@@ -9120,6 +9188,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                             menuAppendTo="inline"
                             onSelect={[Function]}
                             position="right"
+                            removeFindDomNode={false}
                             style={
                               Object {
                                 "float": "right",
@@ -9132,6 +9201,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                                 onToggle={[Function]}
                               />
                             }
+                            zIndex={9999}
                           >
                             <div
                               className="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
@@ -9312,6 +9382,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                       id="fact-10"
                       isChecked={false}
                       isDisabled={false}
+                      isRequired={false}
                       isValid={true}
                       name={10}
                       onChange={[Function]}
@@ -9331,6 +9402,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                           id="fact-10"
                           name={10}
                           onChange={[Function]}
+                          required={false}
                           type="checkbox"
                         />
                       </div>
@@ -9506,7 +9578,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                                 </DropdownItem>,
                               ]
                             }
-                            isFlipEnabled={false}
+                            isFlipEnabled={true}
                             isGrouped={false}
                             isOpen={false}
                             isPlain={true}
@@ -9514,6 +9586,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                             menuAppendTo="inline"
                             onSelect={[Function]}
                             position="right"
+                            removeFindDomNode={false}
                             style={
                               Object {
                                 "float": "right",
@@ -9526,6 +9599,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                                 onToggle={[Function]}
                               />
                             }
+                            zIndex={9999}
                           >
                             <div
                               className="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
@@ -9706,6 +9780,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                       id="fact-11"
                       isChecked={false}
                       isDisabled={false}
+                      isRequired={false}
                       isValid={true}
                       name={11}
                       onChange={[Function]}
@@ -9725,6 +9800,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                           id="fact-11"
                           name={11}
                           onChange={[Function]}
+                          required={false}
                           type="checkbox"
                         />
                       </div>
@@ -9900,7 +9976,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                                 </DropdownItem>,
                               ]
                             }
-                            isFlipEnabled={false}
+                            isFlipEnabled={true}
                             isGrouped={false}
                             isOpen={false}
                             isPlain={true}
@@ -9908,6 +9984,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                             menuAppendTo="inline"
                             onSelect={[Function]}
                             position="right"
+                            removeFindDomNode={false}
                             style={
                               Object {
                                 "float": "right",
@@ -9920,6 +9997,7 @@ exports[`EditBaseline should render expandable rows opened 1`] = `
                                 onToggle={[Function]}
                               />
                             }
+                            zIndex={9999}
                           >
                             <div
                               className="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
@@ -10286,7 +10364,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                         </DropdownItem>,
                                       ]
                                     }
-                                    isFlipEnabled={false}
+                                    isFlipEnabled={true}
                                     isGrouped={false}
                                     isOpen={false}
                                     isPlain={false}
@@ -10294,6 +10372,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                     menuAppendTo="inline"
                                     onSelect={[Function]}
                                     position="left"
+                                    removeFindDomNode={false}
                                     toggle={
                                       <DropdownToggle
                                         isDisabled={true}
@@ -10319,6 +10398,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                         }
                                       />
                                     }
+                                    zIndex={9999}
                                   >
                                     <div
                                       className="pf-c-dropdown ins-c-bulk-select"
@@ -10734,7 +10814,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                               </DropdownItem>,
                                             ]
                                           }
-                                          isFlipEnabled={false}
+                                          isFlipEnabled={true}
                                           isGrouped={false}
                                           isOpen={false}
                                           isPlain={true}
@@ -10742,6 +10822,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                           menuAppendTo="inline"
                                           onSelect={[Function]}
                                           position="left"
+                                          removeFindDomNode={false}
                                           toggle={
                                             <DropdownToggle
                                               onToggle={[Function]}
@@ -10756,6 +10837,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                               />
                                             </DropdownToggle>
                                           }
+                                          zIndex={9999}
                                         >
                                           <div
                                             className="pf-c-dropdown"
@@ -10978,7 +11060,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                                 </DropdownItem>,
                                               ]
                                             }
-                                            isFlipEnabled={false}
+                                            isFlipEnabled={true}
                                             isGrouped={false}
                                             isOpen={false}
                                             isPlain={true}
@@ -10986,6 +11068,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                             menuAppendTo="inline"
                                             onSelect={[Function]}
                                             position="left"
+                                            removeFindDomNode={false}
                                             style={
                                               Object {
                                                 "float": "left",
@@ -10998,6 +11081,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                                 onToggle={[Function]}
                                               />
                                             }
+                                            zIndex={9999}
                                           >
                                             <div
                                               className="pf-c-dropdown"
@@ -11278,6 +11362,7 @@ exports[`EditBaseline should render loading rows 1`] = `
               rowSize={8}
             >
               <Table
+                actionsMenuAppendTo="inline"
                 aria-label="Loading"
                 borders={true}
                 canCollapseAll={false}
@@ -11547,6 +11632,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                           "expandId": "expandable-toggle",
                           "firstUserColumnIndex": 1,
                           "isHeaderSelectDisabled": false,
+                          "menuAppendTo": "inline",
                           "onCollapse": undefined,
                           "onExpand": undefined,
                           "onFavorite": undefined,
@@ -11598,6 +11684,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                           "expandId": "expandable-toggle",
                           "firstUserColumnIndex": 1,
                           "isHeaderSelectDisabled": false,
+                          "menuAppendTo": "inline",
                           "onCollapse": undefined,
                           "onExpand": undefined,
                           "onFavorite": undefined,
@@ -11651,6 +11738,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                           "expandId": "expandable-toggle",
                           "firstUserColumnIndex": 1,
                           "isHeaderSelectDisabled": false,
+                          "menuAppendTo": "inline",
                           "onCollapse": undefined,
                           "onExpand": undefined,
                           "onFavorite": undefined,
@@ -11704,6 +11792,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                           "expandId": "expandable-toggle",
                           "firstUserColumnIndex": 1,
                           "isHeaderSelectDisabled": false,
+                          "menuAppendTo": "inline",
                           "onCollapse": undefined,
                           "onExpand": undefined,
                           "onFavorite": undefined,
@@ -11824,6 +11913,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                         "expandId": "expandable-toggle",
                                         "firstUserColumnIndex": 1,
                                         "isHeaderSelectDisabled": false,
+                                        "menuAppendTo": "inline",
                                         "onCollapse": undefined,
                                         "onExpand": undefined,
                                         "onFavorite": undefined,
@@ -11875,6 +11965,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                         "expandId": "expandable-toggle",
                                         "firstUserColumnIndex": 1,
                                         "isHeaderSelectDisabled": false,
+                                        "menuAppendTo": "inline",
                                         "onCollapse": undefined,
                                         "onExpand": undefined,
                                         "onFavorite": undefined,
@@ -11928,6 +12019,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                         "expandId": "expandable-toggle",
                                         "firstUserColumnIndex": 1,
                                         "isHeaderSelectDisabled": false,
+                                        "menuAppendTo": "inline",
                                         "onCollapse": undefined,
                                         "onExpand": undefined,
                                         "onFavorite": undefined,
@@ -11981,6 +12073,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                         "expandId": "expandable-toggle",
                                         "firstUserColumnIndex": 1,
                                         "isHeaderSelectDisabled": false,
+                                        "menuAppendTo": "inline",
                                         "onCollapse": undefined,
                                         "onExpand": undefined,
                                         "onFavorite": undefined,
@@ -12089,6 +12182,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                                 "expandId": "expandable-toggle",
                                                 "firstUserColumnIndex": 1,
                                                 "isHeaderSelectDisabled": false,
+                                                "menuAppendTo": "inline",
                                                 "onCollapse": undefined,
                                                 "onExpand": undefined,
                                                 "onFavorite": undefined,
@@ -12140,6 +12234,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                                 "expandId": "expandable-toggle",
                                                 "firstUserColumnIndex": 1,
                                                 "isHeaderSelectDisabled": false,
+                                                "menuAppendTo": "inline",
                                                 "onCollapse": undefined,
                                                 "onExpand": undefined,
                                                 "onFavorite": undefined,
@@ -12193,6 +12288,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                                 "expandId": "expandable-toggle",
                                                 "firstUserColumnIndex": 1,
                                                 "isHeaderSelectDisabled": false,
+                                                "menuAppendTo": "inline",
                                                 "onCollapse": undefined,
                                                 "onExpand": undefined,
                                                 "onFavorite": undefined,
@@ -12246,6 +12342,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                                 "expandId": "expandable-toggle",
                                                 "firstUserColumnIndex": 1,
                                                 "isHeaderSelectDisabled": false,
+                                                "menuAppendTo": "inline",
                                                 "onCollapse": undefined,
                                                 "onExpand": undefined,
                                                 "onFavorite": undefined,
@@ -12593,6 +12690,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                     "expandId": "expandable-toggle",
                                     "firstUserColumnIndex": 1,
                                     "isHeaderSelectDisabled": false,
+                                    "menuAppendTo": "inline",
                                     "onCollapse": undefined,
                                     "onExpand": undefined,
                                     "onFavorite": undefined,
@@ -12644,6 +12742,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                     "expandId": "expandable-toggle",
                                     "firstUserColumnIndex": 1,
                                     "isHeaderSelectDisabled": false,
+                                    "menuAppendTo": "inline",
                                     "onCollapse": undefined,
                                     "onExpand": undefined,
                                     "onFavorite": undefined,
@@ -12697,6 +12796,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                     "expandId": "expandable-toggle",
                                     "firstUserColumnIndex": 1,
                                     "isHeaderSelectDisabled": false,
+                                    "menuAppendTo": "inline",
                                     "onCollapse": undefined,
                                     "onExpand": undefined,
                                     "onFavorite": undefined,
@@ -12750,6 +12850,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                     "expandId": "expandable-toggle",
                                     "firstUserColumnIndex": 1,
                                     "isHeaderSelectDisabled": false,
+                                    "menuAppendTo": "inline",
                                     "onCollapse": undefined,
                                     "onExpand": undefined,
                                     "onFavorite": undefined,
@@ -13976,6 +14077,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                         "expandId": "expandable-toggle",
                                         "firstUserColumnIndex": 1,
                                         "isHeaderSelectDisabled": false,
+                                        "menuAppendTo": "inline",
                                         "onCollapse": undefined,
                                         "onExpand": undefined,
                                         "onFavorite": undefined,
@@ -14027,6 +14129,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                         "expandId": "expandable-toggle",
                                         "firstUserColumnIndex": 1,
                                         "isHeaderSelectDisabled": false,
+                                        "menuAppendTo": "inline",
                                         "onCollapse": undefined,
                                         "onExpand": undefined,
                                         "onFavorite": undefined,
@@ -14080,6 +14183,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                         "expandId": "expandable-toggle",
                                         "firstUserColumnIndex": 1,
                                         "isHeaderSelectDisabled": false,
+                                        "menuAppendTo": "inline",
                                         "onCollapse": undefined,
                                         "onExpand": undefined,
                                         "onFavorite": undefined,
@@ -14133,6 +14237,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                         "expandId": "expandable-toggle",
                                         "firstUserColumnIndex": 1,
                                         "isHeaderSelectDisabled": false,
+                                        "menuAppendTo": "inline",
                                         "onCollapse": undefined,
                                         "onExpand": undefined,
                                         "onFavorite": undefined,
@@ -15686,6 +15791,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                                   "expandId": "expandable-toggle",
                                                   "firstUserColumnIndex": 1,
                                                   "isHeaderSelectDisabled": false,
+                                                  "menuAppendTo": "inline",
                                                   "onCollapse": undefined,
                                                   "onExpand": undefined,
                                                   "onFavorite": undefined,
@@ -15737,6 +15843,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                                   "expandId": "expandable-toggle",
                                                   "firstUserColumnIndex": 1,
                                                   "isHeaderSelectDisabled": false,
+                                                  "menuAppendTo": "inline",
                                                   "onCollapse": undefined,
                                                   "onExpand": undefined,
                                                   "onFavorite": undefined,
@@ -15790,6 +15897,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                                   "expandId": "expandable-toggle",
                                                   "firstUserColumnIndex": 1,
                                                   "isHeaderSelectDisabled": false,
+                                                  "menuAppendTo": "inline",
                                                   "onCollapse": undefined,
                                                   "onExpand": undefined,
                                                   "onFavorite": undefined,
@@ -15843,6 +15951,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                                   "expandId": "expandable-toggle",
                                                   "firstUserColumnIndex": 1,
                                                   "isHeaderSelectDisabled": false,
+                                                  "menuAppendTo": "inline",
                                                   "onCollapse": undefined,
                                                   "onExpand": undefined,
                                                   "onFavorite": undefined,
@@ -16275,6 +16384,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                                   "expandId": "expandable-toggle",
                                                   "firstUserColumnIndex": 1,
                                                   "isHeaderSelectDisabled": false,
+                                                  "menuAppendTo": "inline",
                                                   "onCollapse": undefined,
                                                   "onExpand": undefined,
                                                   "onFavorite": undefined,
@@ -16326,6 +16436,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                                   "expandId": "expandable-toggle",
                                                   "firstUserColumnIndex": 1,
                                                   "isHeaderSelectDisabled": false,
+                                                  "menuAppendTo": "inline",
                                                   "onCollapse": undefined,
                                                   "onExpand": undefined,
                                                   "onFavorite": undefined,
@@ -16379,6 +16490,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                                   "expandId": "expandable-toggle",
                                                   "firstUserColumnIndex": 1,
                                                   "isHeaderSelectDisabled": false,
+                                                  "menuAppendTo": "inline",
                                                   "onCollapse": undefined,
                                                   "onExpand": undefined,
                                                   "onFavorite": undefined,
@@ -16432,6 +16544,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                                   "expandId": "expandable-toggle",
                                                   "firstUserColumnIndex": 1,
                                                   "isHeaderSelectDisabled": false,
+                                                  "menuAppendTo": "inline",
                                                   "onCollapse": undefined,
                                                   "onExpand": undefined,
                                                   "onFavorite": undefined,
@@ -16864,6 +16977,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                                   "expandId": "expandable-toggle",
                                                   "firstUserColumnIndex": 1,
                                                   "isHeaderSelectDisabled": false,
+                                                  "menuAppendTo": "inline",
                                                   "onCollapse": undefined,
                                                   "onExpand": undefined,
                                                   "onFavorite": undefined,
@@ -16915,6 +17029,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                                   "expandId": "expandable-toggle",
                                                   "firstUserColumnIndex": 1,
                                                   "isHeaderSelectDisabled": false,
+                                                  "menuAppendTo": "inline",
                                                   "onCollapse": undefined,
                                                   "onExpand": undefined,
                                                   "onFavorite": undefined,
@@ -16968,6 +17083,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                                   "expandId": "expandable-toggle",
                                                   "firstUserColumnIndex": 1,
                                                   "isHeaderSelectDisabled": false,
+                                                  "menuAppendTo": "inline",
                                                   "onCollapse": undefined,
                                                   "onExpand": undefined,
                                                   "onFavorite": undefined,
@@ -17021,6 +17137,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                                   "expandId": "expandable-toggle",
                                                   "firstUserColumnIndex": 1,
                                                   "isHeaderSelectDisabled": false,
+                                                  "menuAppendTo": "inline",
                                                   "onCollapse": undefined,
                                                   "onExpand": undefined,
                                                   "onFavorite": undefined,
@@ -17453,6 +17570,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                                   "expandId": "expandable-toggle",
                                                   "firstUserColumnIndex": 1,
                                                   "isHeaderSelectDisabled": false,
+                                                  "menuAppendTo": "inline",
                                                   "onCollapse": undefined,
                                                   "onExpand": undefined,
                                                   "onFavorite": undefined,
@@ -17504,6 +17622,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                                   "expandId": "expandable-toggle",
                                                   "firstUserColumnIndex": 1,
                                                   "isHeaderSelectDisabled": false,
+                                                  "menuAppendTo": "inline",
                                                   "onCollapse": undefined,
                                                   "onExpand": undefined,
                                                   "onFavorite": undefined,
@@ -17557,6 +17676,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                                   "expandId": "expandable-toggle",
                                                   "firstUserColumnIndex": 1,
                                                   "isHeaderSelectDisabled": false,
+                                                  "menuAppendTo": "inline",
                                                   "onCollapse": undefined,
                                                   "onExpand": undefined,
                                                   "onFavorite": undefined,
@@ -17610,6 +17730,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                                   "expandId": "expandable-toggle",
                                                   "firstUserColumnIndex": 1,
                                                   "isHeaderSelectDisabled": false,
+                                                  "menuAppendTo": "inline",
                                                   "onCollapse": undefined,
                                                   "onExpand": undefined,
                                                   "onFavorite": undefined,
@@ -18042,6 +18163,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                                   "expandId": "expandable-toggle",
                                                   "firstUserColumnIndex": 1,
                                                   "isHeaderSelectDisabled": false,
+                                                  "menuAppendTo": "inline",
                                                   "onCollapse": undefined,
                                                   "onExpand": undefined,
                                                   "onFavorite": undefined,
@@ -18093,6 +18215,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                                   "expandId": "expandable-toggle",
                                                   "firstUserColumnIndex": 1,
                                                   "isHeaderSelectDisabled": false,
+                                                  "menuAppendTo": "inline",
                                                   "onCollapse": undefined,
                                                   "onExpand": undefined,
                                                   "onFavorite": undefined,
@@ -18146,6 +18269,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                                   "expandId": "expandable-toggle",
                                                   "firstUserColumnIndex": 1,
                                                   "isHeaderSelectDisabled": false,
+                                                  "menuAppendTo": "inline",
                                                   "onCollapse": undefined,
                                                   "onExpand": undefined,
                                                   "onFavorite": undefined,
@@ -18199,6 +18323,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                                   "expandId": "expandable-toggle",
                                                   "firstUserColumnIndex": 1,
                                                   "isHeaderSelectDisabled": false,
+                                                  "menuAppendTo": "inline",
                                                   "onCollapse": undefined,
                                                   "onExpand": undefined,
                                                   "onFavorite": undefined,
@@ -18631,6 +18756,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                                   "expandId": "expandable-toggle",
                                                   "firstUserColumnIndex": 1,
                                                   "isHeaderSelectDisabled": false,
+                                                  "menuAppendTo": "inline",
                                                   "onCollapse": undefined,
                                                   "onExpand": undefined,
                                                   "onFavorite": undefined,
@@ -18682,6 +18808,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                                   "expandId": "expandable-toggle",
                                                   "firstUserColumnIndex": 1,
                                                   "isHeaderSelectDisabled": false,
+                                                  "menuAppendTo": "inline",
                                                   "onCollapse": undefined,
                                                   "onExpand": undefined,
                                                   "onFavorite": undefined,
@@ -18735,6 +18862,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                                   "expandId": "expandable-toggle",
                                                   "firstUserColumnIndex": 1,
                                                   "isHeaderSelectDisabled": false,
+                                                  "menuAppendTo": "inline",
                                                   "onCollapse": undefined,
                                                   "onExpand": undefined,
                                                   "onFavorite": undefined,
@@ -18788,6 +18916,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                                   "expandId": "expandable-toggle",
                                                   "firstUserColumnIndex": 1,
                                                   "isHeaderSelectDisabled": false,
+                                                  "menuAppendTo": "inline",
                                                   "onCollapse": undefined,
                                                   "onExpand": undefined,
                                                   "onFavorite": undefined,
@@ -19220,6 +19349,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                                   "expandId": "expandable-toggle",
                                                   "firstUserColumnIndex": 1,
                                                   "isHeaderSelectDisabled": false,
+                                                  "menuAppendTo": "inline",
                                                   "onCollapse": undefined,
                                                   "onExpand": undefined,
                                                   "onFavorite": undefined,
@@ -19271,6 +19401,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                                   "expandId": "expandable-toggle",
                                                   "firstUserColumnIndex": 1,
                                                   "isHeaderSelectDisabled": false,
+                                                  "menuAppendTo": "inline",
                                                   "onCollapse": undefined,
                                                   "onExpand": undefined,
                                                   "onFavorite": undefined,
@@ -19324,6 +19455,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                                   "expandId": "expandable-toggle",
                                                   "firstUserColumnIndex": 1,
                                                   "isHeaderSelectDisabled": false,
+                                                  "menuAppendTo": "inline",
                                                   "onCollapse": undefined,
                                                   "onExpand": undefined,
                                                   "onFavorite": undefined,
@@ -19377,6 +19509,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                                   "expandId": "expandable-toggle",
                                                   "firstUserColumnIndex": 1,
                                                   "isHeaderSelectDisabled": false,
+                                                  "menuAppendTo": "inline",
                                                   "onCollapse": undefined,
                                                   "onExpand": undefined,
                                                   "onFavorite": undefined,
@@ -19809,6 +19942,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                                   "expandId": "expandable-toggle",
                                                   "firstUserColumnIndex": 1,
                                                   "isHeaderSelectDisabled": false,
+                                                  "menuAppendTo": "inline",
                                                   "onCollapse": undefined,
                                                   "onExpand": undefined,
                                                   "onFavorite": undefined,
@@ -19860,6 +19994,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                                   "expandId": "expandable-toggle",
                                                   "firstUserColumnIndex": 1,
                                                   "isHeaderSelectDisabled": false,
+                                                  "menuAppendTo": "inline",
                                                   "onCollapse": undefined,
                                                   "onExpand": undefined,
                                                   "onFavorite": undefined,
@@ -19913,6 +20048,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                                   "expandId": "expandable-toggle",
                                                   "firstUserColumnIndex": 1,
                                                   "isHeaderSelectDisabled": false,
+                                                  "menuAppendTo": "inline",
                                                   "onCollapse": undefined,
                                                   "onExpand": undefined,
                                                   "onFavorite": undefined,
@@ -19966,6 +20102,7 @@ exports[`EditBaseline should render loading rows 1`] = `
                                                   "expandId": "expandable-toggle",
                                                   "firstUserColumnIndex": 1,
                                                   "isHeaderSelectDisabled": false,
+                                                  "menuAppendTo": "inline",
                                                   "onCollapse": undefined,
                                                   "onExpand": undefined,
                                                   "onFavorite": undefined,
@@ -20831,7 +20968,7 @@ exports[`EditBaseline should render with baseline facts 1`] = `
                                         </DropdownItem>,
                                       ]
                                     }
-                                    isFlipEnabled={false}
+                                    isFlipEnabled={true}
                                     isGrouped={false}
                                     isOpen={false}
                                     isPlain={false}
@@ -20839,6 +20976,7 @@ exports[`EditBaseline should render with baseline facts 1`] = `
                                     menuAppendTo="inline"
                                     onSelect={[Function]}
                                     position="left"
+                                    removeFindDomNode={false}
                                     toggle={
                                       <DropdownToggle
                                         isDisabled={false}
@@ -20864,6 +21002,7 @@ exports[`EditBaseline should render with baseline facts 1`] = `
                                         }
                                       />
                                     }
+                                    zIndex={9999}
                                   >
                                     <div
                                       className="pf-c-dropdown ins-c-bulk-select"
@@ -21276,7 +21415,7 @@ exports[`EditBaseline should render with baseline facts 1`] = `
                                               </DropdownItem>,
                                             ]
                                           }
-                                          isFlipEnabled={false}
+                                          isFlipEnabled={true}
                                           isGrouped={false}
                                           isOpen={false}
                                           isPlain={true}
@@ -21284,6 +21423,7 @@ exports[`EditBaseline should render with baseline facts 1`] = `
                                           menuAppendTo="inline"
                                           onSelect={[Function]}
                                           position="left"
+                                          removeFindDomNode={false}
                                           toggle={
                                             <DropdownToggle
                                               onToggle={[Function]}
@@ -21298,6 +21438,7 @@ exports[`EditBaseline should render with baseline facts 1`] = `
                                               />
                                             </DropdownToggle>
                                           }
+                                          zIndex={9999}
                                         >
                                           <div
                                             className="pf-c-dropdown"
@@ -21520,7 +21661,7 @@ exports[`EditBaseline should render with baseline facts 1`] = `
                                                 </DropdownItem>,
                                               ]
                                             }
-                                            isFlipEnabled={false}
+                                            isFlipEnabled={true}
                                             isGrouped={false}
                                             isOpen={false}
                                             isPlain={true}
@@ -21528,6 +21669,7 @@ exports[`EditBaseline should render with baseline facts 1`] = `
                                             menuAppendTo="inline"
                                             onSelect={[Function]}
                                             position="left"
+                                            removeFindDomNode={false}
                                             style={
                                               Object {
                                                 "float": "left",
@@ -21540,6 +21682,7 @@ exports[`EditBaseline should render with baseline facts 1`] = `
                                                 onToggle={[Function]}
                                               />
                                             }
+                                            zIndex={9999}
                                           >
                                             <div
                                               className="pf-c-dropdown"
@@ -21904,6 +22047,7 @@ exports[`EditBaseline should render with baseline facts 1`] = `
                       id="fact-0"
                       isChecked={false}
                       isDisabled={false}
+                      isRequired={false}
                       isValid={true}
                       name={0}
                       onChange={[Function]}
@@ -21923,6 +22067,7 @@ exports[`EditBaseline should render with baseline facts 1`] = `
                           id="fact-0"
                           name={0}
                           onChange={[Function]}
+                          required={false}
                           type="checkbox"
                         />
                       </div>
@@ -22018,7 +22163,7 @@ exports[`EditBaseline should render with baseline facts 1`] = `
                                 </DropdownItem>,
                               ]
                             }
-                            isFlipEnabled={false}
+                            isFlipEnabled={true}
                             isGrouped={false}
                             isOpen={false}
                             isPlain={true}
@@ -22026,6 +22171,7 @@ exports[`EditBaseline should render with baseline facts 1`] = `
                             menuAppendTo="inline"
                             onSelect={[Function]}
                             position="right"
+                            removeFindDomNode={false}
                             style={
                               Object {
                                 "float": "right",
@@ -22038,6 +22184,7 @@ exports[`EditBaseline should render with baseline facts 1`] = `
                                 onToggle={[Function]}
                               />
                             }
+                            zIndex={9999}
                           >
                             <div
                               className="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
@@ -22217,6 +22364,7 @@ exports[`EditBaseline should render with baseline facts 1`] = `
                       id="fact-1"
                       isChecked={false}
                       isDisabled={false}
+                      isRequired={false}
                       isValid={true}
                       name={1}
                       onChange={[Function]}
@@ -22236,6 +22384,7 @@ exports[`EditBaseline should render with baseline facts 1`] = `
                           id="fact-1"
                           name={1}
                           onChange={[Function]}
+                          required={false}
                           type="checkbox"
                         />
                       </div>
@@ -22331,7 +22480,7 @@ exports[`EditBaseline should render with baseline facts 1`] = `
                                 </DropdownItem>,
                               ]
                             }
-                            isFlipEnabled={false}
+                            isFlipEnabled={true}
                             isGrouped={false}
                             isOpen={false}
                             isPlain={true}
@@ -22339,6 +22488,7 @@ exports[`EditBaseline should render with baseline facts 1`] = `
                             menuAppendTo="inline"
                             onSelect={[Function]}
                             position="right"
+                            removeFindDomNode={false}
                             style={
                               Object {
                                 "float": "right",
@@ -22351,6 +22501,7 @@ exports[`EditBaseline should render with baseline facts 1`] = `
                                 onToggle={[Function]}
                               />
                             }
+                            zIndex={9999}
                           >
                             <div
                               className="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
@@ -22530,6 +22681,7 @@ exports[`EditBaseline should render with baseline facts 1`] = `
                       id="category-2"
                       isChecked={false}
                       isDisabled={false}
+                      isRequired={false}
                       isValid={true}
                       name={2}
                       onChange={[Function]}
@@ -22549,6 +22701,7 @@ exports[`EditBaseline should render with baseline facts 1`] = `
                           id="category-2"
                           name={2}
                           onChange={[Function]}
+                          required={false}
                           type="checkbox"
                         />
                       </div>
@@ -22763,7 +22916,7 @@ exports[`EditBaseline should render with baseline facts 1`] = `
                                 </DropdownItem>,
                               ]
                             }
-                            isFlipEnabled={false}
+                            isFlipEnabled={true}
                             isGrouped={false}
                             isOpen={false}
                             isPlain={true}
@@ -22771,6 +22924,7 @@ exports[`EditBaseline should render with baseline facts 1`] = `
                             menuAppendTo="inline"
                             onSelect={[Function]}
                             position="right"
+                            removeFindDomNode={false}
                             style={
                               Object {
                                 "float": "right",
@@ -22783,6 +22937,7 @@ exports[`EditBaseline should render with baseline facts 1`] = `
                                 onToggle={[Function]}
                               />
                             }
+                            zIndex={9999}
                           >
                             <div
                               className="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
@@ -23416,7 +23571,7 @@ exports[`EditBaseline should render with baseline facts with same name 1`] = `
                                         </DropdownItem>,
                                       ]
                                     }
-                                    isFlipEnabled={false}
+                                    isFlipEnabled={true}
                                     isGrouped={false}
                                     isOpen={false}
                                     isPlain={false}
@@ -23424,6 +23579,7 @@ exports[`EditBaseline should render with baseline facts with same name 1`] = `
                                     menuAppendTo="inline"
                                     onSelect={[Function]}
                                     position="left"
+                                    removeFindDomNode={false}
                                     toggle={
                                       <DropdownToggle
                                         isDisabled={false}
@@ -23449,6 +23605,7 @@ exports[`EditBaseline should render with baseline facts with same name 1`] = `
                                         }
                                       />
                                     }
+                                    zIndex={9999}
                                   >
                                     <div
                                       className="pf-c-dropdown ins-c-bulk-select"
@@ -23861,7 +24018,7 @@ exports[`EditBaseline should render with baseline facts with same name 1`] = `
                                               </DropdownItem>,
                                             ]
                                           }
-                                          isFlipEnabled={false}
+                                          isFlipEnabled={true}
                                           isGrouped={false}
                                           isOpen={false}
                                           isPlain={true}
@@ -23869,6 +24026,7 @@ exports[`EditBaseline should render with baseline facts with same name 1`] = `
                                           menuAppendTo="inline"
                                           onSelect={[Function]}
                                           position="left"
+                                          removeFindDomNode={false}
                                           toggle={
                                             <DropdownToggle
                                               onToggle={[Function]}
@@ -23883,6 +24041,7 @@ exports[`EditBaseline should render with baseline facts with same name 1`] = `
                                               />
                                             </DropdownToggle>
                                           }
+                                          zIndex={9999}
                                         >
                                           <div
                                             className="pf-c-dropdown"
@@ -24105,7 +24264,7 @@ exports[`EditBaseline should render with baseline facts with same name 1`] = `
                                                 </DropdownItem>,
                                               ]
                                             }
-                                            isFlipEnabled={false}
+                                            isFlipEnabled={true}
                                             isGrouped={false}
                                             isOpen={false}
                                             isPlain={true}
@@ -24113,6 +24272,7 @@ exports[`EditBaseline should render with baseline facts with same name 1`] = `
                                             menuAppendTo="inline"
                                             onSelect={[Function]}
                                             position="left"
+                                            removeFindDomNode={false}
                                             style={
                                               Object {
                                                 "float": "left",
@@ -24125,6 +24285,7 @@ exports[`EditBaseline should render with baseline facts with same name 1`] = `
                                                 onToggle={[Function]}
                                               />
                                             }
+                                            zIndex={9999}
                                           >
                                             <div
                                               className="pf-c-dropdown"
@@ -24489,6 +24650,7 @@ exports[`EditBaseline should render with baseline facts with same name 1`] = `
                       id="fact-0"
                       isChecked={false}
                       isDisabled={false}
+                      isRequired={false}
                       isValid={true}
                       name={0}
                       onChange={[Function]}
@@ -24508,6 +24670,7 @@ exports[`EditBaseline should render with baseline facts with same name 1`] = `
                           id="fact-0"
                           name={0}
                           onChange={[Function]}
+                          required={false}
                           type="checkbox"
                         />
                       </div>
@@ -24603,7 +24766,7 @@ exports[`EditBaseline should render with baseline facts with same name 1`] = `
                                 </DropdownItem>,
                               ]
                             }
-                            isFlipEnabled={false}
+                            isFlipEnabled={true}
                             isGrouped={false}
                             isOpen={false}
                             isPlain={true}
@@ -24611,6 +24774,7 @@ exports[`EditBaseline should render with baseline facts with same name 1`] = `
                             menuAppendTo="inline"
                             onSelect={[Function]}
                             position="right"
+                            removeFindDomNode={false}
                             style={
                               Object {
                                 "float": "right",
@@ -24623,6 +24787,7 @@ exports[`EditBaseline should render with baseline facts with same name 1`] = `
                                 onToggle={[Function]}
                               />
                             }
+                            zIndex={9999}
                           >
                             <div
                               className="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
@@ -24802,6 +24967,7 @@ exports[`EditBaseline should render with baseline facts with same name 1`] = `
                       id="fact-1"
                       isChecked={false}
                       isDisabled={false}
+                      isRequired={false}
                       isValid={true}
                       name={1}
                       onChange={[Function]}
@@ -24821,6 +24987,7 @@ exports[`EditBaseline should render with baseline facts with same name 1`] = `
                           id="fact-1"
                           name={1}
                           onChange={[Function]}
+                          required={false}
                           type="checkbox"
                         />
                       </div>
@@ -24916,7 +25083,7 @@ exports[`EditBaseline should render with baseline facts with same name 1`] = `
                                 </DropdownItem>,
                               ]
                             }
-                            isFlipEnabled={false}
+                            isFlipEnabled={true}
                             isGrouped={false}
                             isOpen={false}
                             isPlain={true}
@@ -24924,6 +25091,7 @@ exports[`EditBaseline should render with baseline facts with same name 1`] = `
                             menuAppendTo="inline"
                             onSelect={[Function]}
                             position="right"
+                            removeFindDomNode={false}
                             style={
                               Object {
                                 "float": "right",
@@ -24936,6 +25104,7 @@ exports[`EditBaseline should render with baseline facts with same name 1`] = `
                                 onToggle={[Function]}
                               />
                             }
+                            zIndex={9999}
                           >
                             <div
                               className="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
@@ -25115,6 +25284,7 @@ exports[`EditBaseline should render with baseline facts with same name 1`] = `
                       id="fact-2"
                       isChecked={false}
                       isDisabled={false}
+                      isRequired={false}
                       isValid={true}
                       name={2}
                       onChange={[Function]}
@@ -25134,6 +25304,7 @@ exports[`EditBaseline should render with baseline facts with same name 1`] = `
                           id="fact-2"
                           name={2}
                           onChange={[Function]}
+                          required={false}
                           type="checkbox"
                         />
                       </div>
@@ -25229,7 +25400,7 @@ exports[`EditBaseline should render with baseline facts with same name 1`] = `
                                 </DropdownItem>,
                               ]
                             }
-                            isFlipEnabled={false}
+                            isFlipEnabled={true}
                             isGrouped={false}
                             isOpen={false}
                             isPlain={true}
@@ -25237,6 +25408,7 @@ exports[`EditBaseline should render with baseline facts with same name 1`] = `
                             menuAppendTo="inline"
                             onSelect={[Function]}
                             position="right"
+                            removeFindDomNode={false}
                             style={
                               Object {
                                 "float": "right",
@@ -25249,6 +25421,7 @@ exports[`EditBaseline should render with baseline facts with same name 1`] = `
                                 onToggle={[Function]}
                               />
                             }
+                            zIndex={9999}
                           >
                             <div
                               className="pf-c-dropdown pf-m-align-right baseline-fact-kebab"
@@ -25428,6 +25601,7 @@ exports[`EditBaseline should render with baseline facts with same name 1`] = `
                       id="category-3"
                       isChecked={false}
                       isDisabled={false}
+                      isRequired={false}
                       isValid={true}
                       name={3}
                       onChange={[Function]}
@@ -25447,6 +25621,7 @@ exports[`EditBaseline should render with baseline facts with same name 1`] = `
                           id="category-3"
                           name={3}
                           onChange={[Function]}
+                          required={false}
                           type="checkbox"
                         />
                       </div>
@@ -25661,7 +25836,7 @@ exports[`EditBaseline should render with baseline facts with same name 1`] = `
                                 </DropdownItem>,
                               ]
                             }
-                            isFlipEnabled={false}
+                            isFlipEnabled={true}
                             isGrouped={false}
                             isOpen={false}
                             isPlain={true}
@@ -25669,6 +25844,7 @@ exports[`EditBaseline should render with baseline facts with same name 1`] = `
                             menuAppendTo="inline"
                             onSelect={[Function]}
                             position="right"
+                            removeFindDomNode={false}
                             style={
                               Object {
                                 "float": "right",
@@ -25681,6 +25857,7 @@ exports[`EditBaseline should render with baseline facts with same name 1`] = `
                                 onToggle={[Function]}
                               />
                             }
+                            zIndex={9999}
                           >
                             <div
                               className="pf-c-dropdown pf-m-align-right baseline-fact-kebab"

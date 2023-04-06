@@ -2968,6 +2968,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                           "top-start": "pf-m-top-left",
                                         }
                                       }
+                                      removeFindDomNode={false}
                                       trigger={
                                         <BlueprintIcon
                                           color="currentColor"
@@ -3108,6 +3109,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                           "top-start": "pf-m-top-left",
                                         }
                                       }
+                                      removeFindDomNode={false}
                                       trigger={
                                         <OutlinedStarIcon
                                           className="reference-selector pointer"
@@ -3288,6 +3290,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                           "top-start": "pf-m-top-left",
                                         }
                                       }
+                                      removeFindDomNode={false}
                                       trigger={
                                         <BlueprintIcon
                                           color="currentColor"
@@ -3428,6 +3431,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                           "top-start": "pf-m-top-left",
                                         }
                                       }
+                                      removeFindDomNode={false}
                                       trigger={
                                         <OutlinedStarIcon
                                           className="reference-selector pointer"
@@ -3608,6 +3612,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                           "top-start": "pf-m-top-left",
                                         }
                                       }
+                                      removeFindDomNode={false}
                                       trigger={
                                         <ServerIcon
                                           color="currentColor"
@@ -3748,6 +3753,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                           "top-start": "pf-m-top-left",
                                         }
                                       }
+                                      removeFindDomNode={false}
                                       trigger={
                                         <OutlinedStarIcon
                                           className="reference-selector pointer"
@@ -4019,12 +4025,17 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                             flipBehavior={
                                               Array [
                                                 "top",
-                                                "right",
                                                 "bottom",
                                                 "left",
-                                                "top",
                                                 "right",
-                                                "bottom",
+                                                "top-start",
+                                                "top-end",
+                                                "bottom-start",
+                                                "bottom-end",
+                                                "left-start",
+                                                "left-end",
+                                                "right-start",
+                                                "right-end",
                                               ]
                                             }
                                             isVisible={false}
@@ -4033,7 +4044,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                             onTriggerClick={[Function]}
                                             placement="top"
                                             popper={
-                                              <FocusTrap
+                                              <ForwardRef
                                                 active={false}
                                                 aria-describedby="popover-hsp-popover-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9-body"
                                                 aria-labelledby="popover-hsp-popover-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9-header"
@@ -4050,7 +4061,6 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                                   }
                                                 }
                                                 onMouseDown={[Function]}
-                                                paused={false}
                                                 preventScrollOnDeactivate={true}
                                                 role="dialog"
                                                 style={
@@ -4116,7 +4126,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                                     </Button>
                                                   </PopoverFooter>
                                                 </PopoverContent>
-                                              </FocusTrap>
+                                              </ForwardRef>
                                             }
                                             popperMatchesTriggerWidth={false}
                                             positionModifiers={
@@ -4135,6 +4145,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                                 "top-start": "pf-m-top-left",
                                               }
                                             }
+                                            removeFindDomNode={false}
                                             trigger={
                                               <HistoryIcon
                                                 className="hsp-dropdown-icon"
@@ -4307,6 +4318,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                           "top-start": "pf-m-top-left",
                                         }
                                       }
+                                      removeFindDomNode={false}
                                       trigger={
                                         <ClockIcon
                                           color="currentColor"
@@ -4448,6 +4460,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                           "top-start": "pf-m-top-left",
                                         }
                                       }
+                                      removeFindDomNode={false}
                                       trigger={
                                         <OutlinedStarIcon
                                           className="reference-selector pointer"
@@ -4722,12 +4735,17 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                             flipBehavior={
                                               Array [
                                                 "top",
-                                                "right",
                                                 "bottom",
                                                 "left",
-                                                "top",
                                                 "right",
-                                                "bottom",
+                                                "top-start",
+                                                "top-end",
+                                                "bottom-start",
+                                                "bottom-end",
+                                                "left-start",
+                                                "left-end",
+                                                "right-start",
+                                                "right-end",
                                               ]
                                             }
                                             isVisible={false}
@@ -4736,7 +4754,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                             onTriggerClick={[Function]}
                                             placement="top"
                                             popper={
-                                              <FocusTrap
+                                              <ForwardRef
                                                 active={false}
                                                 aria-describedby="popover-hsp-popover-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9-body"
                                                 aria-labelledby="popover-hsp-popover-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9-header"
@@ -4753,7 +4771,6 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                                   }
                                                 }
                                                 onMouseDown={[Function]}
-                                                paused={false}
                                                 preventScrollOnDeactivate={true}
                                                 role="dialog"
                                                 style={
@@ -4819,7 +4836,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                                     </Button>
                                                   </PopoverFooter>
                                                 </PopoverContent>
-                                              </FocusTrap>
+                                              </ForwardRef>
                                             }
                                             popperMatchesTriggerWidth={false}
                                             positionModifiers={
@@ -4838,6 +4855,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                                 "top-start": "pf-m-top-left",
                                               }
                                             }
+                                            removeFindDomNode={false}
                                             trigger={
                                               <HistoryIcon
                                                 className="hsp-dropdown-icon"
@@ -5010,6 +5028,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                           "top-start": "pf-m-top-left",
                                         }
                                       }
+                                      removeFindDomNode={false}
                                       trigger={
                                         <ClockIcon
                                           color="currentColor"
@@ -5151,6 +5170,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                           "top-start": "pf-m-top-left",
                                         }
                                       }
+                                      removeFindDomNode={false}
                                       trigger={
                                         <OutlinedStarIcon
                                           className="reference-selector pointer"
@@ -5425,12 +5445,17 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                             flipBehavior={
                                               Array [
                                                 "top",
-                                                "right",
                                                 "bottom",
                                                 "left",
-                                                "top",
                                                 "right",
-                                                "bottom",
+                                                "top-start",
+                                                "top-end",
+                                                "bottom-start",
+                                                "bottom-end",
+                                                "left-start",
+                                                "left-end",
+                                                "right-start",
+                                                "right-end",
                                               ]
                                             }
                                             isVisible={false}
@@ -5439,7 +5464,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                             onTriggerClick={[Function]}
                                             placement="top"
                                             popper={
-                                              <FocusTrap
+                                              <ForwardRef
                                                 active={false}
                                                 aria-describedby="popover-hsp-popover-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9-body"
                                                 aria-labelledby="popover-hsp-popover-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9-header"
@@ -5456,7 +5481,6 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                                   }
                                                 }
                                                 onMouseDown={[Function]}
-                                                paused={false}
                                                 preventScrollOnDeactivate={true}
                                                 role="dialog"
                                                 style={
@@ -5522,7 +5546,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                                     </Button>
                                                   </PopoverFooter>
                                                 </PopoverContent>
-                                              </FocusTrap>
+                                              </ForwardRef>
                                             }
                                             popperMatchesTriggerWidth={false}
                                             positionModifiers={
@@ -5541,6 +5565,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                                 "top-start": "pf-m-top-left",
                                               }
                                             }
+                                            removeFindDomNode={false}
                                             trigger={
                                               <HistoryIcon
                                                 className="hsp-dropdown-icon"
@@ -5713,6 +5738,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                           "top-start": "pf-m-top-left",
                                         }
                                       }
+                                      removeFindDomNode={false}
                                       trigger={
                                         <ServerIcon
                                           color="currentColor"
@@ -5853,6 +5879,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                           "top-start": "pf-m-top-left",
                                         }
                                       }
+                                      removeFindDomNode={false}
                                       trigger={
                                         <OutlinedStarIcon
                                           className="reference-selector pointer"
@@ -6124,12 +6151,17 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                             flipBehavior={
                                               Array [
                                                 "top",
-                                                "right",
                                                 "bottom",
                                                 "left",
-                                                "top",
                                                 "right",
-                                                "bottom",
+                                                "top-start",
+                                                "top-end",
+                                                "bottom-start",
+                                                "bottom-end",
+                                                "left-start",
+                                                "left-end",
+                                                "right-start",
+                                                "right-end",
                                               ]
                                             }
                                             isVisible={false}
@@ -6138,7 +6170,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                             onTriggerClick={[Function]}
                                             placement="top"
                                             popper={
-                                              <FocusTrap
+                                              <ForwardRef
                                                 active={false}
                                                 aria-describedby="popover-hsp-popover-f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2-body"
                                                 aria-labelledby="popover-hsp-popover-f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2-header"
@@ -6155,7 +6187,6 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                                   }
                                                 }
                                                 onMouseDown={[Function]}
-                                                paused={false}
                                                 preventScrollOnDeactivate={true}
                                                 role="dialog"
                                                 style={
@@ -6221,7 +6252,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                                     </Button>
                                                   </PopoverFooter>
                                                 </PopoverContent>
-                                              </FocusTrap>
+                                              </ForwardRef>
                                             }
                                             popperMatchesTriggerWidth={false}
                                             positionModifiers={
@@ -6240,6 +6271,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                                 "top-start": "pf-m-top-left",
                                               }
                                             }
+                                            removeFindDomNode={false}
                                             trigger={
                                               <HistoryIcon
                                                 className="hsp-dropdown-icon"
@@ -6487,6 +6519,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                     "top-start": "pf-m-top-left",
                                   }
                                 }
+                                removeFindDomNode={false}
                                 trigger={
                                   <ExclamationCircleIcon
                                     color="#C9190B"
@@ -6757,6 +6790,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                     "top-start": "pf-m-top-left",
                                   }
                                 }
+                                removeFindDomNode={false}
                                 trigger={
                                   <CheckCircleIcon
                                     color="#3E8635"
@@ -7027,6 +7061,7 @@ exports[`ConnectedDriftTable should render systems, baselines and historicalProf
                                     "top-start": "pf-m-top-left",
                                   }
                                 }
+                                removeFindDomNode={false}
                                 trigger={
                                   <CheckCircleIcon
                                     color="#3E8635"

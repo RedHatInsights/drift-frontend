@@ -846,7 +846,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                             </DropdownItem>,
                                                           ]
                                                         }
-                                                        isFlipEnabled={false}
+                                                        isFlipEnabled={true}
                                                         isGrouped={false}
                                                         isOpen={false}
                                                         isPlain={false}
@@ -854,6 +854,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                         menuAppendTo="inline"
                                                         onSelect={[Function]}
                                                         position="left"
+                                                        removeFindDomNode={false}
                                                         toggle={
                                                           <DropdownToggle
                                                             isDisabled={true}
@@ -879,6 +880,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                             }
                                                           />
                                                         }
+                                                        zIndex={9999}
                                                       >
                                                         <div
                                                           className="pf-c-dropdown ins-c-bulk-select"
@@ -1230,7 +1232,6 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                 onFocus={[Function]}
                                                                 onKeyDown={[Function]}
                                                                 placeholder="Filter by name"
-                                                                readOnly={false}
                                                                 required={false}
                                                                 type="text"
                                                                 value=""
@@ -1556,7 +1557,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                             </DropdownItem>,
                                                           ]
                                                         }
-                                                        isFlipEnabled={false}
+                                                        isFlipEnabled={true}
                                                         isGrouped={false}
                                                         isOpen={false}
                                                         isPlain={true}
@@ -1564,6 +1565,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                         menuAppendTo="inline"
                                                         onSelect={[Function]}
                                                         position="left"
+                                                        removeFindDomNode={false}
                                                         toggle={
                                                           <DropdownToggle
                                                             onToggle={[Function]}
@@ -1578,6 +1580,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                             />
                                                           </DropdownToggle>
                                                         }
+                                                        zIndex={9999}
                                                       >
                                                         <div
                                                           className="pf-c-dropdown"
@@ -1814,7 +1817,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                           ]
                                                         }
                                                         id="action-kebab"
-                                                        isFlipEnabled={false}
+                                                        isFlipEnabled={true}
                                                         isGrouped={false}
                                                         isOpen={false}
                                                         isPlain={true}
@@ -1822,6 +1825,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                         menuAppendTo="inline"
                                                         onSelect={[Function]}
                                                         position="left"
+                                                        removeFindDomNode={false}
                                                         style={
                                                           Object {
                                                             "float": "left",
@@ -1834,6 +1838,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                             onToggle={[Function]}
                                                           />
                                                         }
+                                                        zIndex={9999}
                                                       >
                                                         <div
                                                           aria-label="action-kebab"
@@ -2078,14 +2083,14 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                   }
                                                 }
                                                 variant="top"
-                                                widgetId="pagination-options-menu"
+                                                widgetId="options-menu"
                                               >
                                                 <div
                                                   className="pf-c-pagination pf-m-compact"
                                                   data-ouia-component-id="OUIA-Generated-Pagination-top-1"
                                                   data-ouia-component-type="PF4/Pagination"
                                                   data-ouia-safe={true}
-                                                  id="pagination-options-menu-0"
+                                                  id="options-menu-top-pagination"
                                                 >
                                                   <div
                                                     className="pf-c-pagination__total-items"
@@ -2150,7 +2155,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                     }
                                                     perPageSuffix="per page"
                                                     toggleTemplate={[Function]}
-                                                    widgetId="pagination-options-menu"
+                                                    widgetId="options-menu-top"
                                                   >
                                                     <DropdownWithContext
                                                       autoFocus={true}
@@ -2205,7 +2210,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                           </DropdownItem>,
                                                         ]
                                                       }
-                                                      isFlipEnabled={false}
+                                                      isFlipEnabled={true}
                                                       isGrouped={false}
                                                       isOpen={false}
                                                       isPlain={true}
@@ -2229,7 +2234,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                           perPageComponent="div"
                                                           showToggle={true}
                                                           toggleTemplate={[Function]}
-                                                          widgetId="pagination-options-menu"
+                                                          widgetId="options-menu-top"
                                                         />
                                                       }
                                                     >
@@ -2288,10 +2293,10 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                     aria-haspopup="listbox"
                                                                     aria-label="Items per page"
                                                                     class="  pf-c-options-menu__toggle-button"
-                                                                    data-ouia-component-id="OUIA-Generated-DropdownToggle-1"
+                                                                    data-ouia-component-id="OUIA-Generated-DropdownToggle-3"
                                                                     data-ouia-component-type="PF4/DropdownToggle"
                                                                     data-ouia-safe="true"
-                                                                    id="pagination-options-menu-toggle-0"
+                                                                    id="options-menu-top-toggle"
                                                                     type="button"
                                                                   >
                                                                     <span
@@ -2319,7 +2324,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                           perPageComponent="div"
                                                           showToggle={true}
                                                           toggleTemplate={[Function]}
-                                                          widgetId="pagination-options-menu"
+                                                          widgetId="options-menu-top"
                                                         >
                                                           <div
                                                             className="pf-c-options-menu__toggle pf-m-plain pf-m-text"
@@ -2352,7 +2357,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                               aria-haspopup="listbox"
                                                               aria-label="Items per page"
                                                               className="pf-c-options-menu__toggle-button"
-                                                              id="pagination-options-menu-toggle-0"
+                                                              id="options-menu-top-toggle"
                                                               isDisabled={0}
                                                               isOpen={false}
                                                               onEnter={[Function]}
@@ -2389,10 +2394,10 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                         aria-haspopup="listbox"
                                                                         aria-label="Items per page"
                                                                         class="  pf-c-options-menu__toggle-button"
-                                                                        data-ouia-component-id="OUIA-Generated-DropdownToggle-1"
+                                                                        data-ouia-component-id="OUIA-Generated-DropdownToggle-3"
                                                                         data-ouia-component-type="PF4/DropdownToggle"
                                                                         data-ouia-safe="true"
-                                                                        id="pagination-options-menu-toggle-0"
+                                                                        id="options-menu-top-toggle"
                                                                         type="button"
                                                                       >
                                                                         <span
@@ -2423,11 +2428,11 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                 aria-label="Items per page"
                                                                 bubbleEvent={false}
                                                                 className="pf-c-options-menu__toggle-button"
-                                                                data-ouia-component-id="OUIA-Generated-DropdownToggle-1"
+                                                                data-ouia-component-id="OUIA-Generated-DropdownToggle-3"
                                                                 data-ouia-component-type="PF4/DropdownToggle"
                                                                 data-ouia-safe={true}
                                                                 getMenuRef={null}
-                                                                id="pagination-options-menu-toggle-0"
+                                                                id="options-menu-top-toggle"
                                                                 isActive={false}
                                                                 isDisabled={0}
                                                                 isOpen={false}
@@ -2469,10 +2474,10 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                           aria-haspopup="listbox"
                                                                           aria-label="Items per page"
                                                                           class="  pf-c-options-menu__toggle-button"
-                                                                          data-ouia-component-id="OUIA-Generated-DropdownToggle-1"
+                                                                          data-ouia-component-id="OUIA-Generated-DropdownToggle-3"
                                                                           data-ouia-component-type="PF4/DropdownToggle"
                                                                           data-ouia-safe="true"
-                                                                          id="pagination-options-menu-toggle-0"
+                                                                          id="options-menu-top-toggle"
                                                                           type="button"
                                                                         >
                                                                           <span
@@ -2504,11 +2509,11 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                   aria-haspopup="listbox"
                                                                   aria-label="Items per page"
                                                                   className="  pf-c-options-menu__toggle-button"
-                                                                  data-ouia-component-id="OUIA-Generated-DropdownToggle-1"
+                                                                  data-ouia-component-id="OUIA-Generated-DropdownToggle-3"
                                                                   data-ouia-component-type="PF4/DropdownToggle"
                                                                   data-ouia-safe={true}
                                                                   disabled={0}
-                                                                  id="pagination-options-menu-toggle-0"
+                                                                  id="options-menu-top-toggle"
                                                                   onClick={[Function]}
                                                                   onKeyDown={[Function]}
                                                                   type="button"
@@ -2805,6 +2810,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                   className="pf-c-card__body"
                                 >
                                   <Table
+                                    actionsMenuAppendTo="inline"
                                     aria-label="Baselines Table"
                                     borders={true}
                                     canCollapseAll={false}
@@ -2914,6 +2920,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                               "expandId": "expandable-toggle",
                                               "firstUserColumnIndex": 0,
                                               "isHeaderSelectDisabled": false,
+                                              "menuAppendTo": "inline",
                                               "onCollapse": undefined,
                                               "onExpand": undefined,
                                               "onFavorite": undefined,
@@ -2967,6 +2974,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                               "expandId": "expandable-toggle",
                                               "firstUserColumnIndex": 0,
                                               "isHeaderSelectDisabled": false,
+                                              "menuAppendTo": "inline",
                                               "onCollapse": undefined,
                                               "onExpand": undefined,
                                               "onFavorite": undefined,
@@ -3020,6 +3028,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                               "expandId": "expandable-toggle",
                                               "firstUserColumnIndex": 0,
                                               "isHeaderSelectDisabled": false,
+                                              "menuAppendTo": "inline",
                                               "onCollapse": undefined,
                                               "onExpand": undefined,
                                               "onFavorite": undefined,
@@ -3072,6 +3081,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                               "expandId": "expandable-toggle",
                                               "firstUserColumnIndex": 0,
                                               "isHeaderSelectDisabled": false,
+                                              "menuAppendTo": "inline",
                                               "onCollapse": undefined,
                                               "onExpand": undefined,
                                               "onFavorite": undefined,
@@ -3194,6 +3204,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                             "expandId": "expandable-toggle",
                                                             "firstUserColumnIndex": 0,
                                                             "isHeaderSelectDisabled": false,
+                                                            "menuAppendTo": "inline",
                                                             "onCollapse": undefined,
                                                             "onExpand": undefined,
                                                             "onFavorite": undefined,
@@ -3247,6 +3258,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                             "expandId": "expandable-toggle",
                                                             "firstUserColumnIndex": 0,
                                                             "isHeaderSelectDisabled": false,
+                                                            "menuAppendTo": "inline",
                                                             "onCollapse": undefined,
                                                             "onExpand": undefined,
                                                             "onFavorite": undefined,
@@ -3300,6 +3312,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                             "expandId": "expandable-toggle",
                                                             "firstUserColumnIndex": 0,
                                                             "isHeaderSelectDisabled": false,
+                                                            "menuAppendTo": "inline",
                                                             "onCollapse": undefined,
                                                             "onExpand": undefined,
                                                             "onFavorite": undefined,
@@ -3352,6 +3365,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                             "expandId": "expandable-toggle",
                                                             "firstUserColumnIndex": 0,
                                                             "isHeaderSelectDisabled": false,
+                                                            "menuAppendTo": "inline",
                                                             "onCollapse": undefined,
                                                             "onExpand": undefined,
                                                             "onFavorite": undefined,
@@ -3459,6 +3473,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                     "expandId": "expandable-toggle",
                                                                     "firstUserColumnIndex": 0,
                                                                     "isHeaderSelectDisabled": false,
+                                                                    "menuAppendTo": "inline",
                                                                     "onCollapse": undefined,
                                                                     "onExpand": undefined,
                                                                     "onFavorite": undefined,
@@ -3512,6 +3527,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                     "expandId": "expandable-toggle",
                                                                     "firstUserColumnIndex": 0,
                                                                     "isHeaderSelectDisabled": false,
+                                                                    "menuAppendTo": "inline",
                                                                     "onCollapse": undefined,
                                                                     "onExpand": undefined,
                                                                     "onFavorite": undefined,
@@ -3565,6 +3581,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                     "expandId": "expandable-toggle",
                                                                     "firstUserColumnIndex": 0,
                                                                     "isHeaderSelectDisabled": false,
+                                                                    "menuAppendTo": "inline",
                                                                     "onCollapse": undefined,
                                                                     "onExpand": undefined,
                                                                     "onFavorite": undefined,
@@ -3617,6 +3634,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                     "expandId": "expandable-toggle",
                                                                     "firstUserColumnIndex": 0,
                                                                     "isHeaderSelectDisabled": false,
+                                                                    "menuAppendTo": "inline",
                                                                     "onCollapse": undefined,
                                                                     "onExpand": undefined,
                                                                     "onFavorite": undefined,
@@ -3966,6 +3984,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                         "expandId": "expandable-toggle",
                                                         "firstUserColumnIndex": 0,
                                                         "isHeaderSelectDisabled": false,
+                                                        "menuAppendTo": "inline",
                                                         "onCollapse": undefined,
                                                         "onExpand": undefined,
                                                         "onFavorite": undefined,
@@ -4019,6 +4038,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                         "expandId": "expandable-toggle",
                                                         "firstUserColumnIndex": 0,
                                                         "isHeaderSelectDisabled": false,
+                                                        "menuAppendTo": "inline",
                                                         "onCollapse": undefined,
                                                         "onExpand": undefined,
                                                         "onFavorite": undefined,
@@ -4072,6 +4092,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                         "expandId": "expandable-toggle",
                                                         "firstUserColumnIndex": 0,
                                                         "isHeaderSelectDisabled": false,
+                                                        "menuAppendTo": "inline",
                                                         "onCollapse": undefined,
                                                         "onExpand": undefined,
                                                         "onFavorite": undefined,
@@ -4124,6 +4145,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                         "expandId": "expandable-toggle",
                                                         "firstUserColumnIndex": 0,
                                                         "isHeaderSelectDisabled": false,
+                                                        "menuAppendTo": "inline",
                                                         "onCollapse": undefined,
                                                         "onExpand": undefined,
                                                         "onFavorite": undefined,
@@ -4310,6 +4332,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                             "expandId": "expandable-toggle",
                                                             "firstUserColumnIndex": 0,
                                                             "isHeaderSelectDisabled": false,
+                                                            "menuAppendTo": "inline",
                                                             "onCollapse": undefined,
                                                             "onExpand": undefined,
                                                             "onFavorite": undefined,
@@ -4363,6 +4386,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                             "expandId": "expandable-toggle",
                                                             "firstUserColumnIndex": 0,
                                                             "isHeaderSelectDisabled": false,
+                                                            "menuAppendTo": "inline",
                                                             "onCollapse": undefined,
                                                             "onExpand": undefined,
                                                             "onFavorite": undefined,
@@ -4416,6 +4440,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                             "expandId": "expandable-toggle",
                                                             "firstUserColumnIndex": 0,
                                                             "isHeaderSelectDisabled": false,
+                                                            "menuAppendTo": "inline",
                                                             "onCollapse": undefined,
                                                             "onExpand": undefined,
                                                             "onFavorite": undefined,
@@ -4468,6 +4493,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                             "expandId": "expandable-toggle",
                                                             "firstUserColumnIndex": 0,
                                                             "isHeaderSelectDisabled": false,
+                                                            "menuAppendTo": "inline",
                                                             "onCollapse": undefined,
                                                             "onExpand": undefined,
                                                             "onFavorite": undefined,
@@ -4709,6 +4735,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                       "expandId": "expandable-toggle",
                                                                       "firstUserColumnIndex": 0,
                                                                       "isHeaderSelectDisabled": false,
+                                                                      "menuAppendTo": "inline",
                                                                       "onCollapse": undefined,
                                                                       "onExpand": undefined,
                                                                       "onFavorite": undefined,
@@ -4762,6 +4789,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                       "expandId": "expandable-toggle",
                                                                       "firstUserColumnIndex": 0,
                                                                       "isHeaderSelectDisabled": false,
+                                                                      "menuAppendTo": "inline",
                                                                       "onCollapse": undefined,
                                                                       "onExpand": undefined,
                                                                       "onFavorite": undefined,
@@ -4815,6 +4843,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                       "expandId": "expandable-toggle",
                                                                       "firstUserColumnIndex": 0,
                                                                       "isHeaderSelectDisabled": false,
+                                                                      "menuAppendTo": "inline",
                                                                       "onCollapse": undefined,
                                                                       "onExpand": undefined,
                                                                       "onFavorite": undefined,
@@ -4867,6 +4896,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                       "expandId": "expandable-toggle",
                                                                       "firstUserColumnIndex": 0,
                                                                       "isHeaderSelectDisabled": false,
+                                                                      "menuAppendTo": "inline",
                                                                       "onCollapse": undefined,
                                                                       "onExpand": undefined,
                                                                       "onFavorite": undefined,
@@ -5253,14 +5283,14 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                 }
                                               }
                                               variant="top"
-                                              widgetId="pagination-options-menu"
+                                              widgetId="options-menu"
                                             >
                                               <div
                                                 className="pf-c-pagination"
                                                 data-ouia-component-id="OUIA-Generated-Pagination-top-2"
                                                 data-ouia-component-type="PF4/Pagination"
                                                 data-ouia-safe={true}
-                                                id="pagination-options-menu-1"
+                                                id="options-menu-top-pagination"
                                               >
                                                 <div
                                                   className="pf-c-pagination__total-items"
@@ -5325,7 +5355,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                   }
                                                   perPageSuffix="per page"
                                                   toggleTemplate={[Function]}
-                                                  widgetId="pagination-options-menu"
+                                                  widgetId="options-menu-top"
                                                 >
                                                   <DropdownWithContext
                                                     autoFocus={true}
@@ -5380,7 +5410,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                         </DropdownItem>,
                                                       ]
                                                     }
-                                                    isFlipEnabled={false}
+                                                    isFlipEnabled={true}
                                                     isGrouped={false}
                                                     isOpen={false}
                                                     isPlain={true}
@@ -5404,7 +5434,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                         perPageComponent="div"
                                                         showToggle={true}
                                                         toggleTemplate={[Function]}
-                                                        widgetId="pagination-options-menu"
+                                                        widgetId="options-menu-top"
                                                       />
                                                     }
                                                   >
@@ -5463,10 +5493,10 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                   aria-haspopup="listbox"
                                                                   aria-label="Items per page"
                                                                   class="  pf-c-options-menu__toggle-button"
-                                                                  data-ouia-component-id="OUIA-Generated-DropdownToggle-2"
+                                                                  data-ouia-component-id="OUIA-Generated-DropdownToggle-4"
                                                                   data-ouia-component-type="PF4/DropdownToggle"
                                                                   data-ouia-safe="true"
-                                                                  id="pagination-options-menu-toggle-1"
+                                                                  id="options-menu-top-toggle"
                                                                   type="button"
                                                                 >
                                                                   <span
@@ -5494,7 +5524,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                         perPageComponent="div"
                                                         showToggle={true}
                                                         toggleTemplate={[Function]}
-                                                        widgetId="pagination-options-menu"
+                                                        widgetId="options-menu-top"
                                                       >
                                                         <div
                                                           className="pf-c-options-menu__toggle pf-m-plain pf-m-text"
@@ -5527,7 +5557,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                             aria-haspopup="listbox"
                                                             aria-label="Items per page"
                                                             className="pf-c-options-menu__toggle-button"
-                                                            id="pagination-options-menu-toggle-1"
+                                                            id="options-menu-top-toggle"
                                                             isDisabled={0}
                                                             isOpen={false}
                                                             onEnter={[Function]}
@@ -5564,10 +5594,10 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                       aria-haspopup="listbox"
                                                                       aria-label="Items per page"
                                                                       class="  pf-c-options-menu__toggle-button"
-                                                                      data-ouia-component-id="OUIA-Generated-DropdownToggle-2"
+                                                                      data-ouia-component-id="OUIA-Generated-DropdownToggle-4"
                                                                       data-ouia-component-type="PF4/DropdownToggle"
                                                                       data-ouia-safe="true"
-                                                                      id="pagination-options-menu-toggle-1"
+                                                                      id="options-menu-top-toggle"
                                                                       type="button"
                                                                     >
                                                                       <span
@@ -5598,11 +5628,11 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                               aria-label="Items per page"
                                                               bubbleEvent={false}
                                                               className="pf-c-options-menu__toggle-button"
-                                                              data-ouia-component-id="OUIA-Generated-DropdownToggle-2"
+                                                              data-ouia-component-id="OUIA-Generated-DropdownToggle-4"
                                                               data-ouia-component-type="PF4/DropdownToggle"
                                                               data-ouia-safe={true}
                                                               getMenuRef={null}
-                                                              id="pagination-options-menu-toggle-1"
+                                                              id="options-menu-top-toggle"
                                                               isActive={false}
                                                               isDisabled={0}
                                                               isOpen={false}
@@ -5644,10 +5674,10 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                         aria-haspopup="listbox"
                                                                         aria-label="Items per page"
                                                                         class="  pf-c-options-menu__toggle-button"
-                                                                        data-ouia-component-id="OUIA-Generated-DropdownToggle-2"
+                                                                        data-ouia-component-id="OUIA-Generated-DropdownToggle-4"
                                                                         data-ouia-component-type="PF4/DropdownToggle"
                                                                         data-ouia-safe="true"
-                                                                        id="pagination-options-menu-toggle-1"
+                                                                        id="options-menu-top-toggle"
                                                                         type="button"
                                                                       >
                                                                         <span
@@ -5679,11 +5709,11 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                                                                 aria-haspopup="listbox"
                                                                 aria-label="Items per page"
                                                                 className="  pf-c-options-menu__toggle-button"
-                                                                data-ouia-component-id="OUIA-Generated-DropdownToggle-2"
+                                                                data-ouia-component-id="OUIA-Generated-DropdownToggle-4"
                                                                 data-ouia-component-type="PF4/DropdownToggle"
                                                                 data-ouia-safe={true}
                                                                 disabled={0}
-                                                                id="pagination-options-menu-toggle-1"
+                                                                id="options-menu-top-toggle"
                                                                 onClick={[Function]}
                                                                 onKeyDown={[Function]}
                                                                 type="button"

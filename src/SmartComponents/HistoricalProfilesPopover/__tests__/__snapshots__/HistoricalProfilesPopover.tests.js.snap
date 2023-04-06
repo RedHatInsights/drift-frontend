@@ -195,12 +195,17 @@ exports[`ConnectedHistoricalProfilesPopover should render correctly 1`] = `
                   flipBehavior={
                     Array [
                       "top",
-                      "right",
                       "bottom",
                       "left",
-                      "top",
                       "right",
-                      "bottom",
+                      "top-start",
+                      "top-end",
+                      "bottom-start",
+                      "bottom-end",
+                      "left-start",
+                      "left-end",
+                      "right-start",
+                      "right-end",
                     ]
                   }
                   isVisible={false}
@@ -209,7 +214,7 @@ exports[`ConnectedHistoricalProfilesPopover should render correctly 1`] = `
                   onTriggerClick={[Function]}
                   placement="top"
                   popper={
-                    <FocusTrap
+                    <ForwardRef
                       active={false}
                       aria-describedby="popover-hsp-popover-undefined-body"
                       aria-labelledby="popover-hsp-popover-undefined-header"
@@ -226,7 +231,6 @@ exports[`ConnectedHistoricalProfilesPopover should render correctly 1`] = `
                         }
                       }
                       onMouseDown={[Function]}
-                      paused={false}
                       preventScrollOnDeactivate={true}
                       role="dialog"
                       style={
@@ -280,7 +284,7 @@ exports[`ConnectedHistoricalProfilesPopover should render correctly 1`] = `
                           </div>
                         </PopoverBody>
                       </PopoverContent>
-                    </FocusTrap>
+                    </ForwardRef>
                   }
                   popperMatchesTriggerWidth={false}
                   positionModifiers={
@@ -299,6 +303,7 @@ exports[`ConnectedHistoricalProfilesPopover should render correctly 1`] = `
                       "top-start": "pf-m-top-left",
                     }
                   }
+                  removeFindDomNode={false}
                   trigger={
                     <HistoryIcon
                       className="hsp-dropdown-icon"
@@ -469,12 +474,17 @@ exports[`HistoricalProfilesPopover should render mount correctly 1`] = `
         flipBehavior={
           Array [
             "top",
-            "right",
             "bottom",
             "left",
-            "top",
             "right",
-            "bottom",
+            "top-start",
+            "top-end",
+            "bottom-start",
+            "bottom-end",
+            "left-start",
+            "left-end",
+            "right-start",
+            "right-end",
           ]
         }
         isVisible={false}
@@ -483,7 +493,7 @@ exports[`HistoricalProfilesPopover should render mount correctly 1`] = `
         onTriggerClick={[Function]}
         placement="top"
         popper={
-          <FocusTrap
+          <ForwardRef
             active={false}
             aria-describedby="popover-hsp-popover-4416c520-a339-4dde-b303-f317ea9efc5f-body"
             aria-labelledby="popover-hsp-popover-4416c520-a339-4dde-b303-f317ea9efc5f-header"
@@ -500,7 +510,6 @@ exports[`HistoricalProfilesPopover should render mount correctly 1`] = `
               }
             }
             onMouseDown={[Function]}
-            paused={false}
             preventScrollOnDeactivate={true}
             role="dialog"
             style={
@@ -554,7 +563,7 @@ exports[`HistoricalProfilesPopover should render mount correctly 1`] = `
                 </div>
               </PopoverBody>
             </PopoverContent>
-          </FocusTrap>
+          </ForwardRef>
         }
         popperMatchesTriggerWidth={false}
         positionModifiers={
@@ -573,6 +582,7 @@ exports[`HistoricalProfilesPopover should render mount correctly 1`] = `
             "top-start": "pf-m-top-left",
           }
         }
+        removeFindDomNode={false}
         trigger={
           <HistoryIcon
             className="hsp-dropdown-icon"

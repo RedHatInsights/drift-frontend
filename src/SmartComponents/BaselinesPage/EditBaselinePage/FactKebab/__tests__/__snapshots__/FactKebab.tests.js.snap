@@ -131,7 +131,7 @@ exports[`ConnectedFactKebab should render correctly 1`] = `
                   </DropdownItem>,
                 ]
               }
-              isFlipEnabled={false}
+              isFlipEnabled={true}
               isGrouped={false}
               isOpen={false}
               isPlain={true}
@@ -139,6 +139,7 @@ exports[`ConnectedFactKebab should render correctly 1`] = `
               menuAppendTo="inline"
               onSelect={[Function]}
               position="right"
+              removeFindDomNode={false}
               style={
                 Object {
                   "float": "right",
@@ -151,6 +152,7 @@ exports[`ConnectedFactKebab should render correctly 1`] = `
                   onToggle={[Function]}
                 />
               }
+              zIndex={9999}
             >
               <div
                 className="pf-c-dropdown pf-m-align-right baseline-fact-kebab"

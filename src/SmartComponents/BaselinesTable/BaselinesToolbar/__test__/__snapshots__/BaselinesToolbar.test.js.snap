@@ -444,7 +444,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                         </DropdownItem>,
                                       ]
                                     }
-                                    isFlipEnabled={false}
+                                    isFlipEnabled={true}
                                     isGrouped={false}
                                     isOpen={false}
                                     isPlain={false}
@@ -452,6 +452,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                     menuAppendTo="inline"
                                     onSelect={[Function]}
                                     position="left"
+                                    removeFindDomNode={false}
                                     toggle={
                                       <DropdownToggle
                                         isDisabled={false}
@@ -477,6 +478,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                         }
                                       />
                                     }
+                                    zIndex={9999}
                                   >
                                     <div
                                       className="pf-c-dropdown ins-c-bulk-select"
@@ -826,7 +828,6 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                             onFocus={[Function]}
                                             onKeyDown={[Function]}
                                             placeholder="Filter by name"
-                                            readOnly={false}
                                             required={false}
                                             type="text"
                                             value=""
@@ -1144,7 +1145,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                         </DropdownItem>,
                                       ]
                                     }
-                                    isFlipEnabled={false}
+                                    isFlipEnabled={true}
                                     isGrouped={false}
                                     isOpen={false}
                                     isPlain={true}
@@ -1152,6 +1153,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                     menuAppendTo="inline"
                                     onSelect={[Function]}
                                     position="left"
+                                    removeFindDomNode={false}
                                     toggle={
                                       <DropdownToggle
                                         onToggle={[Function]}
@@ -1166,6 +1168,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                         />
                                       </DropdownToggle>
                                     }
+                                    zIndex={9999}
                                   >
                                     <div
                                       className="pf-c-dropdown"
@@ -1399,7 +1402,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                       ]
                                     }
                                     id="action-kebab"
-                                    isFlipEnabled={false}
+                                    isFlipEnabled={true}
                                     isGrouped={false}
                                     isOpen={false}
                                     isPlain={true}
@@ -1407,6 +1410,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                     menuAppendTo="inline"
                                     onSelect={[Function]}
                                     position="left"
+                                    removeFindDomNode={false}
                                     style={
                                       Object {
                                         "float": "left",
@@ -1419,6 +1423,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                         onToggle={[Function]}
                                       />
                                     }
+                                    zIndex={9999}
                                   >
                                     <div
                                       aria-label="action-kebab"
@@ -1661,14 +1666,14 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                               }
                             }
                             variant="top"
-                            widgetId="pagination-options-menu"
+                            widgetId="options-menu"
                           >
                             <div
                               className="pf-c-pagination pf-m-compact"
                               data-ouia-component-id="OUIA-Generated-Pagination-top-1"
                               data-ouia-component-type="PF4/Pagination"
                               data-ouia-safe={true}
-                              id="pagination-options-menu-0"
+                              id="options-menu-top-pagination"
                             >
                               <div
                                 className="pf-c-pagination__total-items"
@@ -1733,7 +1738,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                 }
                                 perPageSuffix="per page"
                                 toggleTemplate={[Function]}
-                                widgetId="pagination-options-menu"
+                                widgetId="options-menu-top"
                               >
                                 <DropdownWithContext
                                   autoFocus={true}
@@ -1788,7 +1793,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                       </DropdownItem>,
                                     ]
                                   }
-                                  isFlipEnabled={false}
+                                  isFlipEnabled={true}
                                   isGrouped={false}
                                   isOpen={false}
                                   isPlain={true}
@@ -1812,7 +1817,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                       perPageComponent="div"
                                       showToggle={true}
                                       toggleTemplate={[Function]}
-                                      widgetId="pagination-options-menu"
+                                      widgetId="options-menu-top"
                                     />
                                   }
                                 >
@@ -1871,10 +1876,10 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                                 aria-haspopup="listbox"
                                                 aria-label="Items per page"
                                                 class="  pf-c-options-menu__toggle-button"
-                                                data-ouia-component-id="OUIA-Generated-DropdownToggle-1"
+                                                data-ouia-component-id="OUIA-Generated-DropdownToggle-3"
                                                 data-ouia-component-type="PF4/DropdownToggle"
                                                 data-ouia-safe="true"
-                                                id="pagination-options-menu-toggle-0"
+                                                id="options-menu-top-toggle"
                                                 type="button"
                                               >
                                                 <span
@@ -1902,7 +1907,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                       perPageComponent="div"
                                       showToggle={true}
                                       toggleTemplate={[Function]}
-                                      widgetId="pagination-options-menu"
+                                      widgetId="options-menu-top"
                                     >
                                       <div
                                         className="pf-c-options-menu__toggle pf-m-plain pf-m-text"
@@ -1935,7 +1940,7 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                           aria-haspopup="listbox"
                                           aria-label="Items per page"
                                           className="pf-c-options-menu__toggle-button"
-                                          id="pagination-options-menu-toggle-0"
+                                          id="options-menu-top-toggle"
                                           isDisabled={false}
                                           isOpen={false}
                                           onEnter={[Function]}
@@ -1972,10 +1977,10 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                                     aria-haspopup="listbox"
                                                     aria-label="Items per page"
                                                     class="  pf-c-options-menu__toggle-button"
-                                                    data-ouia-component-id="OUIA-Generated-DropdownToggle-1"
+                                                    data-ouia-component-id="OUIA-Generated-DropdownToggle-3"
                                                     data-ouia-component-type="PF4/DropdownToggle"
                                                     data-ouia-safe="true"
-                                                    id="pagination-options-menu-toggle-0"
+                                                    id="options-menu-top-toggle"
                                                     type="button"
                                                   >
                                                     <span
@@ -2006,11 +2011,11 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                             aria-label="Items per page"
                                             bubbleEvent={false}
                                             className="pf-c-options-menu__toggle-button"
-                                            data-ouia-component-id="OUIA-Generated-DropdownToggle-1"
+                                            data-ouia-component-id="OUIA-Generated-DropdownToggle-3"
                                             data-ouia-component-type="PF4/DropdownToggle"
                                             data-ouia-safe={true}
                                             getMenuRef={null}
-                                            id="pagination-options-menu-toggle-0"
+                                            id="options-menu-top-toggle"
                                             isActive={false}
                                             isDisabled={false}
                                             isOpen={false}
@@ -2052,10 +2057,10 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                                       aria-haspopup="listbox"
                                                       aria-label="Items per page"
                                                       class="  pf-c-options-menu__toggle-button"
-                                                      data-ouia-component-id="OUIA-Generated-DropdownToggle-1"
+                                                      data-ouia-component-id="OUIA-Generated-DropdownToggle-3"
                                                       data-ouia-component-type="PF4/DropdownToggle"
                                                       data-ouia-safe="true"
-                                                      id="pagination-options-menu-toggle-0"
+                                                      id="options-menu-top-toggle"
                                                       type="button"
                                                     >
                                                       <span
@@ -2087,11 +2092,11 @@ exports[`jest-tests ConnectedBaselinesToolbar should render correctly 1`] = `
                                               aria-haspopup="listbox"
                                               aria-label="Items per page"
                                               className="  pf-c-options-menu__toggle-button"
-                                              data-ouia-component-id="OUIA-Generated-DropdownToggle-1"
+                                              data-ouia-component-id="OUIA-Generated-DropdownToggle-3"
                                               data-ouia-component-type="PF4/DropdownToggle"
                                               data-ouia-safe={true}
                                               disabled={false}
-                                              id="pagination-options-menu-toggle-0"
+                                              id="options-menu-top-toggle"
                                               onClick={[Function]}
                                               onKeyDown={[Function]}
                                               type="button"
