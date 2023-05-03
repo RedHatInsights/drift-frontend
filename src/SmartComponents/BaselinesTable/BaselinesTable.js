@@ -349,7 +349,7 @@ export class BaselinesTable extends Component {
             />;
         }
 
-        return <Card className='pf-t-light pf-m-opaque-100'>
+        return <Card className='pf-t-light pf-m-opaque-100 tableNoPadding'>
             <CardBody>
                 { table }
             </CardBody>

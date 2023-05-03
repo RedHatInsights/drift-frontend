@@ -362,7 +362,7 @@ class EditBaseline extends Component {
                             />
                             { editBaselineEmptyState
                                 ? this.renderEmptyState(permissions)
-                                : <Card className='pf-t-light pf-m-opaque-100'>
+                                : <Card className='pf-t-light pf-m-opaque-100 tableNoPadding'>
                                     <CardBody>
                                         <EditBaselineToolbar
                                             selected={ selected }
