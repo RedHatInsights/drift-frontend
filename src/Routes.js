@@ -30,6 +30,7 @@ const InsightsRoute = ({ component: Component, title, ...rest }) => {
     return (
         !hasSystems ?
             <AsynComponent
+                appId="drift_zero_state"
                 appName="dashboard"
                 module="./AppZeroState"
                 scope="dashboard"
