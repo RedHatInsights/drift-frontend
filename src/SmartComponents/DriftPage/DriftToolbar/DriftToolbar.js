@@ -202,7 +202,6 @@ export class DriftToolbar extends Component {
 
 DriftToolbar.propTypes = {
     loading: PropTypes.bool,
-    history: PropTypes.object,
     page: PropTypes.number,
     perPage: PropTypes.number,
     totalFacts: PropTypes.number,

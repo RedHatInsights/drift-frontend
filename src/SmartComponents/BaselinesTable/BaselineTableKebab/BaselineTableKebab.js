@@ -1,10 +1,10 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
 import { Dropdown, KebabToggle, DropdownItem } from '@patternfly/react-core';
 
 import DeleteBaselinesModal from '../../BaselinesPage/DeleteBaselinesModal/DeleteBaselinesModal';
+import { useNavigate } from 'react-router-dom';
 
 export class BaselineTableKebab extends Component {
     constructor(props) {
@@ -31,9 +31,9 @@ export class BaselineTableKebab extends Component {
     }
 
     fetchBaseline = () => {
-        const { baselineRowData, history } = this.props;
+        const { baselineRowData, navigate } = this.props;
 
-        history.push('baselines/' + baselineRowData[0]);
+        navigate('../baselines/' + baselineRowData[0]);
     }
 
     render() {
@@ -86,10 +86,17 @@ export class BaselineTableKebab extends Component {
 
 BaselineTableKebab.propTypes = {
     baselineRowData: PropTypes.array,
-    history: PropTypes.object,
     tableId: PropTypes.string,
     fetchWithParams: PropTypes.func,
-    baselineName: PropTypes.string
+    baselineName: PropTypes.string,
+    navigate: PropTypes.func
 };
 
-export default withRouter(BaselineTableKebab);
+const BaselineTableKebabWithHooks = props => {
+    const navigate = useNavigate();
+    return (
+        <BaselineTableKebab { ...props } navigate={ navigate } />
+    );
+};
+
+export default BaselineTableKebabWithHooks;

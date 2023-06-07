@@ -8,9 +8,9 @@
         "@patternfly/react-core": "^4.221.3",
         "@patternfly/react-icons": "^4.72.3",
         "@patternfly/react-table": "^4.90.3",
-        "@redhat-cloud-services/frontend-components": "^3.9.8",
+        "@redhat-cloud-services/frontend-components": "^3.10.0",
         "@redhat-cloud-services/frontend-components-notifications": "^3.2.7",
-        "@redhat-cloud-services/frontend-components-utilities": "^3.5.0",
+        "@redhat-cloud-services/frontend-components-utilities": "^3.6.0",
         "axios": "^0.25.0",
         "classnames": "^2.3.1",
         "jiff": "^0.7.3",
@@ -20,7 +20,7 @@
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
         "react-redux": "^7.2.6",
-        "react-router-dom": "^5.3.0",
+        "react-router-dom": "^6.6.1",
         "redux": "^4.1.2",
         "redux-logger": "^3.0.6",
         "redux-promise-middleware": "^6.1.2",
@@ -36,6 +36,9 @@
         "collectCoverageFrom": [
             "<rootDir>/src/**/*.js",
             "!<rootDir>/src/**/index.js"
+        ],
+        "transformIgnorePatterns": [
+            "<rootDir>/node_modules/(?!(lodash-es|@redhat-cloud-services|@openshift|@scalprum))"
         ],
         "testPathIgnorePatterns": [
             "<rootDir>/.+fixtures.+"

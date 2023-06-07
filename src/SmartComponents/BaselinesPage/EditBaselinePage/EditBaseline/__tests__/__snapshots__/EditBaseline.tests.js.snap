@@ -1307,7 +1307,7 @@ exports[`EditBaseline should render empty baseline 1`] = `
         error={Object {}}
       />
     </Connect(ErrorAlert)>
-    <EmptyStateDisplayWithChrome
+    <EmptyStateDisplayWithHooks
       button={
         <Memo(Connect(AddFactButton))
           editBaselineEmptyState={true}
@@ -1426,7 +1426,7 @@ exports[`EditBaseline should render empty baseline 1`] = `
           </div>
         </EmptyState>
       </EmptyStateDisplay>
-    </EmptyStateDisplayWithChrome>
+    </EmptyStateDisplayWithHooks>
   </EditBaseline>
 </Provider>
 `;

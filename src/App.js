@@ -1,20 +1,20 @@
 import React, { createContext, useState, useEffect } from 'react';
 import { useDispatch, useStore } from 'react-redux';
 import actions from './SmartComponents/modules/actions';
-import { withRouter, useHistory } from 'react-router-dom';
 import { NotificationsPortal } from '@redhat-cloud-services/frontend-components-notifications';
 import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
 
-import { Routes } from './Routes';
+import Router from './Routes';
 import './App.scss';
+import { useNavigate } from 'react-router-dom';
 
 export const PermissionContext = createContext();
 
-const App = (props) => {
-    const history = useHistory();
+const App = () => {
     const dispatch = useDispatch();
     const store = useStore();
     const chrome = useChrome();
+    const navigate = useNavigate();
 
     const [{
         hasCompareReadPermissions,
@@ -66,7 +66,7 @@ const App = (props) => {
         chrome.identifyApp('drift');
         chrome.on('APP_NAVIGATION', event => {
             if (event.domEvent !== undefined && event.domEvent.type === 'click') {
-                history.push(`/${event.navId}`);
+                navigate(`/${event.navId}`);
             }
         });
         (async () => {
@@ -109,10 +109,10 @@ const App = (props) => {
                     }
                 }}>
                 <NotificationsPortal store={ store }/>
-                <Routes childProps={ props } />
+                <Router />
             </PermissionContext.Provider>
             : null
     );
 };
 
-export default withRouter (App);
+export default (App);

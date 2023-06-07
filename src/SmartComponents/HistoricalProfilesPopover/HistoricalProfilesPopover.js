@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Badge, Button, Popover } from '@patternfly/react-core';
 import { ExclamationCircleIcon, HistoryIcon, UndoIcon } from '@patternfly/react-icons';
@@ -291,4 +290,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HistoricalProfilesPopover));
+export default connect(mapStateToProps, mapDispatchToProps)(HistoricalProfilesPopover);

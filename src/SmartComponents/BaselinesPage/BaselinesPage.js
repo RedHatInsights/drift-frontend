@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 
 import { Main, PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components';
 import { LockIcon } from '@patternfly/react-icons';
@@ -17,6 +16,7 @@ import { historicProfilesActions } from '../HistoricalProfilesPopover/redux';
 import { PermissionContext } from '../../App';
 import { RegistryContext } from '../../Utilities/registry';
 import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
+import { useNavigate } from 'react-router-dom';
 
 export class BaselinesPage extends Component {
     constructor(props) {
@@ -51,9 +51,9 @@ export class BaselinesPage extends Component {
     }
 
     fetchBaseline = (baselineId) => {
-        const { history } = this.props;
+        const { navigate } = this.props;
 
-        history.push('baselines/' + baselineId);
+        navigate('../baselines/' + baselineId);
     }
 
     onSelect = (event, isSelected, rowId) => {
@@ -155,7 +155,6 @@ BaselinesPage.propTypes = {
     emptyState: PropTypes.bool,
     exportStatus: PropTypes.string,
     selectBaseline: PropTypes.func,
-    history: PropTypes.object,
     baselineError: PropTypes.object,
     revertBaselineFetch: PropTypes.func,
     clearEditBaselineData: PropTypes.func,
@@ -166,7 +165,8 @@ BaselinesPage.propTypes = {
     entitiesLoading: PropTypes.func,
     notificationsSwitchError: PropTypes.object,
     resetBaselinesExportStatus: PropTypes.func,
-    chrome: PropTypes.object
+    chrome: PropTypes.object,
+    navigate: PropTypes.func
 };
 
 function mapStateToProps(state) {
@@ -193,11 +193,12 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-const BaselinesPageWithChrome = props => {
+const BaselinesPageWithHooks = props => {
     const chrome = useChrome();
+    const navigate = useNavigate();
     return (
-        <BaselinesPage { ...props } chrome={ chrome } />
+        <BaselinesPage { ...props } chrome={ chrome } navigate={ navigate } />
     );
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BaselinesPageWithChrome));
+export default connect(mapStateToProps, mapDispatchToProps)(BaselinesPageWithHooks);

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import { Button, Tooltip } from '@patternfly/react-core';
 
 import { createBaselineModalActions } from '../CreateBaselineModal/redux';
 import { addSystemModalActions } from '../../AddSystemModal/redux';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export class CreateBaselineButton extends Component {
     constructor(props) {
@@ -13,14 +13,14 @@ export class CreateBaselineButton extends Component {
     }
 
     createBaseline = () => {
-        const { history, toggleCreateBaselineModal, addSystemModalOpened, toggleAddSystemModal } = this.props;
+        const { toggleCreateBaselineModal, addSystemModalOpened, toggleAddSystemModal, location, navigate } = this.props;
 
-        if (history.location.pathname === '/') {
+        if (location.pathname === '/') {
             if (addSystemModalOpened === true) {
                 toggleAddSystemModal();
             }
 
-            history.push({ pathname: 'baselines' });
+            navigate('baselines');
         }
 
         toggleCreateBaselineModal();
@@ -64,11 +64,12 @@ export class CreateBaselineButton extends Component {
 CreateBaselineButton.propTypes = {
     toggleCreateBaselineModal: PropTypes.func,
     toggleAddSystemModal: PropTypes.func,
-    history: PropTypes.object,
     addSystemModalOpened: PropTypes.bool,
     loading: PropTypes.bool,
     emptyState: PropTypes.bool,
-    permissions: PropTypes.object
+    permissions: PropTypes.object,
+    navigate: PropTypes.func,
+    location: PropTypes.object
 };
 
 function mapStateToProps(state) {
@@ -84,4 +85,12 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CreateBaselineButton));
+const CreateBaselineButtonWithHooks = props => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    return (
+        <CreateBaselineButton { ...props } navigate={ navigate } location={ location } />
+    );
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateBaselineButtonWithHooks);

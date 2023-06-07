@@ -5,31 +5,31 @@ exports[`ConnectedCreateBaselineButton should render correctly 1`] = `
   keyLength={0}
 >
   <Router
-    history={
+    location={
+      Object {
+        "hash": "",
+        "key": "default",
+        "pathname": "/",
+        "search": "",
+        "state": null,
+      }
+    }
+    navigationType="POP"
+    navigator={
       Object {
         "action": "POP",
-        "block": [Function],
-        "canGo": [Function],
         "createHref": [Function],
-        "entries": Array [
-          Object {
-            "hash": "",
-            "pathname": "/",
-            "search": "",
-            "state": undefined,
-          },
-        ],
+        "createURL": [Function],
+        "encodeLocation": [Function],
         "go": [Function],
-        "goBack": [Function],
-        "goForward": [Function],
         "index": 0,
-        "length": 1,
         "listen": [Function],
         "location": Object {
           "hash": "",
+          "key": "default",
           "pathname": "/",
           "search": "",
-          "state": undefined,
+          "state": null,
         },
         "push": [Function],
         "replace": [Function],
@@ -48,114 +48,35 @@ exports[`ConnectedCreateBaselineButton should render correctly 1`] = `
         }
       }
     >
-      <withRouter(Connect(CreateBaselineButton))
+      <Connect(CreateBaselineButtonWithHooks)
         permissions={
           Object {
             "baselinesWrite": true,
           }
         }
       >
-        <Connect(CreateBaselineButton)
-          history={
-            Object {
-              "action": "POP",
-              "block": [Function],
-              "canGo": [Function],
-              "createHref": [Function],
-              "entries": Array [
-                Object {
-                  "hash": "",
-                  "pathname": "/",
-                  "search": "",
-                  "state": undefined,
-                },
-              ],
-              "go": [Function],
-              "goBack": [Function],
-              "goForward": [Function],
-              "index": 0,
-              "length": 1,
-              "listen": [Function],
-              "location": Object {
-                "hash": "",
-                "pathname": "/",
-                "search": "",
-                "state": undefined,
-              },
-              "push": [Function],
-              "replace": [Function],
-            }
-          }
-          location={
-            Object {
-              "hash": "",
-              "pathname": "/",
-              "search": "",
-              "state": undefined,
-            }
-          }
-          match={
-            Object {
-              "isExact": true,
-              "params": Object {},
-              "path": "/",
-              "url": "/",
-            }
-          }
+        <CreateBaselineButtonWithHooks
+          addSystemModalOpened={false}
           permissions={
             Object {
               "baselinesWrite": true,
             }
           }
+          toggleAddSystemModal={[Function]}
+          toggleCreateBaselineModal={[Function]}
         >
           <CreateBaselineButton
             addSystemModalOpened={false}
-            history={
-              Object {
-                "action": "POP",
-                "block": [Function],
-                "canGo": [Function],
-                "createHref": [Function],
-                "entries": Array [
-                  Object {
-                    "hash": "",
-                    "pathname": "/",
-                    "search": "",
-                    "state": undefined,
-                  },
-                ],
-                "go": [Function],
-                "goBack": [Function],
-                "goForward": [Function],
-                "index": 0,
-                "length": 1,
-                "listen": [Function],
-                "location": Object {
-                  "hash": "",
-                  "pathname": "/",
-                  "search": "",
-                  "state": undefined,
-                },
-                "push": [Function],
-                "replace": [Function],
-              }
-            }
             location={
               Object {
                 "hash": "",
+                "key": "default",
                 "pathname": "/",
                 "search": "",
-                "state": undefined,
+                "state": null,
               }
             }
-            match={
-              Object {
-                "isExact": true,
-                "params": Object {},
-                "path": "/",
-                "url": "/",
-              }
-            }
+            navigate={[Function]}
             permissions={
               Object {
                 "baselinesWrite": true,
@@ -195,8 +116,8 @@ exports[`ConnectedCreateBaselineButton should render correctly 1`] = `
               </ButtonBase>
             </Button>
           </CreateBaselineButton>
-        </Connect(CreateBaselineButton)>
-      </withRouter(Connect(CreateBaselineButton))>
+        </CreateBaselineButtonWithHooks>
+      </Connect(CreateBaselineButtonWithHooks)>
     </Provider>
   </Router>
 </MemoryRouter>

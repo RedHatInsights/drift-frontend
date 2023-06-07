@@ -2,7 +2,7 @@ import queryString from 'query-string';
 import { ASC, DESC } from '../constants';
 
 export function setHistory(
-    history, systemIds = [], baselineIds = [], hspIds = [], referenceId, activeFactFilters = [], factFilter, factTypeFilters, stateFilters, factSort,
+    navigate, systemIds = [], baselineIds = [], hspIds = [], referenceId, activeFactFilters = [], factFilter, factTypeFilters, stateFilters, factSort,
     stateSort
 ) {
     let nameFilters = [ ...activeFactFilters, ...factFilter && !activeFactFilters.includes(factFilter) ? [ factFilter ] : [] ];
@@ -15,13 +15,11 @@ export function setHistory(
     let searchPrefix = '?';
 
     /*eslint-disable camelcase*/
-    history.push({
-        search: searchPrefix + queryString.stringify({
-            system_ids: systemIds,
-            baseline_ids: baselineIds,
-            hsp_ids: hspIds,
-            reference_id: referenceId
-        })
+    let searchString = searchPrefix + queryString.stringify({
+        system_ids: systemIds,
+        baseline_ids: baselineIds,
+        hsp_ids: hspIds,
+        reference_id: referenceId
     });
 
     searchPrefix = '&';
@@ -30,8 +28,8 @@ export function setHistory(
         searchPrefix = '';
     }
 
-    history.push({
-        search: history.location.search + searchPrefix + queryString.stringify({
+    navigate({
+        search: searchString + searchPrefix + queryString.stringify({
             'filter[name]': nameFilters,
             'filter[state]': filterState,
             'filter[show]': filterFactType,

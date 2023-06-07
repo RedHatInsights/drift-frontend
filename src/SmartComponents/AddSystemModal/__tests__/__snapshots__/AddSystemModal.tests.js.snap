@@ -16102,31 +16102,31 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
   keyLength={0}
 >
   <Router
-    history={
+    location={
+      Object {
+        "hash": "",
+        "key": "default",
+        "pathname": "/",
+        "search": "",
+        "state": null,
+      }
+    }
+    navigationType="POP"
+    navigator={
       Object {
         "action": "POP",
-        "block": [Function],
-        "canGo": [Function],
         "createHref": [Function],
-        "entries": Array [
-          Object {
-            "hash": "",
-            "pathname": "/",
-            "search": "",
-            "state": undefined,
-          },
-        ],
+        "createURL": [Function],
+        "encodeLocation": [Function],
         "go": [Function],
-        "goBack": [Function],
-        "goForward": [Function],
         "index": 0,
-        "length": 1,
         "listen": [Function],
         "location": Object {
           "hash": "",
+          "key": "default",
           "pathname": "/",
           "search": "",
-          "state": undefined,
+          "state": null,
         },
         "push": [Function],
         "replace": [Function],
@@ -16443,7 +16443,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                 </div>
                                 <div
                                   class="pf-c-toolbar__expandable-content"
-                                  id="pf-random-id-3-expandable-content-3"
+                                  id="pf-random-id-3-expandable-content-2"
                                 >
                                   <div
                                     class="pf-c-toolbar__group"
@@ -16839,7 +16839,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                   </div>
                                   <div
                                     class="pf-c-toolbar__expandable-content"
-                                    id="pf-random-id-4-expandable-content-5"
+                                    id="pf-random-id-4-expandable-content-4"
                                   >
                                     <div
                                       class="pf-c-toolbar__group"
@@ -17618,7 +17618,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                 }
                                                               }
                                                             >
-                                                              <EmptyStateDisplayWithChrome
+                                                              <EmptyStateDisplayWithHooks
                                                                 text={
                                                                   Array [
                                                                     "Select systems and baselines to compare.",
@@ -17735,7 +17735,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                         }
                                                                       }
                                                                     >
-                                                                      <EmptyStateDisplayWithChrome
+                                                                      <EmptyStateDisplayWithHooks
                                                                         text={
                                                                           Array [
                                                                             "Select systems and baselines to compare.",
@@ -17818,7 +17818,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                   Object {
                                                     "current": <div
                                                       class="pf-c-toolbar__expandable-content"
-                                                      id="pf-random-id-3-expandable-content-3"
+                                                      id="pf-random-id-3-expandable-content-2"
                                                     >
                                                       <div
                                                         class="pf-c-toolbar__group"
@@ -17826,13 +17826,13 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                     </div>,
                                                   }
                                                 }
-                                                id="pf-random-id-3-expandable-content-3"
+                                                id="pf-random-id-3-expandable-content-2"
                                                 isExpanded={false}
                                                 showClearFiltersButton={false}
                                               >
                                                 <div
                                                   className="pf-c-toolbar__expandable-content"
-                                                  id="pf-random-id-3-expandable-content-3"
+                                                  id="pf-random-id-3-expandable-content-2"
                                                 >
                                                   <ForwardRef>
                                                     <ToolbarGroupWithRef
@@ -18302,7 +18302,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                   ]
                                                 }
                                               >
-                                                <EmptyStateDisplayWithChrome
+                                                <EmptyStateDisplayWithHooks
                                                   color="#6a6e73"
                                                   icon={[Function]}
                                                   text={
@@ -18391,7 +18391,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                       </div>
                                                     </EmptyState>
                                                   </EmptyStateDisplay>
-                                                </EmptyStateDisplayWithChrome>
+                                                </EmptyStateDisplayWithHooks>
                                               </SystemsTable>
                                             </Connect(SystemsTable)>
                                           </section>
@@ -20046,7 +20046,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                 Object {
                                                                   "current": <div
                                                                     class="pf-c-toolbar__expandable-content"
-                                                                    id="pf-random-id-4-expandable-content-5"
+                                                                    id="pf-random-id-4-expandable-content-4"
                                                                   >
                                                                     <div
                                                                       class="pf-c-toolbar__group"
@@ -20054,13 +20054,13 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                   </div>,
                                                                 }
                                                               }
-                                                              id="pf-random-id-4-expandable-content-5"
+                                                              id="pf-random-id-4-expandable-content-4"
                                                               isExpanded={false}
                                                               showClearFiltersButton={false}
                                                             >
                                                               <div
                                                                 className="pf-c-toolbar__expandable-content"
-                                                                id="pf-random-id-4-expandable-content-5"
+                                                                id="pf-random-id-4-expandable-content-4"
                                                               >
                                                                 <ForwardRef>
                                                                   <ToolbarGroupWithRef
@@ -20186,7 +20186,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                       "colSpan": 3,
                                                                     },
                                                                     "title": <EmptyTable>
-                                                                      <EmptyStateDisplayWithChrome
+                                                                      <EmptyStateDisplayWithHooks
                                                                         text={
                                                                           Array [
                                                                             "To continue, edit your filter settings and search again.",
@@ -21248,7 +21248,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                   "colSpan": 3,
                                                                                 },
                                                                                 "title": <EmptyTable>
-                                                                                  <EmptyStateDisplayWithChrome
+                                                                                  <EmptyStateDisplayWithHooks
                                                                                     text={
                                                                                       Array [
                                                                                         "To continue, edit your filter settings and search again.",
@@ -21275,7 +21275,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                     "colSpan": 3,
                                                                                   },
                                                                                   "title": <EmptyTable>
-                                                                                    <EmptyStateDisplayWithChrome
+                                                                                    <EmptyStateDisplayWithHooks
                                                                                       text={
                                                                                         Array [
                                                                                           "To continue, edit your filter settings and search again.",
@@ -21299,7 +21299,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                   "isVisible": true,
                                                                                 },
                                                                                 "title": <EmptyTable>
-                                                                                  <EmptyStateDisplayWithChrome
+                                                                                  <EmptyStateDisplayWithHooks
                                                                                     text={
                                                                                       Array [
                                                                                         "To continue, edit your filter settings and search again.",
@@ -21324,7 +21324,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                     "colSpan": 3,
                                                                                   },
                                                                                   "title": <EmptyTable>
-                                                                                    <EmptyStateDisplayWithChrome
+                                                                                    <EmptyStateDisplayWithHooks
                                                                                       text={
                                                                                         Array [
                                                                                           "To continue, edit your filter settings and search again.",
@@ -21348,7 +21348,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                   "isVisible": true,
                                                                                 },
                                                                                 "title": <EmptyTable>
-                                                                                  <EmptyStateDisplayWithChrome
+                                                                                  <EmptyStateDisplayWithHooks
                                                                                     text={
                                                                                       Array [
                                                                                         "To continue, edit your filter settings and search again.",
@@ -21539,7 +21539,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                       "colSpan": 3,
                                                                                     },
                                                                                     "title": <EmptyTable>
-                                                                                      <EmptyStateDisplayWithChrome
+                                                                                      <EmptyStateDisplayWithHooks
                                                                                         text={
                                                                                           Array [
                                                                                             "To continue, edit your filter settings and search again.",
@@ -21563,7 +21563,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                     "isVisible": true,
                                                                                   },
                                                                                   "title": <EmptyTable>
-                                                                                    <EmptyStateDisplayWithChrome
+                                                                                    <EmptyStateDisplayWithHooks
                                                                                       text={
                                                                                         Array [
                                                                                           "To continue, edit your filter settings and search again.",
@@ -21612,7 +21612,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                       "colSpan": 3,
                                                                                     },
                                                                                     "title": <EmptyTable>
-                                                                                      <EmptyStateDisplayWithChrome
+                                                                                      <EmptyStateDisplayWithHooks
                                                                                         text={
                                                                                           Array [
                                                                                             "To continue, edit your filter settings and search again.",
@@ -21636,7 +21636,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                     "isVisible": true,
                                                                                   },
                                                                                   "title": <EmptyTable>
-                                                                                    <EmptyStateDisplayWithChrome
+                                                                                    <EmptyStateDisplayWithHooks
                                                                                       text={
                                                                                         Array [
                                                                                           "To continue, edit your filter settings and search again.",
@@ -21663,7 +21663,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                         "colSpan": 3,
                                                                                       },
                                                                                       "title": <EmptyTable>
-                                                                                        <EmptyStateDisplayWithChrome
+                                                                                        <EmptyStateDisplayWithHooks
                                                                                           text={
                                                                                             Array [
                                                                                               "To continue, edit your filter settings and search again.",
@@ -21687,7 +21687,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                       "isVisible": true,
                                                                                     },
                                                                                     "title": <EmptyTable>
-                                                                                      <EmptyStateDisplayWithChrome
+                                                                                      <EmptyStateDisplayWithHooks
                                                                                         text={
                                                                                           Array [
                                                                                             "To continue, edit your filter settings and search again.",
@@ -21895,7 +21895,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                               "colSpan": 3,
                                                                                             },
                                                                                             "title": <EmptyTable>
-                                                                                              <EmptyStateDisplayWithChrome
+                                                                                              <EmptyStateDisplayWithHooks
                                                                                                 text={
                                                                                                   Array [
                                                                                                     "To continue, edit your filter settings and search again.",
@@ -21919,7 +21919,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                             "isVisible": true,
                                                                                           },
                                                                                           "title": <EmptyTable>
-                                                                                            <EmptyStateDisplayWithChrome
+                                                                                            <EmptyStateDisplayWithHooks
                                                                                               text={
                                                                                                 Array [
                                                                                                   "To continue, edit your filter settings and search again.",
@@ -21947,7 +21947,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                                 "colSpan": 3,
                                                                                               },
                                                                                               "title": <EmptyTable>
-                                                                                                <EmptyStateDisplayWithChrome
+                                                                                                <EmptyStateDisplayWithHooks
                                                                                                   text={
                                                                                                     Array [
                                                                                                       "To continue, edit your filter settings and search again.",
@@ -21971,7 +21971,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                               "isVisible": true,
                                                                                             },
                                                                                             "title": <EmptyTable>
-                                                                                              <EmptyStateDisplayWithChrome
+                                                                                              <EmptyStateDisplayWithHooks
                                                                                                 text={
                                                                                                   Array [
                                                                                                     "To continue, edit your filter settings and search again.",
@@ -22049,7 +22049,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                                         className="ins-c-table__empty"
                                                                                                       >
                                                                                                          
-                                                                                                        <EmptyStateDisplayWithChrome
+                                                                                                        <EmptyStateDisplayWithHooks
                                                                                                           text={
                                                                                                             Array [
                                                                                                               "To continue, edit your filter settings and search again.",
@@ -22101,7 +22101,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                                                                               </div>
                                                                                                             </EmptyState>
                                                                                                           </EmptyStateDisplay>
-                                                                                                        </EmptyStateDisplayWithChrome>
+                                                                                                        </EmptyStateDisplayWithHooks>
                                                                                                       </div>
                                                                                                     </EmptyTable>
                                                                                                   </td>

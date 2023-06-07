@@ -393,7 +393,6 @@ class EditBaseline extends Component {
 
 EditBaseline.propTypes = {
     history: PropTypes.object,
-    match: PropTypes.any,
     baselineData: PropTypes.object,
     baselineDataLoading: PropTypes.bool,
     factModalOpened: PropTypes.bool,

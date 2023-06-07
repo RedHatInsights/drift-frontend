@@ -822,31 +822,31 @@ exports[`ConnectedSystemsTable should render correctly with no inventory read pe
   keyLength={0}
 >
   <Router
-    history={
+    location={
+      Object {
+        "hash": "",
+        "key": "default",
+        "pathname": "/",
+        "search": "",
+        "state": null,
+      }
+    }
+    navigationType="POP"
+    navigator={
       Object {
         "action": "POP",
-        "block": [Function],
-        "canGo": [Function],
         "createHref": [Function],
-        "entries": Array [
-          Object {
-            "hash": "",
-            "pathname": "/",
-            "search": "",
-            "state": undefined,
-          },
-        ],
+        "createURL": [Function],
+        "encodeLocation": [Function],
         "go": [Function],
-        "goBack": [Function],
-        "goForward": [Function],
         "index": 0,
-        "length": 1,
         "listen": [Function],
         "location": Object {
           "hash": "",
+          "key": "default",
           "pathname": "/",
           "search": "",
-          "state": undefined,
+          "state": null,
         },
         "push": [Function],
         "replace": [Function],
@@ -885,7 +885,7 @@ exports[`ConnectedSystemsTable should render correctly with no inventory read pe
           selectedSystemIds={Array []}
           setSelectedSystemIds={[Function]}
         >
-          <EmptyStateDisplayWithChrome
+          <EmptyStateDisplayWithHooks
             color="#6a6e73"
             icon={[Function]}
             text={
@@ -974,7 +974,7 @@ exports[`ConnectedSystemsTable should render correctly with no inventory read pe
                 </div>
               </EmptyState>
             </EmptyStateDisplay>
-          </EmptyStateDisplayWithChrome>
+          </EmptyStateDisplayWithHooks>
         </SystemsTable>
       </Connect(SystemsTable)>
     </Provider>

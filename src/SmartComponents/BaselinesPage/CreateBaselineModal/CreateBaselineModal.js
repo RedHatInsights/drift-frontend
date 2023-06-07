@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import { Button, Modal, Radio, TextInput, Form, FormGroup, ValidatedOptions } from '@patternfly/react-core';
 import { sortable, cellWidth } from '@patternfly/react-table';
 import { addNewListener } from '../../../store';
@@ -12,6 +11,7 @@ import GlobalFilterAlert from '../../GlobalFilterAlert/GlobalFilterAlert';
 import { createBaselineModalActions } from './redux';
 import { baselinesTableActions } from '../../BaselinesTable/redux';
 import systemsTableActions from '../../SystemsTable/actions';
+import { useNavigate } from 'react-router-dom';
 
 export class CreateBaselineModal extends Component {
     constructor(props) {
@@ -121,7 +121,7 @@ export class CreateBaselineModal extends Component {
     async submitBaselineName() {
         const { baselineName, fromScratchChecked, copyBaselineChecked, copySystemChecked } = this.state;
         const { createBaseline, toggleCreateBaselineModal, selectedBaselineIds,
-            history, entities, clearSelectedBaselines, selectSingleHSP } = this.props;
+            entities, clearSelectedBaselines, selectSingleHSP, navigate } = this.props;
 
         /*eslint-disable camelcase*/
         let newBaselineObject = { display_name: baselineName };
@@ -142,7 +142,7 @@ export class CreateBaselineModal extends Component {
                     await createBaseline(newBaselineObject);
                 }
 
-                history.push('baselines/' + this.props.baselineData.id);
+                navigate('baselines/' + this.props.baselineData.id);
                 toggleCreateBaselineModal();
                 selectSingleHSP();
                 clearSelectedBaselines('RADIO');
@@ -378,7 +378,6 @@ CreateBaselineModal.propTypes = {
     createBaselineModalOpened: PropTypes.bool,
     createBaseline: PropTypes.func,
     selectBaseline: PropTypes.func,
-    history: PropTypes.object,
     baselineData: PropTypes.object,
     toggleCreateBaselineModal: PropTypes.func,
     clearSelectedBaselines: PropTypes.func,
@@ -399,7 +398,8 @@ CreateBaselineModal.propTypes = {
     baselineError: PropTypes.object,
     revertBaselineFetch: PropTypes.func,
     emptyState: PropTypes.bool,
-    middlewareListener: PropTypes.object
+    middlewareListener: PropTypes.object,
+    navigate: PropTypes.func
 };
 
 function mapStateToProps(state) {
@@ -431,4 +431,11 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CreateBaselineModal));
+const CreateBaselineModalWithHooks = props => {
+    const navigate = useNavigate();
+    return (
+        <CreateBaselineModal { ...props } navigate={ navigate } />
+    );
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateBaselineModalWithHooks);
