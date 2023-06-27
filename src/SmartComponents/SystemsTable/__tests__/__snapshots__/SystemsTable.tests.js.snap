@@ -5,31 +5,31 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
   keyLength={0}
 >
   <Router
-    history={
+    location={
+      Object {
+        "hash": "",
+        "key": "default",
+        "pathname": "/",
+        "search": "",
+        "state": null,
+      }
+    }
+    navigationType="POP"
+    navigator={
       Object {
         "action": "POP",
-        "block": [Function],
-        "canGo": [Function],
         "createHref": [Function],
-        "entries": Array [
-          Object {
-            "hash": "",
-            "pathname": "/",
-            "search": "",
-            "state": undefined,
-          },
-        ],
+        "createURL": [Function],
+        "encodeLocation": [Function],
         "go": [Function],
-        "goBack": [Function],
-        "goForward": [Function],
         "index": 0,
-        "length": 1,
         "listen": [Function],
         "location": Object {
           "hash": "",
+          "key": "default",
           "pathname": "/",
           "search": "",
-          "state": undefined,
+          "state": null,
         },
         "push": [Function],
         "replace": [Function],
@@ -71,7 +71,7 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
           <div
             className="inventory-toolbar-no-padding"
           >
-            <ForwardRef
+            <mockConstructor
               bulkSelect={
                 Object {
                   "checked": null,
@@ -95,7 +95,6 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
                   "onSelect": [Function],
                 }
               }
-              component="section"
               customFilters={
                 Object {
                   "filter": Object {
@@ -103,15 +102,6 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
                   },
                   "tags": undefined,
                 }
-              }
-              fallback={
-                <Bullseye
-                  className="pf-u-p-lg"
-                >
-                  <Spinner
-                    size="xl"
-                  />
-                </Bullseye>
               }
               getEntities={[Function]}
               noDetail={true}
@@ -127,688 +117,14 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
                 }
               }
             >
-              <BaseInvTable
-                bulkSelect={
-                  Object {
-                    "checked": null,
-                    "count": undefined,
-                    "id": "systems-bulk-select",
-                    "isDisabled": true,
-                    "items": Array [
-                      Object {
-                        "onClick": [Function],
-                        "title": "Select none (0)",
-                      },
-                      Object {
-                        "onClick": [Function],
-                        "title": "Select page (0)",
-                      },
-                      Object {
-                        "onClick": [Function],
-                        "title": "Deselect page (0)",
-                      },
-                    ],
-                    "onSelect": [Function],
-                  }
-                }
-                component="section"
-                customFilters={
-                  Object {
-                    "filter": Object {
-                      "system_profile": Object {},
-                    },
-                    "tags": undefined,
-                  }
-                }
-                fallback={
-                  <Bullseye
-                    className="pf-u-p-lg"
-                  >
-                    <Spinner
-                      size="xl"
-                    />
-                  </Bullseye>
-                }
-                getEntities={[Function]}
-                innerRef={null}
-                noDetail={true}
-                onLoad={[Function]}
-                showTags={true}
-                tableProps={
-                  Object {
-                    "canSelectAll": false,
-                    "className": "inventory-align",
-                    "isStickyHeader": true,
-                    "ouiaId": "systems-table",
-                    "selectVariant": undefined,
-                  }
-                }
+              <div
+                className="testInventroyComponentChild"
               >
-                <section
-                  className="inventory"
-                >
-                  <Suspense
-                    fallback={
-                      <Bullseye
-                        className="pf-u-p-lg"
-                      >
-                        <Spinner
-                          size="xl"
-                        />
-                      </Bullseye>
-                    }
-                  >
-                    <ForwardRef
-                      ErrorComponent={
-                        <InventoryLoadError
-                          bulkSelect={
-                            Object {
-                              "checked": null,
-                              "count": undefined,
-                              "id": "systems-bulk-select",
-                              "isDisabled": true,
-                              "items": Array [
-                                Object {
-                                  "onClick": [Function],
-                                  "title": "Select none (0)",
-                                },
-                                Object {
-                                  "onClick": [Function],
-                                  "title": "Select page (0)",
-                                },
-                                Object {
-                                  "onClick": [Function],
-                                  "title": "Deselect page (0)",
-                                },
-                              ],
-                              "onSelect": [Function],
-                            }
-                          }
-                          component="section"
-                          customFilters={
-                            Object {
-                              "filter": Object {
-                                "system_profile": Object {},
-                              },
-                              "tags": undefined,
-                            }
-                          }
-                          fallback={
-                            <Bullseye
-                              className="pf-u-p-lg"
-                            >
-                              <Spinner
-                                size="xl"
-                              />
-                            </Bullseye>
-                          }
-                          getEntities={[Function]}
-                          history={
-                            Object {
-                              "action": "POP",
-                              "block": [Function],
-                              "canGo": [Function],
-                              "createHref": [Function],
-                              "entries": Array [
-                                Object {
-                                  "hash": "",
-                                  "pathname": "/",
-                                  "search": "",
-                                  "state": undefined,
-                                },
-                              ],
-                              "go": [Function],
-                              "goBack": [Function],
-                              "goForward": [Function],
-                              "index": 0,
-                              "length": 1,
-                              "listen": [Function],
-                              "location": Object {
-                                "hash": "",
-                                "pathname": "/",
-                                "search": "",
-                                "state": undefined,
-                              },
-                              "push": [Function],
-                              "replace": [Function],
-                            }
-                          }
-                          innerRef={null}
-                          noDetail={true}
-                          onLoad={[Function]}
-                          showTags={true}
-                          store={
-                            Object {
-                              "clearActions": [Function],
-                              "dispatch": [Function],
-                              "getActions": [Function],
-                              "getState": [Function],
-                              "replaceReducer": [Function],
-                              "subscribe": [Function],
-                            }
-                          }
-                          tableProps={
-                            Object {
-                              "canSelectAll": false,
-                              "className": "inventory-align",
-                              "isStickyHeader": true,
-                              "ouiaId": "systems-table",
-                              "selectVariant": undefined,
-                            }
-                          }
-                        />
-                      }
-                      appName="inventory"
-                      bulkSelect={
-                        Object {
-                          "checked": null,
-                          "count": undefined,
-                          "id": "systems-bulk-select",
-                          "isDisabled": true,
-                          "items": Array [
-                            Object {
-                              "onClick": [Function],
-                              "title": "Select none (0)",
-                            },
-                            Object {
-                              "onClick": [Function],
-                              "title": "Select page (0)",
-                            },
-                            Object {
-                              "onClick": [Function],
-                              "title": "Deselect page (0)",
-                            },
-                          ],
-                          "onSelect": [Function],
-                        }
-                      }
-                      component="section"
-                      customFilters={
-                        Object {
-                          "filter": Object {
-                            "system_profile": Object {},
-                          },
-                          "tags": undefined,
-                        }
-                      }
-                      fallback={
-                        <Bullseye
-                          className="pf-u-p-lg"
-                        >
-                          <Spinner
-                            size="xl"
-                          />
-                        </Bullseye>
-                      }
-                      getEntities={[Function]}
-                      history={
-                        Object {
-                          "action": "POP",
-                          "block": [Function],
-                          "canGo": [Function],
-                          "createHref": [Function],
-                          "entries": Array [
-                            Object {
-                              "hash": "",
-                              "pathname": "/",
-                              "search": "",
-                              "state": undefined,
-                            },
-                          ],
-                          "go": [Function],
-                          "goBack": [Function],
-                          "goForward": [Function],
-                          "index": 0,
-                          "length": 1,
-                          "listen": [Function],
-                          "location": Object {
-                            "hash": "",
-                            "pathname": "/",
-                            "search": "",
-                            "state": undefined,
-                          },
-                          "push": [Function],
-                          "replace": [Function],
-                        }
-                      }
-                      innerRef={null}
-                      module="./InventoryTable"
-                      noDetail={true}
-                      onLoad={[Function]}
-                      scope="inventory"
-                      showTags={true}
-                      store={
-                        Object {
-                          "clearActions": [Function],
-                          "dispatch": [Function],
-                          "getActions": [Function],
-                          "getState": [Function],
-                          "replaceReducer": [Function],
-                          "subscribe": [Function],
-                        }
-                      }
-                      tableProps={
-                        Object {
-                          "canSelectAll": false,
-                          "className": "inventory-align",
-                          "isStickyHeader": true,
-                          "ouiaId": "systems-table",
-                          "selectVariant": undefined,
-                        }
-                      }
-                    >
-                      <BaseScalprumComponent
-                        ErrorComponent={
-                          <InventoryLoadError
-                            bulkSelect={
-                              Object {
-                                "checked": null,
-                                "count": undefined,
-                                "id": "systems-bulk-select",
-                                "isDisabled": true,
-                                "items": Array [
-                                  Object {
-                                    "onClick": [Function],
-                                    "title": "Select none (0)",
-                                  },
-                                  Object {
-                                    "onClick": [Function],
-                                    "title": "Select page (0)",
-                                  },
-                                  Object {
-                                    "onClick": [Function],
-                                    "title": "Deselect page (0)",
-                                  },
-                                ],
-                                "onSelect": [Function],
-                              }
-                            }
-                            component="section"
-                            customFilters={
-                              Object {
-                                "filter": Object {
-                                  "system_profile": Object {},
-                                },
-                                "tags": undefined,
-                              }
-                            }
-                            fallback={
-                              <Bullseye
-                                className="pf-u-p-lg"
-                              >
-                                <Spinner
-                                  size="xl"
-                                />
-                              </Bullseye>
-                            }
-                            getEntities={[Function]}
-                            history={
-                              Object {
-                                "action": "POP",
-                                "block": [Function],
-                                "canGo": [Function],
-                                "createHref": [Function],
-                                "entries": Array [
-                                  Object {
-                                    "hash": "",
-                                    "pathname": "/",
-                                    "search": "",
-                                    "state": undefined,
-                                  },
-                                ],
-                                "go": [Function],
-                                "goBack": [Function],
-                                "goForward": [Function],
-                                "index": 0,
-                                "length": 1,
-                                "listen": [Function],
-                                "location": Object {
-                                  "hash": "",
-                                  "pathname": "/",
-                                  "search": "",
-                                  "state": undefined,
-                                },
-                                "push": [Function],
-                                "replace": [Function],
-                              }
-                            }
-                            innerRef={null}
-                            noDetail={true}
-                            onLoad={[Function]}
-                            showTags={true}
-                            store={
-                              Object {
-                                "clearActions": [Function],
-                                "dispatch": [Function],
-                                "getActions": [Function],
-                                "getState": [Function],
-                                "replaceReducer": [Function],
-                                "subscribe": [Function],
-                              }
-                            }
-                            tableProps={
-                              Object {
-                                "canSelectAll": false,
-                                "className": "inventory-align",
-                                "isStickyHeader": true,
-                                "ouiaId": "systems-table",
-                                "selectVariant": undefined,
-                              }
-                            }
-                          />
-                        }
-                        appName="inventory"
-                        bulkSelect={
-                          Object {
-                            "checked": null,
-                            "count": undefined,
-                            "id": "systems-bulk-select",
-                            "isDisabled": true,
-                            "items": Array [
-                              Object {
-                                "onClick": [Function],
-                                "title": "Select none (0)",
-                              },
-                              Object {
-                                "onClick": [Function],
-                                "title": "Select page (0)",
-                              },
-                              Object {
-                                "onClick": [Function],
-                                "title": "Deselect page (0)",
-                              },
-                            ],
-                            "onSelect": [Function],
-                          }
-                        }
-                        component="section"
-                        customFilters={
-                          Object {
-                            "filter": Object {
-                              "system_profile": Object {},
-                            },
-                            "tags": undefined,
-                          }
-                        }
-                        fallback={
-                          <Bullseye
-                            className="pf-u-p-lg"
-                          >
-                            <Spinner
-                              size="xl"
-                            />
-                          </Bullseye>
-                        }
-                        getEntities={[Function]}
-                        history={
-                          Object {
-                            "action": "POP",
-                            "block": [Function],
-                            "canGo": [Function],
-                            "createHref": [Function],
-                            "entries": Array [
-                              Object {
-                                "hash": "",
-                                "pathname": "/",
-                                "search": "",
-                                "state": undefined,
-                              },
-                            ],
-                            "go": [Function],
-                            "goBack": [Function],
-                            "goForward": [Function],
-                            "index": 0,
-                            "length": 1,
-                            "listen": [Function],
-                            "location": Object {
-                              "hash": "",
-                              "pathname": "/",
-                              "search": "",
-                              "state": undefined,
-                            },
-                            "push": [Function],
-                            "replace": [Function],
-                          }
-                        }
-                        innerRef={null}
-                        module="./InventoryTable"
-                        noDetail={true}
-                        onLoad={[Function]}
-                        scope="inventory"
-                        showTags={true}
-                        store={
-                          Object {
-                            "clearActions": [Function],
-                            "dispatch": [Function],
-                            "getActions": [Function],
-                            "getState": [Function],
-                            "replaceReducer": [Function],
-                            "subscribe": [Function],
-                          }
-                        }
-                        tableProps={
-                          Object {
-                            "canSelectAll": false,
-                            "className": "inventory-align",
-                            "isStickyHeader": true,
-                            "ouiaId": "systems-table",
-                            "selectVariant": undefined,
-                          }
-                        }
-                      >
-                        <LoadModule
-                          ErrorComponent={[Function]}
-                          appName="inventory"
-                          bulkSelect={
-                            Object {
-                              "checked": null,
-                              "count": undefined,
-                              "id": "systems-bulk-select",
-                              "isDisabled": true,
-                              "items": Array [
-                                Object {
-                                  "onClick": [Function],
-                                  "title": "Select none (0)",
-                                },
-                                Object {
-                                  "onClick": [Function],
-                                  "title": "Select page (0)",
-                                },
-                                Object {
-                                  "onClick": [Function],
-                                  "title": "Deselect page (0)",
-                                },
-                              ],
-                              "onSelect": [Function],
-                            }
-                          }
-                          component="section"
-                          customFilters={
-                            Object {
-                              "filter": Object {
-                                "system_profile": Object {},
-                              },
-                              "tags": undefined,
-                            }
-                          }
-                          fallback={
-                            <Bullseye
-                              className="pf-u-p-lg"
-                            >
-                              <Spinner
-                                size="xl"
-                              />
-                            </Bullseye>
-                          }
-                          getEntities={[Function]}
-                          history={
-                            Object {
-                              "action": "POP",
-                              "block": [Function],
-                              "canGo": [Function],
-                              "createHref": [Function],
-                              "entries": Array [
-                                Object {
-                                  "hash": "",
-                                  "pathname": "/",
-                                  "search": "",
-                                  "state": undefined,
-                                },
-                              ],
-                              "go": [Function],
-                              "goBack": [Function],
-                              "goForward": [Function],
-                              "index": 0,
-                              "length": 1,
-                              "listen": [Function],
-                              "location": Object {
-                                "hash": "",
-                                "pathname": "/",
-                                "search": "",
-                                "state": undefined,
-                              },
-                              "push": [Function],
-                              "replace": [Function],
-                            }
-                          }
-                          innerRef={null}
-                          module="./InventoryTable"
-                          noDetail={true}
-                          onLoad={[Function]}
-                          scope="inventory"
-                          showTags={true}
-                          store={
-                            Object {
-                              "clearActions": [Function],
-                              "dispatch": [Function],
-                              "getActions": [Function],
-                              "getState": [Function],
-                              "replaceReducer": [Function],
-                              "subscribe": [Function],
-                            }
-                          }
-                          tableProps={
-                            Object {
-                              "canSelectAll": false,
-                              "className": "inventory-align",
-                              "isStickyHeader": true,
-                              "ouiaId": "systems-table",
-                              "selectVariant": undefined,
-                            }
-                          }
-                        >
-                          <Suspense
-                            fallback={
-                              <Bullseye
-                                className="pf-u-p-lg"
-                              >
-                                <Spinner
-                                  size="xl"
-                                />
-                              </Bullseye>
-                            }
-                          >
-                            <_default
-                              bulkSelect={
-                                Object {
-                                  "checked": null,
-                                  "count": undefined,
-                                  "id": "systems-bulk-select",
-                                  "isDisabled": true,
-                                  "items": Array [
-                                    Object {
-                                      "onClick": [Function],
-                                      "title": "Select none (0)",
-                                    },
-                                    Object {
-                                      "onClick": [Function],
-                                      "title": "Select page (0)",
-                                    },
-                                    Object {
-                                      "onClick": [Function],
-                                      "title": "Deselect page (0)",
-                                    },
-                                  ],
-                                  "onSelect": [Function],
-                                }
-                              }
-                              component="section"
-                              customFilters={
-                                Object {
-                                  "filter": Object {
-                                    "system_profile": Object {},
-                                  },
-                                  "tags": undefined,
-                                }
-                              }
-                              getEntities={[Function]}
-                              history={
-                                Object {
-                                  "action": "POP",
-                                  "block": [Function],
-                                  "canGo": [Function],
-                                  "createHref": [Function],
-                                  "entries": Array [
-                                    Object {
-                                      "hash": "",
-                                      "pathname": "/",
-                                      "search": "",
-                                      "state": undefined,
-                                    },
-                                  ],
-                                  "go": [Function],
-                                  "goBack": [Function],
-                                  "goForward": [Function],
-                                  "index": 0,
-                                  "length": 1,
-                                  "listen": [Function],
-                                  "location": Object {
-                                    "hash": "",
-                                    "pathname": "/",
-                                    "search": "",
-                                    "state": undefined,
-                                  },
-                                  "push": [Function],
-                                  "replace": [Function],
-                                }
-                              }
-                              noDetail={true}
-                              onLoad={[Function]}
-                              showTags={true}
-                              store={
-                                Object {
-                                  "clearActions": [Function],
-                                  "dispatch": [Function],
-                                  "getActions": [Function],
-                                  "getState": [Function],
-                                  "replaceReducer": [Function],
-                                  "subscribe": [Function],
-                                }
-                              }
-                              tableProps={
-                                Object {
-                                  "canSelectAll": false,
-                                  "className": "inventory-align",
-                                  "isStickyHeader": true,
-                                  "ouiaId": "systems-table",
-                                  "selectVariant": undefined,
-                                }
-                              }
-                            >
-                              <div>
-                                <h1>
-                                  Inventory mock
-                                </h1>
-                              </div>
-                            </_default>
-                          </Suspense>
-                        </LoadModule>
-                      </BaseScalprumComponent>
-                    </ForwardRef>
-                  </Suspense>
-                </section>
-              </BaseInvTable>
-            </ForwardRef>
+                <div>
+                  This is child
+                </div>
+              </div>
+            </mockConstructor>
           </div>
         </SystemsTable>
       </Connect(SystemsTable)>
@@ -896,7 +212,24 @@ exports[`ConnectedSystemsTable should render correctly with no inventory read pe
             title="You do not have access to the inventory"
           >
             <EmptyStateDisplay
-              chrome={null}
+              chrome={
+                Object {
+                  "appAction": [MockFunction] {
+                    "calls": Array [
+                      Array [
+                        "comparison-list",
+                      ],
+                    ],
+                    "results": Array [
+                      Object {
+                        "type": "return",
+                        "value": undefined,
+                      },
+                    ],
+                  },
+                  "isBeta": [MockFunction],
+                }
+              }
               color="#6a6e73"
               icon={[Function]}
               text={

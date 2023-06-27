@@ -970,13 +970,10 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                         location={
                                           Object {
                                             "hash": "",
-                                            "key": "default",
-                                            "pathname": "/",
                                             "search": "",
-                                            "state": null,
                                           }
                                         }
-                                        navigate={[Function]}
+                                        navigate={[MockFunction]}
                                         permissions={
                                           Object {
                                             "baselinesRead": true,
@@ -6141,7 +6138,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                                     ]
                                                                   }
                                                                   fetchWithParams={[Function]}
-                                                                  navigate={[Function]}
+                                                                  navigate={[MockFunction]}
                                                                   selectedBaselineIds={
                                                                     Array [
                                                                       "1234",
@@ -7100,7 +7097,7 @@ exports[`ConnectedBaselinesTable should render baseline selected 1`] = `
                                                                     ]
                                                                   }
                                                                   fetchWithParams={[Function]}
-                                                                  navigate={[Function]}
+                                                                  navigate={[MockFunction]}
                                                                   selectedBaselineIds={
                                                                     Array [
                                                                       "1234",
@@ -9204,13 +9201,10 @@ exports[`ConnectedBaselinesTable should render disabled when selected basket is 
                                         location={
                                           Object {
                                             "hash": "",
-                                            "key": "default",
-                                            "pathname": "/",
                                             "search": "",
-                                            "state": null,
                                           }
                                         }
-                                        navigate={[Function]}
+                                        navigate={[MockFunction]}
                                         permissions={
                                           Object {
                                             "baselinesRead": true,
@@ -14259,7 +14253,7 @@ exports[`ConnectedBaselinesTable should render disabled when selected basket is 
                                                                     ]
                                                                   }
                                                                   fetchWithParams={[Function]}
-                                                                  navigate={[Function]}
+                                                                  navigate={[MockFunction]}
                                                                   selectedBaselineIds={Array []}
                                                                   tableId="CHECKBOX"
                                                                 >
@@ -15194,7 +15188,7 @@ exports[`ConnectedBaselinesTable should render disabled when selected basket is 
                                                                     ]
                                                                   }
                                                                   fetchWithParams={[Function]}
-                                                                  navigate={[Function]}
+                                                                  navigate={[MockFunction]}
                                                                   selectedBaselineIds={Array []}
                                                                   tableId="CHECKBOX"
                                                                 >
@@ -17294,13 +17288,10 @@ exports[`ConnectedBaselinesTable should render loading rows for multi-select 1`]
                                         location={
                                           Object {
                                             "hash": "",
-                                            "key": "default",
-                                            "pathname": "/",
                                             "search": "",
-                                            "state": null,
                                           }
                                         }
-                                        navigate={[Function]}
+                                        navigate={[MockFunction]}
                                         permissions={
                                           Object {
                                             "baselinesRead": true,
@@ -31371,13 +31362,10 @@ exports[`ConnectedBaselinesTable should render loading rows for single-select 1`
                                         location={
                                           Object {
                                             "hash": "",
-                                            "key": "default",
-                                            "pathname": "/",
                                             "search": "",
-                                            "state": null,
                                           }
                                         }
-                                        navigate={[Function]}
+                                        navigate={[MockFunction]}
                                         permissions={
                                           Object {
                                             "baselinesRead": true,
@@ -45855,13 +45843,10 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                         location={
                                           Object {
                                             "hash": "",
-                                            "key": "default",
-                                            "pathname": "/",
                                             "search": "",
-                                            "state": null,
                                           }
                                         }
-                                        navigate={[Function]}
+                                        navigate={[MockFunction]}
                                         permissions={
                                           Object {
                                             "baselinesRead": true,
@@ -50903,7 +50888,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                                                     ]
                                                                   }
                                                                   fetchWithParams={[Function]}
-                                                                  navigate={[Function]}
+                                                                  navigate={[MockFunction]}
                                                                   selectedBaselineIds={Array []}
                                                                   tableId="CHECKBOX"
                                                                 >
@@ -51838,7 +51823,7 @@ exports[`ConnectedBaselinesTable should render multi-select table 1`] = `
                                                                     ]
                                                                   }
                                                                   fetchWithParams={[Function]}
-                                                                  navigate={[Function]}
+                                                                  navigate={[MockFunction]}
                                                                   selectedBaselineIds={Array []}
                                                                   tableId="CHECKBOX"
                                                                 >
@@ -53889,13 +53874,10 @@ exports[`ConnectedBaselinesTable should render no matching baselines 1`] = `
                                         location={
                                           Object {
                                             "hash": "",
-                                            "key": "default",
-                                            "pathname": "/",
                                             "search": "",
-                                            "state": null,
                                           }
                                         }
-                                        navigate={[Function]}
+                                        navigate={[MockFunction]}
                                         permissions={
                                           Object {
                                             "baselinesRead": true,
@@ -57556,7 +57538,24 @@ exports[`ConnectedBaselinesTable should render no matching baselines 1`] = `
                                                                     title="No matching baselines found"
                                                                   >
                                                                     <EmptyStateDisplay
-                                                                      chrome={null}
+                                                                      chrome={
+                                                                        Object {
+                                                                          "appAction": [MockFunction] {
+                                                                            "calls": Array [
+                                                                              Array [
+                                                                                "comparison-list",
+                                                                              ],
+                                                                            ],
+                                                                            "results": Array [
+                                                                              Object {
+                                                                                "type": "return",
+                                                                                "value": undefined,
+                                                                              },
+                                                                            ],
+                                                                          },
+                                                                          "isBeta": [MockFunction],
+                                                                        }
+                                                                      }
                                                                       text={
                                                                         Array [
                                                                           "To continue, edit your filter settings and search again.",
@@ -59475,13 +59474,10 @@ exports[`ConnectedBaselinesTable should render no table kebabs with no write per
                                         location={
                                           Object {
                                             "hash": "",
-                                            "key": "default",
-                                            "pathname": "/",
                                             "search": "",
-                                            "state": null,
                                           }
                                         }
-                                        navigate={[Function]}
+                                        navigate={[MockFunction]}
                                         permissions={
                                           Object {
                                             "baselinesRead": true,

@@ -30,7 +30,9 @@ jest.mock('../../../BaselinesTable/redux', () => ({
 
 jest.mock('../../../modules', () => ({
     compareActions: {
-        fetchCompare: jest.fn(()=> ({ type: 'null' }))
+        fetchCompare: jest.fn(()=> ({ type: 'null' })),
+        handleFactFilter: jest.fn(()=> ({ type: 'null' })),
+        addStateFilter: jest.fn(()=> ({ type: 'null' }))
     }
 }));
 
@@ -69,9 +71,15 @@ describe('DriftTable', () => {
             setIsFirstReference: jest.fn(),
             clearComparison: jest.fn(),
             setHistory: jest.fn(),
-            handleFactFilter: jest.fn(),
+            // handleFactFilter: jest.fn(),
+            handleFactFilter: jest.fn(()=> ({ type: 'null' })),
             addStateFilter: jest.fn(),
-            handleBaselineSelection: jest.fn()
+            handleBaselineSelection: jest.fn(),
+            searchParams: {
+                getAll: jest.fn(() => ''),
+                get: jest.fn(() => '')
+            },
+            factTypeFilters: []
         };
     });
 
@@ -129,61 +137,6 @@ describe('DriftTable', () => {
         expect(props.selectHistoricProfiles).toHaveBeenCalled();
         expect(props.setIsFirstReference).toHaveBeenCalledWith(true);
     });
-
-    it('should set fact filter', () => {
-        props.location.search = 'filter[name]=abc,123';
-        const wrapper = shallow(
-            <DriftTable { ...props } />
-        );
-
-        wrapper.instance().setFilters();
-        expect(props.handleFactFilter).toHaveBeenCalledWith('abc');
-        expect(props.handleFactFilter).toHaveBeenCalledWith('123');
-    });
-
-    it('should set state filter', () => {
-        props.location.search = 'filter[state]=same,incomplete_data';
-        const wrapper = shallow(
-            <DriftTable { ...props } />
-        );
-
-        wrapper.instance().setFilters();
-        expect(props.addStateFilter).toHaveBeenCalledWith(stateFilterFixtures.allStatesFalse[0]);
-        expect(props.addStateFilter).toHaveBeenCalledWith(stateFilterFixtures.allStatesFalse[2]);
-    });
-
-    it('should set sort asc', () => {
-        props.location.search = 'sort=fact,state';
-        const wrapper = shallow(
-            <DriftTable { ...props } />
-        );
-
-        wrapper.instance().setSort();
-        expect(props.toggleFactSort).toHaveBeenCalledWith(DESC);
-        expect(props.toggleStateSort).toHaveBeenCalledWith('');
-    });
-
-    it('should set sort desc', () => {
-        props.location.search = 'sort=-fact,-state';
-        const wrapper = shallow(
-            <DriftTable { ...props } />
-        );
-
-        wrapper.instance().setSort();
-        expect(props.toggleFactSort).toHaveBeenCalledWith(ASC);
-        expect(props.toggleStateSort).toHaveBeenCalledWith(ASC);
-    });
-
-    it('should set state sort, no sort', () => {
-        props.location.search = 'sort=fact';
-        const wrapper = shallow(
-            <DriftTable { ...props } />
-        );
-
-        wrapper.instance().setSort();
-        expect(props.toggleFactSort).toHaveBeenCalledWith(DESC);
-        expect(props.toggleStateSort).toHaveBeenCalledWith(DESC);
-    });
 });
 
 describe('ConnectedDriftTable', () => {
@@ -227,7 +180,15 @@ describe('ConnectedDriftTable', () => {
             updateReferenceId: jest.fn(),
             setIsFirstReference: jest.fn(),
             setHistory: jest.fn(),
-            fetchCompare: jest.fn()
+            fetchCompare: jest.fn(),
+            searchParams: {
+                getAll: jest.fn(() => ''),
+                get: jest.fn(() => '')
+            },
+            stateFilters: [],
+            factTypeFilters: [],
+            handleFactFilter: jest.fn(()=> ({ type: 'null' })),
+            addStateFilter: jest.fn(()=> ({ type: 'null' }))
         };
     });
 

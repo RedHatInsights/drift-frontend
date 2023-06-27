@@ -70,10 +70,8 @@ exports[`ConnectedCreateBaselineButton should render correctly 1`] = `
             location={
               Object {
                 "hash": "",
-                "key": "default",
                 "pathname": "/",
                 "search": "",
-                "state": null,
               }
             }
             navigate={[Function]}
@@ -141,6 +139,12 @@ exports[`CreateBaselineButton should render mount correctly 1`] = `
 <CreateBaselineButton
   addSystemModalOpened={false}
   loading={false}
+  location={
+    Object {
+      "pathname": "/",
+    }
+  }
+  navigate={[Function]}
   permissions={
     Object {
       "baselinesWrite": true,

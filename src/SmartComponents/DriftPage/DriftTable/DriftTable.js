@@ -147,9 +147,11 @@ export class DriftTable extends Component {
     /*eslint-disable*/
     setSystemIds() {
         let searchParams = this.props.searchParams
+        console.log("SEARCH PARAMS: ", searchParams)
 
         this.systemIds = searchParams.getAll('system_ids');
-        if (!this.systemIds.length) {
+        console.log("systemids", this.systemIds)
+        if (!this.systemIds?.length) {
             this.systemIds = this.props.systems.map(system => system.id);
         } else {
             this.systemIds = Array.isArray(this.systemIds) ? this.systemIds : [ this.systemIds ];
@@ -161,7 +163,7 @@ export class DriftTable extends Component {
         let searchParams = this.props.searchParams
 
         this.baselineIds = searchParams.getAll('baseline_ids');
-        if (!this.baselineIds.length) {
+        if (!this.baselineIds?.length) {
             this.baselineIds = this.props.baselines.map(baseline => baseline.id);
         } else {
             this.baselineIds = Array.isArray(this.baselineIds) ? this.baselineIds : [ this.baselineIds ];
@@ -174,7 +176,7 @@ export class DriftTable extends Component {
         const { selectHistoricProfiles, searchParams } = this.props;
 
         this.HSPIds = searchParams.getAll('hsp_ids');
-        if (!this.HSPIds.length) {
+        if (!this.HSPIds?.length) {
             this.HSPIds = this.props.historicalProfiles.map(hsp => hsp.id);
         } else {
             this.HSPIds = Array.isArray(this.HSPIds) ? this.HSPIds : [ this.HSPIds ];

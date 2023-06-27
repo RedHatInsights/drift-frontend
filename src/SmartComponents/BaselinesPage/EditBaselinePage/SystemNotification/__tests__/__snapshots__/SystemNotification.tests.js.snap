@@ -460,7 +460,24 @@ exports[`ConnectedSystemNotification should render correctly 1`] = `
                     title="You do not have access to the inventory"
                   >
                     <EmptyStateDisplay
-                      chrome={null}
+                      chrome={
+                        Object {
+                          "appAction": [MockFunction] {
+                            "calls": Array [
+                              Array [
+                                "comparison-list",
+                              ],
+                            ],
+                            "results": Array [
+                              Object {
+                                "type": "return",
+                                "value": undefined,
+                              },
+                            ],
+                          },
+                          "isBeta": [MockFunction],
+                        }
+                      }
                       color="#6a6e73"
                       icon={[Function]}
                       text={

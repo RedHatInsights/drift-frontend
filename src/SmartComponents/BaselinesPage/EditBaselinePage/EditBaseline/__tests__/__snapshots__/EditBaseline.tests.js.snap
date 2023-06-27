@@ -1336,7 +1336,24 @@ exports[`EditBaseline should render empty baseline 1`] = `
             }
           />
         }
-        chrome={null}
+        chrome={
+          Object {
+            "appAction": [MockFunction] {
+              "calls": Array [
+                Array [
+                  "comparison-list",
+                ],
+              ],
+              "results": Array [
+                Object {
+                  "type": "return",
+                  "value": undefined,
+                },
+              ],
+            },
+            "isBeta": [MockFunction],
+          }
+        }
         text={
           Array [
             "To get started, add a fact or category to this baseline.",
