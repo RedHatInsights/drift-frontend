@@ -50,7 +50,7 @@ InsightsElement.propTypes = {
     title: PropTypes.string
 };
 
-const Router = () => {
+const DriftRoutes = () => {
     return (
         <Routes>
             <Route
@@ -76,4 +76,4 @@ const Router = () => {
     );
 };
 
-export default Router;
+export default DriftRoutes;

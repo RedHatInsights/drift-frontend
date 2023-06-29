@@ -36,12 +36,6 @@ jest.mock('@redhat-cloud-services/frontend-components/AsyncComponent', () => (
     <div>AsyncComponent</div>
 ));
 
-// jest.mock('@redhat-cloud-services/frontend-components/Inventory', () => ({
-//     // ...jest.requireActual('@redhat-cloud-services/frontend-components/Inventory'),
-//     InventoryTable: jest.fn()
-// }));
-// InventoryTable.mockImplementation((props) => <InventoryTableMock { ...props } />);
-
 configure({ adapter: new Adapter() });
 global.shallow = shallow;
 global.render = render;

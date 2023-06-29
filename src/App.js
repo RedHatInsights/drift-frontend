@@ -4,7 +4,7 @@ import actions from './SmartComponents/modules/actions';
 import { NotificationsPortal } from '@redhat-cloud-services/frontend-components-notifications';
 import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
 
-import Router from './Routes';
+import DriftRoutes from './Routes';
 import './App.scss';
 import { useNavigate } from 'react-router-dom';
 
@@ -109,7 +109,7 @@ const App = () => {
                     }
                 }}>
                 <NotificationsPortal store={ store }/>
-                <Router />
+                <DriftRoutes />
             </PermissionContext.Provider>
             : null
     );
