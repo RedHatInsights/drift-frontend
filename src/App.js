@@ -6,7 +6,6 @@ import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome'
 
 import DriftRoutes from './Routes';
 import './App.scss';
-import { useNavigate } from 'react-router-dom';
 
 export const PermissionContext = createContext();
 
@@ -14,7 +13,6 @@ const App = () => {
     const dispatch = useDispatch();
     const store = useStore();
     const chrome = useChrome();
-    const navigate = useNavigate();
 
     const [{
         hasCompareReadPermissions,
@@ -66,7 +64,7 @@ const App = () => {
         chrome.identifyApp('drift');
         chrome.on('APP_NAVIGATION', event => {
             if (event.domEvent !== undefined && event.domEvent.type === 'click') {
-                navigate(`/${event.navId}`);
+                chrome.appNavClick(`/${event.navId}`);
             }
         });
         (async () => {
