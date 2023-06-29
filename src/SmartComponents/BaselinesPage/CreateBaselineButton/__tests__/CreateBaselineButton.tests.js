@@ -14,6 +14,7 @@ jest.mock('react-router-dom', () => ({
 
 describe('CreateBaselineButton', () => {
     let props;
+
     beforeEach(() => {
         props = {
             addSystemModalOpened: false,

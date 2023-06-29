@@ -36,10 +36,6 @@ jest.mock('../../../modules', () => ({
     }
 }));
 
-// jest.mock('@redhat-cloud-services/frontend-components/useChrome', () => ({
-//     useChrome: () => null
-// }));
-
 describe('DriftTable', () => {
     let props;
 
@@ -71,7 +67,6 @@ describe('DriftTable', () => {
             setIsFirstReference: jest.fn(),
             clearComparison: jest.fn(),
             setHistory: jest.fn(),
-            // handleFactFilter: jest.fn(),
             handleFactFilter: jest.fn(()=> ({ type: 'null' })),
             addStateFilter: jest.fn(),
             handleBaselineSelection: jest.fn(),
@@ -136,6 +131,61 @@ describe('DriftTable', () => {
         expect(props.handleBaselineSelection).toHaveBeenCalled();
         expect(props.selectHistoricProfiles).toHaveBeenCalled();
         expect(props.setIsFirstReference).toHaveBeenCalledWith(true);
+    });
+
+    it('should set fact filter', () => {
+        props.searchParams = new URLSearchParams('filter[name]=abc,123');
+        const wrapper = shallow(
+            <DriftTable { ...props } />
+        );
+
+        wrapper.instance().setFilters();
+        expect(props.handleFactFilter).toHaveBeenCalledWith('abc');
+        expect(props.handleFactFilter).toHaveBeenCalledWith('123');
+    });
+
+    it('should set state filter', () => {
+        props.searchParams = new URLSearchParams('filter[state]=same,incomplete_data');
+        const wrapper = shallow(
+            <DriftTable { ...props } />
+        );
+
+        wrapper.instance().setFilters();
+        expect(props.addStateFilter).toHaveBeenCalledWith(stateFilterFixtures.allStatesFalse[0]);
+        expect(props.addStateFilter).toHaveBeenCalledWith(stateFilterFixtures.allStatesFalse[2]);
+    });
+
+    it('should set sort asc', () => {
+        props.searchParams = new URLSearchParams('sort=fact,state');
+        const wrapper = shallow(
+            <DriftTable { ...props } />
+        );
+
+        wrapper.instance().setSort();
+        expect(props.toggleFactSort).toHaveBeenCalledWith(DESC);
+        expect(props.toggleStateSort).toHaveBeenCalledWith('');
+    });
+
+    it('should set sort desc', () => {
+        props.searchParams = new URLSearchParams('sort=-fact,-state');
+        const wrapper = shallow(
+            <DriftTable { ...props } />
+        );
+
+        wrapper.instance().setSort();
+        expect(props.toggleFactSort).toHaveBeenCalledWith(ASC);
+        expect(props.toggleStateSort).toHaveBeenCalledWith(ASC);
+    });
+
+    it('should set state sort, no sort', () => {
+        props.searchParams = new URLSearchParams('sort=fact');
+        const wrapper = shallow(
+            <DriftTable { ...props } />
+        );
+
+        wrapper.instance().setSort();
+        expect(props.toggleFactSort).toHaveBeenCalledWith(DESC);
+        expect(props.toggleStateSort).toHaveBeenCalledWith(DESC);
     });
 });
 

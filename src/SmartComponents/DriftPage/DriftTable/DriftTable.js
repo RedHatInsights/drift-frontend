@@ -147,10 +147,8 @@ export class DriftTable extends Component {
     /*eslint-disable*/
     setSystemIds() {
         let searchParams = this.props.searchParams
-        console.log("SEARCH PARAMS: ", searchParams)
 
         this.systemIds = searchParams.getAll('system_ids');
-        console.log("systemids", this.systemIds)
         if (!this.systemIds?.length) {
             this.systemIds = this.props.systems.map(system => system.id);
         } else {
