@@ -5,7 +5,8 @@ import { Button, Tooltip } from '@patternfly/react-core';
 
 import { createBaselineModalActions } from '../CreateBaselineModal/redux';
 import { addSystemModalActions } from '../../AddSystemModal/redux';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import useInsightsNavigate from '@redhat-cloud-services/frontend-components-utilities/useInsightsNavigate';
 
 export class CreateBaselineButton extends Component {
     constructor(props) {
@@ -20,7 +21,7 @@ export class CreateBaselineButton extends Component {
                 toggleAddSystemModal();
             }
 
-            navigate('baselines');
+            navigate('/baselines');
         }
 
         toggleCreateBaselineModal();
@@ -86,7 +87,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 const CreateBaselineButtonWithHooks = props => {
-    const navigate = useNavigate();
+    const navigate = useInsightsNavigate();
     const location = useLocation();
     return (
         <CreateBaselineButton { ...props } navigate={ navigate } location={ location } />

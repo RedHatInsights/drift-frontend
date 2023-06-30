@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { Main, PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components';
@@ -24,6 +24,7 @@ import { RegistryContext } from '../../../Utilities/registry';
 
 import _ from 'lodash';
 import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
+import useInsightsNavigate from '@redhat-cloud-services/frontend-components-utilities/useInsightsNavigate';
 
 export class EditBaselinePage extends Component {
     constructor(props) {
@@ -91,7 +92,7 @@ export class EditBaselinePage extends Component {
 
         clearBaselineData('CHECKBOX');
         fetchBaselines('CHECKBOX');
-        navigate('../baselines');
+        navigate('/baselines');
     }
 
     retryBaselineFetch = () => {
@@ -404,7 +405,7 @@ function mapDispatchToProps(dispatch) {
 const EditBaselinePageWithHooks = props => {
     const chrome = useChrome();
     const params = useParams();
-    const navigate = useNavigate();
+    const navigate = useInsightsNavigate();
     return (
         <EditBaselinePage { ...props } chrome={ chrome } params={ params } navigate={ navigate } />
     );

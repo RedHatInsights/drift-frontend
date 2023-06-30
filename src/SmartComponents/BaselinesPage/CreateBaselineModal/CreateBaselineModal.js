@@ -11,7 +11,7 @@ import GlobalFilterAlert from '../../GlobalFilterAlert/GlobalFilterAlert';
 import { createBaselineModalActions } from './redux';
 import { baselinesTableActions } from '../../BaselinesTable/redux';
 import systemsTableActions from '../../SystemsTable/actions';
-import { useNavigate } from 'react-router-dom';
+import useInsightsNavigate from '@redhat-cloud-services/frontend-components-utilities/useInsightsNavigate';
 
 export class CreateBaselineModal extends Component {
     constructor(props) {
@@ -142,7 +142,7 @@ export class CreateBaselineModal extends Component {
                     await createBaseline(newBaselineObject);
                 }
 
-                navigate('baselines/' + this.props.baselineData.id);
+                navigate('/baselines/' + this.props.baselineData.id);
                 toggleCreateBaselineModal();
                 selectSingleHSP();
                 clearSelectedBaselines('RADIO');
@@ -432,7 +432,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 const CreateBaselineModalWithHooks = props => {
-    const navigate = useNavigate();
+    const navigate = useInsightsNavigate();
     return (
         <CreateBaselineModal { ...props } navigate={ navigate } />
     );

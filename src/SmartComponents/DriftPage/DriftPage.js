@@ -21,7 +21,8 @@ import { PermissionContext } from '../../App';
 import { RegistryContext } from '../../Utilities/registry';
 
 import { EMPTY_COMPARISON_TITLE, EMPTY_COMPARISON_MESSAGE } from '../../constants';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
+import useInsightsNavigate from '@redhat-cloud-services/frontend-components-utilities/useInsightsNavigate';
 
 export class DriftPage extends Component {
     constructor(props) {
@@ -320,7 +321,7 @@ function mapStateToProps(state) {
 
 const DriftPageWithHooks = props => {
     const [ searchParams ] = useSearchParams();
-    const navigate = useNavigate();
+    const navigate = useInsightsNavigate();
     return (
         <DriftPage { ...props } searchParams={ searchParams } navigate={ navigate } />
     );

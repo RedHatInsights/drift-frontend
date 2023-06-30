@@ -21,6 +21,12 @@ plugins.push(
         exclude: [ 'react-redux', 'react-router-dom' ],
         shared: [
             {
+                'react-redux': {
+                    requiredVersion: '*',
+                    singleton: true
+                }
+            },
+            {
                 'react-router-dom': {
                     singleton: true,
                     requiredVersion: '*'

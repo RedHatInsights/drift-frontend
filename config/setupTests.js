@@ -21,6 +21,12 @@ jest.mock('@redhat-cloud-services/frontend-components/useChrome', () => ({
     })
 }));
 
+jest.mock('@redhat-cloud-services/frontend-components-utilities/useInsightsNavigate', () => ({
+    __esModule: true,
+    default: () => jest.fn(),
+    useInsightsNavigate: () => jest.fn()
+}));
+
 jest.mock('react-router-dom', () => ({
     ...jest.requireActual('react-router-dom'),
     useLocation: () => ({ hash: '', search: '' }),

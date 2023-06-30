@@ -16,7 +16,7 @@ import { historicProfilesActions } from '../HistoricalProfilesPopover/redux';
 import { PermissionContext } from '../../App';
 import { RegistryContext } from '../../Utilities/registry';
 import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
-import { useNavigate } from 'react-router-dom';
+import useInsightsNavigate from '@redhat-cloud-services/frontend-components-utilities/useInsightsNavigate';
 
 export class BaselinesPage extends Component {
     constructor(props) {
@@ -53,7 +53,7 @@ export class BaselinesPage extends Component {
     fetchBaseline = (baselineId) => {
         const { navigate } = this.props;
 
-        navigate('../baselines/' + baselineId);
+        navigate('/baselines/' + baselineId);
     }
 
     onSelect = (event, isSelected, rowId) => {
@@ -195,7 +195,7 @@ function mapDispatchToProps(dispatch) {
 
 const BaselinesPageWithHooks = props => {
     const chrome = useChrome();
-    const navigate = useNavigate();
+    const navigate = useInsightsNavigate();
     return (
         <BaselinesPage { ...props } chrome={ chrome } navigate={ navigate } />
     );
