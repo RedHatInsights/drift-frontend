@@ -6,15 +6,16 @@ import asyncComponent from './Utilities/asyncComponent';
 import axios from 'axios';
 import AsynComponent from '@redhat-cloud-services/frontend-components/AsyncComponent';
 import { ErrorState } from '@redhat-cloud-services/frontend-components';
+import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
 
 const DriftPage = asyncComponent(() => import ('./SmartComponents/DriftPage/DriftPage'));
 const BaselinesPage = asyncComponent(() => import ('./SmartComponents/BaselinesPage/BaselinesPage'));
 const EditBaselinePage = asyncComponent(() => import ('./SmartComponents/BaselinesPage/EditBaselinePage/EditBaselinePage'));
 
 const InsightsRoute = ({ component: Component, title, ...rest }) => {
-    title ? document.title = title : null;
     const INVENTORY_TOTAL_FETCH_URL = '/api/inventory/v1/hosts';
     const [ hasSystems, setHasSystems ] = useState(false);
+    const chrome = useChrome();
     useEffect(() => {
         try {
             axios
@@ -26,6 +27,10 @@ const InsightsRoute = ({ component: Component, title, ...rest }) => {
             console.log(e);
         }
     }, [ hasSystems ]);
+
+    useEffect(()=>{
+        title && chrome.updateDocumentTitle(title);
+    }, [ chrome, title ]);
 
     return (
         !hasSystems ?

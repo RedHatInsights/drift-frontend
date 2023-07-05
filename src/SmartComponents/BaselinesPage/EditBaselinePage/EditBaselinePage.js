@@ -61,10 +61,10 @@ export class EditBaselinePage extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        const { baselineData, editBaselineError, notificationsSwitchError } = this.props;
+        const { baselineData, editBaselineError, notificationsSwitchError  } = this.props;
 
         if (baselineData) {
-            document.title = this.props.baselineData.display_name + ' - Baselines - Drift | Red Hat Insights';
+            this.props.chrome.updateDocumentTitle(`${this.props.baselineData.display_name} - Baselines - Drift | Red Hat Insights'`) ;
         }
 
         if (prevProps.editBaselineError !== editBaselineError) {
