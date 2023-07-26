@@ -62,11 +62,6 @@ const App = () => {
 
     useEffect(() => {
         chrome.identifyApp('drift');
-        chrome.on('APP_NAVIGATION', event => {
-            if (event.domEvent !== undefined && event.domEvent.type === 'click') {
-                chrome.appNavClick(`/${event.navId}`);
-            }
-        });
         (async () => {
             const driftPermissions = await chrome.getUserPermissions('drift');
             const fullPermissions = driftPermissions.concat(await chrome.getUserPermissions('inventory'));
