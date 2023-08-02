@@ -1,4 +1,4 @@
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 
@@ -12,7 +12,7 @@ const DriftPage = asyncComponent(() => import ('./SmartComponents/DriftPage/Drif
 const BaselinesPage = asyncComponent(() => import ('./SmartComponents/BaselinesPage/BaselinesPage'));
 const EditBaselinePage = asyncComponent(() => import ('./SmartComponents/BaselinesPage/EditBaselinePage/EditBaselinePage'));
 
-const InsightsRoute = ({ component: Component, title, ...rest }) => {
+const InsightsElement = ({ element: Element, title }) => {
     const INVENTORY_TOTAL_FETCH_URL = '/api/inventory/v1/hosts';
     const [ hasSystems, setHasSystems ] = useState(false);
     const chrome = useChrome();
@@ -42,29 +42,38 @@ const InsightsRoute = ({ component: Component, title, ...rest }) => {
                 ErrorComponent={ <ErrorState /> }
                 app="Drift"
             />
-            : <Route { ...rest } component={ Component } />);
+            : <Element title={ title } />);
 };
 
-InsightsRoute.propTypes = {
-    component: PropTypes.func,
+InsightsElement.propTypes = {
+    element: PropTypes.func,
     title: PropTypes.string
 };
 
-export const Routes = () => {
+const DriftRoutes = () => {
     return (
-        <Switch>
-            <InsightsRoute
-                exact path='/baselines'
-                component={ BaselinesPage }
-                title='Baselines - Drift | Red Hat Insights'
+        <Routes>
+            <Route
+                path='/baselines'
+                element={ <InsightsElement element={ BaselinesPage }
+                    title='Baselines - Drift | Red Hat Insights'
+                /> }
             />
-            <InsightsRoute path='/baselines/:id' component={ EditBaselinePage } />
-            <InsightsRoute
-                exact path='/'
-                component={ DriftPage }
+            <Route path='/baselines/:id'
+                element={ <InsightsElement element={ EditBaselinePage } /> }
+            />
+            <Route
+                path='/'
                 title='Comparison - Drift | Red Hat Insights'
+                element={ <InsightsElement element={ DriftPage }
+                    title='Comparison - Drift | Red Hat Insights'
+                /> }
             />
-            <Redirect to='/'/>
-        </Switch>
+            <Route path='*'
+                element={ <Navigate to="/" replace /> }
+            />
+        </Routes>
     );
 };
+
+export default DriftRoutes;

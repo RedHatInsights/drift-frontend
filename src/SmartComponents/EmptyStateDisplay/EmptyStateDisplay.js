@@ -36,8 +36,8 @@ export class EmptyStateDisplay extends Component {
                     { title }
                 </Title>
                 <EmptyStateBody>
-                    { text ? text.map(line =>
-                        <React.Fragment>
+                    { text ? text.map((line, index) =>
+                        <React.Fragment key={ index }>
                             { line }
                             <br />
                         </React.Fragment>)
@@ -63,11 +63,11 @@ EmptyStateDisplay.propTypes = {
     chrome: PropTypes.object
 };
 
-const EmptyStateDisplayWithChrome = props => {
+const EmptyStateDisplayWithHooks = props => {
     const chrome = useChrome();
     return (
         <EmptyStateDisplay { ...props } chrome={ chrome } />
     );
 };
 
-export default EmptyStateDisplayWithChrome;
+export default EmptyStateDisplayWithHooks;

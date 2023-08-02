@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { Main, PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components';
@@ -24,6 +24,7 @@ import { RegistryContext } from '../../../Utilities/registry';
 
 import _ from 'lodash';
 import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
+import useInsightsNavigate from '@redhat-cloud-services/frontend-components-utilities/useInsightsNavigate';
 
 export class EditBaselinePage extends Component {
     constructor(props) {
@@ -54,7 +55,7 @@ export class EditBaselinePage extends Component {
     }
 
     async componentDidMount() {
-        const { match: { params }} = this.props;
+        const { params } = this.props;
         const chrome = this.props.chrome;
         await chrome?.appAction('baseline-view');
         await chrome.appObjectId(params.id);
@@ -81,17 +82,17 @@ export class EditBaselinePage extends Component {
     }
 
     async fetchBaselineId() {
-        const { match: { params }, fetchBaselineData } = this.props;
+        const { params, fetchBaselineData } = this.props;
 
         await fetchBaselineData(params.id);
     }
 
     goToBaselinesList() {
-        const { clearBaselineData, fetchBaselines, history } = this.props;
+        const { clearBaselineData, fetchBaselines, navigate } = this.props;
 
         clearBaselineData('CHECKBOX');
         fetchBaselines('CHECKBOX');
-        history.push('/baselines');
+        navigate('/baselines');
     }
 
     retryBaselineFetch = () => {
@@ -239,7 +240,7 @@ export class EditBaselinePage extends Component {
     renderMain(permissions) {
         const { baselineData, baselineDataLoading, clearErrorData, driftClearFilters, editBaselineEmptyState, editBaselineError,
             editBaselineTableData, entities, expandRow, expandedRows, exportStatus, exportToCSV, exportToJSON, factModalOpened, fetchBaselineData,
-            resetBaselineDataExportStatus, selectFact, match: { params }, selectEntities, selectHistoricProfiles, setSelectedSystemIds,
+            resetBaselineDataExportStatus, selectFact, params, selectEntities, selectHistoricProfiles, setSelectedSystemIds,
             toggleNameSort, toggleValueSort, nameSort, valueSort } = this.props;
         const { activeTab } = this.state;
         let body;
@@ -260,7 +261,6 @@ export class EditBaselinePage extends Component {
                 exportToJSON={ exportToJSON }
                 factModalOpened={ factModalOpened }
                 permissions={ permissions }
-                history={ history }
                 selectFact={ selectFact }
                 toggleNameSort={ toggleNameSort }
                 toggleValueSort= { toggleValueSort }
@@ -317,8 +317,6 @@ export class EditBaselinePage extends Component {
 /*eslint-enable*/
 
 EditBaselinePage.propTypes = {
-    history: PropTypes.object,
-    match: PropTypes.any,
     clearBaselineData: PropTypes.func,
     baselineData: PropTypes.object,
     baselineDataLoading: PropTypes.bool,
@@ -350,7 +348,9 @@ EditBaselinePage.propTypes = {
     nameSort: PropTypes.string,
     valueSort: PropTypes.string,
     resetBaselineDataExportStatus: PropTypes.func,
-    chrome: PropTypes.object
+    chrome: PropTypes.object,
+    params: PropTypes.object,
+    navigate: PropTypes.func
 };
 
 function mapStateToProps(state) {
@@ -402,11 +402,13 @@ function mapDispatchToProps(dispatch) {
 }
 /*eslint-enable camelcase*/
 
-const EditBaselinePageWithChrome = props => {
+const EditBaselinePageWithHooks = props => {
     const chrome = useChrome();
+    const params = useParams();
+    const navigate = useInsightsNavigate();
     return (
-        <EditBaselinePage { ...props } chrome={ chrome } />
+        <EditBaselinePage { ...props } chrome={ chrome } params={ params } navigate={ navigate } />
     );
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(EditBaselinePageWithChrome));
+export default connect(mapStateToProps, mapDispatchToProps)(EditBaselinePageWithHooks);

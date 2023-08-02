@@ -7,6 +7,11 @@ import toJson from 'enzyme-to-json';
 
 import ConnectedCreateBaselineButton, { CreateBaselineButton } from '../CreateBaselineButton';
 
+jest.mock('react-router-dom', () => ({
+    ...jest.requireActual('react-router-dom'),
+    useLocation: () => ({ hash: '', search: '', pathname: '/' })
+}));
+
 describe('CreateBaselineButton', () => {
     let props;
 
@@ -16,7 +21,11 @@ describe('CreateBaselineButton', () => {
             loading: false,
             permissions: {
                 baselinesWrite: true
-            }
+            },
+            location: {
+                pathname: '/'
+            },
+            navigate: () => jest.fn()
         };
     });
 

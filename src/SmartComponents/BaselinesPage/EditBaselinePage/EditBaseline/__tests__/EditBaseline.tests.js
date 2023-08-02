@@ -33,7 +33,6 @@ describe('EditBaseline', () => {
                 editBaselineError: {},
                 inlineError: {}
             },
-            match: { params: {}},
             clearBaselineData: jest.fn(),
             selectFact: jest.fn(),
             onBulkSelect: jest.fn(),

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
 import { ASC, DESC } from '../../../constants';
@@ -147,10 +146,10 @@ export class DriftTable extends Component {
 
     /*eslint-disable*/
     setSystemIds() {
-        let searchParams = new URLSearchParams(this.props.location.search);
+        let searchParams = this.props.searchParams
 
         this.systemIds = searchParams.getAll('system_ids');
-        if (!this.systemIds.length) {
+        if (!this.systemIds?.length) {
             this.systemIds = this.props.systems.map(system => system.id);
         } else {
             this.systemIds = Array.isArray(this.systemIds) ? this.systemIds : [ this.systemIds ];
@@ -159,10 +158,10 @@ export class DriftTable extends Component {
     }
 
     setBaselineIds() {
-        let searchParams = new URLSearchParams(this.props.location.search);
+        let searchParams = this.props.searchParams
 
         this.baselineIds = searchParams.getAll('baseline_ids');
-        if (!this.baselineIds.length) {
+        if (!this.baselineIds?.length) {
             this.baselineIds = this.props.baselines.map(baseline => baseline.id);
         } else {
             this.baselineIds = Array.isArray(this.baselineIds) ? this.baselineIds : [ this.baselineIds ];
@@ -172,11 +171,10 @@ export class DriftTable extends Component {
     }
 
     setHSPIds() {
-        const { location, selectHistoricProfiles } = this.props;
-        let searchParams = new URLSearchParams(location.search);
+        const { selectHistoricProfiles, searchParams } = this.props;
 
         this.HSPIds = searchParams.getAll('hsp_ids');
-        if (!this.HSPIds.length) {
+        if (!this.HSPIds?.length) {
             this.HSPIds = this.props.historicalProfiles.map(hsp => hsp.id);
         } else {
             this.HSPIds = Array.isArray(this.HSPIds) ? this.HSPIds : [ this.HSPIds ];
@@ -186,8 +184,7 @@ export class DriftTable extends Component {
     }
 
     setReferenceId() {
-        const { location, updateReferenceId } = this.props;
-        let searchParams = new URLSearchParams(location.search);
+        const { updateReferenceId, searchParams } = this.props;
         let referenceId = searchParams.get('reference_id');
 
         if (referenceId) {
@@ -216,8 +213,7 @@ export class DriftTable extends Component {
     }
 
     setFilters() {
-        const { addStateFilter, factTypeFilters, handleFactFilter, location, stateFilters, toggleFactTypeFilter } = this.props;
-        let searchParams = new URLSearchParams(location.search);
+        const { addStateFilter, factTypeFilters, handleFactFilter, stateFilters, toggleFactTypeFilter, searchParams } = this.props;
 
         searchParams.get('filter[name]')?.split(',').forEach(function(factFilter) {
             handleFactFilter(factFilter);
@@ -231,8 +227,7 @@ export class DriftTable extends Component {
     }
 
     setSort() {
-        const { location, toggleFactSort, toggleStateSort } = this.props;
-        let searchParams = new URLSearchParams(location.search);
+        const { toggleFactSort, toggleStateSort, searchParams } = this.props;
 
         let sort = searchParams.get('sort')?.split(',');
 
@@ -568,7 +563,6 @@ function mapDispatchToProps(dispatch) {
 
 DriftTable.propTypes = {
     addSystemModalOpened: PropTypes.bool,
-    location: PropTypes.object,
     history: PropTypes.object,
     fetchCompare: PropTypes.func,
     fullCompareData: PropTypes.array,
@@ -607,14 +601,15 @@ DriftTable.propTypes = {
     hasHSPReadPermissions: PropTypes.bool,
     factTypeFilters: PropTypes.array,
     toggleFactTypeFilters: PropTypes.func,
-    chrome: PropTypes.object
+    chrome: PropTypes.object,
+    searchParams: PropTypes.object
 };
 
-const DriftTableWithChrome = props => {
+const DriftTableWithHooks = props => {
     const chrome = useChrome();
     return (
         <DriftTable { ...props } chrome={ chrome } />
     );
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DriftTableWithChrome));
+export default connect(mapStateToProps, mapDispatchToProps)(DriftTableWithHooks);

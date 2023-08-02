@@ -1,17 +1,15 @@
 import React, { createContext, useState, useEffect } from 'react';
 import { useDispatch, useStore } from 'react-redux';
 import actions from './SmartComponents/modules/actions';
-import { withRouter, useHistory } from 'react-router-dom';
 import { NotificationsPortal } from '@redhat-cloud-services/frontend-components-notifications';
 import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
 
-import { Routes } from './Routes';
+import DriftRoutes from './Routes';
 import './App.scss';
 
 export const PermissionContext = createContext();
 
-const App = (props) => {
-    const history = useHistory();
+const App = () => {
     const dispatch = useDispatch();
     const store = useStore();
     const chrome = useChrome();
@@ -64,11 +62,6 @@ const App = (props) => {
 
     useEffect(() => {
         chrome.identifyApp('drift');
-        chrome.on('APP_NAVIGATION', event => {
-            if (event.domEvent !== undefined && event.domEvent.type === 'click') {
-                history.push(`/${event.navId}`);
-            }
-        });
         (async () => {
             const driftPermissions = await chrome.getUserPermissions('drift');
             const fullPermissions = driftPermissions.concat(await chrome.getUserPermissions('inventory'));
@@ -109,10 +102,10 @@ const App = (props) => {
                     }
                 }}>
                 <NotificationsPortal store={ store }/>
-                <Routes childProps={ props } />
+                <DriftRoutes />
             </PermissionContext.Provider>
             : null
     );
 };
 
-export default withRouter (App);
+export default (App);
