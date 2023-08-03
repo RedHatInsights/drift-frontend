@@ -15,7 +15,16 @@ plugins.push(
         root: resolve(__dirname, '../'),
         exposes: {
             './RootApp': resolve(__dirname, '../src/DevEntry')
-        }
+        },
+        exclude: [ 'react-router-dom' ],
+        shared: [
+            {
+                'react-router-dom': {
+                    singleton: true,
+                    requiredVersion: '*'
+                }
+            }
+        ]
     })
 );
 
