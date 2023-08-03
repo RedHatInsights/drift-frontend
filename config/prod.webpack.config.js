@@ -11,7 +11,16 @@ const { config: webpackConfig, plugins } = config({
 
 plugins.push(
     require('@redhat-cloud-services/frontend-components-config/federated-modules')({
-        root: resolve(__dirname, '../')
+        root: resolve(__dirname, '../'),
+        exclude: [ 'react-router-dom' ],
+        shared: [
+            {
+                'react-router-dom': {
+                    singleton: true,
+                    requiredVersion: '*'
+                }
+            }
+        ]
     })
 );
 
