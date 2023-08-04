@@ -14,7 +14,7 @@ const EditBaselinePage = asyncComponent(() => import ('./SmartComponents/Baselin
 
 const InsightsElement = ({ element: Element, title }) => {
     const INVENTORY_TOTAL_FETCH_URL = '/api/inventory/v1/hosts';
-    const [ hasSystems, setHasSystems ] = useState(false);
+    const [ hasSystems, setHasSystems ] = useState(true);
     const chrome = useChrome();
     useEffect(() => {
         try {
