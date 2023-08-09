@@ -1013,31 +1013,31 @@ exports[`ConnectedDeleteBaselinesModal should render correctly 1`] = `
   keyLength={0}
 >
   <Router
-    history={
+    location={
+      Object {
+        "hash": "",
+        "key": "default",
+        "pathname": "/",
+        "search": "",
+        "state": null,
+      }
+    }
+    navigationType="POP"
+    navigator={
       Object {
         "action": "POP",
-        "block": [Function],
-        "canGo": [Function],
         "createHref": [Function],
-        "entries": Array [
-          Object {
-            "hash": "",
-            "pathname": "/",
-            "search": "",
-            "state": undefined,
-          },
-        ],
+        "createURL": [Function],
+        "encodeLocation": [Function],
         "go": [Function],
-        "goBack": [Function],
-        "goForward": [Function],
         "index": 0,
-        "length": 1,
         "listen": [Function],
         "location": Object {
           "hash": "",
+          "key": "default",
           "pathname": "/",
           "search": "",
-          "state": undefined,
+          "state": null,
         },
         "push": [Function],
         "replace": [Function],
@@ -1240,7 +1240,7 @@ exports[`ConnectedDeleteBaselinesModal should render correctly 1`] = `
                   <div
                     className="pf-c-backdrop"
                   >
-                    <FocusTrap
+                    <ForwardRef
                       active={true}
                       className="pf-l-bullseye"
                       focusTrapOptions={
@@ -1251,152 +1251,74 @@ exports[`ConnectedDeleteBaselinesModal should render correctly 1`] = `
                           },
                         }
                       }
-                      paused={false}
-                      preventScrollOnDeactivate={false}
                     >
-                      <div
+                      <FocusTrap
+                        active={true}
                         className="pf-l-bullseye"
+                        focusTrapOptions={
+                          Object {
+                            "clickOutsideDeactivates": true,
+                            "tabbableOptions": Object {
+                              "displayCheck": "none",
+                            },
+                          }
+                        }
+                        innerRef={null}
+                        paused={false}
+                        preventScrollOnDeactivate={false}
                       >
-                        <ModalBox
-                          aria-describedby="pf-modal-part-7"
-                          aria-label=""
-                          aria-labelledby="pf-modal-part-6"
-                          className="drift"
-                          data-ouia-component-id="OUIA-Generated-Modal-small-6"
-                          data-ouia-component-type="PF4/ModalContent"
-                          data-ouia-safe={true}
-                          id="pf-modal-part-5"
-                          style={Object {}}
-                          variant="small"
+                        <div
+                          className="pf-l-bullseye"
                         >
-                          <div
+                          <ModalBox
                             aria-describedby="pf-modal-part-7"
-                            aria-label={null}
+                            aria-label=""
                             aria-labelledby="pf-modal-part-6"
-                            aria-modal="true"
-                            className="pf-c-modal-box drift pf-m-sm"
+                            className="drift"
                             data-ouia-component-id="OUIA-Generated-Modal-small-6"
                             data-ouia-component-type="PF4/ModalContent"
                             data-ouia-safe={true}
                             id="pf-modal-part-5"
-                            role="dialog"
                             style={Object {}}
+                            variant="small"
                           >
-                            <ModalBoxCloseButton
-                              onClose={[Function]}
-                              ouiaId="OUIA-Generated-Modal-small-6"
+                            <div
+                              aria-describedby="pf-modal-part-7"
+                              aria-label={null}
+                              aria-labelledby="pf-modal-part-6"
+                              aria-modal="true"
+                              className="pf-c-modal-box drift pf-m-sm"
+                              data-ouia-component-id="OUIA-Generated-Modal-small-6"
+                              data-ouia-component-type="PF4/ModalContent"
+                              data-ouia-safe={true}
+                              id="pf-modal-part-5"
+                              role="dialog"
+                              style={Object {}}
                             >
-                              <Button
-                                aria-label="Close"
-                                className=""
-                                onClick={[Function]}
-                                ouiaId="OUIA-Generated-Modal-small-6-ModalBoxCloseButton"
-                                variant="plain"
+                              <ModalBoxCloseButton
+                                onClose={[Function]}
+                                ouiaId="OUIA-Generated-Modal-small-6"
                               >
-                                <ButtonBase
+                                <Button
                                   aria-label="Close"
                                   className=""
-                                  innerRef={null}
                                   onClick={[Function]}
                                   ouiaId="OUIA-Generated-Modal-small-6-ModalBoxCloseButton"
                                   variant="plain"
                                 >
-                                  <button
-                                    aria-disabled={false}
-                                    aria-label="Close"
-                                    className="pf-c-button pf-m-plain"
-                                    data-ouia-component-id="OUIA-Generated-Modal-small-6-ModalBoxCloseButton"
-                                    data-ouia-component-type="PF4/Button"
-                                    data-ouia-safe={true}
-                                    disabled={false}
-                                    onClick={[Function]}
-                                    role={null}
-                                    type="button"
-                                  >
-                                    <TimesIcon
-                                      color="currentColor"
-                                      noVerticalAlign={false}
-                                      size="sm"
-                                    >
-                                      <svg
-                                        aria-hidden={true}
-                                        aria-labelledby={null}
-                                        fill="currentColor"
-                                        height="1em"
-                                        role="img"
-                                        style={
-                                          Object {
-                                            "verticalAlign": "-0.125em",
-                                          }
-                                        }
-                                        viewBox="0 0 352 512"
-                                        width="1em"
-                                      >
-                                        <path
-                                          d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
-                                        />
-                                      </svg>
-                                    </TimesIcon>
-                                  </button>
-                                </ButtonBase>
-                              </Button>
-                            </ModalBoxCloseButton>
-                            <ModalBoxHeader
-                              help={null}
-                            >
-                              <header
-                                className="pf-c-modal-box__header"
-                              >
-                                <ModalBoxTitle
-                                  id="pf-modal-part-6"
-                                  title="Delete 0 selected baselines"
-                                  titleIconVariant={null}
-                                  titleLabel=""
-                                >
-                                  <h1
-                                    className="pf-c-modal-box__title"
-                                    id="pf-modal-part-6"
-                                  >
-                                    <span
-                                      className="pf-c-modal-box__title-text"
-                                    >
-                                      Delete 0 selected baselines
-                                    </span>
-                                  </h1>
-                                </ModalBoxTitle>
-                              </header>
-                            </ModalBoxHeader>
-                            <ModalBoxBody
-                              id="pf-modal-part-7"
-                            >
-                              <div
-                                className="pf-c-modal-box__body"
-                                id="pf-modal-part-7"
-                              >
-                                Deleting a baseline is permanent and cannot be undone.
-                              </div>
-                            </ModalBoxBody>
-                            <ModalBoxFooter>
-                              <footer
-                                className="pf-c-modal-box__footer"
-                              >
-                                <Button
-                                  key="confirm"
-                                  onClick={[Function]}
-                                  ouiaId="delete"
-                                  variant="danger"
-                                >
                                   <ButtonBase
+                                    aria-label="Close"
+                                    className=""
                                     innerRef={null}
                                     onClick={[Function]}
-                                    ouiaId="delete"
-                                    variant="danger"
+                                    ouiaId="OUIA-Generated-Modal-small-6-ModalBoxCloseButton"
+                                    variant="plain"
                                   >
                                     <button
                                       aria-disabled={false}
-                                      aria-label={null}
-                                      className="pf-c-button pf-m-danger"
-                                      data-ouia-component-id="delete"
+                                      aria-label="Close"
+                                      className="pf-c-button pf-m-plain"
+                                      data-ouia-component-id="OUIA-Generated-Modal-small-6-ModalBoxCloseButton"
                                       data-ouia-component-type="PF4/Button"
                                       data-ouia-safe={true}
                                       disabled={false}
@@ -1404,41 +1326,133 @@ exports[`ConnectedDeleteBaselinesModal should render correctly 1`] = `
                                       role={null}
                                       type="button"
                                     >
-                                      Delete 0 selected baselines
+                                      <TimesIcon
+                                        color="currentColor"
+                                        noVerticalAlign={false}
+                                        size="sm"
+                                      >
+                                        <svg
+                                          aria-hidden={true}
+                                          aria-labelledby={null}
+                                          fill="currentColor"
+                                          height="1em"
+                                          role="img"
+                                          style={
+                                            Object {
+                                              "verticalAlign": "-0.125em",
+                                            }
+                                          }
+                                          viewBox="0 0 352 512"
+                                          width="1em"
+                                        >
+                                          <path
+                                            d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                          />
+                                        </svg>
+                                      </TimesIcon>
                                     </button>
                                   </ButtonBase>
                                 </Button>
-                                <Button
-                                  key="cancel"
-                                  ouiaId="cancel"
-                                  variant="link"
+                              </ModalBoxCloseButton>
+                              <ModalBoxHeader
+                                help={null}
+                              >
+                                <header
+                                  className="pf-c-modal-box__header"
                                 >
-                                  <ButtonBase
-                                    innerRef={null}
+                                  <ModalBoxTitle
+                                    id="pf-modal-part-6"
+                                    title="Delete 0 selected baselines"
+                                    titleIconVariant={null}
+                                    titleLabel=""
+                                  >
+                                    <h1
+                                      className="pf-c-modal-box__title"
+                                      id="pf-modal-part-6"
+                                    >
+                                      <span
+                                        className="pf-c-modal-box__title-text"
+                                      >
+                                        Delete 0 selected baselines
+                                      </span>
+                                    </h1>
+                                  </ModalBoxTitle>
+                                </header>
+                              </ModalBoxHeader>
+                              <ModalBoxBody
+                                id="pf-modal-part-7"
+                              >
+                                <div
+                                  className="pf-c-modal-box__body"
+                                  id="pf-modal-part-7"
+                                >
+                                  Deleting a baseline is permanent and cannot be undone.
+                                </div>
+                              </ModalBoxBody>
+                              <ModalBoxFooter>
+                                <footer
+                                  className="pf-c-modal-box__footer"
+                                >
+                                  <Button
+                                    key="confirm"
+                                    onClick={[Function]}
+                                    ouiaId="delete"
+                                    variant="danger"
+                                  >
+                                    <ButtonBase
+                                      innerRef={null}
+                                      onClick={[Function]}
+                                      ouiaId="delete"
+                                      variant="danger"
+                                    >
+                                      <button
+                                        aria-disabled={false}
+                                        aria-label={null}
+                                        className="pf-c-button pf-m-danger"
+                                        data-ouia-component-id="delete"
+                                        data-ouia-component-type="PF4/Button"
+                                        data-ouia-safe={true}
+                                        disabled={false}
+                                        onClick={[Function]}
+                                        role={null}
+                                        type="button"
+                                      >
+                                        Delete 0 selected baselines
+                                      </button>
+                                    </ButtonBase>
+                                  </Button>
+                                  <Button
+                                    key="cancel"
                                     ouiaId="cancel"
                                     variant="link"
                                   >
-                                    <button
-                                      aria-disabled={false}
-                                      aria-label={null}
-                                      className="pf-c-button pf-m-link"
-                                      data-ouia-component-id="cancel"
-                                      data-ouia-component-type="PF4/Button"
-                                      data-ouia-safe={true}
-                                      disabled={false}
-                                      role={null}
-                                      type="button"
+                                    <ButtonBase
+                                      innerRef={null}
+                                      ouiaId="cancel"
+                                      variant="link"
                                     >
-                                      Cancel
-                                    </button>
-                                  </ButtonBase>
-                                </Button>
-                              </footer>
-                            </ModalBoxFooter>
-                          </div>
-                        </ModalBox>
-                      </div>
-                    </FocusTrap>
+                                      <button
+                                        aria-disabled={false}
+                                        aria-label={null}
+                                        className="pf-c-button pf-m-link"
+                                        data-ouia-component-id="cancel"
+                                        data-ouia-component-type="PF4/Button"
+                                        data-ouia-safe={true}
+                                        disabled={false}
+                                        role={null}
+                                        type="button"
+                                      >
+                                        Cancel
+                                      </button>
+                                    </ButtonBase>
+                                  </Button>
+                                </footer>
+                              </ModalBoxFooter>
+                            </div>
+                          </ModalBox>
+                        </div>
+                      </FocusTrap>
+                    </ForwardRef>
                   </div>
                 </Backdrop>
               </ModalContent>
@@ -1707,7 +1721,7 @@ exports[`DeleteBaselinesModal should render mount correctly 1`] = `
           <div
             className="pf-c-backdrop"
           >
-            <FocusTrap
+            <ForwardRef
               active={true}
               className="pf-l-bullseye"
               focusTrapOptions={
@@ -1718,180 +1732,74 @@ exports[`DeleteBaselinesModal should render mount correctly 1`] = `
                   },
                 }
               }
-              paused={false}
-              preventScrollOnDeactivate={false}
             >
-              <div
+              <FocusTrap
+                active={true}
                 className="pf-l-bullseye"
+                focusTrapOptions={
+                  Object {
+                    "clickOutsideDeactivates": true,
+                    "tabbableOptions": Object {
+                      "displayCheck": "none",
+                    },
+                  }
+                }
+                innerRef={null}
+                paused={false}
+                preventScrollOnDeactivate={false}
               >
-                <ModalBox
-                  aria-describedby="pf-modal-part-2"
-                  aria-label=""
-                  aria-labelledby="pf-modal-part-1"
-                  className="drift"
-                  data-ouia-component-id="OUIA-Generated-Modal-small-1"
-                  data-ouia-component-type="PF4/ModalContent"
-                  data-ouia-safe={true}
-                  id="pf-modal-part-0"
-                  style={Object {}}
-                  variant="small"
+                <div
+                  className="pf-l-bullseye"
                 >
-                  <div
+                  <ModalBox
                     aria-describedby="pf-modal-part-2"
-                    aria-label={null}
+                    aria-label=""
                     aria-labelledby="pf-modal-part-1"
-                    aria-modal="true"
-                    className="pf-c-modal-box drift pf-m-sm"
+                    className="drift"
                     data-ouia-component-id="OUIA-Generated-Modal-small-1"
                     data-ouia-component-type="PF4/ModalContent"
                     data-ouia-safe={true}
                     id="pf-modal-part-0"
-                    role="dialog"
                     style={Object {}}
+                    variant="small"
                   >
-                    <ModalBoxCloseButton
-                      onClose={[MockFunction]}
-                      ouiaId="OUIA-Generated-Modal-small-1"
+                    <div
+                      aria-describedby="pf-modal-part-2"
+                      aria-label={null}
+                      aria-labelledby="pf-modal-part-1"
+                      aria-modal="true"
+                      className="pf-c-modal-box drift pf-m-sm"
+                      data-ouia-component-id="OUIA-Generated-Modal-small-1"
+                      data-ouia-component-type="PF4/ModalContent"
+                      data-ouia-safe={true}
+                      id="pf-modal-part-0"
+                      role="dialog"
+                      style={Object {}}
                     >
-                      <Button
-                        aria-label="Close"
-                        className=""
-                        onClick={[MockFunction]}
-                        ouiaId="OUIA-Generated-Modal-small-1-ModalBoxCloseButton"
-                        variant="plain"
+                      <ModalBoxCloseButton
+                        onClose={[MockFunction]}
+                        ouiaId="OUIA-Generated-Modal-small-1"
                       >
-                        <ButtonBase
+                        <Button
                           aria-label="Close"
                           className=""
-                          innerRef={null}
                           onClick={[MockFunction]}
                           ouiaId="OUIA-Generated-Modal-small-1-ModalBoxCloseButton"
                           variant="plain"
                         >
-                          <button
-                            aria-disabled={false}
+                          <ButtonBase
                             aria-label="Close"
-                            className="pf-c-button pf-m-plain"
-                            data-ouia-component-id="OUIA-Generated-Modal-small-1-ModalBoxCloseButton"
-                            data-ouia-component-type="PF4/Button"
-                            data-ouia-safe={true}
-                            disabled={false}
-                            onClick={[MockFunction]}
-                            role={null}
-                            type="button"
-                          >
-                            <TimesIcon
-                              color="currentColor"
-                              noVerticalAlign={false}
-                              size="sm"
-                            >
-                              <svg
-                                aria-hidden={true}
-                                aria-labelledby={null}
-                                fill="currentColor"
-                                height="1em"
-                                role="img"
-                                style={
-                                  Object {
-                                    "verticalAlign": "-0.125em",
-                                  }
-                                }
-                                viewBox="0 0 352 512"
-                                width="1em"
-                              >
-                                <path
-                                  d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
-                                />
-                              </svg>
-                            </TimesIcon>
-                          </button>
-                        </ButtonBase>
-                      </Button>
-                    </ModalBoxCloseButton>
-                    <ModalBoxHeader
-                      help={null}
-                    >
-                      <header
-                        className="pf-c-modal-box__header"
-                      >
-                        <ModalBoxTitle
-                          id="pf-modal-part-1"
-                          title="Delete 0 selected baselines"
-                          titleIconVariant={null}
-                          titleLabel=""
-                        >
-                          <h1
-                            className="pf-c-modal-box__title"
-                            id="pf-modal-part-1"
-                          >
-                            <span
-                              className="pf-c-modal-box__title-text"
-                            >
-                              Delete 0 selected baselines
-                            </span>
-                          </h1>
-                        </ModalBoxTitle>
-                      </header>
-                    </ModalBoxHeader>
-                    <ModalBoxBody
-                      id="pf-modal-part-2"
-                    >
-                      <div
-                        className="pf-c-modal-box__body"
-                        id="pf-modal-part-2"
-                      >
-                        Deleting a baseline is permanent and cannot be undone.
-                      </div>
-                    </ModalBoxBody>
-                    <ModalBoxFooter>
-                      <footer
-                        className="pf-c-modal-box__footer"
-                      >
-                        <Button
-                          key="confirm"
-                          onClick={[Function]}
-                          ouiaId="delete"
-                          variant="danger"
-                        >
-                          <ButtonBase
+                            className=""
                             innerRef={null}
-                            onClick={[Function]}
-                            ouiaId="delete"
-                            variant="danger"
+                            onClick={[MockFunction]}
+                            ouiaId="OUIA-Generated-Modal-small-1-ModalBoxCloseButton"
+                            variant="plain"
                           >
                             <button
                               aria-disabled={false}
-                              aria-label={null}
-                              className="pf-c-button pf-m-danger"
-                              data-ouia-component-id="delete"
-                              data-ouia-component-type="PF4/Button"
-                              data-ouia-safe={true}
-                              disabled={false}
-                              onClick={[Function]}
-                              role={null}
-                              type="button"
-                            >
-                              Delete 0 selected baselines
-                            </button>
-                          </ButtonBase>
-                        </Button>
-                        <Button
-                          key="cancel"
-                          onClick={[MockFunction]}
-                          ouiaId="cancel"
-                          variant="link"
-                        >
-                          <ButtonBase
-                            innerRef={null}
-                            onClick={[MockFunction]}
-                            ouiaId="cancel"
-                            variant="link"
-                          >
-                            <button
-                              aria-disabled={false}
-                              aria-label={null}
-                              className="pf-c-button pf-m-link"
-                              data-ouia-component-id="cancel"
+                              aria-label="Close"
+                              className="pf-c-button pf-m-plain"
+                              data-ouia-component-id="OUIA-Generated-Modal-small-1-ModalBoxCloseButton"
                               data-ouia-component-type="PF4/Button"
                               data-ouia-safe={true}
                               disabled={false}
@@ -1899,16 +1807,136 @@ exports[`DeleteBaselinesModal should render mount correctly 1`] = `
                               role={null}
                               type="button"
                             >
-                              Cancel
+                              <TimesIcon
+                                color="currentColor"
+                                noVerticalAlign={false}
+                                size="sm"
+                              >
+                                <svg
+                                  aria-hidden={true}
+                                  aria-labelledby={null}
+                                  fill="currentColor"
+                                  height="1em"
+                                  role="img"
+                                  style={
+                                    Object {
+                                      "verticalAlign": "-0.125em",
+                                    }
+                                  }
+                                  viewBox="0 0 352 512"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                  />
+                                </svg>
+                              </TimesIcon>
                             </button>
                           </ButtonBase>
                         </Button>
-                      </footer>
-                    </ModalBoxFooter>
-                  </div>
-                </ModalBox>
-              </div>
-            </FocusTrap>
+                      </ModalBoxCloseButton>
+                      <ModalBoxHeader
+                        help={null}
+                      >
+                        <header
+                          className="pf-c-modal-box__header"
+                        >
+                          <ModalBoxTitle
+                            id="pf-modal-part-1"
+                            title="Delete 0 selected baselines"
+                            titleIconVariant={null}
+                            titleLabel=""
+                          >
+                            <h1
+                              className="pf-c-modal-box__title"
+                              id="pf-modal-part-1"
+                            >
+                              <span
+                                className="pf-c-modal-box__title-text"
+                              >
+                                Delete 0 selected baselines
+                              </span>
+                            </h1>
+                          </ModalBoxTitle>
+                        </header>
+                      </ModalBoxHeader>
+                      <ModalBoxBody
+                        id="pf-modal-part-2"
+                      >
+                        <div
+                          className="pf-c-modal-box__body"
+                          id="pf-modal-part-2"
+                        >
+                          Deleting a baseline is permanent and cannot be undone.
+                        </div>
+                      </ModalBoxBody>
+                      <ModalBoxFooter>
+                        <footer
+                          className="pf-c-modal-box__footer"
+                        >
+                          <Button
+                            key="confirm"
+                            onClick={[Function]}
+                            ouiaId="delete"
+                            variant="danger"
+                          >
+                            <ButtonBase
+                              innerRef={null}
+                              onClick={[Function]}
+                              ouiaId="delete"
+                              variant="danger"
+                            >
+                              <button
+                                aria-disabled={false}
+                                aria-label={null}
+                                className="pf-c-button pf-m-danger"
+                                data-ouia-component-id="delete"
+                                data-ouia-component-type="PF4/Button"
+                                data-ouia-safe={true}
+                                disabled={false}
+                                onClick={[Function]}
+                                role={null}
+                                type="button"
+                              >
+                                Delete 0 selected baselines
+                              </button>
+                            </ButtonBase>
+                          </Button>
+                          <Button
+                            key="cancel"
+                            onClick={[MockFunction]}
+                            ouiaId="cancel"
+                            variant="link"
+                          >
+                            <ButtonBase
+                              innerRef={null}
+                              onClick={[MockFunction]}
+                              ouiaId="cancel"
+                              variant="link"
+                            >
+                              <button
+                                aria-disabled={false}
+                                aria-label={null}
+                                className="pf-c-button pf-m-link"
+                                data-ouia-component-id="cancel"
+                                data-ouia-component-type="PF4/Button"
+                                data-ouia-safe={true}
+                                disabled={false}
+                                onClick={[MockFunction]}
+                                role={null}
+                                type="button"
+                              >
+                                Cancel
+                              </button>
+                            </ButtonBase>
+                          </Button>
+                        </footer>
+                      </ModalBoxFooter>
+                    </div>
+                  </ModalBox>
+                </div>
+              </FocusTrap>
+            </ForwardRef>
           </div>
         </Backdrop>
       </ModalContent>

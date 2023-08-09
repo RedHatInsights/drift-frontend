@@ -8,6 +8,7 @@ const initialState = {
     selectedBaselineIds: [],
     IdToDelete: '',
     emptyState: false,
+    exportStatus: 'null',
     baselineError: {},
     totalBaselines: 0
 };
@@ -19,6 +20,7 @@ const baselinesTableReducer = (tableId = '') => {
         let newBaselineTableData = [];
         let response;
         let errorObject;
+        let exportStatus;
 
         switch (action.type) {
             case `FETCH_BASELINE_LIST_${tableId}_PENDING`:
@@ -139,14 +141,21 @@ const baselinesTableReducer = (tableId = '') => {
                     baselineError: errorObject
                 };
             case `EXPORT_BASELINES_LIST_TO_CSV_${tableId}`:
-                helpers.downloadHelper(action.payload);
+                exportStatus = helpers.downloadHelper(action.payload);
                 return {
-                    ...state
+                    ...state,
+                    exportStatus
                 };
             case `EXPORT_BASELINES_LIST_TO_JSON_${tableId}`:
-                helpers.downloadHelper(action.payload);
+                exportStatus = helpers.downloadHelper(action.payload);
                 return {
-                    ...state
+                    ...state,
+                    exportStatus
+                };
+            case `RESET_BASELINES_EXPORT_STATUS_CHECKBOX`:
+                return {
+                    ...state,
+                    exportStatus: 'null'
                 };
             default:
                 return state;

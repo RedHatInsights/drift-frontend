@@ -1,14 +1,20 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import { MemoryRouter } from 'react-router-dom';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import toJson from 'enzyme-to-json';
 import helpersFixtures from './helpers.fixtures';
+import { init } from '../../../../../store';
 
 //import editBaselineFixtures from './helpers.fixtures';
 import EditBaseline from '../EditBaseline';
+import { RegistryContext } from '../../../../../Utilities/registry';
 //import api from '../../../../../api';
+
+// jest.mock('@redhat-cloud-services/frontend-components/useChrome', () => ({
+//     useChrome: () => null
+// }));
 
 describe('EditBaseline', () => {
     let initialState;
@@ -19,7 +25,7 @@ describe('EditBaseline', () => {
         mockStore = configureStore();
         initialState = {
             editBaselineState: {
-                baselineData: [],
+                baselineData: {},
                 baselineDataLoading: false,
                 factModalOpened: false,
                 expandedRows: [],
@@ -27,7 +33,6 @@ describe('EditBaseline', () => {
                 editBaselineError: {},
                 inlineError: {}
             },
-            match: { params: {}},
             clearBaselineData: jest.fn(),
             selectFact: jest.fn(),
             onBulkSelect: jest.fn(),
@@ -36,20 +41,27 @@ describe('EditBaseline', () => {
         };
 
         props = {
-            baselineData: [],
+            baselineData: {},
             editBaselineTableData: [],
             editBaselineEmptyState: false,
             editBaselineError: {},
             expandedRows: [],
             permissions: {
                 baselinesWrite: true
-            }
+            },
+            chrome: { appAction: jest.fn(() => null) }
         };
     });
 
     it('should render correctly', () => {
-        const wrapper = shallow(
-            <EditBaseline { ...props }/>
+        let registry = init();
+        let store = registry.registry.getStore();
+        const wrapper = mount(
+            <RegistryContext.Provider value={ registry }>
+                <Provider store={ store }>
+                    <EditBaseline { ...props }/>
+                </Provider>
+            </RegistryContext.Provider>
         );
 
         expect(wrapper.find('EmptyStateDisplay')).toHaveLength(0);
@@ -69,28 +81,46 @@ describe('EditBaseline', () => {
     });*/
 
     it('should render disabled with no write permissions', () => {
+        let registry = init();
+        let store = registry.registry.getStore();
         props.permissions.baselinesWrite = false;
-        const wrapper = shallow(
-            <EditBaseline { ...props }/>
+        const wrapper = mount(
+            <RegistryContext.Provider value={ registry }>
+                <Provider store={ store }>
+                    <EditBaseline { ...props }/>
+                </Provider>
+            </RegistryContext.Provider>
         );
 
         expect(wrapper.find('FactKebab')).toHaveLength(0);
     });
 
     it('should render loading rows', () => {
+        let registry = init();
+        let store = registry.registry.getStore();
         props.baselineData = undefined;
         props.baselineDataLoading = true;
-        const wrapper = shallow(
-            <EditBaseline { ...props }/>
+        const wrapper = mount(
+            <RegistryContext.Provider value={ registry }>
+                <Provider store={ store }>
+                    <EditBaseline { ...props }/>
+                </Provider>
+            </RegistryContext.Provider>
         );
 
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 
     it('should render empty baseline', () => {
+        let registry = init();
+        let store = registry.registry.getStore();
         props.editBaselineEmptyState = true;
-        const wrapper = shallow(
-            <EditBaseline { ...props }/>
+        const wrapper = mount(
+            <RegistryContext.Provider value={ registry }>
+                <Provider store={ store }>
+                    <EditBaseline { ...props }/>
+                </Provider>
+            </RegistryContext.Provider>
         );
 
         expect(toJson(wrapper)).toMatchSnapshot();
@@ -114,41 +144,65 @@ describe('EditBaseline', () => {
     });*/
 
     it('should render with baseline facts', () => {
+        let registry = init();
+        let store = registry.registry.getStore();
         props.baselineData = helpersFixtures.mockBaselineData1;
         props.editBaselineTableData = helpersFixtures.mockBaselineTableData1;
-        const wrapper = shallow(
-            <EditBaseline { ...props } />
+        const wrapper = mount(
+            <RegistryContext.Provider value={ registry }>
+                <Provider store={ store }>
+                    <EditBaseline { ...props } />
+                </Provider>
+            </RegistryContext.Provider>
         );
 
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 
     it('should render expandable rows closed', () => {
+        let registry = init();
+        let store = registry.registry.getStore();
         props.editBaselineTableData = helpersFixtures.mockBaselineTableData1;
         props.baselineData = helpersFixtures.mockBaselineAPIBody;
-        const wrapper = shallow(
-            <EditBaseline { ...props }/>
+        const wrapper = mount(
+            <RegistryContext.Provider value={ registry }>
+                <Provider store={ store }>
+                    <EditBaseline { ...props }/>
+                </Provider>
+            </RegistryContext.Provider>
         );
 
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 
     it('should render expandable rows opened', () => {
+        let registry = init();
+        let store = registry.registry.getStore();
         props.editBaselineTableData = helpersFixtures.mockBaselineTableData1;
         props.baselineData = helpersFixtures.mockBaselineAPIBody;
         props.expandedRows = [ 'The Fellowship of the Ring' ];
-        const wrapper = shallow(
-            <EditBaseline { ...props }/>
+        const wrapper = mount(
+            <RegistryContext.Provider value={ registry }>
+                <Provider store={ store }>
+                    <EditBaseline { ...props }/>
+                </Provider>
+            </RegistryContext.Provider>
         );
 
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 
     it('should render with baseline facts with same name', () => {
+        let registry = init();
+        let store = registry.registry.getStore();
         props.baselineData = helpersFixtures.mockBaselineDataSameName1;
         props.editBaselineTableData = helpersFixtures.mockBaselineTableDataSameName1;
-        const wrapper = shallow(
-            <EditBaseline { ...props } />
+        const wrapper = mount(
+            <RegistryContext.Provider value={ registry }>
+                <Provider store={ store }>
+                    <EditBaseline { ...props } />
+                </Provider>
+            </RegistryContext.Provider>
         );
 
         expect(toJson(wrapper)).toMatchSnapshot();

@@ -9,6 +9,7 @@ import AddSystemButton from '../AddSystemButton/AddSystemButton';
 import ExportCSVButton from '../../ExportCSVButton/ExportCSVButton';
 import DriftFilter from './DriftFilter/DriftFilter';
 import { TablePagination } from '../../Pagination/Pagination';
+import { errorExportNotification, preparingExportNotification, successfulExportNotification } from '../../../constants';
 
 export class DriftToolbar extends Component {
     constructor(props) {
@@ -27,7 +28,7 @@ export class DriftToolbar extends Component {
                     key='export-to-CSV'
                     component='button'
                     data-ouia-component-id='export-to-csv-dropdown-item-comparison'
-                    onClick={ () => this.props.exportToCSV() }
+                    onClick={ () => this.prepareExport(this.props.exportToCSV) }
                 >
                     Export to CSV
                 </DropdownItem>,
@@ -35,7 +36,7 @@ export class DriftToolbar extends Component {
                     key='export-to-JSON'
                     component='button'
                     data-ouia-component-id='export-to-json-dropdown-item-comparison'
-                    onClick={ () => this.props.exportToJSON() }
+                    onClick={ () => this.prepareExport(this.props.exportToJSON) }
                 >
                     Export to JSON
                 </DropdownItem>
@@ -43,6 +44,29 @@ export class DriftToolbar extends Component {
             isEmpty: true,
             dropdownOpen: false
         };
+    }
+
+    componentDidUpdate(prevProps) {
+        const { exportStatus, resetExportStatus, store } = this.props;
+
+        if (exportStatus === 'success' && prevProps.exportStatus !== 'success') {
+            successfulExportNotification(store);
+            resetExportStatus();
+        }
+
+        if (exportStatus === 'failure' && prevProps.exportStatus !== 'failure') {
+            errorExportNotification(store);
+            resetExportStatus();
+        }
+    }
+
+    prepareExport = (exportFunc) => {
+        const { store } = this.props;
+        console.log(store, 'store');
+
+        preparingExportNotification(store);
+
+        exportFunc();
     }
 
     clearAllStateChips = async () => {
@@ -178,13 +202,13 @@ export class DriftToolbar extends Component {
 
 DriftToolbar.propTypes = {
     loading: PropTypes.bool,
-    history: PropTypes.object,
     page: PropTypes.number,
     perPage: PropTypes.number,
     totalFacts: PropTypes.number,
     updatePagination: PropTypes.func,
     clearComparisonFilters: PropTypes.func,
     clearComparison: PropTypes.func,
+    exportStatus: PropTypes.string,
     exportToCSV: PropTypes.func,
     exportToJSON: PropTypes.func,
     clearSelectedBaselines: PropTypes.func,
@@ -201,7 +225,9 @@ DriftToolbar.propTypes = {
     clearAllFactFilters: PropTypes.func,
     setHistory: PropTypes.func,
     resetComparisonFilters: PropTypes.func,
-    clearAllSelections: PropTypes.func
+    clearAllSelections: PropTypes.func,
+    resetExportStatus: PropTypes.func,
+    store: PropTypes.object
 };
 
 export default DriftToolbar;

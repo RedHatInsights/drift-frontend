@@ -5,31 +5,31 @@ exports[`ConnectedHistoricalProfilesCheckbox should render correctly 1`] = `
   keyLength={0}
 >
   <Router
-    history={
+    location={
+      Object {
+        "hash": "",
+        "key": "default",
+        "pathname": "/",
+        "search": "",
+        "state": null,
+      }
+    }
+    navigationType="POP"
+    navigator={
       Object {
         "action": "POP",
-        "block": [Function],
-        "canGo": [Function],
         "createHref": [Function],
-        "entries": Array [
-          Object {
-            "hash": "",
-            "pathname": "/",
-            "search": "",
-            "state": undefined,
-          },
-        ],
+        "createURL": [Function],
+        "encodeLocation": [Function],
         "go": [Function],
-        "goBack": [Function],
-        "goForward": [Function],
         "index": 0,
-        "length": 1,
         "listen": [Function],
         "location": Object {
           "hash": "",
+          "key": "default",
           "pathname": "/",
           "search": "",
-          "state": undefined,
+          "state": null,
         },
         "push": [Function],
         "replace": [Function],
@@ -77,6 +77,7 @@ exports[`ConnectedHistoricalProfilesCheckbox should render correctly 1`] = `
             id="1234"
             isChecked={false}
             isDisabled={false}
+            isRequired={false}
             isValid={true}
             label="03 May 2020, 18:20 UTC"
             name="1234"
@@ -98,6 +99,7 @@ exports[`ConnectedHistoricalProfilesCheckbox should render correctly 1`] = `
                 id="1234"
                 name="1234"
                 onChange={[Function]}
+                required={false}
                 type="checkbox"
               />
               <label
@@ -126,6 +128,7 @@ exports[`HistoricalProfilesCheckbox should render correctly 1`] = `
     id="1234"
     isChecked={false}
     isDisabled={false}
+    isRequired={false}
     isValid={true}
     label="03 May 2020, 18:20 UTC"
     name="1234"
@@ -154,6 +157,7 @@ exports[`HistoricalProfilesCheckbox should render mount correctly 1`] = `
     id="1234"
     isChecked={false}
     isDisabled={false}
+    isRequired={false}
     isValid={true}
     label="03 May 2020, 18:20 UTC"
     name="1234"
@@ -175,6 +179,7 @@ exports[`HistoricalProfilesCheckbox should render mount correctly 1`] = `
         id="1234"
         name="1234"
         onChange={[Function]}
+        required={false}
         type="checkbox"
       />
       <label

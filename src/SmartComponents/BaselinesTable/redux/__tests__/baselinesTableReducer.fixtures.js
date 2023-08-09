@@ -94,7 +94,7 @@ function baselineTableDataOneSelected() {
     return baselineTableDataOneSelected;
 }
 
-const tableDataCSV = 'UUID,Name,Last updated,Associated systems\n\
+const tableDataCSV = 'UUID,Name,Last updated,Associated systems,Notifications enabled\n\
 1234,beavs baseline,3 years ago,3,true\n\
 abcd,micjohns baseline,3 years ago,0,false\n\
 ';

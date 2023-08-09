@@ -11,6 +11,7 @@ const initialState = {
     editBaselineError: {},
     inlineError: {},
     expandedRows: [],
+    exportStatus: 'null',
     factModalOpened: false,
     factName: '',
     factValue: '',
@@ -29,6 +30,7 @@ export function editBaselineReducer(state = initialState, action) {
     let newExpandedRows = [];
     let response;
     let error;
+    let exportStatus;
     let sortedFacts;
 
     switch (action.type) {
@@ -184,14 +186,21 @@ export function editBaselineReducer(state = initialState, action) {
                 baselineDataLoading: false
             };
         case `${types.EXPORT_BASELINE_DATA_TO_CSV}`:
-            helpers.downloadHelper(action.payload);
+            exportStatus = helpers.downloadHelper(action.payload);
             return {
-                ...state
+                ...state,
+                exportStatus
             };
         case `${types.EXPORT_BASELINE_DATA_TO_JSON}`:
-            helpers.downloadHelper(action.payload);
+            exportStatus = helpers.downloadHelper(action.payload);
             return {
-                ...state
+                ...state,
+                exportStatus
+            };
+        case `${types.RESET_BASELINE_DATA_EXPORT_STATUS}`:
+            return {
+                ...state,
+                exportStatus: 'null'
             };
         case `${types.TOGGLE_NOTIFICATIONS_SWITCH}_PENDING`:
             return {

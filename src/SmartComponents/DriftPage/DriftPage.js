@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { Main, PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components';
@@ -22,6 +21,8 @@ import { PermissionContext } from '../../App';
 import { RegistryContext } from '../../Utilities/registry';
 
 import { EMPTY_COMPARISON_TITLE, EMPTY_COMPARISON_MESSAGE } from '../../constants';
+import { useSearchParams } from 'react-router-dom';
+import useInsightsNavigate from '@redhat-cloud-services/frontend-components-utilities/useInsightsNavigate';
 
 export class DriftPage extends Component {
     constructor(props) {
@@ -31,26 +32,27 @@ export class DriftPage extends Component {
         };
     }
 
-    async componentDidMount() {
-        await window.insights.chrome.auth.getUser();
+    componentDidMount() {
+        document.title = this.props.title;
     }
 
     componentDidUpdate(prevProps) {
-        if (prevProps.location.search !== '' && this.props.location.search === '') {
+        if (prevProps.searchParams !== '' && this.props.searchParams === '') {
             this.setHistory();
         }
     }
 
     setHistory = () => {
-        const { activeFactFilters, baselines, factFilter, factSort, factTypeFilters, historicalProfiles, history, referenceId, stateFilters,
-            stateSort, systems } = this.props;
+        const { activeFactFilters, baselines, factFilter, factSort, factTypeFilters, historicalProfiles, referenceId, stateFilters,
+            stateSort, systems, navigate } = this.props;
 
         let systemIds = systems.map(system => system.id);
         let baselineIds = baselines.map(baseline => baseline.id);
         let HSPIds = historicalProfiles.map(hsp => hsp.id);
 
         setHistory(
-            history, systemIds, baselineIds, HSPIds, referenceId, activeFactFilters, factFilter, factTypeFilters, stateFilters, factSort, stateSort
+            navigate, systemIds, baselineIds, HSPIds, referenceId,
+            activeFactFilters, factFilter, factTypeFilters, stateFilters, factSort, stateSort
         );
     }
 
@@ -61,10 +63,10 @@ export class DriftPage extends Component {
     }
 
     onClose = () => {
-        const { revertCompareData, history, previousStateSystems } = this.props;
+        const { revertCompareData, previousStateSystems, navigate } = this.props;
 
         revertCompareData();
-        setHistory(history, previousStateSystems.map(system => system.id));
+        setHistory(navigate, previousStateSystems.map(system => system.id));
     }
 
     renderEmptyState = () => {
@@ -92,10 +94,10 @@ export class DriftPage extends Component {
 
     render() {
         const { activeFactFilters, addStateFilter, baselines, clearAllFactFilters, clearAllSelections, clearComparison, clearComparisonFilters,
-            clearSelectedBaselines, emptyState, error, exportToCSV, exportToJSON, factFilter, factSort, factTypeFilters, filterByFact,
-            handleFactFilter, historicalProfiles, handleBaselineSelection, handleHSPSelection, handleSystemSelection, history, loading, page, perPage,
-            referenceId, resetComparisonFilters, selectedBaselineIds, selectedHSPIds, stateFilters, stateSort, systems, toggleFactTypeFilter,
-            totalFacts, updatePagination, updateReferenceId } = this.props;
+            clearSelectedBaselines, emptyState, error, exportToCSV, exportToJSON, exportStatus, factFilter, factSort, factTypeFilters, filterByFact,
+            handleFactFilter, historicalProfiles, handleBaselineSelection, handleHSPSelection, handleSystemSelection, loading, page, perPage,
+            referenceId, resetComparisonFilters, resetExportStatus, selectedBaselineIds, selectedHSPIds, stateFilters, stateSort, systems,
+            toggleFactTypeFilter, totalFacts, updatePagination, updateReferenceId, searchParams } = this.props;
         const { isFirstReference } = this.state;
 
         return (
@@ -154,6 +156,9 @@ export class DriftPage extends Component {
                                                                 setHistory={ this.setHistory }
                                                                 resetComparisonFilters={ resetComparisonFilters }
                                                                 clearAllSelections={ clearAllSelections }
+                                                                exportStatus={ exportStatus }
+                                                                resetExportStatus={ resetExportStatus }
+                                                                store={ registryContextValue?.registry.getStore() }
                                                             />
                                                             : null
                                                         }
@@ -183,6 +188,7 @@ export class DriftPage extends Component {
                                                             selectedBaselineIds={ selectedBaselineIds }
                                                             factTypeFilters={ factTypeFilters }
                                                             toggleFactTypeFilter={ toggleFactTypeFilter }
+                                                            searchParams={ searchParams }
                                                         />
                                                         { !emptyState && !loading ?
                                                             <Toolbar className="drift-toolbar">
@@ -227,8 +233,6 @@ DriftPage.propTypes = {
     updateReferenceId: PropTypes.func,
     clearComparison: PropTypes.func,
     clearComparisonFilters: PropTypes.func,
-    history: PropTypes.object,
-    location: PropTypes.object,
     selectHistoricProfiles: PropTypes.func,
     selectedHSPIds: PropTypes.array,
     revertCompareData: PropTypes.func,
@@ -246,7 +250,7 @@ DriftPage.propTypes = {
     clearAllFactFilters: PropTypes.func,
     factSort: PropTypes.string,
     stateSort: PropTypes.string,
-    referenceId: PropTypes.number,
+    referenceId: PropTypes.string,
     systems: PropTypes.array,
     baselines: PropTypes.array,
     historicalProfiles: PropTypes.array,
@@ -256,7 +260,12 @@ DriftPage.propTypes = {
     handleHSPSelection: PropTypes.func,
     handleSystemSelection: PropTypes.func,
     resetComparisonFilters: PropTypes.func,
-    clearAllSelections: PropTypes.func
+    clearAllSelections: PropTypes.func,
+    exportStatus: PropTypes.string,
+    resetExportStatus: PropTypes.func,
+    searchParams: PropTypes.object,
+    navigate: PropTypes.func,
+    title: PropTypes.string
 };
 
 function mapDispatchToProps(dispatch) {
@@ -280,7 +289,8 @@ function mapDispatchToProps(dispatch) {
         handleBaselineSelection: (content, isSelected) => dispatch(addSystemModalActions.handleBaselineSelection(content, isSelected)),
         handleHSPSelection: (content) => dispatch(addSystemModalActions.handleHSPSelection(content)),
         resetComparisonFilters: () => dispatch(compareActions.resetComparisonFilters()),
-        clearAllSelections: () => dispatch(addSystemModalActions.clearAllSelections())
+        clearAllSelections: () => dispatch(addSystemModalActions.clearAllSelections()),
+        resetExportStatus: () => dispatch(compareActions.resetExportStatus())
     };
 }
 
@@ -304,8 +314,17 @@ function mapStateToProps(state) {
         systems: state.compareState.systems,
         baselines: state.compareState.baselines,
         historicalProfiles: state.compareState.historicalProfiles,
-        selectedBaselineIds: state.baselinesTableState.comparisonTable.selectedBaselineIds
+        selectedBaselineIds: state.baselinesTableState.comparisonTable.selectedBaselineIds,
+        exportStatus: state.compareState.exportStatus
     };
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DriftPage));
+const DriftPageWithHooks = props => {
+    const [ searchParams ] = useSearchParams();
+    const navigate = useInsightsNavigate();
+    return (
+        <DriftPage { ...props } searchParams={ searchParams } navigate={ navigate } />
+    );
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(DriftPageWithHooks);

@@ -7,6 +7,7 @@ import EditBaselineKebab from '../EditBaselineKebab/EditBaselineKebab';
 import AddFactButton from '../AddFactButton/AddFactButton';
 import helpers from '../../../helpers';
 import ExportCSVButton from '../../../ExportCSVButton/ExportCSVButton';
+import { errorExportNotification, preparingExportNotification, successfulExportNotification } from '../../../../constants';
 
 export class EditBaselineToolbar extends Component {
     constructor(props) {
@@ -29,7 +30,7 @@ export class EditBaselineToolbar extends Component {
                     key='export-to-CSV'
                     component='button'
                     ouiaId='edit-baseline-export-to-csv'
-                    onClick={ () => this.props.exportToCSV(this.props.tableData, this.props.baselineData) }
+                    onClick={ () => this.export(this.props.exportToCSV) }
                 >
                     Export to CSV
                 </DropdownItem>,
@@ -37,7 +38,7 @@ export class EditBaselineToolbar extends Component {
                     key='export-to-JSON'
                     component='button'
                     ouiaId='edit-baseline-export-to-json'
-                    onClick={ () => this.props.exportToJSON(this.props.tableData) }
+                    onClick={ () => this.export(this.props.exportToJSON) }
                 >
                     Export to JSON
                 </DropdownItem>
@@ -46,7 +47,7 @@ export class EditBaselineToolbar extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        const { totalFacts } = this.props;
+        const { resetBaselineDataExportStatus, store, totalFacts } = this.props;
 
         if (totalFacts !== prevProps.totalFacts) {
             this.setState(prevState => ({
@@ -57,6 +58,24 @@ export class EditBaselineToolbar extends Component {
                 )
             }));
         }
+
+        if (this.props.exportStatus === 'success' && prevProps.exportStatus !== 'success') {
+            successfulExportNotification(store);
+            resetBaselineDataExportStatus();
+        }
+
+        if (this.props.exportStatus === 'failure' && prevProps.exportStatus !== 'failure') {
+            errorExportNotification(store);
+            resetBaselineDataExportStatus();
+        }
+    }
+
+    export = (exportFunc) => {
+        const { tableData, baselineData, store } = this.props;
+
+        preparingExportNotification(store);
+
+        exportFunc(tableData, baselineData);
     }
 
     onToggle = () => {
@@ -114,11 +133,14 @@ EditBaselineToolbar.propTypes = {
     onBulkSelect: PropTypes.func,
     selected: PropTypes.any,
     totalFacts: PropTypes.number,
+    exportStatus: PropTypes.string,
     exportToCSV: PropTypes.func,
     exportToJSON: PropTypes.func,
     tableData: PropTypes.array,
     baselineData: PropTypes.object,
-    permissions: PropTypes.object
+    permissions: PropTypes.object,
+    resetBaselineDataExportStatus: PropTypes.func,
+    store: PropTypes.object
 };
 
 export default EditBaselineToolbar;

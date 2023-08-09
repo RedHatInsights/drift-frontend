@@ -7,7 +7,7 @@ const { config: webpackConfig, plugins } = config({
     https: true,
     useProxy: true,
     routesPath: process.env.CONFIG_PATH,
-    appUrl: process.env.BETA ? [ '/beta/insights/drift' ] : [ '/insights/drift' ],
+    appUrl: process.env.BETA ? [ '/beta/insights/drift', '/preview/insights/drift' ] : [ '/insights/drift' ],
     env: process.env.BETA ? 'stage-beta' : 'stage-stable',
     deployment: process.env.BETA ? 'beta/apps' : 'apps'
 });
@@ -18,13 +18,21 @@ plugins.push(
         exposes: {
             './RootApp': resolve(__dirname, '../src/DevEntry')
         },
-        exclude: [ 'react-redux' ],
-        shared: [{
-            'react-redux': {
-                requiredVersion: '*',
-                singleton: true
+        exclude: [ 'react-redux', 'react-router-dom' ],
+        shared: [
+            {
+                'react-redux': {
+                    requiredVersion: '*',
+                    singleton: true
+                }
+            },
+            {
+                'react-router-dom': {
+                    singleton: true,
+                    requiredVersion: '*'
+                }
             }
-        }]
+        ]
     })
 );
 

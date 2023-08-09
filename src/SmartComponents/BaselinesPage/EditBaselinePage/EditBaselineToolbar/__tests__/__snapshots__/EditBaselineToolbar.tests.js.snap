@@ -5,31 +5,31 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
   keyLength={0}
 >
   <Router
-    history={
+    location={
+      Object {
+        "hash": "",
+        "key": "default",
+        "pathname": "/",
+        "search": "",
+        "state": null,
+      }
+    }
+    navigationType="POP"
+    navigator={
       Object {
         "action": "POP",
-        "block": [Function],
-        "canGo": [Function],
         "createHref": [Function],
-        "entries": Array [
-          Object {
-            "hash": "",
-            "pathname": "/",
-            "search": "",
-            "state": undefined,
-          },
-        ],
+        "createURL": [Function],
+        "encodeLocation": [Function],
         "go": [Function],
-        "goBack": [Function],
-        "goForward": [Function],
         "index": 0,
-        "length": 1,
         "listen": [Function],
         "location": Object {
           "hash": "",
+          "key": "default",
           "pathname": "/",
           "search": "",
-          "state": undefined,
+          "state": null,
         },
         "push": [Function],
         "replace": [Function],
@@ -180,7 +180,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                   </DropdownItem>,
                                 ]
                               }
-                              isFlipEnabled={false}
+                              isFlipEnabled={true}
                               isGrouped={false}
                               isOpen={false}
                               isPlain={false}
@@ -188,6 +188,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                               menuAppendTo="inline"
                               onSelect={[Function]}
                               position="left"
+                              removeFindDomNode={false}
                               toggle={
                                 <DropdownToggle
                                   isDisabled={false}
@@ -213,6 +214,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                   }
                                 />
                               }
+                              zIndex={9999}
                             >
                               <div
                                 className="pf-c-dropdown ins-c-bulk-select"
@@ -625,7 +627,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                         </DropdownItem>,
                                       ]
                                     }
-                                    isFlipEnabled={false}
+                                    isFlipEnabled={true}
                                     isGrouped={false}
                                     isOpen={false}
                                     isPlain={true}
@@ -633,6 +635,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                     menuAppendTo="inline"
                                     onSelect={[Function]}
                                     position="left"
+                                    removeFindDomNode={false}
                                     toggle={
                                       <DropdownToggle
                                         onToggle={[Function]}
@@ -647,6 +650,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                         />
                                       </DropdownToggle>
                                     }
+                                    zIndex={9999}
                                   >
                                     <div
                                       className="pf-c-dropdown"
@@ -933,7 +937,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                           </DropdownItem>,
                                         ]
                                       }
-                                      isFlipEnabled={false}
+                                      isFlipEnabled={true}
                                       isGrouped={false}
                                       isOpen={false}
                                       isPlain={true}
@@ -941,6 +945,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                       menuAppendTo="inline"
                                       onSelect={[Function]}
                                       position="left"
+                                      removeFindDomNode={false}
                                       style={
                                         Object {
                                           "float": "left",
@@ -953,6 +958,7 @@ exports[`ConnectedEditBaselineToolbar should render correctly 1`] = `
                                           onToggle={[Function]}
                                         />
                                       }
+                                      zIndex={9999}
                                     >
                                       <div
                                         className="pf-c-dropdown"

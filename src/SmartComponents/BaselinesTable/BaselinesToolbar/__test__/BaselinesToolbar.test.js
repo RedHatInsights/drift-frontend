@@ -256,9 +256,9 @@ describe('jest-tests', () => {
                 </MemoryRouter>
             );
 
-            wrapper.setState({ nameSearch: 'something' });
+            wrapper.find('BaselinesToolbar').setState({ nameSearch: 'something' });
             wrapper.find('input').at(1).simulate('change', 'something-else');
-            expect(wrapper.state('nameSearch')).toBe('something');
+            expect(wrapper.find('BaselinesToolbar').state('nameSearch')).toBe('something');
         });
     });
 });

@@ -1,4 +1,6 @@
 import version from './../package.json';
+import { dispatchNotification } from './Utilities/Dispatcher';
+
 export const DRIFT_API_ROOT = '/api/drift/v1';
 export const BASELINE_API_ROOT = '/api/system-baseline/v1';
 export const HISTORICAL_PROFILES_API_ROOT = '/api/historical-system-profiles/v1';
@@ -56,3 +58,31 @@ export const bulkSelectItems = (onBulkSelect, page) => ([
         onClick: () => onBulkSelect('none')
     }
 ]);
+
+export const preparingExportNotification = (store) => (
+    dispatchNotification({
+        variant: 'info',
+        title: 'Preparing export',
+        description: 'Once complete, your download will start automatically.',
+        dismissable: true
+    }, store)
+);
+
+export const successfulExportNotification = (store) => (
+    dispatchNotification({
+        variant: 'success',
+        title: 'Downloading export',
+        dismissable: true,
+        autoDismiss: true
+    }, store)
+);
+
+export const errorExportNotification = (store) => (
+    dispatchNotification({
+        variant: 'danger',
+        title: 'Could not download export',
+        description: 'Reinitiate this export to try again.',
+        dismissable: true,
+        autoDismiss: false
+    }, store)
+);

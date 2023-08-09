@@ -3,6 +3,45 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
 
+jest.mock('@redhat-cloud-services/frontend-components/useChrome', () => ({
+    __esModule: true,
+    default: () => ({
+        updateDocumentTitle: jest.fn(),
+        appAction: jest.fn(),
+        appObjectId: jest.fn(),
+        on: jest.fn(),
+        getUserPermissions: () => Promise.resolve([ 'inventory:*:*' ]),
+        isBeta: jest.fn(),
+        getApp: () => 'drift',
+        getBundle: () => 'insights'
+    }),
+    useChrome: () => ({
+        isBeta: jest.fn(),
+        appAction: jest.fn()
+    })
+}));
+
+jest.mock('@redhat-cloud-services/frontend-components-utilities/useInsightsNavigate', () => ({
+    __esModule: true,
+    default: () => jest.fn(),
+    useInsightsNavigate: () => jest.fn()
+}));
+
+jest.mock('react-router-dom', () => ({
+    ...jest.requireActual('react-router-dom'),
+    useLocation: () => ({ hash: '', search: '' }),
+    useNavigate: () => jest.fn(),
+    useSearchParams: () => [{ get: () => '', getAll: () => '' }, () => jest.fn() ]
+}));
+
+jest.mock('@redhat-cloud-services/frontend-components/Inventory', () => ({
+    InventoryTable: jest.fn(() => <div className='testInventroyComponentChild'><div>This is child</div></div>)
+}));
+
+jest.mock('@redhat-cloud-services/frontend-components/AsyncComponent', () => (
+    <div>AsyncComponent</div>
+));
+
 configure({ adapter: new Adapter() });
 global.shallow = shallow;
 global.render = render;

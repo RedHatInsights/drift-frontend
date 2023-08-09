@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { Main, PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components';
@@ -23,6 +23,8 @@ import NotificationDetails from '../../BaselinesTable/NotificationDetails/Notifi
 import { RegistryContext } from '../../../Utilities/registry';
 
 import _ from 'lodash';
+import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
+import useInsightsNavigate from '@redhat-cloud-services/frontend-components-utilities/useInsightsNavigate';
 
 export class EditBaselinePage extends Component {
     constructor(props) {
@@ -53,18 +55,17 @@ export class EditBaselinePage extends Component {
     }
 
     async componentDidMount() {
-        const { match: { params }} = this.props;
-
-        await window.insights.chrome.auth.getUser();
-        await window.insights?.chrome?.appAction?.('baseline-view');
-        await window.insights?.chrome?.appObjectId(params.id);
+        const { params } = this.props;
+        const chrome = this.props.chrome;
+        await chrome?.appAction('baseline-view');
+        await chrome.appObjectId(params.id);
     }
 
     componentDidUpdate(prevProps) {
-        const { baselineData, editBaselineError, notificationsSwitchError } = this.props;
+        const { baselineData, editBaselineError, notificationsSwitchError  } = this.props;
 
         if (baselineData) {
-            document.title = this.props.baselineData.display_name + ' - Baselines - Drift | Red Hat Insights';
+            this.props.chrome.updateDocumentTitle(`${this.props.baselineData.display_name} - Baselines - Drift | Red Hat Insights'`) ;
         }
 
         if (prevProps.editBaselineError !== editBaselineError) {
@@ -81,17 +82,17 @@ export class EditBaselinePage extends Component {
     }
 
     async fetchBaselineId() {
-        const { match: { params }, fetchBaselineData } = this.props;
+        const { params, fetchBaselineData } = this.props;
 
         await fetchBaselineData(params.id);
     }
 
     goToBaselinesList() {
-        const { clearBaselineData, fetchBaselines, history } = this.props;
+        const { clearBaselineData, fetchBaselines, navigate } = this.props;
 
         clearBaselineData('CHECKBOX');
         fetchBaselines('CHECKBOX');
-        history.push('/baselines');
+        navigate('/baselines');
     }
 
     retryBaselineFetch = () => {
@@ -150,7 +151,7 @@ export class EditBaselinePage extends Component {
         return pageTitle;
     }
 
-    renderPageHeader = ({ baselinesRead, baselinesWrite, notificationsRead }) => {
+    renderPageHeader = ({ baselinesRead, baselinesWrite, notificationsRead }, store) => {
         const { modalOpened } = this.state;
         const { baselineData, baselineDataLoading, notificationsSwitchError, inlineError,
             toggleNotificationPending, toggleNotificationFulfilled, toggleNotificationRejected } = this.props;
@@ -169,6 +170,7 @@ export class EditBaselinePage extends Component {
                         modalOpened={ modalOpened }
                         toggleEditNameModal={ this.toggleEditNameModal }
                         error={ inlineError }
+                        store={ store }
                     />
                     <PageHeader className={ notificationsRead ? 'bottom-padding-0' : '' }>
                         { this.renderBreadcrumb(baselineData, baselinesRead) }
@@ -237,9 +239,9 @@ export class EditBaselinePage extends Component {
 
     renderMain(permissions) {
         const { baselineData, baselineDataLoading, clearErrorData, driftClearFilters, editBaselineEmptyState, editBaselineError,
-            editBaselineTableData, entities, expandRow, expandedRows, exportToCSV, exportToJSON, factModalOpened, fetchBaselineData,
-            selectFact, match: { params }, selectEntities, selectHistoricProfiles, setSelectedSystemIds, toggleNameSort,
-            toggleValueSort, nameSort, valueSort } = this.props;
+            editBaselineTableData, entities, expandRow, expandedRows, exportStatus, exportToCSV, exportToJSON, factModalOpened, fetchBaselineData,
+            resetBaselineDataExportStatus, selectFact, params, selectEntities, selectHistoricProfiles, setSelectedSystemIds,
+            toggleNameSort, toggleValueSort, nameSort, valueSort } = this.props;
         const { activeTab } = this.state;
         let body;
 
@@ -254,16 +256,17 @@ export class EditBaselinePage extends Component {
                 editBaselineTableData={ editBaselineTableData }
                 expandRow={ expandRow }
                 expandedRows={ expandedRows }
+                exportStatus={ exportStatus }
                 exportToCSV={ exportToCSV }
                 exportToJSON={ exportToJSON }
                 factModalOpened={ factModalOpened }
                 permissions={ permissions }
-                history={ history }
                 selectFact={ selectFact }
                 toggleNameSort={ toggleNameSort }
                 toggleValueSort= { toggleValueSort }
                 nameSort= { nameSort }
                 valueSort= { valueSort }
+                resetBaselineDataExportStatus={ resetBaselineDataExportStatus }
             />;
         } else {
             body = <SystemNotification
@@ -291,7 +294,7 @@ export class EditBaselinePage extends Component {
                 <PermissionContext.Consumer>
                     { value =>
                         <React.Fragment>
-                            { this.renderPageHeader(value.permissions) }
+                            { this.renderPageHeader(value.permissions, registryContextValue?.registry.getStore()) }
                             <Main store={ registryContextValue?.registry.getStore() }>
                                 { value.permissions.baselinesRead === false
                                     ? <EmptyStateDisplay
@@ -314,8 +317,6 @@ export class EditBaselinePage extends Component {
 /*eslint-enable*/
 
 EditBaselinePage.propTypes = {
-    history: PropTypes.object,
-    match: PropTypes.any,
     clearBaselineData: PropTypes.func,
     baselineData: PropTypes.object,
     baselineDataLoading: PropTypes.bool,
@@ -323,6 +324,7 @@ EditBaselinePage.propTypes = {
     factModalOpened: PropTypes.bool,
     editBaselineTableData: PropTypes.array,
     expandRow: PropTypes.func,
+    exportStatus: PropTypes.string,
     expandedRows: PropTypes.array,
     selectFact: PropTypes.func,
     clearErrorData: PropTypes.func,
@@ -344,7 +346,11 @@ EditBaselinePage.propTypes = {
     toggleNameSort: PropTypes.func,
     toggleValueSort: PropTypes.func,
     nameSort: PropTypes.string,
-    valueSort: PropTypes.string
+    valueSort: PropTypes.string,
+    resetBaselineDataExportStatus: PropTypes.func,
+    chrome: PropTypes.object,
+    params: PropTypes.object,
+    navigate: PropTypes.func
 };
 
 function mapStateToProps(state) {
@@ -354,6 +360,7 @@ function mapStateToProps(state) {
         factModalOpened: state.editBaselineState.factModalOpened,
         editBaselineTableData: state.editBaselineState.editBaselineTableData,
         expandedRows: state.editBaselineState.expandedRows,
+        exportStatus: state.editBaselineState.exportStatus,
         editBaselineError: state.editBaselineState.editBaselineError,
         notificationsSwitchError: state.editBaselineState.notificationsSwitchError,
         editBaselineEmptyState: state.editBaselineState.editBaselineEmptyState,
@@ -389,9 +396,19 @@ function mapDispatchToProps(dispatch) {
             dispatch(editBaselineActions.toggleNotificationRejected(error, id, display_name));
         },
         toggleNameSort: (sortType) => dispatch(editBaselineActions.toggleNameSort(sortType)),
-        toggleValueSort: (sortType) => dispatch(editBaselineActions.toggleValueSort(sortType))
+        toggleValueSort: (sortType) => dispatch(editBaselineActions.toggleValueSort(sortType)),
+        resetBaselineDataExportStatus: () => dispatch(editBaselineActions.resetBaselineDataExportStatus())
     };
 }
 /*eslint-enable camelcase*/
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(EditBaselinePage));
+const EditBaselinePageWithHooks = props => {
+    const chrome = useChrome();
+    const params = useParams();
+    const navigate = useInsightsNavigate();
+    return (
+        <EditBaselinePage { ...props } chrome={ chrome } params={ params } navigate={ navigate } />
+    );
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditBaselinePageWithHooks);

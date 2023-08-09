@@ -46,7 +46,7 @@ function deleteSelectedBaselines(deleteBaselinesAPIBody, tableId) {
     };
 }
 
-function exportToCSV(baselineData) {
+function exportToCSV(tableId, baselineData) {
     let data = {
         type: 'csv',
         exportType: 'baseline list',
@@ -54,12 +54,12 @@ function exportToCSV(baselineData) {
     };
 
     return {
-        type: `EXPORT_BASELINES_LIST_TO_CSV_CHECKBOX`,
+        type: `EXPORT_BASELINES_LIST_TO_CSV_${tableId}`,
         payload: data
     };
 }
 
-function exportToJSON(baselineData) {
+function exportToJSON(tableId, baselineData) {
     let data = {
         type: 'json',
         exportType: 'baseline list',
@@ -67,8 +67,14 @@ function exportToJSON(baselineData) {
     };
 
     return {
-        type: `EXPORT_BASELINES_LIST_TO_JSON_CHECKBOX`,
+        type: `EXPORT_BASELINES_LIST_TO_JSON_${tableId}`,
         payload: data
+    };
+}
+
+function resetBaselinesExportStatus() {
+    return {
+        type: `RESET_BASELINES_EXPORT_STATUS_CHECKBOX`
     };
 }
 
@@ -81,5 +87,6 @@ export default {
     clearBaselineData,
     deleteSelectedBaselines,
     exportToCSV,
-    exportToJSON
+    exportToJSON,
+    resetBaselinesExportStatus
 };

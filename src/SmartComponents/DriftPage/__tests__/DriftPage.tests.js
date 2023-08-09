@@ -37,7 +37,9 @@ jest.mock('../../HistoricalProfilesPopover/redux', () => ({
 jest.mock('../../modules', () => ({
     compareActions: {
         updateReferenceId: jest.fn(()=> ({ type: 'null' })),
-        fetchCompare: jest.fn(()=> ({ type: 'null' }))
+        fetchCompare: jest.fn(()=> ({ type: 'null' })),
+        handleFactFilter: jest.fn(()=> ({ type: 'null' })),
+        addStateFilter: jest.fn(()=> ({ type: 'null' }))
     }
 }));
 
@@ -67,7 +69,12 @@ describe('DriftPage', () => {
             clearComparisonFilters: jest.fn(),
             selectHistoricProfiles: jest.fn(),
             updateReferenceId: jest.fn(),
-            revertCompareData: jest.fn()
+            revertCompareData: jest.fn(),
+            searchParams: {
+                getAll: jest.fn(() => ''),
+                get: jest.fn(() => '')
+            },
+            navigate: jest.fn(() => null)
         };
     });
 
@@ -110,7 +117,7 @@ describe('DriftPage', () => {
 
         await wrapper.instance().setHistory();
         await expect(setHistorySpy).toHaveBeenCalledWith(
-            props.history, systemIds, baselineIds, HSPIds, undefined, [], '', factTypeFiltersDefault, allStatesTrue, DESC, ASC
+            props.navigate, systemIds, baselineIds, HSPIds, undefined, [], '', factTypeFiltersDefault, allStatesTrue, DESC, ASC
         );
     });
 
@@ -126,35 +133,10 @@ describe('DriftPage', () => {
 
         await wrapper.instance().setHistory();
         await expect(setHistorySpy).toHaveBeenCalledWith(
-            props.history, systemIds, baselineIds, HSPIds, undefined, [], '', factTypeFiltersDefault, allStatesTrue, DESC, ASC
+            props.navigate, systemIds, baselineIds, HSPIds, undefined, [], '', factTypeFiltersDefault, allStatesTrue, DESC, ASC
         );
     });
 
-    it('should keep url on Comparison click', async () => {
-        props.baselines = [
-            {
-                display_name: 'baseline1',
-                id: '9bbbefcc-8f23-4d97-07f2-142asdl234e9',
-                last_updated: '2019-01-15T14:53:15.886891Z'
-            }
-        ];
-        props.location.search = '?baseline_ids=9bbbefcc-8f23-4d97-07f2-142asdl234e9';
-        const setHistorySpy = jest.spyOn(setHistory, 'setHistory');
-
-        const wrapper = shallow(
-            <DriftPage { ...props } />
-        );
-
-        let prevProps = props;
-
-        wrapper.setProps({
-            location: { search: '' }
-        });
-        wrapper.instance().componentDidUpdate(prevProps);
-        await expect(setHistorySpy).toHaveBeenCalledWith(
-            props.history, [], [ '9bbbefcc-8f23-4d97-07f2-142asdl234e9' ], [], undefined, [], '', factTypeFiltersDefault, allStatesTrue, DESC, ASC
-        );
-    });
 });
 
 describe('ConnectedDriftPage', () => {

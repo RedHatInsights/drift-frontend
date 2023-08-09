@@ -1,18 +1,18 @@
 import React, { createContext, useState, useEffect } from 'react';
 import { useDispatch, useStore } from 'react-redux';
 import actions from './SmartComponents/modules/actions';
-import { withRouter, useHistory } from 'react-router-dom';
 import { NotificationsPortal } from '@redhat-cloud-services/frontend-components-notifications';
+import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
 
-import { Routes } from './Routes';
+import DriftRoutes from './Routes';
 import './App.scss';
 
 export const PermissionContext = createContext();
 
-const App = (props) => {
-    const history = useHistory();
+const App = () => {
     const dispatch = useDispatch();
     const store = useStore();
+    const chrome = useChrome();
 
     const [{
         hasCompareReadPermissions,
@@ -61,16 +61,10 @@ const App = (props) => {
     };
 
     useEffect(() => {
-        insights.chrome.init();
-        insights.chrome.identifyApp('drift');
-        insights.chrome.on('APP_NAVIGATION', event => {
-            if (event.domEvent !== undefined && event.domEvent.type === 'click') {
-                history.push(`/${event.navId}`);
-            }
-        });
+        chrome.identifyApp('drift');
         (async () => {
-            const driftPermissions = await window.insights.chrome.getUserPermissions('drift');
-            const fullPermissions = driftPermissions.concat(await window.insights.chrome.getUserPermissions('inventory'));
+            const driftPermissions = await chrome.getUserPermissions('drift');
+            const fullPermissions = driftPermissions.concat(await chrome.getUserPermissions('inventory'));
             const permissionsList = fullPermissions.map(permissions => permissions.permission);
             handlePermissionsUpdate(
                 permissionsList.some((permission) => hasPermission(permission, [ 'drift:*:*', 'drift:comparisons:read', 'drift:*:read' ])),
@@ -79,14 +73,14 @@ const App = (props) => {
                 permissionsList.some((permission) => hasPermission(
                     permission, [ 'drift:*:*', 'drift:historical-system-profiles:read', 'drift:*:read' ])
                 ),
-                permissionsList.some((permission) => hasPermission(permission, [ 'inventory:*:*', 'inventory:*:read' ])),
+                permissionsList.some((permission) => hasPermission(permission, [ 'inventory:*:*', 'inventory:hosts:read' ])),
                 permissionsList.some((permission) => hasPermission(permission, [ 'drift:*:*', 'drift:notifications:write', 'drift:*:write' ])),
                 permissionsList.some((permission) => hasPermission(permission, [ 'drift:*:*', 'drift:notifications:read', 'drift:*:read' ]))
             );
         })();
 
-        insights.chrome.on('GLOBAL_FILTER_UPDATE', ({ data }) => {
-            const [ workloads, SID, tags ] = insights.chrome?.mapGlobalFilter?.(data, false, true) || [];
+        chrome.on('GLOBAL_FILTER_UPDATE', ({ data }) => {
+            const [ workloads, SID, tags ] = chrome?.mapGlobalFilter?.(data, false, true) || [];
             dispatch(actions.setGlobalFilterTags(tags));
             dispatch(actions.setGlobalFilterWorkloads(workloads));
             dispatch(actions.setGlobalFilterSIDs(SID));
@@ -108,10 +102,10 @@ const App = (props) => {
                     }
                 }}>
                 <NotificationsPortal store={ store }/>
-                <Routes childProps={ props } />
+                <DriftRoutes />
             </PermissionContext.Provider>
             : null
     );
 };
 
-export default withRouter (App);
+export default (App);

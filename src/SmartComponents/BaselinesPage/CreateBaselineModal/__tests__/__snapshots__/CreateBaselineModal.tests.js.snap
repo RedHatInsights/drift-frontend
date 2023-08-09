@@ -5,31 +5,31 @@ exports[`ConnectedCreateBaselineModal should render correctly 1`] = `
   keyLength={0}
 >
   <Router
-    history={
+    location={
+      Object {
+        "hash": "",
+        "key": "default",
+        "pathname": "/",
+        "search": "",
+        "state": null,
+      }
+    }
+    navigationType="POP"
+    navigator={
       Object {
         "action": "POP",
-        "block": [Function],
-        "canGo": [Function],
         "createHref": [Function],
-        "entries": Array [
-          Object {
-            "hash": "",
-            "pathname": "/",
-            "search": "",
-            "state": undefined,
-          },
-        ],
+        "createURL": [Function],
+        "encodeLocation": [Function],
         "go": [Function],
-        "goBack": [Function],
-        "goForward": [Function],
         "index": 0,
-        "length": 1,
         "listen": [Function],
         "location": Object {
           "hash": "",
+          "key": "default",
           "pathname": "/",
           "search": "",
-          "state": undefined,
+          "state": null,
         },
         "push": [Function],
         "replace": [Function],
@@ -48,54 +48,24 @@ exports[`ConnectedCreateBaselineModal should render correctly 1`] = `
         }
       }
     >
-      <withRouter(Connect(CreateBaselineModal))>
-        <Connect(CreateBaselineModal)
-          history={
-            Object {
-              "action": "POP",
-              "block": [Function],
-              "canGo": [Function],
-              "createHref": [Function],
-              "entries": Array [
-                Object {
-                  "hash": "",
-                  "pathname": "/",
-                  "search": "",
-                  "state": undefined,
-                },
-              ],
-              "go": [Function],
-              "goBack": [Function],
-              "goForward": [Function],
-              "index": 0,
-              "length": 1,
-              "listen": [Function],
-              "location": Object {
-                "hash": "",
-                "pathname": "/",
-                "search": "",
-                "state": undefined,
-              },
-              "push": [Function],
-              "replace": [Function],
-            }
-          }
-          location={
-            Object {
-              "hash": "",
-              "pathname": "/",
-              "search": "",
-              "state": undefined,
-            }
-          }
-          match={
-            Object {
-              "isExact": true,
-              "params": Object {},
-              "path": "/",
-              "url": "/",
-            }
-          }
+      <Connect(CreateBaselineModalWithHooks)>
+        <CreateBaselineModalWithHooks
+          baselineData={Object {}}
+          baselineTableData={Array []}
+          clearSelectedBaselines={[Function]}
+          createBaseline={[Function]}
+          createBaselineError={Object {}}
+          createBaselineModalOpened={true}
+          emptyState={Object {}}
+          entities={Object {}}
+          historicalProfiles={Array []}
+          loading={false}
+          revertBaselineFetch={[Function]}
+          selectBaseline={[Function]}
+          selectSingleHSP={[Function]}
+          selectedBaselineIds={Array []}
+          toggleCreateBaselineModal={[Function]}
+          updateColumns={[Function]}
         >
           <CreateBaselineModal
             baselineData={Object {}}
@@ -107,53 +77,8 @@ exports[`ConnectedCreateBaselineModal should render correctly 1`] = `
             emptyState={Object {}}
             entities={Object {}}
             historicalProfiles={Array []}
-            history={
-              Object {
-                "action": "POP",
-                "block": [Function],
-                "canGo": [Function],
-                "createHref": [Function],
-                "entries": Array [
-                  Object {
-                    "hash": "",
-                    "pathname": "/",
-                    "search": "",
-                    "state": undefined,
-                  },
-                ],
-                "go": [Function],
-                "goBack": [Function],
-                "goForward": [Function],
-                "index": 0,
-                "length": 1,
-                "listen": [Function],
-                "location": Object {
-                  "hash": "",
-                  "pathname": "/",
-                  "search": "",
-                  "state": undefined,
-                },
-                "push": [Function],
-                "replace": [Function],
-              }
-            }
             loading={false}
-            location={
-              Object {
-                "hash": "",
-                "pathname": "/",
-                "search": "",
-                "state": undefined,
-              }
-            }
-            match={
-              Object {
-                "isExact": true,
-                "params": Object {},
-                "path": "/",
-                "url": "/",
-              }
-            }
+            navigate={[MockFunction]}
             revertBaselineFetch={[Function]}
             selectBaseline={[Function]}
             selectSingleHSP={[Function]}
@@ -448,7 +373,7 @@ exports[`ConnectedCreateBaselineModal should render correctly 1`] = `
                     <div
                       className="pf-c-backdrop"
                     >
-                      <FocusTrap
+                      <ForwardRef
                         active={true}
                         className="pf-l-bullseye"
                         focusTrapOptions={
@@ -459,392 +384,82 @@ exports[`ConnectedCreateBaselineModal should render correctly 1`] = `
                             },
                           }
                         }
-                        paused={false}
-                        preventScrollOnDeactivate={false}
                       >
-                        <div
+                        <FocusTrap
+                          active={true}
                           className="pf-l-bullseye"
-                        >
-                          <ModalBox
-                            aria-describedby="pf-modal-part-7"
-                            aria-label=""
-                            aria-labelledby="pf-modal-part-6"
-                            className="drift create-baseline-modal"
-                            data-ouia-component-id="OUIA-Generated-Modal-default-6"
-                            data-ouia-component-type="PF4/ModalContent"
-                            data-ouia-safe={true}
-                            id="pf-modal-part-5"
-                            style={
-                              Object {
-                                "width": "1200px",
-                              }
+                          focusTrapOptions={
+                            Object {
+                              "clickOutsideDeactivates": true,
+                              "tabbableOptions": Object {
+                                "displayCheck": "none",
+                              },
                             }
-                            variant="default"
+                          }
+                          innerRef={null}
+                          paused={false}
+                          preventScrollOnDeactivate={false}
+                        >
+                          <div
+                            className="pf-l-bullseye"
                           >
-                            <div
+                            <ModalBox
                               aria-describedby="pf-modal-part-7"
-                              aria-label={null}
+                              aria-label=""
                               aria-labelledby="pf-modal-part-6"
-                              aria-modal="true"
-                              className="pf-c-modal-box drift create-baseline-modal"
+                              className="drift create-baseline-modal"
                               data-ouia-component-id="OUIA-Generated-Modal-default-6"
                               data-ouia-component-type="PF4/ModalContent"
                               data-ouia-safe={true}
                               id="pf-modal-part-5"
-                              role="dialog"
                               style={
                                 Object {
                                   "width": "1200px",
                                 }
                               }
+                              variant="default"
                             >
-                              <ModalBoxCloseButton
-                                onClose={[Function]}
-                                ouiaId="OUIA-Generated-Modal-default-6"
+                              <div
+                                aria-describedby="pf-modal-part-7"
+                                aria-label={null}
+                                aria-labelledby="pf-modal-part-6"
+                                aria-modal="true"
+                                className="pf-c-modal-box drift create-baseline-modal"
+                                data-ouia-component-id="OUIA-Generated-Modal-default-6"
+                                data-ouia-component-type="PF4/ModalContent"
+                                data-ouia-safe={true}
+                                id="pf-modal-part-5"
+                                role="dialog"
+                                style={
+                                  Object {
+                                    "width": "1200px",
+                                  }
+                                }
                               >
-                                <Button
-                                  aria-label="Close"
-                                  className=""
-                                  onClick={[Function]}
-                                  ouiaId="OUIA-Generated-Modal-default-6-ModalBoxCloseButton"
-                                  variant="plain"
+                                <ModalBoxCloseButton
+                                  onClose={[Function]}
+                                  ouiaId="OUIA-Generated-Modal-default-6"
                                 >
-                                  <ButtonBase
+                                  <Button
                                     aria-label="Close"
                                     className=""
-                                    innerRef={null}
                                     onClick={[Function]}
                                     ouiaId="OUIA-Generated-Modal-default-6-ModalBoxCloseButton"
                                     variant="plain"
                                   >
-                                    <button
-                                      aria-disabled={false}
+                                    <ButtonBase
                                       aria-label="Close"
-                                      className="pf-c-button pf-m-plain"
-                                      data-ouia-component-id="OUIA-Generated-Modal-default-6-ModalBoxCloseButton"
-                                      data-ouia-component-type="PF4/Button"
-                                      data-ouia-safe={true}
-                                      disabled={false}
-                                      onClick={[Function]}
-                                      role={null}
-                                      type="button"
-                                    >
-                                      <TimesIcon
-                                        color="currentColor"
-                                        noVerticalAlign={false}
-                                        size="sm"
-                                      >
-                                        <svg
-                                          aria-hidden={true}
-                                          aria-labelledby={null}
-                                          fill="currentColor"
-                                          height="1em"
-                                          role="img"
-                                          style={
-                                            Object {
-                                              "verticalAlign": "-0.125em",
-                                            }
-                                          }
-                                          viewBox="0 0 352 512"
-                                          width="1em"
-                                        >
-                                          <path
-                                            d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
-                                          />
-                                        </svg>
-                                      </TimesIcon>
-                                    </button>
-                                  </ButtonBase>
-                                </Button>
-                              </ModalBoxCloseButton>
-                              <ModalBoxHeader
-                                help={null}
-                              >
-                                <header
-                                  className="pf-c-modal-box__header"
-                                >
-                                  <ModalBoxTitle
-                                    id="pf-modal-part-6"
-                                    title="Create baseline"
-                                    titleIconVariant={null}
-                                    titleLabel=""
-                                  >
-                                    <h1
-                                      className="pf-c-modal-box__title"
-                                      id="pf-modal-part-6"
-                                    >
-                                      <span
-                                        className="pf-c-modal-box__title-text"
-                                      >
-                                        Create baseline
-                                      </span>
-                                    </h1>
-                                  </ModalBoxTitle>
-                                </header>
-                              </ModalBoxHeader>
-                              <ModalBoxBody
-                                id="pf-modal-part-7"
-                              >
-                                <div
-                                  className="pf-c-modal-box__body"
-                                  id="pf-modal-part-7"
-                                >
-                                  <Radio
-                                    className=""
-                                    id="create baseline"
-                                    isChecked={true}
-                                    isDisabled={false}
-                                    isValid={true}
-                                    label="Create baseline from scratch"
-                                    name="baseline-create-options"
-                                    onChange={[Function]}
-                                    ouiaId="create-baseline-from-scratch-radio"
-                                    value="fromScratchChecked"
-                                  >
-                                    <div
-                                      className="pf-c-radio"
-                                    >
-                                      <input
-                                        aria-invalid={false}
-                                        checked={true}
-                                        className="pf-c-radio__input"
-                                        data-ouia-component-id="create-baseline-from-scratch-radio"
-                                        data-ouia-component-type="PF4/Radio"
-                                        data-ouia-safe={true}
-                                        disabled={false}
-                                        id="create baseline"
-                                        name="baseline-create-options"
-                                        onChange={[Function]}
-                                        type="radio"
-                                        value="fromScratchChecked"
-                                      />
-                                      <label
-                                        className="pf-c-radio__label"
-                                        htmlFor="create baseline"
-                                      >
-                                        Create baseline from scratch
-                                      </label>
-                                    </div>
-                                  </Radio>
-                                  <Radio
-                                    className=""
-                                    id="copy baseline"
-                                    isChecked={false}
-                                    isDisabled={false}
-                                    isValid={true}
-                                    label="Copy an existing baseline"
-                                    name="baseline-create-options"
-                                    onChange={[Function]}
-                                    ouiaId="create-baseline-copy-baseline-radio"
-                                    value="copyBaselineChecked"
-                                  >
-                                    <div
-                                      className="pf-c-radio"
-                                    >
-                                      <input
-                                        aria-invalid={false}
-                                        checked={false}
-                                        className="pf-c-radio__input"
-                                        data-ouia-component-id="create-baseline-copy-baseline-radio"
-                                        data-ouia-component-type="PF4/Radio"
-                                        data-ouia-safe={true}
-                                        disabled={false}
-                                        id="copy baseline"
-                                        name="baseline-create-options"
-                                        onChange={[Function]}
-                                        type="radio"
-                                        value="copyBaselineChecked"
-                                      />
-                                      <label
-                                        className="pf-c-radio__label"
-                                        htmlFor="copy baseline"
-                                      >
-                                        Copy an existing baseline
-                                      </label>
-                                    </div>
-                                  </Radio>
-                                  <Radio
-                                    className=""
-                                    id="copy system"
-                                    isChecked={false}
-                                    isDisabled={false}
-                                    isValid={true}
-                                    label="Copy an existing system or historical profile"
-                                    name="baseline-create-options"
-                                    onChange={[Function]}
-                                    ouiaId="create-baseline-copy-system-radio"
-                                    value="copySystemChecked"
-                                  >
-                                    <div
-                                      className="pf-c-radio"
-                                    >
-                                      <input
-                                        aria-invalid={false}
-                                        checked={false}
-                                        className="pf-c-radio__input"
-                                        data-ouia-component-id="create-baseline-copy-system-radio"
-                                        data-ouia-component-type="PF4/Radio"
-                                        data-ouia-safe={true}
-                                        disabled={false}
-                                        id="copy system"
-                                        name="baseline-create-options"
-                                        onChange={[Function]}
-                                        type="radio"
-                                        value="copySystemChecked"
-                                      />
-                                      <label
-                                        className="pf-c-radio__label"
-                                        htmlFor="copy system"
-                                      >
-                                        Copy an existing system or historical profile
-                                      </label>
-                                    </div>
-                                  </Radio>
-                                  <div
-                                    className="md-padding-top md-padding-bottom"
-                                  >
-                                    <Form>
-                                      <form
-                                        className="pf-c-form"
-                                        noValidate={true}
-                                      >
-                                        <FormGroup
-                                          fieldId="name"
-                                          helperTextInvalid={null}
-                                          isRequired={true}
-                                          label="Baseline name"
-                                          onKeyPress={[Function]}
-                                          type="text"
-                                          validated={null}
-                                        >
-                                          <div
-                                            className="pf-c-form__group"
-                                            onKeyPress={[Function]}
-                                            type="text"
-                                          >
-                                            <div
-                                              className="pf-c-form__group-label"
-                                            >
-                                              <label
-                                                className="pf-c-form__label"
-                                                htmlFor="name"
-                                              >
-                                                <span
-                                                  className="pf-c-form__label-text"
-                                                >
-                                                  Baseline name
-                                                </span>
-                                                <span
-                                                  aria-hidden="true"
-                                                  className="pf-c-form__label-required"
-                                                >
-                                                   
-                                                  *
-                                                </span>
-                                              </label>
-                                               
-                                            </div>
-                                            <div
-                                              className="pf-c-form__group-control"
-                                            >
-                                              <TextInput
-                                                aria-label="baseline name"
-                                                className="fact-value"
-                                                onChange={[Function]}
-                                                type="text"
-                                                validated={null}
-                                                value=""
-                                              >
-                                                <TextInputBase
-                                                  aria-label="baseline name"
-                                                  className="fact-value"
-                                                  innerRef={null}
-                                                  isDisabled={false}
-                                                  isIconSprite={false}
-                                                  isLeftTruncated={false}
-                                                  isReadOnly={false}
-                                                  isRequired={false}
-                                                  onChange={[Function]}
-                                                  ouiaSafe={true}
-                                                  type="text"
-                                                  validated={null}
-                                                  value=""
-                                                >
-                                                  <input
-                                                    aria-invalid={false}
-                                                    aria-label="baseline name"
-                                                    className="pf-c-form-control fact-value"
-                                                    data-ouia-component-id="OUIA-Generated-TextInputBase-5"
-                                                    data-ouia-component-type="PF4/TextInput"
-                                                    data-ouia-safe={true}
-                                                    disabled={false}
-                                                    onBlur={[Function]}
-                                                    onChange={[Function]}
-                                                    onFocus={[Function]}
-                                                    readOnly={false}
-                                                    required={false}
-                                                    type="text"
-                                                    value=""
-                                                  />
-                                                </TextInputBase>
-                                              </TextInput>
-                                            </div>
-                                          </div>
-                                        </FormGroup>
-                                      </form>
-                                    </Form>
-                                  </div>
-                                </div>
-                              </ModalBoxBody>
-                              <ModalBoxFooter>
-                                <footer
-                                  className="pf-c-modal-box__footer"
-                                >
-                                  <Button
-                                    isDisabled={true}
-                                    key="confirm"
-                                    ouiaId="create-baseline-button-fromscratch"
-                                    variant="primary"
-                                  >
-                                    <ButtonBase
-                                      innerRef={null}
-                                      isDisabled={true}
-                                      ouiaId="create-baseline-button-fromscratch"
-                                      variant="primary"
-                                    >
-                                      <button
-                                        aria-disabled={true}
-                                        aria-label={null}
-                                        className="pf-c-button pf-m-primary pf-m-disabled"
-                                        data-ouia-component-id="create-baseline-button-fromscratch"
-                                        data-ouia-component-type="PF4/Button"
-                                        data-ouia-safe={true}
-                                        disabled={true}
-                                        role={null}
-                                        tabIndex={null}
-                                        type="button"
-                                      >
-                                        Create baseline
-                                      </button>
-                                    </ButtonBase>
-                                  </Button>
-                                  <Button
-                                    key="cancel"
-                                    onClick={[Function]}
-                                    ouiaId="create-baseline-modal-cancel-button"
-                                    variant="link"
-                                  >
-                                    <ButtonBase
+                                      className=""
                                       innerRef={null}
                                       onClick={[Function]}
-                                      ouiaId="create-baseline-modal-cancel-button"
-                                      variant="link"
+                                      ouiaId="OUIA-Generated-Modal-default-6-ModalBoxCloseButton"
+                                      variant="plain"
                                     >
                                       <button
                                         aria-disabled={false}
-                                        aria-label={null}
-                                        className="pf-c-button pf-m-link"
-                                        data-ouia-component-id="create-baseline-modal-cancel-button"
+                                        aria-label="Close"
+                                        className="pf-c-button pf-m-plain"
+                                        data-ouia-component-id="OUIA-Generated-Modal-default-6-ModalBoxCloseButton"
                                         data-ouia-component-type="PF4/Button"
                                         data-ouia-safe={true}
                                         disabled={false}
@@ -852,24 +467,355 @@ exports[`ConnectedCreateBaselineModal should render correctly 1`] = `
                                         role={null}
                                         type="button"
                                       >
-                                        Cancel
+                                        <TimesIcon
+                                          color="currentColor"
+                                          noVerticalAlign={false}
+                                          size="sm"
+                                        >
+                                          <svg
+                                            aria-hidden={true}
+                                            aria-labelledby={null}
+                                            fill="currentColor"
+                                            height="1em"
+                                            role="img"
+                                            style={
+                                              Object {
+                                                "verticalAlign": "-0.125em",
+                                              }
+                                            }
+                                            viewBox="0 0 352 512"
+                                            width="1em"
+                                          >
+                                            <path
+                                              d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                            />
+                                          </svg>
+                                        </TimesIcon>
                                       </button>
                                     </ButtonBase>
                                   </Button>
-                                </footer>
-                              </ModalBoxFooter>
-                            </div>
-                          </ModalBox>
-                        </div>
-                      </FocusTrap>
+                                </ModalBoxCloseButton>
+                                <ModalBoxHeader
+                                  help={null}
+                                >
+                                  <header
+                                    className="pf-c-modal-box__header"
+                                  >
+                                    <ModalBoxTitle
+                                      id="pf-modal-part-6"
+                                      title="Create baseline"
+                                      titleIconVariant={null}
+                                      titleLabel=""
+                                    >
+                                      <h1
+                                        className="pf-c-modal-box__title"
+                                        id="pf-modal-part-6"
+                                      >
+                                        <span
+                                          className="pf-c-modal-box__title-text"
+                                        >
+                                          Create baseline
+                                        </span>
+                                      </h1>
+                                    </ModalBoxTitle>
+                                  </header>
+                                </ModalBoxHeader>
+                                <ModalBoxBody
+                                  id="pf-modal-part-7"
+                                >
+                                  <div
+                                    className="pf-c-modal-box__body"
+                                    id="pf-modal-part-7"
+                                  >
+                                    <Radio
+                                      className=""
+                                      id="create baseline"
+                                      isChecked={true}
+                                      isDisabled={false}
+                                      isValid={true}
+                                      label="Create baseline from scratch"
+                                      name="baseline-create-options"
+                                      onChange={[Function]}
+                                      ouiaId="create-baseline-from-scratch-radio"
+                                      value="fromScratchChecked"
+                                    >
+                                      <div
+                                        className="pf-c-radio"
+                                      >
+                                        <input
+                                          aria-invalid={false}
+                                          checked={true}
+                                          className="pf-c-radio__input"
+                                          data-ouia-component-id="create-baseline-from-scratch-radio"
+                                          data-ouia-component-type="PF4/Radio"
+                                          data-ouia-safe={true}
+                                          disabled={false}
+                                          id="create baseline"
+                                          name="baseline-create-options"
+                                          onChange={[Function]}
+                                          type="radio"
+                                          value="fromScratchChecked"
+                                        />
+                                        <label
+                                          className="pf-c-radio__label"
+                                          htmlFor="create baseline"
+                                        >
+                                          Create baseline from scratch
+                                        </label>
+                                      </div>
+                                    </Radio>
+                                    <Radio
+                                      className=""
+                                      id="copy baseline"
+                                      isChecked={false}
+                                      isDisabled={false}
+                                      isValid={true}
+                                      label="Copy an existing baseline"
+                                      name="baseline-create-options"
+                                      onChange={[Function]}
+                                      ouiaId="create-baseline-copy-baseline-radio"
+                                      value="copyBaselineChecked"
+                                    >
+                                      <div
+                                        className="pf-c-radio"
+                                      >
+                                        <input
+                                          aria-invalid={false}
+                                          checked={false}
+                                          className="pf-c-radio__input"
+                                          data-ouia-component-id="create-baseline-copy-baseline-radio"
+                                          data-ouia-component-type="PF4/Radio"
+                                          data-ouia-safe={true}
+                                          disabled={false}
+                                          id="copy baseline"
+                                          name="baseline-create-options"
+                                          onChange={[Function]}
+                                          type="radio"
+                                          value="copyBaselineChecked"
+                                        />
+                                        <label
+                                          className="pf-c-radio__label"
+                                          htmlFor="copy baseline"
+                                        >
+                                          Copy an existing baseline
+                                        </label>
+                                      </div>
+                                    </Radio>
+                                    <Radio
+                                      className=""
+                                      id="copy system"
+                                      isChecked={false}
+                                      isDisabled={false}
+                                      isValid={true}
+                                      label="Copy an existing system or historical profile"
+                                      name="baseline-create-options"
+                                      onChange={[Function]}
+                                      ouiaId="create-baseline-copy-system-radio"
+                                      value="copySystemChecked"
+                                    >
+                                      <div
+                                        className="pf-c-radio"
+                                      >
+                                        <input
+                                          aria-invalid={false}
+                                          checked={false}
+                                          className="pf-c-radio__input"
+                                          data-ouia-component-id="create-baseline-copy-system-radio"
+                                          data-ouia-component-type="PF4/Radio"
+                                          data-ouia-safe={true}
+                                          disabled={false}
+                                          id="copy system"
+                                          name="baseline-create-options"
+                                          onChange={[Function]}
+                                          type="radio"
+                                          value="copySystemChecked"
+                                        />
+                                        <label
+                                          className="pf-c-radio__label"
+                                          htmlFor="copy system"
+                                        >
+                                          Copy an existing system or historical profile
+                                        </label>
+                                      </div>
+                                    </Radio>
+                                    <div
+                                      className="md-padding-top md-padding-bottom"
+                                    >
+                                      <Form>
+                                        <FormBase
+                                          innerRef={null}
+                                        >
+                                          <form
+                                            className="pf-c-form"
+                                            noValidate={true}
+                                          >
+                                            <FormGroup
+                                              fieldId="name"
+                                              helperTextInvalid={null}
+                                              isRequired={true}
+                                              label="Baseline name"
+                                              onKeyPress={[Function]}
+                                              type="text"
+                                              validated={null}
+                                            >
+                                              <GenerateId
+                                                prefix="pf-random-id-"
+                                              >
+                                                <div
+                                                  className="pf-c-form__group"
+                                                  onKeyPress={[Function]}
+                                                  type="text"
+                                                >
+                                                  <div
+                                                    className="pf-c-form__group-label"
+                                                  >
+                                                    <label
+                                                      className="pf-c-form__label"
+                                                      htmlFor="name"
+                                                    >
+                                                      <span
+                                                        className="pf-c-form__label-text"
+                                                      >
+                                                        Baseline name
+                                                      </span>
+                                                      <span
+                                                        aria-hidden="true"
+                                                        className="pf-c-form__label-required"
+                                                      >
+                                                         
+                                                        *
+                                                      </span>
+                                                    </label>
+                                                     
+                                                  </div>
+                                                  <div
+                                                    className="pf-c-form__group-control"
+                                                  >
+                                                    <TextInput
+                                                      aria-label="baseline name"
+                                                      className="fact-value"
+                                                      onChange={[Function]}
+                                                      type="text"
+                                                      validated={null}
+                                                      value=""
+                                                    >
+                                                      <TextInputBase
+                                                        aria-label="baseline name"
+                                                        className="fact-value"
+                                                        innerRef={null}
+                                                        isDisabled={false}
+                                                        isIconSprite={false}
+                                                        isLeftTruncated={false}
+                                                        isReadOnly={false}
+                                                        isRequired={false}
+                                                        onChange={[Function]}
+                                                        ouiaSafe={true}
+                                                        type="text"
+                                                        validated={null}
+                                                        value=""
+                                                      >
+                                                        <input
+                                                          aria-invalid={false}
+                                                          aria-label="baseline name"
+                                                          className="pf-c-form-control fact-value"
+                                                          data-ouia-component-id="OUIA-Generated-TextInputBase-5"
+                                                          data-ouia-component-type="PF4/TextInput"
+                                                          data-ouia-safe={true}
+                                                          disabled={false}
+                                                          onBlur={[Function]}
+                                                          onChange={[Function]}
+                                                          onFocus={[Function]}
+                                                          required={false}
+                                                          type="text"
+                                                          value=""
+                                                        />
+                                                      </TextInputBase>
+                                                    </TextInput>
+                                                  </div>
+                                                </div>
+                                              </GenerateId>
+                                            </FormGroup>
+                                          </form>
+                                        </FormBase>
+                                      </Form>
+                                    </div>
+                                  </div>
+                                </ModalBoxBody>
+                                <ModalBoxFooter>
+                                  <footer
+                                    className="pf-c-modal-box__footer"
+                                  >
+                                    <Button
+                                      isDisabled={true}
+                                      key="confirm"
+                                      ouiaId="create-baseline-button-fromscratch"
+                                      variant="primary"
+                                    >
+                                      <ButtonBase
+                                        innerRef={null}
+                                        isDisabled={true}
+                                        ouiaId="create-baseline-button-fromscratch"
+                                        variant="primary"
+                                      >
+                                        <button
+                                          aria-disabled={true}
+                                          aria-label={null}
+                                          className="pf-c-button pf-m-primary pf-m-disabled"
+                                          data-ouia-component-id="create-baseline-button-fromscratch"
+                                          data-ouia-component-type="PF4/Button"
+                                          data-ouia-safe={true}
+                                          disabled={true}
+                                          role={null}
+                                          tabIndex={null}
+                                          type="button"
+                                        >
+                                          Create baseline
+                                        </button>
+                                      </ButtonBase>
+                                    </Button>
+                                    <Button
+                                      key="cancel"
+                                      onClick={[Function]}
+                                      ouiaId="create-baseline-modal-cancel-button"
+                                      variant="link"
+                                    >
+                                      <ButtonBase
+                                        innerRef={null}
+                                        onClick={[Function]}
+                                        ouiaId="create-baseline-modal-cancel-button"
+                                        variant="link"
+                                      >
+                                        <button
+                                          aria-disabled={false}
+                                          aria-label={null}
+                                          className="pf-c-button pf-m-link"
+                                          data-ouia-component-id="create-baseline-modal-cancel-button"
+                                          data-ouia-component-type="PF4/Button"
+                                          data-ouia-safe={true}
+                                          disabled={false}
+                                          onClick={[Function]}
+                                          role={null}
+                                          type="button"
+                                        >
+                                          Cancel
+                                        </button>
+                                      </ButtonBase>
+                                    </Button>
+                                  </footer>
+                                </ModalBoxFooter>
+                              </div>
+                            </ModalBox>
+                          </div>
+                        </FocusTrap>
+                      </ForwardRef>
                     </div>
                   </Backdrop>
                 </ModalContent>
               </Portal>
             </Modal>
           </CreateBaselineModal>
-        </Connect(CreateBaselineModal)>
-      </withRouter(Connect(CreateBaselineModal))>
+        </CreateBaselineModalWithHooks>
+      </Connect(CreateBaselineModalWithHooks)>
     </Provider>
   </Router>
 </MemoryRouter>
