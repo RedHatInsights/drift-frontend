@@ -1,538 +1,301 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ConnectedHistoricalProfilesPopover should render correctly 1`] = `
-<MemoryRouter
-  keyLength={0}
->
-  <Router
-    location={
-      Object {
-        "hash": "",
-        "key": "default",
-        "pathname": "/",
-        "search": "",
-        "state": null,
-      }
-    }
-    navigationType="POP"
-    navigator={
-      Object {
-        "action": "POP",
-        "createHref": [Function],
-        "createURL": [Function],
-        "encodeLocation": [Function],
-        "go": [Function],
-        "index": 0,
-        "listen": [Function],
-        "location": Object {
-          "hash": "",
-          "key": "default",
-          "pathname": "/",
-          "search": "",
-          "state": null,
-        },
-        "push": [Function],
-        "replace": [Function],
-      }
-    }
-  >
-    <Provider
-      store={
-        Object {
-          "clearActions": [Function],
-          "dispatch": [Function],
-          "getActions": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-        }
-      }
-    >
-      <Connect(HistoricalProfilesPopover)>
-        <HistoricalProfilesPopover
-          handleHSPSelection={[Function]}
-          selectSingleHSP={[Function]}
-          selectSystem={[Function]}
-          selectedHSPIds={Array []}
-        >
-          <span
-            className="hsp-icon-padding"
-            data-ouia-component-id="hsp-popover-toggle-undefined"
-            data-ouia-component-type="PF4/Button"
-          >
-            <Popover
-              bodyContent={
-                <div
-                  style={
-                    Object {
-                      "maxHeight": "350px",
-                      "overflowY": "scroll",
-                    }
-                  }
-                >
-                  <Skeleton
-                    className="hsp-dropdown-loading"
-                    size="sm"
-                  />
-                  <Skeleton
-                    className="hsp-dropdown-loading"
-                    size="sm"
-                  />
-                  <Skeleton
-                    className="hsp-dropdown-loading"
-                    size="sm"
-                  />
-                </div>
-              }
-              footerContent={null}
-              headerContent={
-                <div>
-                  Historical profiles for this system
-                </div>
-              }
-              id="hsp-popover-undefined"
-              isVisible={false}
-              shouldClose={[Function]}
-            >
-              <Popper
-                appendTo={[Function]}
-                distance={25}
-                enableFlip={true}
-                flipBehavior={
-                  Array [
-                    "top",
-                    "bottom",
-                    "left",
-                    "right",
-                    "top-start",
-                    "top-end",
-                    "bottom-start",
-                    "bottom-end",
-                    "left-start",
-                    "left-end",
-                    "right-start",
-                    "right-end",
-                  ]
-                }
-                isVisible={false}
-                onDocumentClick={[Function]}
-                onDocumentKeyDown={[Function]}
-                onTriggerClick={[Function]}
-                placement="top"
-                popper={
-                  <ForwardRef
-                    active={false}
-                    aria-describedby="popover-hsp-popover-undefined-body"
-                    aria-labelledby="popover-hsp-popover-undefined-header"
-                    aria-modal="true"
-                    className="pf-c-popover"
-                    focusTrapOptions={
-                      Object {
-                        "clickOutsideDeactivates": true,
-                        "fallbackFocus": [Function],
-                        "returnFocusOnDeactivate": true,
-                        "tabbableOptions": Object {
-                          "displayCheck": "none",
-                        },
-                      }
-                    }
-                    onMouseDown={[Function]}
-                    preventScrollOnDeactivate={true}
-                    role="dialog"
-                    style={
-                      Object {
-                        "maxWidth": null,
-                        "minWidth": null,
-                        "opacity": 0,
-                        "transition": "opacity 300ms cubic-bezier(.54, 1.5, .38, 1.11)",
-                      }
-                    }
-                  >
-                    <PopoverArrow />
-                    <PopoverContent>
-                      <PopoverCloseButton
-                        aria-label="Close"
-                        onClose={[Function]}
-                      />
-                      <PopoverHeader
-                        alertSeverityScreenReaderText="undefined alert:"
-                        icon={null}
-                        id="popover-hsp-popover-undefined-header"
-                        titleHeadingLevel="h6"
-                      >
-                        <div>
-                          Historical profiles for this system
-                        </div>
-                      </PopoverHeader>
-                      <PopoverBody
-                        id="popover-hsp-popover-undefined-body"
-                      >
-                        <div
-                          style={
-                            Object {
-                              "maxHeight": "350px",
-                              "overflowY": "scroll",
-                            }
-                          }
-                        >
-                          <Skeleton
-                            className="hsp-dropdown-loading"
-                            size="sm"
-                          />
-                          <Skeleton
-                            className="hsp-dropdown-loading"
-                            size="sm"
-                          />
-                          <Skeleton
-                            className="hsp-dropdown-loading"
-                            size="sm"
-                          />
-                        </div>
-                      </PopoverBody>
-                    </PopoverContent>
-                  </ForwardRef>
-                }
-                popperMatchesTriggerWidth={false}
-                positionModifiers={
-                  Object {
-                    "bottom": "pf-m-bottom",
-                    "bottom-end": "pf-m-bottom-right",
-                    "bottom-start": "pf-m-bottom-left",
-                    "left": "pf-m-left",
-                    "left-end": "pf-m-left-bottom",
-                    "left-start": "pf-m-left-top",
-                    "right": "pf-m-right",
-                    "right-end": "pf-m-right-bottom",
-                    "right-start": "pf-m-right-top",
-                    "top": "pf-m-top",
-                    "top-end": "pf-m-top-right",
-                    "top-start": "pf-m-top-left",
-                  }
-                }
-                removeFindDomNode={false}
-                trigger={
-                  <HistoryIcon
-                    className="hsp-dropdown-icon"
-                    color="currentColor"
-                    noVerticalAlign={false}
-                    onClick={[Function]}
-                    size="sm"
-                  />
-                }
-                zIndex={9999}
-              >
-                <FindRefWrapper
-                  onFoundRef={[Function]}
-                >
-                  <HistoryIcon
-                    className="hsp-dropdown-icon"
-                    color="currentColor"
-                    noVerticalAlign={false}
-                    onClick={[Function]}
-                    size="sm"
-                  >
-                    <svg
-                      aria-hidden={true}
-                      aria-labelledby={null}
-                      className="hsp-dropdown-icon"
-                      fill="currentColor"
-                      height="1em"
-                      onClick={[Function]}
-                      role="img"
-                      style={
-                        Object {
-                          "verticalAlign": "-0.125em",
-                        }
-                      }
-                      viewBox="0 0 512 512"
-                      width="1em"
-                    >
-                      <path
-                        d="M504 255.531c.253 136.64-111.18 248.372-247.82 248.468-59.015.042-113.223-20.53-155.822-54.911-11.077-8.94-11.905-25.541-1.839-35.607l11.267-11.267c8.609-8.609 22.353-9.551 31.891-1.984C173.062 425.135 212.781 440 256 440c101.705 0 184-82.311 184-184 0-101.705-82.311-184-184-184-48.814 0-93.149 18.969-126.068 49.932l50.754 50.754c10.08 10.08 2.941 27.314-11.313 27.314H24c-8.837 0-16-7.163-16-16V38.627c0-14.254 17.234-21.393 27.314-11.314l49.372 49.372C129.209 34.136 189.552 8 256 8c136.81 0 247.747 110.78 248 247.531zm-180.912 78.784l9.823-12.63c8.138-10.463 6.253-25.542-4.21-33.679L288 256.349V152c0-13.255-10.745-24-24-24h-16c-13.255 0-24 10.745-24 24v135.651l65.409 50.874c10.463 8.137 25.541 6.253 33.679-4.21z"
-                      />
-                    </svg>
-                  </HistoryIcon>
-                </FindRefWrapper>
-              </Popper>
-            </Popover>
-          </span>
-        </HistoricalProfilesPopover>
-      </Connect(HistoricalProfilesPopover)>
-    </Provider>
-  </Router>
-</MemoryRouter>
-`;
-
 exports[`HistoricalProfilesPopover should render correctly 1`] = `
-<Fragment>
-  <span
-    className="hsp-icon-padding"
-    data-ouia-component-id="hsp-popover-toggle-4416c520-a339-4dde-b303-f317ea9efc5f"
-    data-ouia-component-type="PF4/Button"
-  >
-    <Popover
-      bodyContent={
-        <div
-          style={
-            Object {
-              "maxHeight": "350px",
-              "overflowY": "scroll",
-            }
-          }
-        >
-          <Skeleton
-            className="hsp-dropdown-loading"
-            size="sm"
-          />
-          <Skeleton
-            className="hsp-dropdown-loading"
-            size="sm"
-          />
-          <Skeleton
-            className="hsp-dropdown-loading"
-            size="sm"
-          />
-        </div>
+<ContextProvider
+  value={
+    Object {
+      "store": Object {
+        "@@observable": [Function],
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "subscription": Object {
+        "addNestedSub": [Function],
+        "getListeners": [Function],
+        "handleChangeWrapper": [Function],
+        "isSubscribed": [Function],
+        "notifyNestedSubs": [Function],
+        "onStateChange": [Function],
+        "trySubscribe": [Function],
+        "tryUnsubscribe": [Function],
+      },
+    }
+  }
+>
+  <HistoricalProfilesPopover
+    badgeCount={0}
+    dropdownDirection="down"
+    fetchCompare={[MockFunction]}
+    hasBadge={true}
+    hasCompareButton={false}
+    selectedBaselineIds={Array []}
+    selectedHSPIds={Array []}
+    system={
+      Object {
+        "id": "4416c520-a339-4dde-b303-f317ea9efc5f",
+        "last_updated": "2020-05-04T18:33:12.249348+00:00",
       }
-      footerContent={null}
-      headerContent={
-        <div>
-          Historical profiles for this system
-        </div>
-      }
-      id="hsp-popover-4416c520-a339-4dde-b303-f317ea9efc5f"
-      isVisible={false}
-      shouldClose={[Function]}
-    >
-      <HistoryIcon
-        className="hsp-dropdown-icon"
-        color="currentColor"
-        noVerticalAlign={false}
-        onClick={[Function]}
-        size="sm"
-      />
-    </Popover>
-  </span>
-</Fragment>
+    }
+    systemIds={Array []}
+  />
+</ContextProvider>
 `;
 
 exports[`HistoricalProfilesPopover should render mount correctly 1`] = `
-<HistoricalProfilesPopover
-  badgeCount={0}
-  dropdownDirection="down"
-  fetchCompare={[MockFunction]}
-  hasBadge={true}
-  hasCompareButton={false}
-  selectedBaselineIds={Array []}
-  selectedHSPIds={Array []}
-  system={
+<Provider
+  store={
     Object {
-      "id": "4416c520-a339-4dde-b303-f317ea9efc5f",
-      "last_updated": "2020-05-04T18:33:12.249348+00:00",
+      "@@observable": [Function],
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
     }
   }
-  systemIds={Array []}
 >
-  <span
-    className="hsp-icon-padding"
-    data-ouia-component-id="hsp-popover-toggle-4416c520-a339-4dde-b303-f317ea9efc5f"
-    data-ouia-component-type="PF4/Button"
+  <HistoricalProfilesPopover
+    badgeCount={0}
+    dropdownDirection="down"
+    fetchCompare={[MockFunction]}
+    hasBadge={true}
+    hasCompareButton={false}
+    selectedBaselineIds={Array []}
+    selectedHSPIds={Array []}
+    system={
+      Object {
+        "id": "4416c520-a339-4dde-b303-f317ea9efc5f",
+        "last_updated": "2020-05-04T18:33:12.249348+00:00",
+      }
+    }
+    systemIds={Array []}
   >
-    <Popover
-      bodyContent={
-        <div
-          style={
-            Object {
-              "maxHeight": "350px",
-              "overflowY": "scroll",
-            }
-          }
-        >
-          <Skeleton
-            className="hsp-dropdown-loading"
-            size="sm"
-          />
-          <Skeleton
-            className="hsp-dropdown-loading"
-            size="sm"
-          />
-          <Skeleton
-            className="hsp-dropdown-loading"
-            size="sm"
-          />
-        </div>
-      }
-      footerContent={null}
-      headerContent={
-        <div>
-          Historical profiles for this system
-        </div>
-      }
-      id="hsp-popover-4416c520-a339-4dde-b303-f317ea9efc5f"
-      isVisible={false}
-      shouldClose={[Function]}
+    <span
+      className="hsp-icon-padding"
+      data-ouia-component-id="hsp-popover-toggle-4416c520-a339-4dde-b303-f317ea9efc5f"
+      data-ouia-component-type="PF4/Button"
     >
-      <Popper
-        appendTo={[Function]}
-        distance={25}
-        enableFlip={true}
-        flipBehavior={
-          Array [
-            "top",
-            "bottom",
-            "left",
-            "right",
-            "top-start",
-            "top-end",
-            "bottom-start",
-            "bottom-end",
-            "left-start",
-            "left-end",
-            "right-start",
-            "right-end",
-          ]
-        }
-        isVisible={false}
-        onDocumentClick={[Function]}
-        onDocumentKeyDown={[Function]}
-        onTriggerClick={[Function]}
-        placement="top"
-        popper={
-          <ForwardRef
-            active={false}
-            aria-describedby="popover-hsp-popover-4416c520-a339-4dde-b303-f317ea9efc5f-body"
-            aria-labelledby="popover-hsp-popover-4416c520-a339-4dde-b303-f317ea9efc5f-header"
-            aria-modal="true"
-            className="pf-c-popover"
-            focusTrapOptions={
-              Object {
-                "clickOutsideDeactivates": true,
-                "fallbackFocus": [Function],
-                "returnFocusOnDeactivate": true,
-                "tabbableOptions": Object {
-                  "displayCheck": "none",
-                },
-              }
-            }
-            onMouseDown={[Function]}
-            preventScrollOnDeactivate={true}
-            role="dialog"
+      <Popover
+        bodyContent={
+          <div
             style={
               Object {
-                "maxWidth": null,
-                "minWidth": null,
-                "opacity": 0,
-                "transition": "opacity 300ms cubic-bezier(.54, 1.5, .38, 1.11)",
+                "maxHeight": "350px",
+                "overflowY": "scroll",
               }
             }
           >
-            <PopoverArrow />
-            <PopoverContent>
-              <PopoverCloseButton
-                aria-label="Close"
-                onClose={[Function]}
+            <React.Fragment>
+              <Skeleton
+                size="sm"
               />
-              <PopoverHeader
-                alertSeverityScreenReaderText="undefined alert:"
-                icon={null}
-                id="popover-hsp-popover-4416c520-a339-4dde-b303-f317ea9efc5f-header"
-                titleHeadingLevel="h6"
-              >
-                <div>
-                  Historical profiles for this system
-                </div>
-              </PopoverHeader>
-              <PopoverBody
-                id="popover-hsp-popover-4416c520-a339-4dde-b303-f317ea9efc5f-body"
-              >
-                <div
-                  style={
-                    Object {
-                      "maxHeight": "350px",
-                      "overflowY": "scroll",
-                    }
-                  }
-                >
-                  <Skeleton
-                    className="hsp-dropdown-loading"
-                    size="sm"
-                  />
-                  <Skeleton
-                    className="hsp-dropdown-loading"
-                    size="sm"
-                  />
-                  <Skeleton
-                    className="hsp-dropdown-loading"
-                    size="sm"
-                  />
-                </div>
-              </PopoverBody>
-            </PopoverContent>
-          </ForwardRef>
+              <br
+                className="hsp-dropdown-loading"
+              />
+            </React.Fragment>
+            <React.Fragment>
+              <Skeleton
+                size="sm"
+              />
+              <br
+                className="hsp-dropdown-loading"
+              />
+            </React.Fragment>
+            <React.Fragment>
+              <Skeleton
+                size="sm"
+              />
+              <br
+                className="hsp-dropdown-loading"
+              />
+            </React.Fragment>
+          </div>
         }
-        popperMatchesTriggerWidth={false}
-        positionModifiers={
-          Object {
-            "bottom": "pf-m-bottom",
-            "bottom-end": "pf-m-bottom-right",
-            "bottom-start": "pf-m-bottom-left",
-            "left": "pf-m-left",
-            "left-end": "pf-m-left-bottom",
-            "left-start": "pf-m-left-top",
-            "right": "pf-m-right",
-            "right-end": "pf-m-right-bottom",
-            "right-start": "pf-m-right-top",
-            "top": "pf-m-top",
-            "top-end": "pf-m-top-right",
-            "top-start": "pf-m-top-left",
-          }
+        footerContent={null}
+        headerContent={
+          <div>
+            Historical profiles for this system
+          </div>
         }
-        removeFindDomNode={false}
-        trigger={
-          <HistoryIcon
-            className="hsp-dropdown-icon"
-            color="currentColor"
-            noVerticalAlign={false}
-            onClick={[Function]}
-            size="sm"
-          />
-        }
-        zIndex={9999}
+        id="hsp-popover-4416c520-a339-4dde-b303-f317ea9efc5f"
+        isVisible={false}
+        shouldClose={[Function]}
       >
-        <FindRefWrapper
-          onFoundRef={[Function]}
-        >
-          <HistoryIcon
-            className="hsp-dropdown-icon"
-            color="currentColor"
-            noVerticalAlign={false}
-            onClick={[Function]}
-            size="sm"
-          >
-            <svg
-              aria-hidden={true}
-              aria-labelledby={null}
-              className="hsp-dropdown-icon"
-              fill="currentColor"
-              height="1em"
-              onClick={[Function]}
-              role="img"
-              style={
+        <Popper
+          appendTo={[Function]}
+          distance={25}
+          enableFlip={true}
+          flipBehavior={
+            Array [
+              "top",
+              "bottom",
+              "left",
+              "right",
+              "top-start",
+              "top-end",
+              "bottom-start",
+              "bottom-end",
+              "left-start",
+              "left-end",
+              "right-start",
+              "right-end",
+            ]
+          }
+          isVisible={false}
+          onDocumentClick={[Function]}
+          onDocumentKeyDown={[Function]}
+          onTriggerClick={[Function]}
+          placement="top"
+          popper={
+            <ForwardRef
+              active={false}
+              aria-describedby="popover-hsp-popover-4416c520-a339-4dde-b303-f317ea9efc5f-body"
+              aria-labelledby="popover-hsp-popover-4416c520-a339-4dde-b303-f317ea9efc5f-header"
+              aria-modal="true"
+              className="pf-c-popover"
+              focusTrapOptions={
                 Object {
-                  "verticalAlign": "-0.125em",
+                  "clickOutsideDeactivates": true,
+                  "fallbackFocus": [Function],
+                  "returnFocusOnDeactivate": true,
+                  "tabbableOptions": Object {
+                    "displayCheck": "none",
+                  },
                 }
               }
-              viewBox="0 0 512 512"
-              width="1em"
+              onMouseDown={[Function]}
+              preventScrollOnDeactivate={true}
+              role="dialog"
+              style={
+                Object {
+                  "maxWidth": null,
+                  "minWidth": null,
+                  "opacity": 0,
+                  "transition": "opacity 300ms cubic-bezier(.54, 1.5, .38, 1.11)",
+                }
+              }
             >
-              <path
-                d="M504 255.531c.253 136.64-111.18 248.372-247.82 248.468-59.015.042-113.223-20.53-155.822-54.911-11.077-8.94-11.905-25.541-1.839-35.607l11.267-11.267c8.609-8.609 22.353-9.551 31.891-1.984C173.062 425.135 212.781 440 256 440c101.705 0 184-82.311 184-184 0-101.705-82.311-184-184-184-48.814 0-93.149 18.969-126.068 49.932l50.754 50.754c10.08 10.08 2.941 27.314-11.313 27.314H24c-8.837 0-16-7.163-16-16V38.627c0-14.254 17.234-21.393 27.314-11.314l49.372 49.372C129.209 34.136 189.552 8 256 8c136.81 0 247.747 110.78 248 247.531zm-180.912 78.784l9.823-12.63c8.138-10.463 6.253-25.542-4.21-33.679L288 256.349V152c0-13.255-10.745-24-24-24h-16c-13.255 0-24 10.745-24 24v135.651l65.409 50.874c10.463 8.137 25.541 6.253 33.679-4.21z"
-              />
-            </svg>
-          </HistoryIcon>
-        </FindRefWrapper>
-      </Popper>
-    </Popover>
-  </span>
-</HistoricalProfilesPopover>
+              <PopoverArrow />
+              <PopoverContent>
+                <PopoverCloseButton
+                  aria-label="Close"
+                  onClose={[Function]}
+                />
+                <PopoverHeader
+                  alertSeverityScreenReaderText="undefined alert:"
+                  icon={null}
+                  id="popover-hsp-popover-4416c520-a339-4dde-b303-f317ea9efc5f-header"
+                  titleHeadingLevel="h6"
+                >
+                  <div>
+                    Historical profiles for this system
+                  </div>
+                </PopoverHeader>
+                <PopoverBody
+                  id="popover-hsp-popover-4416c520-a339-4dde-b303-f317ea9efc5f-body"
+                >
+                  <div
+                    style={
+                      Object {
+                        "maxHeight": "350px",
+                        "overflowY": "scroll",
+                      }
+                    }
+                  >
+                    <React.Fragment>
+                      <Skeleton
+                        size="sm"
+                      />
+                      <br
+                        className="hsp-dropdown-loading"
+                      />
+                    </React.Fragment>
+                    <React.Fragment>
+                      <Skeleton
+                        size="sm"
+                      />
+                      <br
+                        className="hsp-dropdown-loading"
+                      />
+                    </React.Fragment>
+                    <React.Fragment>
+                      <Skeleton
+                        size="sm"
+                      />
+                      <br
+                        className="hsp-dropdown-loading"
+                      />
+                    </React.Fragment>
+                  </div>
+                </PopoverBody>
+              </PopoverContent>
+            </ForwardRef>
+          }
+          popperMatchesTriggerWidth={false}
+          positionModifiers={
+            Object {
+              "bottom": "pf-m-bottom",
+              "bottom-end": "pf-m-bottom-right",
+              "bottom-start": "pf-m-bottom-left",
+              "left": "pf-m-left",
+              "left-end": "pf-m-left-bottom",
+              "left-start": "pf-m-left-top",
+              "right": "pf-m-right",
+              "right-end": "pf-m-right-bottom",
+              "right-start": "pf-m-right-top",
+              "top": "pf-m-top",
+              "top-end": "pf-m-top-right",
+              "top-start": "pf-m-top-left",
+            }
+          }
+          removeFindDomNode={false}
+          trigger={
+            <HistoryIcon
+              className="hsp-dropdown-icon"
+              color="currentColor"
+              noVerticalAlign={false}
+              onClick={[Function]}
+              size="sm"
+            />
+          }
+          zIndex={9999}
+        >
+          <FindRefWrapper
+            onFoundRef={[Function]}
+          >
+            <HistoryIcon
+              className="hsp-dropdown-icon"
+              color="currentColor"
+              noVerticalAlign={false}
+              onClick={[Function]}
+              size="sm"
+            >
+              <svg
+                aria-hidden={true}
+                aria-labelledby={null}
+                className="hsp-dropdown-icon"
+                fill="currentColor"
+                height="1em"
+                onClick={[Function]}
+                role="img"
+                style={
+                  Object {
+                    "verticalAlign": "-0.125em",
+                  }
+                }
+                viewBox="0 0 512 512"
+                width="1em"
+              >
+                <path
+                  d="M504 255.531c.253 136.64-111.18 248.372-247.82 248.468-59.015.042-113.223-20.53-155.822-54.911-11.077-8.94-11.905-25.541-1.839-35.607l11.267-11.267c8.609-8.609 22.353-9.551 31.891-1.984C173.062 425.135 212.781 440 256 440c101.705 0 184-82.311 184-184 0-101.705-82.311-184-184-184-48.814 0-93.149 18.969-126.068 49.932l50.754 50.754c10.08 10.08 2.941 27.314-11.313 27.314H24c-8.837 0-16-7.163-16-16V38.627c0-14.254 17.234-21.393 27.314-11.314l49.372 49.372C129.209 34.136 189.552 8 256 8c136.81 0 247.747 110.78 248 247.531zm-180.912 78.784l9.823-12.63c8.138-10.463 6.253-25.542-4.21-33.679L288 256.349V152c0-13.255-10.745-24-24-24h-16c-13.255 0-24 10.745-24 24v135.651l65.409 50.874c10.463 8.137 25.541 6.253 33.679-4.21z"
+                />
+              </svg>
+            </HistoryIcon>
+          </FindRefWrapper>
+        </Popper>
+      </Popover>
+    </span>
+  </HistoricalProfilesPopover>
+</Provider>
 `;
