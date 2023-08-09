@@ -1,15 +1,18 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { MemoryRouter } from 'react-router-dom';
-import configureStore from 'redux-mock-store';
+//import { MemoryRouter } from 'react-router-dom';
+//import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import toJson from 'enzyme-to-json';
+import { init } from '../../../../store';
 
-import ConnectedHistoricalProfilesCheckbox, { HistoricalProfilesCheckbox } from '../HistoricalProfilesCheckbox';
+import HistoricalProfilesCheckbox from '../HistoricalProfilesCheckbox';
 
 /*eslint-disable camelcase*/
 describe('HistoricalProfilesCheckbox', () => {
     let props;
+    let { registry } = init();
+    const store = registry.getStore();
 
     beforeEach(() => {
         props = {
@@ -20,20 +23,24 @@ describe('HistoricalProfilesCheckbox', () => {
 
     it('should render correctly', () => {
         const wrapper = shallow(
-            <HistoricalProfilesCheckbox { ...props }/>
+            <Provider store={ store }>
+                <HistoricalProfilesCheckbox { ...props }/>
+            </Provider>
         );
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 
     it('should render mount correctly', () => {
         const wrapper = mount(
-            <HistoricalProfilesCheckbox { ...props }/>
+            <Provider store={ store }>
+                <HistoricalProfilesCheckbox { ...props }/>
+            </Provider>
         );
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 });
 
-describe('ConnectedHistoricalProfilesCheckbox', () => {
+/*describe('ConnectedHistoricalProfilesCheckbox', () => {
     let initialState;
     let props;
     let mockStore;
@@ -62,5 +69,5 @@ describe('ConnectedHistoricalProfilesCheckbox', () => {
 
         expect(toJson(wrapper)).toMatchSnapshot();
     });
-});
+});*/
 /*eslint-enable camelcase*/

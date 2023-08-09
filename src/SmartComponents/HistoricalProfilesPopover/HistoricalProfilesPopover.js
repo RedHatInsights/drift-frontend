@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { useState, useEffect } from 'react';
 import { Badge, Button, Popover } from '@patternfly/react-core';
+import { useDispatch, useSelector } from 'react-redux';
 import { ExclamationCircleIcon, HistoryIcon, UndoIcon } from '@patternfly/react-icons';
 import PropTypes from 'prop-types';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
@@ -10,45 +10,34 @@ import HistoricalProfilesCheckbox from './HistoricalProfilesCheckbox/HistoricalP
 import api from '../../api';
 import EmptyStateDisplay from '../EmptyStateDisplay/EmptyStateDisplay';
 import HistoricalProfilesRadio from './HistoricalProfilesRadio/HistoricalProfilesRadio';
-import { addSystemModalActions } from '../AddSystemModal/redux';
+import addSystemModalActions from '../AddSystemModal/redux/actions';
 
-export class HistoricalProfilesPopover extends Component {
-    constructor(props) {
-        super(props);
+const HistoricalProfilesPopover = ({
+    badgeCount,
+    fetchCompare,
+    hasBadge,
+    hasCompareButton,
+    hasMultiSelect,
+    referenceId,
+    selectedBaselineIds,
+    selectHistoricProfiles,
+    selectSystem,
+    system,
+    systemIds,
+    systemName
+}) => {
+    const dispatch = useDispatch();
+    const selectedHSPIds = useSelector(({ historicProfilesState }) => historicProfilesState.selectedHSPIds);
+    const [ historicalData, setHistoricalData ] = useState();
+    const [ isLoading, setIsLoading ] = useState(true);
+    const [ localBadgeCount, setLocalBadgeCount ] = useState(badgeCount ? badgeCount : 0);
+    const [ error, setError ] = useState();
 
-        this.state = {
-            isVisible: false,
-            historicalData: undefined,
-            dropDownArray: this.renderLoadingRows(),
-            badgeCount: this.props.badgeCount ? this.props.badgeCount : 0,
-            error: undefined
-        };
+    const hasHistoricalData = () => {
+        return historicalData && historicalData.profiles.length > 0;
+    };
 
-        this.onToggle = () => {
-            const { isVisible } = this.state;
-
-            if (isVisible === false) {
-                this.fetchData(this.props.system);
-            }
-
-            this.setState({
-                isVisible: !isVisible
-            });
-        };
-
-        this.onSelect = this.onSelect.bind(this);
-        this.onSingleSelect = this.onSingleSelect.bind(this);
-    }
-
-    componentDidUpdate(prevProps) {
-        if (this.props.selectedHSPIds !== prevProps.selectedHSPIds) {
-            this.updateBadgeCount();
-            this.setState({ dropDownArray: this.createDropdownArray() });
-        }
-    }
-
-    async onSelect(checked, profile) {
-        const { handleHSPSelection, selectHistoricProfiles, selectSystem, selectedHSPIds } = this.props;
+    const onSelect = async (checked, profile) => {
         let newSelectedHSPIds = [ ...selectedHSPIds ];
 
         if (profile.captured_date === 'Latest') {
@@ -63,231 +52,186 @@ export class HistoricalProfilesPopover extends Component {
             await selectHistoricProfiles(newSelectedHSPIds);
         }
 
-        handleHSPSelection(profile);
-        this.updateBadgeCount(!checked);
-    }
+        dispatch(addSystemModalActions.handleHSPSelection(profile));
+    };
 
-    async onSingleSelect(profile) {
-        const { selectSystem, selectSingleHSP } = this.props;
-
+    const onSingleSelect = async (profile) => {
         if (profile.captured_date === 'Latest') {
             await selectSystem(profile.id, true);
         }
 
-        selectSingleHSP(profile);
-    }
+        systemsTableActions.selectSingleHSP(profile);
+    };
 
-    fetchCompare = () => {
-        const { systemIds, selectedBaselineIds, selectedHSPIds, referenceId, fetchCompare } = this.props;
-
-        fetchCompare(systemIds, selectedBaselineIds, selectedHSPIds, referenceId);
-    }
-
-    async retryFetch() {
-        const { system } = this.props;
-        this.setState({
-            dropDownArray: this.renderLoadingRows()
-        });
-
-        await this.fetchData(system);
-    }
+    const updateBadgeCount = () => {
+        setLocalBadgeCount(historicalData?.profiles.filter((hsp) => {
+            return selectedHSPIds.includes(hsp.id);
+        }).length);
+    };
 
     /*eslint-disable camelcase*/
-    async fetchData(system) {
-        const { systemName } = this.props;
-
+    const fetchData = async () => {
+        setIsLoading(true);
         let fetchedData = await api.fetchHistoricalData(system.system_id ? system.system_id : system.id);
+        setIsLoading(false);
 
         fetchedData.profiles?.forEach(function(profile) {
             profile.system_name = systemName;
         });
 
         if (fetchedData.status) {
-            this.setState({
-                error: { status: fetchedData.status, message: fetchedData.data.message }
-            });
+            setError({ status: fetchedData.status, message: fetchedData.data.message });
         } else {
             fetchedData.profiles.shift();
-
-            this.setState({
-                historicalData: fetchedData
-            });
+            setHistoricalData(fetchedData);
         }
-
-        this.setState({
-            dropDownArray: this.createDropdownArray()
-        });
-    }
+    };
     /*eslint-enable camelcase*/
 
-    hasHistoricalData = () => {
-        const { historicalData } = this.state;
-        return historicalData && historicalData.profiles.length > 0;
-    }
-
-    createDropdownArray = () => {
-        const { hasMultiSelect, selectedHSPIds } = this.props;
-        const { historicalData, error } = this.state;
-
+    const createDropdownArray = () => {
         let dropdownItems = [];
-        let badgeCountFunc = this.updateBadgeCount;
-        let onSelectFunc = this.onSelect;
-        let onSingleSelectFunc = this.onSingleSelect;
 
-        if (this.hasHistoricalData()) {
-            historicalData.profiles.forEach(function(profile, index) {
+        if (isLoading) {
+            for (let i = 0; i < 3; i += 1) {
                 dropdownItems.push(
-                    <div className={ index > 0 ? 'sm-padding-top' : null }>
-                        { hasMultiSelect
-                            ? <HistoricalProfilesCheckbox
-                                profile={ profile }
-                                updateBadgeCount={ badgeCountFunc }
-                                onSelect={ onSelectFunc }
-                                selectedHSPIds={ selectedHSPIds }
-                            />
-                            : <HistoricalProfilesRadio
-                                profile={ profile }
-                                onSingleSelect={ onSingleSelectFunc }
-                                selectedHSPIds={ selectedHSPIds }
-                            />
-                        }
+                    <React.Fragment>
+                        <Skeleton
+                            size={ SkeletonSize.sm }
+                            key={ 'skeleton-row-' + i }
+                        />
+                        <br className='hsp-dropdown-loading' />
+                    </React.Fragment>
+                );
+            }
+        } else {
+            if (hasHistoricalData()) {
+                historicalData.profiles.forEach(function(profile, index) {
+                    dropdownItems.push(
+                        <div className={ index > 0 ? 'sm-padding-top' : null }>
+                            { hasMultiSelect
+                                ? <HistoricalProfilesCheckbox
+                                    profile={ profile }
+                                    updateBadgeCount={ updateBadgeCount }
+                                    onSelect={ onSelect }
+                                    selectedHSPIds={ selectedHSPIds }
+                                />
+                                : <HistoricalProfilesRadio
+                                    profile={ profile }
+                                    onSingleSelect={ onSingleSelect }
+                                    selectedHSPIds={ selectedHSPIds }
+                                />
+                            }
+                        </div>
+                    );
+                });
+            } else if (error) {
+                dropdownItems.push(
+                    <EmptyStateDisplay
+                        icon={ ExclamationCircleIcon }
+                        isSmall={ true }
+                        color='#c9190b'
+                        title={ 'Cannot get historical check-ins' }
+                        error={ error.status + ': ' + error.message }
+                        button={ <a onClick={ () => fetchData() }>
+                            <UndoIcon className='reload-button' />
+                                Retry
+                        </a> }
+                    />
+                );
+            } else {
+                dropdownItems.push(
+                    <div>
+                        There are no historical profiles to display.
                     </div>
                 );
-            });
-        } else if (error) {
-            dropdownItems.push(
-                <EmptyStateDisplay
-                    icon={ ExclamationCircleIcon }
-                    isSmall={ true }
-                    color='#c9190b'
-                    title={ 'Cannot get historical check-ins' }
-                    error={ error.status + ': ' + error.message }
-                    button={ <a onClick={ () => this.retryFetch() }>
-                        <UndoIcon className='reload-button' />
-                            Retry
-                    </a> }
-                />
-            );
-        } else {
-            dropdownItems.push(
-                <div>
-                    There are no historical profiles to display.
-                </div>
-            );
+            }
         }
 
         return dropdownItems;
-    }
+    };
 
-    renderLoadingRows() {
-        let rows = [];
+    const [ isVisible, setIsVisible ] = useState(false);
+    const [ dropDownArray, setDropDownArray ] = useState(createDropdownArray());
 
-        for (let i = 0; i < 3; i += 1) {
-            rows.push(
-                <Skeleton
-                    className='hsp-dropdown-loading'
-                    size={ SkeletonSize.sm }
-                    key={ 'skeleton-row-' + i }
-                />
-            );
+    const runFetchCompare = () => {
+        fetchCompare(systemIds, selectedBaselineIds, selectedHSPIds, referenceId);
+    };
+
+    const onToggle = () => {
+        if (isVisible === false) {
+            fetchData();
         }
 
-        return rows;
-    }
+        setIsVisible(!isVisible);
+    };
 
-    updateBadgeCount = () => {
-        this.setState({
-            badgeCount: this.state.historicalData?.profiles.filter((hsp) => {
-                return this.props.selectedHSPIds.includes(hsp.id);
-            }).length
-        });
-    }
-
-    renderBadge = () => {
-        const { badgeCount } = this.state;
-
-        if (badgeCount > 0) {
-            return <Badge key={ 1 }>{ badgeCount }</Badge>;
+    const renderBadge = () => {
+        if (localBadgeCount > 0) {
+            return <Badge key={ 1 }>{ localBadgeCount }</Badge>;
         } else {
             return null;
         }
-    }
+    };
 
-    render() {
-        /*eslint-disable camelcase*/
-        const { dropDownArray, isVisible } = this.state;
-        const { hasBadge, hasCompareButton, system } = this.props;
-        let id = system?.system_id ? system?.system_id : system?.id;
-        /*eslint-enable camelcase*/
+    useEffect(() => {
+        updateBadgeCount();
+        setDropDownArray(createDropdownArray());
+    }, [ selectedHSPIds ]);
 
-        return (
-            <React.Fragment>
-                <span
-                    className='hsp-icon-padding'
-                    data-ouia-component-id={ 'hsp-popover-toggle-' + id  }
-                    data-ouia-component-type='PF4/Button' >
-                    <Popover
-                        id={ 'hsp-popover-' + id }
-                        isVisible={ isVisible }
-                        shouldClose={ () => this.onToggle() }
-                        headerContent={ <div>Historical profiles for this system</div> }
-                        bodyContent={ <div style={{ maxHeight: '350px', overflowY: 'scroll' }}>
-                            { dropDownArray }
-                        </div> }
-                        footerContent={ hasCompareButton
-                            ? <Button
-                                variant='primary'
-                                ouiaId="hsp-popover-compare"
-                                isDisabled={ !this.hasHistoricalData() }
-                                onClick={ () => this.fetchCompare() }>
-                                Compare
-                            </Button>
-                            : null }
-                    >
-                        <HistoryIcon className='hsp-dropdown-icon' onClick={ () => this.onToggle() } />
-                    </Popover>
-                </span>
-                { hasBadge ? this.renderBadge() : null }
-            </React.Fragment>
-        );
-    }
-}
+    useEffect(() => {
+        setDropDownArray(createDropdownArray());
+    }, [ historicalData, error ]);
+
+    let id = system?.system_id ? system?.system_id : system?.id;
+
+    return (
+        <React.Fragment>
+            <span
+                className='hsp-icon-padding'
+                data-ouia-component-id={ 'hsp-popover-toggle-' + id  }
+                data-ouia-component-type='PF4/Button' >
+                <Popover
+                    id={ 'hsp-popover-' + id }
+                    isVisible={ isVisible }
+                    shouldClose={ () => onToggle() }
+                    headerContent={ <div>Historical profiles for this system</div> }
+                    bodyContent={ <div style={{ maxHeight: '350px', overflowY: 'scroll' }}>
+                        { dropDownArray }
+                    </div> }
+                    footerContent={ hasCompareButton
+                        ? <Button
+                            variant='primary'
+                            ouiaId="hsp-popover-compare"
+                            isDisabled={ !hasHistoricalData() }
+                            onClick={ () => runFetchCompare() }>
+                            Compare
+                        </Button>
+                        : null }
+                >
+                    <HistoryIcon className='hsp-dropdown-icon' onClick={ () => onToggle() } />
+                </Popover>
+            </span>
+            { hasBadge ? renderBadge() : null }
+        </React.Fragment>
+    );
+};
 
 HistoricalProfilesPopover.propTypes = {
-    fetchHistoricalData: PropTypes.func,
-    system: PropTypes.object,
+    badgeCount: PropTypes.number,
     fetchCompare: PropTypes.func,
-    systemIds: PropTypes.array,
-    selectedHSPIds: PropTypes.array,
-    selectedBaselineIds: PropTypes.array,
-    selectHistoricProfiles: PropTypes.func,
-    selectSystem: PropTypes.func,
+    handleHSPSelection: PropTypes.func,
     hasBadge: PropTypes.bool,
     hasCompareButton: PropTypes.bool,
-    badgeCount: PropTypes.number,
-    referenceId: PropTypes.string,
-    dropdownDirection: PropTypes.string,
     hasMultiSelect: PropTypes.bool,
+    referenceId: PropTypes.string,
+    selectedBaselineIds: PropTypes.array,
+    selectedHSPIds: PropTypes.array,
+    selectHistoricProfiles: PropTypes.func,
     selectSingleHSP: PropTypes.func,
-    handleHSPSelection: PropTypes.func,
+    selectSystem: PropTypes.func,
+    system: PropTypes.object,
+    systemIds: PropTypes.array,
     systemName: PropTypes.string
 };
 
-function mapStateToProps(state) {
-    return {
-        selectedHSPIds: state.historicProfilesState?.selectedHSPIds || []
-    };
-}
-
-function mapDispatchToProps(dispatch) {
-    return {
-        selectSystem: (id, selected) => dispatch({
-            type: 'SELECT_ENTITY',
-            payload: { id, selected }
-        }),
-        selectSingleHSP: (profile) => dispatch(systemsTableActions.selectSingleHSP(profile)),
-        handleHSPSelection: (content) => dispatch(addSystemModalActions.handleHSPSelection(content))
-    };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(HistoricalProfilesPopover);
+export default HistoricalProfilesPopover;

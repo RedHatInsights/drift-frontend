@@ -1,194 +1,104 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ConnectedHistoricalProfilesCheckbox should render correctly 1`] = `
-<MemoryRouter
-  keyLength={0}
->
-  <Router
-    location={
-      Object {
-        "hash": "",
-        "key": "default",
-        "pathname": "/",
-        "search": "",
-        "state": null,
-      }
-    }
-    navigationType="POP"
-    navigator={
-      Object {
-        "action": "POP",
-        "createHref": [Function],
-        "createURL": [Function],
-        "encodeLocation": [Function],
-        "go": [Function],
-        "index": 0,
-        "listen": [Function],
-        "location": Object {
-          "hash": "",
-          "key": "default",
-          "pathname": "/",
-          "search": "",
-          "state": null,
-        },
-        "push": [Function],
-        "replace": [Function],
-      }
-    }
-  >
-    <Provider
-      store={
-        Object {
-          "clearActions": [Function],
-          "dispatch": [Function],
-          "getActions": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-        }
-      }
-    >
-      <Connect(HistoricalProfilesCheckbox)
-        profile={
-          Object {
-            "captured_date": "03 May 2020, 18:20 UTC",
-            "id": "1234",
-          }
-        }
-        selectedHSPIds={Array []}
-      >
-        <HistoricalProfilesCheckbox
-          dispatch={[Function]}
-          entities={Object {}}
-          profile={
-            Object {
-              "captured_date": "03 May 2020, 18:20 UTC",
-              "id": "1234",
-            }
-          }
-          selectedHSPIds={Array []}
-        >
-          <Checkbox
-            aria-label="1234"
-            className=""
-            component="div"
-            data-ouia-component-id="hsp-popover-option-checkbox-1234"
-            data-ouia-component-type="PF4/Checkbox"
-            id="1234"
-            isChecked={false}
-            isDisabled={false}
-            isRequired={false}
-            isValid={true}
-            label="03 May 2020, 18:20 UTC"
-            name="1234"
-            onChange={[Function]}
-            ouiaSafe={true}
-          >
-            <div
-              className="pf-c-check"
-            >
-              <input
-                aria-invalid={false}
-                aria-label="1234"
-                checked={false}
-                className="pf-c-check__input"
-                data-ouia-component-id="OUIA-Generated-Checkbox-2"
-                data-ouia-component-type="PF4/Checkbox"
-                data-ouia-safe={true}
-                disabled={false}
-                id="1234"
-                name="1234"
-                onChange={[Function]}
-                required={false}
-                type="checkbox"
-              />
-              <label
-                className="pf-c-check__label"
-                htmlFor="1234"
-              >
-                03 May 2020, 18:20 UTC
-              </label>
-            </div>
-          </Checkbox>
-        </HistoricalProfilesCheckbox>
-      </Connect(HistoricalProfilesCheckbox)>
-    </Provider>
-  </Router>
-</MemoryRouter>
-`;
-
 exports[`HistoricalProfilesCheckbox should render correctly 1`] = `
-<Fragment>
-  <Checkbox
-    aria-label="1234"
-    className=""
-    component="div"
-    data-ouia-component-id="hsp-popover-option-checkbox-1234"
-    data-ouia-component-type="PF4/Checkbox"
-    id="1234"
-    isChecked={false}
-    isDisabled={false}
-    isRequired={false}
-    isValid={true}
-    label="03 May 2020, 18:20 UTC"
-    name="1234"
-    onChange={[Function]}
-    ouiaSafe={true}
+<ContextProvider
+  value={
+    Object {
+      "store": Object {
+        "@@observable": [Function],
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "subscription": Object {
+        "addNestedSub": [Function],
+        "getListeners": [Function],
+        "handleChangeWrapper": [Function],
+        "isSubscribed": [Function],
+        "notifyNestedSubs": [Function],
+        "onStateChange": [Function],
+        "trySubscribe": [Function],
+        "tryUnsubscribe": [Function],
+      },
+    }
+  }
+>
+  <HistoricalProfilesCheckbox
+    profile={
+      Object {
+        "captured_date": "03 May 2020, 18:20 UTC",
+        "id": "1234",
+      }
+    }
+    selectedHSPIds={Array []}
   />
-</Fragment>
+</ContextProvider>
 `;
 
 exports[`HistoricalProfilesCheckbox should render mount correctly 1`] = `
-<HistoricalProfilesCheckbox
-  profile={
+<Provider
+  store={
     Object {
-      "captured_date": "03 May 2020, 18:20 UTC",
-      "id": "1234",
+      "@@observable": [Function],
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
     }
   }
-  selectedHSPIds={Array []}
 >
-  <Checkbox
-    aria-label="1234"
-    className=""
-    component="div"
-    data-ouia-component-id="hsp-popover-option-checkbox-1234"
-    data-ouia-component-type="PF4/Checkbox"
-    id="1234"
-    isChecked={false}
-    isDisabled={false}
-    isRequired={false}
-    isValid={true}
-    label="03 May 2020, 18:20 UTC"
-    name="1234"
-    onChange={[Function]}
-    ouiaSafe={true}
+  <HistoricalProfilesCheckbox
+    profile={
+      Object {
+        "captured_date": "03 May 2020, 18:20 UTC",
+        "id": "1234",
+      }
+    }
+    selectedHSPIds={Array []}
   >
-    <div
-      className="pf-c-check"
+    <Checkbox
+      aria-label="1234"
+      className=""
+      component="div"
+      data-ouia-component-id="hsp-popover-option-checkbox-1234"
+      data-ouia-component-type="PF4/Checkbox"
+      id="1234"
+      isChecked={false}
+      isDisabled={false}
+      isRequired={false}
+      isValid={true}
+      label="03 May 2020, 18:20 UTC"
+      name="1234"
+      onChange={[Function]}
+      ouiaSafe={true}
     >
-      <input
-        aria-invalid={false}
-        aria-label="1234"
-        checked={false}
-        className="pf-c-check__input"
-        data-ouia-component-id="OUIA-Generated-Checkbox-1"
-        data-ouia-component-type="PF4/Checkbox"
-        data-ouia-safe={true}
-        disabled={false}
-        id="1234"
-        name="1234"
-        onChange={[Function]}
-        required={false}
-        type="checkbox"
-      />
-      <label
-        className="pf-c-check__label"
-        htmlFor="1234"
+      <div
+        className="pf-c-check"
       >
-        03 May 2020, 18:20 UTC
-      </label>
-    </div>
-  </Checkbox>
-</HistoricalProfilesCheckbox>
+        <input
+          aria-invalid={false}
+          aria-label="1234"
+          checked={false}
+          className="pf-c-check__input"
+          data-ouia-component-id="OUIA-Generated-Checkbox-1"
+          data-ouia-component-type="PF4/Checkbox"
+          data-ouia-safe={true}
+          disabled={false}
+          id="1234"
+          name="1234"
+          onChange={[Function]}
+          required={false}
+          type="checkbox"
+        />
+        <label
+          className="pf-c-check__label"
+          htmlFor="1234"
+        >
+          03 May 2020, 18:20 UTC
+        </label>
+      </div>
+    </Checkbox>
+  </HistoricalProfilesCheckbox>
+</Provider>
 `;

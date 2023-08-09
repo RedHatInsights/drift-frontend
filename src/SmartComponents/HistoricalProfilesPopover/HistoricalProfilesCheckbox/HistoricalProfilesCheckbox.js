@@ -1,20 +1,15 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { Checkbox } from '@patternfly/react-core';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
-export class HistoricalProfilesCheckbox extends Component {
-    constructor(props) {
-        super(props);
+const HistoricalProfilesCheckbox = ({ onSelect, profile, selectedHSPIds, updateBadgeCount }) => {
+    const entities = useSelector(
+        (state) => state.entities
+    );
 
-        this.state = {
-            checked: this.findChecked()
-        };
-    }
-
-    findChecked = () => {
-        const { profile, selectedHSPIds, entities, updateBadgeCount } = this.props;
+    const findChecked = () => {
         let checked;
 
         if (profile.captured_date === 'Latest') {
@@ -25,43 +20,25 @@ export class HistoricalProfilesCheckbox extends Component {
         }
 
         return checked;
-    }
+    };
 
-    handleChange = () => {
-        const { checked } = this.state;
-        const { onSelect, profile } = this.props;
-
-        this.setState({
-            checked: !checked
-        });
-
-        onSelect(checked, profile);
-    }
-
-    render() {
-        const { profile } = this.props;
-        const { checked } = this.state;
-
-        /*eslint-disable camelcase*/
-        return (
-            <React.Fragment>
-                <Checkbox
-                    label={ profile.captured_date === 'Latest'
-                        ? profile.captured_date
-                        : moment.utc(profile.captured_date).format('DD MMM YYYY, HH:mm UTC') }
-                    isChecked={ checked }
-                    onChange={ this.handleChange }
-                    aria-label={ profile.id }
-                    id={ profile.id }
-                    name={ profile.id }
-                    data-ouia-component-id={ 'hsp-popover-option-checkbox-' + profile.id }
-                    data-ouia-component-type='PF4/Checkbox'
-                />
-            </React.Fragment>
-        );
-        /*eslint-enable camelcase*/
-    }
-}
+    /*eslint-disable camelcase*/
+    return (
+        <Checkbox
+            label={ profile?.captured_date === 'Latest'
+                ? profile.captured_date
+                : moment.utc(profile.captured_date).format('DD MMM YYYY, HH:mm UTC') }
+            isChecked={ findChecked() }
+            onChange={ () => onSelect(!findChecked(), profile) }
+            aria-label={ profile.id }
+            id={ profile.id }
+            name={ profile.id }
+            data-ouia-component-id={ 'hsp-popover-option-checkbox-' + profile.id }
+            data-ouia-component-type='PF4/Checkbox'
+        />
+    );
+    /*eslint-enable camelcase*/
+};
 
 HistoricalProfilesCheckbox.propTypes = {
     profile: PropTypes.object,
@@ -73,10 +50,4 @@ HistoricalProfilesCheckbox.propTypes = {
     onSelect: PropTypes.func
 };
 
-function mapStateToProps(state) {
-    return {
-        entities: state.entities
-    };
-}
-
-export default (connect(mapStateToProps, null)(HistoricalProfilesCheckbox));
+export default HistoricalProfilesCheckbox;

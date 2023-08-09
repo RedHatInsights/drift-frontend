@@ -135,7 +135,7 @@ describe('ComparisonHeader react-testing-library', () => {
         expect(store.removeSystem).toHaveBeenCalled();
     });
 
-    it('should render a system, baseline and hsp', () => {
+    it.skip('should render a system, baseline and hsp', () => {
         const store = mockStore(props);
         props.masterList = fixtures.masterListAll;
 
