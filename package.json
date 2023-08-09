@@ -48,7 +48,8 @@
         ],
         "moduleNameMapper": {
             "\\.(css|scss)$": "identity-obj-proxy"
-        }
+        },
+        "coverageDirectory": "./codecov-jest/"
     },
     "devDependencies": {
         "@babel/core": "^7.17.2",
@@ -61,6 +62,8 @@
         "@babel/preset-env": "^7.16.11",
         "@babel/preset-flow": "^7.16.7",
         "@babel/preset-react": "^7.16.7",
+        "@cypress/code-coverage": "^3.10.0",
+        "@cypress/react": "^7.0.2",
         "@redhat-cloud-services/frontend-components-config": "^4.6.14",
         "@testing-library/dom": "^8.11.3",
         "@testing-library/jest-dom": "^5.16.2",
@@ -69,12 +72,15 @@
         "@wojtekmaj/enzyme-adapter-react-17": "0.6.6",
         "babel-core": "^7.0.0-bridge.0",
         "babel-jest": "^27.5.1",
+        "babel-plugin-istanbul": "^6.1.1",
         "babel-loader": "^8.3.0",
         "babel-plugin-lodash": "^3.3.4",
+        "cypress": "^12.1.0",
         "enzyme": "^3.11.0",
         "enzyme-to-json": "^3.6.2",
         "eslint": "^8.8.0",
         "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-cypress": "^2.12.1",
         "eslint-plugin-react": "^7.28.0",
         "identity-obj-proxy": "^3.0.0",
         "jest": "^27.5.1",
@@ -107,12 +113,24 @@
         "ephemeral": "CONFIG_PATH=$PWD/profiles/local-frontend-and-ephemeral-cluster.js NODE_ENV=development webpack serve --config config/dev.ephemeral.webpack.config.js",
         "local": "CONFIG_PATH=$PWD/profiles/local-frontend-and-local.js NODE_ENV=development webpack serve --config config/dev.local.webpack.config.js",
         "travis:build": "NODE_ENV=production webpack --config config/prod.webpack.config.js",
-        "travis:verify": "npm-run-all travis:build lint test",
+        "travis:verify": "npm-run-all travis:build lint test test:ct",
         "verify": "npm-run-all build lint test",
         "nightly": "npm run travis:verify",
-        "update-snapshot": "jest -u --env=jsdom"
+        "update-snapshot": "jest -u --env=jsdom",
+        "test:ct": "BABEL_ENV=componentTest cypress run --component",
+        "test:openct": "cypress open --component",
+        "coverage": "bash coverage.sh"
     },
     "insights": {
         "appname": "drift"
+    },
+    "nyc": {
+        "report-dir": "codecov-cypress",
+        "include": [
+            "src/**/*"
+        ],
+        "exclude": [
+            "src/**/*.test.js"
+        ]
     }
 }
