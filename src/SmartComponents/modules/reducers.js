@@ -389,8 +389,14 @@ export function compareReducer(state = initialState, action) {
     }
 }
 
+export const globalFilterInitialState = {
+    tagsFilter: [],
+    workloadsFilter: {},
+    sidsFilter: []
+};
+
 export const globalFilterReducer = applyReducerHash({
-    [types.SET_GLOBAL_FILTER_TAGS]: (state = {}, action) => ({
+    [types.SET_GLOBAL_FILTER_TAGS]: (state = globalFilterInitialState, action) => ({
         ...state,
         tagsFilter: action.payload
     }),
