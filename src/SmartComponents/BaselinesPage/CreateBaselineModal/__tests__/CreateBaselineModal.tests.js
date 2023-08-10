@@ -1,237 +1,145 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
-import { MemoryRouter } from 'react-router-dom';
-import configureStore from 'redux-mock-store';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { Provider } from 'react-redux';
-import toJson from 'enzyme-to-json';
-import _ from 'lodash';
-import { createMiddlewareListener } from '../../../../store';
+import { createMiddlewareListener, init } from '../../../../store';
+import api from '../../../../api';
+import { globalFilterInitialState } from '../../../modules/reducers';
+import tableDataFixtures from '../../../BaselinesTable/redux/__tests__/baselinesTableReducer.fixtures';
+import CreateBaselineModal from '../CreateBaselineModal';
 
-import ConnectedCreateBaselineModal, { CreateBaselineModal } from '../CreateBaselineModal';
+jest.mock('../../../../api');
 
 const middlewareListener = createMiddlewareListener();
 middlewareListener.getMiddleware();
 
 describe('CreateBaselineModal', () => {
     let props;
+    const store = init().registry.getStore();
 
     beforeEach(() => {
         props = {
-            createBaselineModalOpened: false,
-            baselineData: {},
-            entities: {},
             permissions: {
-                hspRead: true
+                hspRead: true,
+                baselinesWrite: true,
+                baselinesRead: true
             },
-            selectedBaselineIds: [],
-            createBaselineError: {},
-            clearSelectedBaselines: jest.fn(),
-            handleChecked: jest.fn()
+            middlewareListener
         };
+        store.getState().globalFilterState = globalFilterInitialState;
+        store.getState().createBaselineModalState.createBaselineModalOpened = true;
     });
 
     afterEach(() => {
         jest.clearAllMocks();
     });
 
-    it('should render correctly', () => {
-        const wrapper = shallow(
-            <CreateBaselineModal { ...props }/>
-        );
-        expect(toJson(wrapper)).toMatchSnapshot();
-    });
-
-    it('should render error correctly', () => {
-        props.createBaselineError = {
-            status: 404,
-            detail: 'This is an error'
-        };
-
-        const wrapper = shallow(
-            <CreateBaselineModal { ...props }/>
-        );
-        expect(toJson(wrapper)).toMatchSnapshot();
-    });
-
-    it('should render mount correctly', () => {
-        const wrapper = mount(
-            <CreateBaselineModal { ...props }/>
-        );
-        expect(toJson(wrapper)).toMatchSnapshot();
-    });
-
-    describe('API', () => {
-        it('should render modal opened', () => {
-            props.createBaselineModalOpened = true;
-            const wrapper = mount(
+    it('should render correctly', async () => {
+        render(
+            <Provider store={ store }>
                 <CreateBaselineModal { ...props }/>
-            );
+            </Provider>
+        );
+        const modal = screen.getByLabelText('create-baseline-modal');
+        expect(modal).toMatchSnapshot();
+    });
 
-            expect(wrapper.find('Modal').prop('isOpen')).toEqual(true);
+    it('should render error correctly', async() => {
+        api.postNewBaseline.mockImplementation(async () => {
+            return await Promise.reject({
+                response: { data: {}, status: 404, detail: 'This is an error' }
+            });
         });
 
-        it('should use handleChecked', () => {
-            const event = { currentTarget: { value: 'copyBaselineChecked' }};
-            props.createBaselineModalOpened = true;
-            const wrapper = shallow(
+        render(
+            <Provider store={ store }>
+                <CreateBaselineModal { ...props } />
+            </Provider>
+        );
+        const input = screen.getByLabelText('baseline name');
+        await waitFor(() => fireEvent.change(input, { target: { value: 'bogus' }}));
+        await waitFor(() => userEvent.click(screen.getByLabelText('create-baseline-confirm')));
+
+        expect(input).toBeInvalid();
+    });
+
+    it('should use handleChecked', async () => {
+        render(
+            <Provider store={ store }>
+                <CreateBaselineModal { ...props } />
+            </Provider>
+        );
+
+        const copyBaselineRadio = screen.getByTestId('copy-baseline-radio');
+        await waitFor(() => userEvent.click(copyBaselineRadio));
+        expect(copyBaselineRadio.checked).toEqual(true);
+
+        const copySystemRadio = screen.getByTestId('copy-system-radio');
+        await waitFor(() => userEvent.click(copySystemRadio));
+        expect(copyBaselineRadio.checked).toEqual(false);
+        expect(copySystemRadio.checked).toEqual(true);
+
+        const fromScratchRadio = screen.getByTestId('from-scratch-radio');
+        await waitFor(() => userEvent.click(fromScratchRadio));
+        expect(copySystemRadio.checked).toEqual(false);
+        expect(fromScratchRadio.checked).toEqual(true);
+    });
+
+    it('should update baselineName', async () => {
+        render(
+            <Provider store={ store }>
                 <CreateBaselineModal { ...props }/>
-            );
+            </Provider>
+        );
 
-            /*eslint-disable no-undef*/
-            wrapper.find('[id="copy baseline"]').simulate('change', _, event);
-            expect(wrapper.state('copyBaselineChecked')).toEqual(true);
+        const input = screen.getByLabelText('baseline name');
+        await waitFor(() => fireEvent.change(input, { target: { value: 'baselines rock' }}));
+        expect(input.value).toEqual('baselines rock');
+    });
 
-            event.currentTarget.value = 'copySystemChecked';
-            wrapper.find('[id="copy system"]').simulate('change', _, event);
-            expect(wrapper.state('copySystemChecked')).toEqual(true);
-
-            event.currentTarget.value = 'fromScratchChecked';
-            wrapper.find('[id="create baseline"]').simulate('change', _, event);
-            expect(wrapper.state('fromScratchChecked')).toEqual(true);
-            /*eslint-enable no-undef*/
+    it('should submit baselineName with copyBaselineChecked', async () => {
+        api.getBaselineList.mockImplementation(async () => {
+            return tableDataFixtures.baselinesListPayload;
         });
-
-        it('should update baselineName', () => {
-            const event = 'baseline';
-            props.createBaselineModalOpened = true;
-            const wrapper = shallow(
+        render(
+            <Provider store={ store }>
                 <CreateBaselineModal { ...props }/>
-            );
+            </Provider>
+        );
 
-            wrapper.find('[aria-label="baseline name"]').simulate('change', event);
-            expect(wrapper.state('baselineName')).toEqual('baseline');
+        const copyBaselineRadio = screen.getByTestId('copy-baseline-radio');
+        await waitFor(() => userEvent.click(copyBaselineRadio));
+
+        const input = screen.getByLabelText('baseline name');
+        await waitFor(() => fireEvent.change(input, { target: { value: 'baselines rock' }}));
+
+        await waitFor(() => userEvent.click(screen.getByLabelText('Select row 0')));
+
+        await waitFor(() => userEvent.click(screen.getByLabelText('create-baseline-confirm')));
+
+        expect(api.getBaselineList).toHaveBeenCalledTimes(1);
+    });
+
+    it('should cancelModal', async () => {
+        api.getBaselineList.mockImplementation(async () => {
+            return tableDataFixtures.baselinesListPayload;
         });
 
-        it('should submit baselineName with copyBaselineChecked', () => {
-            props.createBaselineModalOpened = true;
-            props.selectedBaselineIds = [ 'abcd' ];
-            const createBaseline = jest.fn();
-            const wrapper = mount(
-                <CreateBaselineModal { ...props }
-                    createBaseline={ createBaseline }
-                />
-            );
-
-            wrapper.setState({ baselineName: 'baseline' });
-
-            wrapper.find('.pf-c-button').at(1).simulate('click');
-            expect(createBaseline).toHaveBeenCalledTimes(1);
-        });
-
-        it('should render global filter alert', () => {
-            const event = { currentTarget: { value: 'copySystemChecked' }};
-            props.createBaselineModalOpened = true;
-            const wrapper = shallow(
+        render(
+            <Provider store={ store }>
                 <CreateBaselineModal { ...props }/>
-            );
-
-            expect(wrapper.find('GlobalFilterAlert')).toHaveLength(0);
-
-            /*eslint-disable no-undef*/
-            event.currentTarget.value = 'copySystemChecked';
-            wrapper.find('[id="copy system"]').simulate('change', _, event);
-            /*eslint-enable no-undef*/
-
-            expect(wrapper.find('GlobalFilterAlert')).toHaveLength(1);
-        });
-    });
-
-    it('should cancelModal', () => {
-        props.createBaselineModalOpened = true;
-        const toggleCreateBaselineModal = jest.fn();
-        const selectSingleHSP = jest.fn();
-        const wrapper = mount(
-            <CreateBaselineModal { ...props }
-                toggleCreateBaselineModal={ toggleCreateBaselineModal }
-                selectSingleHSP={ selectSingleHSP }
-            />
+            </Provider>
         );
 
-        wrapper.find('.pf-c-button').at(2).simulate('click');
-        expect(selectSingleHSP).toHaveBeenCalledTimes(1);
-        expect(toggleCreateBaselineModal).toHaveBeenCalledTimes(1);
-    });
+        const copyBaselineRadio = screen.getByTestId('copy-baseline-radio');
+        await waitFor(() => userEvent.click(copyBaselineRadio));
 
-    it('should submit baseline name on key press', () => {
-        props.createBaselineModalOpened = true;
-        const createBaseline = jest.fn();
-        const wrapper = mount(
-            <CreateBaselineModal { ...props } createBaseline={ createBaseline }/>
-        );
+        await waitFor(() => userEvent.click(screen.getByLabelText('Select row 0')));
+        expect(store.getState().baselinesTableState.radioTable.selectedBaselineIds).toEqual([ '1234' ]);
 
-        wrapper.setState({ baselineName: 'baseline' });
-        wrapper.find('input').at(3).simulate('keypress', { key: 'Enter' });
-        expect(createBaseline).toHaveBeenCalledTimes(1);
-    });
-});
-
-describe('ConnectedCreateBaselineModal', () => {
-    let initialState;
-    let mockStore;
-    let props;
-
-    beforeEach(() => {
-        mockStore = configureStore();
-        initialState = {
-            compareState: {
-                historicalProfiles: []
-            },
-            createBaselineModalState: {
-                createBaselineModalOpened: true,
-                baselineData: {},
-                createBaselineError: {}
-            },
-            entities: {},
-            baselinesTableState: {
-                radioTable: {
-                    selectedBaselineIds: [],
-                    loading: false,
-                    emptyState: {},
-                    baselineTableData: []
-                }
-            },
-            historicProfilesState: {
-                selectedHSPIds: []
-            },
-            toggleCreateBaselineModal: jest.fn(),
-            createBaseline: jest.fn(),
-            clearSelectedBaselines: jest.fn()
-        };
-
-        props = {
-            hasHSPReadPermissions: true
-        };
-    });
-
-    it('should render correctly', () => {
-        const store = mockStore(initialState);
-        const wrapper = mount(
-            <MemoryRouter keyLength={ 0 }>
-                <Provider store={ store }>
-                    <ConnectedCreateBaselineModal />
-                </Provider>
-            </MemoryRouter>
-        );
-
-        expect(toJson(wrapper)).toMatchSnapshot();
-    });
-
-    it('should dispatch actions', () => {
-        const store = mockStore(initialState);
-        const wrapper = mount(
-            <MemoryRouter keyLength={ 0 }>
-                <Provider store={ store }>
-                    <ConnectedCreateBaselineModal { ...props } />
-                </Provider>
-            </MemoryRouter>
-        );
-
-        const actions = store.getActions();
-        wrapper.find('.pf-c-button').at(2).simulate('click');
-        expect(actions).toEqual([
-            { type: 'CLEAR_SELECTED_BASELINES_RADIO' },
-            { type: 'SELECT_SINGLE_HSP', payload: undefined },
-            { type: 'TOGGLE_CREATE_BASELINE_MODAL' }
-        ]);
+        const cancelButton = screen.getByLabelText('cancel-create-baseline');
+        await waitFor(() => userEvent.click(cancelButton));
+        expect(store.getState().baselinesTableState.radioTable.selectedBaselineIds).toEqual([]);
+        expect(store.getState().createBaselineModalState.createBaselineModalOpened).toEqual(false);
     });
 });

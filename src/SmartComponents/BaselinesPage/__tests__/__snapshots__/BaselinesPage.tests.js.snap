@@ -96,7 +96,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
             selectedBaselineIds={Array []}
             setSelectedSystemIds={[Function]}
           >
-            <Connect(CreateBaselineModalWithHooks)
+            <CreateBaselineModal
               permissions={
                 Object {
                   "baselinesRead": true,
@@ -107,59 +107,51 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
               selectHistoricProfiles={[Function]}
               setSelectedSystemIds={[Function]}
             >
-              <CreateBaselineModalWithHooks
-                baselineError={Object {}}
-                clearSelectedBaselines={[Function]}
-                createBaseline={[Function]}
-                createBaselineError={Object {}}
-                createBaselineModalOpened={false}
-                emptyState={false}
-                loading={false}
-                permissions={
-                  Object {
-                    "baselinesRead": true,
-                    "baselinesWrite": true,
-                    "compareRead": true,
-                  }
+              <Modal
+                actions={
+                  Array [
+                    <Button
+                      aria-label="create-baseline-disabled"
+                      isDisabled={true}
+                      ouiaId="create-baseline-button-fromscratch"
+                      variant="primary"
+                    >
+                      Create baseline
+                    </Button>,
+                    <Button
+                      aria-label="cancel-create-baseline"
+                      onClick={[Function]}
+                      ouiaId="create-baseline-modal-cancel-button"
+                      variant="link"
+                    >
+                      Cancel
+                    </Button>,
+                  ]
                 }
-                revertBaselineFetch={[Function]}
-                selectBaseline={[Function]}
-                selectHistoricProfiles={[Function]}
-                selectSingleHSP={[Function]}
-                selectedBaselineIds={Array []}
-                setSelectedSystemIds={[Function]}
-                toggleCreateBaselineModal={[Function]}
-                updateColumns={[Function]}
+                appendTo={[Function]}
+                aria-describedby=""
+                aria-label="create-baseline-modal"
+                aria-labelledby=""
+                className="drift create-baseline-modal"
+                hasNoBodyWrapper={false}
+                isOpen={false}
+                onClose={[Function]}
+                ouiaSafe={true}
+                showClose={true}
+                title="Create baseline"
+                titleIconVariant={null}
+                titleLabel=""
+                variant="default"
+                width="1200px"
               >
-                <CreateBaselineModal
-                  baselineError={Object {}}
-                  clearSelectedBaselines={[Function]}
-                  createBaseline={[Function]}
-                  createBaselineError={Object {}}
-                  createBaselineModalOpened={false}
-                  emptyState={false}
-                  loading={false}
-                  navigate={[MockFunction]}
-                  permissions={
-                    Object {
-                      "baselinesRead": true,
-                      "baselinesWrite": true,
-                      "compareRead": true,
-                    }
-                  }
-                  revertBaselineFetch={[Function]}
-                  selectBaseline={[Function]}
-                  selectHistoricProfiles={[Function]}
-                  selectSingleHSP={[Function]}
-                  selectedBaselineIds={Array []}
-                  setSelectedSystemIds={[Function]}
-                  toggleCreateBaselineModal={[Function]}
-                  updateColumns={[Function]}
+                <Portal
+                  containerInfo={<div />}
                 >
-                  <Modal
+                  <ModalContent
                     actions={
                       Array [
                         <Button
+                          aria-label="create-baseline-disabled"
                           isDisabled={true}
                           ouiaId="create-baseline-button-fromscratch"
                           variant="primary"
@@ -167,6 +159,7 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                           Create baseline
                         </Button>,
                         <Button
+                          aria-label="cancel-create-baseline"
                           onClick={[Function]}
                           ouiaId="create-baseline-modal-cancel-button"
                           variant="link"
@@ -175,14 +168,17 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                         </Button>,
                       ]
                     }
-                    appendTo={[Function]}
                     aria-describedby=""
-                    aria-label=""
+                    aria-label="create-baseline-modal"
                     aria-labelledby=""
+                    boxId="pf-modal-part-0"
                     className="drift create-baseline-modal"
+                    descriptorId="pf-modal-part-2"
                     hasNoBodyWrapper={false}
                     isOpen={false}
+                    labelId="pf-modal-part-1"
                     onClose={[Function]}
+                    ouiaId="OUIA-Generated-Modal-default-1"
                     ouiaSafe={true}
                     showClose={true}
                     title="Create baseline"
@@ -190,53 +186,10 @@ exports[`ConnectedBaselinesPage should render correctly 1`] = `
                     titleLabel=""
                     variant="default"
                     width="1200px"
-                  >
-                    <Portal
-                      containerInfo={<div />}
-                    >
-                      <ModalContent
-                        actions={
-                          Array [
-                            <Button
-                              isDisabled={true}
-                              ouiaId="create-baseline-button-fromscratch"
-                              variant="primary"
-                            >
-                              Create baseline
-                            </Button>,
-                            <Button
-                              onClick={[Function]}
-                              ouiaId="create-baseline-modal-cancel-button"
-                              variant="link"
-                            >
-                              Cancel
-                            </Button>,
-                          ]
-                        }
-                        aria-describedby=""
-                        aria-label=""
-                        aria-labelledby=""
-                        boxId="pf-modal-part-0"
-                        className="drift create-baseline-modal"
-                        descriptorId="pf-modal-part-2"
-                        hasNoBodyWrapper={false}
-                        isOpen={false}
-                        labelId="pf-modal-part-1"
-                        onClose={[Function]}
-                        ouiaId="OUIA-Generated-Modal-default-1"
-                        ouiaSafe={true}
-                        showClose={true}
-                        title="Create baseline"
-                        titleIconVariant={null}
-                        titleLabel=""
-                        variant="default"
-                        width="1200px"
-                      />
-                    </Portal>
-                  </Modal>
-                </CreateBaselineModal>
-              </CreateBaselineModalWithHooks>
-            </Connect(CreateBaselineModalWithHooks)>
+                  />
+                </Portal>
+              </Modal>
+            </CreateBaselineModal>
             <PageHeader>
               <section
                 className="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
@@ -5939,7 +5892,7 @@ exports[`ConnectedBaselinesPage should render empty state 1`] = `
             selectedBaselineIds={Array []}
             setSelectedSystemIds={[Function]}
           >
-            <Connect(CreateBaselineModalWithHooks)
+            <CreateBaselineModal
               permissions={
                 Object {
                   "baselinesRead": true,
@@ -5950,59 +5903,51 @@ exports[`ConnectedBaselinesPage should render empty state 1`] = `
               selectHistoricProfiles={[Function]}
               setSelectedSystemIds={[Function]}
             >
-              <CreateBaselineModalWithHooks
-                baselineError={Object {}}
-                clearSelectedBaselines={[Function]}
-                createBaseline={[Function]}
-                createBaselineError={Object {}}
-                createBaselineModalOpened={false}
-                emptyState={false}
-                loading={false}
-                permissions={
-                  Object {
-                    "baselinesRead": true,
-                    "baselinesWrite": true,
-                    "compareRead": true,
-                  }
+              <Modal
+                actions={
+                  Array [
+                    <Button
+                      aria-label="create-baseline-disabled"
+                      isDisabled={true}
+                      ouiaId="create-baseline-button-fromscratch"
+                      variant="primary"
+                    >
+                      Create baseline
+                    </Button>,
+                    <Button
+                      aria-label="cancel-create-baseline"
+                      onClick={[Function]}
+                      ouiaId="create-baseline-modal-cancel-button"
+                      variant="link"
+                    >
+                      Cancel
+                    </Button>,
+                  ]
                 }
-                revertBaselineFetch={[Function]}
-                selectBaseline={[Function]}
-                selectHistoricProfiles={[Function]}
-                selectSingleHSP={[Function]}
-                selectedBaselineIds={Array []}
-                setSelectedSystemIds={[Function]}
-                toggleCreateBaselineModal={[Function]}
-                updateColumns={[Function]}
+                appendTo={[Function]}
+                aria-describedby=""
+                aria-label="create-baseline-modal"
+                aria-labelledby=""
+                className="drift create-baseline-modal"
+                hasNoBodyWrapper={false}
+                isOpen={false}
+                onClose={[Function]}
+                ouiaSafe={true}
+                showClose={true}
+                title="Create baseline"
+                titleIconVariant={null}
+                titleLabel=""
+                variant="default"
+                width="1200px"
               >
-                <CreateBaselineModal
-                  baselineError={Object {}}
-                  clearSelectedBaselines={[Function]}
-                  createBaseline={[Function]}
-                  createBaselineError={Object {}}
-                  createBaselineModalOpened={false}
-                  emptyState={false}
-                  loading={false}
-                  navigate={[MockFunction]}
-                  permissions={
-                    Object {
-                      "baselinesRead": true,
-                      "baselinesWrite": true,
-                      "compareRead": true,
-                    }
-                  }
-                  revertBaselineFetch={[Function]}
-                  selectBaseline={[Function]}
-                  selectHistoricProfiles={[Function]}
-                  selectSingleHSP={[Function]}
-                  selectedBaselineIds={Array []}
-                  setSelectedSystemIds={[Function]}
-                  toggleCreateBaselineModal={[Function]}
-                  updateColumns={[Function]}
+                <Portal
+                  containerInfo={<div />}
                 >
-                  <Modal
+                  <ModalContent
                     actions={
                       Array [
                         <Button
+                          aria-label="create-baseline-disabled"
                           isDisabled={true}
                           ouiaId="create-baseline-button-fromscratch"
                           variant="primary"
@@ -6010,6 +5955,7 @@ exports[`ConnectedBaselinesPage should render empty state 1`] = `
                           Create baseline
                         </Button>,
                         <Button
+                          aria-label="cancel-create-baseline"
                           onClick={[Function]}
                           ouiaId="create-baseline-modal-cancel-button"
                           variant="link"
@@ -6018,14 +5964,17 @@ exports[`ConnectedBaselinesPage should render empty state 1`] = `
                         </Button>,
                       ]
                     }
-                    appendTo={[Function]}
                     aria-describedby=""
-                    aria-label=""
+                    aria-label="create-baseline-modal"
                     aria-labelledby=""
+                    boxId="pf-modal-part-3"
                     className="drift create-baseline-modal"
+                    descriptorId="pf-modal-part-5"
                     hasNoBodyWrapper={false}
                     isOpen={false}
+                    labelId="pf-modal-part-4"
                     onClose={[Function]}
+                    ouiaId="OUIA-Generated-Modal-default-3"
                     ouiaSafe={true}
                     showClose={true}
                     title="Create baseline"
@@ -6033,53 +5982,10 @@ exports[`ConnectedBaselinesPage should render empty state 1`] = `
                     titleLabel=""
                     variant="default"
                     width="1200px"
-                  >
-                    <Portal
-                      containerInfo={<div />}
-                    >
-                      <ModalContent
-                        actions={
-                          Array [
-                            <Button
-                              isDisabled={true}
-                              ouiaId="create-baseline-button-fromscratch"
-                              variant="primary"
-                            >
-                              Create baseline
-                            </Button>,
-                            <Button
-                              onClick={[Function]}
-                              ouiaId="create-baseline-modal-cancel-button"
-                              variant="link"
-                            >
-                              Cancel
-                            </Button>,
-                          ]
-                        }
-                        aria-describedby=""
-                        aria-label=""
-                        aria-labelledby=""
-                        boxId="pf-modal-part-3"
-                        className="drift create-baseline-modal"
-                        descriptorId="pf-modal-part-5"
-                        hasNoBodyWrapper={false}
-                        isOpen={false}
-                        labelId="pf-modal-part-4"
-                        onClose={[Function]}
-                        ouiaId="OUIA-Generated-Modal-default-3"
-                        ouiaSafe={true}
-                        showClose={true}
-                        title="Create baseline"
-                        titleIconVariant={null}
-                        titleLabel=""
-                        variant="default"
-                        width="1200px"
-                      />
-                    </Portal>
-                  </Modal>
-                </CreateBaselineModal>
-              </CreateBaselineModalWithHooks>
-            </Connect(CreateBaselineModalWithHooks)>
+                  />
+                </Portal>
+              </Modal>
+            </CreateBaselineModal>
             <PageHeader>
               <section
                 className="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
