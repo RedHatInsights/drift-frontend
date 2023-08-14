@@ -62,7 +62,6 @@ export class DriftToolbar extends Component {
 
     prepareExport = (exportFunc) => {
         const { store } = this.props;
-        console.log(store, 'store');
 
         preparingExportNotification(store);
 

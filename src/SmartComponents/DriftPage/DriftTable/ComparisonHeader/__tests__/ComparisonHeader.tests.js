@@ -31,7 +31,8 @@ describe('ComparisonHeader react-testing-library', () => {
             toggleFactSort: jest.fn(),
             toggleStateSort: jest.fn(),
             updateReferenceId: jest.fn(),
-            setHistory: jest.fn()
+            setHistory: jest.fn(),
+            setColumnHeaderWidth: jest.fn()
         };
     });
 
