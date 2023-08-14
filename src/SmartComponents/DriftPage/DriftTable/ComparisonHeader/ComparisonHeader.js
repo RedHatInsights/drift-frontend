@@ -23,14 +23,15 @@ class ComparisonHeader extends Component {
     }
 
     setColumnWidth = () => {
-        if (this.columnWidth) {
+        if (this.columnWidth?.current) {
             this.props.setColumnHeaderWidth(this.columnWidth.current.offsetWidth);
             this.setState({ refState: this.columnWidth });
         }
     };
 
     componentDidMount() {
-        window.addEventListener('resize', debounce(this.setColumnWidth, 500));
+        this.setColumnWidth();
+        window.addEventListener('resize', debounce(this.setColumnWidth, 250));
     }
 
     formatDate = (dateString) => {
