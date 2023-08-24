@@ -73,7 +73,7 @@ const App = () => {
                 permissionsList.some((permission) => hasPermission(
                     permission, [ 'drift:*:*', 'drift:historical-system-profiles:read', 'drift:*:read' ])
                 ),
-                permissionsList.some((permission) => hasPermission(permission, [ 'inventory:*:*', 'inventory:hosts:read' ])),
+                permissionsList.some((permission) => hasPermission(permission, [ 'inventory:*:*', 'inventory:hosts:*', 'inventory:hosts:read'  ])),
                 permissionsList.some((permission) => hasPermission(permission, [ 'drift:*:*', 'drift:notifications:write', 'drift:*:write' ])),
                 permissionsList.some((permission) => hasPermission(permission, [ 'drift:*:*', 'drift:notifications:read', 'drift:*:read' ]))
             );
