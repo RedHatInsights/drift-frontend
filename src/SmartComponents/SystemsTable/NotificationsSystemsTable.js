@@ -1,5 +1,6 @@
 /*eslint-disable camelcase*/
 import React, { useEffect, useRef, useState } from 'react';
+import axios from 'axios';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import ReducerRegistry from '@redhat-cloud-services/frontend-components-utilities/ReducerRegistry';
@@ -16,13 +17,13 @@ import systemsTableActions from './actions';
 import EmptyStateDisplay from '../EmptyStateDisplay/EmptyStateDisplay';
 import helpers from '../helpers';
 import isEqual from 'lodash/isEqual';
+import { BASELINE_API_ROOT } from '../../constants';
 
 function mapDispatchToProps(dispatch) {
     return {
         setSelectedSystemIds: (systemIds) => dispatch(compareActions.setSelectedSystemIds(systemIds)),
         driftClearFilters: () => dispatch(systemsTableActions.clearAllFilters()),
-        selectEntities: (toSelect) => dispatch({ type: 'SELECT_ENTITY', payload: toSelect })
-    };
+        selectEntities: (toSelect) => dispatch({ type: 'SELECT_ENTITY', payload: toSelect })    };
 }
 
 export const SystemsTable = connect(null, mapDispatchToProps)(({
@@ -121,6 +122,21 @@ export const SystemsTable = connect(null, mapDispatchToProps)(({
         }
     });
 
+    const fetchSystems = async (baselineId, groupsArray, currIds) => {
+        let path = `/baselines/${baselineId}/systems?`;
+        let newPath;
+        if (groupsArray?.length > 0) {
+            newPath = path;
+            let groupsString = 'group_names[]= ' + groupsArray.join('&group_names[]=');
+            newPath =  path.concat(groupsString);
+            let request = axios.get(BASELINE_API_ROOT.concat(newPath)).then(res =>  res?.data?.system_ids);
+            return request;
+        } else {
+            return currIds;
+        }
+
+    };
+
     return (
         permissions.inventoryRead ? (
             <InventoryTable
@@ -156,6 +172,7 @@ export const SystemsTable = connect(null, mapDispatchToProps)(({
                 getEntities={ async (_items, config) => {
                     const currIds = (systemNotificationIds || [])
                     .slice((config.page - 1) * config.per_page, config.page * config.per_page);
+                    const updatedData = await fetchSystems(baselineId, config.filters.hostGroupFilter, currIds);
                     const data = await getEntities.current?.(
                         currIds,
                         {
@@ -163,13 +180,13 @@ export const SystemsTable = connect(null, mapDispatchToProps)(({
                         },
                         true
                     );
+
                     return {
                         ...data,
-                        results: data.results.map((system) => ({
-                            ...system,
-                            ...currIds.find(({ uuid }) => uuid === system.id) || {}
+                        results: updatedData?.map((system) => ({
+                            ...data.results.find(({ id }) => id === system) || {}
                         })),
-                        total: (systemNotificationIds || []).length,
+                        total: (updatedData || []).length,
                         page: config.page,
                         per_page: config.per_page
                     };
