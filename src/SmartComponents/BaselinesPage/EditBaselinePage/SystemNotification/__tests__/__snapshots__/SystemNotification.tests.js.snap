@@ -66,7 +66,9 @@ exports[`ConnectedSystemNotification should render correctly 1`] = `
         }
         permissions={
           Object {
+            "baselinesRead": true,
             "baselinesWrite": true,
+            "inventoryRead": true,
           }
         }
       >
@@ -92,7 +94,9 @@ exports[`ConnectedSystemNotification should render correctly 1`] = `
           getNotifications={[Function]}
           permissions={
             Object {
+              "baselinesRead": true,
               "baselinesWrite": true,
+              "inventoryRead": true,
             }
           }
           setSelectedSystemIds={[Function]}
@@ -272,7 +276,9 @@ exports[`ConnectedSystemNotification should render correctly 1`] = `
             onSystemSelect={[Function]}
             permissions={
               Object {
+                "baselinesRead": true,
                 "baselinesWrite": true,
+                "inventoryRead": true,
               }
             }
             selectVariant="checkbox"
@@ -331,7 +337,9 @@ exports[`ConnectedSystemNotification should render correctly 1`] = `
                 onSystemSelect={[Function]}
                 permissions={
                   Object {
+                    "baselinesRead": true,
                     "baselinesWrite": true,
+                    "inventoryRead": true,
                   }
                 }
                 registry={
@@ -393,7 +401,9 @@ exports[`ConnectedSystemNotification should render correctly 1`] = `
                   onSystemSelect={[Function]}
                   permissions={
                     Object {
+                      "baselinesRead": true,
                       "baselinesWrite": true,
+                      "inventoryRead": true,
                     }
                   }
                   registry={
@@ -449,113 +459,86 @@ exports[`ConnectedSystemNotification should render correctly 1`] = `
                     </Button>
                   }
                 >
-                  <EmptyStateDisplayWithHooks
-                    color="#6a6e73"
-                    icon={[Function]}
-                    text={
+                  <mockConstructor
+                    actionsConfig={
+                      Object {
+                        "actions": Array [],
+                      }
+                    }
+                    bulkSelect={
+                      Object {
+                        "checked": null,
+                        "count": 0,
+                        "isDisabled": true,
+                        "items": Array [
+                          Object {
+                            "onClick": [Function],
+                            "title": "Select none (0)",
+                          },
+                          Object {
+                            "onClick": [Function],
+                            "title": "Select page (0)",
+                          },
+                        ],
+                        "onSelect": [Function],
+                      }
+                    }
+                    columns={
                       Array [
-                        "Contact your organization administrator(s) for more information.",
+                        Object {
+                          "key": "display_name",
+                          "props": Object {
+                            "width": null,
+                          },
+                          "title": "Name",
+                        },
+                        Object {
+                          "key": "tags",
+                          "props": Object {
+                            "isStatic": true,
+                            "width": null,
+                          },
+                          "title": "Tags",
+                        },
+                        Object {
+                          "key": "updated",
+                          "props": Object {
+                            "width": null,
+                          },
+                          "title": "Last seen",
+                        },
                       ]
                     }
-                    title="You do not have access to the inventory"
+                    customFilters={
+                      Object {
+                        "filter": Object {
+                          "system_profile": Object {},
+                        },
+                        "tags": undefined,
+                      }
+                    }
+                    getEntities={[Function]}
+                    noDetail={true}
+                    onLoad={[Function]}
+                    showTags={true}
+                    tableProps={
+                      Object {
+                        "canSelectAll": false,
+                        "isStickyHeader": true,
+                        "onSelect": false,
+                        "ouiaId": "systems-table",
+                        "selectVariant": "checkbox",
+                      }
+                    }
                   >
-                    <EmptyStateDisplay
-                      chrome={
-                        Object {
-                          "appAction": [MockFunction] {
-                            "calls": Array [
-                              Array [
-                                "comparison-list",
-                              ],
-                            ],
-                            "results": Array [
-                              Object {
-                                "type": "return",
-                                "value": undefined,
-                              },
-                            ],
-                          },
-                          "isBeta": [MockFunction],
-                        }
-                      }
-                      color="#6a6e73"
-                      icon={[Function]}
-                      text={
-                        Array [
-                          "Contact your organization administrator(s) for more information.",
-                        ]
-                      }
-                      title="You do not have access to the inventory"
+                    <div
+                      className="testInventroyComponentChild"
                     >
-                      <EmptyState
-                        variant="large"
-                      >
-                        <div
-                          className="pf-c-empty-state pf-m-lg"
-                        >
-                          <div
-                            className="pf-c-empty-state__content"
-                          >
-                            <EmptyStateIcon
-                              className={null}
-                              color="#6a6e73"
-                              icon={[Function]}
-                            >
-                              <LockIcon
-                                aria-hidden="true"
-                                className="pf-c-empty-state__icon"
-                                color="#6a6e73"
-                                noVerticalAlign={false}
-                                size="sm"
-                              >
-                                <svg
-                                  aria-hidden="true"
-                                  aria-labelledby={null}
-                                  className="pf-c-empty-state__icon"
-                                  fill="#6a6e73"
-                                  height="1em"
-                                  role="img"
-                                  style={
-                                    Object {
-                                      "verticalAlign": "-0.125em",
-                                    }
-                                  }
-                                  viewBox="0 0 448 512"
-                                  width="1em"
-                                >
-                                  <path
-                                    d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"
-                                  />
-                                </svg>
-                              </LockIcon>
-                            </EmptyStateIcon>
-                            <br />
-                            <Title
-                              headingLevel="h1"
-                              size="lg"
-                            >
-                              <h1
-                                className="pf-c-title pf-m-lg"
-                                data-ouia-component-id="OUIA-Generated-Title-1"
-                                data-ouia-component-type="PF4/Title"
-                                data-ouia-safe={true}
-                              >
-                                You do not have access to the inventory
-                              </h1>
-                            </Title>
-                            <EmptyStateBody>
-                              <div
-                                className="pf-c-empty-state__body"
-                              >
-                                Contact your organization administrator(s) for more information.
-                                <br />
-                              </div>
-                            </EmptyStateBody>
-                          </div>
-                        </div>
-                      </EmptyState>
-                    </EmptyStateDisplay>
-                  </EmptyStateDisplayWithHooks>
+                      <div>
+                        This is child
+                      </div>
+                    </div>
+                  </mockConstructor>
                 </Component>
               </Connect(Component)>
             </Provider>
@@ -569,88 +552,15 @@ exports[`ConnectedSystemNotification should render correctly 1`] = `
 
 exports[`SystemNotification should render 1`] = `
 <Fragment>
-  <DeleteNotificationModal
-    fetchSystems={[Function]}
-  />
-  <Modal
-    actions={
+  <EmptyStateDisplay
+    color="#6a6e73"
+    icon={[Function]}
+    text={
       Array [
-        <Button
-          onClick={[Function]}
-          ouiaId="add-baseline-notification-button"
-          variant="primary"
-        >
-          Submit
-        </Button>,
-        <Button
-          onClick={[Function]}
-          ouiaId="add-baseline-notification-cancel-button"
-          variant="link"
-        >
-          Cancel
-        </Button>,
+        "Contact your organization administrator(s) for more information.",
       ]
     }
-    appendTo={[Function]}
-    aria-describedby=""
-    aria-label=""
-    aria-labelledby=""
-    className="drift"
-    hasNoBodyWrapper={false}
-    isOpen={false}
-    onClose={[Function]}
-    ouiaId="add-baseline-notification-modal"
-    ouiaSafe={true}
-    showClose={true}
-    title="Associate system with undefined"
-    titleIconVariant={null}
-    titleLabel=""
-    variant="medium"
-    width="1200px"
-  >
-    <Connect(SystemsTable)
-      hasMultiSelect={true}
-      isAddSystemNotifications={true}
-      permissions={
-        Object {
-          "notificationsWrite": true,
-        }
-      }
-      selectSystemsToAdd={[Function]}
-      selectVariant="checkbox"
-      selectedSystemIds={Array []}
-      systemColumns={
-        Array [
-          Object {
-            "key": "display_name",
-            "props": Object {
-              "width": 20,
-            },
-            "title": "Name",
-          },
-          Object {
-            "key": "tags",
-            "props": Object {
-              "isStatic": true,
-              "width": 10,
-            },
-            "title": "Tags",
-          },
-          Object {
-            "key": "updated",
-            "props": Object {
-              "width": 10,
-            },
-            "title": "Last seen",
-          },
-        ]
-      }
-    />
-  </Modal>
-  <Bullseye>
-    <Spinner
-      size="xl"
-    />
-  </Bullseye>
+    title="You do not have access to Baselines"
+  />
 </Fragment>
 `;

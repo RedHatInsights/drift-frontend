@@ -38,7 +38,9 @@ describe('ConnectedSystemNotification', () => {
 
         props = {
             permissions: {
-                baselinesWrite: true
+                baselinesWrite: true,
+                baselinesRead: true,
+                inventoryRead: true
             },
             fetchBaselineData: jest.fn()
         };
