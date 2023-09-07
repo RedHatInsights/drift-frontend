@@ -7,6 +7,8 @@ import NotificationsSystemsTable from '../../../SystemsTable/NotificationsSystem
 import SystemsTable from '../../../SystemsTable/SystemsTable';
 import DeleteNotificationModal from './DeleteNotificationModal/DeleteNotificationModal';
 import { systemNotificationsActions } from './redux';
+import { EmptyStateDisplay } from '../../../EmptyStateDisplay/EmptyStateDisplay';
+import { LockIcon } from '@patternfly/react-icons';
 
 export class SystemNotification extends Component {
     constructor(props) {
@@ -14,7 +16,8 @@ export class SystemNotification extends Component {
 
         this.state = {
             modalOpened: false,
-            systemsToAdd: []
+            systemsToAdd: [],
+            hasAccess: props.permissions.baselinesRead === true && props.permissions.inventoryRead === true
         };
 
         this.toggleModal = () => {
@@ -93,82 +96,96 @@ export class SystemNotification extends Component {
     }
 
     async componentDidMount() {
-        await this.fetchSystems(this.props.baselineId);
+        const { hasAccess } = this.state;
+
+        hasAccess === true && await this.fetchSystems(this.props.baselineId);
     }
 
     render() {
         const { baselineId, baselineName, deleteNotifications, deleteNotificationsModalOpened, driftClearFilters, entities,
             permissions, selectEntities, selectHistoricProfiles, setSelectedSystemIds, systemNotificationIds,
             systemsToDelete, toggleDeleteNotificationsModal, systemNotificationLoaded } = this.props;
-        const { modalOpened } = this.state;
+        const { modalOpened, hasAccess } = this.state;
 
         return (
             <React.Fragment>
-                <DeleteNotificationModal
-                    baselineId={ baselineId }
-                    deleteNotifications={ deleteNotifications }
-                    deleteNotificationsModalOpened={ deleteNotificationsModalOpened }
-                    systemsToDelete={ systemsToDelete }
-                    toggleDeleteNotificationsModal={ toggleDeleteNotificationsModal }
-                    fetchSystems={ this.fetchSystems }
-                />
-                <Modal
-                    className="drift"
-                    width='1200px'
-                    ouiaId='add-baseline-notification-modal'
-                    variant={ ModalVariant.medium }
-                    title={ 'Associate system with ' + baselineName }
-                    isOpen={ modalOpened }
-                    onClose={ this.toggleModal }
-                    actions = { [
-                        <Button
-                            key="confirm"
-                            ouiaId='add-baseline-notification-button'
-                            variant="primary"
-                            onClick={ this.addNotification }
-                        >
+                {hasAccess ?
+                    <>
+                        <DeleteNotificationModal
+                            baselineId={ baselineId }
+                            deleteNotifications={ deleteNotifications }
+                            deleteNotificationsModalOpened={ deleteNotificationsModalOpened }
+                            systemsToDelete={ systemsToDelete }
+                            toggleDeleteNotificationsModal={ toggleDeleteNotificationsModal }
+                            fetchSystems={ this.fetchSystems }
+                        />
+                        <Modal
+                            className="drift"
+                            width='1200px'
+                            ouiaId='add-baseline-notification-modal'
+                            variant={ ModalVariant.medium }
+                            title={ 'Associate system with ' + baselineName }
+                            isOpen={ modalOpened }
+                            onClose={ this.toggleModal }
+                            actions = { [
+                                <Button
+                                    key="confirm"
+                                    ouiaId='add-baseline-notification-button'
+                                    variant="primary"
+                                    onClick={ this.addNotification }
+                                >
                             Submit
-                        </Button>,
-                        <Button
-                            key="cancel"
-                            ouiaId='add-baseline-notification-cancel-button'
-                            variant="link"
-                            onClick={ this.toggleModal }
-                        >
+                                </Button>,
+                                <Button
+                                    key="cancel"
+                                    ouiaId='add-baseline-notification-cancel-button'
+                                    variant="link"
+                                    onClick={ this.toggleModal }
+                                >
                             Cancel
-                        </Button>
-                    ] }
-                >
-                    <SystemsTable
-                        hasMultiSelect={ true }
-                        permissions={ permissions }
-                        entities={ entities }
-                        selectVariant='checkbox'
-                        systemNotificationIds={ systemNotificationIds }
-                        baselineId={ baselineId }
-                        isAddSystemNotifications={ true }
-                        driftClearFilters={ driftClearFilters }
-                        selectEntities={ selectEntities }
-                        selectHistoricProfiles={ selectHistoricProfiles }
-                        selectSystemsToAdd={ this.selectSystemsToAdd }
-                        selectedSystemIds={ entities?.selectedSystemIds || [] }
-                        systemColumns={ this.buildSystemColumns(true) }
-                    />
-                </Modal>
-                { systemNotificationLoaded ? <NotificationsSystemsTable
-                    hasMultiSelect={ true }
-                    permissions={ permissions }
-                    selectVariant='checkbox'
-                    systemNotificationIds={ systemNotificationIds }
-                    baselineId={ baselineId }
-                    toolbarButton={ this.buildNotificationsButton() }
-                    driftClearFilters={ driftClearFilters }
-                    selectEntities={ selectEntities }
-                    selectHistoricProfiles={ selectHistoricProfiles }
-                    onSystemSelect={ setSelectedSystemIds }
-                    deleteNotifications={ this.deleteNotifications }
-                    systemColumns={ this.buildSystemColumns() }
-                /> : <Bullseye><Spinner size="xl"/></Bullseye> }
+                                </Button>
+                            ] }
+                        >
+                            <SystemsTable
+                                hasMultiSelect={ true }
+                                permissions={ permissions }
+                                entities={ entities }
+                                selectVariant='checkbox'
+                                systemNotificationIds={ systemNotificationIds }
+                                baselineId={ baselineId }
+                                isAddSystemNotifications={ true }
+                                driftClearFilters={ driftClearFilters }
+                                selectEntities={ selectEntities }
+                                selectHistoricProfiles={ selectHistoricProfiles }
+                                selectSystemsToAdd={ this.selectSystemsToAdd }
+                                selectedSystemIds={ entities?.selectedSystemIds || [] }
+                                systemColumns={ this.buildSystemColumns(true) }
+                            />
+                        </Modal>
+                        { systemNotificationLoaded ? <NotificationsSystemsTable
+                            hasMultiSelect={ true }
+                            permissions={ permissions }
+                            selectVariant='checkbox'
+                            systemNotificationIds={ systemNotificationIds }
+                            baselineId={ baselineId }
+                            toolbarButton={ this.buildNotificationsButton() }
+                            driftClearFilters={ driftClearFilters }
+                            selectEntities={ selectEntities }
+                            selectHistoricProfiles={ selectHistoricProfiles }
+                            onSystemSelect={ setSelectedSystemIds }
+                            deleteNotifications={ this.deleteNotifications }
+                            systemColumns={ this.buildSystemColumns() }
+                        /> : <Bullseye><Spinner size="xl"/></Bullseye> }
+                    </> : <EmptyStateDisplay
+                        icon={ LockIcon }
+                        color="#6a6e73"
+                        title={ permissions.inventoryRead === false
+                            ? 'You do not have access to Inventory'
+                            : 'You do not have access to Baselines' }
+                        text={ [
+                            'Contact your organization administrator(s) for more information.'
+                        ] }
+                    />}
             </React.Fragment>
         );
     }
