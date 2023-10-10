@@ -11,7 +11,7 @@ import { cellWidth } from '@patternfly/react-table';
 
 import EditBaselineNameModal from './EditBaselineNameModal/EditBaselineNameModal';
 import EditBaseline from './EditBaseline/EditBaseline';
-import SystemNotification from './SystemNotification/SystemNotification';
+import { SystemNotification } from './SystemNotification/SystemNotification2';
 import { compareActions } from '../../modules';
 import { baselinesTableActions } from '../../BaselinesTable/redux';
 import { editBaselineActions } from './redux';
