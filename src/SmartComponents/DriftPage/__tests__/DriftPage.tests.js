@@ -15,7 +15,6 @@ import { ASC, DESC } from '../../../constants';
 import * as setHistory from '../../../Utilities/SetHistory';
 import { PermissionContext } from '../../../App';
 import { createMiddlewareListener } from '../../../store';
-
 const middlewareListener = createMiddlewareListener();
 middlewareListener.getMiddleware();
 
@@ -24,6 +23,12 @@ jest.mock('../../BaselinesTable/redux', () => ({
         setSelectedBaselines: jest.fn(()=> ({ type: 'null' })),
         fetchCompare: jest.fn(()=> ({ type: 'null' }))
     }
+}));
+
+jest.mock('@redhat-cloud-services/frontend-components-utilities/useInsightsNavigate', () => ({
+    __esModule: true,
+    default: () => jest.fn(),
+    useInsightsNavigate: () => jest.fn()
 }));
 
 jest.mock('../../AddSystemModal/redux', () => ({

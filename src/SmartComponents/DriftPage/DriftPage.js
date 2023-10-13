@@ -9,7 +9,6 @@ import { baselinesTableActions } from '../BaselinesTable/redux';
 import { addSystemModalActions } from '../AddSystemModal/redux';
 import { compareActions } from '../modules';
 import { historicProfilesActions } from '../HistoricalProfilesPopover/redux';
-import { setHistory } from '../../Utilities/SetHistory';
 
 import DriftTable from './DriftTable/DriftTable';
 import ErrorAlert from '../ErrorAlert/ErrorAlert';
@@ -23,6 +22,7 @@ import { RegistryContext } from '../../Utilities/registry';
 import { EMPTY_COMPARISON_TITLE, EMPTY_COMPARISON_MESSAGE } from '../../constants';
 import { useSearchParams } from 'react-router-dom';
 import useInsightsNavigate from '@redhat-cloud-services/frontend-components-utilities/useInsightsNavigate';
+import { useSetHistory } from '../../Utilities/useSetHistory';
 
 export class DriftPage extends Component {
     constructor(props) {
@@ -42,9 +42,9 @@ export class DriftPage extends Component {
         }
     }
 
-    setHistory = () => {
+    updateNavigation = () => {
         const { activeFactFilters, baselines, factFilter, factSort, factTypeFilters, historicalProfiles, referenceId, stateFilters,
-            stateSort, systems, navigate } = this.props;
+            stateSort, systems, navigate, setHistory } = this.props;
 
         let systemIds = systems.map(system => system.id);
         let baselineIds = baselines.map(baseline => baseline.id);
@@ -63,7 +63,7 @@ export class DriftPage extends Component {
     }
 
     onClose = () => {
-        const { revertCompareData, previousStateSystems, navigate } = this.props;
+        const { revertCompareData, previousStateSystems, navigate, setHistory } = this.props;
 
         revertCompareData();
         setHistory(navigate, previousStateSystems.map(system => system.id));
@@ -153,7 +153,7 @@ export class DriftPage extends Component {
                                                                 activeFactFilters={ activeFactFilters }
                                                                 handleFactFilter={ handleFactFilter }
                                                                 clearAllFactFilters={ clearAllFactFilters }
-                                                                setHistory={ this.setHistory }
+                                                                setHistory={ this.updateNavigation }
                                                                 resetComparisonFilters={ resetComparisonFilters }
                                                                 clearAllSelections={ clearAllSelections }
                                                                 exportStatus={ exportStatus }
@@ -177,7 +177,7 @@ export class DriftPage extends Component {
                                                             stateFilters={ stateFilters }
                                                             activeFactFilters={ activeFactFilters }
                                                             factFilter={ factFilter }
-                                                            setHistory={ this.setHistory }
+                                                            setHistory={ this.updateNavigation }
                                                             factSort={ factSort }
                                                             stateSort={ stateSort }
                                                             referenceId={ referenceId }
@@ -265,7 +265,8 @@ DriftPage.propTypes = {
     resetExportStatus: PropTypes.func,
     searchParams: PropTypes.object,
     navigate: PropTypes.func,
-    title: PropTypes.string
+    title: PropTypes.string,
+    setHistory: PropTypes.any
 };
 
 function mapDispatchToProps(dispatch) {
@@ -322,8 +323,9 @@ function mapStateToProps(state) {
 const DriftPageWithHooks = props => {
     const [ searchParams ] = useSearchParams();
     const navigate = useInsightsNavigate();
+    const setHistory = useSetHistory();
     return (
-        <DriftPage { ...props } searchParams={ searchParams } navigate={ navigate } />
+        <DriftPage { ...props } searchParams={ searchParams } navigate={ navigate }  setHistory={ setHistory }/>
     );
 };
 
