@@ -52,6 +52,7 @@ export class DeleteBaselinesModal extends Component {
             <Modal
                 className="drift"
                 variant={ ModalVariant.small }
+                titleIconVariant="warning"
                 title={ deleteMessage }
                 isOpen={ modalOpened }
                 onClose={ toggleModal }
