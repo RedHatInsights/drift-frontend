@@ -46,6 +46,7 @@ class DeleteFactModal extends Component {
                 className="drift"
                 ouiaId='delete-fact-modal'
                 variant={ ModalVariant.small }
+                titleIconVariant="warning"
                 title={ `Delete ${this.buildMessage()}` }
                 isOpen={ modalOpened }
                 onClose={ this.props.toggleModal }
