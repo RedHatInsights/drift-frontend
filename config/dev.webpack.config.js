@@ -1,16 +1,17 @@
 const { resolve } = require('path');
 const config = require('@redhat-cloud-services/frontend-components-config');
 
-const { config: webpackConfig, plugins } = config({
+const proxyConfiguration = {
     rootFolder: resolve(__dirname, '../'),
-    debug: true,
-    https: true,
-    useProxy: true,
-    routesPath: process.env.CONFIG_PATH,
+    useProxy: process.env.PROXY === 'true',
     appUrl: process.env.BETA ? [ '/beta/insights/drift', '/preview/insights/drift' ] : [ '/insights/drift' ],
+    deployment: process.env.BETA ? 'beta/apps' : 'apps',
     env: process.env.BETA ? 'stage-beta' : 'stage-stable',
-    deployment: process.env.BETA ? 'beta/apps' : 'apps'
-});
+    proxyVerbose: true,
+    debug: true
+};
+
+const { config: webpackConfig, plugins } = config(proxyConfiguration);
 
 plugins.push(
     require('@redhat-cloud-services/frontend-components-config/federated-modules')({
