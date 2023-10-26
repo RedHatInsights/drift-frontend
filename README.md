@@ -89,6 +89,26 @@ Finally, hit the following URL in your browser. If you are not logged in, you wi
 
 https://ci.foo.redhat.com:1337/insights/drift
 
+## Testing federated modules with another application
+
+If you want to test Drift with another application deployed locally, you can utilise `LOCAL_APPS` environment variable and deploy the needed application on separate ports. To learn more about the variable, see https://github.com/RedHatInsights/frontend-components/tree/master/packages/config#running-multiple-local-frontend-applications.
+
+### Example
+
+We'll take for example [insights-inventory-frontend](https://github.com/RedHatInsights/insights-inventory-frontend).
+
+Open new terminal, navigate to Inventory repository, and run it on a separate port without proxy:
+
+```
+npm run start -- --port=8003
+```
+
+In a separate terminal, run Drift with proxy enabled and list Inventory:
+
+```
+LOCAL_APPS=inventory:8003~http npm run start:proxy
+```
+
 ## troubleshooting
 
 If you are updating the drift-frontend app after a long period of time away, your node_modules folder may not be up to date with the packages outlined in the `package.json` file. The easiest way to update this quickly and efficiently is to fun the following commands in a terminal window.
