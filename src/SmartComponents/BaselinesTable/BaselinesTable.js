@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { RowSelectVariant, Table, TableBody, TableHeader } from '@patternfly/react-table';
-import { EmptyTable, SkeletonTable } from '@redhat-cloud-services/frontend-components';
-import { Toolbar, ToolbarGroup, ToolbarItem } from '@patternfly/react-core';
+import { EmptyTable, SkeletonTable, TableToolbar } from '@redhat-cloud-services/frontend-components';
+import { ToolbarGroup, ToolbarItem } from '@patternfly/react-core';
 import { LockIcon, UndoIcon, ExclamationCircleIcon } from '@patternfly/react-icons';
 import _ from 'lodash';
 
@@ -453,7 +453,7 @@ export class BaselinesTable extends Component {
                                         ? this.renderEmptyState(permissions)
                                         : this.renderTable(permissions)
                                     }
-                                    <Toolbar>
+                                    <TableToolbar isFooter>
                                         <ToolbarGroup className='pf-c-pagination'>
                                             <ToolbarItem>
                                                 <TablePagination
@@ -466,7 +466,7 @@ export class BaselinesTable extends Component {
                                                 />
                                             </ToolbarItem>
                                         </ToolbarGroup>
-                                    </Toolbar>
+                                    </TableToolbar>
                                 </React.Fragment>
                             }
                         </>)}
