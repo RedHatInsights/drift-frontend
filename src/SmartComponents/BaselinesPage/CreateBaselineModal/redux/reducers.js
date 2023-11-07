@@ -47,6 +47,11 @@ export function createBaselineModalReducer(state = initialState, action) {
                 baselineDataLoading: false,
                 createBaselineError: errorObject
             };
+        case `${types.CLEAR_CREATE_BASELINE_DATA}`:
+            return {
+                ...state,
+                baselineData: {}
+            };
 
         default:
             return state;

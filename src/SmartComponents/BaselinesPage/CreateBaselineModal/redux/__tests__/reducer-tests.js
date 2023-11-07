@@ -85,4 +85,12 @@ describe('create baseline modal reducer', () => {
             createBaselineError: { detail: response.response.data.detail, status: response.response.status }
         });
     });
+
+    it('should handle CLEAR_CREATE_BASELINE_DATA', () => {
+        expect(createBaselineModalReducer({}, {
+            type: `${types.CLEAR_CREATE_BASELINE_DATA}`
+        })).toEqual({
+            baselineData: {}
+        });
+    });
 });
