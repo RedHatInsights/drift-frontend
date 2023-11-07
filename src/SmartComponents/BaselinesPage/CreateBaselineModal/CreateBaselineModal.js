@@ -67,10 +67,11 @@ const CreateBaselineModal = ({ middlewareListener, permissions }) => {
     }, []);
 
     useEffect(() => {
-        if (baselineData?.id) {
+        if (baselineData?.id && !createBaselineModalOpened) {
             navigate(`/baselines/${baselineData.id}`);
+            dispatch(createBaselineModalActions.clearCreateBaselineData());
         }
-    }, [ baselineData ]);
+    }, [ baselineData, createBaselineModalOpened ]);
 
     const cancelModal = () => {
         setBaselineName('');
@@ -118,9 +119,8 @@ const CreateBaselineModal = ({ middlewareListener, permissions }) => {
                     await dispatch(createBaselineModalActions.createBaseline(newBaselineObject));
                 }
 
-                dispatch(createBaselineModalActions.toggleCreateBaselineModal());
-                dispatch(createBaselineModalActions.selectSingleHSP());
                 dispatch(baselinesTableActions.clearSelectedBaselines('RADIO'));
+                dispatch(createBaselineModalActions.toggleCreateBaselineModal());
             }
         } catch (e) {
             // do nothing and let redux handle

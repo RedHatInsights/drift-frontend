@@ -46,4 +46,10 @@ describe('create baseline modal actions', () => {
             type: types.TOGGLE_CREATE_BASELINE_MODAL
         });
     });
+
+    it('handles clearCreateBaselineData', () => {
+        expect(createBaselineModalActions.clearCreateBaselineData()).toEqual({
+            type: types.CLEAR_CREATE_BASELINE_DATA
+        });
+    });
 });

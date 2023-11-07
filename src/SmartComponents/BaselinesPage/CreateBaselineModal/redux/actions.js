@@ -14,7 +14,14 @@ function createBaseline(newBaseline, uuid = undefined) {
     };
 }
 
+function clearCreateBaselineData() {
+    return {
+        type: types.CLEAR_CREATE_BASELINE_DATA
+    };
+}
+
 export default {
     toggleCreateBaselineModal,
-    createBaseline
+    createBaseline,
+    clearCreateBaselineData
 };
