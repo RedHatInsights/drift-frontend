@@ -122,19 +122,15 @@ export const SystemsTable = connect(null, mapDispatchToProps)(({
         }
     });
 
-    const fetchSystems = async (baselineId, groupsArray, currIds) => {
-        let path = `/baselines/${baselineId}/systems?`;
-        let newPath;
-        if (groupsArray?.length > 0) {
-            newPath = path;
-            let groupsString = 'group_names[]=' + groupsArray.join('&group_names[]=');
-            newPath =  path.concat(groupsString);
-            let request = axios.get(BASELINE_API_ROOT.concat(newPath)).then(res =>  res?.data?.system_ids);
-            return request;
-        } else {
-            return currIds;
-        }
+    const fetchAssociatedSystemIds = async (baselineId, hostGroupFilter = [], page = 1, perPage = 50) => {
+        // filtering by groups is done by the Baselines API
+        const path = `/baselines/${baselineId}/systems` + (hostGroupFilter.length > 0
+            ? '?group_names[]=' + hostGroupFilter.join('&group_names[]=')
+            : '');
 
+        return axios.get(BASELINE_API_ROOT.concat(path)).then((res) =>
+            (res?.data?.system_ids || []).slice((page - 1) * perPage, page * perPage)
+        );
     };
 
     return (
@@ -170,23 +166,21 @@ export const SystemsTable = connect(null, mapDispatchToProps)(({
                 }}
                 tableProps={ buildTableProps() }
                 getEntities={ async (_items, config) => {
-                    const currIds = (systemNotificationIds || [])
-                    .slice((config.page - 1) * config.per_page, config.page * config.per_page);
-                    const updatedData = await fetchSystems(baselineId, config.filters.hostGroupFilter, currIds);
-                    const data = await getEntities.current?.(
-                        currIds,
+                    const associatedSystemIds =
+                        await fetchAssociatedSystemIds(baselineId, config.filters.hostGroupFilter, config.page, config.per_page);
+                    const hosts = await getEntities.current?.(
+                        associatedSystemIds,
                         {
-                            hasItems: true
+                            hasItems: true,
+                            orderBy: config.orderBy,
+                            orderDirection: config.orderDirection
                         },
                         true
                     );
 
                     return {
-                        ...data,
-                        results: updatedData?.map((system) => ({
-                            ...data.results.find(({ id }) => id === system) || {}
-                        })),
-                        total: (updatedData || []).length,
+                        ...hosts,
+                        total: (associatedSystemIds || []).length,
                         page: config.page,
                         per_page: config.per_page
                     };
