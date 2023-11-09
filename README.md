@@ -91,7 +91,7 @@ https://ci.foo.redhat.com:1337/insights/drift
 
 ## Testing federated modules with another application
 
-If you want to test Drift with another application deployed locally, you can utilise `LOCAL_APPS` environment variable and deploy the needed application on separate ports. To learn more about the variable, see https://github.com/RedHatInsights/frontend-components/tree/master/packages/config#running-multiple-local-frontend-applications.
+If you want to test Drift with another application deployed locally, you can utilize `LOCAL_APPS` environment variable and deploy the needed application on separate ports. To learn more about the variable, see https://github.com/RedHatInsights/frontend-components/tree/master/packages/config#running-multiple-local-frontend-applications.
 
 ### Example
 
