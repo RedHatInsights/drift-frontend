@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Tooltip } from '@patternfly/react-core';
 import { ClockIcon, TimesIcon, ExclamationTriangleIcon, ServerIcon, BlueprintIcon } from '@patternfly/react-icons';
@@ -12,33 +12,44 @@ import { ASC, DESC } from '../../../../constants';
 import HistoricalProfilesPopover from '../../../HistoricalProfilesPopover/HistoricalProfilesPopover';
 import ReferenceSelector from '../ReferenceSelector/ReferenceSelector';
 
-class ComparisonHeader extends Component {
-    constructor(props) {
-        super(props);
-        this.columnWidth = React.createRef();
+const ComparisonHeader = ({
+    factSort,
+    fetchCompare,
+    masterList,
+    permissions,
+    referenceId,
+    removeSystem,
+    selectedBaselineIds,
+    selectedHSPIds,
+    selectHistoricProfiles,
+    setColumnHeaderWidth,
+    setHistory,
+    stateSort,
+    systemIds,
+    toggleFactSort,
+    toggleStateSort,
+    updateReferenceId
+}) => {
+    const columnWidth = useRef();
+    const [ refState, setRefState ] = useState(null);
 
-        this.state = {
-            refState: null
-        };
-    }
-
-    setColumnWidth = () => {
-        if (this.columnWidth?.current) {
-            this.props.setColumnHeaderWidth(this.columnWidth.current.offsetWidth);
-            this.setState({ refState: this.columnWidth });
+    const setColumnWidth = () => {
+        if (columnWidth?.current) {
+            setColumnHeaderWidth(columnWidth.current.offsetWidth);
+            setRefState({ refState: columnWidth });
         }
     };
 
-    componentDidMount() {
-        this.setColumnWidth();
-        window.addEventListener('resize', debounce(this.setColumnWidth, 250));
-    }
+    useEffect(() => {
+        setColumnWidth();
+        window.addEventListener('resize', debounce(setColumnWidth, 250));
+    }, []);
 
-    formatDate = (dateString) => {
+    const formatDate = (dateString) => {
         return moment.utc(dateString).format('DD MMM YYYY, HH:mm UTC');
-    }
+    };
 
-    renderSortButton(sort) {
+    const renderSortButton = (sort) => {
         let sortIcon;
 
         if (sort === ASC) {
@@ -52,11 +63,9 @@ class ComparisonHeader extends Component {
         }
 
         return sortIcon;
-    }
+    };
 
-    async toggleSort(sortType, sort) {
-        const { setHistory, toggleFactSort, toggleStateSort } = this.props;
-
+    const toggleSort = async (sortType, sort) => {
         if (sortType === 'fact') {
             await toggleFactSort(sort);
         } else {
@@ -64,16 +73,13 @@ class ComparisonHeader extends Component {
         }
 
         setHistory();
-    }
+    };
 
-    renderLoadingSystems() {
+    const renderLoadingSystems = () => {
         return [ <td key='loading-systems-header'><Skeleton size={ SkeletonSize.md } /></td> ];
-    }
+    };
 
-    renderSystemHeaders() {
-        const { fetchCompare, masterList, permissions, referenceId, removeSystem, selectedBaselineIds,
-            selectedHSPIds, selectHistoricProfiles, systemIds, updateReferenceId } = this.props;
-
+    const renderSystemHeaders = () => {
         let row = [];
         let typeIcon = '';
 
@@ -103,7 +109,7 @@ class ComparisonHeader extends Component {
 
             row.push(
                 <th
-                    ref={ this.columnWidth }
+                    ref={ columnWidth }
                     header-id={ item.id }
                     key={ item.id }
                     className={ item.id === referenceId
@@ -142,8 +148,8 @@ class ComparisonHeader extends Component {
                             }
                             <span className='margin-right-4-px'>
                                 { item.last_updated
-                                    ? this.formatDate(item.last_updated)
-                                    : this.formatDate(item.updated)
+                                    ? formatDate(item.last_updated)
+                                    : formatDate(item.updated)
                                 }
                             </span>
                             { permissions.hspRead &&
@@ -168,27 +174,25 @@ class ComparisonHeader extends Component {
             );
         });
 
-        if (this.state.refState === null && this.columnWidth?.current !== null) {
-            this.setColumnWidth();
+        if (refState === null && columnWidth?.current !== null) {
+            setColumnWidth();
         }
 
         return row;
-    }
+    };
 
-    renderHeaderRow() {
-        const { factSort, masterList, stateSort } = this.props;
-
+    const renderHeaderRow = () => {
         return (
             <tr className="sticky-column-header" data-ouia-component-type='PF4/TableRow' data-ouia-component-id='comparison-table-header-row'>
                 <th
                     className="fact-header sticky-column fixed-column-1 pointer sticky-header"
                     key='fact-header'
                     id={ factSort }
-                    onClick={ () => this.toggleSort('fact', factSort) }
+                    onClick={ () => toggleSort('fact', factSort) }
                     data-ouia-component-type="PF4/Button"
                     data-ouia-component-id="fact-sort-button"
                 >
-                    <div className="active-blue">Fact { this.renderSortButton(factSort) }</div>
+                    <div className="active-blue">Fact { renderSortButton(factSort) }</div>
                 </th>
                 <th
                     className="state-header sticky-column fixed-column-2 pointer right-border sticky-header"
@@ -196,26 +200,24 @@ class ComparisonHeader extends Component {
                     id={ stateSort || 'disabled' }
                     data-ouia-component-type='PF4/Button'
                     data-ouia-component-id='state-sort-button'
-                    onClick={ () => this.toggleSort('state', stateSort) }
+                    onClick={ () => toggleSort('state', stateSort) }
                 >
                     { stateSort !== ''
-                        ? <div className="active-blue">State { this.renderSortButton(stateSort) }</div>
-                        : <div>State { this.renderSortButton(stateSort) }</div>
+                        ? <div className="active-blue">State { renderSortButton(stateSort) }</div>
+                        : <div>State { renderSortButton(stateSort) }</div>
                     }
                 </th>
-                { masterList.length ? this.renderSystemHeaders() : this.renderLoadingSystems() }
+                { masterList.length ? renderSystemHeaders() : renderLoadingSystems() }
             </tr>
         );
-    }
+    };
 
-    render() {
-        return (
-            <React.Fragment>
-                { this.renderHeaderRow() }
-            </React.Fragment>
-        );
-    }
-}
+    return (
+        <React.Fragment>
+            { renderHeaderRow() }
+        </React.Fragment>
+    );
+};
 
 ComparisonHeader.propTypes = {
     factSort: PropTypes.string,
