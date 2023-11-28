@@ -142,7 +142,6 @@ export class BaselinesPage extends Component {
                                 </Main> </React.Fragment>
                         }
                     </RegistryContext.Consumer>
-
                 }
             </PermissionContext.Consumer>
         );

@@ -8,7 +8,6 @@ import { ExclamationCircleIcon, LockIcon, PlusCircleIcon } from '@patternfly/rea
 import { baselinesTableActions } from '../BaselinesTable/redux';
 import { addSystemModalActions } from '../AddSystemModal/redux';
 import { compareActions } from '../modules';
-import { historicProfilesActions } from '../HistoricalProfilesPopover/redux';
 import { setHistory } from '../../Utilities/SetHistory';
 
 import DriftTable from './DriftTable/DriftTable';
@@ -96,7 +95,7 @@ export class DriftPage extends Component {
         const { activeFactFilters, addStateFilter, baselines, clearAllFactFilters, clearAllSelections, clearComparison, clearComparisonFilters,
             clearSelectedBaselines, emptyState, error, exportToCSV, exportToJSON, exportStatus, factFilter, factSort, factTypeFilters, filterByFact,
             handleFactFilter, historicalProfiles, handleBaselineSelection, handleHSPSelection, handleSystemSelection, loading, page, perPage,
-            referenceId, resetComparisonFilters, resetExportStatus, selectedBaselineIds, selectedHSPIds, stateFilters, stateSort, systems,
+            referenceId, resetComparisonFilters, resetExportStatus, selectedBaselineIds, stateFilters, stateSort, systems,
             toggleFactTypeFilter, totalFacts, updatePagination, updateReferenceId, searchParams } = this.props;
         const { isFirstReference } = this.state;
 
@@ -184,7 +183,6 @@ export class DriftPage extends Component {
                                                             systems={ systems }
                                                             baselines={ baselines }
                                                             historicalProfiles={ historicalProfiles }
-                                                            selectedHSPIds={ selectedHSPIds }
                                                             selectedBaselineIds={ selectedBaselineIds }
                                                             factTypeFilters={ factTypeFilters }
                                                             toggleFactTypeFilter={ toggleFactTypeFilter }
@@ -233,8 +231,6 @@ DriftPage.propTypes = {
     updateReferenceId: PropTypes.func,
     clearComparison: PropTypes.func,
     clearComparisonFilters: PropTypes.func,
-    selectHistoricProfiles: PropTypes.func,
-    selectedHSPIds: PropTypes.array,
     revertCompareData: PropTypes.func,
     previousStateSystems: PropTypes.array,
     exportToCSV: PropTypes.func,
@@ -275,7 +271,6 @@ function mapDispatchToProps(dispatch) {
         updateReferenceId: (id) => dispatch(compareActions.updateReferenceId(id)),
         clearComparison: () => dispatch(compareActions.clearComparison()),
         clearComparisonFilters: () => dispatch(compareActions.clearComparisonFilters()),
-        selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds)),
         revertCompareData: () => dispatch(compareActions.revertCompareData()),
         exportToCSV: () => dispatch(compareActions.exportToCSV()),
         exportToJSON: () => dispatch(compareActions.exportToJSON()),

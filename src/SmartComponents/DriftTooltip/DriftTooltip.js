@@ -4,10 +4,12 @@ import { Tooltip } from '@patternfly/react-core';
 
 export const DriftTooltip = ({
     content,
-    body
+    body,
+    position
 }) => {
     return (
         <Tooltip
+            position={ position }
             content={ content }
         >
             { body }
@@ -17,7 +19,8 @@ export const DriftTooltip = ({
 
 DriftTooltip.propTypes = {
     content: PropTypes.string,
-    body: PropTypes.any
+    body: PropTypes.any,
+    position: PropTypes.string
 };
 
 export default DriftTooltip;
