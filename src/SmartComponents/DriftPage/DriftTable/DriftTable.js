@@ -446,8 +446,8 @@ export class DriftTable extends Component {
     }
 
     renderTable(compareData, loading) {
-        const { factSort, permissions, referenceId, selectedBaselineIds, selectedHSPIds,
-            selectHistoricProfiles, setHistory, stateSort, toggleFactSort, toggleStateSort } = this.props;
+        const { factSort, permissions, referenceId, selectHistoricProfiles,
+            setHistory, stateSort, toggleFactSort, toggleStateSort } = this.props;
         let scrollWidth = '';
 
         if (this.bottomScroller.current) {
@@ -485,9 +485,7 @@ export class DriftTable extends Component {
                                     toggleStateSort={ toggleStateSort }
                                     updateReferenceId={ this.updateReferenceId }
                                     setHistory={ setHistory }
-                                    selectedHSPIds={ selectedHSPIds }
                                     selectHistoricProfiles={ selectHistoricProfiles }
-                                    selectedBaselineIds={ selectedBaselineIds }
                                     setColumnHeaderWidth={ this.setColumnHeaderWidth }
                                 />
                             </thead>
@@ -593,7 +591,6 @@ DriftTable.propTypes = {
     activeFactFilters: PropTypes.array,
     factFilter: PropTypes.string,
     setHistory: PropTypes.func,
-    selectedHSPIds: PropTypes.array,
     selectedBaselineIds: PropTypes.array,
     handleBaselineSelection: PropTypes.func,
     handleHSPSelection: PropTypes.func,

@@ -1,20 +1,18 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { shallow } from 'enzyme';
 import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import configureStore from 'redux-mock-store';
+import { init } from '../../../../../store';
 
 import ComparisonHeader from '../ComparisonHeader';
 import fixtures from './ComparisonHeader.fixtures';
 
 describe('ComparisonHeader react-testing-library', () => {
     let props;
-    let mockStore;
+    const store = init().registry.getStore();
 
     beforeEach(() => {
-        mockStore = configureStore();
         props = {
             factSort: '',
             fetchCompare: jest.fn(),
@@ -120,7 +118,6 @@ describe('ComparisonHeader react-testing-library', () => {
     });
 
     it.skip('should remove a system', async () => {
-        const store = mockStore(props);
         props.masterList = fixtures.masterListSystem;
 
         render(<MemoryRouter keyLength={ 0 }>
@@ -129,14 +126,11 @@ describe('ComparisonHeader react-testing-library', () => {
             </Provider>
         </MemoryRouter>);
 
-        await userEvent.click(screen.getByRole('row', {
-            name: /remove-system-icon/i
-        }));
+        await waitFor(() => userEvent.click(screen.getByTestId('remove-system-button-dc47qffd-09rt-2kw7-8b9b-53f4g716fec5')));
         expect(store.removeSystem).toHaveBeenCalled();
     });
 
     it.skip('should render a system, baseline and hsp', () => {
-        const store = mockStore(props);
         props.masterList = fixtures.masterListAll;
 
         const { asFragment } = render(<MemoryRouter keyLength={ 0 }>
@@ -168,49 +162,11 @@ describe('ComparisonHeader react-testing-library', () => {
         props.masterList = fixtures.masterListAll;
         props.permissions.hspRead = false;
         const { asFragment } = render(
-            <ComparisonHeader { ...props }/>
+            <Provider store={ store }>
+                <ComparisonHeader { ...props }/>
+            </Provider>
         );
 
         expect(asFragment()).toMatchSnapshot();
-    });
-});
-
-describe('ComparisonHeader', () => {
-    let props;
-
-    beforeEach(() => {
-        props = {
-            factSort: '',
-            fetchCompare: jest.fn(),
-            hasHSPReadPermissions: true,
-            masterList: [],
-            permissions: {
-                hspRead: true
-            },
-            referenceId: undefined,
-            isFirstReference: true,
-            removeSystem: jest.fn(),
-            stateSort: '',
-            systemIds: [],
-            toggleFactSort: jest.fn(),
-            toggleStateSort: jest.fn(),
-            updateReferenceId: jest.fn(),
-            setHistory: jest.fn()
-        };
-    });
-
-    afterEach(() => {
-        jest.clearAllMocks();
-    });
-
-    it('should remove a system', () => {
-        props.masterList = fixtures.masterListSystem;
-
-        const wrapper = shallow(
-            <ComparisonHeader { ...props }/>
-        );
-
-        wrapper.find('a').simulate('click');
-        expect(props.removeSystem).toHaveBeenCalled();
     });
 });

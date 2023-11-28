@@ -6,6 +6,10 @@ import baselinesTableHelpers from './BaselinesTable/redux/helpers';
 import editBaselineHelpers from './BaselinesPage/EditBaselinePage/EditBaseline/helpers';
 import { downloadFile } from '@redhat-cloud-services/frontend-components-utilities/helpers';
 
+const formatDate = (dateString) => {
+    return moment.utc(dateString).format('DD MMM YYYY, HH:mm UTC');
+};
+
 function findSelectedOnPage(rows, selectedSystemIds) {
     let selectedSystems = [];
 
@@ -68,7 +72,7 @@ function buildSystemsTableWithSelectedHSP (rows, selectedHSP, deselectHistorical
                 <div>
                     <HistoryIcon className='active-blue margin-right-5-px' />
                     {
-                        moment.utc(selectedHSP.captured_date).format('DD MMM YYYY, HH:mm UTC')
+                        formatDate(selectedHSP.captured_date)
                     }
                     <CloseIcon
                         className='pointer not-active margin-left-5-px'
@@ -115,6 +119,7 @@ function downloadHelper(data) {
 }
 
 export default {
+    formatDate,
     findSelectedOnPage,
     findCheckedValue,
     paginateData,

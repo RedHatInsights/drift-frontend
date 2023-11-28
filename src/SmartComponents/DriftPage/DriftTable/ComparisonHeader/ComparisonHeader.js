@@ -1,16 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Tooltip } from '@patternfly/react-core';
-import { ClockIcon, TimesIcon, ExclamationTriangleIcon, ServerIcon, BlueprintIcon } from '@patternfly/react-icons';
-import { LongArrowAltUpIcon, LongArrowAltDownIcon, ArrowsAltVIcon } from '@patternfly/react-icons';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
-import moment from 'moment';
 import debounce from 'lodash/debounce';
 
-import { ASC, DESC } from '../../../../constants';
-
-import HistoricalProfilesPopover from '../../../HistoricalProfilesPopover/HistoricalProfilesPopover';
-import ReferenceSelector from '../ReferenceSelector/ReferenceSelector';
+import ComparisonHeaderCell from './ComparisonHeaderCell';
+import SystemHeaderCells from './SystemHeaderCells';
+import SortIcon from './SortIcon';
 
 const ComparisonHeader = ({
     factSort,
@@ -19,8 +14,6 @@ const ComparisonHeader = ({
     permissions,
     referenceId,
     removeSystem,
-    selectedBaselineIds,
-    selectedHSPIds,
     selectHistoricProfiles,
     setColumnHeaderWidth,
     setHistory,
@@ -43,27 +36,17 @@ const ComparisonHeader = ({
     useEffect(() => {
         setColumnWidth();
         window.addEventListener('resize', debounce(setColumnWidth, 250));
+
+        return () => {
+            window.removeEventListener('resize', debounce(setColumnWidth, 250));
+        };
     }, []);
 
-    const formatDate = (dateString) => {
-        return moment.utc(dateString).format('DD MMM YYYY, HH:mm UTC');
-    };
-
-    const renderSortButton = (sort) => {
-        let sortIcon;
-
-        if (sort === ASC) {
-            sortIcon = <LongArrowAltUpIcon className="active-blue" />;
+    useEffect(() => {
+        if (refState === null && columnWidth?.current !== null) {
+            setColumnWidth();
         }
-        else if (sort === DESC) {
-            sortIcon = <LongArrowAltDownIcon className="active-blue" />;
-        }
-        else {
-            sortIcon = <ArrowsAltVIcon className="not-active" />;
-        }
-
-        return sortIcon;
-    };
+    }, [ refState, columnWidth.current ]);
 
     const toggleSort = async (sortType, sort) => {
         if (sortType === 'fact') {
@@ -75,147 +58,43 @@ const ComparisonHeader = ({
         setHistory();
     };
 
-    const renderLoadingSystems = () => {
-        return [ <td key='loading-systems-header'><Skeleton size={ SkeletonSize.md } /></td> ];
-    };
-
-    const renderSystemHeaders = () => {
-        let row = [];
-        let typeIcon = '';
-
-        masterList.forEach(item => {
-            if (item.type === 'system') {
-                typeIcon = <Tooltip
-                    position='top'
-                    content={ <div>System</div> }
-                >
-                    <ServerIcon/>
-                </Tooltip>;
-            } else if (item.type === 'baseline') {
-                typeIcon = <Tooltip
-                    position='top'
-                    content={ <div>Baseline</div> }
-                >
-                    <BlueprintIcon/>
-                </Tooltip>;
-            } else if (item.type === 'historical-system-profile') {
-                typeIcon = <Tooltip
-                    position='top'
-                    content={ <div>Historical system</div> }
-                >
-                    <ClockIcon />
-                </Tooltip>;
-            }
-
-            row.push(
-                <th
-                    ref={ columnWidth }
-                    header-id={ item.id }
-                    key={ item.id }
-                    className={ item.id === referenceId
-                        ? 'drift-header right-border reference-header sticky-header'
-                        : `drift-header right-border ${item.type}-header sticky-header` }
-                >
-                    <div>
-                        <a
-                            onClick={ () => removeSystem(item) }
-                            className="remove-system-icon"
-                            data-ouia-component-type='PF4/Button'
-                            data-ouia-component-id={ 'remove-system-button-' + item.id } >
-                            <TimesIcon/>
-                        </a>
-                    </div>
-                    <div className='comparison-header'>
-                        <div>
-                            <span className="drift-header-icon">
-                                { typeIcon }
-                            </span>
-                            <span className="system-name">{ item.display_name }</span>
-                        </div>
-                        <div className="system-updated-and-reference">
-                            <ReferenceSelector
-                                updateReferenceId={ updateReferenceId }
-                                item={ item }
-                                isReference= { item.id === referenceId }
-                            />
-                            { item.system_profile_exists === false ?
-                                <Tooltip
-                                    position='top'
-                                    content={ <div>System profile does not exist. Please run insights-client on system to upload archive.</div> }
-                                >
-                                    <ExclamationTriangleIcon color="#f0ab00"/>
-                                </Tooltip> : ''
-                            }
-                            <span className='margin-right-4-px'>
-                                { item.last_updated
-                                    ? formatDate(item.last_updated)
-                                    : formatDate(item.updated)
-                                }
-                            </span>
-                            { permissions.hspRead &&
-                                (item.type === 'system' || item.type === 'historical-system-profile')
-                                ? <HistoricalProfilesPopover
-                                    system={ item }
-                                    systemIds={ systemIds }
-                                    systemName={ item.display_name }
-                                    referenceId={ referenceId }
-                                    fetchCompare={ fetchCompare }
-                                    hasCompareButton={ true }
-                                    hasMultiSelect={ true }
-                                    selectedHSPIds={ selectedHSPIds }
-                                    selectHistoricProfiles={ selectHistoricProfiles }
-                                    selectedBaselineIds={ selectedBaselineIds }
-                                />
-                                : null
-                            }
-                        </div>
-                    </div>
-                </th>
-            );
-        });
-
-        if (refState === null && columnWidth?.current !== null) {
-            setColumnWidth();
-        }
-
-        return row;
-    };
-
-    const renderHeaderRow = () => {
-        return (
-            <tr className="sticky-column-header" data-ouia-component-type='PF4/TableRow' data-ouia-component-id='comparison-table-header-row'>
-                <th
-                    className="fact-header sticky-column fixed-column-1 pointer sticky-header"
-                    key='fact-header'
-                    id={ factSort }
-                    onClick={ () => toggleSort('fact', factSort) }
-                    data-ouia-component-type="PF4/Button"
-                    data-ouia-component-id="fact-sort-button"
-                >
-                    <div className="active-blue">Fact { renderSortButton(factSort) }</div>
-                </th>
-                <th
-                    className="state-header sticky-column fixed-column-2 pointer right-border sticky-header"
-                    key='state-header'
-                    id={ stateSort || 'disabled' }
-                    data-ouia-component-type='PF4/Button'
-                    data-ouia-component-id='state-sort-button'
-                    onClick={ () => toggleSort('state', stateSort) }
-                >
-                    { stateSort !== ''
-                        ? <div className="active-blue">State { renderSortButton(stateSort) }</div>
-                        : <div>State { renderSortButton(stateSort) }</div>
-                    }
-                </th>
-                { masterList.length ? renderSystemHeaders() : renderLoadingSystems() }
-            </tr>
-        );
-    };
-
     return (
-        <React.Fragment>
-            { renderHeaderRow() }
-        </React.Fragment>
+        <tr className="sticky-column-header" data-ouia-component-type='PF4/TableRow' data-ouia-component-id='comparison-table-header-row'>
+            <ComparisonHeaderCell
+                classname="fact-header sticky-column fixed-column-1 pointer sticky-header"
+                key='fact-header'
+                id={ factSort }
+                clickFunc={ () => toggleSort('fact', factSort) }
+                ouiaType="PF4/Button"
+                ouiaId="fact-sort-button"
+            >
+                <SortIcon classname='active-blue' type='Fact' sort={ factSort } />
+            </ComparisonHeaderCell>
+            <ComparisonHeaderCell
+                classname="state-header sticky-column fixed-column-2 pointer right-border sticky-header"
+                key='state-header'
+                id={ stateSort || 'disabled' }
+                clickFunc={ () => toggleSort('state', stateSort) }
+                ouiaType='PF4/Button'
+                ouiaId='state-sort-button'
+            >
+                <SortIcon classname={ stateSort !== '' ? 'active-blue' : '' } type='State' sort={ stateSort } />
+            </ComparisonHeaderCell>
+            { masterList.length
+                ? <SystemHeaderCells
+                    columnWidth={ columnWidth }
+                    fetchCompare={ fetchCompare }
+                    masterList={ masterList }
+                    permissions={ permissions }
+                    referenceId={ referenceId }
+                    removeSystemFunc={ removeSystem }
+                    selectHistoricProfiles={ selectHistoricProfiles }
+                    systemIds={ systemIds }
+                    updateReferenceId={ updateReferenceId }
+                />
+                : [ <td key='loading-systems-header'><Skeleton size={ SkeletonSize.md } /></td> ]
+            }
+        </tr>
     );
 };
 
@@ -233,7 +112,6 @@ ComparisonHeader.propTypes = {
     toggleStateSort: PropTypes.func,
     updateReferenceId: PropTypes.func,
     setHistory: PropTypes.func,
-    selectedHSPIds: PropTypes.array,
     selectHistoricProfiles: PropTypes.func,
     selectedBaselineIds: PropTypes.array,
     columnWidth: PropTypes.number,
