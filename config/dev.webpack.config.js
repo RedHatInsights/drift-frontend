@@ -5,7 +5,6 @@ const proxyConfiguration = {
     rootFolder: resolve(__dirname, '../'),
     useProxy: process.env.PROXY === 'true',
     appUrl: process.env.BETA ? [ '/beta/insights/drift', '/preview/insights/drift' ] : [ '/insights/drift' ],
-    deployment: process.env.BETA ? 'beta/apps' : 'apps',
     env: process.env.BETA ? 'stage-beta' : 'stage-stable',
     proxyVerbose: true,
     debug: true
