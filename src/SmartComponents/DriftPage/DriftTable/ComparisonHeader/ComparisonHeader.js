@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
 import debounce from 'lodash/debounce';
@@ -24,12 +24,10 @@ const ComparisonHeader = ({
     updateReferenceId
 }) => {
     const columnWidth = useRef();
-    const [ refState, setRefState ] = useState(null);
 
     const setColumnWidth = () => {
         if (columnWidth?.current) {
             setColumnHeaderWidth(columnWidth.current.offsetWidth);
-            setRefState({ refState: columnWidth });
         }
     };
 
@@ -43,10 +41,10 @@ const ComparisonHeader = ({
     }, []);
 
     useEffect(() => {
-        if (refState === null && columnWidth?.current !== null) {
+        if (columnWidth?.current !== null) {
             setColumnWidth();
         }
-    }, [ refState, columnWidth.current ]);
+    }, [ columnWidth.current ]);
 
     const toggleSort = async (sortType, sort) => {
         if (sortType === 'fact') {

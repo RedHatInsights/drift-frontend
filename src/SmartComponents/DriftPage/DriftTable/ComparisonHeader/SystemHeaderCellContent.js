@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import RemoveSystemCell from './RemoveSystemCell';
@@ -18,29 +18,28 @@ const SystemHeaderCellContent = ({
     systemIds,
     updateReferenceId
 }) => {
+    const itemDetails = useMemo(
+        () => {
+            if (item.type === 'system') {
+                return {
+                    type: 'System',
+                    icon: <ServerIcon />
+                };
+            } else if (item.type === 'baseline') {
+                return {
+                    type: 'Baseline',
+                    icon: <BlueprintIcon />
+                };
+            } else if (item.type === 'historical-system-profile') {
+                return {
+                    type: 'Historical System',
+                    icon: <ClockIcon />
+                };
+            }
+        },
+        [ item.type ]
+    );
     const selectedBaselineIds = useSelector(({ baselinesTableState }) => baselinesTableState.comparisonTable.selectedBaselineIds);
-    const getItemType = (itemType) => {
-        if (itemType === 'system') {
-            return 'System';
-        } else if (itemType === 'baseline') {
-            return 'Baseline';
-        } else if (itemType === 'historical-system-profile') {
-            return 'Historical System';
-        }
-    };
-
-    const getItemIcon = (itemType) => {
-        if (itemType === 'system') {
-            return <ServerIcon/>;
-        } else if (itemType === 'baseline') {
-            return <BlueprintIcon/>;
-        } else if (itemType === 'historical-system-profile') {
-            return <ClockIcon />;
-        }
-    };
-
-    const itemType = getItemType(item.type);
-    const itemIcon = getItemIcon(item.type);
 
     return (
         <React.Fragment>
@@ -51,8 +50,8 @@ const SystemHeaderCellContent = ({
             <div className='comparison-header'>
                 <div>
                     <DriftTooltip
-                        content={ itemType }
-                        body={ itemIcon }
+                        content={ itemDetails.type }
+                        body={ itemDetails.icon }
                     />
                     <span className="system-name">{ item.display_name }</span>
                 </div>
