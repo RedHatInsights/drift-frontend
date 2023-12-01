@@ -16,7 +16,7 @@ const ComparisonHeaderCell = ({
             className={ classname }
             key={ key }
             id={ id }
-            onClick={ () => clickFunc() }
+            onClick={ clickFunc }
             ref={ columnWidth }
             data-ouia-component-type={ ouiaType }
             data-ouia-component-id={ ouiaId }

@@ -2,34 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { LongArrowAltUpIcon, LongArrowAltDownIcon, ArrowsAltVIcon } from '@patternfly/react-icons';
 
-import { ASC, DESC } from '../../../../constants';
+import { ASC } from '../../../../constants';
 
 const SortIcon = ({
     classname,
     sort,
-    type
+    type,
+    ...props
 }) => {
-    const renderSortButton = (sort) => {
-        let sortIcon;
-
-        if (sort === ASC) {
-            sortIcon = <LongArrowAltUpIcon className="active-blue" />;
-        }
-        else if (sort === DESC) {
-            sortIcon = <LongArrowAltDownIcon className="active-blue" />;
-        }
-        else {
-            sortIcon = <ArrowsAltVIcon className="not-active" />;
-        }
-
-        return sortIcon;
-    };
-
-    const icon = renderSortButton(sort);
+    const Icon = sort && (sort === ASC ? LongArrowAltUpIcon : LongArrowAltDownIcon) || ArrowsAltVIcon;
+    const iconClassname = sort ? 'active-blue' : 'not-active';
 
     return (
         <div className={ classname }>
-            { type } { icon }
+            { type } <Icon className={ iconClassname } { ...props } />
         </div>
     );
 };
