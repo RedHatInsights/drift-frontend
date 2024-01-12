@@ -17,7 +17,7 @@ describe('ComparisonHeader react-testing-library', () => {
             factSort: '',
             fetchCompare: jest.fn(),
             hasHSPReadPermissions: true,
-            masterList: [],
+            mainList: [],
             permissions: {
                 hspRead: true
             },
@@ -118,7 +118,7 @@ describe('ComparisonHeader react-testing-library', () => {
     });
 
     it.skip('should remove a system', async () => {
-        props.masterList = fixtures.masterListSystem;
+        props.mainList = fixtures.mainListSystem;
 
         render(<MemoryRouter keyLength={ 0 }>
             <Provider store={ store }>
@@ -131,7 +131,7 @@ describe('ComparisonHeader react-testing-library', () => {
     });
 
     it.skip('should render a system, baseline and hsp', () => {
-        props.masterList = fixtures.masterListAll;
+        props.mainList = fixtures.mainListAll;
 
         const { asFragment } = render(<MemoryRouter keyLength={ 0 }>
             <Provider store={ store }>
@@ -159,7 +159,7 @@ describe('ComparisonHeader react-testing-library', () => {
     });
 
     it('should not render HistoricalProfilesPopover with no hspRead permissions', () => {
-        props.masterList = fixtures.masterListAll;
+        props.mainList = fixtures.mainListAll;
         props.permissions.hspRead = false;
         const { asFragment } = render(
             <Provider store={ store }>

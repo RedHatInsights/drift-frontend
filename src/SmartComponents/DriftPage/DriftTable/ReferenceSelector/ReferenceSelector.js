@@ -23,12 +23,14 @@ class ReferenceSelector extends Component {
                     data-ouia-component-type='PF4/Button'
                     data-ouia-component-id={ 'reference-selector-' + item.id }
                     onClick={ () => updateReferenceId() }
+                    data-testid='selected-reference-icon'
                 />
                 : <OutlinedStarIcon
                     className='reference-selector pointer'
                     data-ouia-component-type='PF4/Button'
                     data-ouia-component-id={ 'reference-selector-' + item.id }
                     onClick={ () => updateReferenceId(item.id) }
+                    data-testid='unselected-reference-icon'
                 />
         );
     }

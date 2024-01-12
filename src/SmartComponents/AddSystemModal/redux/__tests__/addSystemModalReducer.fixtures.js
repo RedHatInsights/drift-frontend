@@ -9,7 +9,7 @@ const systemContent1 = ([
             content='System'
             body={ <ServerIcon /> }
         />,
-        name: 'sgi-xe500-01.rhts.eng.bos.redhat.com'
+        name: 'system1'
     },
     {
         id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2',
@@ -17,7 +17,7 @@ const systemContent1 = ([
             content='System'
             body={ <ServerIcon /> }
         />,
-        name: 'ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com'
+        name: 'system2'
     }
 ]);
 
@@ -28,7 +28,7 @@ const systemContent2 = ([
             content='System'
             body={ <ServerIcon /> }
         />,
-        name: 'sgi-xe500-01.rhts.eng.bos.redhat.com'
+        name: 'system1'
     }
 ]);
 
@@ -39,7 +39,7 @@ const systemContent3 = ([
             content='System'
             body={ <ServerIcon /> }
         />,
-        name: 'ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com'
+        name: 'system2'
     }
 ]);
 
@@ -154,8 +154,8 @@ const data3 = ({
 });
 
 const rows = ([
-    { id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9', display_name: 'sgi-xe500-01.rhts.eng.bos.redhat.com' },
-    { id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2', display_name: 'ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com' }
+    { id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9', display_name: 'system1' },
+    { id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2', display_name: 'system2' }
 ]);
 
 const addSystemModalColumnsNoHSP = ([

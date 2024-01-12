@@ -10,7 +10,7 @@ import SortIcon from './SortIcon';
 const ComparisonHeader = ({
     factSort,
     fetchCompare,
-    masterList,
+    mainList,
     permissions,
     referenceId,
     removeSystem,
@@ -26,8 +26,8 @@ const ComparisonHeader = ({
     const columnWidth = useRef();
 
     const setColumnWidth = () => {
-        if (columnWidth?.current) {
-            setColumnHeaderWidth(columnWidth.current.offsetWidth);
+        if (columnWidth?.current !== null) {
+            setColumnHeaderWidth(columnWidth?.current?.offsetWidth);
         }
     };
 
@@ -39,12 +39,6 @@ const ComparisonHeader = ({
             window.removeEventListener('resize', debounce(setColumnWidth, 250));
         };
     }, []);
-
-    useEffect(() => {
-        if (columnWidth?.current !== null) {
-            setColumnWidth();
-        }
-    }, [ columnWidth.current ]);
 
     const toggleSort = async (sortType, sort) => {
         if (sortType === 'fact') {
@@ -78,15 +72,16 @@ const ComparisonHeader = ({
             >
                 <SortIcon classname={ stateSort !== '' ? 'active-blue' : '' } type='State' sort={ stateSort } />
             </ComparisonHeaderCell>
-            { masterList.length
+            { mainList.length
                 ? <SystemHeaderCells
                     columnWidth={ columnWidth }
                     fetchCompare={ fetchCompare }
-                    masterList={ masterList }
+                    mainList={ mainList }
                     permissions={ permissions }
                     referenceId={ referenceId }
                     removeSystemFunc={ removeSystem }
                     selectHistoricProfiles={ selectHistoricProfiles }
+                    setColumnHeaderWidth={ setColumnHeaderWidth }
                     systemIds={ systemIds }
                     updateReferenceId={ updateReferenceId }
                 />
@@ -100,7 +95,7 @@ ComparisonHeader.propTypes = {
     factSort: PropTypes.string,
     fetchCompare: PropTypes.func,
     hasHSPReadPermissions: PropTypes.bool,
-    masterList: PropTypes.array,
+    mainList: PropTypes.array,
     permissions: PropTypes.object,
     referenceId: PropTypes.string,
     removeSystem: PropTypes.func,

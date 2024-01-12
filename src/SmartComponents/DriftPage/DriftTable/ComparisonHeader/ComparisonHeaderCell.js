@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 const ComparisonHeaderCell = ({
@@ -7,10 +7,17 @@ const ComparisonHeaderCell = ({
     key,
     id,
     clickFunc,
+    setColumnHeaderWidth,
     ouiaType,
     ouiaId,
     children
 }) => {
+    useEffect(() => {
+        if (columnWidth?.current !== null && setColumnHeaderWidth) {
+            setColumnHeaderWidth(columnWidth?.current.offsetWidth);
+        }
+    }, [ columnWidth?.current ]);
+
     return (
         <th
             className={ classname }
@@ -32,6 +39,7 @@ ComparisonHeaderCell.propTypes = {
     key: PropTypes.string,
     id: PropTypes.string,
     clickFunc: PropTypes.func,
+    setColumnHeaderWidth: PropTypes.func,
     ouiaType: PropTypes.string,
     ouiaId: PropTypes.string,
     children: PropTypes.node

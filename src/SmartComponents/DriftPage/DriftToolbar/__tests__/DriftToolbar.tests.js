@@ -1,11 +1,15 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { Provider } from 'react-redux';
+import { shallow, mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
+import { init } from '../../../../store';
 
-import DriftToolbar from '../DriftToolbar';
+import { DriftToolbar } from '../DriftToolbar';
 import stateFilters from '../../../modules/__tests__/state-filter.fixtures';
+import { factTypeFiltersDefault } from '../../../modules/__tests__/reducer.fixtures';
 
 describe('DriftToolbar', () => {
+    const store = init().registry.getStore();
     let props;
 
     beforeEach(() => {
@@ -15,6 +19,7 @@ describe('DriftToolbar', () => {
             perPage: 50,
             totalFacts: 30,
             factFilter: '',
+            factTypeFilters: factTypeFiltersDefault,
             activeFactFilters: [],
             clearSelectedBaselines: jest.fn(),
             clearComparison: jest.fn(),
@@ -34,8 +39,10 @@ describe('DriftToolbar', () => {
     });
 
     it('should render correctly', () => {
-        const wrapper = shallow(
-            <DriftToolbar { ...props } />
+        const wrapper = mount(
+            <Provider store={ store }>
+                <DriftToolbar { ...props } />
+            </Provider>
         );
 
         expect(toJson(wrapper)).toMatchSnapshot();

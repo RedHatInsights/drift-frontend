@@ -39,7 +39,6 @@ export class AddSystemModal extends Component {
     }
 
     async componentDidMount() {
-
         if (this.props.middlewareListener) {
             window.entityListener = addNewListener(this.props.middlewareListener, {
                 actionType: 'SELECT_ENTITY',
@@ -248,6 +247,7 @@ export class AddSystemModal extends Component {
                             onClick={ this.cancelSelection }
                             isDisabled={ basketIsVisible }
                             ouiaId="add-to-comparison-cancel-button"
+                            data-testid='close-add-system-modal'
                         >
                             Cancel
                         </Button>

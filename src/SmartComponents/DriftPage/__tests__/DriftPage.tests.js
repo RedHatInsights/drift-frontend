@@ -1,323 +1,290 @@
 /*eslint-disable camelcase*/
 import React from 'react';
-import { shallow, mount } from 'enzyme';
-import { MemoryRouter } from 'react-router-dom';
-import configureStore from 'redux-mock-store';
+import { render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { Provider } from 'react-redux';
-import toJson from 'enzyme-to-json';
 
-import ConnectedDriftPage, { DriftPage } from '../DriftPage';
-import { compareReducerPayload, systemsPayload, baselinesPayload,
-    historicalProfilesPayload, factTypeFiltersDefault } from '../../modules/__tests__/reducer.fixtures';
+import DriftPage from '../DriftPage';
+import { compareReducerPayloadWithMultiFact, fullSingleSystemComparison } from '../../modules/__tests__/reducer.fixtures';
 import { systemIds, baselineIds, HSPIds } from './fixtures/DriftPage.fixtures';
-import { allStatesTrue } from '../../modules/__tests__/state-filter.fixtures';
-import { ASC, DESC } from '../../../constants';
-import * as setHistory from '../../../Utilities/SetHistory';
+import { ASC, DESC, EMPTY_COMPARISON_MESSAGE } from '../../../constants';
+import stateFilterFixtures from '../../modules/__tests__/state-filter.fixtures';
 import { PermissionContext } from '../../../App';
-import { createMiddlewareListener } from '../../../store';
+import { createMiddlewareListener, init } from '../../../store';
+import { compareActions } from '../../modules';
+import { useSearchParams } from 'react-router-dom';
+import api from '../../../api';
 
 const middlewareListener = createMiddlewareListener();
 middlewareListener.getMiddleware();
 
-jest.mock('../../BaselinesTable/redux', () => ({
-    baselinesTableActions: {
-        setSelectedBaselines: jest.fn(()=> ({ type: 'null' })),
-        fetchCompare: jest.fn(()=> ({ type: 'null' }))
-    }
+jest.mock('react-router-dom', () => ({
+    ...jest.requireActual('react-router-dom'),
+    useSearchParams: jest.fn(() => [])
 }));
 
-jest.mock('../../AddSystemModal/redux', () => ({
-    addSystemModalActions: { }
-}));
+jest.mock('../../../api');
 
-jest.mock('../../HistoricalProfilesPopover/redux', () => ({
-    historicProfilesActions: { }
-}));
-
-jest.mock('../../modules', () => ({
-    compareActions: {
-        updateReferenceId: jest.fn(()=> ({ type: 'null' })),
-        fetchCompare: jest.fn(()=> ({ type: 'null' })),
-        handleFactFilter: jest.fn(()=> ({ type: 'null' })),
-        addStateFilter: jest.fn(()=> ({ type: 'null' }))
-    }
-}));
-
-describe('DriftPage', () => {
-    let props;
-
-    beforeEach(() => {
-        props = {
-            error: {},
-            loading: false,
-            systems: [],
-            baselines: [],
-            historicalProfiles: [],
-            emptyState: false,
-            factFilter: '',
-            activeFactFilters: [],
-            factSort: DESC,
-            stateSort: ASC,
-            referenceId: undefined,
-            stateFilters: allStatesTrue,
-            factTypeFilters: factTypeFiltersDefault,
-            history: { location: { search: '' }, push: jest.fn() },
-            location: { search: '' },
-            clearSelectedBaselines: jest.fn(),
-            toggleErrorAlert: jest.fn(),
-            clearComparison: jest.fn(),
-            clearComparisonFilters: jest.fn(),
-            selectHistoricProfiles: jest.fn(),
-            updateReferenceId: jest.fn(),
-            revertCompareData: jest.fn(),
-            searchParams: {
-                getAll: jest.fn(() => ''),
-                get: jest.fn(() => '')
-            },
-            navigate: jest.fn(() => null)
-        };
-    });
-
-    it('should call setIsFirstReference with true', () => {
-        const wrapper = shallow(
-            <DriftPage { ...props } />
-        );
-        wrapper.instance().setIsFirstReference(true);
-        expect(wrapper.state('isFirstReference')).toBe(true);
-    });
-
-    it('should call setIsFirstReference with false', () => {
-        const wrapper = shallow(
-            <DriftPage { ...props } />
-        );
-        wrapper.instance().setIsFirstReference(false);
-        expect(wrapper.state('isFirstReference')).toBe(false);
-    });
-
-    it('should call revertCompareData', () => {
-        let previousStateSystems = [];
-
-        const wrapper = shallow(
-            <DriftPage { ...props } previousStateSystems={ previousStateSystems }/>
-        );
-
-        wrapper.instance().onClose();
-        expect(props.revertCompareData).toHaveBeenCalled();
-    });
-
-    it('should call setHistory', async () => {
-        props.systems = systemsPayload;
-        props.baselines = baselinesPayload;
-        props.historicalProfiles = historicalProfilesPayload;
-        const setHistorySpy = jest.spyOn(setHistory, 'setHistory');
-
-        const wrapper = shallow(
-            <DriftPage { ...props } />
-        );
-
-        await wrapper.instance().setHistory();
-        await expect(setHistorySpy).toHaveBeenCalledWith(
-            props.navigate, systemIds, baselineIds, HSPIds, undefined, [], '', factTypeFiltersDefault, allStatesTrue, DESC, ASC
-        );
-    });
-
-    it('should call setHistory', async () => {
-        props.systems = systemsPayload;
-        props.baselines = baselinesPayload;
-        props.historicalProfiles = historicalProfilesPayload;
-        const setHistorySpy = jest.spyOn(setHistory, 'setHistory');
-
-        const wrapper = shallow(
-            <DriftPage { ...props } />
-        );
-
-        await wrapper.instance().setHistory();
-        await expect(setHistorySpy).toHaveBeenCalledWith(
-            props.navigate, systemIds, baselineIds, HSPIds, undefined, [], '', factTypeFiltersDefault, allStatesTrue, DESC, ASC
-        );
-    });
-
-});
-
-describe('ConnectedDriftPage', () => {
-    let initialState;
-    let mockStore;
+describe('DriftPage react testing libarary', () => {
+    const store = init().registry.getStore();
     let value;
+    let props;
+    let mockHandleFactFilter;
+    let mockHandleStateFilter;
+    let mockHandleFactSort;
+    let mockHandleStateSort;
+    let mockClearComparison;
+    let mockRevertCompareData;
 
     beforeEach(() => {
-        mockStore = configureStore();
-        initialState = {
-            compareState: {
-                error: {},
-                emptyState: false,
-                loading: false,
-                systems: [],
-                baselines: [],
-                historicalProfiles: [],
-                fullCompareData: [],
-                previousStateSystems: [],
-                stateFilters: [
-                    { filter: 'SAME', display: 'Same', selected: true },
-                    { filter: 'DIFFERENT', display: 'Different', selected: true },
-                    { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
-                ],
-                factTypeFilters: factTypeFiltersDefault,
-                factFilter: '',
-                activeFactFilters: []
-            },
-            addSystemModalState: {
-                addSystemModalOpened: false,
-                selectedSystemIds: []
-            },
-            baselinesTableState: {
-                comparisonTable: {
-                    selectedBaselineIds: []
-                },
-                checkboxTable: {
-                    selectedBaselineIds: []
-                }
-            },
-            baselinesTableActions: {
-                toggleErrorAlert: jest.fn()
-            },
-            historicProfilesActions: {
-                selectHistoricProfiles: jest.fn()
-            },
-            historicProfilesState: {
-                selectedHSPIds: []
-            },
-            compareActions: {
-                clearComparisonFilters: jest.fn(),
-                handleFactFilter: jest.fn(),
-                clearAllFactFilters: jest.fn()
-            }
+        mockHandleFactFilter = jest.spyOn(compareActions, 'handleFactFilter');
+        mockHandleStateFilter = jest.spyOn(compareActions, 'addStateFilter');
+        mockHandleFactSort = jest.spyOn(compareActions, 'toggleFactSort');
+        mockHandleStateSort = jest.spyOn(compareActions, 'toggleStateSort');
+        mockClearComparison = jest.spyOn(compareActions, 'clearComparison');
+        mockRevertCompareData = jest.spyOn(compareActions, 'revertCompareData');
+        useSearchParams.mockImplementation(() => [ new URLSearchParams({
+            system_ids: [ '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9', 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2' ],
+            baseline_ids: [ '9bbbefcc-8f23-4d97-07f2-142asdl234e9', 'fdmk59dj-fn42-dfjk-alv3-bmn2854mnn29' ],
+            hsp_ids: [ '9bbbefcc-8f23-4d97-07f2-142asdl234e8', 'edmk59dj-fn42-dfjk-alv3-bmn2854mnn27' ],
+            reference_id: '',
+            'filter[show]': 'all',
+            'filter[state]': 'same,different,incomplete_data',
+            sort: '-state,fact'
+        }) ]);
+
+        props = {
+            title: 'Comparison - Drift | Red Hat Insights'
         };
 
         value = {
             permissions: {
-                compareRead: true
+                compareRead: true,
+                baselinesRead: true,
+                baselinesWrite: true
             }
         };
     });
 
-    it('should render correctly', () => {
-        const store = mockStore(initialState);
-        const wrapper = mount(
+    it('should render EmptyState', () => {
+        useSearchParams.mockImplementation(() => [ new URLSearchParams() ]);
+
+        render(
             <PermissionContext.Provider value={ value }>
-                <MemoryRouter keyLength={ 0 }>
-                    <Provider store={ store }>
-                        <ConnectedDriftPage />
-                    </Provider>
-                </MemoryRouter>
+                <Provider store={ store }>
+                    <DriftPage { ...props } />
+                </Provider>
             </PermissionContext.Provider>
         );
 
-        expect(wrapper.find('EmptyStateDisplay')).toHaveLength(0);
-        expect(wrapper.find('.drift-toolbar')).toHaveLength(4);
-        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(screen.getByText(...EMPTY_COMPARISON_MESSAGE)).toBeInTheDocument();
     });
 
-    it('should render EmptyStateDisplay', () => {
-        initialState.compareState.emptyState = true;
-        const store = mockStore(initialState);
-
-        const wrapper = mount(
-            <PermissionContext.Provider value={ value }>
-                <MemoryRouter keyLength={ 0 }>
-                    <Provider store={ store }>
-                        <ConnectedDriftPage />
-                    </Provider>
-                </MemoryRouter>
-            </PermissionContext.Provider>
-        );
-
-        expect(wrapper.find('EmptyStateDisplay')).toHaveLength(1);
-    });
-
-    it.skip('should render EmptyStateDisplay with error', () => {
-        initialState.compareState.emptyState = true;
-        initialState.compareState.error = { status: 400, detail: 'This is an error' };
-        const store = mockStore(initialState);
-
-        const wrapper = mount(
-            <PermissionContext.Provider value={ value }>
-                <MemoryRouter keyLength={ 0 }>
-                    <Provider store={ store }>
-                        <ConnectedDriftPage />
-                    </Provider>
-                </MemoryRouter>
-            </PermissionContext.Provider>
-        );
-
-        expect(toJson(wrapper)).toMatchSnapshot();
-        expect(wrapper.find('EmptyStateDisplay')).toHaveLength(1);
-    });
-
-    it('should render empty with no read permissions', () => {
+    it('should render no permissions', () => {
         value.permissions.compareRead = false;
-        const store = mockStore(initialState);
-        const wrapper = mount(
+        useSearchParams.mockImplementation(() => [ new URLSearchParams() ]);
+
+        render(
             <PermissionContext.Provider value={ value }>
-                <MemoryRouter keyLength={ 0 }>
-                    <Provider store={ store }>
-                        <ConnectedDriftPage />
-                    </Provider>
-                </MemoryRouter>
+                <Provider store={ store }>
+                    <DriftPage { ...props } />
+                </Provider>
             </PermissionContext.Provider>
         );
 
-        expect(wrapper.find('EmptyStateDisplay')).toHaveLength(1);
+        expect(screen.getByText('You do not have access to Drift comparison')).toBeInTheDocument();
     });
 
-    it('should render with error alert', () => {
-        initialState.compareState.error.detail = 'something';
-        const store = mockStore(initialState);
-        const wrapper = mount(
+    it('should set fact filter', async () => {
+        useSearchParams.mockImplementation(() => [ new URLSearchParams({ 'filter[name]': 'abc,123' }) ]);
+
+        render(
             <PermissionContext.Provider value={ value }>
-                <MemoryRouter keyLength={ 0 }>
-                    <Provider store={ store }>
-                        <ConnectedDriftPage />
-                    </Provider>
-                </MemoryRouter>
+                <Provider store={ store }>
+                    <DriftPage { ...props } />
+                </Provider>
             </PermissionContext.Provider>
         );
 
-        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(mockHandleFactFilter).toHaveBeenCalledWith('abc');
+        expect(mockHandleFactFilter).toHaveBeenCalledWith('123');
     });
 
-    it('should render systems and baselines', () => {
-        initialState.compareState.systems = compareReducerPayload.systems;
-        initialState.compareState.baselines = baselinesPayload;
-        const store = mockStore(initialState);
-        const wrapper = mount(
+    it('should set state filter', () => {
+        useSearchParams.mockImplementation(() => [ new URLSearchParams({ 'filter[state]': 'same,incomplete_data' }) ]);
+
+        render(
             <PermissionContext.Provider value={ value }>
-                <MemoryRouter keyLength={ 0 }>
-                    <Provider store={ store }>
-                        <ConnectedDriftPage />
-                    </Provider>
-                </MemoryRouter>
+                <Provider store={ store }>
+                    <DriftPage { ...props } />
+                </Provider>
             </PermissionContext.Provider>
         );
 
-        expect(wrapper.find('.drift-toolbar')).toHaveLength(4);
+        expect(mockHandleStateFilter).toHaveBeenCalledWith(stateFilterFixtures.allStatesTrue[0]);
+        expect(mockHandleStateFilter).toHaveBeenCalledWith(stateFilterFixtures.allStatesFalse[1]);
+        expect(mockHandleStateFilter).toHaveBeenCalledWith(stateFilterFixtures.allStatesTrue[2]);
     });
 
-    it('should toggle kebab', () => {
-        initialState.compareState.systems = compareReducerPayload.systems;
-        initialState.compareState.baselines = baselinesPayload;
-        const store = mockStore(initialState);
-        const wrapper = mount(
+    it('should set sort asc', () => {
+        useSearchParams.mockImplementation(() => [ new URLSearchParams({ sort: 'fact,state' }) ]);
+
+        render(
             <PermissionContext.Provider value={ value }>
-                <MemoryRouter keyLength={ 0 }>
-                    <Provider store={ store }>
-                        <ConnectedDriftPage />
-                    </Provider>
-                </MemoryRouter>
+                <Provider store={ store }>
+                    <DriftPage { ...props } />
+                </Provider>
             </PermissionContext.Provider>
         );
 
-        wrapper.find('.pf-c-dropdown__toggle').at(2).simulate('click');
-        expect(wrapper.find('[id="action-kebab"]').first().prop('isOpen')).toBe(true);
+        expect(mockHandleFactSort).toHaveBeenCalledWith(DESC);
+        expect(mockHandleStateSort).toHaveBeenCalledWith('');
+    });
+
+    it('should set sort desc', () => {
+        useSearchParams.mockImplementation(() => [ new URLSearchParams({ sort: '-fact,-state' }) ]);
+        render(
+            <PermissionContext.Provider value={ value }>
+                <Provider store={ store }>
+                    <DriftPage { ...props } />
+                </Provider>
+            </PermissionContext.Provider>
+        );
+
+        expect(mockHandleFactSort).toHaveBeenCalledWith(ASC);
+        expect(mockHandleStateSort).toHaveBeenCalledWith(ASC);
+    });
+
+    it('should set state sort, no sort', () => {
+        useSearchParams.mockImplementation(() => [ new URLSearchParams({ sort: 'fact' }) ]);
+        render(
+            <PermissionContext.Provider value={ value }>
+                <Provider store={ store }>
+                    <DriftPage { ...props } />
+                </Provider>
+            </PermissionContext.Provider>
+        );
+
+        expect(mockHandleFactSort).toHaveBeenCalledWith(DESC);
+        expect(mockHandleStateSort).toHaveBeenCalledWith(DESC);
+    });
+
+    it('should handle fetchCompare with no ref in url', () => {
+        /*eslint-disable max-len*/
+        useSearchParams.mockImplementation(
+            () => [ new URLSearchParams
+            (`?system_ids=9c79efcc-8f9a-47c7-b0f2-142ff52e89e9&system_ids=f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2&baseline_ids=9bbbefcc-8f23-4d97-07f2-142asdl234e9&baseline_ids=fdmk59dj-fn42-dfjk-alv3-bmn2854mnn29&hsp_ids=9bbbefcc-8f23-4d97-07f2-142asdl234e8&hsp_ids=edmk59dj-fn42-dfjk-alv3-bmn2854mnn27`)
+            ]
+        );
+        /*eslint-enable max-len*/
+        api.getCompare.mockImplementation(async () => {
+            return compareReducerPayloadWithMultiFact;
+        });
+
+        render(
+            <PermissionContext.Provider value={ value }>
+                <Provider store={ store }>
+                    <DriftPage { ...props } />
+                </Provider>
+            </PermissionContext.Provider>
+        );
+
+        expect(api.getCompare).toHaveBeenCalledWith(systemIds, baselineIds, HSPIds, '9bbbefcc-8f23-4d97-07f2-142asdl234e9');
+    });
+
+    it('should handle fetchCompare with ref in url', () => {
+        /*eslint-disable max-len*/
+        useSearchParams.mockImplementation(
+            () => [ new URLSearchParams
+            (`?system_ids=9c79efcc-8f9a-47c7-b0f2-142ff52e89e9&system_ids=f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2&baseline_ids=9bbbefcc-8f23-4d97-07f2-142asdl234e9&baseline_ids=fdmk59dj-fn42-dfjk-alv3-bmn2854mnn29&hsp_ids=9bbbefcc-8f23-4d97-07f2-142asdl234e8&hsp_ids=edmk59dj-fn42-dfjk-alv3-bmn2854mnn27&reference_id=f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2`)
+            ]
+        );
+        /*eslint-enable max-len*/
+        api.getCompare.mockImplementation(async () => {
+            return compareReducerPayloadWithMultiFact;
+        });
+
+        render(
+            <PermissionContext.Provider value={ value }>
+                <Provider store={ store }>
+                    <DriftPage { ...props } />
+                </Provider>
+            </PermissionContext.Provider>
+        );
+
+        expect(api.getCompare).toHaveBeenCalledWith(systemIds, baselineIds, HSPIds, 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2');
+    });
+
+    it('should set reference_id to undefined with ref in url that is not in the comparison', () => {
+        /*eslint-disable max-len*/
+        useSearchParams.mockImplementation(
+            () => [ new URLSearchParams
+            (`?system_ids=9c79efcc-8f9a-47c7-b0f2-142ff52e89e9&system_ids=f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2&baseline_ids=9bbbefcc-8f23-4d97-07f2-142asdl234e9&baseline_ids=fdmk59dj-fn42-dfjk-alv3-bmn2854mnn29&hsp_ids=9bbbefcc-8f23-4d97-07f2-142asdl234e8&hsp_ids=edmk59dj-fn42-dfjk-alv3-bmn2854mnn27&reference_id=b22b1e1d-d231-43f2-8e4f-8f9cb01e3aa2`)
+            ]
+        );
+        /*eslint-enable max-len*/
+        api.getCompare.mockImplementation(async () => {
+            return compareReducerPayloadWithMultiFact;
+        });
+
+        render(
+            <PermissionContext.Provider value={ value }>
+                <Provider store={ store }>
+                    <DriftPage { ...props } />
+                </Provider>
+            </PermissionContext.Provider>
+        );
+
+        expect(api.getCompare).toHaveBeenCalledWith(systemIds, baselineIds, HSPIds, undefined);
+    });
+
+    it('should call clear comparison on system removal', async () => {
+        /*eslint-disable max-len*/
+        useSearchParams.mockImplementation(
+            () => [ new URLSearchParams('?system_ids=9c79efcc-8f9a-47c7-b0f2-142ff52e89e9') ]
+        );
+        /*eslint-enable max-len*/
+
+        api.getCompare.mockImplementation(async () => {
+            return fullSingleSystemComparison;
+        });
+
+        render(
+            <PermissionContext.Provider value={ value }>
+                <Provider store={ store }>
+                    <DriftPage { ...props } />
+                </Provider>
+            </PermissionContext.Provider>
+        );
+
+        await waitFor(() => userEvent.click(screen.getByTestId('remove-system-button-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9')));
+
+        expect(mockClearComparison).toHaveBeenCalled();
+    });
+
+    it.skip('should call revertCompare on AddSystemModal close', async () => {
+        /*eslint-disable max-len*/
+        useSearchParams.mockImplementation(
+            () => [ new URLSearchParams('?system_ids=9c79efcc-8f9a-47c7-b0f2-142ff52e89e9') ]
+        );
+        /*eslint-enable max-len*/
+
+        api.getCompare.mockImplementation(async () => {
+            return fullSingleSystemComparison;
+        });
+
+        render(
+            <PermissionContext.Provider value={ value }>
+                <Provider store={ store }>
+                    <DriftPage { ...props } />
+                </Provider>
+            </PermissionContext.Provider>
+        );
+
+        await waitFor(() => userEvent.click(screen.getByTestId('add-to-comparison-button')));
+        await waitFor(() => userEvent.click(screen.getByTestId('close-add-system-modal')));
+
+        expect(mockRevertCompareData).toHaveBeenCalled();
     });
 });
 /*eslint-enable camelcase*/

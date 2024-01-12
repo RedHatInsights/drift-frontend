@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import { DropdownItem, PaginationVariant, Toolbar, ToolbarGroup, ToolbarItem,
     ToolbarContent } from '@patternfly/react-core';
@@ -10,6 +11,9 @@ import ExportCSVButton from '../../ExportCSVButton/ExportCSVButton';
 import DriftFilter from './DriftFilter/DriftFilter';
 import { TablePagination } from '../../Pagination/Pagination';
 import { errorExportNotification, preparingExportNotification, successfulExportNotification } from '../../../constants';
+import { compareActions } from '../../modules';
+import { addSystemModalActions } from '../../AddSystemModal/redux';
+import { baselinesTableActions } from '../../BaselinesTable/redux';
 
 export class DriftToolbar extends Component {
     constructor(props) {
@@ -199,6 +203,26 @@ export class DriftToolbar extends Component {
     }
 }
 
+function mapDispatchToProps(dispatch) {
+    return {
+        addStateFilter: (filter) => dispatch(compareActions.addStateFilter(filter)),
+        clearAllFactFilters: () => dispatch(compareActions.clearAllFactFilters()),
+        clearAllSelections: () => dispatch(addSystemModalActions.clearAllSelections()),
+        clearComparison: () => dispatch(compareActions.clearComparison()),
+        clearComparisonFilters: () => dispatch(compareActions.clearComparisonFilters()),
+        clearSelectedBaselines: (tableId) => dispatch(baselinesTableActions.clearSelectedBaselines(tableId)),
+        exportToCSV: () => dispatch(compareActions.exportToCSV()),
+        exportToJSON: () => dispatch(compareActions.exportToJSON()),
+        filterByFact: (filter) => dispatch(compareActions.filterByFact(filter)),
+        handleFactFilter: (filter) => dispatch(compareActions.handleFactFilter(filter)),
+        resetComparisonFilters: () => dispatch(compareActions.resetComparisonFilters()),
+        resetExportStatus: () => dispatch(compareActions.resetExportStatus()),
+        toggleFactTypeFilter: (filter) => dispatch(compareActions.toggleFactTypeFilter(filter)),
+        updatePagination: (pagination) => dispatch(compareActions.updatePagination(pagination)),
+        updateReferenceId: (id) => dispatch(compareActions.updateReferenceId(id))
+    };
+}
+
 DriftToolbar.propTypes = {
     loading: PropTypes.bool,
     page: PropTypes.number,
@@ -229,4 +253,4 @@ DriftToolbar.propTypes = {
     store: PropTypes.object
 };
 
-export default DriftToolbar;
+export default connect(null, mapDispatchToProps)(DriftToolbar);

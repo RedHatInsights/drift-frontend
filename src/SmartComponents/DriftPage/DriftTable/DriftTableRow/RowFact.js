@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { AngleDownIcon, AngleRightIcon } from '@patternfly/react-icons';
+import { useDispatch } from 'react-redux';
+import { compareActions } from '../../../modules';
 
 function RowFact(props) {
-    const { expandedRows, expandRow, factName, type } = props;
+    const dispatch = useDispatch();
+    const { expandedRows, factName, type } = props;
 
     const buildClassName = () => {
         if (type === 'fact' || (type === 'category' && !expandedRows.includes(factName))) {
@@ -19,14 +22,14 @@ function RowFact(props) {
                 className={ 'carat-margin pointer active-blue' + (type === 'multi fact' ? ' child-row' : null) }
                 data-ouia-component-type='PF4/Button'
                 data-ouia-component-id={ 'expand-category-button-' + factName }
-                onClick={ () => expandRow(factName) }
+                onClick={ () => dispatch(compareActions.expandRow(factName)) }
             />;
         } else {
             return <AngleRightIcon
                 className={ 'carat-margin pointer' + (type === 'multi fact' ? ' child-row' : null) }
                 data-ouia-component-type='PF4/Button'
                 data-ouia-component-id={ 'expand-category-button-' + factName }
-                onClick={ () => expandRow(factName) }
+                onClick={ () => dispatch(compareActions.expandRow(factName)) }
             />;
         }
     };
@@ -55,7 +58,6 @@ function RowFact(props) {
 
 RowFact.propTypes = {
     expandedRows: PropTypes.array,
-    expandRow: PropTypes.func,
     factName: PropTypes.string,
     type: PropTypes.string
 };

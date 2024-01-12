@@ -6,16 +6,17 @@ import SystemHeaderCellContent from './SystemHeaderCellContent';
 const SystemHeaderCells = ({
     columnWidth,
     fetchCompare,
-    masterList,
+    mainList,
     permissions,
     referenceId,
     removeSystemFunc,
     selectHistoricProfiles,
+    setColumnHeaderWidth,
     systemIds,
     updateReferenceId
 }) => {
     return (
-        masterList.map((item) =>
+        mainList.map((item) =>
             <ComparisonHeaderCell
                 columnWidth={ columnWidth }
                 classname={ item.id === referenceId
@@ -23,6 +24,7 @@ const SystemHeaderCells = ({
                     : `drift-header right-border ${item.type}-header sticky-header` }
                 key={ item.id }
                 id={ item.id }
+                setColumnHeaderWidth={ setColumnHeaderWidth }
             >
                 <SystemHeaderCellContent
                     fetchCompare={ fetchCompare }
@@ -42,11 +44,12 @@ const SystemHeaderCells = ({
 SystemHeaderCells.propTypes = {
     columnWidth: PropTypes.string,
     fetchCompare: PropTypes.func,
-    masterList: PropTypes.array,
+    mainList: PropTypes.array,
     permissions: PropTypes.object,
     referenceId: PropTypes.string,
     removeSystemFunc: PropTypes.func,
     selectHistoricProfiles: PropTypes.func,
+    setColumnHeaderWidth: PropTypes.func,
     systemIds: PropTypes.array,
     updateReferenceId: PropTypes.func
 };
