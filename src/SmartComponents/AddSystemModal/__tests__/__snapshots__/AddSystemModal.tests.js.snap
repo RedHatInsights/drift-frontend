@@ -14,6 +14,7 @@ exports[`AddSystemModal should render correctly 1`] = `
           Submit
         </Button>,
         <Button
+          data-testid="close-add-system-modal"
           isDisabled={false}
           onClick={[Function]}
           ouiaId="add-to-comparison-cancel-button"
@@ -292,11 +293,11 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
             Object {
               "rows": Array [
                 Object {
-                  "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                  "display_name": "system1",
                   "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                 },
                 Object {
-                  "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                  "display_name": "system2",
                   "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                 },
               ],
@@ -337,12 +338,12 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
           systems={
             Array [
               Object {
-                "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                "display_name": "system1",
                 "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                 "last_updated": "2019-01-15T14:53:15.886891Z",
               },
               Object {
-                "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                "display_name": "system2",
                 "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                 "last_updated": "2019-01-15T15:25:16.304899Z",
               },
@@ -365,11 +366,11 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
               Object {
                 "rows": Array [
                   Object {
-                    "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                    "display_name": "system1",
                     "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                   },
                   Object {
-                    "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                    "display_name": "system2",
                     "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                   },
                 ],
@@ -410,12 +411,12 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
             systems={
               Array [
                 Object {
-                  "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                  "display_name": "system1",
                   "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                   "last_updated": "2019-01-15T14:53:15.886891Z",
                 },
                 Object {
-                  "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                  "display_name": "system2",
                   "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                   "last_updated": "2019-01-15T15:25:16.304899Z",
                 },
@@ -435,6 +436,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                     Submit
                   </Button>,
                   <Button
+                    data-testid="close-add-system-modal"
                     isDisabled={false}
                     onClick={[Function]}
                     ouiaId="add-to-comparison-cancel-button"
@@ -1379,6 +1381,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                               data-ouia-component-id="add-to-comparison-cancel-button"
                               data-ouia-component-type="PF4/Button"
                               data-ouia-safe="true"
+                              data-testid="close-add-system-modal"
                               type="button"
                             >
                               Cancel
@@ -1402,6 +1405,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                         Submit
                       </Button>,
                       <Button
+                        data-testid="close-add-system-modal"
                         isDisabled={false}
                         onClick={[Function]}
                         ouiaId="add-to-comparison-cancel-button"
@@ -1659,11 +1663,11 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                         Object {
                                                           "rows": Array [
                                                             Object {
-                                                              "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                              "display_name": "system1",
                                                               "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                                                             },
                                                             Object {
-                                                              "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                              "display_name": "system2",
                                                               "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                                             },
                                                           ],
@@ -1684,12 +1688,12 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                       systems={
                                                         Array [
                                                           Object {
-                                                            "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                            "display_name": "system1",
                                                             "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                                                             "last_updated": "2019-01-15T14:53:15.886891Z",
                                                           },
                                                           Object {
-                                                            "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                            "display_name": "system2",
                                                             "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                                             "last_updated": "2019-01-15T15:25:16.304899Z",
                                                           },
@@ -2115,11 +2119,11 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                 Object {
                                                   "rows": Array [
                                                     Object {
-                                                      "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                      "display_name": "system1",
                                                       "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                                                     },
                                                     Object {
-                                                      "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                      "display_name": "system2",
                                                       "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                                     },
                                                   ],
@@ -2191,11 +2195,11 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                   Object {
                                                     "rows": Array [
                                                       Object {
-                                                        "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                        "display_name": "system1",
                                                         "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                                                       },
                                                       Object {
-                                                        "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                        "display_name": "system2",
                                                         "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                                       },
                                                     ],
@@ -2268,11 +2272,11 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                 Object {
                                                   "rows": Array [
                                                     Object {
-                                                      "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                      "display_name": "system1",
                                                       "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                                                     },
                                                     Object {
-                                                      "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                      "display_name": "system2",
                                                       "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                                     },
                                                   ],
@@ -2331,11 +2335,11 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                                   Object {
                                                     "rows": Array [
                                                       Object {
-                                                        "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                        "display_name": "system1",
                                                         "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                                                       },
                                                       Object {
-                                                        "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                        "display_name": "system2",
                                                         "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                                       },
                                                     ],
@@ -7208,6 +7212,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                       </ButtonBase>
                                     </Button>
                                     <Button
+                                      data-testid="close-add-system-modal"
                                       isDisabled={false}
                                       key="cancel"
                                       onClick={[Function]}
@@ -7215,6 +7220,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                       variant="link"
                                     >
                                       <ButtonBase
+                                        data-testid="close-add-system-modal"
                                         innerRef={null}
                                         isDisabled={false}
                                         onClick={[Function]}
@@ -7228,6 +7234,7 @@ exports[`ConnectedAddSystemModal should render baselines correctly 1`] = `
                                           data-ouia-component-id="add-to-comparison-cancel-button"
                                           data-ouia-component-type="PF4/Button"
                                           data-ouia-safe={true}
+                                          data-testid="close-add-system-modal"
                                           disabled={false}
                                           onClick={[Function]}
                                           role={null}
@@ -7336,11 +7343,11 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
             Object {
               "rows": Array [
                 Object {
-                  "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                  "display_name": "system1",
                   "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                 },
                 Object {
-                  "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                  "display_name": "system2",
                   "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                 },
               ],
@@ -7381,12 +7388,12 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
           systems={
             Array [
               Object {
-                "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                "display_name": "system1",
                 "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                 "last_updated": "2019-01-15T14:53:15.886891Z",
               },
               Object {
-                "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                "display_name": "system2",
                 "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                 "last_updated": "2019-01-15T15:25:16.304899Z",
               },
@@ -7409,11 +7416,11 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
               Object {
                 "rows": Array [
                   Object {
-                    "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                    "display_name": "system1",
                     "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                   },
                   Object {
-                    "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                    "display_name": "system2",
                     "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                   },
                 ],
@@ -7454,12 +7461,12 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
             systems={
               Array [
                 Object {
-                  "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                  "display_name": "system1",
                   "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                   "last_updated": "2019-01-15T14:53:15.886891Z",
                 },
                 Object {
-                  "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                  "display_name": "system2",
                   "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                   "last_updated": "2019-01-15T15:25:16.304899Z",
                 },
@@ -7479,6 +7486,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                     Submit
                   </Button>,
                   <Button
+                    data-testid="close-add-system-modal"
                     isDisabled={false}
                     onClick={[Function]}
                     ouiaId="add-to-comparison-cancel-button"
@@ -8423,6 +8431,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                               data-ouia-component-id="add-to-comparison-cancel-button"
                               data-ouia-component-type="PF4/Button"
                               data-ouia-safe="true"
+                              data-testid="close-add-system-modal"
                               type="button"
                             >
                               Cancel
@@ -8446,6 +8455,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                         Submit
                       </Button>,
                       <Button
+                        data-testid="close-add-system-modal"
                         isDisabled={false}
                         onClick={[Function]}
                         ouiaId="add-to-comparison-cancel-button"
@@ -8703,11 +8713,11 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                         Object {
                                                           "rows": Array [
                                                             Object {
-                                                              "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                              "display_name": "system1",
                                                               "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                                                             },
                                                             Object {
-                                                              "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                              "display_name": "system2",
                                                               "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                                             },
                                                           ],
@@ -8728,12 +8738,12 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                       systems={
                                                         Array [
                                                           Object {
-                                                            "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                            "display_name": "system1",
                                                             "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                                                             "last_updated": "2019-01-15T14:53:15.886891Z",
                                                           },
                                                           Object {
-                                                            "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                            "display_name": "system2",
                                                             "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                                             "last_updated": "2019-01-15T15:25:16.304899Z",
                                                           },
@@ -9159,11 +9169,11 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                 Object {
                                                   "rows": Array [
                                                     Object {
-                                                      "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                      "display_name": "system1",
                                                       "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                                                     },
                                                     Object {
-                                                      "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                      "display_name": "system2",
                                                       "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                                     },
                                                   ],
@@ -9235,11 +9245,11 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                   Object {
                                                     "rows": Array [
                                                       Object {
-                                                        "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                        "display_name": "system1",
                                                         "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                                                       },
                                                       Object {
-                                                        "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                        "display_name": "system2",
                                                         "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                                       },
                                                     ],
@@ -9312,11 +9322,11 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                 Object {
                                                   "rows": Array [
                                                     Object {
-                                                      "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                      "display_name": "system1",
                                                       "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                                                     },
                                                     Object {
-                                                      "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                      "display_name": "system2",
                                                       "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                                     },
                                                   ],
@@ -9375,11 +9385,11 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                                   Object {
                                                     "rows": Array [
                                                       Object {
-                                                        "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                        "display_name": "system1",
                                                         "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                                                       },
                                                       Object {
-                                                        "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                        "display_name": "system2",
                                                         "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                                       },
                                                     ],
@@ -14252,6 +14262,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                       </ButtonBase>
                                     </Button>
                                     <Button
+                                      data-testid="close-add-system-modal"
                                       isDisabled={false}
                                       key="cancel"
                                       onClick={[Function]}
@@ -14259,6 +14270,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                       variant="link"
                                     >
                                       <ButtonBase
+                                        data-testid="close-add-system-modal"
                                         innerRef={null}
                                         isDisabled={false}
                                         onClick={[Function]}
@@ -14272,6 +14284,7 @@ exports[`ConnectedAddSystemModal should render correctly 1`] = `
                                           data-ouia-component-id="add-to-comparison-cancel-button"
                                           data-ouia-component-type="PF4/Button"
                                           data-ouia-safe={true}
+                                          data-testid="close-add-system-modal"
                                           disabled={false}
                                           onClick={[Function]}
                                           role={null}
@@ -14380,11 +14393,11 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
             Object {
               "rows": Array [
                 Object {
-                  "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                  "display_name": "system1",
                   "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                 },
                 Object {
-                  "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                  "display_name": "system2",
                   "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                 },
               ],
@@ -14425,12 +14438,12 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
           systems={
             Array [
               Object {
-                "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                "display_name": "system1",
                 "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                 "last_updated": "2019-01-15T14:53:15.886891Z",
               },
               Object {
-                "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                "display_name": "system2",
                 "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                 "last_updated": "2019-01-15T15:25:16.304899Z",
               },
@@ -14453,11 +14466,11 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
               Object {
                 "rows": Array [
                   Object {
-                    "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                    "display_name": "system1",
                     "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                   },
                   Object {
-                    "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                    "display_name": "system2",
                     "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                   },
                 ],
@@ -14498,12 +14511,12 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
             systems={
               Array [
                 Object {
-                  "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                  "display_name": "system1",
                   "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                   "last_updated": "2019-01-15T14:53:15.886891Z",
                 },
                 Object {
-                  "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                  "display_name": "system2",
                   "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                   "last_updated": "2019-01-15T15:25:16.304899Z",
                 },
@@ -14523,6 +14536,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                     Submit
                   </Button>,
                   <Button
+                    data-testid="close-add-system-modal"
                     isDisabled={false}
                     onClick={[Function]}
                     ouiaId="add-to-comparison-cancel-button"
@@ -15493,6 +15507,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                               data-ouia-component-id="add-to-comparison-cancel-button"
                               data-ouia-component-type="PF4/Button"
                               data-ouia-safe="true"
+                              data-testid="close-add-system-modal"
                               type="button"
                             >
                               Cancel
@@ -15516,6 +15531,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                         Submit
                       </Button>,
                       <Button
+                        data-testid="close-add-system-modal"
                         isDisabled={false}
                         onClick={[Function]}
                         ouiaId="add-to-comparison-cancel-button"
@@ -15773,11 +15789,11 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                         Object {
                                                           "rows": Array [
                                                             Object {
-                                                              "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                              "display_name": "system1",
                                                               "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                                                             },
                                                             Object {
-                                                              "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                              "display_name": "system2",
                                                               "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                                             },
                                                           ],
@@ -15798,12 +15814,12 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                       systems={
                                                         Array [
                                                           Object {
-                                                            "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                            "display_name": "system1",
                                                             "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                                                             "last_updated": "2019-01-15T14:53:15.886891Z",
                                                           },
                                                           Object {
-                                                            "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                            "display_name": "system2",
                                                             "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                                             "last_updated": "2019-01-15T15:25:16.304899Z",
                                                           },
@@ -16229,11 +16245,11 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                 Object {
                                                   "rows": Array [
                                                     Object {
-                                                      "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                      "display_name": "system1",
                                                       "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                                                     },
                                                     Object {
-                                                      "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                      "display_name": "system2",
                                                       "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                                     },
                                                   ],
@@ -16305,11 +16321,11 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                   Object {
                                                     "rows": Array [
                                                       Object {
-                                                        "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                        "display_name": "system1",
                                                         "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                                                       },
                                                       Object {
-                                                        "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                        "display_name": "system2",
                                                         "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                                       },
                                                     ],
@@ -16382,11 +16398,11 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                 Object {
                                                   "rows": Array [
                                                     Object {
-                                                      "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                      "display_name": "system1",
                                                       "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                                                     },
                                                     Object {
-                                                      "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                      "display_name": "system2",
                                                       "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                                     },
                                                   ],
@@ -16445,11 +16461,11 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                                   Object {
                                                     "rows": Array [
                                                       Object {
-                                                        "display_name": "sgi-xe500-01.rhts.eng.bos.redhat.com",
+                                                        "display_name": "system1",
                                                         "id": "9c79efcc-8f9a-47c7-b0f2-142ff52e89e9",
                                                       },
                                                       Object {
-                                                        "display_name": "ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com",
+                                                        "display_name": "system2",
                                                         "id": "f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2",
                                                       },
                                                     ],
@@ -21337,6 +21353,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                       </ButtonBase>
                                     </Button>
                                     <Button
+                                      data-testid="close-add-system-modal"
                                       isDisabled={false}
                                       key="cancel"
                                       onClick={[Function]}
@@ -21344,6 +21361,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                       variant="link"
                                     >
                                       <ButtonBase
+                                        data-testid="close-add-system-modal"
                                         innerRef={null}
                                         isDisabled={false}
                                         onClick={[Function]}
@@ -21357,6 +21375,7 @@ exports[`ConnectedAddSystemModal should render disabled with no inventory permis
                                           data-ouia-component-id="add-to-comparison-cancel-button"
                                           data-ouia-component-type="PF4/Button"
                                           data-ouia-safe={true}
+                                          data-testid="close-add-system-modal"
                                           disabled={false}
                                           onClick={[Function]}
                                           role={null}

@@ -7,7 +7,7 @@ import StateIcon from '../../../StateIcon/StateIcon';
 import RowFact from './RowFact';
 
 function DriftTableRow(props) {
-    const { columnWidth, expandedRows, expandRow, fact, masterList, referenceId, stateSort, type } = props;
+    const { columnWidth, expandedRows, fact, mainList, referenceId, stateSort, type } = props;
 
     const findSystem = (systems, id) => {
         return systems.find(system => system.id === id);
@@ -41,9 +41,9 @@ function DriftTableRow(props) {
         let system;
         let cellWidth;
 
-        for (let i = 0; i < masterList.length; i++) {
+        for (let i = 0; i < mainList.length; i++) {
             if (fact.systems) {
-                system = findSystem(fact.systems, masterList[i].id);
+                system = findSystem(fact.systems, mainList[i].id);
             }
 
             let className = createClassname(system);
@@ -74,7 +74,7 @@ function DriftTableRow(props) {
     const createRow = () => {
         let row = [];
 
-        row.push(<RowFact expandedRows={ expandedRows } expandRow={ expandRow } factName={ fact.name } type={ type } />);
+        row.push(<RowFact expandedRows={ expandedRows } factName={ fact.name } type={ type } />);
         row.push(renderState());
 
         row = row.concat(createCells());
@@ -94,9 +94,8 @@ function DriftTableRow(props) {
 DriftTableRow.propTypes = {
     columnWidth: PropTypes.number,
     expandedRows: PropTypes.array,
-    expandRow: PropTypes.func,
     fact: PropTypes.object,
-    masterList: PropTypes.array,
+    mainList: PropTypes.array,
     referenceId: PropTypes.string,
     stateSort: PropTypes.string,
     type: PropTypes.string

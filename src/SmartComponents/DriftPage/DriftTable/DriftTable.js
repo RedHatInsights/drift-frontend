@@ -1,50 +1,53 @@
-import React, { Component } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Skeleton, SkeletonSize } from '@redhat-cloud-services/frontend-components';
-import { ASC, DESC } from '../../../constants';
-
-import AddSystemModal from '../../AddSystemModal/AddSystemModal';
 import ComparisonHeader from './ComparisonHeader/ComparisonHeader';
-
-import { compareActions } from '../../modules';
-import { baselinesTableActions } from '../../BaselinesTable/redux';
+import { addSystemModalActions } from '../../AddSystemModal/redux';
 import { historicProfilesActions } from '../../HistoricalProfilesPopover/redux';
-import DriftTableRow from './DriftTableRow/DriftTableRow';
+import DriftTableRows from './DriftTableRow/DriftTableRows';
 import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
 
-export class DriftTable extends Component {
-    constructor(props) {
-        super(props);
+const DriftTable = ({
+    factSort,
+    filteredCompareData,
+    handleFetchCompare,
+    historicalProfiles,
+    isFirstReference,
+    mainList,
+    permissions,
+    referenceId,
+    selectedBaselineIds,
+    selectedHSPIds,
+    selectedSystemIds,
+    setHistory,
+    setIsFirstReference,
+    stateSort,
+    toggleFactSort,
+    toggleStateSort
+}) => {
+    const chrome = useChrome();
+    const dispatch = useDispatch();
+    const selectHistoricProfiles = (hspIds) => dispatch(historicProfilesActions.selectHistoricProfiles(hspIds));
+    const loading = useSelector(({ compareState }) => compareState.loading);
+    const expandedRows = useSelector(({ compareState }) => compareState.expandedRows);
 
-        this.state = {
-            columnHeaderWidth: 0
-        };
+    const [ columnHeaderWidth, setColumnHeaderWidth ] = useState(0);
+    const [ scrollWidth, setScrollWidth ] = useState('');
+    const topScroller = useRef(null);
+    const headerScroll = useRef(null);
+    const bottomScroller = useRef(null);
 
-        this.masterList = [];
+    useEffect(() => {
+        if (bottomScroller.current) {
+            setScrollWidth(bottomScroller.current.scrollWidth);
+        }
+    }, [ bottomScroller.current ]);
 
-        this.setSystemIds();
-        this.setBaselineIds();
-        this.setHSPIds();
-        this.setReferenceId();
-        this.setFilters();
-        this.setSort();
-        this.topScroller = React.createRef();
-        this.headerScroll = React.createRef();
-        this.bottomScroller = React.createRef();
-        this.doubleScroll = this.doubleScroll.bind(this);
-        this.fetchCompare = this.fetchCompare.bind(this);
-        this.removeSystem = this.removeSystem.bind(this);
-    }
-
-    setColumnHeaderWidth = (width) => {
-        this.setState({ columnHeaderWidth: width });
-    }
-
-    doubleScroll() {
-        let wrapper1 = this.topScroller.current;
-        let wrapper2 = this.headerScroll.current;
-        let wrapper3 = this.bottomScroller.current;
+    const doubleScroll = () => {
+        let wrapper1 = topScroller.current;
+        let wrapper2 = headerScroll.current;
+        let wrapper3 = bottomScroller.current;
 
         wrapper1.onscroll = function() {
             wrapper2.scrollLeft = wrapper1.scrollLeft;
@@ -55,310 +58,70 @@ export class DriftTable extends Component {
             wrapper1.scrollLeft = wrapper3.scrollLeft;
             wrapper2.scrollLeft = wrapper3.scrollLeft;
         };
-    }
+    };
 
-    async componentDidMount() {
-        if (this.systemIds.length > 0 || this.baselineIds.length > 0 || this.HSPIds.length > 0) {
-            await this.fetchCompare(this.systemIds, this.baselineIds, this.HSPIds, this.props.referenceId);
-        }
-    }
+    useEffect(() => {
+        chrome?.appAction('comparison-view');
+    }, []);
 
-    async componentDidUpdate(prevProps) {
-        if (!this.props.emptyState && prevProps.emptyState) {
-            const chrome = this.props.chrome;
-            await chrome?.appAction('comparison-view');
-        }
-    }
+    const handleUpdateReferenceId = async (id) => {
+        handleFetchCompare(selectedSystemIds, selectedBaselineIds, selectedHSPIds, id);
+    };
 
-    shiftReferenceToFront = (masterList) => {
-        let index;
-        let systemToMove;
-
-        index = masterList.findIndex((item) => {
-            return item.id === this.props.referenceId;
-        });
-
-        systemToMove = masterList.splice(index, 1);
-        masterList.unshift(systemToMove[0]);
-
-        return masterList;
-    }
-
-    formatEntities(systems, baselines, historicalProfiles) {
-        /*eslint-disable camelcase*/
-        let fullHistoricalSystemList = [];
-        let historicalGroups = {};
-        let masterList;
-
-        if (systems.length === 0 && baselines.length === 0 && historicalProfiles.length === 0) {
-            return [];
-        }
-
-        systems = systems.map(function(system) {
-            system.type = 'system';
-            return system;
-        });
-        baselines = baselines.map(function(baseline) {
-            baseline.type = 'baseline';
-            return baseline;
-        });
-        historicalProfiles = historicalProfiles.map(function(hsp) {
-            hsp.type = 'historical-system-profile';
-            return hsp;
-        });
-
-        historicalProfiles.forEach(function(hsp) {
-            if (Object.prototype.hasOwnProperty.call(historicalGroups, hsp.system_id)) {
-                historicalGroups[hsp.system_id].push(hsp);
-            } else {
-                historicalGroups[hsp.system_id] = [ hsp ];
-            }
-        });
-
-        fullHistoricalSystemList = systems;
-
-        // eslint-disable-next-line no-unused-vars
-        for (const [ system_id, hsps ] of Object.entries(historicalGroups)) {
-            let system = systems.find(item => system_id === item.id);
-            let index;
-
-            if (system !== undefined) {
-                index = fullHistoricalSystemList.indexOf(system);
-                fullHistoricalSystemList = [
-                    ...fullHistoricalSystemList.slice(0, index + 1),
-                    ...hsps,
-                    ...fullHistoricalSystemList.slice(index + 1, fullHistoricalSystemList.length)
-                ];
-            } else {
-                fullHistoricalSystemList = fullHistoricalSystemList.concat(hsps);
-            }
-        }
-        /*eslint-enable camelcase*/
-
-        masterList = baselines.concat(fullHistoricalSystemList);
-
-        if (this.props.referenceId) {
-            masterList = this.shiftReferenceToFront(masterList);
-        }
-
-        return masterList;
-    }
-
-    /*eslint-disable*/
-    setSystemIds() {
-        let searchParams = this.props.searchParams
-
-        this.systemIds = searchParams.getAll('system_ids');
-        if (!this.systemIds?.length) {
-            this.systemIds = this.props.systems.map(system => system.id);
-        } else {
-            this.systemIds = Array.isArray(this.systemIds) ? this.systemIds : [ this.systemIds ];
-            this.systemIds = this.systemIds.filter(item => item !== undefined);
-        }
-    }
-
-    setBaselineIds() {
-        let searchParams = this.props.searchParams
-
-        this.baselineIds = searchParams.getAll('baseline_ids');
-        if (!this.baselineIds?.length) {
-            this.baselineIds = this.props.baselines.map(baseline => baseline.id);
-        } else {
-            this.baselineIds = Array.isArray(this.baselineIds) ? this.baselineIds : [ this.baselineIds ];
-            this.baselineIds = this.baselineIds.filter(item => item !== undefined);
-            this.props.setSelectedBaselines(this.baselineIds, 'COMPARISON');
-        }
-    }
-
-    setHSPIds() {
-        const { selectHistoricProfiles, searchParams } = this.props;
-
-        this.HSPIds = searchParams.getAll('hsp_ids');
-        if (!this.HSPIds?.length) {
-            this.HSPIds = this.props.historicalProfiles.map(hsp => hsp.id);
-        } else {
-            this.HSPIds = Array.isArray(this.HSPIds) ? this.HSPIds : [ this.HSPIds ];
-            this.HSPIds = this.HSPIds.filter(item => item !== undefined);
-            selectHistoricProfiles(this.HSPIds);
-        }
-    }
-
-    setReferenceId() {
-        const { updateReferenceId, searchParams } = this.props;
-        let referenceId = searchParams.get('reference_id');
-
-        if (referenceId) {
-            updateReferenceId(referenceId === null ? undefined : referenceId);
-        }
-    }
-
-    addFilters(newFilters, filters, addFunction, type) {
-        if (newFilters?.length > 0) {
-            filters.forEach(function(filter) {
-                let x = { ...filter };
-
-                if (newFilters?.includes(filter.filter.toLowerCase())) {
-                    x.selected = false;
-
-                    if (type === 'fact') {
-                        addFunction(x);
-                    }
-                }
-
-                if (type === 'state') {
-                    addFunction(x);
-                }
-            });
-        }
-    }
-
-    setFilters() {
-        const { addStateFilter, factTypeFilters, handleFactFilter, stateFilters, toggleFactTypeFilter, searchParams } = this.props;
-
-        searchParams.get('filter[name]')?.split(',').forEach(function(factFilter) {
-            handleFactFilter(factFilter);
-        });
-
-        let newStateFilters = searchParams.get('filter[state]')?.split(',');
-        let newFactTypeFilters = searchParams.get('filter[show]')?.split(',');
-
-        this.addFilters(newStateFilters, stateFilters, addStateFilter, 'state');
-        this.addFilters(newFactTypeFilters, factTypeFilters, toggleFactTypeFilter, 'fact');
-    }
-
-    setSort() {
-        const { toggleFactSort, toggleStateSort, searchParams } = this.props;
-
-        let sort = searchParams.get('sort')?.split(',');
-
-        sort?.forEach(function(sort) {
-            if (sort.includes('fact')) {
-                if (sort[0] === '-') {
-                    toggleFactSort(ASC);
-                } else {
-                    toggleFactSort(DESC);
-                }
-            } else {
-                if (sort[0] === '-') {
-                    toggleStateSort(ASC);
-                } else if (sort === 'state') {
-                    toggleStateSort('');
-                }
-            }
-        });
-
-        if (sort?.length === 1 && sort[0]?.includes('fact')) {
-            toggleStateSort(DESC);
-        }
-    }
-
-    updateReferenceId = (id) => {
-        this.fetchCompare(this.systemIds, this.baselineIds, this.HSPIds, id);
-    }
-
-    findHSPReference = () => {
-        const { referenceId } = this.props;
+    const findHSPReference = () => {
         let newReferenceId = referenceId;
 
-        this.HSPIds.forEach((id) => {
+        selectedHSPIds.forEach((id) => {
             if (id === referenceId) {
                 newReferenceId = undefined;
             }
         });
 
         return newReferenceId;
-    }
+    };
 
-    async removeSystem(item) {
-        const { handleBaselineSelection, handleHSPSelection, handleSystemSelection, historicalProfiles, isFirstReference,
-            referenceId, selectHistoricProfiles, setIsFirstReference } = this.props;
+    const removeSystem = async (item) => {
         let newReferenceId = referenceId;
+        let newSelectedSystemIds = selectedSystemIds;
+        let newSelectedBaselineIds = selectedBaselineIds;
+        let newSelectedHSPIds = selectedHSPIds;
 
         if (item.type === 'system') {
-            this.systemIds = this.systemIds.filter(id => id !== item.id);
-            newReferenceId = await this.findHSPReference();
-            handleSystemSelection([ item ], false);
+            newSelectedSystemIds = selectedSystemIds.filter(id => id !== item.id);
+            newReferenceId = await findHSPReference();
+            dispatch(addSystemModalActions.handleSystemSelection([ item ], false));
 
-            let hspsToRemove = historicalProfiles.filter(profile => profile.system_id === item.id);
+            const hspsToRemove = historicalProfiles.filter(profile => profile.system_id === item.id);
 
-            this.HSPIds = await historicalProfiles.filter((profile) => {
+            newSelectedHSPIds = historicalProfiles.filter((profile) => {
                 return profile.system_id !== item.id;
             }).map(profile => profile.id);
 
             hspsToRemove.forEach(function(hsp) {
-                handleHSPSelection(hsp);
+                dispatch(addSystemModalActions.handleHSPSelection(hsp));
             });
         } else if (item.type === 'baseline') {
-            this.baselineIds = this.baselineIds.filter(id => id !== item.id);
-            handleBaselineSelection([ item ], false);
+            newSelectedBaselineIds = selectedBaselineIds.filter(id => id !== item.id);
+            dispatch(addSystemModalActions.handleBaselineSelection([ item ], false));
         } else if (item.type === 'historical-system-profile') {
-            this.HSPIds = this.HSPIds.filter(id => id !== item.id);
-            handleHSPSelection(item);
+            newSelectedHSPIds = selectedHSPIds.filter(id => id !== item.id);
+            dispatch(addSystemModalActions.handleHSPSelection(item));
         }
 
         if (item.id === newReferenceId) {
             newReferenceId = undefined;
         }
 
-        selectHistoricProfiles(this.HSPIds);
-        if (!this.systemIds.length && !this.baselineIds.length
-            && !this.HSPIds.length && !referenceId && !isFirstReference) {
+        selectHistoricProfiles(newSelectedHSPIds);
+        if (!newSelectedSystemIds.length && !newSelectedBaselineIds.length
+            && !newSelectedHSPIds.length && !newReferenceId && !isFirstReference) {
             setIsFirstReference(true);
         }
 
-        this.fetchCompare(this.systemIds, this.baselineIds, this.HSPIds, newReferenceId);
+        handleFetchCompare(newSelectedSystemIds, newSelectedBaselineIds, newSelectedHSPIds, newReferenceId);
+    };
 
-    }
-
-    async fetchCompare(systemIds = [], baselineIds, HSPIds, referenceId) {
-        const { clearComparison, fetchCompare, isFirstReference, setHistory, setIsFirstReference, setSelectedBaselines, updateReferenceId } = this.props;
-        let reference;
-
-        this.systemIds = systemIds;
-        this.baselineIds = baselineIds;
-        this.HSPIds = HSPIds;
-
-        if (isFirstReference) {
-            if (!referenceId && this.baselineIds.length) {
-                reference = baselineIds[0];
-            } else if (referenceId) {
-                reference = referenceId;
-            }
-        } else {
-            reference = referenceId;
-        }
-
-        if (!systemIds.includes(reference) && !baselineIds.includes(reference) && !HSPIds.includes(reference)) {
-            reference = undefined;
-        }
-
-        setSelectedBaselines(this.baselineIds, 'COMPARISON');
-        updateReferenceId(reference);
-
-        if (systemIds.length || baselineIds.length || HSPIds.length || reference) {
-            await fetchCompare(systemIds, baselineIds, HSPIds, reference);
-            await setIsFirstReference(false);
-        } else {
-            await clearComparison();
-        }
-
-        setHistory();
-    }
-    /*eslint-enable*/
-
-    renderRows(facts) {
-        let rows = [];
-
-        if (facts !== undefined) {
-            facts.forEach(fact => {
-                rows.push(this.renderRow(fact));
-            });
-        }
-
-        return rows;
-    }
-
-    renderLoadingRows() {
+    const renderLoadingRows = () => {
         let rows = [];
         let rowData = [];
 
@@ -371,242 +134,91 @@ export class DriftTable extends Component {
         }
 
         return rows;
-    }
+    };
 
-    renderRow(fact) {
-        const { expandedRows, expandRow, referenceId, stateSort } = this.props;
-        const { columnHeaderWidth } = this.state;
-        let rows = [];
-
-        if (fact.comparisons) {
-            rows.push(<DriftTableRow
-                expandedRows={ expandedRows }
-                expandRow={ expandRow }
-                fact={ fact }
-                masterList={ this.masterList }
-                referenceId={ referenceId }
-                stateSort={ stateSort }
-                type={ 'category' }
-                columnWidth={ columnHeaderWidth }
-            />);
-
-            if (expandedRows.includes(fact.name)) {
-                fact.comparisons.forEach(comparison => {
-                    if (comparison.multivalues) {
-                        rows.push(<DriftTableRow
-                            expandedRows={ expandedRows }
-                            expandRow={ expandRow }
-                            fact={ comparison }
-                            masterList={ this.masterList }
-                            referenceId={ referenceId }
-                            stateSort={ stateSort }
-                            type={ 'multi fact' }
-                            columnWidth={ columnHeaderWidth }
-                        />);
-
-                        if (expandedRows.includes(comparison.name)) {
-                            comparison.multivalues.forEach(subFactItem => {
-                                rows.push(<DriftTableRow
-                                    expandedRows={ expandedRows }
-                                    fact={ subFactItem }
-                                    masterList={ this.masterList }
-                                    referenceId={ referenceId }
-                                    stateSort={ stateSort }
-                                    type={ 'multi value' }
-                                    columnWidth={ columnHeaderWidth }
-                                />);
-                            });
-                        }
-                    } else {
-                        rows.push(<DriftTableRow
-                            expandedRows={ expandedRows }
-                            fact={ comparison }
-                            masterList={ this.masterList }
-                            referenceId={ referenceId }
-                            stateSort={ stateSort }
-                            type={ 'sub fact' }
-                            columnWidth={ columnHeaderWidth }
-                        />);
-                    }
-                });
-            }
-        } else {
-            rows.push(<DriftTableRow
-                expandedRows={ expandedRows }
-                fact={ fact }
-                masterList={ this.masterList }
-                referenceId={ referenceId }
-                stateSort={ stateSort }
-                type={ 'fact' }
-                columnWidth={ columnHeaderWidth }
-            />);
-        }
-
-        return rows;
-    }
-
-    renderTable(compareData, loading) {
-        const { factSort, permissions, referenceId, selectHistoricProfiles,
-            setHistory, stateSort, toggleFactSort, toggleStateSort } = this.props;
-        let scrollWidth = '';
-
-        if (this.bottomScroller.current) {
-            scrollWidth = this.bottomScroller.current.scrollWidth;
-        }
-
-        return (
-            <React.Fragment>
-                <div className='sticky-table-header'>
-                    <div className='second-scroll-wrapper' onScroll={ this.doubleScroll } ref={ this.topScroller }>
-                        <div
-                            className='second-scroll'
-                            style={{ width: scrollWidth }}
-                        ></div>
-                    </div>
+    return (
+        <React.Fragment>
+            <div className='sticky-table-header'>
+                <div className='second-scroll-wrapper' onScroll={ doubleScroll } ref={ topScroller }>
                     <div
-                        className="drift-table-wrapper"
-                        onScroll={ this.doubleScroll }
-                        ref={ this.headerScroll }>
-                        <table
-                            className="pf-c-table pf-m-compact drift-table"
-                            data-ouia-component-type='PF4/Table'
-                            data-ouia-component-id='comparison-table'>
-                            <thead>
-                                <ComparisonHeader
-                                    factSort={ factSort }
-                                    fetchCompare={ this.fetchCompare }
-                                    permissions={ permissions }
-                                    masterList={ this.masterList }
-                                    referenceId={ referenceId }
-                                    removeSystem={ this.removeSystem }
-                                    stateSort={ stateSort }
-                                    systemIds={ this.systemIds }
-                                    toggleFactSort={ toggleFactSort }
-                                    toggleStateSort={ toggleStateSort }
-                                    updateReferenceId={ this.updateReferenceId }
-                                    setHistory={ setHistory }
-                                    selectHistoricProfiles={ selectHistoricProfiles }
-                                    setColumnHeaderWidth={ this.setColumnHeaderWidth }
-                                />
-                            </thead>
-                        </table>
-                    </div>
+                        className='second-scroll'
+                        style={{ width: scrollWidth }}
+                    ></div>
                 </div>
                 <div
-                    className="drift-table-wrapper table-body-scroll"
-                    onScroll={ this.doubleScroll }
-                    ref={ this.bottomScroller }>
+                    className="drift-table-wrapper"
+                    onScroll={ doubleScroll }
+                    ref={ headerScroll }>
                     <table
                         className="pf-c-table pf-m-compact drift-table"
                         data-ouia-component-type='PF4/Table'
                         data-ouia-component-id='comparison-table'>
-                        <tbody>
-                            { loading ? this.renderLoadingRows() : this.renderRows(compareData) }
-                        </tbody>
+                        <thead>
+                            <ComparisonHeader
+                                factSort={ factSort }
+                                fetchCompare={ handleFetchCompare }
+                                permissions={ permissions }
+                                mainList={ mainList }
+                                referenceId={ referenceId }
+                                removeSystem={ removeSystem }
+                                stateSort={ stateSort }
+                                systemIds={ selectedSystemIds }
+                                toggleFactSort={ toggleFactSort }
+                                toggleStateSort={ toggleStateSort }
+                                updateReferenceId={ handleUpdateReferenceId }
+                                setHistory={ setHistory }
+                                selectHistoricProfiles={ selectHistoricProfiles }
+                                setColumnHeaderWidth={ setColumnHeaderWidth }
+                            />
+                        </thead>
                     </table>
                 </div>
-            </React.Fragment>
-        );
-    }
-
-    render() {
-        const { emptyState, filteredCompareData, systems, baselines, historicalProfiles, loading, permissions,
-            updateReferenceId } = this.props;
-
-        this.masterList = this.formatEntities(systems, baselines, historicalProfiles);
-
-        return (
-            <React.Fragment>
-                <AddSystemModal
-                    selectedSystemIds={ systems.map(system => system.id) }
-                    confirmModal={ this.fetchCompare }
-                    referenceId={ this.props.referenceId }
-                    permissions={ permissions }
-                    updateReferenceId={ updateReferenceId }
-                />
-                { !emptyState
-                    ? this.renderTable(filteredCompareData, loading)
-                    : null
-                }
-            </React.Fragment>
-        );
-    }
-}
-
-function mapStateToProps(state) {
-    return {
-        addSystemModalOpened: state.addSystemModalState.addSystemModalOpened,
-        fullCompareData: state.compareState.fullCompareData,
-        filteredCompareData: state.compareState.filteredCompareData,
-        loading: state.compareState.loading,
-        expandedRows: state.compareState.expandedRows,
-        emptyState: state.compareState.emptyState
-    };
-}
-
-function mapDispatchToProps(dispatch) {
-    return {
-        fetchCompare: ((systemIds, baselineIds, historicalProfiles, referenceId) =>
-            dispatch(compareActions.fetchCompare(systemIds, baselineIds, historicalProfiles, referenceId))
-        ),
-        toggleFactSort: (sortType) => dispatch(compareActions.toggleFactSort(sortType)),
-        toggleStateSort: (sortType) => dispatch(compareActions.toggleStateSort(sortType)),
-        expandRow: (factName) => dispatch(compareActions.expandRow(factName)),
-        setSelectedBaselines: ((selectedBaselineIds, tableId) =>
-            dispatch(baselinesTableActions.setSelectedBaselines(selectedBaselineIds, tableId))
-        ),
-        selectHistoricProfiles: (historicProfileIds) => dispatch(historicProfilesActions.selectHistoricProfiles(historicProfileIds))
-    };
-}
-
-DriftTable.propTypes = {
-    addSystemModalOpened: PropTypes.bool,
-    history: PropTypes.object,
-    fetchCompare: PropTypes.func,
-    fullCompareData: PropTypes.array,
-    filteredCompareData: PropTypes.array,
-    systems: PropTypes.array,
-    baselines: PropTypes.array,
-    historicalProfiles: PropTypes.array,
-    factSort: PropTypes.string,
-    stateSort: PropTypes.string,
-    loading: PropTypes.bool,
-    toggleFactSort: PropTypes.func,
-    toggleStateSort: PropTypes.func,
-    expandRow: PropTypes.func,
-    expandedRows: PropTypes.array,
-    setSelectedBaselines: PropTypes.func,
-    selectHistoricProfiles: PropTypes.func,
-    emptyState: PropTypes.bool,
-    updateReferenceId: PropTypes.func,
-    referenceId: PropTypes.string,
-    error: PropTypes.object,
-    isFirstReference: PropTypes.bool,
-    setIsFirstReference: PropTypes.func,
-    clearComparison: PropTypes.func,
-    permissions: PropTypes.object,
-    stateFilters: PropTypes.array,
-    addStateFilter: PropTypes.func,
-    handleFactFilter: PropTypes.func,
-    activeFactFilters: PropTypes.array,
-    factFilter: PropTypes.string,
-    setHistory: PropTypes.func,
-    selectedBaselineIds: PropTypes.array,
-    handleBaselineSelection: PropTypes.func,
-    handleHSPSelection: PropTypes.func,
-    handleSystemSelection: PropTypes.func,
-    hasHSPReadPermissions: PropTypes.bool,
-    factTypeFilters: PropTypes.array,
-    toggleFactTypeFilters: PropTypes.func,
-    chrome: PropTypes.object,
-    searchParams: PropTypes.object
-};
-
-const DriftTableWithHooks = props => {
-    const chrome = useChrome();
-    return (
-        <DriftTable { ...props } chrome={ chrome } />
+            </div>
+            <div
+                className="drift-table-wrapper table-body-scroll"
+                onScroll={ doubleScroll }
+                ref={ bottomScroller }>
+                <table
+                    className="pf-c-table pf-m-compact drift-table"
+                    data-ouia-component-type='PF4/Table'
+                    data-ouia-component-id='comparison-table'>
+                    <tbody>
+                        { loading
+                            ? renderLoadingRows()
+                            : <DriftTableRows
+                                columnWidth={ columnHeaderWidth }
+                                expandedRows={ expandedRows }
+                                filteredCompareData={ filteredCompareData }
+                                mainList={ mainList }
+                                referenceId={ referenceId }
+                                stateSort={ stateSort }
+                            />
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </React.Fragment>
     );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(DriftTableWithHooks);
+DriftTable.propTypes = {
+    factSort: PropTypes.string,
+    filteredCompareData: PropTypes.array,
+    handleFetchCompare: PropTypes.func,
+    historicalProfiles: PropTypes.object,
+    isFirstReference: PropTypes.bool,
+    loading: PropTypes.bool,
+    mainList: PropTypes.array,
+    permissions: PropTypes.object,
+    referenceId: PropTypes.string,
+    selectedBaselineIds: PropTypes.array,
+    selectedHSPIds: PropTypes.array,
+    selectedSystemIds: PropTypes.array,
+    setHistory: PropTypes.func,
+    setIsFirstReference: PropTypes.func,
+    stateSort: PropTypes.string,
+    toggleFactSort: PropTypes.func,
+    toggleStateSort: PropTypes.func
+};
+
+export default DriftTable;

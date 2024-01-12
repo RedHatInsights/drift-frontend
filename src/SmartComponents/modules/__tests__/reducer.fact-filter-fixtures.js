@@ -30,12 +30,12 @@ export const factFilteredStateOne = ({
     ],
     systems: [
         {
-            display_name: 'sgi-xe500-01.rhts.eng.bos.redhat.com',
+            display_name: 'system1',
             id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9',
             last_updated: '2019-01-15T14:53:15.886891Z'
         },
         {
-            display_name: 'ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com',
+            display_name: 'system2',
             id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2',
             last_updated: '2019-01-15T15:25:16.304899Z'
         }
@@ -60,12 +60,12 @@ export const factFilteredStateTwo = ({
     ],
     systems: [
         {
-            display_name: 'sgi-xe500-01.rhts.eng.bos.redhat.com',
+            display_name: 'system1',
             id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9',
             last_updated: '2019-01-15T14:53:15.886891Z'
         },
         {
-            display_name: 'ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com',
+            display_name: 'system2',
             id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2',
             last_updated: '2019-01-15T15:25:16.304899Z'
         }
@@ -90,12 +90,12 @@ export const activeFactFilteredStateOne = ({
     ],
     systems: [
         {
-            display_name: 'sgi-xe500-01.rhts.eng.bos.redhat.com',
+            display_name: 'system1',
             id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9',
             last_updated: '2019-01-15T14:53:15.886891Z'
         },
         {
-            display_name: 'ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com',
+            display_name: 'system2',
             id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2',
             last_updated: '2019-01-15T15:25:16.304899Z'
         }
@@ -140,12 +140,12 @@ export const activeFactFilteredStateTwo = ({
     ],
     systems: [
         {
-            display_name: 'sgi-xe500-01.rhts.eng.bos.redhat.com',
+            display_name: 'system1',
             id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9',
             last_updated: '2019-01-15T14:53:15.886891Z'
         },
         {
-            display_name: 'ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com',
+            display_name: 'system2',
             id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2',
             last_updated: '2019-01-15T15:25:16.304899Z'
         }

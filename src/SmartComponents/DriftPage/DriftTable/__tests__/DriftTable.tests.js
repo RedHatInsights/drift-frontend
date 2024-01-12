@@ -1,80 +1,40 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
-import { MemoryRouter } from 'react-router-dom';
-import configureStore from 'redux-mock-store';
+import { render, screen, waitFor } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import toJson from 'enzyme-to-json';
-
-import { EmptyState } from '@patternfly/react-core';
-import { Skeleton } from '@redhat-cloud-services/frontend-components';
-
-import ConnectedDriftTable, { DriftTable } from '../DriftTable';
-import { compareReducerPayload, compareReducerPayloadWithMultiFact, baselinesPayload,
-    historicalProfilesPayload } from '../../../modules/__tests__/reducer.fixtures';
-import stateFilterFixtures from '../../../modules/__tests__/state-filter.fixtures';
-import ReferenceSelector from '../ReferenceSelector/ReferenceSelector';
+import DriftTable from '../DriftTable';
+import { compareReducerPayloadWithMultiFact } from '../../../modules/__tests__/reducer.fixtures';
+import comparisonHeaderFixtures from '../ComparisonHeader/__tests__/ComparisonHeader.fixtures';
 import { ASC, DESC } from '../../../../constants';
-import { createMiddlewareListener } from '../../../../store';
+import { createMiddlewareListener, init } from '../../../../store';
+import userEvent from '@testing-library/user-event';
 
 const middlewareListener = createMiddlewareListener();
 middlewareListener.getMiddleware();
 
-jest.mock('../../../BaselinesTable/redux', () => ({
-    baselinesTableActions: {
-        selectBaseline: jest.fn(()=> ({ type: 'null' })),
-        revertBaselineFetch: jest.fn(()=> ({ type: 'null' })),
-        fetchBaselines: jest.fn(()=> ({ type: 'null' })),
-        setSelectedBaselines: jest.fn(()=> ({ type: 'null' }))
-    }
-}));
-
-jest.mock('../../../modules', () => ({
-    compareActions: {
-        fetchCompare: jest.fn(()=> ({ type: 'null' })),
-        handleFactFilter: jest.fn(()=> ({ type: 'null' })),
-        addStateFilter: jest.fn(()=> ({ type: 'null' }))
-    }
-}));
-
 describe('DriftTable', () => {
     let props;
+    const store = init().registry.getStore();
 
     beforeEach(() => {
         props = {
-            location: {},
-            history: { push: jest.fn() },
-            fetchCompare: jest.fn(),
-            fullCompareData: [],
-            filteredCompareData: [],
-            systems: [],
-            baselines: [],
-            historicalProfiles: [],
             factSort: ASC,
-            stateSort: DESC,
-            loading: false,
+            filteredCompareData: compareReducerPayloadWithMultiFact.facts,
+            handleFetchCompare: jest.fn(),
+            historicalProfiles: compareReducerPayloadWithMultiFact.historical_system_profiles,
             isFirstReference: true,
+            mainList: comparisonHeaderFixtures.mainListAll,
             permissions: {
                 hspRead: true
             },
-            stateFilters: stateFilterFixtures.allStatesTrue,
-            toggleFactSort: jest.fn(),
-            toggleStateSort: jest.fn(),
-            expandRow: jest.fn(),
-            expandedRows: [],
-            setSelectedBaselines: jest.fn(),
-            selectHistoricProfiles: jest.fn(),
-            updateReferenceId: jest.fn(),
-            setIsFirstReference: jest.fn(),
-            clearComparison: jest.fn(),
+            referenceId: '',
+            selectedBaselineIds: comparisonHeaderFixtures.fullSelectedBaselineIds,
+            selectedHSPIds: comparisonHeaderFixtures.fullSelectedHSPIds,
+            selectedSystemIds: comparisonHeaderFixtures.fullSelectedSystemIds,
             setHistory: jest.fn(),
-            handleFactFilter: jest.fn(()=> ({ type: 'null' })),
-            addStateFilter: jest.fn(),
-            handleBaselineSelection: jest.fn(),
-            searchParams: {
-                getAll: jest.fn(() => ''),
-                get: jest.fn(() => '')
-            },
-            factTypeFilters: []
+            setIsFirstReference: jest.fn(),
+            stateSort: DESC,
+            toggleFactSort: jest.fn(),
+            toggleStateSort: jest.fn()
         };
     });
 
@@ -83,279 +43,110 @@ describe('DriftTable', () => {
     });
 
     it('should render correctly', () => {
-        const wrapper = shallow(
-            <DriftTable { ...props }/>
-        );
-        expect(toJson(wrapper)).toMatchSnapshot();
-    });
-
-    it('should call clearComparison on fetchCompare with no data', () => {
-        const wrapper = shallow(
-            <DriftTable { ...props } />
+        const { asFragment } = render(
+            <Provider store={ store }>
+                <DriftTable { ...props }/>
+            </Provider>
         );
 
-        wrapper.instance().fetchCompare([], [], [], undefined);
-        expect(props.clearComparison).toHaveBeenCalled();
+        expect(asFragment()).toMatchSnapshot();
     });
 
-    it('should set first reference on baselineId', async () => {
-        const wrapper = shallow(
-            <DriftTable { ...props } />
+    it('should call handleFetchCompare with updated reference id', async () => {
+        render(
+            <Provider store={ store }>
+                <DriftTable { ...props }/>
+            </Provider>
         );
 
-        await wrapper.instance().fetchCompare([], [ 'abcd1234' ], [], undefined);
-        expect(props.setIsFirstReference).toHaveBeenCalledWith(false);
+        await waitFor(() => userEvent.click(screen.getAllByTestId('unselected-reference-icon')[0]));
+        expect(props.handleFetchCompare).toHaveBeenCalledWith(
+            comparisonHeaderFixtures.fullSelectedSystemIds,
+            comparisonHeaderFixtures.fullSelectedBaselineIds,
+            comparisonHeaderFixtures.fullSelectedHSPIds,
+            '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9'
+        );
     });
 
-    it('should set first reference on referenceId', async () => {
-        const wrapper = shallow(
-            <DriftTable { ...props } />
+    it('should remove a system', async () => {
+        render(
+            <Provider store={ store }>
+                <DriftTable { ...props }/>
+            </Provider>
         );
 
-        await wrapper.instance().fetchCompare([ 'abcd1234' ], [], [], 'abcd1234');
-        expect(props.setIsFirstReference).toHaveBeenCalledWith(false);
+        await waitFor(() => userEvent.click(screen.getByTestId('remove-system-button-f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2')));
+        expect(props.handleFetchCompare).toHaveBeenCalledWith(
+            [ '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9' ],
+            comparisonHeaderFixtures.fullSelectedBaselineIds,
+            comparisonHeaderFixtures.fullSelectedHSPIds,
+            ''
+        );
     });
 
-    it('should set first isFirstReference to true with no data', async () => {
-        props.location.search = 'baseline_ids=abcd1234';
-        props.isFirstReference = false;
-        const wrapper = shallow(
-            <DriftTable { ...props } />
+    it('should remove a system and its hsps', async () => {
+        render(
+            <Provider store={ store }>
+                <DriftTable { ...props }/>
+            </Provider>
         );
 
-        wrapper.instance().removeSystem({
-            type: 'baseline',
-            id: 'abcd1234'
-        });
-
-        expect(props.handleBaselineSelection).toHaveBeenCalled();
-        expect(props.selectHistoricProfiles).toHaveBeenCalled();
-        expect(props.setIsFirstReference).toHaveBeenCalledWith(true);
+        await waitFor(() => userEvent.click(screen.getByTestId('remove-system-button-9c79efcc-8f9a-47c7-b0f2-142ff52e89e9')));
+        expect(props.handleFetchCompare).toHaveBeenCalledWith(
+            [ 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2' ],
+            comparisonHeaderFixtures.fullSelectedBaselineIds,
+            [],
+            ''
+        );
     });
 
-    it('should set fact filter', () => {
-        props.searchParams = new URLSearchParams('filter[name]=abc,123');
-        const wrapper = shallow(
-            <DriftTable { ...props } />
+    it('should remove a baseline', async () => {
+        render(
+            <Provider store={ store }>
+                <DriftTable { ...props }/>
+            </Provider>
         );
 
-        wrapper.instance().setFilters();
-        expect(props.handleFactFilter).toHaveBeenCalledWith('abc');
-        expect(props.handleFactFilter).toHaveBeenCalledWith('123');
+        await waitFor(() => userEvent.click(screen.getByTestId('remove-system-button-9bbbefcc-8f23-4d97-07f2-142asdl234e9')));
+        expect(props.handleFetchCompare).toHaveBeenCalledWith(
+            comparisonHeaderFixtures.fullSelectedSystemIds,
+            [ 'fdmk59dj-fn42-dfjk-alv3-bmn2854mnn29' ],
+            comparisonHeaderFixtures.fullSelectedHSPIds,
+            ''
+        );
     });
 
-    it('should set state filter', () => {
-        props.searchParams = new URLSearchParams('filter[state]=same,incomplete_data');
-        const wrapper = shallow(
-            <DriftTable { ...props } />
+    it('should remove a baseline and the reference', async () => {
+        props.referenceId = '9bbbefcc-8f23-4d97-07f2-142asdl234e9';
+        render(
+            <Provider store={ store }>
+                <DriftTable { ...props }/>
+            </Provider>
         );
 
-        wrapper.instance().setFilters();
-        expect(props.addStateFilter).toHaveBeenCalledWith(stateFilterFixtures.allStatesFalse[0]);
-        expect(props.addStateFilter).toHaveBeenCalledWith(stateFilterFixtures.allStatesFalse[2]);
+        await waitFor(() => userEvent.click(screen.getByTestId('remove-system-button-9bbbefcc-8f23-4d97-07f2-142asdl234e9')));
+        expect(props.handleFetchCompare).toHaveBeenCalledWith(
+            comparisonHeaderFixtures.fullSelectedSystemIds,
+            [ 'fdmk59dj-fn42-dfjk-alv3-bmn2854mnn29' ],
+            comparisonHeaderFixtures.fullSelectedHSPIds,
+            undefined
+        );
     });
 
-    it('should set sort asc', () => {
-        props.searchParams = new URLSearchParams('sort=fact,state');
-        const wrapper = shallow(
-            <DriftTable { ...props } />
+    it('should remove an hsp', async () => {
+        props.referenceId = '9bbbefcc-8f23-4d97-07f2-142asdl234e9';
+        render(
+            <Provider store={ store }>
+                <DriftTable { ...props }/>
+            </Provider>
         );
 
-        wrapper.instance().setSort();
-        expect(props.toggleFactSort).toHaveBeenCalledWith(DESC);
-        expect(props.toggleStateSort).toHaveBeenCalledWith('');
-    });
-
-    it('should set sort desc', () => {
-        props.searchParams = new URLSearchParams('sort=-fact,-state');
-        const wrapper = shallow(
-            <DriftTable { ...props } />
+        await waitFor(() => userEvent.click(screen.getByTestId('remove-system-button-9bbbefcc-8f23-4d97-07f2-142asdl234e8')));
+        expect(props.handleFetchCompare).toHaveBeenCalledWith(
+            comparisonHeaderFixtures.fullSelectedSystemIds,
+            comparisonHeaderFixtures.fullSelectedBaselineIds,
+            [ 'edmk59dj-fn42-dfjk-alv3-bmn2854mnn27' ],
+            '9bbbefcc-8f23-4d97-07f2-142asdl234e9'
         );
-
-        wrapper.instance().setSort();
-        expect(props.toggleFactSort).toHaveBeenCalledWith(ASC);
-        expect(props.toggleStateSort).toHaveBeenCalledWith(ASC);
-    });
-
-    it('should set state sort, no sort', () => {
-        props.searchParams = new URLSearchParams('sort=fact');
-        const wrapper = shallow(
-            <DriftTable { ...props } />
-        );
-
-        wrapper.instance().setSort();
-        expect(props.toggleFactSort).toHaveBeenCalledWith(DESC);
-        expect(props.toggleStateSort).toHaveBeenCalledWith(DESC);
-    });
-});
-
-describe('ConnectedDriftTable', () => {
-    let initialState;
-    let props;
-    let mockStore;
-
-    beforeEach(() => {
-        mockStore = configureStore();
-        initialState = {
-            compareState: {
-                loading: false,
-                fullCompareData: [],
-                stateFilters: [
-                    { filter: 'SAME', display: 'Same', selected: true },
-                    { filter: 'DIFFERENT', display: 'Different', selected: true },
-                    { filter: 'INCOMPLETE_DATA', display: 'Incomplete data', selected: true }
-                ],
-                emptyState: false,
-                expandedRows: []
-            },
-            addSystemModalState: { addSystemModalOpened: false, selectedSystemIds: []},
-            baselinesTableState: {
-                comparisonTable: {
-                    selectedBaselineIds: []
-                },
-                checkboxTable: {
-                    selectedBaselineIds: []
-                }
-            },
-            historicProfilesState: { selectedHSPIds: []}
-        };
-
-        props = {
-            systems: [],
-            baselines: [],
-            historicalProfiles: [],
-            permissions: {
-                hspRead: true
-            },
-            updateReferenceId: jest.fn(),
-            setIsFirstReference: jest.fn(),
-            setHistory: jest.fn(),
-            fetchCompare: jest.fn(),
-            searchParams: {
-                getAll: jest.fn(() => ''),
-                get: jest.fn(() => '')
-            },
-            stateFilters: [],
-            factTypeFilters: [],
-            handleFactFilter: jest.fn(()=> ({ type: 'null' })),
-            addStateFilter: jest.fn(()=> ({ type: 'null' }))
-        };
-    });
-
-    it('should render correctly', () => {
-        const store = mockStore(initialState);
-        let error = {};
-
-        const wrapper = mount(
-            <MemoryRouter keyLength={ 0 }>
-                <Provider store={ store }>
-                    <ConnectedDriftTable
-                        { ...props }
-                        error={ error }
-                    />
-                </Provider>
-            </MemoryRouter>
-        );
-
-        expect(toJson(wrapper)).toMatchSnapshot();
-    });
-
-    it('should render systems, baselines and historicalProfiles', () => {
-        initialState.compareState.fullCompareData = compareReducerPayload.facts;
-        initialState.compareState.filteredCompareData = compareReducerPayload.facts;
-        initialState.compareState.loading = false;
-        props.systems = compareReducerPayload.systems;
-        props.baselines = baselinesPayload;
-        props.historicalProfiles = historicalProfilesPayload;
-
-        const store = mockStore(initialState);
-
-        const wrapper = mount(
-            <MemoryRouter keyLength={ 0 }>
-                <Provider store={ store }>
-                    <ConnectedDriftTable { ...props } />
-                </Provider>
-            </MemoryRouter>
-        );
-
-        expect(wrapper.find('table')).toHaveLength(2);
-        expect(wrapper.find('tr')).toHaveLength(4);
-        expect(wrapper.find(EmptyState)).toHaveLength(0);
-        expect(toJson(wrapper)).toMatchSnapshot();
-    });
-
-    it.skip('should render multi fact values', () => {
-        initialState.compareState.fullCompareData = compareReducerPayloadWithMultiFact.facts;
-        initialState.compareState.filteredCompareData = compareReducerPayloadWithMultiFact.facts;
-        initialState.compareState.loading = false;
-        initialState.compareState.expandedRows = [ 'cpu_flags', 'abc' ];
-        props.systems = compareReducerPayloadWithMultiFact.systems;
-        props.baselines = baselinesPayload;
-        props.historicalProfiles = historicalProfilesPayload;
-
-        const store = mockStore(initialState);
-
-        const wrapper = mount(
-            <MemoryRouter keyLength={ 0 }>
-                <Provider store={ store }>
-                    <ConnectedDriftTable { ...props } />
-                </Provider>
-            </MemoryRouter>
-        );
-
-        expect(wrapper.find('table')).toHaveLength(2);
-        expect(wrapper.find('tr')).toHaveLength(10);
-        expect(wrapper.find(EmptyState)).toHaveLength(0);
-        expect(toJson(wrapper)).toMatchSnapshot();
-    });
-
-    it('should render loading rows', () => {
-        initialState.compareState.loading = true;
-        const store = mockStore(initialState);
-        let error = {};
-
-        const wrapper = mount(
-            <MemoryRouter keyLength={ 0 }>
-                <Provider store={ store }>
-                    <ConnectedDriftTable
-                        { ...props }
-                        error={ error }
-                    />
-                </Provider>
-            </MemoryRouter>
-        );
-
-        expect(wrapper.find('tr')).toHaveLength(11);
-        expect(wrapper.find(Skeleton)).toHaveLength(31);
-        expect(wrapper.find(EmptyState)).toHaveLength(0);
-        expect(toJson(wrapper)).toMatchSnapshot();
-    });
-
-    it.skip('should call updateReferenceId with new reference id', () => {
-        initialState.compareState.fullCompareData = compareReducerPayload.facts;
-        initialState.compareState.loading = false;
-        initialState.historicProfilesState.selectedHSPIds = [
-            '9bbbefcc-8f23-4d97-07f2-142asdl234e8', 'edmk59dj-fn42-dfjk-alv3-bmn2854mnn27'
-        ];
-        props.systems = compareReducerPayload.systems;
-        props.baselines = baselinesPayload;
-        props.historicalProfiles = historicalProfilesPayload;
-        let setIsFirstReference = jest.fn();
-
-        const store = mockStore(initialState);
-
-        const wrapper = mount(
-            <MemoryRouter keyLength={ 0 }>
-                <Provider store={ store }>
-                    <ConnectedDriftTable
-                        { ...props }
-                        setIsFirstReference={ setIsFirstReference }
-                    />
-                </Provider>
-            </MemoryRouter>
-        );
-
-        wrapper.find(ReferenceSelector).first().simulate('click');
-        expect(props.updateReferenceId).toHaveBeenCalledWith('9bbbefcc-8f23-4d97-07f2-142asdl234e9');
     });
 });

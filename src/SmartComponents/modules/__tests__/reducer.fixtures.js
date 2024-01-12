@@ -41,12 +41,12 @@ export const compareReducerPayload = ({
     ],
     systems: [
         {
-            display_name: 'sgi-xe500-01.rhts.eng.bos.redhat.com',
+            display_name: 'system1',
             id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9',
             last_updated: '2019-01-15T14:53:15.886891Z'
         },
         {
-            display_name: 'ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com',
+            display_name: 'system2',
             id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2',
             last_updated: '2019-01-15T15:25:16.304899Z'
         }
@@ -125,12 +125,12 @@ export const compareReducerPayloadWithCategory = ({
     ],
     systems: [
         {
-            display_name: 'sgi-xe500-01.rhts.eng.bos.redhat.com',
+            display_name: 'system1',
             id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9',
             last_updated: '2019-01-15T14:53:15.886891Z'
         },
         {
-            display_name: 'ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com',
+            display_name: 'system2',
             id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2',
             last_updated: '2019-01-15T15:25:16.304899Z'
         }
@@ -333,14 +333,46 @@ export const compareReducerPayloadWithMultiFact = ({
     ],
     systems: [
         {
-            display_name: 'sgi-xe500-01.rhts.eng.bos.redhat.com',
+            display_name: 'system1',
             id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9',
-            last_updated: '2019-01-15T14:53:15.886891Z'
+            last_updated: '2019-01-15T14:53:15.886891Z',
+            type: 'system'
         },
         {
-            display_name: 'ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com',
+            display_name: 'system2',
             id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2',
-            last_updated: '2019-01-15T15:25:16.304899Z'
+            last_updated: '2019-01-15T15:25:16.304899Z',
+            type: 'system'
+        }
+    ],
+    baselines: [
+        {
+            display_name: 'baseline1',
+            id: '9bbbefcc-8f23-4d97-07f2-142asdl234e9',
+            last_updated: '2019-01-15T15:25:16.304899Z',
+            type: 'baseline'
+        },
+        {
+            display_name: 'baseline2',
+            id: 'fdmk59dj-fn42-dfjk-alv3-bmn2854mnn29',
+            last_updated: '2019-01-15T15:25:16.304899Z',
+            type: 'baseline'
+        }
+    ],
+    historical_system_profiles: [
+        {
+            display_name: 'system1',
+            id: '9bbbefcc-8f23-4d97-07f2-142asdl234e8',
+            system_id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9',
+            last_updated: '2019-01-16T14:53:15.886891Z',
+            type: 'historical-system-profile'
+        },
+        {
+            display_name: 'system1',
+            id: 'edmk59dj-fn42-dfjk-alv3-bmn2854mnn27',
+            system_id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9',
+            last_updated: '2019-01-17T14:53:15.886891Z',
+            type: 'historical-system-profile'
         }
     ]
 });
@@ -375,12 +407,12 @@ export const compareReducerPayloadWithUppercase = ({
     ],
     systems: [
         {
-            display_name: 'sgi-xe500-01.rhts.eng.bos.redhat.com',
+            display_name: 'system1',
             id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9',
             last_updated: '2019-01-15T14:53:15.886891Z'
         },
         {
-            display_name: 'ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com',
+            display_name: 'system2',
             id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2',
             last_updated: '2019-01-15T15:25:16.304899Z'
         }
@@ -498,12 +530,12 @@ export const compareReducerPayloadWithUpperCaseSubFact = ({
     ],
     systems: [
         {
-            display_name: 'sgi-xe500-01.rhts.eng.bos.redhat.com',
+            display_name: 'system1',
             id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9',
             last_updated: '2019-01-15T14:53:15.886891Z'
         },
         {
-            display_name: 'ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com',
+            display_name: 'system2',
             id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2',
             last_updated: '2019-01-15T15:25:16.304899Z'
         }
@@ -942,12 +974,12 @@ export const compareReducerState = ({
     ],
     systems: [
         {
-            display_name: 'sgi-xe500-01.rhts.eng.bos.redhat.com',
+            display_name: 'system1',
             id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9',
             last_updated: '2019-01-15T14:53:15.886891Z'
         },
         {
-            display_name: 'ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com',
+            display_name: 'system2',
             id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2',
             last_updated: '2019-01-15T15:25:16.304899Z'
         }
@@ -998,12 +1030,12 @@ export const sortedDesc = ({
     ],
     systems: [
         {
-            display_name: 'sgi-xe500-01.rhts.eng.bos.redhat.com',
+            display_name: 'system1',
             id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9',
             last_updated: '2019-01-15T14:53:15.886891Z'
         },
         {
-            display_name: 'ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com',
+            display_name: 'system2',
             id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2',
             last_updated: '2019-01-15T15:25:16.304899Z'
         }
@@ -1041,12 +1073,12 @@ export const paginatedStatePageOne = ({
     ],
     systems: [
         {
-            display_name: 'sgi-xe500-01.rhts.eng.bos.redhat.com',
+            display_name: 'system1',
             id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9',
             last_updated: '2019-01-15T14:53:15.886891Z'
         },
         {
-            display_name: 'ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com',
+            display_name: 'system2',
             id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2',
             last_updated: '2019-01-15T15:25:16.304899Z'
         }
@@ -1071,12 +1103,12 @@ export const paginatedStatePageTwo = ({
     ],
     systems: [
         {
-            display_name: 'sgi-xe500-01.rhts.eng.bos.redhat.com',
+            display_name: 'system1',
             id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9',
             last_updated: '2019-01-15T14:53:15.886891Z'
         },
         {
-            display_name: 'ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com',
+            display_name: 'system2',
             id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2',
             last_updated: '2019-01-15T15:25:16.304899Z'
         }
@@ -1085,12 +1117,12 @@ export const paginatedStatePageTwo = ({
 
 export const systemsPayload = ([
     {
-        display_name: 'sgi-xe500-01.rhts.eng.bos.redhat.com',
+        display_name: 'system1',
         id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9',
         last_updated: '2019-01-15T14:53:15.886891Z'
     },
     {
-        display_name: 'ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com',
+        display_name: 'system2',
         id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2',
         last_updated: '2019-01-15T15:25:16.304899Z'
     }
@@ -1216,19 +1248,19 @@ export const mockMultiValueFacts = ({
     ],
     systems: [
         {
-            display_name: 'sgi-xe500-01.rhts.eng.bos.redhat.com',
+            display_name: 'system1',
             id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9',
             last_updated: '2019-01-15T14:53:15.886891Z'
         },
         {
-            display_name: 'ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com',
+            display_name: 'system2',
             id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2',
             last_updated: '2019-01-15T15:25:16.304899Z'
         }
     ]
 });
 
-export const comparisonCSV = 'Fact,State,sgi-xe500-01.rhts.eng.bos.redhat.com(reference),ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com\n\
+export const comparisonCSV = 'Fact,State,system1(reference),system2\n\
 ,,15 Jan 2019 14:53 UTC(reference),15 Jan 2019 15:25 UTC\n\
 cpus,DIFFERENT,4,3\n\
 bios_uuid,SAME,FAKE-BIOS,FAKE-BIOS\n\
@@ -1294,14 +1326,69 @@ export const fullSimpleComparison = ({
     ],
     systems: [
         {
-            display_name: 'sgi-xe500-01.rhts.eng.bos.redhat.com',
+            display_name: 'system1',
             id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9',
             last_updated: '2019-01-15T14:53:15.886891Z'
         },
         {
-            display_name: 'ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com',
+            display_name: 'system2',
             id: 'f35b1e1d-d231-43f2-8e4f-8f9cb01e3aa2',
             last_updated: '2019-01-15T15:25:16.304899Z'
+        }
+    ]
+});
+
+export const fullSingleSystemComparison = ({
+    facts: [
+        {
+            name: 'cpus',
+            state: 'SAME',
+            systems: [
+                {
+                    id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9', value: '4'
+                }
+            ],
+            tooltip: 'Different - At least one system fact value in this row differs.'
+        },
+        {
+            name: 'cpu_flags',
+            state: 'SAME',
+            comparisons: [
+                {
+                    name: 'abm',
+                    state: 'SAME',
+                    systems: [
+                        {
+                            id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9', value: 'enabled'
+                        }
+                    ]
+                },
+                {
+                    name: 'abc',
+                    state: 'SAME',
+                    multivalues: [
+                        {
+                            state: 'SAME',
+                            systems: [
+                                { id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9', value: 'blah1' }
+                            ]
+                        },
+                        {
+                            state: 'SAME',
+                            systems: [
+                                { id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9', value: 'blah2' }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    systems: [
+        {
+            display_name: 'system1',
+            id: '9c79efcc-8f9a-47c7-b0f2-142ff52e89e9',
+            last_updated: '2019-01-15T14:53:15.886891Z'
         }
     ]
 });
@@ -1310,9 +1397,9 @@ export const comparisonJSON = [
     {
         fact: 'cpus',
         state: 'DIFFERENT',
-        'ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com, 15 Jan 2019, 15:25 UTC': '3',
-        'sgi-xe500-01.rhts.eng.bos.redhat.com, 15 Jan 2019, 14:53 UTC': '4',
-        reference: 'sgi-xe500-01.rhts.eng.bos.redhat.com, 15 Jan 2019, 14:53 UTC'
+        'system2, 15 Jan 2019, 15:25 UTC': '3',
+        'system1, 15 Jan 2019, 14:53 UTC': '4',
+        reference: 'system1, 15 Jan 2019, 14:53 UTC'
     },
     {
         fact: 'cpu_flags',
@@ -1321,9 +1408,9 @@ export const comparisonJSON = [
             {
                 fact: 'abm',
                 state: 'SAME',
-                'ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com, 15 Jan 2019, 15:25 UTC': 'enabled',
-                'sgi-xe500-01.rhts.eng.bos.redhat.com, 15 Jan 2019, 14:53 UTC': 'enabled',
-                reference: 'sgi-xe500-01.rhts.eng.bos.redhat.com, 15 Jan 2019, 14:53 UTC'
+                'system2, 15 Jan 2019, 15:25 UTC': 'enabled',
+                'system1, 15 Jan 2019, 14:53 UTC': 'enabled',
+                reference: 'system1, 15 Jan 2019, 14:53 UTC'
             },
             {
                 fact: 'abc',
@@ -1332,16 +1419,16 @@ export const comparisonJSON = [
                     {
                         fact: 'abc',
                         state: 'SAME',
-                        'ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com, 15 Jan 2019, 15:25 UTC': 'blah1',
-                        'sgi-xe500-01.rhts.eng.bos.redhat.com, 15 Jan 2019, 14:53 UTC': 'blah1',
-                        reference: 'sgi-xe500-01.rhts.eng.bos.redhat.com, 15 Jan 2019, 14:53 UTC'
+                        'system2, 15 Jan 2019, 15:25 UTC': 'blah1',
+                        'system1, 15 Jan 2019, 14:53 UTC': 'blah1',
+                        reference: 'system1, 15 Jan 2019, 14:53 UTC'
                     },
                     {
                         fact: 'abc',
                         state: 'INCOMPLETE_DATA',
-                        'ibm-x3650m4-03-vm03.lab.eng.brq.redhat.com, 15 Jan 2019, 15:25 UTC': 'blah2',
-                        'sgi-xe500-01.rhts.eng.bos.redhat.com, 15 Jan 2019, 14:53 UTC': undefined,
-                        reference: 'sgi-xe500-01.rhts.eng.bos.redhat.com, 15 Jan 2019, 14:53 UTC'
+                        'system2, 15 Jan 2019, 15:25 UTC': 'blah2',
+                        'system1, 15 Jan 2019, 14:53 UTC': undefined,
+                        reference: 'system1, 15 Jan 2019, 14:53 UTC'
                     }
                 ]
             }
