@@ -17,6 +17,7 @@ const InsightsElement = ({ element: Element, title }) => {
     const RHEL_ONLY_FILTER = '?filter[system_profile][operating_system][RHEL][version][gte]=0';
     const [ hasSystems, setHasSystems ] = useState(true);
     const chrome = useChrome();
+
     useEffect(() => {
         try {
             axios
@@ -34,16 +35,19 @@ const InsightsElement = ({ element: Element, title }) => {
     }, [ chrome, title ]);
 
     return (
-        !hasSystems ?
-            <AsynComponent
-                appId="drift_zero_state"
-                appName="dashboard"
-                module="./AppZeroState"
-                scope="dashboard"
-                ErrorComponent={ <ErrorState /> }
-                app="Drift"
-            />
-            : <Element title={ title } />);
+        <AsynComponent
+            appId="drift_zero_state"
+            appName="dashboard"
+            module="./AppZeroState"
+            scope="dashboard"
+            ErrorComponent={ <ErrorState /> }
+            app="Drift"
+            aria-label="Zero state"
+            customFetchResults={ hasSystems }
+        >
+            <Element title={ title } />
+        </AsynComponent>
+    );
 };
 
 InsightsElement.propTypes = {
