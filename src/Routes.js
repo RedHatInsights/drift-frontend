@@ -14,12 +14,13 @@ const EditBaselinePage = asyncComponent(() => import ('./SmartComponents/Baselin
 
 const InsightsElement = ({ element: Element, title }) => {
     const INVENTORY_TOTAL_FETCH_URL = '/api/inventory/v1/hosts';
+    const RHEL_ONLY_FILTER = '?filter[system_profile][operating_system][RHEL][version][gte]=0';
     const [ hasSystems, setHasSystems ] = useState(true);
     const chrome = useChrome();
     useEffect(() => {
         try {
             axios
-            .get(`${INVENTORY_TOTAL_FETCH_URL}?page=1&per_page=1`)
+            .get(`${INVENTORY_TOTAL_FETCH_URL}${RHEL_ONLY_FILTER}&page=1&per_page=1`)
             .then(({ data }) => {
                 setHasSystems(data.total > 0);
             });
