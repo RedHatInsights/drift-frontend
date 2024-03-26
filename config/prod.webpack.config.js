@@ -17,6 +17,10 @@ plugins.push(
                 'react-router-dom': {
                     singleton: true,
                     requiredVersion: '*'
+                },
+                axios: {
+                    singleton: true,
+                    requiredVersion: '^1.6.8'
                 }
             }
         ]
