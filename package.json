@@ -47,7 +47,8 @@
             "<rootDir>/src/"
         ],
         "moduleNameMapper": {
-            "\\.(css|scss)$": "identity-obj-proxy"
+            "\\.(css|scss)$": "identity-obj-proxy",
+            "^axios$": "axios/dist/node/axios.cjs"
         },
         "coverageDirectory": "./codecov-jest/"
     },
