@@ -268,7 +268,6 @@ class EditBaseline extends Component {
                     rows.push(<tr
                         data-ouia-component-type='PF4/TableRow'
                         data-ouia-component-id={ 'edit-baseline-table-row-' + subFact[FACT_NAME] }
-                        category={ factData?.name }
                         key={ subFact[FACT_NAME] }>{ row }</tr>);
                 });
             }
