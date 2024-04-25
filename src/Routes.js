@@ -61,7 +61,7 @@ const DriftRoutes = () => {
             <Route
                 path='/baselines'
                 element={ <InsightsElement element={ BaselinesPage }
-                    title='Baselines - Drift | Red Hat Insights'
+                    title='Baselines - Drift | RHEL'
                 /> }
             />
             <Route path='/baselines/:id'
@@ -69,9 +69,9 @@ const DriftRoutes = () => {
             />
             <Route
                 path='/'
-                title='Comparison - Drift | Red Hat Insights'
+                title='Comparison - Drift | RHEL'
                 element={ <InsightsElement element={ DriftPage }
-                    title='Comparison - Drift | Red Hat Insights'
+                    title='Comparison - Drift | RHEL'
                 /> }
             />
             <Route path='*'
