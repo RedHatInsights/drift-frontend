@@ -31,7 +31,7 @@ const InsightsElement = ({ element: Element, title }) => {
     }, [ hasSystems ]);
 
     useEffect(()=>{
-        title && chrome.updateDocumentTitle(title);
+        title && chrome.updateDocumentTitle(title, true);
     }, [ chrome, title ]);
 
     return (
