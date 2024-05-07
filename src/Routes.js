@@ -31,7 +31,7 @@ const InsightsElement = ({ element: Element, title }) => {
     }, [ hasSystems ]);
 
     useEffect(()=>{
-        title && chrome.updateDocumentTitle(title, true);
+        title && chrome.updateDocumentTitle(title);
     }, [ chrome, title ]);
 
     return (
@@ -61,7 +61,7 @@ const DriftRoutes = () => {
             <Route
                 path='/baselines'
                 element={ <InsightsElement element={ BaselinesPage }
-                    title='Baselines - Drift | RHEL'
+                    title='Baselines - Drift'
                 /> }
             />
             <Route path='/baselines/:id'
@@ -69,9 +69,9 @@ const DriftRoutes = () => {
             />
             <Route
                 path='/'
-                title='Comparison - Drift | RHEL'
+                title='Comparison - Drift'
                 element={ <InsightsElement element={ DriftPage }
-                    title='Comparison - Drift | RHEL'
+                    title='Comparison - Drift'
                 /> }
             />
             <Route path='*'
