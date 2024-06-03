@@ -89,7 +89,15 @@ export const SystemsTable = ({
                                     && { ansible: 'not_nil' },
                                         ...workloadsFilter?.['Microsoft SQL']?.isSelected
                                     && { mssql: 'not_nil' },
-                                        ...sidsFilter?.length > 0 && { sap_sids: sidsFilter }
+                                        ...sidsFilter?.length > 0 && { sap_sids: sidsFilter },
+                                        // drift does not support and does not display CentOS systems
+                                        operating_system: {
+                                            RHEL: {
+                                                version: {
+                                                    gte: '0'
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             }}

@@ -8,6 +8,7 @@ import toJson from 'enzyme-to-json';
 import ConnectedSystemsTable from '../SystemsTable';
 import { createMiddlewareListener } from '../../../store';
 import fixtures from './fixtures';
+import { InventoryTable } from '@redhat-cloud-services/frontend-components/Inventory';
 
 const middlewareListener = createMiddlewareListener();
 middlewareListener.getMiddleware();
@@ -104,5 +105,34 @@ describe('ConnectedSystemsTable', () => {
         );
 
         expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('should display only RHEL hosts', () => {
+        const store = mockStore(initialState);
+
+        mount(<MemoryRouter>
+            <Provider store={ store }>
+                <ConnectedSystemsTable { ...props } />
+            </Provider>
+        </MemoryRouter>);
+
+        expect(InventoryTable).toBeCalledWith(expect.objectContaining({ customFilters: {
+            filter: {
+                // eslint-disable-next-line camelcase
+                system_profile: expect.objectContaining({ operating_system: { RHEL: { version: { gte: '0' }}}})
+            }
+        }}), expect.anything());
+    });
+
+    it('should not show CentOS versions in the OS filter', () => {
+        const store = mockStore(initialState);
+
+        mount(<MemoryRouter>
+            <Provider store={ store }>
+                <ConnectedSystemsTable { ...props } />
+            </Provider>
+        </MemoryRouter>);
+
+        expect(InventoryTable).toBeCalledWith(expect.not.objectContaining({ showCentosVersions: true }), expect.anything());
     });
 });

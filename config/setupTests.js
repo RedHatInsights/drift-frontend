@@ -35,7 +35,7 @@ jest.mock('react-router-dom', () => ({
 }));
 
 jest.mock('@redhat-cloud-services/frontend-components/Inventory', () => ({
-    InventoryTable: jest.fn(() => <div className='testInventroyComponentChild'><div>This is child</div></div>)
+    InventoryTable: jest.fn(() => <div className='testInventoryComponentChild'><div>This is child</div></div>)
 }));
 
 jest.mock('@redhat-cloud-services/frontend-components/AsyncComponent', () => (

@@ -98,7 +98,15 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
               customFilters={
                 Object {
                   "filter": Object {
-                    "system_profile": Object {},
+                    "system_profile": Object {
+                      "operating_system": Object {
+                        "RHEL": Object {
+                          "version": Object {
+                            "gte": "0",
+                          },
+                        },
+                      },
+                    },
                   },
                   "tags": undefined,
                 }
@@ -118,7 +126,7 @@ exports[`ConnectedSystemsTable should render correctly 1`] = `
               }
             >
               <div
-                className="testInventroyComponentChild"
+                className="testInventoryComponentChild"
               >
                 <div>
                   This is child
