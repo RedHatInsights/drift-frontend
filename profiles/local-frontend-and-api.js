@@ -8,9 +8,7 @@ const DRIFT_PORT = 8080;
 const BASELINE_PORT = 8085;
 const routes = {};
 
-routes[`/preview/${SECTION}/${DRIFT_APP_ID}`] = { host: `http://localhost:${FRONTEND_PORT}` };
 routes[`/${SECTION}/${DRIFT_APP_ID}`]      = { host: `http://localhost:${FRONTEND_PORT}` };
-routes[`/preview/apps/${DRIFT_APP_ID}`]       = { host: `http://localhost:${FRONTEND_PORT}` };
 routes[`/apps/${DRIFT_APP_ID}`]            = { host: `http://localhost:${FRONTEND_PORT}` };
 routes[`/api/${BASELINE_APP_ID}`]       = { host: `http://localhost:${BASELINE_PORT}` };
 

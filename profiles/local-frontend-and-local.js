@@ -12,9 +12,7 @@ routes[`/api/drift`] = { host: `http://localhost:8001` };
 routes[`/api/historical-system-profiles`] = { host: `http://localhost:8004` };
 
 // frontend
-routes[`/preview/${SECTION}/${APP_ID}`] = { host: `http://localhost:${FRONTEND_PORT}` };
 routes[`/${SECTION}/${APP_ID}`]      = { host: `http://localhost:${FRONTEND_PORT}` };
-routes[`/preview/apps/${APP_ID}`]       = { host: `http://localhost:${FRONTEND_PORT}` };
 routes[`/apps/${APP_ID}`]            = { host: `http://localhost:${FRONTEND_PORT}` };
 
 module.exports = { routes };
