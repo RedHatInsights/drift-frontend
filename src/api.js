@@ -17,10 +17,10 @@ async function getBaseline(path) {
     return request.data.data[0];
 }
 
-async function getNotificationSystems(path) {
-    const request = await axios.get(BASELINE_API_ROOT.concat(path));
-    return request.data.system_ids;
-}
+// async function getNotificationSystems(path) {
+//     const request = await axios.get(BASELINE_API_ROOT.concat(path));
+//     return request.data.system_ids;
+// }
 
 async function postSystemNotifications(path, body = {}) {
     const request = await axios.post(BASELINE_API_ROOT.concat(path), body);
@@ -119,9 +119,10 @@ function fetchHistoricalData(systemId) {
     return getHistoricalData(path.concat(systemId));
 }
 
-function getBaselineNotification(baselineId) {
+async function getBaselineNotification(baselineId) {
     let path = `/baselines/${baselineId}/systems`;
-    return getNotificationSystems(path);
+    const request = await axios.get(BASELINE_API_ROOT.concat(path));
+    return request.data.system_ids;
 }
 
 function addSystemNotification(baselineId, systems) {
